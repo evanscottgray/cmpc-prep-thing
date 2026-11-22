@@ -495,9 +495,10 @@
    "file": "content/items/kg-extra.json",
    "kgs": [
     "B",
-    "F"
+    "F",
+    "E"
    ],
-   "total": 2,
+   "total": 4,
    "slots": [
     {
      "formA_scored": 0,
@@ -516,9 +517,18 @@
      "kg": "F",
      "domain": "V",
      "drill": 1
+    },
+    {
+     "formA_scored": 0,
+     "formA_unscored": 0,
+     "formB_scored": 0,
+     "formB_unscored": 0,
+     "kg": "E",
+     "domain": "VI",
+     "drill": 2
     }
    ]
   }
  ],
- "total": 362
+ "total": 364
 }

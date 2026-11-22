@@ -1,9 +1,9 @@
 {
-  "items": 362,
+  "items": 364,
   "pools": {
     "A": 115,
     "B": 115,
-    "drill": 132
+    "drill": 134
   },
   "unscored": {
     "A": 15,
@@ -15,7 +15,7 @@
     "III": 62,
     "IV": 112,
     "V": 43,
-    "VI": 44
+    "VI": 46
   },
   "byKg": {
     "A": 31,
@@ -25,7 +25,7 @@
     "J": 12,
     "D": 25,
     "K": 14,
-    "E": 28,
+    "E": 30,
     "M": 14,
     "F": 21,
     "G": 43,
@@ -33,67 +33,67 @@
     "L": 38
   },
   "cognitive": {
-    "application": 284,
-    "analysis": 72,
-    "recall": 6
+    "application": 231,
+    "analysis": 131,
+    "recall": 2
   },
   "difficulty": {
-    "1": 65,
-    "2": 254,
-    "3": 43
+    "1": 34,
+    "2": 280,
+    "3": 50
   },
   "format": {
-    "vignette": 358,
-    "direct": 4
+    "vignette": 362,
+    "direct": 2
   },
   "setting": {
-    "individual-sport": 129,
-    "team-sport": 115,
+    "individual-sport": 132,
+    "team-sport": 113,
     "business": 17,
     "tactical": 27,
     "esports": 18,
-    "general": 9,
+    "general": 6,
     "para-sport": 17,
-    "performing-arts": 22,
-    "exercise-health": 8
+    "performing-arts": 24,
+    "exercise-health": 10
   },
   "level": {
-    "collegiate": 98,
+    "collegiate": 96,
     "elite": 51,
-    "youth": 23,
-    "professional": 70,
-    "adult": 58,
-    "adolescent": 39,
-    "na": 7,
+    "youth": 22,
+    "professional": 72,
+    "adult": 60,
+    "adolescent": 41,
+    "na": 5,
     "masters": 13,
-    "recreational": 3
+    "recreational": 4
   },
   "delivery": {
-    "individual": 218,
-    "team": 61,
+    "individual": 220,
+    "team": 60,
     "virtual": 26,
-    "na": 10,
-    "organizational": 47
+    "na": 8,
+    "organizational": 50
   },
   "cueing": {
-    "n": 362,
-    "keyLongestPct": 16.3,
-    "keyShortestPct": 22.9,
-    "keyOnlyHedgedPct": 0.3,
-    "keyReferPct": 0.8,
-    "distractorReferPct": 5,
+    "n": 364,
+    "keyLongestPct": 14.8,
+    "keyShortestPct": 22.3,
+    "keyOnlyHedgedPct": 0.8,
+    "keyReferPct": 0.3,
+    "distractorReferPct": 0.5,
     "negativeStemPct": 0,
-    "vignettePct": 98.9,
-    "recallPct": 1.7,
+    "vignettePct": 99.5,
+    "recallPct": 0.5,
     "answerPositions": [
+      92,
+      92,
       91,
-      89,
-      93,
       89
     ],
-    "absolutesOnlyInDistractorsPct": 0,
-    "collaborativeOnlyKeyPct": 0,
-    "multistepOnlyKeyPct": 0
+    "absolutesOnlyInDistractorsPct": 0.3,
+    "collaborativeOnlyKeyPct": 0.8,
+    "multistepOnlyKeyPct": 1.9
   },
   "drillCells": {
     "A": {
@@ -121,7 +121,7 @@
     "E": {
       "I": "1/1",
       "II": "1/1",
-      "VI": "8/6"
+      "VI": "10/6"
     },
     "F": {
       "III": "1/1",
@@ -190,7 +190,7 @@
   },
   "references": {
     "registry": 121,
-    "cited": 116,
+    "cited": 117,
     "aaspListCited": 24
   }
 }

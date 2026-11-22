@@ -14,7 +14,7 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Ilan, a collegiate golfer, rushes his short putts. Before teaching a pre-putt routine, his consultant has been charting pre-stroke time and short-putt makes, the two measures Ilan and his coach agree matter most. Across the last eight practices, both have stayed within a narrow range with no trend. His next event is five weeks away. The consultant wants to be able to show later whether the routine changed his putting. What should the consultant do next?",
+  "stem": "Ilan, a collegiate golfer, rushes his short putts. Before teaching a pre-putt routine, his consultant has been charting pre-stroke time and short-putt makes, the two measures Ilan and his coach agree matter most. Across the last eight practices, both have stayed within a narrow range with no trend. His next event is five weeks away. The consultant wants to be able to show later whether his putting changed once the routine began. What should the consultant do next?",
   "options": [
    "Chart several more practices, and introduce the routine after that",
    "Wait until his next event is over, and introduce the routine then",
@@ -52,7 +52,7 @@
   "stem": "A consultant is planning an eight-week program with a professional esports team. The agreed goal is for players to feel safe admitting mistakes and disagreeing during match reviews. Recordings show that the reviews are already full of lively talk, yet several players say they voice what they think the coach wants to hear. The organization wants one primary progress measure, chosen before the program starts. Which measure fits best?",
   "options": [
    "Players' own ratings, gathered anonymously every two weeks",
-   "Coded counts of players' comments from recorded reviews",
+   "Counts of how often each player speaks, from recorded reviews",
    "The coach's weekly ratings of each player during reviews",
    "Match results, adjusted for the strength of each opponent"
   ],
@@ -676,7 +676,7 @@
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "Darnell, an office manager, is working with a consultant on keeping up a running habit before a charity 10K. He set his own target of four runs a week and met it for six weeks, then dropped to two in weeks seven and eight. Talking it over, he explained that year-end reporting and his mother's care now fill his mornings and evenings, and will for another month. He is as keen as ever and says that two runs are what he can manage. What should the consultant suggest now?",
+  "stem": "Darnell, an office manager, is working with a consultant on keeping up a running habit before a charity 10K. He set his own target of four runs a week and met it for six weeks, then dropped to two in weeks seven and eight. Talking it over, he explained that year-end reporting and his mother's care now take up every hour he used to have free, and will for another month. He is as keen as ever and says that two runs are what he can manage. What should the consultant suggest now?",
   "options": [
    "Reviewing his logs to find out what preceded the drop",
    "Retaking the exercise motivation questionnaire from intake",
@@ -688,7 +688,7 @@
    "A log review is the step when the reason for a change is unknown. He has already explained what happened and how long it will last.",
    "Reassessing motivation would fit an unexplained loss of interest. He is as keen as ever, and the limit is time.",
    "The cause is known, temporary, and out of his hands, and his motivation is intact. A smaller, time-limited target keeps the goal attainable and the habit going until his schedule opens up.",
-   "Rescheduling would help if one part of his day were blocked and another were free. Both mornings and evenings are full."
+   "Rescheduling would help if one part of his day were blocked and another were free. He has no free hours left this month."
   ],
   "takeaway": "Once the reason for a decline is known, adjust the plan to fit it rather than assess again.",
   "refs": [

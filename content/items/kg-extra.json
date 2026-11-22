@@ -5,7 +5,7 @@
   "scored": true,
   "domain": "V",
   "kg": "B",
-  "topic": "Comparing scores across instruments",
+  "topic": "Choosing evidence for a final review",
   "cognitive": "analysis",
   "difficulty": 2,
   "format": "vignette",
@@ -14,24 +14,24 @@
    "level": "collegiate",
    "delivery": "virtual"
   },
-  "stem": "At intake, a consultant working online with Talia, a collegiate fencer, had her complete the Test of Performance Strategies. Twelve weeks later, wanting something shorter, the consultant gave her the Athletic Coping Skills Inventory-28 instead. Talia's ACSI-28 coping-with-adversity score looks high next to her intake TOPS emotional-control score. What is the most appropriate conclusion?",
+  "stem": "Talia, a collegiate fencer, asked an online consultant for help with one thing: how nervous she feels in the minute before a bout. They agreed to judge progress on that. She completed the Test of Performance Strategies at intake and has sent a 1-to-10 nerves rating from the strip before every bout since. Her last bout of the season was Saturday, and their closing review is tomorrow. Which evidence should the consultant rely on most to judge progress?",
   "options": [
-   "Treat the higher score as tentative progress and confirm it at the next check-in",
-   "Convert each score to a percentile using its own norms, then compare the two",
-   "Re-administer the TOPS so change is judged on the same measure, with other data",
-   "Adopt the ACSI-28 from here on and treat this score as her new starting point"
+   "Her TOPS scores from intake and from a new administration tomorrow",
+   "Her pre-bout ratings from early in the season and from recent bouts",
+   "Her scores on the CSAI-2, completed as tomorrow's review begins",
+   "Her coach's account of how composed she has looked before bouts"
   ],
-  "answer": 2,
+  "answer": 1,
   "rationales": [
-   "Calling it tentative still treats two different instruments as one yardstick. The subscales measure related but different constructs on different scales, so there is no 'progress' to confirm.",
-   "Percentiles put each score on its own norm group's scale, but they still describe different constructs from different instruments (and possibly different norm samples), so the comparison remains invalid.",
-   "Best answer. Judging change requires the same (or an established parallel) measure under comparable conditions. Re-administering the intake instrument and corroborating with other sources — her report, coach observation, bout data — gives a defensible picture of change.",
-   "Switching to a new baseline is reasonable for future monitoring, but it abandons the comparison with intake that the reassessment is meant to provide."
+   "Repeating the TOPS fits a goal about how often she uses mental skills. Her agreed goal was how nervous she feels, which the TOPS doesn't measure.",
+   "Evaluation should use the measure that matches the agreed goal, gathered the same way over time. Her ratings capture felt nerves in the moment that matters, with early and recent points to compare.",
+   "The CSAI-2 would fit if she could complete it shortly before a bout. State anxiety at a review meeting says little about how she feels on the strip, and there is no earlier score to compare.",
+   "A coach's view helps when the goal is visible behavior. How nervous she feels is a private experience that outward composure can hide."
   ],
-  "takeaway": "To show change, repeat the same measure under comparable conditions and triangulate; scores from different instruments can't be compared, even as percentiles.",
+  "takeaway": "Judge progress with the measure that matches the agreed goal and was gathered the same way throughout.",
   "refs": [
    "tenenbaum2012",
-   "thomas1999tops"
+   "martens1990"
   ]
  },
  {
@@ -40,7 +40,7 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Evaluating transfer of team training",
+  "topic": "Matching evaluation level to a decision",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -49,23 +49,93 @@
    "level": "professional",
    "delivery": "organizational"
   },
-  "stem": "An esports organization hired a consultant to run a four-week communication program for its five-player roster. End-of-session ratings were uniformly positive. The general manager now asks whether the players actually communicate differently during competition. Which evaluation step best answers that question?",
+  "stem": "An esports organization's consultant finished a two-day workshop on a new in-match call system yesterday. The five players now leave for a three-week break, with no scrims or matches until the day before their season opener. The general manager must decide today whether to pay for a refresher session on the final day of the break. He says it depends on whether players know which call to make in which situation. Which evaluation step best informs his decision?",
   "options": [
-   "Interview players about which parts of the program they found most useful",
-   "Give the players a short quiz on the communication model they were taught",
-   "Code recorded voice comms from matches before and after for the trained behaviors",
-   "Compare the team's tournament placings for the seasons before and after"
+   "Ratings from each player of how useful and engaging the workshop was",
+   "A scenario quiz asking each player which call fits each situation",
+   "Coding of the team's voice comms for use of the new calls in matches",
+   "The team's match results from before and after the workshop"
   ],
-  "answer": 2,
+  "answer": 1,
   "rationales": [
-   "Asking what players found useful gathers reaction-level information (Kirkpatrick level 1) and opinions about value, not evidence of whether their in-match communication changed.",
-   "A quiz assesses learning (knowledge of the model), Kirkpatrick's second level. Players can know the model without using it under competitive pressure.",
-   "Best choice. The manager's question is about behavior transfer — Kirkpatrick's third level. Systematically coding the specific trained behaviors (e.g., concise callouts, confirmations) in match recordings before and after the program measures whether the skills are used where it matters.",
-   "Placings are a results-level outcome influenced by roster changes, opponents, game patches and many other factors, so they can't show whether communication itself changed."
+   "Ratings show Kirkpatrick's reaction level. They would fit a decision about whether players value the workshop, not whether they know the calls.",
+   "The decision turns on knowledge, Kirkpatrick's learning level, and the players can be tested now. A scenario quiz shows directly whether each knows which call fits.",
+   "Coding comms addresses the behavior level and would be the choice if the question were whether players use the calls in competition. There are no matches to code before the decision.",
+   "Results address the fourth level. They come too late for this decision and depend on much more than knowing the calls."
   ],
-  "takeaway": "Match the evaluation level to the question: reaction and learning don't show transfer — observe the targeted behavior in the performance setting.",
+  "takeaway": "Choose the Kirkpatrick level that answers the decision at hand and can be measured in time.",
   "refs": [
    "kirkpatrick2006"
+  ]
+ },
+ {
+  "id": "E-VI-023",
+  "pool": "drill",
+  "scored": true,
+  "domain": "VI",
+  "kg": "E",
+  "topic": "Mandated reporting of abuse",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "youth",
+   "delivery": "individual"
+  },
+  "stem": "Maribel, 14, figure skates at a club in the U.S. Olympic and Paralympic movement. Near the end of a meeting at the rink she says that an assistant coach has been touching her under her costume after evening practices, most recently last week. She and the consultant are in view of the front desk, the coach is away at a competition until Sunday, and her mother is due to collect her in ten minutes. She asks, \"What happens now?\" Once she has been listened to and is with her mother, what should the consultant do?",
+  "options": [
+   "Report to child protective services or police, and to the U.S. Center for SafeSport",
+   "Call emergency services and stay beside her until officers reach the rink",
+   "Report to the U.S. Center for SafeSport, which will decide whom else to involve",
+   "Give the club's director a written account, as the club's conduct policy asks"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Sexual abuse of a minor must be reported promptly to child protective services or law enforcement, and in the Olympic and Paralympic movement to the U.S. Center for SafeSport as well. The consultant reports what she said and leaves investigating to them.",
+   "Calling emergency services first fits a child in immediate danger. She is with her mother and the coach is out of town, so the prompt reports are the next step.",
+   "A report to the Center alone can fit misconduct that isn't child abuse or a crime. Suspected child abuse also goes directly to civil authorities, and reporting to one body doesn't replace reporting to the other.",
+   "The club's own procedure may be enough for a breach such as lateness or rude conduct. For suspected abuse, telling the club doesn't satisfy the duty to report to the authorities."
+  ],
+  "takeaway": "Suspected child abuse goes promptly to civil authorities and, in Olympic and Paralympic sport, also to SafeSport.",
+  "refs": [
+   "safesport2026",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "E-VI-024",
+  "pool": "drill",
+  "scored": true,
+  "domain": "VI",
+  "kg": "E",
+  "topic": "Imminent risk of harm",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "Torvald, a professional cellist, stays seated when his session ends. He says he has been thinking about dying for months. Asked directly, he says that he has been saving up his sleeping pills, that they are in the bag at his feet, and that he means to take them when he gets home tonight. He lives alone and has an appointment with his therapist on Thursday, two days away. The consultant isn't a licensed clinician. He thanks her for asking and reaches for his coat. What should the consultant do?",
+  "options": [
+   "Ask his consent to let his therapist know before Thursday what he has said",
+   "Ask him to wait while she contacts emergency services, and stay with him",
+   "Help him find a clinician who can see him within the next few days",
+   "Ask him whether he has thought about how he would do it, and when"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Coordinating with his therapist, with consent, fits distress without immediate danger. A plan for tonight with the means at hand can't wait for consent or for Thursday.",
+   "A stated intent, a plan for tonight, and the means within reach are imminent risk. The consultant follows the emergency plan, stays with him, and brings in emergency help; protecting life is a limit of confidentiality.",
+   "Connecting him with a clinician soon fits serious distress without a plan or intent. He has both, and may act in hours.",
+   "Asking directly about a plan and timing is the right step when someone mentions thoughts of dying. He has already answered those questions."
+  ],
+  "takeaway": "Intent, a plan, and access to means is an emergency: stay with the person and get emergency help now.",
+  "refs": [
+   "aaspethics2024",
+   "reardon2019"
   ]
  }
 ]
