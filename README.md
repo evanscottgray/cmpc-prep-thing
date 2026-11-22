@@ -6,13 +6,13 @@ A mobile-first, offline study and exam-simulation app for one person preparing f
 
 ## What's inside
 
-- **Question bank** — 360 original four-option items (Form A, Form B, drill pool), each with a rationale for every option, a takeaway, and 1–2 citations from a single reference registry. Both forms match the 100-item blueprint grid exactly, plus 15 hidden unscored items.
+- **Question bank** — 364 original four-option items (Form A, Form B, drill pool), each with a rationale for every option, a takeaway, and 1–2 citations from a single reference registry. Both forms match the 100-item blueprint grid exactly, plus 15 hidden unscored items.
 - **Exam simulation** — 115 items / 90 minutes on a wall-clock timer, hidden unscored items, flag, strike-out, navigator, no feedback until submit, auto-submit at zero, strict or coached mode, exact resume.
-- **Study** — weak-area drills (blueprint × accuracy), domain / knowledge-group / missed / flagged / unseen drills in tutor or timed mode, 23-item exam-pace blocks, 10-item quick quizzes, spaced review timed to the exam date, 119 concept cards with spaced review.
+- **Study** — weak-area drills (blueprint × accuracy), domain / knowledge-group / missed / flagged / unseen drills in tutor or timed mode, 23-item exam-pace blocks, 10-item quick quizzes, spaced review timed to the exam date, 121 concept cards with spaced review.
 - **Today and Progress** — one recommended session a day based on the exam date; mastery, score history, pacing, coverage, and a labelled readiness estimate.
 - **Data safety** — IndexedDB with a synchronous mirror of the running exam, persistence request, backup/restore to a file, weekly backup reminder.
 
-Stack: Vite + Preact + TypeScript, no runtime dependencies beyond Preact, system fonts, hand-written service worker. JS ≈ 41 KB gzipped; the question bank is a separate JSON file (~840 KB, ~200 KB gzipped) cached for offline use.
+Stack: Vite + Preact + TypeScript, no runtime dependencies beyond Preact, system fonts, hand-written service worker. JS ≈ 42 KB gzipped; the question bank is a separate JSON file (~1 MB uncompressed) cached for offline use.
 
 ## Requirements
 
@@ -25,7 +25,7 @@ Stack: Vite + Preact + TypeScript, no runtime dependencies beyond Preact, system
 npm ci                 # install exact dependency versions
 npm run dev            # dev server at http://127.0.0.1:5173 (no service worker in dev)
 npm run validate       # bank validation: structure, grid, overlap, drill depth, near-dupes, cueing, refs
-npm test               # unit tests (Vitest): scoring, timer, assembly, scheduling, persistence, backup
+npm test               # unit tests (Vitest)
 npm run typecheck      # TypeScript
 npm run build          # validate → compile content → vite build → dist/ + release/cmpc-prep-v1.0.0-dist.zip
 npm run e2e            # build, then WebKit end-to-end tests at 4 device sizes (Docker)

@@ -82,18 +82,16 @@ Field rules:
 - Balance answer positions: across a file, each of 0/1/2/3 is the key about 25% of the time (the app also shuffles options, but stored positions must still be balanced).
 - No option that is absurd or obviously wrong. No "trick" via identity: a client's gender, race, disability, religion, sexuality, or nationality is never the hidden reason an answer is right.
 
-### Distractor craft: beat test-wiseness
+### Distractor craft: make the stem necessary
 
-A first-draft audit found that a reviewer who saw **only the options** (no stem) picked the key 98% of the time. The bank was rewritten against these rules; follow them for every new item. The stem must be necessary.
+Readers shown **only the options** guessed the first draft's keys 88–98% of the time (chance is 25%). Rewording distractors didn't help. What worked was this rule: **each option must be the best answer to some realistic nearby question.**
 
-- **Every option sounds like a competent professional wrote it.** No coercive, unethical, lazy, or extreme distractors ("cut her if she won't comply", "do nothing", "more of the same", "stop all training"). Wrong options are what a thoughtful but less-prepared consultant might actually choose.
-- **Make distractors wrong for a reason the stem reveals**: right action at the wrong time (intervening before assessing, or assessing when safety requires action now); right technique for a different problem (somatic relaxation for cognitive worry); right principle applied to the wrong person or level (team-level fix for an individual problem); well-meant but outside scope (a CMPC adjusting training loads); second-best (helpful but not what this stem asks for, e.g., "first" vs. "most important").
-- **Tone parity.** Collaborative words (together, explore, with consent, ask, agree, invite) appear in distractors as often as in keys. Mentions of consent, referral, evidence, measurement, or theory names appear in distractors too.
-- **No absolutes as a tell.** Avoid always/never/only/all/entirely/immediately/must in distractors unless the key has comparable wording; a key may be the more decisive option.
-- **Structure parity.** If the key has two steps ("X, then Y"), at least one distractor has two steps too. The key is not reliably the most specific, longest, or most qualified option.
-- **No echo.** The key doesn't repeat a distinctive stem word or define the concept the stem names; the stem doesn't quote the key's definition (e.g., don't write "width and direction" and key TAIS).
-- **Cover-the-stem test.** Read only the four options. If one stands out as "the professional answer", rewrite.
-- Check with `npm run validate` (cue-pattern warnings) and an options-only review; target ≤ 40% options-only accuracy across a set.
+- For every distractor write one sentence: "This would be the key if the stem said ___." Change one or two realistic facts (timing, phase, consent status, role, data pattern, client preference). If you can't, replace the option.
+- The stem holds the deciding fact, ideally one that needs an inference. It reads like a case note, not a list of exclusions, and never states the answer.
+- Vary what wins. The key is often not the collaborative, exploratory, gather-more-data, or two-part option. It must still be good practice for this case.
+- Good shapes: four legitimate techniques, instruments, theories or microskills; four next steps at different points in the sequence; four timings; four readings of the same data.
+- Bad shapes: one right answer and three errors; one ethical answer and three lapses. When only one act is lawful, ask what comes first, whom to contact, what may be shared, or which limit applies.
+- **Check with `node scripts/blind-check.mjs make <dir> --options-only`** and a fresh reader, with ids hidden. The validator's cue warnings are not enough.
 
 ### Variety
 
