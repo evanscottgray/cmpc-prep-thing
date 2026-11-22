@@ -302,7 +302,6 @@ if (cardsArg) {
   const tally = (arr, f) => arr.reduce((m, x) => { const k = f(x); m[k] = (m[k] || 0) + 1; return m; }, {});
   const usedRefs = tally(items.flatMap((x) => x.refs || []), (r) => r);
   const stats = {
-    generatedAt: new Date().toISOString().slice(0, 10),
     items: items.length,
     pools: tally(items, (x) => x.pool),
     unscored: tally(items.filter((x) => !x.scored), (x) => x.pool),
