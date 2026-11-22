@@ -1,0 +1,32 @@
+{
+  "name": "cmpc-prep",
+  "version": "1.0.0",
+  "description": "Offline study and exam-simulation app for the CMPC exam (unofficial).",
+  "scripts": {
+    "content": "node scripts/build-content.mjs",
+    "validate": "node scripts/validate-bank.mjs",
+    "dev": "npm run content && vite",
+    "build": "npm run validate -- --quiet && npm run content && vite build && node scripts/zip-dist.mjs",
+    "build:nozip": "npm run content && vite build",
+    "preview": "node scripts/serve.mjs --host 127.0.0.1",
+    "preview:lan": "node scripts/serve.mjs --host 0.0.0.0",
+    "test": "vitest run",
+    "typecheck": "tsc -p .",
+    "e2e": "node scripts/e2e-docker.mjs",
+    "icons": "node scripts/make-icons.mjs"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "preact": "10.29.8"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.65.1",
+    "fake-indexeddb": "6.2.8",
+    "typescript": "5.9.3",
+    "vite": "8.3.8",
+    "vitest": "5.1.1"
+  },
+  "private": true,
+  "type": "module"
+}

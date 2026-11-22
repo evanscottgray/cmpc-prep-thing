@@ -1,0 +1,44 @@
+{
+  "_note": "Derived from AASP's August 2023 CMPC test specifications as summarized in the build brief. Each 'Other' cluster resolved as one item per listed group. Verify against AASP's current candidate handbook.",
+  "domains": [
+    { "id": "I", "name": "Rapport, Roles, and Expectations", "weight": 14 },
+    { "id": "II", "name": "Assessment", "weight": 14 },
+    { "id": "III", "name": "Goals, Outcomes, and Planning", "weight": 17 },
+    { "id": "IV", "name": "Implementation", "weight": 31 },
+    { "id": "V", "name": "Evaluation", "weight": 12 },
+    { "id": "VI", "name": "Professional Responsibilities", "weight": 12 }
+  ],
+  "kgs": [
+    { "id": "A", "name": "Counseling theories and philosophy of practice", "weight": 9 },
+    { "id": "B", "name": "Assessment", "weight": 8 },
+    { "id": "C", "name": "Coaching development and leadership", "weight": 4 },
+    { "id": "D", "name": "Culture and diversity", "weight": 7 },
+    { "id": "E", "name": "Professional ethics and responsibilities", "weight": 8 },
+    { "id": "F", "name": "Evaluating the consultant and program", "weight": 6 },
+    { "id": "G", "name": "Foundational theories and models", "weight": 11 },
+    { "id": "H", "name": "Learning and skill acquisition", "weight": 5 },
+    { "id": "I", "name": "Mental performance training", "weight": 20 },
+    { "id": "J", "name": "Physiological bases of performance", "weight": 4 },
+    { "id": "K", "name": "Injury and rehabilitation", "weight": 4 },
+    { "id": "L", "name": "Consulting relationships", "weight": 10 },
+    { "id": "M", "name": "Technology in consulting", "weight": 4 }
+  ],
+  "grid": {
+    "A": { "I": 3, "II": 1, "III": 2, "IV": 3, "V": 0, "VI": 0 },
+    "B": { "I": 0, "II": 6, "III": 0, "IV": 0, "V": 2, "VI": 0 },
+    "C": { "I": 1, "II": 0, "III": 0, "IV": 3, "V": 0, "VI": 0 },
+    "D": { "I": 1, "II": 1, "III": 1, "IV": 1, "V": 1, "VI": 2 },
+    "E": { "I": 1, "II": 1, "III": 0, "IV": 0, "V": 0, "VI": 6 },
+    "F": { "I": 0, "II": 0, "III": 1, "IV": 0, "V": 5, "VI": 0 },
+    "G": { "I": 0, "II": 1, "III": 5, "IV": 5, "V": 0, "VI": 0 },
+    "H": { "I": 0, "II": 0, "III": 2, "IV": 3, "V": 0, "VI": 0 },
+    "I": { "I": 3, "II": 2, "III": 4, "IV": 10, "V": 1, "VI": 0 },
+    "J": { "I": 0, "II": 1, "III": 1, "IV": 1, "V": 1, "VI": 0 },
+    "K": { "I": 0, "II": 0, "III": 1, "IV": 1, "V": 1, "VI": 1 },
+    "L": { "I": 5, "II": 0, "III": 0, "IV": 3, "V": 0, "VI": 2 },
+    "M": { "I": 0, "II": 1, "III": 0, "IV": 1, "V": 1, "VI": 1 }
+  },
+  "unscoredPerForm": { "I": 2, "II": 2, "III": 3, "IV": 4, "V": 2, "VI": 2 },
+  "unscoredCells": [["I","L"],["I","A"],["II","B"],["II","D"],["III","G"],["III","I"],["III","H"],["IV","I"],["IV","G"],["IV","C"],["IV","K"],["V","F"],["V","B"],["VI","E"],["VI","M"]],
+  "exam": { "items": 115, "scored": 100, "unscored": 15, "minutes": 90, "secondsPerItem": 47, "passScaled": 550, "scaleMin": 200, "scaleMax": 800, "defaultRawTarget": 70 }
+}

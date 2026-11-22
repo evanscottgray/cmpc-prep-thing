@@ -1,0 +1,496 @@
+{
+ "_note": "Slots each writer file must fill. pool A/B = exam forms; drill = drill pool. scored:false = unscored trial item on that form.",
+ "writers": [
+  {
+   "file": "content/items/kg-i-a.json",
+   "kgs": [
+    "I"
+   ],
+   "total": 37,
+   "slots": [
+    {
+     "kg": "I",
+     "domain": "I",
+     "formA_scored": 3,
+     "formA_unscored": 0,
+     "formB_scored": 3,
+     "formB_unscored": 0,
+     "drill": 4
+    },
+    {
+     "kg": "I",
+     "domain": "II",
+     "formA_scored": 2,
+     "formA_unscored": 0,
+     "formB_scored": 2,
+     "formB_unscored": 0,
+     "drill": 3
+    },
+    {
+     "kg": "I",
+     "domain": "III",
+     "formA_scored": 4,
+     "formA_unscored": 1,
+     "formB_scored": 4,
+     "formB_unscored": 1,
+     "drill": 6
+    },
+    {
+     "kg": "I",
+     "domain": "V",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 2
+    }
+   ]
+  },
+  {
+   "file": "content/items/kg-i-b.json",
+   "kgs": [
+    "I"
+   ],
+   "total": 37,
+   "slots": [
+    {
+     "kg": "I",
+     "domain": "IV",
+     "formA_scored": 10,
+     "formA_unscored": 1,
+     "formB_scored": 10,
+     "formB_unscored": 1,
+     "drill": 15
+    }
+   ]
+  },
+  {
+   "file": "content/items/kg-g.json",
+   "kgs": [
+    "G"
+   ],
+   "total": 43,
+   "slots": [
+    {
+     "kg": "G",
+     "domain": "II",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "G",
+     "domain": "III",
+     "formA_scored": 5,
+     "formA_unscored": 1,
+     "formB_scored": 5,
+     "formB_unscored": 1,
+     "drill": 8
+    },
+    {
+     "kg": "G",
+     "domain": "IV",
+     "formA_scored": 5,
+     "formA_unscored": 1,
+     "formB_scored": 5,
+     "formB_unscored": 1,
+     "drill": 8
+    }
+   ]
+  },
+  {
+   "file": "content/items/kg-l.json",
+   "kgs": [
+    "L"
+   ],
+   "total": 38,
+   "slots": [
+    {
+     "kg": "L",
+     "domain": "I",
+     "formA_scored": 5,
+     "formA_unscored": 1,
+     "formB_scored": 5,
+     "formB_unscored": 1,
+     "drill": 8
+    },
+    {
+     "kg": "L",
+     "domain": "IV",
+     "formA_scored": 3,
+     "formA_unscored": 0,
+     "formB_scored": 3,
+     "formB_unscored": 0,
+     "drill": 5
+    },
+    {
+     "kg": "L",
+     "domain": "VI",
+     "formA_scored": 2,
+     "formA_unscored": 0,
+     "formB_scored": 2,
+     "formB_unscored": 0,
+     "drill": 3
+    }
+   ]
+  },
+  {
+   "file": "content/items/kg-a.json",
+   "kgs": [
+    "A"
+   ],
+   "total": 31,
+   "slots": [
+    {
+     "kg": "A",
+     "domain": "I",
+     "formA_scored": 3,
+     "formA_unscored": 1,
+     "formB_scored": 3,
+     "formB_unscored": 1,
+     "drill": 4
+    },
+    {
+     "kg": "A",
+     "domain": "II",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "A",
+     "domain": "III",
+     "formA_scored": 2,
+     "formA_unscored": 0,
+     "formB_scored": 2,
+     "formB_unscored": 0,
+     "drill": 2
+    },
+    {
+     "kg": "A",
+     "domain": "IV",
+     "formA_scored": 3,
+     "formA_unscored": 0,
+     "formB_scored": 3,
+     "formB_unscored": 0,
+     "drill": 4
+    }
+   ]
+  },
+  {
+   "file": "content/items/kg-b.json",
+   "kgs": [
+    "B"
+   ],
+   "total": 30,
+   "slots": [
+    {
+     "kg": "B",
+     "domain": "II",
+     "formA_scored": 6,
+     "formA_unscored": 1,
+     "formB_scored": 6,
+     "formB_unscored": 1,
+     "drill": 8
+    },
+    {
+     "kg": "B",
+     "domain": "V",
+     "formA_scored": 2,
+     "formA_unscored": 1,
+     "formB_scored": 2,
+     "formB_unscored": 1,
+     "drill": 2
+    }
+   ]
+  },
+  {
+   "file": "content/items/kg-f.json",
+   "kgs": [
+    "F"
+   ],
+   "total": 20,
+   "slots": [
+    {
+     "kg": "F",
+     "domain": "III",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "F",
+     "domain": "V",
+     "formA_scored": 5,
+     "formA_unscored": 1,
+     "formB_scored": 5,
+     "formB_unscored": 1,
+     "drill": 5
+    }
+   ]
+  },
+  {
+   "file": "content/items/kg-e-m.json",
+   "kgs": [
+    "E",
+    "M"
+   ],
+   "total": 42,
+   "slots": [
+    {
+     "kg": "E",
+     "domain": "I",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "E",
+     "domain": "II",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "E",
+     "domain": "VI",
+     "formA_scored": 6,
+     "formA_unscored": 1,
+     "formB_scored": 6,
+     "formB_unscored": 1,
+     "drill": 8
+    },
+    {
+     "kg": "M",
+     "domain": "II",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "M",
+     "domain": "IV",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "M",
+     "domain": "V",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "M",
+     "domain": "VI",
+     "formA_scored": 1,
+     "formA_unscored": 1,
+     "formB_scored": 1,
+     "formB_unscored": 1,
+     "drill": 1
+    }
+   ]
+  },
+  {
+   "file": "content/items/kg-d-k.json",
+   "kgs": [
+    "D",
+    "K"
+   ],
+   "total": 39,
+   "slots": [
+    {
+     "kg": "D",
+     "domain": "I",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "D",
+     "domain": "II",
+     "formA_scored": 1,
+     "formA_unscored": 1,
+     "formB_scored": 1,
+     "formB_unscored": 1,
+     "drill": 2
+    },
+    {
+     "kg": "D",
+     "domain": "III",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "D",
+     "domain": "IV",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "D",
+     "domain": "V",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "D",
+     "domain": "VI",
+     "formA_scored": 2,
+     "formA_unscored": 0,
+     "formB_scored": 2,
+     "formB_unscored": 0,
+     "drill": 3
+    },
+    {
+     "kg": "K",
+     "domain": "III",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "K",
+     "domain": "IV",
+     "formA_scored": 1,
+     "formA_unscored": 1,
+     "formB_scored": 1,
+     "formB_unscored": 1,
+     "drill": 1
+    },
+    {
+     "kg": "K",
+     "domain": "V",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "K",
+     "domain": "VI",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    }
+   ]
+  },
+  {
+   "file": "content/items/kg-c-h-j.json",
+   "kgs": [
+    "C",
+    "H",
+    "J"
+   ],
+   "total": 43,
+   "slots": [
+    {
+     "kg": "C",
+     "domain": "I",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "C",
+     "domain": "IV",
+     "formA_scored": 3,
+     "formA_unscored": 1,
+     "formB_scored": 3,
+     "formB_unscored": 1,
+     "drill": 3
+    },
+    {
+     "kg": "H",
+     "domain": "III",
+     "formA_scored": 2,
+     "formA_unscored": 1,
+     "formB_scored": 2,
+     "formB_unscored": 1,
+     "drill": 2
+    },
+    {
+     "kg": "H",
+     "domain": "IV",
+     "formA_scored": 3,
+     "formA_unscored": 0,
+     "formB_scored": 3,
+     "formB_unscored": 0,
+     "drill": 3
+    },
+    {
+     "kg": "J",
+     "domain": "II",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "J",
+     "domain": "III",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "J",
+     "domain": "IV",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    },
+    {
+     "kg": "J",
+     "domain": "V",
+     "formA_scored": 1,
+     "formA_unscored": 0,
+     "formB_scored": 1,
+     "formB_unscored": 0,
+     "drill": 1
+    }
+   ]
+  }
+ ],
+ "total": 360
+}
