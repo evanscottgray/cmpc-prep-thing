@@ -22,13 +22,14 @@ if (cmd === 'make') {
   let list = only ? items.filter((i) => only.includes(i.id)) : items.slice();
   // deterministic shuffle so packets mix knowledge groups
   const h = (s) => crypto.createHash('sha1').update(s).digest('hex');
-  list.sort((a, b) => h(a.id + 'blind').localeCompare(h(b.id + 'blind')));
+  const salt = arg('--salt') || 'blind';
+  list.sort((a, b) => h(a.id + salt).localeCompare(h(b.id + salt)));
   const keymap = {};
   const packets = [];
   for (let p = 0; p * per < list.length; p++) packets.push(list.slice(p * per, (p + 1) * per));
   packets.forEach((pk, n) => {
     const out = pk.map((it) => {
-      const order = [0, 1, 2, 3].sort((a, b) => h(it.id + a).localeCompare(h(it.id + b)));
+      const order = [0, 1, 2, 3].sort((a, b) => h(it.id + salt + a).localeCompare(h(it.id + salt + b)));
       keymap[it.id] = { order, key: L[order.indexOf(it.answer)] };
       if (process.argv.includes('--options-only')) return { id: it.id, options: Object.fromEntries(order.map((o, d) => [L[d], it.options[o]])) };
       return { id: it.id, stem: it.stem, options: Object.fromEntries(order.map((o, d) => [L[d], it.options[o]])) };

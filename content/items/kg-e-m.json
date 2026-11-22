@@ -14,21 +14,21 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "The sporting director of a professional women's soccer club hires a consultant to work with Ifeoma, a striker in a long scoring slump. The director says the club is paying and expects a short weekly update on \"what's going on in her head.\" Ifeoma has agreed to meet but has not yet had a session. What should the consultant do first?",
+  "stem": "The sporting director of a professional women's soccer club hires a consultant to work with Ifeoma, a striker in a long scoring slump. The director says the club is paying and expects a short weekly update on \"what's going on in her head.\" Ifeoma has agreed to meet but has not yet had a session, and nothing has been settled about what the club will hear. What should the consultant do first?",
   "options": [
-   "Settle with the director and Ifeoma, before any session, what will be shared and with whom",
-   "Begin sessions with Ifeoma now and decide what to tell the director once her concerns are clearer",
-   "Accept the weekly-update condition, since the club is paying for the services and is therefore the client",
-   "Tell the director that nothing about the work, not even whether Ifeoma attends, can ever be shared"
+   "Meet with the director and Ifeoma together to agree on roles and what, if anything, will be reported",
+   "Hold a first session with Ifeoma to learn her goals, then agree on an update format with the director",
+   "Agree on a brief update format with the director, then explain those reporting terms to Ifeoma at her first session",
+   "Have Ifeoma sign a release for weekly updates before her first session, since the club is funding the work"
   ],
   "answer": 0,
   "rationales": [
-   "When an organization requests and pays for services for an individual, the Ethics Code expects the consultant to clarify at the outset who the client is, the consultant's role, and what information goes to whom. Settling this with both parties, ideally in writing, before the first session protects Ifeoma's trust and the club's legitimate interests.",
-   "Starting first and deciding later reverses the required order: Ifeoma would disclose without knowing what might reach her employer, which undermines informed consent.",
-   "Paying for services does not by itself make the club entitled to the content of sessions. Agreeing to open-ended updates about her thinking, without Ifeoma's informed agreement, sacrifices her confidentiality.",
-   "A blanket refusal is needlessly rigid. Many arrangements legitimately share limited information, such as attendance or general goals, when the athlete agrees; the task is to negotiate that clearly, not to rule it out."
+   "When an organization requests and pays for services for an individual, the Ethics Code expects the consultant to clarify at the outset who the client is, the consultant's role, and what information goes to whom. Settling this with both parties before any session protects Ifeoma's informed consent and the club's legitimate interests.",
+   "The right conversation at the wrong time: Ifeoma would start disclosing before she knows what might reach her employer, so the limits of confidentiality must be settled before the work begins, not after.",
+   "This settles the terms with the paying party alone and only informs Ifeoma afterward. She is the person whose information is at stake, so she needs to be part of the agreement rather than told about it.",
+   "A release is a consent tool, but signing an open-ended one because the club pays is not informed or freely given. Funding does not entitle the club to session content; the scope of sharing has to be negotiated first."
   ],
-  "takeaway": "When a third party requests and pays for services, settle who the client is, your role, and what will be shared before the work begins.",
+  "takeaway": "When a third party requests and pays for services, settle who the client is, your role, and what will be shared, with everyone involved, before the work begins.",
   "refs": [
    "aaspethics2024",
    "andersen2005"
@@ -49,21 +49,21 @@
    "level": "collegiate",
    "delivery": "team"
   },
-  "stem": "A consultant is starting season-long group sessions with a university rowing team. The head coach has agreed in writing to receive only attendance and general themes, never individual comments. At the first session, which statement about confidentiality is most appropriate for the consultant to make to the athletes?",
+  "stem": "A consultant is starting season-long group sessions with a university rowing team, where athletes will hear one another's comments. The head coach has agreed in writing to receive only attendance and general themes, never individual comments. At the first session, which statement about confidentiality is most appropriate for the consultant to make to the athletes?",
   "options": [
-   "\"Everything said in these sessions stays in this room, so you can speak with complete freedom about anything.\"",
-   "\"The coach gets attendance and themes only; I can't guarantee teammates' discretion; serious harm is an exception.\"",
-   "\"Because this is a group, confidentiality doesn't apply here, so share only what you'd tell the coach.\"",
-   "\"I'll keep your individual comments private unless the coach asks me directly about a specific athlete's state of mind.\""
+   "\"The coach hears only attendance and broad themes, and what's said in this room stays private unless someone's safety is at risk.\"",
+   "\"The coach hears only attendance and broad themes; I'll keep comments private, but I can't vouch for teammates, and safety is an exception.\"",
+   "\"The coach hears only attendance and broad themes; we'll set group privacy rules today, and I'll keep each of your comments between us.\"",
+   "\"The coach hears only attendance and broad themes, and I'll pass on an individual concern when I believe it would help that athlete.\""
   ],
   "answer": 1,
   "rationales": [
-   "This promises more than the consultant can deliver. The consultant cannot control what teammates repeat, and confidentiality has legal and safety limits, so an absolute promise misleads the group.",
-   "The Ethics Code calls for discussing the limits of confidentiality at the outset, which matters most in group and team work. This statement names what the coach will receive, acknowledges that the consultant cannot guarantee how teammates use what they hear, and flags the safety exception, so athletes can decide what to share.",
-   "Group settings do not cancel confidentiality. The consultant still protects what is said and can set group norms; telling athletes nothing is private would also shut down honest discussion.",
-   "This contradicts the written agreement and makes confidentiality depend on whether the coach asks, which leaves athletes with no real protection."
+   "This covers the coach agreement and the safety exception but implies the room itself is private. In group work the consultant cannot guarantee teammates' discretion, and leaving that out promises more than can be delivered.",
+   "The Ethics Code calls for discussing the limits of confidentiality at the outset, which matters most in group and team work. This statement names what the coach receives, admits the consultant cannot control how teammates use what they hear, and flags the safety exception, so athletes can decide what to share.",
+   "Setting group norms is useful, but this statement omits the legal and safety limits on the consultant's own confidentiality and does not acknowledge that peers may still repeat things.",
+   "Well-meant, but it breaks the written agreement and makes confidentiality depend on the consultant's private judgment, which leaves athletes unable to predict what will reach the coach."
   ],
-  "takeaway": "In team work, state up front what goes to the coach, that peers' discretion can't be guaranteed, and the legal and safety limits.",
+  "takeaway": "In team work, state up front what goes to the coach, that peers' discretion can't be guaranteed, and the safety and legal limits.",
   "refs": [
    "aaspethics2024",
    "tod2024"
@@ -84,19 +84,19 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "Wen, a 14-year-old figure skater, is brought to a consultant by her father, who has already signed the consent form. During the first meeting Wen sits with her arms crossed, says skating \"is fine,\" and says she doesn't know why she is there. What should the consultant do next?",
+  "stem": "Wen, a 14-year-old figure skater, is brought to a consultant by her father, who has already signed the consent form. At the first meeting, before the consultant has described the work, Wen sits with her arms crossed, says skating \"is fine,\" and says she doesn't know why she is there. What should the consultant do next?",
   "options": [
-   "Proceed with the planned intake, since her father's signed consent is all that is needed for a minor",
-   "Build rapport over a few sessions first, and raise the question of her agreement once she seems comfortable",
-   "Refer Wen to a licensed counselor, since her reluctance may point to an underlying clinical problem",
-   "Explain the services and the limits of confidentiality in words Wen understands, and ask if she'll join"
+   "Spend the first few sessions building rapport around skating, and raise her agreement once she seems more at ease",
+   "Invite her father back into the room so Wen can hear his reasons and feel supported in taking part",
+   "Give Wen a short questionnaire about her skating goals so she can share her views in a less direct way",
+   "Describe in plain terms what the work involves and what stays private, and ask whether she wants to take part"
   ],
   "answer": 3,
   "rationales": [
-   "A guardian's permission is necessary but not sufficient. The Ethics Code also expects the minor's assent, and pressing ahead with a reluctant teen undermines both ethics and the working alliance.",
-   "Assent belongs at the start of services, not after sessions are underway. Delaying it means Wen takes part without understanding or agreeing to what is happening.",
-   "Reluctance from a teen whose parent arranged the meeting is common and is not by itself a clinical warning sign. Referring now is premature and skips the assent conversation that would clarify what is going on.",
-   "Informed consent with a minor combines the guardian's permission with the minor's own assent. Explaining what the work involves, what stays private and what does not, in age-appropriate language, and then asking Wen whether she wants to take part respects her and opens a real conversation about her reluctance."
+   "Rapport matters, but assent belongs at the start of services. Delaying it means Wen takes part for several sessions without understanding or agreeing to what is happening.",
+   "Hearing a parent's reasons can be useful context, but doing it now adds pressure at the moment Wen's own voluntary agreement is in question, which undermines genuine assent.",
+   "Assessment is a later step in the consulting sequence. Starting it before Wen knows what the work involves or has agreed to it skips her assent.",
+   "Informed consent with a minor combines the guardian's permission with the minor's own assent. Explaining the services and the limits of confidentiality in age-appropriate language, then asking Wen whether she wants to take part, respects her autonomy and opens an honest conversation about her reluctance."
   ],
   "takeaway": "With minors, get the guardian's permission and the young person's own informed assent before services begin.",
   "refs": [
@@ -119,19 +119,19 @@
    "level": "youth",
    "delivery": "team"
   },
-  "stem": "A consultant is assessing competitive anxiety in a youth soccer academy's under-12 squad. Several players arrived recently from Brazil and are more fluent in Portuguese than English. The consultant's usual questionnaire was developed and normed with English-speaking adult athletes. Which assessment approach is most appropriate?",
+  "stem": "A consultant is assessing competitive anxiety in a youth soccer academy's under-12 squad. Several players arrived recently from Brazil and are more fluent in Portuguese than English. The consultant's usual questionnaire was developed and normed with English-speaking adult athletes, and it has a published Portuguese adult version. Which assessment approach is most appropriate?",
   "options": [
-   "Use measures validated for this age and language, plus interviews, observation, and coach input",
-   "Translate the usual questionnaire informally and compare the scores with its published adult norms",
-   "Give the usual questionnaire to everyone, reading the items aloud so the newer players can follow",
-   "Skip formal assessment and rely on the coaches' impressions of which players seem most anxious"
+   "Use measures validated for this age group and in each player's language, plus interviews and observation",
+   "Use the published Portuguese version of the usual questionnaire, plus interviews with an interpreter",
+   "Use a youth anxiety measure validated in English, and have a bilingual coach translate items as players answer",
+   "Rely on structured observation and coach ratings this season, and add questionnaires once players' English improves"
   ],
   "answer": 0,
   "rationales": [
-   "The Ethics Code expects consultants to use instruments validated for the population and language being assessed and to draw on more than one method. Age-appropriate, language-appropriate measures plus interviews (with an interpreter if needed), observation, and stakeholder input give a culturally responsive picture.",
-   "An informal translation is an unvalidated new instrument, and adult norms do not apply to children, so the comparison would be misleading.",
-   "Reading items aloud does not fix the core problem: the instrument was not validated for 11- and 12-year-olds or for players working in a second language, so their scores cannot be interpreted with confidence.",
-   "Coach impressions are one useful source, but relying on them alone abandons systematic assessment and risks bias, particularly toward players whose language or culture differs from the staff's."
+   "The Ethics Code expects consultants to use instruments validated for the population and language being assessed and to draw on more than one method. Age- and language-appropriate measures, plus interviews (with an interpreter if needed) and observation, give a culturally responsive picture.",
+   "This solves the language problem but not the age problem: an adult instrument and its adult norms are not validated for 11- and 12-year-olds, so the scores cannot be interpreted with confidence.",
+   "The measure fits the age group, but on-the-spot translation creates an unvalidated version for the Portuguese-speaking players and puts a coach in the middle of their answers.",
+   "Observation is a valuable method, but this drops the players' own voice and delays assessment for the newer players instead of using measures validated in their language."
   ],
   "takeaway": "Use assessments validated for the client's age, culture, and language, and combine methods rather than relying on one source.",
   "refs": [
@@ -154,21 +154,21 @@
    "level": "elite",
    "delivery": "organizational"
   },
-  "stem": "At the start of the season, a consultant gave a junior hockey team (players aged 18–20) a mental skills questionnaire, telling players the results were for their own development and would stay between each player and the consultant. Midseason, the general manager asks for each player's scores to help decide roster cuts. How should the consultant respond?",
+  "stem": "At the start of the season, a consultant gave a junior hockey team (players aged 18–20) a mental skills questionnaire, telling players the results were for their own development and would stay between each player and the consultant. Midseason, the general manager asks for each player's results to help decide roster cuts. How should the consultant respond?",
   "options": [
-   "Provide the scores, because the organization paid for the assessment and owns the data it produced",
-   "Provide only the lowest scores, since those players are the ones the manager is most concerned about",
-   "Provide the scores along with a written caution about measurement error and the limits of self-report",
-   "Decline to release individual scores, explaining that players agreed only to developmental use"
+   "Ask each player for written consent to release his results, and share those of players who agree",
+   "Give the manager general impressions of each player's mental skills without sharing the actual scores",
+   "Decline to share results, and tell the manager players may show him their own reports if they choose",
+   "Decline to share individual results, explaining the developmental terms players agreed to at testing"
   ],
   "answer": 3,
   "rationales": [
-   "Paying for an assessment does not override the terms under which players gave their information. Releasing scores would break the confidentiality they were promised.",
-   "Releasing a subset is still a breach, and it singles out the players most likely to be harmed by the disclosure.",
-   "A caution about measurement error addresses interpretation, not consent. The core problem is using the data for a purpose the players were never told about and did not agree to.",
-   "Assessment data may be used only for the purposes clients consented to. Players were told results were developmental and private, so the consultant should decline and explain why. Any future selection-related use would require a new, transparent agreement with players before data are collected."
+   "Consent sought midseason, with roster spots at stake, is not freely given, and a refusal would itself signal something to the manager. The original agreement should stand.",
+   "Translating scores into impressions still discloses individual assessment information for a purpose players never agreed to. Changing the format does not change the breach.",
+   "Leaving it to players sounds respectful of autonomy, but with roster spots at stake it pressures them to disclose, and anyone who declines is implicitly flagged. The developmental agreement should simply be honored.",
+   "Assessment data may be used only for the purposes clients consented to. Players were told results were developmental and private, so the consultant should decline and explain why; any future selection-related use would need a new, transparent agreement before data are collected."
   ],
-  "takeaway": "Assessment results can be used only for the purpose clients agreed to; a new use requires new, informed consent.",
+  "takeaway": "Assessment results can be used only for the purpose clients agreed to; a new use requires new, freely given consent.",
   "refs": [
    "aaspethics2024",
    "tenenbaum2012"
@@ -191,19 +191,19 @@
   },
   "stem": "During an intake interview, Desmond, a 52-year-old masters cyclist, describes two months of low mood, loss of interest in riding and friends, poor sleep, and feeling worthless. When asked directly, he denies any thoughts of suicide. The consultant is not a licensed mental health professional. What is the most appropriate next step?",
   "options": [
-   "Tell Desmond his symptoms indicate depression and begin a structured cognitive restructuring program",
-   "Share the concern with Desmond and recommend an evaluation by a licensed mental health professional",
-   "Continue the intake as planned and set race goals, since motivation could return once he has a target",
-   "Reassure Desmond that flat periods are normal for masters athletes and suggest a short break from riding"
+   "Teach Desmond a cognitive restructuring routine for his self-critical thoughts while monitoring his mood",
+   "Share the concern with Desmond and recommend an evaluation with a licensed mental health professional",
+   "Give Desmond a depression screening questionnaire to confirm the concern before recommending further help",
+   "Complete the intake and set modest process goals, then revisit his mood at the next session"
   ],
   "answer": 1,
   "rationales": [
-   "A consultant who is not licensed does not diagnose or treat mental disorders. Naming a diagnosis and starting treatment would be practicing outside competence.",
-   "Persistent low mood, loss of interest, sleep problems, and worthlessness are warning signs that call for a clinical evaluation. Within the Ethics Code's competence standard, the consultant recognizes the concern, explains it respectfully, and makes a supported referral to a licensed professional. Performance work can continue alongside treatment if appropriate.",
-   "Moving on to goal setting ignores significant warning signs, and goals are unlikely to resolve what may be a clinical mood problem.",
-   "Normalizing the symptoms minimizes a possible mental health condition and delays proper care."
+   "Cognitive techniques are part of mental skills work, but using them on what may be a depressive disorder amounts to treatment, which is outside the competence of a consultant who is not licensed.",
+   "Persistent low mood, loss of interest, sleep problems, and worthlessness are warning signs that call for clinical evaluation. Under the competence standard, the consultant recognizes the concern, explains it respectfully, and supports a referral; performance work can continue alongside treatment if appropriate.",
+   "The warning signs are already enough to act on. Screening to \"confirm\" delays the referral and edges toward clinical assessment the consultant is not trained to interpret.",
+   "Continuing the planned sequence is right for routine cases, but here it postpones attention to significant warning signs that goals are unlikely to resolve."
   ],
-  "takeaway": "Recognize the signs of a possible mental disorder and refer for a licensed evaluation; don't diagnose, treat, or dismiss.",
+  "takeaway": "Recognize the signs of a possible mental disorder and refer for a licensed evaluation; don't treat, screen to confirm, or wait.",
   "refs": [
    "aaspethics2024",
    "reardon2019"
@@ -226,19 +226,19 @@
   },
   "stem": "Halle, a 15-year-old swimmer at a club in the U.S. Olympic and Paralympic movement, tells the consultant during a session that her coach has been sending her sexual messages and touching her inappropriately after practice. She begs the consultant not to tell anyone. What should the consultant do?",
   "options": [
-   "Promise to keep it private for now and help Halle build the confidence to report it herself when ready",
-   "Ask Halle to forward the messages so her account can be checked before anything is reported",
-   "Meet privately with the coach to hear his side before deciding whether a report is warranted",
-   "Tell Halle this can't be kept secret, then promptly report to police or child protection and to SafeSport"
+   "Tell Halle this can't stay secret, then report it to the club's safeguarding officer to handle next steps",
+   "Tell Halle this can't stay secret, then contact her parents so the family can decide how to report it",
+   "Write down Halle's account in her own words and save copies of the messages before making a report",
+   "Tell Halle this can't stay secret, then report promptly to law enforcement or child protection and to SafeSport"
   ],
   "answer": 3,
   "rationales": [
-   "Promising secrecy is exactly what consultants must not do with a disclosure of suspected child abuse. It leaves Halle at risk and breaks mandatory reporting duties.",
-   "Gathering evidence to verify the claim is investigating, which is not the consultant's role. Reporting requires reasonable suspicion, not proof, and collecting explicit messages from a minor creates further problems.",
-   "Contacting the alleged abuser can endanger Halle, invite retaliation, and compromise the official investigation. Consultants never interview the alleged perpetrator.",
-   "Suspected abuse of a minor triggers mandatory reporting: the consultant should be honest that it can't be kept secret, attend to Halle's safety, and report promptly to law enforcement or child protective services and, because the club is in the Olympic and Paralympic movement, to the U.S. Center for SafeSport, following organizational policy."
+   "Telling the club is part of following policy, but an internal report does not replace the consultant's own duty to report to child protection or law enforcement and to SafeSport.",
+   "Informing parents may follow, but mandatory reporting is the consultant's own duty and can't be handed to the family to decide; delay also leaves Halle exposed.",
+   "Gathering evidence is investigating, which is not the consultant's role. A report needs reasonable suspicion, not proof, and collecting explicit messages from a minor creates further problems.",
+   "Suspected abuse of a minor triggers mandatory reporting: the consultant is honest that it can't be kept secret, attends to Halle's safety, and reports promptly to law enforcement or child protective services and, because the club is in the Olympic and Paralympic movement, to the U.S. Center for SafeSport, following organizational policy."
   ],
-  "takeaway": "On a disclosure of abuse of a minor: don't promise secrecy, don't investigate, and report promptly to authorities and, in the Olympic movement, the U.S. Center for SafeSport.",
+  "takeaway": "On a disclosure of abuse of a minor: don't promise secrecy or investigate; report promptly to authorities yourself and, in the Olympic movement, to the U.S. Center for SafeSport.",
   "refs": [
    "safesport2026",
    "aaspethics2024"
@@ -259,19 +259,19 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "Rafael, a professional golfer on a developmental tour, is short on money. He proposes paying the consultant nothing up front and instead giving her 5% of any prize money he wins this season. What is the most appropriate response?",
+  "stem": "Thiago, a professional golfer on a developmental tour, is short on money. He proposes paying the consultant nothing up front and instead giving her 5% of any prize money he wins this season. What is the most appropriate response?",
   "options": [
-   "Accept, as long as the percentage arrangement is spelled out in a signed written agreement",
-   "Accept a reduced hourly fee plus a smaller percentage of any prize money he earns this season",
-   "Decline the percentage and offer a set fee, such as a reduced or sliding-scale rate",
-   "Accept, since sharing in his success gives both of them the same stake in his results"
+   "Accept a reduced hourly fee plus a small bonus if he keeps his tour card this season",
+   "Accept the percentage, with a signed agreement that caps the total he could pay",
+   "Decline the percentage and offer a fixed fee, such as a reduced or sliding-scale rate",
+   "Waive fees this season in exchange for his permission to share his story in her marketing"
   ],
   "answer": 2,
   "rationales": [
-   "Putting the arrangement in writing does not fix it. The problem is the contingency itself, not the lack of documentation.",
-   "A base fee plus a share of winnings is still partly contingent on his results, so it carries the same conflict of interest.",
-   "The Ethics Code holds that fees are never contingent on a client's future achievement, because a stake in winnings can bias the consultant's judgment (for example, favoring short-term results over the client's welfare). Offering a fixed but affordable fee meets Rafael's financial need without that conflict.",
-   "A shared financial stake is precisely the conflict of interest the Code is designed to prevent; it puts the consultant's income in competition with the client's wellbeing."
+   "A base fee lowers the share that is contingent but does not remove it; any bonus tied to his results creates the same conflict of interest.",
+   "A cap and a contract make the terms clearer, but the problem is the contingency itself, not how well it is documented.",
+   "The Ethics Code holds that fees are never contingent on a client's future achievement, because a stake in his winnings could bias the consultant's judgment toward short-term results. A fixed but affordable fee meets Thiago's financial need without that conflict.",
+   "This avoids a contingent fee but trades services for an endorsement from a current client, which raises the undue-influence concern behind the ban on testimonials."
   ],
   "takeaway": "Never tie fees to a client's results; offer a fixed, possibly reduced, fee instead.",
   "refs": [
@@ -294,21 +294,21 @@
    "level": "na",
    "delivery": "na"
   },
-  "stem": "Priya recently earned the CMPC credential. She holds a master's degree in kinesiology and is not licensed in any profession. In her state, the title \"psychologist\" is restricted by law to licensed psychologists. She is designing business cards for her new practice. Which title is most appropriate?",
+  "stem": "Harriet recently earned the CMPC credential. She holds a master's degree in kinesiology and is not licensed in any profession. In her state, the title \"psychologist\" is restricted by law to licensed psychologists. She is designing business cards for her new practice. Which title line is most appropriate?",
   "options": [
-   "Sport Psychologist, since her credential and graduate training focus on sport psychology",
-   "Sport Psychologist (CMPC), with the certification listed next to the title",
-   "Licensed Mental Performance Consultant, to show she has met national standards",
-   "Certified Mental Performance Consultant, with her degree listed accurately"
+   "Sport Psychologist (CMPC), M.S. Kinesiology",
+   "Licensed Mental Performance Consultant, M.S. Kinesiology",
+   "Certified Sport Psychology Practitioner, M.S. Kinesiology",
+   "Certified Mental Performance Consultant, M.S. Kinesiology"
   ],
   "answer": 3,
   "rationales": [
-   "Her state restricts the title \"psychologist\" to licensed psychologists. Using it would misrepresent her qualifications and likely break the law, whatever her training emphasis.",
-   "Adding the certification does not cure an unlawful title. The word \"psychologist\" still implies licensure she doesn't hold.",
-   "CMPC is not a license. Calling it one misleads consumers into believing she is state-regulated to provide services she is not licensed for.",
-   "The CMPC is a certification, and the Ethics Code requires accurate representation of credentials and compliance with local laws on titles. Using the credential's actual name and listing her degree accurately tells the public exactly what she is qualified to offer."
+   "Listing the certification does not cure an unlawful title. Her state restricts \"psychologist\" to licensed psychologists, and the word implies a licensure she does not hold.",
+   "The CMPC is not a license. Calling it one suggests state regulation and authority she does not have.",
+   "This renames the credential into something she was not certified as and blurs the line with licensed psychologists. The accurate approach is the credential's actual name.",
+   "The CMPC is a certification, and the Ethics Code requires accurate representation of credentials and compliance with local law on titles. Using the credential's actual name and her actual degree tells the public what she is qualified to offer."
   ],
-  "takeaway": "CMPC is a certification, not a license; use accurate titles and follow local law on \"psychologist.\"",
+  "takeaway": "CMPC is a certification, not a license; use its actual name and follow local law on \"psychologist.\"",
   "refs": [
    "aaspethics2024",
    "weinberg2024"
@@ -331,19 +331,19 @@
   },
   "stem": "A consultant is launching a website for her practice. She plans to email her six current clients, a mix of athletes and business executives, asking each to write a short testimonial that she can post. What is the most appropriate course of action?",
   "options": [
-   "Skip asking current clients and describe her services and training factually",
-   "Send the request and post the testimonials using only first names and sports",
-   "Send the request, making it clear that writing a testimonial is entirely optional",
-   "Offer each client a free session in return, to thank them for the time it takes"
+   "Drop the request to current clients and describe her services and training factually",
+   "Send the request, adding a clear statement that declining won't affect their services",
+   "Send the request, and post the testimonials with names and identifying details removed",
+   "Invite clients to post reviews on an independent review site rather than her own website"
   ],
   "answer": 0,
   "rationales": [
    "The Ethics Code does not allow testimonials from current clients, because their dependence on the relationship makes free refusal difficult. Accurate, factual descriptions of services, training, and credentials are the appropriate way to market a practice.",
-   "Partial anonymity does not address the problem. The issue is seeking endorsements from people currently receiving services, not how they are labeled.",
-   "Saying it is optional does not remove the pressure. Current clients depend on the relationship and may feel unable to refuse, which is why the Code rules out testimonials from them.",
-   "Offering a reward makes the problem worse: it adds an inducement to the pressure already present and mixes a business exchange into the consulting relationship."
+   "Reassurance helps, but current clients may still feel unable to refuse someone they depend on, which is why the Code rules out testimonials from them rather than relying on a disclaimer.",
+   "Anonymity protects identity but not freedom to refuse. The problem is seeking endorsements from people currently receiving services, not how they are labeled.",
+   "Moving the endorsement to another platform does not change who is being asked. Soliciting reviews from current clients carries the same undue-influence concern."
   ],
-  "takeaway": "Don't seek testimonials from current clients; market with accurate, factual information.",
+  "takeaway": "Don't solicit testimonials or reviews from current clients; market with accurate, factual information.",
   "refs": [
    "aaspethics2024"
   ]
@@ -365,19 +365,19 @@
   },
   "stem": "A consultant has worked with a university volleyball team for a year. Several athletes have told him in confidence about academic struggles and missed classes. The head coach now asks him to also take over academic monitoring: checking class attendance and reporting athletes who skip class so the coach can bench them. What is the most appropriate response?",
   "options": [
-   "Accept the role, keeping academic records strictly separate from his consulting notes",
-   "Accept the role after telling athletes he will now report on class attendance",
-   "Decline, explaining that reporting athletes for discipline conflicts with his role",
-   "Accept the role for this season only and reassess the arrangement at year's end"
+   "Accept the role but report only attendance, never anything athletes have told him in sessions",
+   "Accept the role after telling athletes exactly what he will now report and to whom",
+   "Decline the role, explaining that reporting athletes for discipline conflicts with his work",
+   "Ask the athletes as a group whether they are comfortable with him taking on the role"
   ],
   "answer": 2,
   "rationales": [
-   "Separate files do not separate the roles in athletes' minds. He would still be the person who reports them for punishment, which undermines their willingness to confide.",
-   "Being open about the new role is better than secrecy, but it doesn't resolve the conflict. He would be policing the very behavior athletes have confided to him, and athletes would reasonably stop confiding.",
-   "The Ethics Code asks consultants to avoid multiple relationships that risk impairing objectivity or harming clients. Here the conflict can't be managed away: athletes have already confided academic problems to him, and a disciplinary reporting role would turn that trust against them. Declining, and explaining why, best protects the athletes and the service.",
-   "A time limit does not change the nature of the conflict; the harm to trust would occur during the season itself."
+   "Keeping session content out of reports is well-intended, but he would still be the person reporting athletes for punishment, which is the role conflict itself; athletes would reasonably stop confiding.",
+   "Transparency is better than secrecy, but it does not resolve the conflict. He would be policing the very behavior athletes have confided to him.",
+   "The Ethics Code asks consultants to avoid multiple relationships that risk impairing objectivity or harming clients. A disciplinary reporting role cannot be managed alongside the consulting role here: athletes have already confided academic problems to him, and the new role would turn that trust against them. Declining, and explaining why, protects both the athletes and the service.",
+   "Seeking their views sounds collaborative, but group agreement cannot remove a structural role conflict, and athletes may not feel free to object in front of teammates."
   ],
-  "takeaway": "Decline added roles, such as disciplinary reporting, that would undercut clients' trust in the consulting role.",
+  "takeaway": "Decline added roles, such as disciplinary reporting, that create a multiple relationship undercutting clients' trust.",
   "refs": [
    "aaspethics2024",
    "andersen2005"
@@ -398,21 +398,21 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Tomás, a collegiate soccer player, asks the consultant to write him a daily meal plan with calorie and protein targets so he can add muscle during the off-season. The consultant took one undergraduate nutrition course. What should the consultant do?",
+  "stem": "Tomás, a collegiate soccer player, asks the consultant to write him a daily meal plan with calorie and protein targets so he can add muscle during the off-season. The consultant took one undergraduate nutrition course, and the athletic department employs a sports dietitian. What should the consultant do?",
   "options": [
-   "Build a basic plan from an online calculator and ask Tomás to report back on how it goes",
-   "Discuss general fueling principles and connect Tomás with a registered dietitian",
-   "Ask the strength coach to write the meal plan, since it directly supports his lifting program",
-   "Tell Tomás that nutrition is off limits in mental performance work and return to the session plan"
+   "Draft a starter plan from published sport-nutrition guidelines, and have the dietitian review it later",
+   "Share general fueling principles and connect Tomás with the department's registered dietitian",
+   "Ask the strength coach to set his calorie and protein targets, since the coach designs his lifting program",
+   "Help Tomás set goals for consistent eating habits, and leave the specific targets for him to research"
   ],
   "answer": 1,
   "rationales": [
-   "An individualized meal plan with calorie and protein targets is nutrition prescription, which belongs to a registered dietitian. An online calculator does not make it within the consultant's competence.",
-   "A CMPC may share general, evidence-based information outside their core area but leaves assessment and prescription to the right professional. Registered dietitians provide individualized nutrition plans, so connecting Tomás with one (such as the athletic department's sports dietitian) keeps the consultant within competence while still supporting his goal.",
-   "Strength and conditioning coaches program physical training; individualized nutrition prescription is the dietitian's role, not theirs.",
-   "Refusing to discuss nutrition at all is unnecessarily rigid and leaves Tomás without guidance. The consultant can talk about fueling in general terms and help him get expert support."
+   "Published guidelines are evidence-based, but turning them into an individualized plan with targets is nutrition prescription. Having it checked afterward reverses the right order.",
+   "A CMPC may share general, evidence-based information outside their core area but leaves individualized assessment and prescription to the right professional. Registered dietitians prescribe individualized nutrition plans, so connecting Tomás with one keeps the consultant within competence while supporting his goal.",
+   "Strength and conditioning coaches program physical training; individualized nutrition prescription belongs to the registered dietitian.",
+   "Habit goals are a legitimate mental skills contribution, but leaving targets to his own research skips the referral he needs for individualized advice."
   ],
-  "takeaway": "Share general information within your competence, and leave individualized prescription to the right professional, here the registered dietitian.",
+  "takeaway": "Share general information and support habits, but leave individualized nutrition prescription to the registered dietitian.",
   "refs": [
    "weinberg2024",
    "aaspethics2024"
@@ -433,19 +433,19 @@
    "level": "na",
    "delivery": "na"
   },
-  "stem": "Two consultants share a practice. Dana listens to her colleague's new podcast episode, in which he tells a detailed story about a \"recent client,\" naming the client's college team, position, and injury. Nobody else in the practice seems to have noticed. What should Dana do first?",
+  "stem": "Two consultants share a practice. Dana listens to her colleague's new podcast episode, in which he tells a detailed story about a \"recent client,\" naming the client's college team, position, and injury. The episode is still public, and nobody else in the practice seems to have noticed. What should Dana do first?",
   "options": [
-   "Raise the concern directly with her colleague and ask him to remove it",
-   "File a formal complaint with the AASP Ethics Committee before speaking with him",
-   "Contact the client to let them know their story was shared on the podcast",
-   "Say nothing, since the client is not hers and she has no professional duty"
+   "Speak with her colleague directly and ask him to take the episode down",
+   "File a report with the AASP Ethics Committee, then let her colleague know she has done so",
+   "Raise it with the practice's other consultants so they can agree on a shared response to him",
+   "Contact the client's team to warn them that the story identifies one of their athletes"
   ],
   "answer": 0,
   "rationales": [
-   "When confidentiality allows and the issue lends itself to it, the Ethics Code favors first attempting an informal resolution with the colleague. Speaking to him directly and asking for the episode's removal is the quickest way to stop the ongoing breach; if he doesn't respond, Dana can consult a mentor and escalate to the Ethics Committee.",
-   "Formal complaints are appropriate when informal resolution fails or is unsuitable, but going straight to the committee skips the step that could end the breach fastest.",
-   "Dana has no relationship with this client and doesn't know them. Contacting them would spread the breach further and isn't her role.",
-   "Consultants share responsibility for the profession's ethical standards. Ignoring a clear, ongoing confidentiality breach is not an option."
+   "When confidentiality allows, the Ethics Code favors first attempting an informal resolution with the colleague. Speaking to him directly is also the quickest way to stop an ongoing breach; if he doesn't respond, Dana can consult a mentor and escalate to the AASP Ethics Committee.",
+   "Formal complaints fit when informal resolution fails or is unsuitable. Going to the committee first skips the step most likely to end the breach quickly.",
+   "Group input may feel safer, but it spreads the client's identifying details further and delays the direct conversation that could stop the breach today.",
+   "Dana has no relationship with this client or team. Contacting them would extend the disclosure and is not her role."
   ],
   "takeaway": "For a colleague's ethical lapse, try informal resolution first when appropriate, then consult and escalate if needed.",
   "refs": [
@@ -467,19 +467,19 @@
    "level": "youth",
    "delivery": "individual"
   },
-  "stem": "A consultant who holds the CMPC but is not a licensed mental health or health care provider begins working with a gymnastics club in the U.S. Olympic and Paralympic movement. Ana, age 13, wants to talk about her fear of a new skill. The only private room is a staff office with a solid door at the end of a hallway away from the gym. Ana's parent has approved the sessions. How should the consultant set up their individual meetings?",
+  "stem": "A consultant who holds the CMPC but is not a licensed mental health or health care provider begins working with a gymnastics club in the U.S. Olympic and Paralympic movement. Ana, age 13, wants to talk about her fear of a new skill. The only private room is a staff office at the end of a hallway out of sight of the gym. Ana's parent has approved the sessions. How should the consultant set up their individual meetings?",
   "options": [
-   "Meet in the office with the door closed, because confidentiality matters most for this topic",
-   "Ask Ana's parent to sign a waiver that permits closed-door meetings in the staff office",
-   "Meet where other adults can see them and readily walk over, out of earshot at the gym's edge",
-   "Hold the sessions by private video call while Ana is alone in her bedroom at home"
+   "Meet in the office with the door left open, scheduled during practice hours",
+   "Meet in the office with the door closed, and log each session with the club's safeguarding officer",
+   "Meet at the edge of the gym, in view of other adults but out of their earshot",
+   "Hold sessions by video while Ana is at home, with her parent's approval on file"
   ],
   "answer": 2,
   "rationales": [
-   "Confidentiality does not override abuse-prevention policy. A closed-door meeting in an isolated office is exactly the kind of one-on-one interaction MAAPP prohibits.",
-   "Parental permission does not exempt this consultant from MAAPP's one-on-one requirements. MAAPP's limited closed-door provisions are for licensed mental health and health care providers under specific conditions, and this consultant is neither.",
-   "MAAPP requires that one-on-one interactions between an adult and a minor athlete be observable and interruptible. Meeting in plain view of other adults, positioned so the conversation can't be overheard, meets that requirement while preserving reasonable privacy for Ana.",
-   "Moving the meeting online does not solve the problem. A private video call with a minor alone in her bedroom is still an unobservable one-on-one interaction."
+   "An open door helps only if someone can see in. This office is out of sight of the gym, so the meeting is neither observable nor readily interruptible by other adults.",
+   "Logging sessions creates a record, but it does not make the interaction observable or interruptible, which is the core MAAPP requirement.",
+   "MAAPP requires one-on-one interactions between an adult and a minor athlete to be observable and interruptible. Meeting in plain view of other adults, positioned so the conversation can't be overheard, meets that requirement while keeping reasonable privacy for Ana.",
+   "Moving online does not remove the requirement. A private video call with a minor alone is still an unobservable one-on-one interaction, and parental approval does not exempt it."
   ],
   "takeaway": "Under MAAPP, one-on-one time with a minor athlete must be observable and interruptible, in person or online.",
   "refs": [
@@ -494,7 +494,7 @@
   "domain": "VI",
   "kg": "E",
   "topic": "Barter for services",
-  "cognitive": "recall",
+  "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
   "context": {
@@ -502,21 +502,21 @@
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "Lorna, 61, took up running for her health and now wants help with race-day nerves. A freelance graphic designer, she can't afford ongoing sessions, so she offers to redesign the consultant's website in exchange for six sessions. Which response best reflects the AASP Ethics Code's position on barter?",
+  "stem": "Lorna, 61, took up running for her health and now wants help with race-day nerves. A freelance graphic designer, she can't afford ongoing sessions, so she offers to redesign the consultant's website in exchange for six sessions. If they agreed, the consultant would also be Lorna's customer, reviewing and approving her design work. What should the consultant do?",
   "options": [
-   "Barter is prohibited, so the consultant must decline the offer regardless of the circumstances",
-   "Barter is acceptable whenever both parties sign a written agreement describing the exchange",
-   "Barter is acceptable only if not contraindicated or exploitative, so the risks must be weighed",
-   "Barter is acceptable if the design work is worth at least as much as the usual session fees"
+   "Decline, explaining that professional ethics standards do not permit bartering for services",
+   "Accept, and put the terms of the exchange in a signed written agreement",
+   "Weigh whether the exchange is fair and could strain the consulting work, then decide",
+   "Agree with Lorna on the value of the work, then accept if both of them find the trade fair"
   ],
   "answer": 2,
   "rationales": [
-   "The Code does not ban barter outright, so an automatic refusal misstates the standard. Declining may still be the right outcome after the risks are weighed.",
-   "A signed agreement is useful but not sufficient. A written contract can still describe an exploitative arrangement or one that damages the consulting relationship.",
-   "The Ethics Code permits barter only under strict conditions: it must not be contraindicated for the work and must not be exploitative. Here the consultant should weigh, for example, how becoming Lorna's customer could strain the relationship if the design work disappoints, and whether the exchange is fair, before agreeing or offering a reduced fee instead.",
-   "Matching the dollar value addresses only fairness. It ignores whether the second, business relationship could harm the consulting work."
+   "Barter is restricted, not banned outright, so this misstates the standard. Declining may still be the right outcome, but only after the risks are weighed.",
+   "A written agreement is useful but not sufficient. A signed contract can still describe an exploitative exchange or one that damages the consulting relationship.",
+   "Ethical standards allow barter only under strict conditions: it must not be exploitative and must not be likely to harm the professional relationship. Here the consultant should consider fairness and the risk that judging Lorna's design work could complicate the consulting before agreeing, or offer a reduced fee instead.",
+   "Settling a fair value together addresses exploitation only. It ignores whether becoming her customer, and judging her design work, could harm the consulting relationship."
   ],
-  "takeaway": "Barter is allowed only when it is neither contraindicated nor exploitative, so weigh those risks before agreeing.",
+  "takeaway": "Barter is permitted only when it is neither exploitative nor likely to harm the consulting relationship, so weigh those risks first.",
   "refs": [
    "aaspethics2024"
   ]
@@ -538,17 +538,17 @@
   },
   "stem": "A parent calls a consultant who holds the CMPC credential but no license. Her 16-year-old son, a pole vaulter, has been diagnosed with an anxiety disorder and sees a therapist. She asks, \"Since you're certified, could you treat his anxiety disorder instead of his therapist?\" What is the most accurate response?",
   "options": [
-   "No; the CMPC is a certification in mental performance, not a license to treat disorders",
-   "Yes, as long as the treatment focuses only on the anxiety he feels during competition",
-   "Yes; the CMPC credential qualifies consultants to treat anxiety that shows up in sport",
-   "No, but I could treat it if his therapist agreed to supervise my work with him"
+   "\"No; treating the disorder stays with his therapist, though I could offer coordinated performance work.\"",
+   "\"Not instead of the therapist, but I could treat his competition anxiety while the therapist handles the rest.\"",
+   "\"Yes, if his therapist agrees to supervise and the two of us coordinate his care.\"",
+   "\"Possibly; it depends on whether his anxiety shows up mainly in competition or in daily life.\""
   ],
   "answer": 0,
   "rationales": [
-   "Educating consumers accurately about the credential is a professional responsibility. The CMPC certifies competence in mental performance consulting; it is not a license, and treating an anxiety disorder belongs with a licensed clinician. With consent, the consultant could offer performance-skills work that complements his therapy.",
-   "Limiting treatment to competition does not change what it is: treating a diagnosed disorder, which requires a license the consultant lacks.",
-   "The CMPC does not qualify anyone to treat a mental disorder, whatever the setting. Saying so misrepresents the credential.",
-   "Supervision by a licensed therapist doesn't turn treatment by an unlicensed consultant into appropriate practice. The disorder remains the therapist's to treat; the consultant can offer coordinated performance work."
+   "Educating consumers accurately about the credential is a professional responsibility. The CMPC certifies competence in mental performance consulting; it is not a license, so treating an anxiety disorder stays with the licensed clinician, while performance-skills work can complement therapy with consent.",
+   "Splitting the disorder by setting does not change what the work is: treating a diagnosed disorder, which requires a license the consultant lacks.",
+   "Coordination is good practice, but supervision by a licensed therapist does not make treatment by an unlicensed consultant appropriate. The disorder remains the therapist's to treat.",
+   "Where symptoms appear does not change the credential's scope. A diagnosed disorder calls for licensed treatment wherever it shows up."
   ],
   "takeaway": "Explain the CMPC accurately: a mental performance certification, not a license to diagnose or treat mental disorders.",
   "refs": [
@@ -573,17 +573,17 @@
   },
   "stem": "A consultant's draft brochure for youth sport parents reads: \"Proven to raise your child's performance by 20%—results guaranteed.\" The figure comes from one small study of college players' free-throw shooting. How should the consultant revise the brochure?",
   "options": [
-   "Drop the guarantee and describe the services and evidence without promising specific results",
-   "Keep the 20% figure but add a citation to the study so parents can check the source themselves",
-   "Keep the 20% figure but drop \"guaranteed,\" since the study does support that number",
-   "Replace \"guaranteed\" with \"in most cases\" so the claim sounds less absolute to parents"
+   "Remove the figure and the guarantee, and describe the services and research base in general terms",
+   "Keep the 20% figure, add a citation to the study, and note that individual results vary",
+   "Remove the guarantee, and state that the method improved free-throw accuracy by 20% in a study",
+   "Replace the claim with a quote from a parent describing their child's improvement"
   ],
   "answer": 0,
   "rationales": [
-   "The Ethics Code's integrity standards require public statements to be accurate and not misleading. Guaranteed outcomes and figures stretched beyond the evidence misrepresent what mental skills training can do, so the brochure should describe services and the research base honestly.",
-   "A citation doesn't make the claim accurate. One small study of college free throws can't support a promised 20% gain for children across sports.",
-   "Removing the guarantee helps, but the 20% figure still overgeneralizes: one small study of college free throws can't support a general claim about children's performance.",
-   "Softening the wording still implies a reliable 20% gain the evidence doesn't support; the claim remains misleading."
+   "The Ethics Code's integrity standards require public statements to be accurate and not misleading. A guarantee and a figure stretched beyond its study misrepresent what mental skills training can do, so the brochure should describe services and evidence honestly.",
+   "A citation and a caveat don't make the claim accurate. One small study of college free throws can't support a 20% figure for children across sports.",
+   "This describes the study more precisely, but in a brochure for youth parents it still implies a size of benefit the evidence doesn't support for their children.",
+   "Swapping a statistic for a testimonial trades one problem for another; endorsements from clients' families raise undue-influence concerns and are not evidence."
   ],
   "takeaway": "Advertise accurately: no guaranteed results and no claims that outrun the evidence.",
   "refs": [
@@ -606,21 +606,21 @@
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "Nine months after ending a successful consulting relationship, a consultant hears from her former client, Joaquin, an adult triathlete. He says he has developed feelings for her and asks to begin an intimate relationship. Both are single, and Joaquin points out that they no longer work together. What should the consultant do?",
+  "stem": "Three months after ending a successful consulting relationship, a consultant hears from her former client, Joaquin, an adult triathlete. He says he has developed feelings for her and asks to begin a romantic relationship. Both are single, and Joaquin points out that they no longer work together. What should the consultant do?",
   "options": [
-   "Accept, because the professional relationship has ended and both are consenting adults",
-   "Decline, since an intimate relationship this soon after termination violates the Ethics Code",
-   "Accept after first consulting a trusted colleague about any possible risks to either of them",
-   "Accept, provided she does not take Joaquin back on as a client at any point in the future"
+   "Accept after consulting a trusted colleague about the risks and documenting her reasoning",
+   "Decline, explaining that ethics standards bar this so soon after their work ended",
+   "Accept, provided she refers Joaquin to a colleague for any future consulting needs",
+   "Explore his feelings with him in a follow-up session to understand what they reflect"
   ],
   "answer": 1,
   "rationales": [
-   "Ending services does not immediately end the ethical obligations. The power and intimacy of the consulting relationship persist after termination, which is why the Code sets a minimum waiting period.",
-   "The Ethics Code prohibits sexual relationships with former clients for at least two years after the professional relationship ends (and never with a current client). At nine months the consultant must decline, whatever both people want.",
-   "Consulting a colleague is a good habit in gray areas, but this isn't one; the Code sets a clear minimum interval that consultation cannot waive.",
-   "Promising not to work together again doesn't address the risk the rule targets, which is exploitation of the recently ended relationship."
+   "Consultation and documentation are sound habits in gray areas, but this isn't one; the Code's post-termination restriction is not something consultation can waive.",
+   "The AASP Ethics Code never permits a sexual or romantic relationship with a current client and bars one with a former client for at least two years after services end, because the power and closeness of the consulting relationship persist after termination. Three months is well short of that, so she declines whatever both people want.",
+   "Ruling out future work together addresses a later dual relationship, not the risk the rule targets: exploitation of a relationship that ended only recently.",
+   "Re-entering a professional role to process romantic feelings blurs the boundary further and can deepen the dependence the standard is meant to protect against."
   ],
-  "takeaway": "No sexual or romantic relationship with a former client for at least two years, and never with a current one.",
+  "takeaway": "No romantic or sexual relationship with a current client, and none with a former client for at least two years after the work ends.",
   "refs": [
    "aaspethics2024"
   ]
@@ -640,18 +640,18 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "Keisha, a high school basketball player, is rehabbing a sprained ankle with the school's athletic trainer. She tells the consultant she feels mentally ready and asks him to tell her coach she can play on Friday. What should the consultant do?",
+  "stem": "Tamsin, a high school basketball player, is rehabbing a hamstring strain with the school's athletic trainer, who has not yet cleared her. She tells the consultant she feels mentally ready and asks him to tell her coach she can play on Friday. What should the consultant do?",
   "options": [
-   "Tell the coach she is ready, since psychological readiness is the consultant's area of expertise",
-   "Explain that return to play is a medical decision, and offer to help her prepare mentally for it",
-   "Give her a return-to-sport readiness questionnaire and send the coach the results as clearance",
-   "Suggest she ask the strength coach, who can judge whether her ankle is ready for game demands"
+   "Give her a psychological readiness questionnaire, and send the coach the results to support her return",
+   "Explain that return to play is the medical staff's decision, and offer to help her prepare mentally",
+   "Encourage her to tell the coach herself, since she knows best how ready she feels",
+   "Ask the strength coach to test her hamstring, then tell the coach whether she can play"
   ],
   "answer": 1,
   "rationales": [
-   "Feeling mentally ready is only part of the picture. Telling the coach she can play would amount to a clearance the consultant has no authority or competence to give.",
-   "Injury evaluation and return-to-play clearance belong to the athletic trainer and physician. The consultant stays within scope by being clear about that, supporting her psychological readiness, and, with appropriate consent, coordinating with the athletic trainer.",
-   "A psychological readiness measure can inform the team's picture, but it is not medical clearance, and sending it to the coach as such misrepresents its purpose.",
+   "A readiness measure can inform the team's picture, but sending it to the coach as support for playing treats it like clearance, which only the medical staff can give.",
+   "Injury evaluation and return-to-play clearance belong to the athletic trainer and physician. The consultant stays within scope by being clear about that, supporting her psychological readiness, and, with her consent, coordinating with the athletic trainer.",
+   "Supporting her voice is good, but this sidesteps the medical decision; the coach should hear about return to play from the athletic trainer, not from how ready she feels.",
    "Strength and conditioning coaches program training; they don't make medical return-to-play decisions after injury."
   ],
   "takeaway": "Return-to-play clearance is the medical team's call; the consultant supports psychological readiness.",
@@ -675,21 +675,21 @@
    "level": "professional",
    "delivery": "organizational"
   },
-  "stem": "A consultant whose experience is entirely with team-sport athletes is invited to run a performance-anxiety program for a professional symphony orchestra. She has no training in the performing arts, where musicians face distinct demands such as auditions, playing-related injuries, and section dynamics. What is the most appropriate response?",
+  "stem": "A consultant whose experience is entirely with team-sport athletes is invited to run a performance-anxiety program for a professional symphony orchestra, starting in four months. She has no training in the performing arts, where musicians face distinct demands such as auditions, playing-related injuries, and section dynamics. What is the most appropriate response?",
   "options": [
-   "Accept and use her usual athlete program, since anxiety management skills transfer directly",
-   "Decline, because the CMPC credential covers only athletes, coaches, and competitive sport settings",
-   "Accept once she builds competence through study and consultation with a performing-arts expert",
-   "Accept and ask the musicians to teach her about their profession during the first sessions"
+   "Accept, and complete a performing-arts workshop during the program's first month",
+   "Accept, and use her usual athlete program, since performance-anxiety skills transfer across domains",
+   "Accept after building context knowledge and arranging consultation with a performing-arts expert",
+   "Decline, since mental performance services for musicians fall outside the CMPC's sport focus"
   ],
   "answer": 2,
   "rationales": [
-   "Some skills transfer, but delivering an unadapted athlete program ignores the context-specific demands that competent practice requires.",
-   "Mental performance consulting extends to performers outside sport, including musicians. The obstacle here is her current competence, not the scope of the credential.",
-   "The Ethics Code's competence standard asks consultants to practice within the limits of their training and to extend those limits through education, training, and consultation or supervision before taking on new populations. Building context knowledge and arranging consultation with an experienced performing-arts practitioner lets her serve the orchestra responsibly.",
-   "Clients can share their perspective, but relying on them to supply the consultant's missing competence shifts her professional responsibility onto them."
+   "The right kind of preparation at the wrong time: competence for a new population should be built before services begin, not while musicians are already relying on it.",
+   "Many skills do transfer, but an unadapted program ignores the context-specific demands that competent practice requires.",
+   "The Ethics Code's competence standard asks consultants to practice within their training and to extend it through education and consultation or supervision before taking on new populations. With four months to prepare, building context knowledge and arranging expert consultation lets her serve the orchestra responsibly.",
+   "Mental performance consulting extends to performers outside sport, including musicians. The issue here is her current competence, not the scope of the field."
   ],
-  "takeaway": "Before working with a new population, build competence through training and consultation rather than improvising.",
+  "takeaway": "Before working with a new population, build competence through training and consultation rather than learning on the job.",
   "refs": [
    "aaspethics2024",
    "tod2024"
@@ -710,21 +710,21 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "A consultant works with Mateo, a 16-year-old tennis player in a U.S. Olympic and Paralympic movement program. Mateo asks whether he can text the consultant directly on her personal phone for quick pre-match reminders. How should the consultant handle electronic communication with him?",
+  "stem": "A consultant works with Ilya, a 16-year-old tennis player in a U.S. Olympic and Paralympic movement program. Ilya asks whether he can text the consultant directly for quick pre-match reminders. How should the consultant handle electronic communication with him?",
   "options": [
-   "Include his parent or guardian on messages and keep all content professional",
-   "Use a disappearing-message app so that Mateo's reflections stay confidential",
-   "Text him privately, since the messages will be strictly professional and brief",
-   "Refuse all electronic contact, since the policy bans it with minor athletes"
+   "Copy a parent, guardian, or other responsible adult on messages, and keep them professional",
+   "Text him one-on-one, keeping messages brief and professional and saving a copy of each",
+   "Text him directly, and send his parent a brief monthly summary of what they discussed",
+   "Ask his parent to approve direct texting in writing, then keep messages professional"
   ],
   "answer": 0,
   "rationales": [
-   "MAAPP permits electronic communication with minor athletes when it is professional in content and open and transparent, for example by copying the athlete's parent or guardian (or another responsible adult). This lets the consultant support Mateo while meeting abuse-prevention requirements.",
-   "Messages designed to disappear are the opposite of transparent and remove any record, which defeats the abuse-prevention purpose of the policy.",
-   "Professional content is required but not sufficient. MAAPP also requires electronic communication with minor athletes to be open and transparent, which private one-to-one texting is not.",
-   "MAAPP does not ban electronic contact with minors; it sets conditions for it. A total refusal is unnecessary and removes a useful support."
+   "MAAPP permits electronic communication with minor athletes when it is professional in content and open and transparent, for example by copying the athlete's parent or guardian or another responsible adult. This lets the consultant support Ilya while meeting abuse-prevention requirements.",
+   "Professional content and saved records help, but MAAPP also requires communication with minors to be open and transparent at the time, which private one-to-one texting is not.",
+   "A summary keeps the parent informed after the fact, but the messages themselves remain private one-to-one contact rather than transparent communication.",
+   "Parental permission is not the same as transparency. The policy's safeguard is that another adult can see the communication, not that someone approved it in advance."
   ],
-  "takeaway": "Electronic contact with minor athletes must be professional and transparent, typically with a parent or guardian copied.",
+  "takeaway": "Electronic contact with minor athletes must be professional and transparent, with a parent, guardian, or other responsible adult copied.",
   "refs": [
    "maapp2025"
   ]
@@ -746,19 +746,19 @@
   },
   "stem": "Over three weeks, a consultant notices that Simone, a collegiate diver, has visibly lost weight, mentions skipping meals to \"look right on the board,\" and has become withdrawn. Two teammates privately voice concern. The consultant is not a licensed clinician. What is the most appropriate action?",
   "options": [
-   "Start a body-image and self-talk program with Simone focused on how she performs on the board",
-   "Tell the coach to cut Simone's training load until she starts eating normally again",
-   "Raise the concerns privately and caringly with Simone and refer her to the sports medicine team",
-   "Keep observing for a few more weeks so that the consultant can be sure before raising it"
+   "Raise the concerns with Simone, and add body-image and self-talk work to her sessions",
+   "Share the teammates' concerns with the coach, and ask the coach to talk with Simone",
+   "Raise the concerns privately with Simone, and refer her to the sports medicine team",
+   "Ask Simone to keep a food and mood log for two weeks so the pattern can be assessed"
   ],
   "answer": 2,
   "rationales": [
-   "Possible disordered eating is a health and mental health concern that needs medical and clinical assessment. A performance-focused program would treat it as a skills problem and delay care.",
-   "Directing training changes is outside the consultant's role and sidesteps the athlete. Medical decisions about training load belong to the sports medicine team after proper assessment.",
-   "Weight loss, deliberate meal skipping tied to appearance, and withdrawal are warning signs of disordered eating and possible low energy availability. Within the competence standard, the consultant expresses concern directly and kindly and refers to the sports medicine team, which can bring in a physician, dietitian, and licensed mental health professional, following the institution's protocol.",
-   "Waiting for certainty lets a potentially serious health problem progress. Recognizing warning signs is enough to act."
+   "Talking with her is right, but treating possible disordered eating as a skills problem delays the medical and clinical assessment it needs.",
+   "The coach may need to know under protocol, but routing the conversation through the coach skips Simone and the referral to the professionals who assess eating concerns.",
+   "Weight loss, deliberate meal skipping tied to appearance, and withdrawal are warning signs of disordered eating and possible low energy availability. Within the competence standard, the consultant expresses concern directly and kindly and refers to the sports medicine team, which can involve a physician, dietitian, and licensed mental health professional under the institution's protocol.",
+   "Monitoring sounds systematic, but it delays care for warning signs that already justify referral and puts the consultant in an assessment role outside competence."
   ],
-  "takeaway": "Warning signs of disordered eating call for a caring conversation and prompt referral to the sports medicine team, not a skills program or waiting.",
+  "takeaway": "Warning signs of disordered eating call for a caring conversation and prompt referral to the sports medicine team.",
   "refs": [
    "reardon2019",
    "mountjoy2018"
@@ -781,17 +781,17 @@
   },
   "stem": "A technology company invites a CMPC whose background is in sport to provide \"executive coaching\" to its leadership team. The request covers helping leaders perform under pressure and also advising on a major restructuring of the company's departments. She has no training in organizational design. What is the most appropriate response?",
   "options": [
-   "Accept the whole contract, since \"executive coach\" is an unregulated title anyone can use",
-   "Decline the contract, since CMPC competence applies only to athletes and their coaches",
-   "Offer the pressure work and recommend an organizational specialist for the restructuring",
-   "Accept the whole contract and describe herself as an organizational psychologist in the proposal"
+   "Accept the pressure work, and limit restructuring advice to its effects on leaders' stress",
+   "Accept the full contract under the title \"executive coach,\" which carries no licensing requirement",
+   "Accept the pressure work, and recommend an organizational specialist for the restructuring",
+   "Decline the contract, since her mental performance training is built around athletes and coaches"
   ],
   "answer": 2,
   "rationales": [
-   "That the title is unregulated says nothing about her competence. The Ethics Code requires her to practice within her training, whatever the job is called.",
-   "Mental performance skills such as managing pressure apply to executives and other performers. Declining everything overlooks work she is competent to do.",
-   "The competence standard asks her to offer only what her training supports. Performing under pressure fits her mental performance expertise; organizational restructuring does not, so recommending a qualified organizational consultant for that part serves the client and keeps her within competence.",
-   "Using the title \"psychologist\" without a license misrepresents her credentials and is likely unlawful; it also doesn't give her the missing expertise."
+   "Narrowing the topic sounds careful, but advising on a restructuring, even through a stress lens, is still organizational consulting she isn't trained for.",
+   "That the title is unregulated says nothing about her competence. She must practice within her training, whatever the role is called.",
+   "The competence standard asks her to offer only what her training supports. Performing under pressure fits her mental performance expertise; organizational restructuring does not, so recommending a qualified specialist for that part serves the client and keeps her within competence.",
+   "Skills such as managing pressure apply to executives and other performers. Declining everything overlooks work she is competent to do."
   ],
   "takeaway": "In business settings, offer the mental performance work you're trained for and pass on the rest; an unregulated title is no license to stretch.",
   "refs": [
@@ -814,19 +814,19 @@
    "level": "elite",
    "delivery": "individual"
   },
-  "stem": "A consultant reads a new study of 18 college basketball players reporting that a novel visualization method improved free-throw accuracy. An elite wheelchair tennis player she works with read about it and wants to replace her entire mental skills plan with this method. What is the most appropriate approach?",
+  "stem": "A consultant reads a new study of 18 college basketball players reporting that a novel visualization method improved free-throw accuracy. An elite wheelchair tennis player she works with read about it and wants to replace her entire mental skills plan, which is working well, with this method. What is the most appropriate approach?",
   "options": [
-   "Adopt the method fully, since it is the most recent published evidence on visualization",
-   "Dismiss the method, since a study with so few participants has no value for practice",
-   "Treat the finding as preliminary and weigh it with the broader imagery evidence and her needs",
-   "Blend the new method into her plan right away, since it adds an evidence-based option"
+   "Replace her plan with the method for a month, then compare her results with her previous plan",
+   "Add the method to her current plan, since it comes from a peer-reviewed study on imagery",
+   "Treat the finding as preliminary, weigh it with the wider evidence, and discuss fit with her",
+   "Look for replication studies, and set the method aside until larger trials confirm it"
   ],
   "answer": 2,
   "rationales": [
-   "Newest is not the same as strongest. A single small study in a different sport and task is too thin a base to replace an established plan.",
-   "Small studies can be informative, but they need corroboration. Rejecting the finding outright ignores what it might add as one source among many.",
-   "Evidence-based practice integrates research quality and relevance with practitioner expertise and the client's characteristics and preferences. One small study of a different task is preliminary, so the consultant should place it within the broader imagery evidence, consider its fit for this athlete, and discuss that honestly with her before deciding.",
-   "Adding it right away treats one small study of a different task as established evidence. Integration may come later, but only after weighing the evidence and fit."
+   "Trying it out feels empirical, but abandoning a plan that works on the strength of one small, distant study takes a real risk for very little evidence.",
+   "Peer review does not make one small study of a different sport and task strong evidence, and adding it now skips weighing its fit.",
+   "Evidence-based practice integrates research quality and relevance with practitioner expertise and the client's characteristics and preferences. One small study of a different task is preliminary, so the consultant places it within the broader evidence and talks honestly with the athlete about its fit before deciding.",
+   "Checking for replication is sensible, but setting the idea aside without discussing it ignores the athlete's preferences, which evidence-based practice also weighs."
   ],
   "takeaway": "Weigh a new finding by its quality and relevance alongside the wider evidence and the client's needs; don't adopt or dismiss it wholesale.",
   "refs": [
@@ -851,17 +851,17 @@
   },
   "stem": "A consultant employed by a university athletic department is told by an administrator to save her session notes on the department's shared drive, which coaches and staff can also open. What is the most appropriate response?",
   "options": [
-   "Explain the confidentiality conflict and work with the department on access-restricted storage",
-   "Save brief notes on the shared drive and keep her detailed notes on her personal laptop instead",
-   "Comply, because the department employs her and therefore owns her consulting records",
-   "Stop keeping session notes altogether so that nothing sensitive needs to be stored at all"
+   "Explain the confidentiality conflict, and work with the department on restricted-access storage",
+   "Comply, but keep the notes brief and free of sensitive details so little is exposed",
+   "Ask clients to consent to staff viewing their notes, as part of the department's intake forms",
+   "Keep her notes on her personal laptop, and give the shared drive attendance records only"
   ],
   "answer": 0,
   "rationales": [
-   "Records must be kept securely and accessed only as clients have agreed. When an organization's demand conflicts with the Ethics Code, the consultant clarifies the conflict and works toward a solution consistent with the Code, such as restricted-access storage that only she (and authorized clinical staff, if applicable) can open.",
-   "Splitting the records still exposes some confidential content, and keeping detailed notes on a personal device creates a separate security problem.",
-   "Employment doesn't give coaches and staff a right to read confidential consulting records. Complying would expose clients' information without their consent.",
-   "Abandoning documentation trades one problem for another: records support continuity of care and accountability and may be required by law or policy."
+   "Records must be kept securely and accessed only as clients have agreed. When an organization's demand conflicts with the Ethics Code, the consultant clarifies the conflict and works toward a solution consistent with the Code, such as storage that only she (and authorized clinical staff, if applicable) can open.",
+   "Minimizing content reduces harm but still places confidential records where coaches can read them, and thin notes weaken documentation.",
+   "Consent obtained as a condition of services, to suit the department, isn't freely given and doesn't address whether coaches should see the records at all.",
+   "This protects notes from coaches but creates a separate security and ownership problem, and it sidesteps the conversation the department needs to have."
   ],
   "takeaway": "Keep records secure and access-restricted; when an organization's demand conflicts with the Code, raise it and work toward a compliant solution.",
   "refs": [
@@ -885,16 +885,16 @@
   },
   "stem": "Liam, a 27-year-old professional rugby player, sees a licensed counselor for grief and works with a consultant on performance. He asks the consultant to coordinate with his counselor so their work fits together. What should the consultant do before contacting the counselor?",
   "options": [
-   "Call the counselor today and answer whatever she asks, since Liam requested the coordination",
-   "Call the counselor directly, since both of them are professionals already bound by confidentiality",
-   "Ask the counselor to get Liam's permission, since the counselor is the licensed provider",
-   "Obtain Liam's signed release naming the counselor, the content to share, purpose, and duration"
+   "Get Liam's verbal agreement, and note in his file that he approved the coordination",
+   "Ask the counselor to have Liam sign her release, then share what she needs to know",
+   "Have Liam sign the practice's general release, which covers any provider he names later",
+   "Have Liam sign a release naming the counselor, what will be shared, why, and for how long"
   ],
   "answer": 3,
   "rationales": [
-   "Liam's request is a starting point, but it doesn't define what may be shared. Open-ended disclosure goes beyond his informed consent; the scope of sharing should be agreed and documented first.",
-   "Each professional's confidentiality duty is owed to the client, not to each other. Being bound by confidentiality doesn't authorize them to share information without the client's consent.",
-   "The counselor may need their own release, but that doesn't authorize the consultant to disclose; each provider needs the client's permission for their own disclosures.",
+   "Agreement and a note are a start, but a verbal okay doesn't define what may be shared or for how long; a specific written release protects Liam and both providers.",
+   "The counselor may need her own release, but it doesn't authorize the consultant's disclosures; each provider needs the client's permission for what they share.",
+   "A blanket release doesn't specify recipient, content, purpose, or duration, so Liam isn't giving informed consent to this particular exchange.",
    "Coordinating with another provider requires the client's informed, written authorization. A sound release names who receives the information, what will be shared, why, and for how long, and Liam can revoke it, which keeps him in control of his information."
   ],
   "takeaway": "Before talking with another provider, get a signed release specifying recipient, content, purpose, and duration.",
@@ -919,17 +919,17 @@
   },
   "stem": "Nadia, a collegiate softball player recovering from knee surgery, tells the consultant she fears she will never trust her knee again. The consultant had the same surgery as a college athlete and considers mentioning it. Which approach to self-disclosure is most appropriate?",
   "options": [
-   "Share the full story of the consultant's own recovery in detail, to show Nadia what is possible",
-   "Briefly mention the shared experience if it helps Nadia, then return the focus to her",
-   "Avoid any self-disclosure, since personal sharing always weakens professional boundaries",
-   "Describe how the consultant handled the same fear better, so Nadia has a clear model to follow"
+   "Hold off on disclosing until a later session, once their working alliance is better established",
+   "Mention the shared surgery briefly, then turn the focus back to Nadia's fears",
+   "Share the consultant's own recovery story in detail, then invite Nadia to compare it with her own",
+   "Describe the coping strategies the consultant used, so Nadia has a concrete model to follow"
   ],
   "answer": 1,
   "rationales": [
-   "A lengthy personal story shifts attention to the consultant and can leave Nadia feeling her experience must match it.",
+   "Timing matters, but there is no rule that disclosure must wait; a brief, client-focused mention now could support the alliance at the moment it is most relevant.",
    "Self-disclosure is appropriate when it is brief, made for the client's benefit, and followed by a return to the client's concerns. Used this way, it can build trust and hope without blurring boundaries or centering the consultant.",
-   "Self-disclosure is not inherently a boundary violation. Used sparingly and for the client's benefit, it can strengthen the working alliance.",
-   "Framing her own coping as the model to follow centers the consultant and invites unhelpful comparison rather than exploring Nadia's own fears and resources."
+   "A detailed story shifts attention to the consultant, and inviting comparison can leave Nadia feeling her recovery must match it.",
+   "Offering the consultant's coping as the model centers the consultant and skips exploring Nadia's own fears and resources."
   ],
   "takeaway": "Self-disclose briefly and only for the client's benefit, then return the focus to the client.",
   "refs": [
@@ -954,17 +954,17 @@
   },
   "stem": "A consultant for a professional baseball organization is asked to sit in on contract meetings and share her impressions of players' \"mental toughness.\" She recognizes an ethical problem, has reviewed the relevant Ethics Code standards and her contract, and is leaning toward one response. In structured ethical decision-making models, what should she do before acting?",
   "options": [
-   "Consult a trusted colleague or mentor about the situation without identifying the players",
-   "Act now on her leaning, since any delay could cost her standing with the organization",
-   "Ask the general manager which response the organization would prefer her to choose",
-   "Poll the players informally about whether they'd mind her sharing her impressions"
+   "Talk the dilemma through with a trusted colleague or mentor, without identifying players",
+   "Write out the likely consequences of each option, then act on the one causing the least harm",
+   "Explain her concern to the general manager, and ask how the organization would like to proceed",
+   "Ask the players as a group whether they would consent to her sharing general impressions"
   ],
   "answer": 0,
   "rationales": [
-   "Structured decision-making models build in consultation with a trusted colleague or mentor before choosing a course of action. Discussing the dilemma without identifying players tests her reasoning, surfaces options and consequences she may have missed, and is documented as part of a sound process.",
-   "Acting on a first leaning skips the step most likely to catch blind spots. Organizational pressure is a reason for more care, not less.",
-   "The general manager is a stakeholder with an interest in the outcome, not a neutral consultant on the ethics; deferring to the organization's preference isn't ethical reasoning.",
-   "Informal polling isn't informed consent and would itself involve players in a problem the consultant hasn't resolved."
+   "Structured decision-making models build in consultation with a trusted colleague or mentor before choosing a course of action. Discussing the dilemma without identifying players tests her reasoning, surfaces options and consequences she may have missed, and becomes part of a documented process.",
+   "Weighing consequences is part of the model, but doing it alone and acting skips the consultation step most likely to catch blind spots.",
+   "The organization will need to hear her position, but the general manager is a stakeholder in the outcome, not a neutral consultant on the ethics.",
+   "Consent matters, but asking players as a group, with contracts at stake, isn't voluntary informed consent and draws them into a problem she hasn't yet resolved."
   ],
   "takeaway": "In an ethical dilemma, consult a trusted colleague or mentor (protecting identities) before acting, and document the process.",
   "refs": [
@@ -987,19 +987,19 @@
    "level": "adult",
    "delivery": "virtual"
   },
-  "stem": "A consultant is about to begin a first video session with Arjun, a firefighter who lives in another city. Arjun signed the electronic consent and fee forms beforehand. Before starting the intake interview, what should the consultant do?",
+  "stem": "A consultant is about to begin a first video session with Arjun, a firefighter who lives in another city. Arjun signed electronic consent and fee forms beforehand, which explained confidentiality and how sessions will run. Before starting the intake interview, what should the consultant do?",
   "options": [
-   "Confirm Arjun's identity, where he is right now, a local emergency contact, and a backup phone number",
-   "Open with questions about recent difficult calls so that Arjun settles in and rapport builds quickly",
-   "Ask Arjun to turn off his camera so that he feels more at ease talking about sensitive topics",
-   "Refer Arjun to a trauma specialist before any intake, given the demands of firefighting"
+   "Confirm his identity and current location, a local emergency contact, and a backup phone number",
+   "Test the audio and video, agree on how to reconnect, and review the fee and cancellation policy",
+   "Review the limits of confidentiality, ask about his goals, and explain how sessions will run",
+   "Send him a crisis line number by chat, and suggest he keep it handy during their sessions"
   ],
   "answer": 0,
   "rationales": [
-   "Technology-mediated services start with verifying the client's identity and setting up emergency preparedness: his physical location for this session, a local emergency contact and resources, and a way to reach him if the connection drops. Without these, the consultant couldn't respond effectively if a crisis arose mid-session.",
-   "Starting with difficult calls invites sensitive disclosures before basic safeguards for remote work are in place. Rapport matters, but it doesn't replace the safety setup.",
-   "Turning the camera off makes it harder to confirm identity and to read nonverbal cues, including signs of distress, and doesn't address preparedness.",
-   "Referring on the basis of occupation alone, before any assessment, is premature and presumes a problem. Nothing yet indicates a clinical concern, and it skips the safety setup that remote work requires."
+   "Technology-mediated services start with verifying the client's identity and setting up emergency preparedness: where he is for this session, a local emergency contact and resources, and a way to reach him if the connection drops. Without these, the consultant couldn't respond effectively to a crisis mid-session.",
+   "A reconnection plan is part of good setup, but this leaves out identity, his location, and local emergency resources, which are what make it possible to respond to a crisis.",
+   "These are normal opening steps, but the signed forms already covered them; what remote work adds before the intake is the identity and emergency setup.",
+   "Sharing crisis resources helps, but a generic number doesn't tell the consultant where Arjun is or how to reach help near him if a session goes wrong."
   ],
   "takeaway": "At the start of remote services, verify identity and confirm the client's location, local emergency contacts, and a backup contact plan.",
   "refs": [
@@ -1024,17 +1024,17 @@
   },
   "stem": "A consultant plans to collect intake questionnaires, including injury history and a brief mental health screening, from 30 university athletes online. She is considering a free consumer survey tool whose default settings store responses unencrypted and let anyone with the link view the results. What is the most appropriate choice?",
   "options": [
-   "Use the free tool and delete the responses as soon as she has finished reviewing them",
-   "Email the questionnaires as attachments and ask athletes to reply with their completed copies",
-   "Use the free tool's password option and tell athletes how their data are stored",
-   "Use a secure, encrypted, access-restricted platform and tell athletes how data are stored"
+   "Use the free tool's password option, and tell athletes how their data will be stored",
+   "Use the free tool for the questionnaires, and collect the mental health screening on paper",
+   "Use the university's general online forms, and ask athletes to consent to the privacy risks",
+   "Use an encrypted, access-restricted platform, and tell athletes how their data will be stored"
   ],
   "answer": 3,
   "rationales": [
-   "Deleting data later doesn't protect it while it sits unencrypted and viewable by anyone with the link.",
-   "Ordinary email attachments travel and sit in inboxes without adequate protection, and completed forms would be scattered across multiple accounts.",
    "Transparency is good, but a password on a link doesn't fix unencrypted storage on a consumer service; the data still lack adequate protection.",
-   "Assessment data, especially health and mental health information, must be collected and stored securely. An encrypted platform with access limited to the consultant, plus clear information for athletes about how their data are stored and who can see them, meets both the confidentiality and informed-consent obligations of technology-based practice."
+   "Moving the screening off the tool protects the most sensitive part, but injury history is health information too and would still sit unencrypted and viewable by link.",
+   "Consent doesn't substitute for adequate safeguards; the consultant remains responsible for choosing a secure platform for health information.",
+   "Assessment data, especially health and mental health information, must be collected and stored securely. An encrypted platform with access limited to the consultant, plus clear information for athletes about storage and who can see their answers, meets both the confidentiality and informed-consent obligations of technology-based practice."
   ],
   "takeaway": "Collect assessment data on secure, encrypted, access-restricted platforms, and tell clients how their data are handled.",
   "refs": [
@@ -1059,17 +1059,17 @@
   },
   "stem": "Before a consultant has met any of the players, a professional basketball team's performance staff sends him a spreadsheet of each player's sleep and heart-rate variability data from team-issued wearables, so he can \"see who's stressed.\" The players were not told the data would go to a consultant. What should he do?",
   "options": [
-   "Use the data to flag players for early meetings, since the team owns the wearable devices",
-   "Set the data aside until players know about and agree to his access to it",
-   "Use the data only after removing names, and match players later by their jersey numbers",
-   "Show players their individual numbers at intake to start a conversation about stress"
+   "Ask the performance staff to tell players the data were shared, then begin using it",
+   "Set the data aside until players have been told about and agreed to his access",
+   "Use the data to plan general team workshops on sleep and stress rather than individual meetings",
+   "Review only the team averages for now, and look at individual data once he meets players"
   ],
   "answer": 1,
   "rationales": [
-   "Owning the devices doesn't settle who may use the data for what. Players weren't told their data would go to a consultant, so using it this way lacks their informed consent.",
-   "Using personal data in assessment requires the person's informed consent for that use. Setting the data aside until players understand and agree to the consultant's access (and clarifying the team's data-sharing policy) respects their autonomy and protects the trust the consultant will need.",
-   "Removing names and then re-identifying players by jersey number isn't real de-identification; it is the same unconsented use with an extra step.",
-   "Opening with data the player didn't know the consultant had can feel like surveillance and damage rapport before it forms."
+   "Telling players after the fact is notification, not consent. They still haven't agreed to a consultant using their data.",
+   "Using personal data in assessment requires the person's informed consent for that use. Setting the data aside until players understand and agree to the consultant's access, and clarifying the team's data-sharing policy, respects their autonomy and protects the trust he will need.",
+   "Team-level use feels less intrusive, but it is still drawing on individual data players never agreed to share with him.",
+   "Starting with averages delays individual use but still relies on data shared without players' knowledge, and meeting players isn't the same as getting their consent."
   ],
   "takeaway": "Don't use athletes' app or wearable data without their informed consent to your access, whoever owns the device.",
   "refs": [
@@ -1094,17 +1094,17 @@
   },
   "stem": "A consultant leads weekly video sessions on handling pressure for a sales team whose members work from home in four countries. Members will discuss setbacks with clients and with one another. At the first session, which step best protects confidentiality?",
   "options": [
-   "Require cameras on at all times so the consultant can confirm exactly who is participating each week",
-   "Agree on norms like private spaces and no recording, and say confidentiality can't be guaranteed",
-   "Assure members that the platform's encryption guarantees nothing said can be shared outside",
-   "Record each session so members who miss one can watch it later at a convenient time"
+   "Require cameras on, and ask whether anyone else is in the room at the start of each session",
+   "Agree on norms like private spaces and no recording, and note that discretion can't be guaranteed",
+   "Use a platform with end-to-end encryption, and tell members their sessions are secure",
+   "Have each member sign a confidentiality pledge, and explain that the pledge protects what they share"
   ],
   "answer": 1,
   "rationales": [
-   "Cameras help with presence and identity, but they don't stop someone off-screen from listening or a member from repeating what was said.",
-   "In online group work the biggest risks come from the setting and the members, not the software. Agreeing on norms (joining from a private space or with headphones, no recording or screenshots, not repeating others' stories) and being honest that the consultant can't guarantee members' discretion sets realistic expectations and supports informed participation.",
-   "Encryption protects data in transit; it can't stop members from talking or someone else in the room from overhearing. Promising otherwise is misleading.",
-   "Recording creates a stored, shareable copy of sensitive discussion and requires every member's informed consent; doing it by default increases risk."
+   "Cameras and a quick check help with presence, but they don't address recording, repeating others' stories, or the honest limits of confidentiality in a group.",
+   "In online group work the biggest risks come from members' settings and behavior, not the software. Agreeing on norms (a private space or headphones, no recording or screenshots, not repeating others' stories) and being honest that the consultant can't guarantee members' discretion sets realistic expectations and supports informed participation.",
+   "Encryption protects data in transit, but it can't stop members from talking or someone off-screen from listening; calling sessions \"secure\" overpromises.",
+   "A pledge can reinforce expectations, but presenting it as protection implies a guarantee the consultant can't give across four countries and home settings."
   ],
   "takeaway": "Online groups need explicit privacy norms and an honest statement that members' confidentiality can't be guaranteed.",
   "refs": [
@@ -1129,17 +1129,17 @@
   },
   "stem": "Between video sessions, Camille, an elite fencer, uses the consultant's secure messaging app most nights after 11 p.m. to send long reflections on training, and she gets upset when replies don't come right away. The consultant never set expectations about messaging. What is the best next step?",
   "options": [
-   "Discuss what messaging is for, expected reply times, and what to do in an urgent situation",
-   "Stop replying without discussion so that the late-night pattern fades on its own",
-   "Reply right away each night so Camille feels supported and the working alliance stays strong",
-   "Refer Camille to a licensed therapist, since the nightly messages show an unhealthy dependence"
+   "Discuss with Camille what messaging is for, reply times, and what to do in an urgent case",
+   "Set an auto-reply stating her messaging hours, and answer messages within those hours",
+   "Reply briefly each night, and save her longer reflections to discuss at the next session",
+   "Suggest Camille keep a training journal instead, and explore it together in video sessions"
   ],
   "answer": 0,
   "rationales": [
-   "Asynchronous messaging needs explicit agreements: what the channel is for, when the client can expect a reply, and that it isn't for emergencies (with the crisis resources to use instead). Setting these now, collaboratively, repairs the gap in the original informed consent.",
-   "Withdrawing without explanation is likely to feel like rejection and leaves Camille without clear guidance or a plan for urgent needs.",
-   "Instant nightly replies reinforce an unsustainable expectation and blur boundaries, which eventually strains the relationship rather than strengthening it.",
-   "Nothing described signals a clinical concern; the pattern stems from boundaries that were never set. Referral is premature and would sidestep the consultant's own responsibility to clarify expectations."
+   "Asynchronous messaging needs explicit agreements: what the channel is for, when the client can expect a reply, and that it isn't for emergencies (with the crisis resources to use instead). Setting these now, together, repairs the gap in the original informed consent.",
+   "Clear hours help, but a unilateral auto-reply doesn't explore what the messages are for or set a plan for urgent situations.",
+   "This is supportive, but nightly replies reinforce an unsustainable expectation and still leave the purpose and emergency plan undefined.",
+   "A journal can be useful, but redirecting her without discussing the messaging leaves expectations unclear and offers no plan for urgent needs."
   ],
   "takeaway": "Set clear agreements for messaging between sessions: purpose, reply times, and what to do in an emergency.",
   "refs": [
@@ -1162,19 +1162,19 @@
    "level": "adult",
    "delivery": "virtual"
   },
-  "stem": "Midway through a video session, Lena, a police officer, describes intense distress after a recent incident and says, \"I don't see the point of any of it anymore.\" Then her video freezes and the call drops. She doesn't rejoin. At intake, the consultant recorded Lena's location for sessions and a backup phone number. What should the consultant do?",
+  "stem": "Midway through a video session, Corinne, a police officer, describes intense distress after a recent incident and says, \"I don't see the point of any of it anymore.\" Then her video freezes and the call drops. She doesn't rejoin. At intake, the consultant recorded Corinne's location for sessions, the emergency services there, and a backup phone number. What should the consultant do?",
   "options": [
-   "Wait for her to log back in, then document the disconnection in the session notes",
-   "Send a message suggesting she contact a crisis line if she feels unsafe later tonight",
-   "Call the backup number; if she can't be reached, call emergency services where she is",
-   "Call the consultant's own local police, since that is where the session was being hosted"
+   "Call the backup number, and if she doesn't answer, text her crisis line numbers to use tonight",
+   "Message her with crisis resources, and ask her to rejoin or call back as soon as she can",
+   "Call the backup number, and if she can't be reached, contact emergency services where she is",
+   "Call her department's peer support team, and ask them to check on her tonight"
   ],
   "answer": 2,
   "rationales": [
-   "Her last statement may signal suicidal thinking. Passively waiting leaves a possibly at-risk client without contact.",
-   "A message puts the burden on someone who may be in crisis and does nothing to confirm her safety.",
-   "Possible risk plus a lost connection is exactly what the emergency plan made at intake is for. The consultant should immediately try the agreed backup contact and, if she can't be reached and concern remains, contact emergency services in the client's location using the information already gathered.",
-   "Emergency services must be local to the client. The consultant's own police department may be unable to respond where Lena actually is."
+   "Trying the backup number is right, but if she can't be reached, a text puts the burden on someone who may be in crisis and doesn't confirm her safety.",
+   "Sharing resources is caring, but waiting for her to make contact leaves a possibly at-risk client without any check on her safety.",
+   "Possible risk plus a lost connection is what the emergency plan made at intake is for. The consultant tries the agreed backup contact right away and, if Corinne can't be reached and concern remains, contacts emergency services in her location using the information already gathered.",
+   "Peer support may help later, but it isn't part of the agreed emergency plan, discloses her situation to her workplace, and isn't an emergency response."
   ],
   "takeaway": "If a remote session drops amid possible risk, use the backup contact and then emergency services where the client is located.",
   "refs": [
@@ -1197,21 +1197,21 @@
    "level": "collegiate",
    "delivery": "team"
   },
-  "stem": "At the end of the season, a consultant wants candid feedback on her work from a university lacrosse team and plans an online survey. The head coach asks to see the responses. Which plan is most appropriate?",
+  "stem": "At the end of the season, a consultant wants candid feedback on her work from a university lacrosse team and plans an online survey with ratings and open comments. The head coach asks to see the responses. Which plan is most appropriate?",
   "options": [
-   "Require athletes to log in with school email so the coach can follow up on any concerns",
-   "Collect responses anonymously and share only aggregated results with the coach",
-   "Have the coach hand out the survey link at a team meeting and track who has completed it",
-   "Ask the team captains to gather everyone's answers and forward one combined document"
+   "Collect responses anonymously, and give the coach the full set of written comments as submitted",
+   "Collect responses anonymously, and give the coach grouped results with identifying comments removed",
+   "Use a named survey so she can follow up, and share only summary results with the coach",
+   "Have the captains run the survey so it feels athlete-led, and pass the results to the coach"
   ],
   "answer": 1,
   "rationales": [
-   "Identifiable responses that reach the coach make candid criticism risky for athletes, so the feedback becomes less honest and less useful.",
-   "Candid evaluation depends on athletes trusting that what they write can't be traced to them. A survey set not to collect identifiers, with only aggregated results shared with the coach (and athletes told this in advance), yields honest data while meeting the coach's legitimate interest in the findings.",
-   "Having the coach distribute the survey and track completion signals oversight by the person athletes may be evaluating indirectly, which dampens candor.",
-   "Routing answers through captains exposes each athlete's responses to peers and removes any privacy."
+   "Anonymity is right, but on a small team detailed comments can identify their authors, so passing them on unedited undermines the protection athletes were promised.",
+   "Candid evaluation depends on athletes trusting that what they write can't be traced to them. On a small team, an anonymous survey, shared only as grouped results with any identifying comments removed (and athletes told this in advance), yields honest data while meeting the coach's legitimate interest.",
+   "Follow-up can be useful, but when athletes know their names are attached, they tend to soften criticism, which defeats the purpose of candid evaluation.",
+   "Athlete leadership sounds empowering, but routing answers through captains exposes responses to peers and removes privacy."
   ],
-  "takeaway": "For candid evaluation, collect feedback anonymously and share only aggregate results, as participants were told.",
+  "takeaway": "For candid evaluation, collect feedback anonymously and share only grouped, de-identified results, as participants were told.",
   "refs": [
    "anderson2002",
    "aaspethics2024"
@@ -1234,17 +1234,17 @@
   },
   "stem": "Gustavo, a masters rower, has practiced slow-paced breathing daily for six weeks to manage pre-race nerves. His consumer wearable shows no change in his overnight heart-rate variability, but he reports feeling calmer before races, and his coach notes steadier starts. What conclusion is most appropriate when reviewing his progress?",
   "options": [
-   "The breathing practice has failed, because the objective physiological marker did not change",
-   "The wearable must be faulty, so its data should be dropped from all future progress reviews",
-   "His self-report alone should decide, since athletes know best how they feel before races",
-   "The wearable reading is one limited indicator, to be weighed with his reports and his coach's"
+   "The practice hasn't worked physiologically yet, so a different technique should be tried",
+   "His reports and the coach's notes agree, so the wearable data can be set aside",
+   "No conclusion is possible until the HRV reading changes, so judgment should wait",
+   "The HRV reading is one limited indicator to weigh alongside his reports and the coach's"
   ],
   "answer": 3,
   "rationales": [
-   "A single consumer-device metric, measured overnight rather than before races, is not a definitive test of whether the intervention helped. Treating it as decisive ignores converging evidence of improvement.",
-   "An unchanged metric doesn't mean the device is broken. Discarding the data entirely throws away information that may still be useful over time.",
-   "Self-report is valuable but has its own biases. Relying on it alone overcorrects in the opposite direction.",
-   "Evaluation should triangulate multiple sources. Consumer wearable data have measurement limits, and overnight HRV may not reflect pre-race states, so the reading is best weighed alongside Gustavo's self-report and the coach's observations before deciding whether to continue or adjust the plan."
+   "Treating one consumer-device metric, measured overnight rather than before races, as decisive ignores converging evidence that the practice is helping.",
+   "Two sources agreeing is encouraging, but discarding the third throws away information that may become useful and overcorrects in the other direction.",
+   "Waiting on one indicator lets the weakest measure veto the others; evaluation weighs all available sources now.",
+   "Evaluation should triangulate multiple sources. Consumer wearable data have measurement limits, and overnight HRV may not reflect pre-race states, so the reading is best weighed alongside Gustavo's self-report and the coach's observations before deciding whether to continue or adjust."
   ],
   "takeaway": "Treat app and wearable metrics as one limited source; triangulate with self-report, observation, and performance.",
   "refs": [
@@ -1269,17 +1269,17 @@
   },
   "stem": "A newly certified consultant wants to record her video sessions with a collegiate wrestler so she can review them with her mentor as part of her ongoing reflective practice. What should she do first?",
   "options": [
-   "Record the sessions, since only she and her mentor will ever watch the recordings",
-   "Record only when the mentor needs it, and delete each file right after review",
-   "Obtain informed consent covering purpose, viewers, storage, and deletion",
-   "Mention it casually at the start of each session and stop if the wrestler objects"
+   "Ask the wrestler's permission at the start of each session, and stop recording if he hesitates",
+   "Use the platform's encrypted recording feature, and delete each file after the mentor review",
+   "Get the wrestler's informed consent covering purpose, viewers, storage, and deletion",
+   "Have her mentor sign a confidentiality agreement covering the recordings before she starts"
   ],
   "answer": 2,
   "rationales": [
-   "Limiting the audience doesn't replace consent. Recording without the client's knowledge violates their privacy and the Ethics Code.",
-   "Limiting and deleting recordings is good data hygiene, but it doesn't replace the client's informed consent to being recorded at all.",
-   "Recording sessions requires the client's informed consent: why the recording is made, who will see it, how it will be stored securely, and when it will be deleted, plus assurance that declining won't affect services. Reviewing recordings with a mentor is valuable reflective practice once that consent is in place.",
-   "A casual mention doesn't give the client the information needed to decide, and putting the burden on the client to object isn't informed consent."
+   "Asking is a start, but a quick verbal check doesn't give him the information needed to decide, such as who will watch and how files are kept.",
+   "Secure storage and deletion are good data hygiene, but they don't replace the client's informed consent to being recorded.",
+   "Recording sessions requires the client's informed consent: why the recording is made, who will see it, how it will be stored securely, and when it will be deleted, plus assurance that declining won't affect services. Reviewing recordings with a mentor is valuable once that consent is in place.",
+   "Binding the mentor protects the files once made, but the person whose consent is needed is the wrestler."
   ],
   "takeaway": "Record sessions only with informed consent that covers purpose, viewers, secure storage, and deletion.",
   "refs": [
@@ -1304,17 +1304,17 @@
   },
   "stem": "Jae-won, a 22-year-old professional esports player and current client, sends a follow request to the consultant's personal Instagram account. The consultant's informed consent document doesn't mention social media. What is the most appropriate response?",
   "options": [
-   "Accept, since following each other online can strengthen rapport with younger clients",
-   "Accept, but avoid liking or commenting on any of Jae-won's posts while they work together",
-   "Ignore the request and say nothing, so the topic never becomes awkward between them",
-   "Decline, explain the social media policy, and add that policy to the consent materials"
+   "Accept, and add a social media policy to the consent materials for clients going forward",
+   "Accept, and keep interactions to professional topics while the two of them work together",
+   "Leave the request pending, and raise it with Jae-won if he mentions it in a session",
+   "Decline the request, explain why, and add a social media policy to the consent materials"
   ],
   "answer": 3,
   "rationales": [
-   "Connecting on a personal account creates a social relationship alongside the professional one and exposes both people's private lives, which risks a problematic multiple relationship.",
-   "Even a passive connection is a personal relationship that gives each person access to the other's private life; limiting interactions doesn't remove that.",
-   "Ignoring the request avoids the multiple relationship but leaves Jae-won confused and possibly feeling rejected, and misses the chance to set a clear boundary.",
-   "The Ethics Code's multiple-relationship standards apply on social media. Declining personal connections, explaining why in a friendly way, and adding a written social media policy to informed consent sets a clear, predictable boundary for current and future clients."
+   "A policy is a good step, but accepting a personal connection first creates the social relationship the policy is meant to prevent.",
+   "Limiting interactions doesn't undo the personal connection, which still gives each person access to the other's private life.",
+   "Waiting avoids the connection but leaves the boundary unstated and may leave Jae-won confused or feeling ignored.",
+   "The Ethics Code's multiple-relationship standards apply online. Declining a personal connection, explaining the boundary in a friendly way, and adding a written social media policy to informed consent sets a clear, predictable boundary for current and future clients."
   ],
   "takeaway": "Decline personal social media connections with clients, explain why, and put a social media policy in your consent materials.",
   "refs": [
@@ -1337,19 +1337,19 @@
    "level": "professional",
    "delivery": "virtual"
   },
-  "stem": "A consultant based in Colorado is contacted by Freya, a professional golfer who lives and trains in Sweden, about weekly video sessions. The consultant has never worked with a client outside the United States. Before agreeing, what should the consultant determine?",
+  "stem": "A consultant based in Colorado is contacted by Maja, a professional golfer who lives and trains in Sweden, about weekly video sessions. The consultant has never worked with a client outside the United States. Before agreeing, what should the consultant determine?",
   "options": [
-   "Only Colorado's rules, since the services will be delivered from the consultant's office",
-   "Nothing further, since the CMPC credential authorizes practice in any country",
-   "Only the video platform's terms of service, which govern cross-border sessions",
-   "Whether the laws where both parties are located allow the services and title she uses"
+   "Whether Colorado's rules permit the services, since they will originate from a Colorado office",
+   "Whether the video platform meets both U.S. and European data-protection requirements",
+   "Whether the consultant's liability insurance covers sessions with clients living abroad",
+   "Whether the services and title used are permitted under Colorado's and Sweden's rules"
   ],
   "answer": 3,
   "rationales": [
-   "Technology-mediated services are subject to rules where the client is located as well as where the consultant is. Checking only Colorado's rules ignores half the picture.",
-   "The CMPC is a certification, not a license or an authorization to practice anywhere; it doesn't override local law.",
-   "A platform's terms of service govern use of the software, not professional practice, titles, or data protection law.",
-   "The Ethics Code expects consultants using technology to follow the laws and regulations where both they and the client are located. Before agreeing, the consultant should confirm that the services and the title she uses are permitted in both places (including privacy and data rules), and plan for emergency resources in Sweden."
+   "Colorado's rules matter, but services delivered by technology are also subject to rules where the client is located.",
+   "Data protection is one piece of cross-border compliance, but it doesn't answer whether the services and professional title are permitted where each party is.",
+   "Insurance coverage is a sensible practical check, but it doesn't determine whether the practice itself is permitted in either location.",
+   "The Ethics Code expects consultants using technology to follow the laws and regulations where both they and the client are located. Before agreeing, the consultant confirms that the services and title are permitted in both places, including privacy rules, and plans for emergency resources in Sweden."
   ],
   "takeaway": "For online work across borders, check the laws where both you and the client are located before starting.",
   "refs": [
@@ -1374,19 +1374,19 @@
   },
   "stem": "A star quarterback's emotional meltdown on the sideline goes viral. Followers of a consultant's professional social media account ask her to post her take on whether he has an anxiety disorder. She has never worked with him. What is the most appropriate response?",
   "options": [
-   "Post her assessment, with a note that it is an opinion based only on the video footage",
-   "Delete the questions and stop posting on her professional account to avoid the topic",
-   "Post her view, since a public figure's behavior on camera is open to professional comment",
-   "Decline to speculate about him, and offer general information about performance pressure"
+   "Post general information on performance pressure, using the quarterback's moment as the example",
+   "Reply that a licensed clinician would be better placed to answer, and suggest followers ask one",
+   "Post her view framed as possibilities rather than a diagnosis, with a clear disclaimer",
+   "Decline to comment on him, and offer general information about performance under pressure"
   ],
   "answer": 3,
   "rationales": [
-   "A disclaimer doesn't make speculation acceptable. Commenting on a specific person's possible disorder without any assessment (and outside her scope as a non-clinician) can mislead the public and harm him.",
-   "Withdrawing entirely gives up a legitimate chance to educate the public; the issue is what she says, not whether she posts at all.",
-   "Being famous doesn't make someone's mental health a fair subject for professional speculation by someone who has never assessed them.",
-   "Public statements should be accurate, within competence, and respectful of individuals' dignity. Declining to comment on whether a specific person has a disorder, while offering general, evidence-based information about how pressure affects performers, serves the public without speculating about someone she has never assessed."
+   "General education is valuable, but anchoring it to his meltdown still invites readers to see it as commentary on his mental health.",
+   "Deferring to clinicians sounds humble, but it implies the question about this person is a fair one to answer, when no one who hasn't assessed him should speculate.",
+   "Hedging and a disclaimer don't make it acceptable to speculate publicly about a specific person she has never assessed.",
+   "Public statements should be accurate, within competence, and respectful of individuals' dignity. Declining to discuss a specific person's possible disorder, while offering general, evidence-based information about pressure, serves the public without speculating about someone she has never assessed."
   ],
-  "takeaway": "In public commentary, share general evidence-based information; never speculate about a specific person's mental health.",
+  "takeaway": "In public commentary, share general evidence-based information; don't speculate about a specific person's mental health.",
   "refs": [
    "aaspethics2024",
    "weinberg2024"
@@ -1407,21 +1407,21 @@
    "level": "elite",
    "delivery": "na"
   },
-  "stem": "Abebe, a 24-year-old track athlete who works with a consultant, wins a national title. The consultant wants to post on her professional account: \"So proud of my client Abebe for his win today!\" Abebe's race result is public. What should the consultant do?",
+  "stem": "Abebe, a 24-year-old track athlete who currently works with a consultant, wins a national title. The consultant wants to post on her practice's marketing account: \"So proud of my client Abebe for his win today!\" Abebe's race result is public, but the consulting relationship is not. What should the consultant do?",
   "options": [
-   "Post it, since the race result is already public and the post is entirely positive",
-   "Congratulate him privately, since the post would reveal that he is a client",
-   "Post a photo of the win without his name and let followers make the connection",
-   "Post it without the word \"client,\" so it reads like a fan's congratulations"
+   "Ask Abebe whether he's comfortable with the post, and publish it if he agrees",
+   "Congratulate him privately, and keep the consulting relationship off her practice account",
+   "Post the congratulations without the word \"client,\" so it reads like a fan's message",
+   "Share the federation's results post, and add a short note praising his mental preparation"
   ],
   "answer": 1,
   "rationales": [
-   "The result is public, but the fact that Abebe works with a consultant is confidential. A positive post still discloses it.",
-   "The existence of the consulting relationship is itself confidential. A public \"my client\" post discloses it and also works as marketing built on a current client's success, which raises the same undue-influence concern as testimonials. Congratulating Abebe privately celebrates the win without any disclosure.",
-   "A photo that lets followers infer the relationship discloses it just as a name would.",
-   "A congratulatory post from a consultant's professional account still signals the relationship to followers, so dropping one word doesn't prevent the disclosure."
+   "Asking respects his privacy, but a current client may not feel free to say no, and the post would still use his success to market her practice, the concern behind the ban on current-client testimonials.",
+   "The existence of the consulting relationship is itself confidential, and a public \"my client\" post on a marketing account also works as an endorsement built on a current client's success. Congratulating Abebe privately celebrates the win without disclosure or using him to market her services.",
+   "Coming from her practice's account, a congratulatory post still signals the relationship to followers, so dropping one word doesn't prevent the disclosure.",
+   "Praising his mental preparation from a consultant's account implies she is involved, which discloses the relationship as surely as naming him a client."
   ],
-  "takeaway": "Being someone's consultant is confidential; celebrate client successes privately rather than in public posts.",
+  "takeaway": "Being someone's consultant is confidential; celebrate current clients' successes privately rather than in marketing posts.",
   "refs": [
    "aaspethics2024"
   ]
@@ -1443,17 +1443,17 @@
   },
   "stem": "A consultant in private practice who is paid directly by clients and never bills insurance asks a colleague whether she can use a free consumer video app for sessions, since \"HIPAA doesn't apply to me.\" Which response is most accurate?",
   "options": [
-   "Correct; without HIPAA she has no duty to protect session privacy beyond ordinary personal discretion",
-   "Whether HIPAA applies depends on her practice; secure, private platforms are needed either way",
-   "HIPAA applies to every CMPC, so any app labeled \"HIPAA compliant\" meets all her duties",
-   "HIPAA covers only written records, so live video sessions fall outside privacy rules"
+   "HIPAA likely doesn't apply, so a free app is acceptable if clients consent to the privacy risks",
+   "HIPAA may not apply to her practice, but the Ethics Code still requires a secure, private platform",
+   "HIPAA likely applies to her as a provider, so she needs a business associate agreement with the app",
+   "HIPAA covers stored records rather than live video, so the app choice matters less than her notes"
   ],
   "answer": 1,
   "rationales": [
-   "Her confidentiality duties come from the Ethics Code, not only from HIPAA. Being outside HIPAA doesn't reduce them to discretion.",
-   "HIPAA applies to covered entities (such as health care providers who conduct certain transactions electronically, like insurance billing) and their business associates, so whether it applies depends on her practice. Either way, the Ethics Code requires secure, confidential communication, so she should choose a secure, encrypted platform.",
-   "HIPAA doesn't automatically apply to every CMPC, and a marketing label doesn't by itself make an app secure or satisfy her ethical duties.",
-   "HIPAA protects health information in many forms, including electronic transmissions; it isn't limited to written records."
+   "She may be right about HIPAA, but her confidentiality duty comes from the Ethics Code too, and consent doesn't replace choosing adequate safeguards.",
+   "HIPAA applies to covered entities (such as providers who conduct certain transactions electronically, like insurance billing) and their business associates, so whether it applies depends on her practice. Either way, the Ethics Code requires secure, confidential communication, so she should choose a secure, encrypted platform.",
+   "Self-pay practice without electronic billing transactions often falls outside HIPAA, so this rests on a mistaken premise, and an agreement alone doesn't make a consumer app secure.",
+   "HIPAA protects health information in many forms, including electronic transmissions, and the Code's confidentiality duty covers sessions as much as notes."
   ],
   "takeaway": "Whether HIPAA applies depends on covered-entity status, but secure, confidential platforms are required regardless.",
   "refs": [

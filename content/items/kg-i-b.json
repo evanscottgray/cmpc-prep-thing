@@ -5,7 +5,7 @@
   "scored": true,
   "domain": "IV",
   "kg": "I",
-  "topic": "PETTLEP physical and environment",
+  "topic": "PETTLEP learning element",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -14,21 +14,21 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Marisol, a collegiate gymnast, has done beam imagery every night for three weeks while lying in bed with her eyes closed and her body deeply relaxed. She says the sessions are pleasant but feel 'nothing like actually being up on the beam.' The consultant wants to revise her imagery practice using the PETTLEP model. Which change should the consultant make?",
+  "stem": "Marisol, a collegiate gymnast, started beam imagery eight months ago while she was first learning a new acrobatic series. She images on the beam in the arena where her team competes, wears her competition leotard, runs the images at real-time speed, and includes the nerves she feels at meets. Her script still talks her through each body position one step at a time, although she now performs the series fluidly. She says the imagery feels 'choppy, like I'm learning it all over again.' Using the PETTLEP model, which change should the consultant make?",
   "options": [
-   "Lengthen each nightly session so she has more time to make the images vivid",
-   "Add richer visual detail about the competition arena to her bedtime script",
-   "Image while standing in her leotard in the gym, holding her pre-mount stance",
-   "Add calming music beforehand to deepen her relaxation before each session"
+   "Move her sessions to a quieter gym so that she can focus on each body position",
+   "Switch to an external perspective so she can check each body position from outside",
+   "Rewrite the script to cue the rhythm and feel of the series as she now performs it",
+   "Slow the imagery to half speed so that each part of the series is rehearsed in detail"
   ],
   "answer": 2,
   "rationales": [
-   "Longer sessions in the same lying-down, deeply relaxed state don't fix the mismatch between her imagery and real performance; PETTLEP stresses equivalence over sheer quantity.",
-   "More visual detail helps vividness, but she would still be imaging lying down and relaxed, so the Physical and Environment mismatch she describes would remain.",
-   "PETTLEP (Holmes & Collins) aims for functional equivalence between imagery and actual performance; imaging in the real setting, in competition clothing, and in a performance-like posture addresses the Physical and Environment elements her bedtime routine lacks.",
-   "Deeper relaxation moves her body further from the alert, ready state she experiences on the beam, which runs against PETTLEP's Physical and Emotion elements."
+   "Her environment already matches competition because she images in the arena where she competes; moving to a quieter gym would reduce environmental equivalence and wouldn't touch the outdated, step-by-step script she describes.",
+   "Perspective is a PETTLEP element, and an external view can help some form-based skills, but her complaint is that the script reflects an earlier stage of learning, not the viewpoint she uses.",
+   "PETTLEP's Learning element (Holmes & Collins) says imagery content should be revised as a skill moves from the cognitive toward the autonomous stage; a script that still walks her through each position no longer matches how she performs the series, so it should cue its rhythm and feel instead.",
+   "Half-speed imagery breaks PETTLEP's Timing element and would make the images even more piecemeal, the opposite of the fluid performance she now produces."
   ],
-  "takeaway": "PETTLEP imagery should resemble the real performance as closely as possible—posture, clothing, setting, and emotional state included.",
+  "takeaway": "PETTLEP's Learning element: update imagery content as the skill develops so it matches how the performer currently executes it.",
   "refs": [
    "holmes2001",
    "williams2020"
@@ -84,19 +84,19 @@
    "level": "masters",
    "delivery": "individual"
   },
-  "stem": "Eleanor, a 61-year-old club golfer, has been saying 'Come on, you've got this!' to herself before every putt. Since she started, her putting stroke has become quick and jerky, and she notices the phrase leaves her feeling 'revved up' over the ball. What change to her self-talk is most appropriate?",
+  "stem": "Eleanor, a 61-year-old club golfer, has been saying 'Come on, you've got this!' to herself before every putt. Since she started, her putting stroke has become quick and jerky, and she notices the phrase leaves her feeling 'revved up' over the ball. Based on research matching self-talk to task demands, what change is most appropriate?",
   "options": [
-   "Keep the phrase but say it with more force to strengthen her belief on each putt",
-   "Switch to a different motivational phrase that feels more personal to her",
-   "Stop all self-talk on the green so that her mind stays completely blank",
-   "Use a short instructional cue tied to her stroke, such as 'pendulum'"
+   "Keep the phrase but say it on the walk to the green rather than over the ball",
+   "Switch to a motivational phrase she writes herself so that it feels more personal",
+   "Talk herself through grip, stance, and alignment checks while she stands over the ball",
+   "Use one short instructional cue tied to the stroke itself, such as 'pendulum'"
   ],
   "answer": 3,
   "rationales": [
-   "More forceful motivational self-talk raises arousal and effort, which suits strength and endurance tasks, not a fine-motor precision skill like putting.",
-   "Personalizing cues is a sound principle, but another motivational phrase keeps the arousal-raising function that is mismatched to a delicate putting stroke.",
-   "A blank mind is hard to achieve and leaves her without a task-relevant focus; replacing unhelpful self-talk works better than trying to eliminate it.",
-   "Self-talk research (Theodorakis et al.; Hatzigeorgiadis et al.) shows instructional self-talk benefits precision and fine-motor tasks more than motivational self-talk; a brief cue tied to the stroke directs attention to its key technical feature."
+   "Moving the phrase earlier may soften its effect over the ball, but it is still motivational self-talk for a fine-precision task, and it leaves her with no cue that supports a smooth stroke.",
+   "Personally meaningful wording helps self-talk stick, but a motivational phrase of any kind fits effort and power tasks better than a delicate putting stroke.",
+   "This is instructional, but a string of checks over the ball overloads attention and pulls her focus inward onto mechanics, which tends to disrupt a well-learned stroke; effective cues are brief.",
+   "Research on self-talk (Theodorakis et al.; Hatzigeorgiadis et al.) shows instructional self-talk benefits precision and fine-motor tasks more than motivational self-talk; a single short cue linked to the stroke supports a smooth tempo without the activation her current phrase creates."
   ],
   "takeaway": "Match self-talk to the task: instructional cues for precision and technique, motivational cues for effort, strength, and endurance.",
   "refs": [
@@ -119,21 +119,21 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "Before matches, Kwame, a 16-year-old wrestler, reports a pounding heart, tight shoulders, and nausea. When asked about his thoughts, he says he feels confident and isn't worried about losing; his body 'just goes haywire' and he feels stiff in the first period. The consultant is choosing a primary anxiety-management technique to teach him. Based on the matching hypothesis, which technique fits best?",
+  "stem": "Before matches, Kwame, a 16-year-old wrestler, reports a pounding heart, tight shoulders, and nausea. Asked about his thoughts, he says he expects to wrestle well and isn't dwelling on the result; his body 'just goes haywire,' and he feels stiff through the first period. The consultant is choosing a primary technique to teach him. Based on the matching hypothesis, which technique fits best?",
   "options": [
-   "Cognitive restructuring of the thoughts he has about upcoming opponents",
-   "Progressive muscle relaxation combined with slow diaphragmatic breathing",
-   "Thought-stopping with a cue word whenever worries surface during warm-up",
-   "Motivational imagery of himself winning the match and having his hand raised"
+   "Reappraisal training so that he reads his pounding heart as a sign he is ready",
+   "Progressive muscle relaxation paired with slow breathing in his warm-up",
+   "Instructional self-talk cues that keep him focused on his first-period plan",
+   "Mastery imagery of wrestling a strong first period with confidence and control"
   ],
   "answer": 1,
   "rationales": [
-   "Cognitive restructuring targets worry and negative thinking, which he denies; under the matching hypothesis it is a less direct fit for predominantly somatic symptoms.",
-   "The matching hypothesis proposes matching the technique to the type of anxiety; his symptoms are mainly somatic (racing heart, muscle tension, nausea) with little worry, so a somatic technique such as PMR with breathing is the best fit.",
-   "Thought-stopping targets intrusive worries, which he doesn't report, and on its own it is a weak intervention.",
-   "Imagery of winning is motivational outcome imagery that may even raise arousal; it doesn't directly reduce his physical anxiety symptoms."
+   "Reappraising symptoms as facilitative is a useful cognitive strategy, but his physical tension is producing real stiffness, and the matching hypothesis points to a somatic technique for predominantly somatic anxiety.",
+   "The matching hypothesis holds that interventions work best when they match the type of anxiety; his symptoms are somatic (racing heart, muscle tension, nausea) with little worry, so somatic techniques such as PMR and slow diaphragmatic breathing fit best.",
+   "Instructional cues direct attention, but his problem is bodily tension rather than distraction or a poor game plan, so they don't target the symptoms he describes.",
+   "Mastery imagery builds confidence, yet he already feels confident; it doesn't reduce the physiological activation that leaves him stiff."
   ],
-  "takeaway": "Match the intervention to the anxiety: somatic techniques (PMR, breathing) for bodily symptoms, cognitive techniques for worry.",
+  "takeaway": "Match the intervention to the anxiety: somatic techniques (PMR, breathing) for bodily symptoms, cognitive techniques for worry—even when another technique sounds appealing.",
   "refs": [
    "weinberg2024",
    "williams2020"
@@ -156,17 +156,17 @@
   },
   "stem": "The performance director of a professional esports team asks the consultant, who is trained in biofeedback, to use heart rate variability (HRV) biofeedback with players who feel 'wired' and rushed during tournament matches. The consultant has explained the rationale, and the players have agreed to participate. Which approach to the first training phase is most consistent with resonance frequency HRV training?",
   "options": [
-   "Have players breathe as quickly as is comfortable to build energy before each match",
-   "Display players' heart rate during matches and tell them to keep it under a set target",
-   "Find each player's breathing rate that maximizes HRV, then have them practice it daily",
-   "Teach players to hold their breath for a few seconds whenever their heart rate spikes"
+   "Show live HRV during scrimmages and cue players to slow down whenever it drops",
+   "Teach players a standard pace of six breaths per minute, then add it to warm-ups",
+   "Identify each player's breathing rate that maximizes HRV, then practice it daily",
+   "Use heart rate feedback to teach players to lower their resting heart rate"
   ],
   "answer": 2,
   "rationales": [
-   "Fast breathing raises arousal and can produce hyperventilation symptoms, which works against calming players who already feel over-activated.",
-   "Showing heart rate against a threshold isn't resonance training and gives players no method for changing their physiology; in-match monitoring is also a poor starting point.",
-   "Resonance frequency training (Lehrer et al.) first identifies the slow breathing rate—usually around six breaths per minute—at which each person's HRV peaks, then builds regular practice at that rate so the skill can later be used without the device.",
-   "Breath-holding doesn't train the cardiorespiratory resonance that HRV biofeedback targets and can increase tension."
+   "Feedback during competition-like play is a later transfer step; in the first phase players need to learn the breathing skill under calm conditions before using it under pressure.",
+   "Six breaths per minute is close to the typical resonance rate, but resonance frequency training starts by measuring each person's own rate, which varies between individuals, rather than assigning a standard pace.",
+   "Resonance frequency HRV biofeedback (Lehrer and colleagues) first identifies the slow breathing rate, typically around 4.5 to 7 breaths per minute, at which each person's HRV is greatest, and then has them practice that rate regularly so the skill can later transfer to performance.",
+   "Lowering resting heart rate is a different target; HRV training aims to increase heart rate variability through paced breathing, not to reduce heart rate itself."
   ],
   "takeaway": "HRV biofeedback trains slow, paced breathing at each person's resonance frequency (about six breaths per minute), practiced regularly before transfer to performance.",
   "refs": [
@@ -189,19 +189,19 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Priya, a collegiate volleyball player, uses a 12-step pre-serve routine that includes bouncing the ball exactly seven times. She has eight seconds to serve after the whistle. When the referee is slow to whistle or an opponent calls a timeout to 'ice' her, she feels thrown off and often misses. What is the best way for the consultant to help her refine the routine?",
+  "stem": "Meera, a collegiate volleyball player, uses a 12-step pre-serve routine that includes bouncing the ball exactly seven times. She has eight seconds to serve after the whistle. When the referee is slow to whistle or an opponent calls a timeout to 'ice' her, she feels thrown off and often misses. What is the best way for the consultant to help her refine the routine?",
   "options": [
-   "Add further steps so that her routine can fill any delay the referee creates",
-   "Remove the routine entirely so she learns to serve without depending on it",
-   "Have her restart the full 12 steps from the beginning after any interruption",
-   "Build it around a few core elements and rehearse it with delays in practice"
+   "Rehearse the full 12 steps more often in practice so they hold up in matches",
+   "Add a refocusing breath she takes before restarting her routine after a delay",
+   "Teach her to tune out the referee and opponents by narrowing her focus to the ball",
+   "Pare it down to a few core elements, then practice it with delays and timeouts"
   ],
   "answer": 3,
   "rationales": [
-   "A longer, more elaborate routine increases rigidity and the chance of disruption; effective routines are built around a few purposeful elements.",
-   "Routines help regulate attention and arousal; removing hers discards a useful tool instead of fixing its rigidity.",
-   "Restarting a 12-step sequence risks exceeding the eight-second window and keeps her dependent on an exact ritual, the very problem behind her errors.",
-   "Research on pre-performance routines (Cotterill) favors routines built on a few functional elements—such as a breath, a focus cue, and a target—that can flex to circumstances; rehearsing them amid simulated delays prepares her for icing."
+   "More repetitions make the routine more automatic but also more rigid; the problem is that it breaks down when the timing changes, which extra practice of the same fixed sequence won't solve.",
+   "A refocusing breath is a useful addition, but she would still be restarting a long, ritualized sequence that depends on exact timing, so the underlying rigidity remains.",
+   "Narrowing attention can screen out distractions, but her difficulty is a routine that can't absorb delays, not an inability to ignore the referee or opponents.",
+   "Effective pre-performance routines (Cotterill) are built on a few purposeful core elements and are flexible enough to adapt to timing changes; practicing with simulated delays makes the routine robust when matches are disrupted."
   ],
   "takeaway": "Effective routines are short, purposeful, flexible, and practiced under realistic disruptions; rigid, ritualistic routines break down when interrupted.",
   "refs": [
@@ -224,21 +224,21 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "Dmitri, a violinist with a professional orchestra, has two featured solo performances next month. At a recent concert, a ringing phone in the audience and a stand light that suddenly flickered each caused him to lose concentration for several bars. He worries that similar surprises will derail his solos. Which strategy should the consultant prioritize in the coming weeks?",
+  "stem": "Oskar, a violinist with a professional orchestra, has two featured solo performances next month. At a recent concert, a ringing phone in the audience and a stand light that suddenly flickered each pulled his attention away. He says each distraction lasted only a moment, but he didn't know how to get back into the music and lost several bars. Which strategy should the consultant prioritize in the coming weeks?",
   "options": [
-   "Create if-then refocusing plans for foreseeable distractions and rehearse them",
-   "Teach him to block out every external stimulus by narrowing his attention completely",
-   "Increase his daily practice hours so the solo passages become more automatic",
-   "Have him review the concert recording repeatedly to analyze each lapse in detail"
+   "Write if-then refocusing plans for foreseeable disruptions and rehearse them",
+   "Practice the solos with recorded audience noise so that he gets used to distractions",
+   "Build a longer pre-performance routine to settle his focus before each solo begins",
+   "Teach him a narrow, internal focus on the feel of his bowing to screen out the hall"
   ],
   "answer": 0,
   "rationales": [
-   "Refocusing plans (Orlick) identify likely distractions in advance and pair each with a planned response—such as a breath and a cue to return to the phrase—and rehearsing them in simulated run-throughs makes refocusing quick and automatic.",
-   "Blocking all external stimuli is unrealistic, and an overly narrow focus can make him miss cues he needs from the conductor and orchestra.",
-   "More practice may strengthen the music, but it doesn't give him a strategy for regaining focus after an unexpected distraction.",
-   "Repeatedly reviewing lapses dwells on what went wrong without building a way back to the task, and may heighten his worry."
+   "Orlick's distraction-control work emphasizes refocusing plans: specific if-then responses for foreseeable disruptions, rehearsed until recovery is quick; this targets his actual problem, which is getting back into the music after a brief distraction.",
+   "Exposure to noise can reduce how strongly he reacts, but distractions will still occur, and his difficulty is recovering afterward; practice with noise works best when paired with a plan for refocusing.",
+   "A pre-performance routine helps him start the solo focused, but his lapses happened mid-performance, when a routine done beforehand gives him no way back.",
+   "An internal focus on bowing pulls attention away from the music and the ensemble, and trying to screen out every stimulus is less realistic than having a quick way to recover."
   ],
-  "takeaway": "Prepare if-then refocusing plans for foreseeable distractions and rehearse them so recovery is quick and automatic.",
+  "takeaway": "Distractions are inevitable; prepare if-then refocusing plans for foreseeable ones and rehearse them so recovery is quick.",
   "refs": [
    "orlick1988",
    "nideffer2001"
@@ -261,17 +261,17 @@
   },
   "stem": "Ramón, a professional relief pitcher, has been trying to 'push away' anxious thoughts on the mound. He reports that the harder he tries not to think about walking batters, the more the thought intrudes and the tighter he feels. The consultant works from a mindfulness-acceptance-commitment (MAC) approach. Which in-session practice best fits this approach?",
   "options": [
-   "Listing evidence against the thought until he believes he won't walk anyone",
-   "Snapping a wristband each time the thought appears to interrupt it at once",
-   "Noticing the thought, labeling it, and returning focus to the target",
-   "Picturing the thought locked in a box so that it stays out of his mind"
+   "Listing evidence against the thought and writing a more balanced statement",
+   "Using a cue word to stop the thought, then shifting to a positive self-statement",
+   "Noticing and labeling the thought, then returning his focus to the catcher's glove",
+   "Slow diaphragmatic breathing on the mound until the anxious thought fades"
   ],
   "answer": 2,
   "rationales": [
-   "Disputing evidence is cognitive restructuring, a change-based strategy; it isn't the acceptance-based method the consultant is using, and arguing with the thought keeps him entangled with it.",
-   "Snapping a band is a thought-stopping, suppression technique; suppression is what is already backfiring for him and is inconsistent with an acceptance approach.",
-   "MAC (Gardner & Moore) teaches athletes to notice internal experiences nonjudgmentally, defuse from them, and redirect attention to task-relevant cues, rather than trying to control or eliminate the thoughts.",
-   "Imagining the thought locked away is still an attempt to suppress or avoid it, which acceptance approaches view as counterproductive."
+   "Disputing the thought is cognitive restructuring, a change-based CBT technique; MAC instead changes his relationship to the thought, and arguing with it can keep him engaged with it on the mound.",
+   "Thought-stopping is another form of suppression, which tends to produce the rebound he is already experiencing.",
+   "MAC (Gardner & Moore) uses mindful awareness and acceptance: he notices and labels the thought without trying to control it and returns attention to task-relevant cues, which avoids the rebound that suppression produces.",
+   "Breathing can ease tension, but using it to make the thought go away is still an attempt to control internal experience, which MAC does not aim for."
   ],
   "takeaway": "Acceptance-based approaches have athletes notice and allow unwanted thoughts while redirecting attention to the task, rather than suppressing them.",
   "refs": [
@@ -294,19 +294,19 @@
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "Lena, a regional sales director, tells the consultant her goal for the quarter is 'to be the number-one region in the company.' Two weeks in, she feels anxious each time the company leaderboard updates and says she isn't sure what to do differently day to day. She and the consultant have agreed to strengthen her goal plan. What is the most appropriate next step?",
+  "stem": "Renata, a regional sales director, tells the consultant her goal for the quarter is 'to be the number-one region in the company.' Two weeks in, she feels anxious each time the company leaderboard updates and says she isn't sure what to do differently day to day. She and the consultant have agreed to strengthen her goal plan. What is the most appropriate next step?",
   "options": [
-   "Encourage her to keep the ranking goal but look at the leaderboard less often",
-   "Ask her manager to assign weekly targets so she has external accountability",
-   "Replace the ranking goal with a general intention to do her best each day",
-   "Set controllable process and performance goals with her, plus a weekly action plan"
+   "Keep the ranking goal and add monthly ranking checkpoints so she can track her progress",
+   "Work with her manager to set weekly revenue targets that hold her accountable",
+   "Teach her a brief breathing routine to use when the leaderboard is updated",
+   "Set daily actions she controls, such as client calls, with a weekly action plan"
   ],
   "answer": 3,
   "rationales": [
-   "Checking less often may reduce exposure to an anxiety cue, but it leaves her with only an uncontrollable outcome goal and no guidance about daily actions.",
-   "Having her manager assign targets bypasses her active involvement in the plan and doesn't address her reliance on an uncontrollable outcome.",
-   "Vague 'do your best' goals are consistently less effective than specific, challenging goals (Locke & Latham).",
-   "Goal-setting research supports pairing outcome goals with specific, controllable process and performance goals and a concrete action plan; setting them collaboratively builds commitment and gives her daily direction."
+   "Monthly ranking checkpoints are still outcome goals that depend on other regions, so they keep her focus on the leaderboard and don't tell her what to do day to day.",
+   "Manager-set revenue targets add accountability but remove her ownership and remain largely outcome-based, so they don't clarify the daily actions she controls.",
+   "A breathing routine may ease her anxiety in the moment, but she and the consultant agreed to strengthen her goal plan, and the routine doesn't address the missing process goals.",
+   "Goal-setting research (Locke & Latham; Kingston & Hardy) supports pairing an outcome goal with controllable process and performance goals; specific behaviors and a weekly action plan give her clear daily direction and reduce her dependence on the leaderboard."
   ],
   "takeaway": "Pair outcome goals with specific, controllable process and performance goals and an action plan the client helps build.",
   "refs": [
@@ -331,17 +331,17 @@
   },
   "stem": "The consultant co-led a fire department's live-fire training scenario in which crews practiced a breathing-and-refocus skill under realistic stress. As the drill ends, the training captain suggests closing with a quick summary of 'the right way to do it' so crews can get back to the station. Drawing on experiential learning principles, how should the consultant structure the close of the session?",
   "options": [
-   "Give a concise summary of the correct technique and hand out a reference card",
-   "Guide crews to describe what happened, interpret it, and plan its use on calls",
-   "Have each crew rate the quality of the session on a brief written feedback form",
-   "Spotlight the firefighters who used the skill best as models for the others"
+   "Summarize the key steps of the technique, then hand out a pocket reference card",
+   "Guide crews to describe what happened, interpret it, and plan its use on real calls",
+   "Have the training captain give each crew feedback on how well it used the skill",
+   "Collect brief written ratings from crews so that the drill can be improved"
   ],
   "answer": 1,
   "rationales": [
-   "A lecture-style summary skips the reflection that turns experience into usable learning; it can supplement a debrief but shouldn't replace it.",
-   "Experiential learning (Kolb) moves from concrete experience through reflection and conceptualization to active experimentation; a 'what happened, so what, now what' debrief engages crews in each step and supports transfer to real calls.",
-   "A reaction form evaluates the session but doesn't help crews process the experience or plan how to apply the skill.",
-   "Spotlighting top performers offers models but doesn't help every firefighter reflect and plan, and it may reduce psychological safety for those who struggled."
+   "A summary and reference card are direct instruction; they skip the reflection that experiential learning relies on and leave crews as passive recipients.",
+   "Experiential learning (Kolb) moves from concrete experience to reflection, conceptualization, and planned application; a structured debrief has crews describe what happened, interpret it, and plan how they'll use the skill on real calls.",
+   "Expert feedback has value, but having the captain evaluate each crew replaces the crews' own reflection and conceptualization, which are the steps that consolidate experiential learning.",
+   "Reaction ratings help evaluate the program, but they don't help crews make sense of the experience or plan how to apply the skill."
   ],
   "takeaway": "Close experiential training with a structured debrief—what happened, what it means, how it will be applied—rather than a lecture.",
   "refs": [
@@ -364,19 +364,19 @@
    "level": "adolescent",
    "delivery": "team"
   },
-  "stem": "The head coach of a girls' U14 club soccer team asks the consultant to 'do some team building' because players stick to cliques. The consultant can attend only two sessions this season, while the coach sees the team four times a week. Using Carron and Spink's team-building approach, which plan is likely to be most effective?",
+  "stem": "The head coach of a girls' U14 club soccer team asks the consultant to help with cohesion because players stick to cliques. The consultant has already observed practices and interviewed players, and can attend only two more sessions this season, while the coach sees the team four times a week. Using Carron and Spink's team-building approach, which plan is likely to be most effective?",
   "options": [
-   "Teach the coach to build distinctiveness, roles, and norms into practices",
-   "Meet with each clique separately to discuss the conflicts they are experiencing",
-   "Run two high-energy ropes-course outings that require the cliques to cooperate",
-   "Ask the coach to assign seats and travel roommates so the cliques are broken up"
+   "Train the coach to build distinctiveness, roles, and norms into weekly practices",
+   "Use both sessions for consultant-led cohesion activities, then share notes with the coach",
+   "Run a team-wide ropes-course outing, then follow up with a group debrief on cliques",
+   "Meet with players to explore the cliques further before planning team-building activities"
   ],
   "answer": 0,
   "rationales": [
-   "Carron and Spink's indirect model has the consultant educate the coach, who then implements strategies targeting group environment (distinctiveness), group structure (roles, norms), and group processes (cooperation, communication) during regular team activities.",
-   "Separate meetings with each clique could entrench the divisions, and the consultant's limited contact makes this a weak primary strategy.",
-   "One-off outdoor activities can be enjoyable, but without ongoing reinforcement in the team's regular environment their effects on cohesion tend to be short-lived.",
-   "Assigned seating addresses only proximity and may breed resentment if imposed without a broader plan; it is one possible tactic, not a comprehensive approach."
+   "Carron and Spink's approach is indirect: the consultant teaches the coach, who builds group-environment, group-structure, and group-process strategies into regular practices; with only two consultant sessions, this gets the most frequent and lasting exposure.",
+   "Consultant-led activities can help, but two sessions are a low dose, and the coach, who sees the team far more often, would not be equipped to sustain the work.",
+   "A one-off outing with a debrief can be memorable, but single events rarely change cohesion over a season, and it doesn't build strategies into the team's routine.",
+   "Assessment has value, but the consultant has already observed and interviewed players; more exploration would use up one of the two remaining sessions without starting the intervention."
   ],
   "takeaway": "In Carron and Spink's approach, the consultant trains the coach, who builds cohesion through group environment, structure, and process strategies.",
   "refs": [
@@ -399,19 +399,19 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "Hana, a 15-year-old figure skater, uses imagery to rehearse her free skate. She mentions that her imagery takes nearly twice as long as the real program because she 'goes slowly to get every detail right.' Her coach's main concern is that her jumps feel rushed and off-rhythm in competition. Following the PETTLEP model, what should the consultant recommend?",
+  "stem": "Yuki, a 15-year-old figure skater, uses imagery to rehearse her free skate. She mentions that her imagery takes nearly twice as long as the real program because she 'goes slowly to get every detail right.' Her coach's main concern is that her jumps feel rushed and off-rhythm in competition. Following the PETTLEP model, what should the consultant recommend?",
   "options": [
-   "Continue the slow imagery so that every detail of each jump stays accurate",
-   "Image the program at real-time speed, slowing only isolated elements",
-   "Shift her imagery toward the crowd's reaction after she lands each jump",
-   "Replace imagery with additional on-ice repetitions of her jumps alone"
+   "Add her program music to the slow imagery so that she hears each musical cue",
+   "Image the program at real-time speed, slowing down only isolated elements",
+   "Add the arena's sights and sounds so that the imagery feels like competition",
+   "Switch to an external perspective so she can check the rhythm of each jump"
   ],
   "answer": 1,
   "rationales": [
-   "Habitually slow imagery mismatches the real timing of the program and may contribute to her jumps feeling rushed at actual speed.",
-   "PETTLEP's Timing element holds that imagery should match the real-time pace of the skill; slow motion can help isolate a difficult element, but rehearsing the whole program at actual speed builds the rhythm she needs in competition.",
-   "Imagining audience reactions is motivational content that doesn't address the timing mismatch.",
-   "Physical practice is valuable, but dropping imagery discards a useful complement instead of correcting how she uses it."
+   "Music would add a useful cue, but playing it alongside slowed imagery mismatches the real tempo and may reinforce the timing problem.",
+   "PETTLEP's Timing element (Holmes & Collins) calls for imagery at the same speed as actual performance; rehearsing at real speed builds the rhythm her jumps lack, and slow motion can still be used briefly for specific technical elements.",
+   "Environmental detail supports PETTLEP's Environment element, but her images would still run at half speed, leaving the timing mismatch in place.",
+   "Perspective is a separate PETTLEP choice; changing her viewpoint doesn't fix imagery that runs far slower than the program."
   ],
   "takeaway": "PETTLEP's Timing element: image skills at real-time speed, using slow motion only selectively.",
   "refs": [
@@ -437,16 +437,16 @@
   "stem": "An elite women's rugby sevens squad is installing three new restart plays one week before an international tournament. The head coach wants players to mentally rehearse where to run and which option to take on each call without adding physical training load. Which type of imagery should the consultant emphasize with the squad?",
   "options": [
    "Motivational general–arousal imagery to energize players for each restart",
-   "Cognitive-specific imagery of each player's individual passing technique",
-   "Motivational-specific imagery of the squad lifting the tournament trophy",
-   "Cognitive-general imagery of the plays, decision options, and team movement"
+   "Cognitive-specific imagery of each player's passing and catching technique",
+   "Motivational general–mastery imagery of staying composed on each restart call",
+   "Cognitive-general imagery of the movement patterns and choices in each play"
   ],
   "answer": 3,
   "rationales": [
-   "Motivational general–arousal imagery regulates arousal and emotion; it doesn't rehearse the strategic content the coach wants.",
-   "Cognitive-specific imagery rehearses individual motor skills; the task here is learning plays and decisions, not technique.",
-   "Goal-oriented outcome imagery may boost motivation but provides no rehearsal of the new plays.",
-   "In the Paivio/Hall framework, cognitive-general imagery rehearses strategies, game plans, and routines, making it the best fit for learning new set plays and decision options without extra physical load."
+   "Arousal imagery regulates activation, but the coach's goal is learning the plays, not energizing players.",
+   "Cognitive-specific imagery targets individual skills; the need here is team strategy and decision-making, not passing technique.",
+   "Mastery imagery builds confidence and composure, which can help in a tournament, but it doesn't help players learn where to run and which option to take on the new plays.",
+   "In Paivio's framework (and Hall's SIQ), cognitive-general imagery rehearses strategies, game plans, and routines; it lets players learn the movement and decision patterns of the new plays without adding physical load."
   ],
   "takeaway": "Use cognitive-general imagery for strategies and game plans; cognitive-specific imagery for individual skills.",
   "refs": [
@@ -472,16 +472,16 @@
   "stem": "Jonah, a soldier preparing for a special operations selection course, reports that in the final miles of long loaded ruck marches his self-talk drifts to 'I can't keep this up,' and his pace drops. His technique and route planning are not the issue; the challenge is sustaining effort through fatigue. Which self-talk approach should the consultant help him practice?",
   "options": [
    "Short motivational statements he chooses, rehearsed during training marches",
-   "Detailed technical cues about foot placement and stride length for each mile",
-   "Silent counting of steps to keep his mind off how tired he is feeling",
-   "Reminders of the consequences of failing selection to raise his urgency"
+   "Instructional cues about posture and stride that he repeats during hard miles",
+   "Dissociative strategies, such as counting steps, to take his mind off fatigue",
+   "Saying 'stop' when the thought appears, then clearing his mind of it"
   ],
   "answer": 0,
   "rationales": [
-   "Motivational self-talk is better suited to endurance, strength, and effort-based tasks (Theodorakis et al.; Hatzigeorgiadis et al.); brief phrases he selects and rehearses in training are more likely to be used and believed under fatigue.",
-   "Instructional cues suit precision and technique; his challenge is sustaining effort, and detailed cues for every mile add mental load.",
-   "Counting is a distraction strategy that may help briefly, but it doesn't replace the negative self-talk that is undermining his effort.",
-   "Threat-focused reminders tend to increase anxiety and avoidance motivation rather than sustain effort."
+   "Self-talk research (Hatzigeorgiadis et al.; Theodorakis et al.) shows motivational self-talk benefits endurance and effort tasks; statements he chooses and rehearses in training are more meaningful and more likely to be available when he is fatigued.",
+   "Instructional self-talk suits technique and precision tasks; the stem states that technique is not the issue.",
+   "Dissociation can ease perceived exertion for some people, but it doesn't replace the negative self-talk he reports or give him statements that sustain effort.",
+   "Thought-stopping tries to suppress the thought without replacing it, has weaker support than matched self-talk, and can leave a gap that the negative thought fills again."
   ],
   "takeaway": "For endurance and effort tasks, use motivational self-talk the performer owns and has practiced in training.",
   "refs": [
@@ -506,17 +506,17 @@
   },
   "stem": "Gabriel, a startup founder, will pitch to investors next month. He says his body feels calm and loose when he rehearses, and his practice pitches go well. In the days before a pitch, however, he lies awake replaying worst-case questions and predicting that investors will dismiss him. Applying the matching hypothesis, which technique should the consultant emphasize?",
   "options": [
-   "Progressive muscle relaxation of each major muscle group every night",
-   "Upbeat music and energizing routines to raise his activation before each pitch",
-   "Identifying his catastrophic predictions and reframing them realistically",
-   "Abdominal breathing drills designed to slow his heart rate before he speaks"
+   "Progressive muscle relaxation each night to help him wind down before pitches",
+   "Biofeedback training to lower his heart rate during rehearsal pitches",
+   "Identifying his catastrophic predictions and testing them against evidence",
+   "Slow diaphragmatic breathing practiced at bedtime in the days before a pitch"
   ],
   "answer": 2,
   "rationales": [
-   "PMR is a somatic technique; his anxiety is cognitive (worry and catastrophic predictions) with a calm body, so it is a less direct match.",
-   "Raising activation doesn't address his worry, and his rehearsals already go well.",
-   "The matching hypothesis pairs cognitive techniques with cognitive anxiety; restructuring his catastrophic predictions directly targets the worry that dominates his experience.",
-   "Breathing drills mainly target physiological arousal, which he reports is not his problem."
+   "PMR is a somatic technique; his body is already calm and loose, so it doesn't target the worry that keeps him awake.",
+   "Heart rate biofeedback reduces physiological arousal, but his rehearsals already go well physically; his problem is cognitive.",
+   "The matching hypothesis says cognitive anxiety responds best to cognitive techniques; his symptoms are rumination and catastrophic predictions, so cognitive restructuring that tests and reframes those predictions fits best.",
+   "Breathing is a somatic technique; it may help him relax at night but doesn't address the catastrophic thinking behind his anxiety."
   ],
   "takeaway": "Cognitive anxiety calls for cognitive techniques (e.g., restructuring); somatic anxiety calls for somatic techniques.",
   "refs": [
@@ -541,17 +541,17 @@
   },
   "stem": "A county EMS agency asks the consultant to teach paramedics a breathing technique for staying composed at chaotic scenes. In the first workshop, several medics say they tried slow breathing once during a cardiac arrest call and 'it didn't do anything.' None has practiced it since. What is the most appropriate way to structure the next phase of training?",
   "options": [
-   "Practice it daily in calm settings, then rehearse it in simulated high-stress scenarios",
-   "Tell medics to save the technique for their most difficult and critical calls",
-   "Replace breathing with a longer meditation they can complete after each shift",
-   "Have medics take several quick, forceful breaths to reset when their stress peaks"
+   "Practice it daily in calm settings, then rehearse it in simulated high-stress calls",
+   "Switch to a box-breathing pattern with a count that is easier to recall under stress",
+   "Add a guided breathing session at the start of each shift to lower baseline stress",
+   "Explain the physiology of slow breathing, then ask medics to try it on their next calls"
   ],
   "answer": 0,
   "rationales": [
-   "Breathing control is a skill that must be overlearned in low-stress conditions and then practiced under progressively realistic stress so it is available when arousal is high; trying it untrained during a critical call is unlikely to work.",
-   "Saving an unpracticed skill for the hardest moments sets it up to fail; skills need practice before they can hold up under pressure.",
-   "Post-shift meditation may aid recovery but doesn't give medics a brief regulation skill they can use on scene.",
-   "Quick, forceful breathing tends to raise arousal and can cause hyperventilation symptoms; regulation breathing is slow, often with an extended exhale."
+   "Arousal-regulation skills must be overlearned before they work under pressure: daily practice in calm conditions, then graded rehearsal in realistic simulations, lets the skill transfer to chaotic scenes.",
+   "Box breathing is a legitimate technique, but switching methods assumes the first one failed; a single untrained attempt under extreme stress says little about the technique, and any new one would fail the same way without practice.",
+   "A start-of-shift session may lower general stress, but it doesn't build a skill medics can use at a chaotic scene or rehearse it under stress.",
+   "Understanding the rationale can increase buy-in, but asking medics to try it again on real calls without practice repeats the conditions that produced the failed attempt."
   ],
   "takeaway": "Teach breathing as a skill: overlearn it in calm conditions, then rehearse it under progressively realistic stress.",
   "refs": [
@@ -574,19 +574,19 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "Lucía, a 17-year-old tennis player, often loses several points in a row after an unforced error because she is still replaying the mistake as the next point starts. She has about 20 seconds between points. Which between-point strategy should the consultant help her develop?",
+  "stem": "Paloma, a 17-year-old tennis player, often loses several points in a row after an unforced error because she is still replaying the mistake as the next point starts. She has about 20 seconds between points. Which between-point strategy should the consultant help her develop?",
   "options": [
-   "Analyze each error in depth before every point so she can correct it at once",
-   "Ignore errors and play at a faster pace so she stays in an attacking rhythm",
-   "A brief routine to release the error, breathe, and plan the next point",
-   "Remind herself after each error how much the next point matters to the match"
+   "Note a quick technical correction, then replay the corrected shot in her mind",
+   "Take extra time between points so that she can slow her breathing and heart rate",
+   "A short routine to let go of the error, reset her breathing, and plan the point",
+   "Jot down her errors at changeovers so she can review them with her coach later"
   ],
   "answer": 2,
   "rationales": [
-   "In-depth analysis between points keeps her attention on the past and invites overthinking; detailed review belongs after the match.",
-   "Rushing between points tends to carry tension and the previous error into the next point; trying to ignore errors without a structured release is unreliable.",
-   "Between-point routines typically move through responding to and releasing the last point, recovering physically (breathing, relaxing), and preparing and committing to a plan for the next point, which directly interrupts her rumination.",
-   "Stressing the importance of the next point raises pressure and doesn't help her let go of the error."
+   "A quick correction can be part of some routines, but replaying the shot keeps her attention on the error she can't let go of, which is the problem she has.",
+   "Using her full time can help, but calming her body doesn't address the mental replaying, and the rules limit how long she can take.",
+   "Between-point routines (e.g., respond, relax, prepare, ritual) help players release the previous point, recover physically, and refocus on a plan for the next one, which directly addresses her carryover from errors.",
+   "Reviewing errors after the match supports learning, but writing them down during play keeps her focused on mistakes and does nothing to reset her before the next point."
   ],
   "takeaway": "Between-play routines help performers release the last play, recover, and refocus on the next one.",
   "refs": [
@@ -609,21 +609,21 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "Imani, a professional soccer goalkeeper, sometimes concedes goals after long spells when play is in the opposing half. She says her mind drifts to the crowd or to earlier mistakes, and she is 'late to react' when an attack suddenly develops. Using Nideffer's model of attention, what should the consultant help her build?",
+  "stem": "Zuri, a professional soccer goalkeeper, sometimes concedes goals after long spells when play is in the opposing half. She says her mind drifts to the crowd or to mistakes she made earlier, and she is 'late to read' an attack when it suddenly develops. Using Nideffer's model of attention, what should the consultant help her build?",
   "options": [
-   "A habit of holding a narrow focus on the ball for the full ninety minutes",
-   "A practice of reviewing her earlier mistakes during stoppages to stay alert",
-   "An internal focus on her breathing whenever play is far from her goal",
-   "Cue words that prompt shifts from broad scanning to a narrow focus as play nears"
+   "A habit of holding a narrow focus on the ball whenever it is in the opposing half",
+   "A broad-internal review of the opponents' attacking patterns during quiet spells",
+   "A centering breath at each stoppage to clear her mind of the mistakes she made earlier",
+   "Cue words to hold a broad external scan in quiet spells, narrowing as attacks build"
   ],
   "answer": 3,
   "rationales": [
-   "Holding a narrow focus for ninety minutes is unrealistic and fatiguing, and it prevents the broad scanning she needs when play is distant.",
-   "Dwelling on past mistakes is an internal, task-irrelevant focus that worsens the problem.",
-   "Turning inward when play is distant may relax her, but it removes the external awareness she needs to read the developing attack.",
-   "Nideffer's model describes attention by width and direction; goalkeepers must shift from broad-external scanning to narrow-external focus on the ball as threats develop, and cue words tied to game situations make those shifts deliberate."
+   "A sustained narrow focus is tiring and misses the broad picture of player positions that a goalkeeper needs to read a developing attack.",
+   "Broad-internal analysis suits planning, but doing it during open play turns her attention inward, which is exactly why she is late to read attacks.",
+   "Centering helps her reset at stoppages, but her lapses happen during long spells of open play, when she needs to stay externally engaged with the game.",
+   "Nideffer's model describes attention by width and direction and stresses shifting to match demands; cue words help her hold a broad-external scan of the field during quiet spells, which keeps her out of internal drift, and then narrow onto the ball and attackers as play approaches."
   ],
-  "takeaway": "Train planned attentional shifts—broad to narrow, internal to external—with cue words tied to game situations.",
+  "takeaway": "Train planned attentional shifts—broad to narrow, internal to external—with cue words tied to game situations, including quiet spells.",
   "refs": [
    "nideffer2001",
    "williams2020"
@@ -644,19 +644,19 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "Anouk, a corps de ballet dancer, has not auditioned for a soloist role in two seasons because she fears 'freezing' in front of the artistic director. She says that dancing expressively for an audience is what matters most to her in her career. The consultant is using an acceptance and commitment approach. Which next step best fits this approach?",
+  "stem": "Anouk, a corps de ballet dancer, has not auditioned for a soloist role in two seasons because she fears 'freezing' in front of the artistic director. In earlier sessions she clearly named dancing expressively for an audience as what matters most in her career, and an audition opens in six weeks. The consultant is using an acceptance and commitment approach. Which next step best fits this approach?",
   "options": [
-   "Work on lowering her fear first, then schedule an audition once it has faded",
-   "Help her choose a values-based step, like auditioning, while making room for fear",
-   "Suggest she wait until she feels confident enough to audition next season",
-   "Encourage her to recognize that soloist roles don't really matter so much"
+   "Use cognitive restructuring to weaken her fear of freezing, then set an audition date",
+   "Agree with her on entering the audition, practicing willingness to feel the fear",
+   "Explore what expressive dancing means to her in more depth before setting goals",
+   "Teach her a relaxation routine to calm the fear so that it stops blocking her"
   ],
   "answer": 1,
   "rationales": [
-   "Acceptance and commitment approaches don't require fear to disappear before acting; making that a precondition keeps her in the avoidance pattern.",
-   "ACT links values to committed action—taking concrete steps toward what matters while willingly experiencing anxiety—so an audition becomes a values-based action rather than something postponed until fear is gone.",
-   "Waiting to feel confident is experiential avoidance; confidence often follows action rather than preceding it.",
-   "Downplaying what matters to her undermines the values that motivate committed action."
+   "Restructuring is a change-based CBT strategy, and making the audition wait until fear is reduced is the kind of control agenda ACT asks clients to let go of.",
+   "ACT links valued directions to committed action; because she has already named what matters, the next step is a concrete commitment, entering the audition, while practicing willingness to have fear and other difficult internal experiences.",
+   "Values clarification is part of ACT, but she has already identified her value clearly; more exploration delays the committed action the six-week window allows.",
+   "Relaxation used to make fear go away is an emotional-control strategy; ACT aims for action alongside fear rather than its removal."
   ],
   "takeaway": "In ACT, clients take values-guided action while making room for difficult feelings, rather than waiting for fear to disappear.",
   "refs": [
@@ -681,17 +681,17 @@
   },
   "stem": "A consultant helped Daniel, a collegiate swimmer, set three specific process goals for practice, such as holding a tight streamline off every wall. A month later, Daniel says he 'kind of forgot about them' and isn't sure whether he is improving. He and his coach both still believe the goals are the right ones. What should the consultant do next?",
   "options": [
-   "Replace the goals with new, more exciting ones to renew his interest",
-   "Ask the coach to read the goals aloud to him at the start of each practice",
-   "Set up a simple tracking log with him and brief weekly progress reviews",
-   "Shift his focus to outcome goals, such as qualifying times, for more drive"
+   "Revisit the goals with him and set new ones that he finds more engaging",
+   "Ask the coach to remind him of the goals at the start of each practice",
+   "Set up a simple log with him and review his progress briefly each week",
+   "Add a season outcome goal, such as a qualifying time, to give the goals more drive"
   ],
   "answer": 2,
   "rationales": [
-   "The goals are still appropriate; replacing them doesn't fix the missing feedback and follow-up that let them fade.",
-   "Coach reminders may help, but they provide no information about progress and shift responsibility away from the athlete.",
-   "Goal-setting theory identifies feedback as essential to goal effectiveness (Locke & Latham); a tracking log and regular reviews keep the goals salient, show progress, and keep him actively engaged.",
-   "Outcome goals alone are less controllable and don't address the absence of monitoring and feedback."
+   "He, his coach, and the consultant all agree the goals are right; changing them doesn't fix the missing feedback that made them fade.",
+   "Reminders keep the goals in view, but they give him no information about whether he is progressing, which is what he says is missing.",
+   "Goal-setting theory (Locke & Latham) identifies feedback as essential for goals to affect performance; a tracking log and brief weekly reviews keep the goals salient and show him his progress.",
+   "An outcome goal may add motivation, but it doesn't provide the ongoing feedback on his process goals that he lacks."
   ],
   "takeaway": "Goals work only with feedback: build in self-monitoring and regular progress reviews.",
   "refs": [
@@ -716,17 +716,17 @@
   },
   "stem": "A national wheelchair rugby program asks the consultant to deliver a four-session focus skills workshop by video call because athletes live in different cities. In the first session, a 60-minute slide presentation, most cameras went off and few athletes spoke. How should the consultant adapt the remaining sessions?",
   "options": [
-   "Keep the format but add more slides so that the content is easier to follow",
-   "Require cameras on and call on athletes at random to ensure everyone participates",
-   "Email recorded lectures for athletes to watch on their own instead of meeting",
-   "Use short segments with breakout practice, polls, and a group debrief"
+   "Keep the slides but shorten the talk and add a question period at the end",
+   "Ask athletes to keep cameras on, then call on them by name to share examples",
+   "Send short recorded lessons to watch beforehand, then use calls for questions",
+   "Break sessions into short segments with breakout practice, polls, and a debrief"
   ],
   "answer": 3,
   "rationales": [
-   "More slides add passive content, which is the opposite of what disengaged virtual participants need.",
-   "Mandating cameras and cold-calling may produce compliance but can feel coercive and doesn't make the content interactive; athletes may also have legitimate reasons for cameras off.",
-   "Recorded lectures can supplement live sessions, but replacing meetings with them removes interaction and reflection entirely.",
-   "Effective virtual delivery breaks content into short segments and builds in active participation—breakout practice, polls, and chat—followed by a debrief, which counters the passivity of long video presentations."
+   "A shorter talk helps, but the format stays mostly passive, and a question period at the end gives athletes no chance to practice the focus skills.",
+   "Requiring cameras and calling on people can feel coercive and doesn't make the content more engaging; participation tends to improve when the design is interactive.",
+   "Pre-recorded lessons can free up live time, but using calls only for questions still leaves no structured practice of the skills.",
+   "Effective virtual delivery uses short content blocks, active practice (e.g., breakout rooms), interactive tools such as polls, and debriefs, applying experiential learning principles that keep participants engaged and help skills transfer."
   ],
   "takeaway": "In virtual delivery, keep segments short and build in active practice, interaction, and debriefing.",
   "refs": [
@@ -742,28 +742,28 @@
   "kg": "I",
   "topic": "Role clarity in team building",
   "cognitive": "analysis",
-  "difficulty": 2,
+  "difficulty": 3,
   "format": "vignette",
   "context": {
    "setting": "team-sport",
    "level": "collegiate",
    "delivery": "team"
   },
-  "stem": "Midway through the season, several players on a collegiate men's lacrosse team tell the consultant they don't know what is expected of them, and some resent their limited playing time. The coaching staff agrees to a team-building intervention. Within Carron and Spink's framework, which focus best targets this problem?",
+  "stem": "Midway through the season, players on a collegiate men's lacrosse team argue in film sessions about who should slide to an open dodger, and several reserves have stopped engaging at practice, telling the consultant they don't see how they contribute. The coaching staff agrees to a team-building intervention. Within Carron and Spink's framework, which focus best targets these problems?",
   "options": [
-   "Group structure: clarifying each player's role and helping players accept it",
-   "Group processes: arranging social outings to increase interaction off the field",
-   "Group environment: creating a team logo and shared gear to build distinctiveness",
-   "Group processes: asking players to sacrifice personal goals for team targets"
+   "Group structure: clarifying each player's role and building acceptance of it",
+   "Group structure: setting team norms for communication and effort at practice",
+   "Group processes: setting shared team goals that every player helps to create",
+   "Group environment: increasing time together through team meals and travel"
   ],
   "answer": 0,
   "rationales": [
-   "In Carron and Spink's framework, group structure includes roles and norms; role clarity and role acceptance are linked to task cohesion, so clarifying and discussing each player's role directly targets the ambiguity and resentment described.",
-   "Social outings increase interaction and social cohesion but leave role ambiguity unresolved.",
-   "Distinctiveness strategies can foster identity, but they don't address unclear expectations or resentment about roles.",
-   "Asking players to sacrifice personal goals before clarifying their roles may deepen resentment among those with limited minutes."
+   "The arguments about defensive responsibilities show role ambiguity, and the disengaged reserves show low role acceptance; Carron and Spink place role clarity and role acceptance under group structure.",
+   "Norms are also a group-structure strategy, and better communication norms might reduce arguing, but they don't resolve who is responsible for what or help reserves see their contribution.",
+   "Shared goals are a group-process strategy that can build commitment, but they don't define individual responsibilities on the field or address how reserves understand their part.",
+   "Proximity is a group-environment strategy that can increase interaction, but more time together doesn't clarify responsibilities or build acceptance of limited playing time."
   ],
-  "takeaway": "Role ambiguity and role resentment call for group-structure strategies: clarify roles and build role acceptance.",
+  "takeaway": "Confusion about responsibilities and resentment of one's part on the team call for group-structure strategies: clarify roles and build role acceptance.",
   "refs": [
    "carron1993",
    "weinberg2024"
@@ -786,17 +786,17 @@
   },
   "stem": "Valentina, an elite karate athlete, competes in kata, where judges score the form, shape, and precision of her movements. She uses imagery only from an internal perspective, 'through my own eyes,' and wants imagery to help her refine the body lines the judges see. Which adjustment is best supported by imagery research?",
   "options": [
-   "Drop the kinesthetic feel so that she can concentrate on visual detail alone",
-   "Keep using only an internal perspective, since it is the more effective viewpoint",
-   "Switch to motivational imagery of the judges awarding her high scores",
-   "Add external-perspective imagery to view her form while keeping the feel of each move"
+   "Add detailed kinesthetic cues to her internal imagery to sharpen the feel of each stance",
+   "Slow her internal imagery so she can examine each movement before real-time runs",
+   "Watch video of top kata athletes in place of part of her imagery practice",
+   "Add external-perspective imagery of her form while keeping the feel of each move"
   ],
   "answer": 3,
   "rationales": [
-   "Kinesthetic feel is valuable and can be combined with an external visual perspective; removing it reduces the functional equivalence of her imagery.",
-   "Neither perspective is universally superior; the best choice depends on the task and the athlete, and her form-focused goal favors adding an external view.",
-   "Outcome images of high scores may motivate, but they won't help her refine movement form.",
-   "Research (e.g., Hardy and colleagues) suggests external visual imagery benefits form-based skills in which body shape matters, and kinesthetic imagery can be combined with either visual perspective; PETTLEP likewise treats perspective as a choice matched to the task."
+   "Kinesthetic detail is valuable, but staying with an internal view alone gives her no visual information about the body lines the judges score.",
+   "Slow-motion imagery can help examine technique, but it keeps her internal viewpoint, so it doesn't let her see her form, and it departs from real-time timing.",
+   "Observing skilled performers helps learning, but it shows other athletes' form rather than her own, and replacing imagery with video doesn't improve how she images.",
+   "Imagery research (e.g., Hardy and colleagues) suggests external visual imagery benefits form-based skills in which body shape matters, and kinesthetic imagery can be combined with either visual perspective; PETTLEP likewise treats perspective as a choice matched to the task."
   ],
   "takeaway": "Match imagery perspective to the task: external visual imagery helps form-based skills, and kinesthetic feel can accompany either perspective.",
   "refs": [
@@ -821,17 +821,17 @@
   },
   "stem": "During guided imagery, Brianna, a 16-year-old softball pitcher, keeps 'seeing' her pitches sail high even when she tries to picture them hitting the catcher's mitt. She is growing frustrated and says imagery 'just makes it worse.' What is the most appropriate way for the consultant to proceed?",
   "options": [
-   "Shift her to physical practice only until her pitching mechanics improve",
-   "Have her rewind and replay the image correctly, starting with simple scenes",
-   "Have her keep imagining the high pitches until they no longer bother her",
-   "Assign longer imagery sessions so that the correct images eventually take over"
+   "Pause imagery and show her video of her own good pitches to rebuild confidence",
+   "Have her stop, rewind, and replay the image correctly, starting with simple scenes",
+   "Switch her to an external perspective so she can watch the pitch path from outside",
+   "Lead a relaxation exercise first, then return to the same full pitching scenes"
   ],
   "answer": 1,
   "rationales": [
-   "Imagery ability is trainable; abandoning imagery for physical practice alone gives up on a skill she can improve with the right progression.",
-   "Controllability is a trainable dimension of imagery ability; stopping the image, rewinding, and replaying it correctly—beginning with simple, familiar scenes and progressing—builds control and avoids rehearsing errors.",
-   "Repeatedly rehearsing the error risks strengthening the faulty image, the opposite of what imagery training seeks.",
-   "Longer sessions of uncontrolled imagery add frustration and more rehearsal of the error; quality and control matter more than duration."
+   "Video of successful pitches can support confidence and can complement imagery, but pausing imagery doesn't build the controllability she lacks.",
+   "Controllability is a trainable imagery skill: stopping, rewinding, and replaying the image correctly, starting with simple, easy-to-control scenes and progressing gradually, builds control; slow-motion replays or pairing imagery with physical rehearsal or video can also help.",
+   "Changing perspective doesn't give her more control over the image; the errant pitch would likely appear from either viewpoint.",
+   "Relaxation before imagery can improve focus, but returning to the same complex scenes without a strategy for correcting the image leaves the control problem unaddressed."
   ],
   "takeaway": "When images go wrong, stop, rewind, and replay correctly, and build controllability with simple scenes first.",
   "refs": [
@@ -854,19 +854,19 @@
    "level": "elite",
    "delivery": "individual"
   },
-  "stem": "Marcus, a wheelchair basketball player on a national development squad, says his imagery of free throws is 'like watching a silent movie—I see it, but I don't feel anything.' The consultant's current script describes only what he would see on the court. Which revision to the script is most likely to help?",
+  "stem": "Lucan, a wheelchair basketball player on a national development squad, says his imagery of free throws is 'like watching a silent movie—I see it, but I don't feel anything.' The consultant's current script describes only what he would see on the court. Which revision to the script is most likely to help?",
   "options": [
    "Add his physical and emotional responses, like arm drive and quiet confidence",
-   "Add more visual detail about the arena's colors, lighting, signage, and crowd",
-   "Shorten the script to a single sentence so he can recall it quickly",
-   "Have him image the shot as a spectator would see it from the stands"
+   "Add more visual detail about the arena's lighting, signage, and crowd",
+   "Add his coach's spoken reminders about elbow position at each step of the shot",
+   "Record the script in his own voice so that it sounds more familiar and personal"
   ],
   "answer": 0,
   "rationales": [
-   "Lang's bioinformational theory and PETTLEP's functional-equivalence principle both indicate that including response propositions—muscle sensations, breathing, and emotional reactions such as calm confidence—makes imagery more vivid and effective than scene detail alone.",
-   "More visual detail adds stimulus information, but his problem is the missing kinesthetic and emotional response components.",
-   "A one-line script strips out the sensory detail needed to build vividness; length isn't his problem.",
-   "A spectator's view moves the image further from his own experience of shooting and does nothing to add the feel he says is missing."
+   "Lang's bioinformational theory and PETTLEP both emphasize response propositions—physical and emotional reactions—not just stimulus details; adding sensations such as arm drive and feelings such as quiet confidence makes imagery more vivid and functionally equivalent.",
+   "More visual detail adds stimulus propositions, but his script already describes what he sees; he lacks the feel of the shot.",
+   "Technical reminders add auditory content but describe what to do rather than what he feels, so the imagery would still lack bodily and emotional sensation.",
+   "A familiar voice can make a recording more engaging, but if the script still describes only what he sees, he will still feel nothing."
   ],
   "takeaway": "Effective imagery scripts include response propositions—what the performer feels physically and emotionally—not just what they see.",
   "refs": [
@@ -889,19 +889,19 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "Before every competition, Theo, a 15-year-old diver, tells himself, 'I always mess up my reverse dive at big meets.' His meet records show he has performed it cleanly in four of his last six meets. Theo and the consultant have agreed to work on this self-talk. Which approach best reflects cognitive restructuring?",
+  "stem": "Before every competition, Arlo, a 15-year-old diver, tells himself, 'I always mess up my reverse dive at big meets.' His meet records show he has performed it cleanly in four of his last six meets. Arlo and the consultant have agreed to work on this self-talk. Which approach best reflects cognitive restructuring?",
   "options": [
-   "Repeat 'I am the best diver here' to himself before each dive",
-   "Say 'stop' to himself whenever the thought appears and then move on",
-   "Test the thought against his records and write a realistic replacement",
-   "Avoid thinking about the reverse dive until he is standing on the board"
+   "Replace it with an affirmation he repeats, such as 'I nail my reverse dive'",
+   "Say 'stop' when the thought appears, then shift to a cue about his takeoff",
+   "Compare the thought with his meet records and write a realistic replacement",
+   "Notice the thought and let it pass without arguing with it, then step up to dive"
   ],
   "answer": 2,
   "rationales": [
-   "Unrealistic affirmations are often not believed and can backfire when they clash with how the athlete sees himself.",
-   "Thought-stopping alone interrupts the thought but leaves nothing productive in its place; restructuring goes further by building a believable alternative.",
-   "Cognitive restructuring identifies an unhelpful thought, evaluates it against evidence (his records contradict 'always'), and replaces it with a realistic, task-focused statement he can rehearse.",
-   "Avoiding the thought is suppression, which tends to make it more intrusive."
+   "An affirmation he doesn't yet believe skips the evaluation step; restructuring tests the original thought first so the replacement is credible.",
+   "Thought-stopping with a task cue interrupts the thought but doesn't examine or change the belief behind it.",
+   "Cognitive restructuring identifies an unhelpful thought, evaluates it against evidence—here, four clean dives in six meets—and replaces it with a realistic, constructive statement (Beck).",
+   "This is cognitive defusion, an acceptance-based technique; it changes his relationship to the thought rather than testing its content, so it isn't restructuring."
   ],
   "takeaway": "Restructuring tests unhelpful thoughts against evidence and replaces them with realistic, constructive statements.",
   "refs": [
@@ -924,19 +924,19 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "The consultant gave Nadia, a collegiate high jumper, the cue word 'focus' to use during her approach. After two weeks, she reports that it 'doesn't really mean anything' to her. Her coach says her main technical fault is cutting the curve of her approach too early. What is the best next step?",
+  "stem": "The consultant gave Ines, a collegiate high jumper, the cue word 'focus' to use during her approach. After two weeks, she reports that it 'doesn't really mean anything' to her. Her coach says her main technical fault is cutting the curve of her approach too early. What is the best next step?",
   "options": [
-   "Pick a more forceful generic cue for her, such as 'attack,' to try out next",
-   "Work with her and her coach to create a brief cue linked to running the curve",
-   "Have her repeat 'focus' more often so that the word becomes automatic",
-   "Drop cues and have her consciously monitor each step during the approach"
+   "Invite her to pick a motivational cue, such as 'explode,' to energize her approach",
+   "Work with her and her coach on a short cue for running the full curve, like 'lean in'",
+   "Have her coach call out a cue from the apron as she enters the curve on each jump",
+   "Give her three technical cues covering the approach, plant, and takeoff to rotate"
   ],
   "answer": 1,
   "rationales": [
-   "Another generic cue chosen for her repeats the original problem: it isn't meaningful to her or tied to her technical need.",
-   "Effective cue words are short, meaningful to the athlete, and linked to a specific task element; creating the cue with her, informed by the coach's technical input, builds ownership and relevance, and she should practice it in training before competition.",
-   "Repetition doesn't make a meaningless cue useful; the cue needs content that directs attention to the relevant element.",
-   "Consciously monitoring every step of a fast, well-learned skill tends to disrupt it; a single relevant cue is more effective in the moment."
+   "Her own choice of wording helps, but a motivational cue targets effort rather than the technical fault her coach identified.",
+   "Effective cue words are brief, personally meaningful, and tied to the key task element; developing one with her and her coach targets the curve fault and gives her ownership.",
+   "Coach prompts can help during learning, but they create reliance on external cues and don't give her self-talk she can use in competition.",
+   "Several rotating cues overload attention during a fast approach and dilute focus on the one fault that matters most."
   ],
   "takeaway": "Develop cue words with the performer: brief, personally meaningful, and tied to the key task element.",
   "refs": [
@@ -961,17 +961,17 @@
   },
   "stem": "Over six weeks, the consultant has taught Odalys, a professional opera singer, full progressive muscle relaxation: tensing and releasing 16 muscle groups in a 25-minute session. She can now relax deeply at home but says she can't do 'all of that' backstage between scenes. What is the most appropriate next step in her training?",
   "options": [
-   "Move to shortened forms: fewer muscle groups, release-only, and a cue word",
-   "Continue full sessions until she can complete all 16 groups in five minutes",
-   "Switch to imagery, since PMR does not transfer well to performance settings",
-   "Do the full 25-minute session in her dressing room before every show"
+   "Move to shorter forms: fewer muscle groups, release-only, and a cue word",
+   "Switch to slow breathing backstage and keep full PMR as her home practice",
+   "Record a 10-minute PMR script that she can play on headphones in the wings",
+   "Do the full session in her dressing room before the show, then rely on its carryover"
   ],
   "answer": 0,
   "rationales": [
-   "PMR training in the Jacobson tradition progresses from full tense–release sessions to abbreviated forms—combined muscle groups, release-only, and cue-controlled relaxation—so the relaxation response can be triggered quickly in performance settings.",
-   "Racing through the full protocol defeats its purpose; the standard progression uses abbreviated techniques instead.",
-   "PMR does transfer when it is progressed to shortened, cue-controlled forms; abandoning it discards six weeks of learning.",
-   "A long, deep relaxation session right before performing is impractical backstage and may leave her under-activated for the stage."
+   "PMR is designed to progress from full tense–release practice to abbreviated forms (fewer muscle groups, release-only, then cue-controlled relaxation) so the skill can be used in seconds during performance (Jacobson; later applied adaptations).",
+   "Breathing is useful, but abandoning her PMR progression wastes six weeks of skill-building that can be condensed into a backstage tool.",
+   "A shorter recording is still too long and equipment-dependent for the brief gaps between scenes, and it skips the cue-controlled stage.",
+   "Relaxation before the show fades over a long performance, and she still has no brief tool for the moments between scenes."
   ],
   "takeaway": "Progress PMR from full tense–release sessions to abbreviated, release-only, and cue-controlled forms usable in performance.",
   "refs": [
@@ -994,19 +994,19 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "After eight weeks of HRV biofeedback, Callum, a professional golfer, reliably produces a smooth, high-amplitude heart rhythm while watching the screen during office sessions. On the course, he says he 'can't get there' without the display in front of him. Which next step is most appropriate?",
+  "stem": "After eight weeks of HRV biofeedback, Fergus, a professional golfer, reliably produces a smooth, high-amplitude heart rhythm while watching the screen during office sessions. On the course, he says he 'can't get there' without the display in front of him. Which next step is most appropriate?",
   "options": [
-   "Have him check a heart-rate app on his phone between shots during tournament rounds",
-   "Increase the length of his office sessions so that the skill becomes stronger",
-   "Conclude that biofeedback is a poor fit for him and move on to another skill",
-   "Fade the display in sessions, then practice the breathing without it on the course"
+   "Have him wear a heart-rate monitor on the course and check it between shots",
+   "Add more office sessions with the display, then retest him on the course",
+   "Teach him a different self-regulation skill that doesn't rely on equipment",
+   "Fade the display during sessions, then practice the breathing on the course"
   ],
   "answer": 3,
   "rationales": [
-   "Checking an app between shots keeps him dependent on external feedback and adds a distraction to his round.",
-   "More sessions with constant feedback don't solve the transfer problem; reducing reliance on the display does.",
-   "He has learned the skill; the issue is transfer, which is addressed by fading feedback rather than abandoning the method.",
-   "Biofeedback is a training aid whose goal is self-regulation without the device, so feedback is gradually faded and the paced-breathing skill is practiced first without the display and then in increasingly realistic settings."
+   "Checking a monitor between shots keeps him dependent on external feedback and adds a distraction during play.",
+   "More sessions with constant feedback strengthen the skill only while he sees the display, which is the dependency he already shows.",
+   "The skill he has learned is sound; it simply hasn't been transferred, so starting over wastes eight weeks of progress.",
+   "Biofeedback is meant as temporary scaffolding: gradually fading the display builds internal awareness of the target state, and practicing the paced breathing on the course supports transfer to performance (Lehrer and colleagues)."
   ],
   "takeaway": "Biofeedback is scaffolding: fade the display so the self-regulation skill transfers to performance.",
   "refs": [
@@ -1020,7 +1020,7 @@
   "scored": true,
   "domain": "IV",
   "kg": "I",
-  "topic": "Pressure training through simulation",
+  "topic": "Quiet eye training for aiming",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -1029,21 +1029,21 @@
    "level": "professional",
    "delivery": "team"
   },
-  "stem": "A professional men's soccer club wants players better prepared for penalty shootouts. Players currently take penalties at the end of training with no consequences or audience, and their conversion rate in matches is far lower than in practice. Which approach should the consultant recommend to the coaching staff?",
+  "stem": "A professional women's basketball team's free-throw percentage drops late in close games. With the players' agreement, the performance staff recorded eye tracking during pressured free-throw drills and found that the less accurate shooters glance between the backboard, the ball, and the hoop, settling their gaze on a target only briefly before they release. Which training approach do these findings most directly support?",
   "options": [
-   "Keep penalty practice relaxed so players build confidence before facing pressure",
-   "Add graded pressure—consequences, observers, fatigue, noise—while players use routines",
-   "Simulate full match-level pressure, with crowds and stakes, from the first session",
-   "Tell players that shootouts are largely luck so they feel less responsible"
+   "Add graded pressure to free-throw practice while players keep their current routine",
+   "Lengthen a steady final gaze on one precise spot before and through the release",
+   "Teach instructional self-talk about elbow alignment for players to use at the line",
+   "Have players image successful free throws from an external perspective before games"
   ],
   "answer": 1,
   "rationales": [
-   "Low-pressure practice builds familiarity but doesn't prepare players to execute and cope when stakes are high, which fits the gap between practice and match conversion.",
-   "Pressure training progressively adds stressors such as consequences, evaluation, fatigue, and noise so players learn to apply coping skills and routines in representative conditions; practicing under mild simulated anxiety has been shown to protect performance under later pressure.",
-   "Starting at full match-level pressure can overwhelm players before coping skills are established; pressure should be increased gradually.",
-   "Framing outcomes as luck lowers perceived control and gives players no skills for performing under pressure."
+   "Pressure training helps performers adapt to stress, but the data point to a specific gaze-control problem that practicing under pressure with the same routine wouldn't correct.",
+   "The quiet eye (Vickers) is the final fixation on a target before movement begins; longer, steadier quiet eye periods distinguish accurate shooters and are more robust under pressure, and quiet eye training has improved free-throw accuracy, so the gaze findings point directly to it.",
+   "A technical cue can help mechanics, but it doesn't change where or how long players look, and an inward focus on mechanics can disrupt a well-learned skill under pressure.",
+   "Imagery may build confidence and rehearse the shot, but it doesn't train the visual attention problem the eye tracking revealed."
   ],
-  "takeaway": "Prepare performers for pressure by progressively simulating it in practice while they apply their coping skills.",
+  "takeaway": "When gaze data show a brief, unstable final fixation in an aiming task, quiet eye training is the targeted intervention.",
   "refs": [
    "williams2020",
    "weinberg2024"
@@ -1055,33 +1055,33 @@
   "scored": true,
   "domain": "IV",
   "kg": "I",
-  "topic": "Building confidence through mastery",
+  "topic": "Centering at the start gate",
   "cognitive": "application",
-  "difficulty": 1,
+  "difficulty": 2,
   "format": "vignette",
   "context": {
    "setting": "individual-sport",
    "level": "youth",
    "delivery": "individual"
   },
-  "stem": "Eli, a 12-year-old BMX rider, has the physical ability to clear a new tabletop jump but has refused to try it for three weeks, saying, 'I just don't believe I can.' His coach has repeatedly told him he's ready. Drawing on self-efficacy theory, what should the consultant suggest the coach do?",
+  "stem": "Eli, a 12-year-old BMX racer, says that once he rolls into the start gate, his legs feel shaky, his thoughts jump to the riders beside him, and he is often late out of the gate. He has only a few seconds between setting his pedal and the start cadence. Which technique best fits this situation?",
   "options": [
-   "Have him watch videos of professional riders landing much bigger jumps",
-   "Tell him more often and more forcefully that he is ready to try the jump",
-   "Break the jump into progressions, starting on a ramp he already clears",
-   "Set a firm deadline after which he must attempt the full jump at practice"
+   "A short muscle-relaxation sequence he runs through while he waits in the gate",
+   "Imagery of the whole lap, from the gate drop to the finish, before each moto",
+   "A one-breath centering routine that ends on a start cue word, such as 'snap'",
+   "Counting his breaths slowly so that his mind stays off the riders beside him"
   ],
   "answer": 2,
   "rationales": [
-   "Vicarious experience is most powerful when the model is similar to the observer; professionals clearing much bigger jumps are dissimilar models.",
-   "Verbal persuasion is a weaker source of efficacy, and the coach has already relied on it without success.",
-   "Performance accomplishments are the strongest source of self-efficacy (Bandura); graded progressions give him a string of successful experiences that build belief toward the full jump.",
-   "Forcing an attempt on a deadline adds pressure and risk without building the belief he lacks."
+   "Muscle relaxation can ease tension, but even a short sequence takes longer than the few seconds he has and doesn't direct his attention to the start.",
+   "Imagery before the moto can help preparation, but it happens away from the gate and doesn't give him a tool for the shaky legs and drifting thoughts he feels once he is in it.",
+   "Centering (Nideffer) is a brief technique: one slow diaphragmatic breath with attention on the body's center, which releases tension, followed by a task-relevant cue that narrows attention onto the start; it fits his few seconds and targets both his physical and attentional symptoms.",
+   "Counting breaths may calm him and keep his mind off rivals, but it leaves his attention on counting rather than on the cadence and the start."
   ],
-  "takeaway": "Build confidence mainly through graded mastery experiences; persuasion and dissimilar models are weaker sources.",
+  "takeaway": "Centering combines one calming breath with a task-relevant cue, making it suited to brief windows before explosive actions.",
   "refs": [
-   "bandura1977",
-   "weinberg2024"
+   "nideffer2001",
+   "williams2020"
   ]
  },
  {
@@ -1101,19 +1101,19 @@
   },
   "stem": "The director of a national swimming academy for 15- to 18-year-olds asks the consultant to help coaches 'build resilience' in their swimmers. Some coaches believe the best way is to criticize swimmers harshly and withhold reassurance so they 'toughen up.' Which recommendation is most consistent with research on developing resilience in performers?",
   "options": [
-   "Shield swimmers from setbacks until they are older and more mature",
-   "Pair progressively harder challenges with strong support and reflection",
-   "Support the coaches’ harsh approach, since adversity is what builds resilience",
-   "Deliver a single resilience lecture to the squad before championship season"
+   "Help coaches cut back criticism and focus feedback on praise so swimmers feel secure",
+   "Raise challenge in steps while coaches give strong support and debrief setbacks",
+   "Keep the coaches' current style, and teach swimmers coping skills in workshops",
+   "Set tougher sets and race simulations, with coaches stepping back so swimmers cope alone"
   ],
   "answer": 1,
   "rationales": [
-   "Removing challenge deprives swimmers of the experiences through which resilience develops.",
-   "Resilience research with elite performers (Fletcher & Sarkar) highlights challenge appraisal and perceived support; a facilitative environment pairs high challenge with high support and includes reflection that helps performers learn from setbacks.",
-   "Challenge without support creates an unrelenting environment that can harm rather than strengthen, and harsh treatment of minors raises welfare concerns.",
-   "A one-off lecture provides information but not the ongoing challenge-and-support experiences that build resilience."
+   "High support with little challenge creates a comfortable environment; swimmers may feel secure but won't develop the resilience that comes from facing demands.",
+   "Fletcher and Sarkar's work on resilience points to a facilitative environment that combines high challenge with high support, plus reflection on setbacks, so performers grow from adversity rather than being overwhelmed or sheltered.",
+   "Coping skills help, but teaching them while keeping a harsh, unsupportive climate leaves the environment that shapes resilience unchanged.",
+   "High challenge with little support creates an unrelenting environment, which tends to produce stress and burnout rather than resilience."
   ],
-  "takeaway": "Resilience grows in environments that combine high challenge with high support and reflection—not harshness or overprotection.",
+  "takeaway": "Resilience grows in environments that combine high challenge with high support and reflection—not harshness, overprotection, or challenge without support.",
   "refs": [
    "fletcher2012",
    "williams2020"
@@ -1136,17 +1136,17 @@
   },
   "stem": "Five days before the conference tournament, a collegiate men's basketball coach asks the consultant to introduce a new six-session mindfulness program to the team. The players have used a simple breathing-and-refocus routine all season and say it helps them. What is the best response?",
   "options": [
-   "Run all six sessions this week so the players have the full program for the tournament",
-   "Replace the breathing routine with mindfulness, since it is the better-supported method",
-   "Decline any involvement until the season ends to avoid distracting the players",
-   "Reinforce the familiar routine now and plan the new program for the off-season"
+   "Deliver the six sessions in condensed form across this week's practices",
+   "Offer the program this week as optional sessions for players who want extra tools",
+   "Ask the players to vote on whether to start the program before the tournament",
+   "Keep the current routine for the tournament and start the program in the off-season"
   ],
   "answer": 3,
   "rationales": [
-   "Cramming new skills into championship week adds cognitive load and leaves no time to overlearn them before competition.",
-   "Swapping a well-learned skill for an unpracticed one right before a major competition risks disrupting what already works; neither method is so superior that a late switch is warranted.",
-   "Withdrawing entirely forfeits the chance to support the team with brief refreshers of skills they already use.",
-   "Interventions should fit the time of season: new skills are best taught in the off-season or preseason, while the competitive peak calls for brief reinforcement of well-learned skills."
+   "Condensing a new program into the week before a major event gives players no time to learn it and risks disrupting the routine they trust.",
+   "Optional sessions sound low-risk, but they still introduce a new skill set right before the tournament, when attention should go to what players already use well.",
+   "Seeking players' input is good practice, but putting the timing to a vote shifts a professional judgment onto them and may still lead to new skills being introduced at the worst time.",
+   "New mental skills are best introduced in the off-season or preseason, when there's time to learn and practice them; close to major competition, consultants reinforce familiar skills that already work."
   ],
   "takeaway": "Teach new mental skills in the off-season or preseason; near major competition, reinforce what athletes already know.",
   "refs": [
@@ -1169,19 +1169,19 @@
    "level": "youth",
    "delivery": "team"
   },
-  "stem": "A recreational youth hockey association asks the consultant to teach relaxation skills to a group of 8- to 10-year-old players in a single 30-minute session at the rink. Coaches and several parents will watch. Which delivery approach best fits this group's developmental level?",
+  "stem": "A recreational youth hockey association asks the consultant to teach relaxation skills to a group of 8- to 10-year-old players, many of whom find it hard to sit still for long, in a single 30-minute session at the rink. Coaches and several parents will watch. Which delivery approach best fits this group's developmental level?",
   "options": [
-   "Explain the physiology of the stress response before teaching any technique",
-   "Lead a full 25-minute progressive muscle relaxation script in silence",
-   "Use short, playful, concrete activities, like 'robot versus spaghetti' muscles",
-   "Have each child set relaxation goals and track them in a written journal"
+   "A brief talk on how stress affects the body, then a 10-minute guided relaxation",
+   "A shortened muscle-relaxation script read calmly while players lie still on mats",
+   "Brief games, such as 'robot and spaghetti' muscles and balloon breathing",
+   "Simple relaxation goals plus a practice log for home that parents sign each night"
   ],
   "answer": 2,
   "rationales": [
-   "Detailed physiological explanations exceed most young children's attention and comprehension; a brief, simple explanation is enough.",
-   "A long, silent, adult-style PMR script is unlikely to hold an 8-year-old's attention.",
-   "Young children learn best through brief, concrete, game-like activities with vivid images and movement (tense like a robot, loose like cooked spaghetti), which fit their attention span and cognitive development.",
-   "Written goal tracking and journaling place literacy and self-monitoring demands better suited to older athletes."
+   "Even a brief explanation of stress physiology is abstract for this age, and a 10-minute passive exercise is long for restless young children.",
+   "Shortening the script helps, but lying still while listening is passive and hard for children who struggle to sit still.",
+   "Children this age learn best through brief, concrete, playful activities; contrasting tense 'robot' and loose 'spaghetti' muscles and using balloon breathing make relaxation tangible and keep them engaged.",
+   "Home practice and parent involvement can support learning later, but goal-setting and logs are not the best use of a single session with young children who first need to experience the skill."
   ],
   "takeaway": "Adapt delivery to the population: young children need brief, concrete, playful activities.",
   "refs": [
@@ -1206,17 +1206,17 @@
   },
   "stem": "With a collegiate soccer player's consent, the consultant is coordinating with the athletic trainer who oversees her ACL rehabilitation. She has already learned a breathing-and-cue relaxation skill with the consultant. The athletic trainer notices that she tenses and holds her breath during painful range-of-motion exercises. What is the best way for the consultant to support the rehabilitation sessions?",
   "options": [
-   "Attend every rehabilitation session to coach her through each exercise personally",
-   "Ask the athletic trainer to pause painful exercises until she feels less tense",
-   "Brief the athletic trainer on her cue so they can prompt it during exercises",
-   "Advise the athlete to skip the exercises that cause her the most tension"
+   "Attend her rehabilitation sessions for now to cue the skill during painful exercises",
+   "Suggest that the athletic trainer adjust the exercises to reduce her pain",
+   "Brief the athletic trainer on her cue so the trainer can prompt it during exercises",
+   "Teach her a healing imagery skill to use at home between rehabilitation sessions"
   ],
   "answer": 2,
   "rationales": [
-   "Attending every session is usually impractical and unnecessary; working through the athletic trainer integrates the skill into the setting where it's needed.",
-   "Exercise selection and progression are the athletic trainer's clinical decisions; the consultant shouldn't direct changes to the rehabilitation protocol.",
-   "Working through stakeholders—briefing the athletic trainer on her existing breathing cue so it can be prompted in context—extends the skill into rehabilitation while each professional stays within role, with the athlete's consent.",
-   "Advising her to skip prescribed exercises oversteps the consultant's scope and could harm her recovery."
+   "Attending sessions is resource-intensive and hard to sustain; the athletic trainer is already present at every session and is better placed to prompt the skill.",
+   "Modifying exercises is a clinical decision for the athletic trainer and medical team, outside the consultant's role.",
+   "Extending mental skills through stakeholders who are present—here the athletic trainer, with the athlete's consent—supports transfer of a skill she already has while each professional stays within role.",
+   "Healing imagery may support recovery, but it doesn't address the breath-holding and tension that occur during the exercises themselves."
   ],
   "takeaway": "Extend mental skills through stakeholders, such as athletic trainers, while each professional stays within role.",
   "refs": [
@@ -1241,17 +1241,17 @@
   },
   "stem": "During the second session of a mindfulness program for a company's leadership team, several executives say they are 'failing' because their minds keep wandering to email during the breathing practice. Some suggest dropping the practice altogether. How should the consultant respond during the debrief?",
   "options": [
-   "Agree to stop and switch to a structured time-management workshop instead",
+   "Shorten the practice to two minutes so their minds have less time to wander",
    "Explain that noticing the wandering and coming back is the practice itself",
-   "Encourage them to concentrate harder so their minds drift less during practice",
-   "Explain that frequent wandering shows the method doesn't suit busy leaders"
+   "Suggest they clear their inboxes before each session to remove the distraction",
+   "Invite them to try a guided body scan instead, since it gives the mind more to do"
   ],
   "answer": 1,
   "rationales": [
-   "Dropping the practice after one difficulty reinforces a misconception and abandons the agreed plan without evaluation.",
-   "In mindfulness training (e.g., Kabat-Zinn), wandering is expected; each time a person notices it and gently returns attention to the anchor is a repetition that strengthens attentional control, so normalizing this keeps participants engaged.",
-   "Pushing to concentrate harder reflects a control-based stance contrary to mindfulness and treats wandering as failure rather than as part of the practice.",
-   "Mind-wandering is universal; it doesn't indicate that mindfulness is unsuitable for this group."
+   "Shorter practices can help beginners, but cutting time to avoid wandering treats wandering as failure, the misunderstanding that is discouraging them.",
+   "In mindfulness training (Kabat-Zinn), noticing that the mind has wandered and gently returning to the anchor is the core skill; normalizing this reframes their 'failure' as successful practice.",
+   "Clearing inboxes may reduce one trigger, but minds wander regardless, and the suggestion implies wandering is a problem to eliminate.",
+   "A body scan is a valid mindfulness practice, but switching techniques implies wandering means the method is failing; the mind will wander in any practice."
   ],
   "takeaway": "In mindfulness practice, noticing the mind has wandered and returning to the anchor is the skill being trained.",
   "refs": [
@@ -1286,7 +1286,7 @@
    "Carron and Spink's framework places distinctiveness strategies—a group name, shirts, slogans—under group environment, an input that contributes to cohesion through group structure and group processes.",
    "Group processes involve sacrifice, interaction, and communication; a name, shirts, and slogans don't primarily target these.",
    "Group structure covers roles, norms, and leadership; the strategies described don't change roles or norms.",
-   "Goal setting is a group-process strategy, and the strategies described set no goals; they create a distinctive shared identity."
+   "Goals are not a separate component in Carron and Spink's framework; goal setting sits under group processes, and the strategies described set no goals—they create a distinctive shared identity."
   ],
   "takeaway": "Carron and Spink: group environment (distinctiveness, proximity) and group structure (roles, norms) feed group processes (goals, sacrifice, communication) that build cohesion.",
   "refs": [

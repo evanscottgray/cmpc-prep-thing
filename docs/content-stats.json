@@ -1,5 +1,4 @@
 {
-  "generatedAt": "2026-11-22",
   "items": 362,
   "pools": {
     "A": 115,
@@ -35,36 +34,36 @@
   },
   "cognitive": {
     "application": 284,
-    "analysis": 69,
-    "recall": 9
+    "analysis": 72,
+    "recall": 6
   },
   "difficulty": {
-    "1": 81,
-    "2": 239,
-    "3": 42
+    "1": 65,
+    "2": 254,
+    "3": 43
   },
   "format": {
     "vignette": 358,
     "direct": 4
   },
   "setting": {
-    "individual-sport": 130,
-    "team-sport": 116,
+    "individual-sport": 129,
+    "team-sport": 115,
     "business": 17,
     "tactical": 27,
     "esports": 18,
     "general": 9,
-    "para-sport": 16,
-    "performing-arts": 21,
+    "para-sport": 17,
+    "performing-arts": 22,
     "exercise-health": 8
   },
   "level": {
-    "collegiate": 99,
-    "elite": 50,
+    "collegiate": 98,
+    "elite": 51,
     "youth": 23,
     "professional": 70,
-    "adult": 57,
-    "adolescent": 40,
+    "adult": 58,
+    "adolescent": 39,
     "na": 7,
     "masters": 13,
     "recreational": 3
@@ -78,20 +77,23 @@
   },
   "cueing": {
     "n": 362,
-    "keyLongestPct": 18.2,
-    "keyShortestPct": 15.7,
-    "keyOnlyHedgedPct": 0,
-    "keyReferPct": 1.4,
-    "distractorReferPct": 5.5,
+    "keyLongestPct": 16.3,
+    "keyShortestPct": 22.9,
+    "keyOnlyHedgedPct": 0.3,
+    "keyReferPct": 0.8,
+    "distractorReferPct": 5,
     "negativeStemPct": 0,
     "vignettePct": 98.9,
-    "recallPct": 2.5,
+    "recallPct": 1.7,
     "answerPositions": [
       91,
-      88,
-      92,
-      91
-    ]
+      89,
+      93,
+      89
+    ],
+    "absolutesOnlyInDistractorsPct": 0,
+    "collaborativeOnlyKeyPct": 0,
+    "multistepOnlyKeyPct": 0
   },
   "drillCells": {
     "A": {

@@ -5,7 +5,7 @@
   "scored": true,
   "domain": "I",
   "kg": "L",
-  "topic": "Parent payer and minor client",
+  "topic": "Holding a parent sharing agreement",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -14,21 +14,21 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "A father contacts a consultant to arrange sessions for his 15-year-old daughter, Imani, a nationally ranked junior golfer. He will pay for the sessions and asks for a detailed summary by email after each meeting so he can \"stay on top of things.\" Imani has said she is willing to try consulting. Before the first individual session, what should the consultant do?",
+  "stem": "At intake, a consultant, 15-year-old golfer Odette, and her father agreed in writing that he would receive attendance and a brief monthly note on general progress, and that session content would stay private unless safety was at risk. After the fourth session, the father calls: Odette has been quiet after practices, and he asks what she has said about her swing coach. Nothing she has shared raises a safety concern. What should the consultant do?",
   "options": [
-   "Agree to the summaries, since the father is paying and gives legal consent for his daughter",
-   "Refuse to share anything with the father, since confidentiality belongs only to the athlete",
-   "Meet with Imani and her father together to agree on what will be shared and what stays private",
-   "Begin sessions with Imani and settle what to share with the father once rapport is established"
+   "Reassure him that nothing she has said is cause for worry, without giving any specifics",
+   "Give him a general sense of her views on the coach, since he is her legal guardian",
+   "Thank him for the concern, restate the agreement, and suggest he talk with Odette",
+   "Offer to raise his concern with her next session, then tell him how she responds"
   ],
   "answer": 2,
   "rationales": [
-   "A parent's permission is required for a minor, but agreeing to detailed session summaries without Imani's input would undercut her trust and make honest conversation unlikely. Paying for services does not entitle a parent to session content.",
-   "Parents of minors have legitimate interests, and often legal rights, to some information. A blanket refusal sets up conflict with the father instead of a clear, workable agreement.",
-   "With a third-party payer and a minor client, role and confidentiality are settled before services begin: who the client is, what the parent will receive (for example, attendance and general progress), what stays private, and the safety exceptions. Agreeing on this jointly, with the parent's permission and the athlete's assent, protects trust on both sides.",
-   "Leaving information-sharing undefined invites a breach of trust later, when the father's expectations collide with Imani's. Limits of confidentiality are clarified at the outset, not after the work is under way."
+   "Even a reassuring summary discloses session content: saying that nothing she said is worrying is itself a report on what she said. It also teaches the father that a worried call will earn an update outside the agreement.",
+   "Parental permission was needed to begin, but the father agreed at intake, with Odette's assent, that content would stay private. Passing on her views of the coach breaks that agreement and would likely end her openness in sessions.",
+   "Once a sharing agreement is in place with the parent's permission and the minor's assent, the consultant honors it consistently: acknowledging the father's concern, reminding him what he receives (attendance and the monthly note) and what stays private absent a safety concern, and encouraging him to talk with his daughter directly. Predictable boundaries keep the arrangement trustworthy for both of them.",
+   "Carrying his concern into the session and reporting her reaction back makes the consultant a go-between, and her response is itself session content. It also pressures Odette to account for herself to her father through the consultant."
   ],
-  "takeaway": "When a parent pays for a minor's sessions, agree on information-sharing and confidentiality limits with both of them before work begins.",
+  "takeaway": "Once parent and minor have agreed on what is shared, honor the agreement consistently, even when a worried parent asks for more.",
   "refs": [
    "aaspethics2024",
    "andersen2005"
@@ -49,19 +49,19 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Tomás, a collegiate rower, arrives for his first session and says, \"Coach told me I have to see you. Honestly, I'm not sure what we're supposed to do here.\" He is polite but guarded and keeps his answers short. The consultant wants to build a strong working alliance from the start. What is the most appropriate way to begin?",
+  "stem": "Henrik, a collegiate rower, arrives for his first session and says, \"Coach told me I have to see you. Honestly, I'm not sure what we're supposed to do here.\" He is polite but guarded and keeps his answers short. The consultant wants to build a strong working alliance from the start. What is the most appropriate way to begin?",
   "options": [
-   "Explain how consulting works and ask what Tomás himself would want to get from it",
-   "Ask the coach what Tomás needs to fix and build the first few sessions around that",
-   "Administer a mental skills inventory to pinpoint his weaknesses objectively",
-   "Teach a breathing skill right away so he experiences a quick, concrete benefit"
+   "Explain what consulting involves, then ask what Henrik would want to get out of it",
+   "Ask what the coach told him, then explore those concerns together to set a focus",
+   "Outline a few common mental skills and let Henrik choose one to start practicing",
+   "Have him complete a short intake questionnaire so the session can be tailored to him"
   ],
   "answer": 0,
   "rationales": [
-   "Bordin's working alliance rests on agreement about goals and tasks and on an emotional bond. For a coach-referred client, explaining the process and the consultant's role, then eliciting his own goals, turns him from a referred \"problem\" into an active collaborator.",
-   "The coach's perspective can be useful stakeholder input later, with Tomás's consent, but making the coach's agenda the plan casts the consultant as the coach's agent and undermines the athlete's ownership and trust.",
-   "Assessment follows rapport and expectation-setting. Leading with an inventory framed around weaknesses, before he understands why he is there or what the consultant does, is likely to increase his guardedness.",
-   "Delivering a technique before any goal is agreed skips the relationship-building step. A quick skill may be useful later, but it does not address his uncertainty about why he is in the room."
+   "Bordin's working alliance rests on agreement about goals and tasks plus an emotional bond. For a client who doesn't know why he is there, explaining the process and the consultant's role answers his actual question, and eliciting what he wants turns a referred athlete into an active collaborator.",
+   "Starting from the coach's concerns, however collaboratively, makes the coach's agenda the frame for the work and casts the consultant as the coach's agent. The coach's view can be gathered later, with Henrik's consent, once his own goals are on the table.",
+   "Offering a choice respects autonomy, but it picks tasks before any goal is agreed and before he understands what consulting is. In the working alliance, tasks follow from shared goals.",
+   "A questionnaire can be a useful part of assessment, but assessment follows rapport and expectation-setting. Handing a guarded, coach-sent athlete a form before explaining the process is likely to deepen his wariness."
   ],
   "takeaway": "With a referred client, explain the process and elicit the client's own goals first; the alliance starts with shared goals.",
   "refs": [
@@ -84,19 +84,19 @@
    "level": "collegiate",
    "delivery": "team"
   },
-  "stem": "A consultant is starting a season-long workshop series with a collegiate track and field team of 40 athletes. The coach has sent a roster listing each athlete's legal name. The consultant wants every athlete to feel respected from the first session and to be addressed correctly throughout the season. Which approach is best?",
+  "stem": "A consultant is starting a season-long workshop series with a collegiate track and field team of 40 athletes. The coach's roster lists each athlete's legal name. The consultant wants every athlete to be addressed by the name and pronouns they actually use, without anyone feeling pressed to disclose more than they want to. Which approach is best at the first session?",
   "options": [
-   "Use the roster names and let athletes correct the consultant individually",
-   "Ask the coach before the first session which athletes use pronouns other than he or she",
-   "Avoid using names and pronouns in sessions to prevent any mistakes",
-   "Share one's own name and pronouns and invite athletes to share theirs if they wish"
+   "Check with the coach beforehand, and use the names the coach says athletes go by",
+   "Open with a go-around in which each athlete states their name and pronouns",
+   "Have each athlete list a name and pronouns on the intake form everyone completes",
+   "Give your own name and pronouns, and invite athletes to share what they go by"
   ],
   "answer": 3,
   "rationales": [
-   "Legal names are not always the names people use. Waiting for corrections puts the burden on athletes and risks misnaming someone, or outing them, in front of teammates.",
-   "Asking the coach to identify athletes can out someone without their consent and treats some athletes as exceptions; the coach may also simply not know.",
-   "Avoidance erodes rapport rather than protecting it. Inclusive practice means learning and using people's names and pronouns correctly, not steering around them.",
-   "Modeling by sharing one's own name and pronouns, and inviting (not requiring) athletes to share the names and pronouns they use, signals respect and normalizes the practice without putting anyone on the spot. The consultant then uses what athletes share consistently."
+   "The coach may not know or may be wrong, and asking the coach to identify athletes who use another name can out someone without consent. It also singles some athletes out instead of offering everyone the same invitation.",
+   "A go-around normalizes sharing, but it requires every athlete to state pronouns in front of 39 teammates, which can pressure someone who is questioning or not ready to be out on this team.",
+   "Collecting names on a form is sensible, but making pronouns part of a form everyone must complete turns an invitation into a requirement. Some athletes may not want to put this in writing yet.",
+   "Modeling by sharing one's own name and pronouns, then inviting (not requiring) athletes to share the names and pronouns they use, signals respect and normalizes the practice without putting anyone on the spot. Because the roster shows legal names, the invitation covers names as well as pronouns, and the consultant then uses what athletes share consistently."
   ],
   "takeaway": "Model sharing your own name and pronouns and invite, without requiring, clients to share theirs; then use them consistently.",
   "refs": [
@@ -119,19 +119,19 @@
    "level": "professional",
    "delivery": "team"
   },
-  "stem": "A professional esports organization hires a consultant to run weekly sessions with its five-player roster; the head coach and general manager will receive a monthly update. At the first session, the players exchange glances when asked how they handle tilt, and one asks, \"Does this stuff get back to management?\" What should the consultant do next?",
+  "stem": "A professional esports organization hires a consultant to run weekly sessions with its five-player roster; the head coach and general manager will receive a monthly update on attendance and broad themes. At the first session, before any group norms have been discussed, the players exchange glances when asked how they handle tilt, and one asks, \"Does this stuff get back to management?\" What should the consultant do next?",
   "options": [
-   "Reassure the players that nothing said in team sessions will be shared with anyone",
-   "Explain what updates contain and set group norms together, including the right to pass",
-   "Continue the tilt discussion so the players see in practice that sharing is safe",
-   "Invite the general manager to the next session to confirm that sessions are confidential"
+   "Explain that updates cover only attendance and themes, then return to the tilt question",
+   "Describe what the updates contain, then agree on group norms, including the right to pass",
+   "Ask the players what they would want management to know, and shape the updates around it",
+   "Offer individual sessions for anything the players would rather not raise with teammates"
   ],
   "answer": 1,
   "rationales": [
-   "Promising that nothing will be shared is untrue: the consultant has agreed to monthly updates, and safety exceptions always apply. Overpromising now damages trust when the limits surface later.",
-   "Psychological safety is a shared belief that the group is safe for interpersonal risk-taking. It is built at the outset by being transparent about what leaves the room (for example, attendance and broad themes, not individual disclosures), co-creating norms, and making participation in personal sharing optional.",
-   "Pressing on ignores a direct question about boundaries. Players are unlikely to take interpersonal risks until they know where the information goes.",
-   "Bringing in the general manager adds the very power dynamic the players are worried about. Explaining the limits of confidentiality is the consultant's job."
+   "Answering the question accurately is a good start, but returning straight to tilt skips the group agreements that make interpersonal risk-taking feel safe. Players who just signaled discomfort still have no say in how the group will handle what they share.",
+   "Psychological safety, a shared belief that the group is safe for interpersonal risk-taking, is built at the outset by being transparent about what leaves the room and co-creating norms, including the option not to share personal material. With no norms yet in place, both steps come before the tilt discussion.",
+   "Inviting input sounds empowering, but the reporting terms were already agreed with the organization and can't be redesigned by the players on the spot. Promising to reshape them sets up an expectation the consultant may not be able to keep.",
+   "Individual sessions may be valuable, but offering them sidesteps the question about management and implies that team sessions aren't safe for honest discussion. The group still needs clarity and norms of its own."
   ],
   "takeaway": "Psychological safety in team work starts with transparent limits of confidentiality and co-created group norms, including the right to pass.",
   "refs": [
@@ -154,19 +154,19 @@
    "level": "masters",
    "delivery": "individual"
   },
-  "stem": "Gloria, a 52-year-old age-group triathlete, books a session nine days before her first full-distance race. She says she has \"zero mental game\" and wants the consultant to \"fix her head\" in one meeting. She has never used any mental skills before. How should the consultant respond to her request?",
+  "stem": "Marguerite, a 52-year-old age-group triathlete, books a session nine days before her first full-distance race. She says she has \"zero mental game,\" has never practiced any mental skills, and wants the consultant to \"fix her head\" in this one meeting. How should the consultant respond to her request?",
   "options": [
-   "Teach several new skills in the one session so she can pick what to use on race day",
-   "Advise her that real change takes several months and that she should postpone the race",
-   "Explain that skills grow with practice and agree on one or two realistic race aims",
-   "Decline to start until after the race, when there is enough time for a full program"
+   "Teach a complete pre-race routine today, and ask her to rehearse it daily until the race",
+   "Assess her skills with a brief questionnaire so the session targets her weakest area",
+   "Explain that mental skills build with practice, and agree on one or two aims for this race",
+   "Suggest she treat this race as a learning experience and begin skills training after it"
   ],
   "answer": 2,
   "rationales": [
-   "Packing several unfamiliar skills into one meeting just before a major event risks confusion and overload, and leaves her choosing untested tools under race pressure.",
-   "Whether to race is Gloria's decision, and the advice oversteps. Brief, focused work can still be useful in nine days.",
-   "Part of establishing the relationship is explaining the consulting process honestly: mental skills are learned and need practice. With limited time, the consultant and client agree on a small number of usable aims (for example, a simple race plan built on process cues) while framing longer-term work as an option afterward.",
-   "Refusing leaves a client with a legitimate, workable request unsupported. Short-term, goal-focused work is within scope as long as expectations are realistic."
+   "Daily rehearsal is the right idea, but a complete routine built from scratch in one meeting is a lot to absorb nine days out, and it goes along with the expectation that a single session can fix things. Her expectations need to be addressed first.",
+   "A brief assessment can inform a plan, but it doesn't respond to the unrealistic expectation she has stated, and targeting her weakest area nine days out invites more change than she can consolidate before the race.",
+   "Establishing the relationship includes honest expectations about the process: mental skills are learned and need practice. With limited time, consultant and client agree on a small number of usable aims (for example, a simple race plan built on process cues) and frame longer-term work as an option afterward.",
+   "Framing the race as a learning experience may suit some athletes, but deferring all work leaves a client with a legitimate, workable request unsupported. Short, focused work is within scope when expectations are realistic."
   ],
   "takeaway": "Set honest expectations about how mental skills develop, then agree on goals that fit the time available.",
   "refs": [
@@ -189,19 +189,19 @@
    "level": "adult",
    "delivery": "organizational"
   },
-  "stem": "A fire chief introduces a consultant to an engine company by saying, \"They're here to figure out which of you is cracking under the pressure.\" Several firefighters fold their arms. The consultant's agreement with the department is to provide voluntary performance and stress-management support, with only aggregate attendance reported to the chief. What should the consultant do?",
+  "stem": "A fire chief introduces a consultant to an engine company by saying, \"They're here to figure out which of you is cracking under the pressure.\" Several firefighters fold their arms. The consultant's agreement with the department is to provide voluntary performance and stress-management support, with only aggregate attendance reported to the chief, and few crew members are expected to book individual sessions at first. What should the consultant do?",
   "options": [
-   "Respectfully correct the framing by describing the real role, voluntary participation, and reporting",
-   "Let the introduction pass and earn the crew's trust gradually through the quality of the later sessions",
-   "Raise the issue privately with the chief afterward and leave the crew's impression in place for now",
-   "Make a light joke about the chief's comment to ease the tension and then begin the planned session"
+   "Correct the framing now by describing the actual role, voluntary contact, and reporting",
+   "Ask the chief to restate the program's purpose, since the description came from him",
+   "Invite the crew to voice their concerns first, then explain the role in response to them",
+   "Begin the planned session and clarify the role with each firefighter at individual check-ins"
   ],
   "answer": 0,
   "rationales": [
-   "The crew has just been told the consultant is an evaluator, which would make any honest participation feel risky. Clarifying the role, the voluntary nature of individual contact, and exactly what goes back to the chief, right away and respectfully, is the foundation of trust with organizational clients.",
-   "Trust is unlikely to develop while the crew believes the consultant is screening them. Silence lets an inaccurate and threatening role definition stand.",
-   "A private conversation with the chief is worthwhile, but not as a substitute. The crew needs accurate information about the consultant's role before deciding whether to engage.",
-   "Humor may ease the moment but leaves the actual role unclear. It can also read as dismissing the crew's concern or undermining the chief publicly."
+   "The crew has just been told the consultant is an evaluator, which makes honest participation feel risky. Clarifying the role, the voluntary nature of individual contact, and exactly what goes back to the chief, right away and respectfully, is the foundation of trust with organizational clients; a private word with the chief afterward can supplement this but not replace it.",
+   "Handing the correction back to the chief risks a second inaccurate description and signals that the consultant's role is whatever the chief says it is. Explaining the role and its limits is the consultant's own responsibility.",
+   "Inviting concerns is usually respectful, but the crew is reacting to inaccurate information. Asking firefighters to speak up while they believe they are being screened puts them at risk; they need accurate facts first.",
+   "Few firefighters will come to individual check-ins while they believe the consultant is screening them, so the correction may never reach most of the crew. Role clarity is needed in the room, now."
   ],
   "takeaway": "When a stakeholder misstates your role, correct it with the clients promptly and respectfully; role clarity precedes trust.",
   "refs": [
@@ -226,17 +226,17 @@
   },
   "stem": "The head coach of a professional women's soccer club hires a consultant to work with the squad. In the planning meeting, the coach says, \"After you meet with each player, tell me who's mentally tough enough to start in big games.\" The players have not yet been told anything about the consultant's role. What should the consultant do first?",
   "options": [
-   "Agree, since the club is the client and the coach decides how information is used",
-   "Settle with the coach what will and won't be shared, and tell players before any sessions",
-   "Meet each player first and decide afterward what is appropriate to pass along",
-   "Decline the contract, since any reporting to a coach violates athlete confidentiality"
+   "Agree to share overall impressions of squad readiness, and keep individual comments private",
+   "Settle with the coach what will and won't be shared, then tell the players before any sessions",
+   "Ask the players at the first team meeting what they would be comfortable having shared",
+   "Offer a validated mental toughness assessment the coach can use in selection decisions"
   ],
   "answer": 1,
   "rationales": [
-   "Even when the organization is the client, players who are being evaluated must know that before they speak. Agreeing to covert selection judgments would turn confidential sessions into an assessment the players never consented to.",
-   "In third-party arrangements the consultant clarifies at the outset who the client is, what role the consultant will play (for example, declining to provide selection judgments from individual sessions), and where confidentiality ends, and then makes sure the players hear the same information before any disclosures happen.",
-   "Deciding after the sessions means players disclose without knowing where their words may go. Limits of confidentiality are set before services begin.",
-   "Some information-sharing with a coach can be legitimate when everyone understands and agrees to it in advance. Refusing outright is unnecessary when the role can be negotiated."
+   "A squad-level summary sounds like a reasonable compromise, but it leaves the coach's request for selection input unresolved and the players uninformed about what leaves the room. Limits of confidentiality are negotiated with the coach and communicated to players before services begin.",
+   "In third-party arrangements the consultant clarifies at the outset who the client is, what role the consultant will play (for example, declining to provide selection judgments from individual sessions), and where confidentiality ends, then makes sure the players hear the same terms before any disclosures happen.",
+   "Players' input matters, but they can't settle a disagreement that exists between the consultant and the coach who hired them. Raising it with players first exposes them to a conflict the consultant hasn't yet resolved with the coach.",
+   "Testing for selection is a different role from confidential support, and mixing the two would make players guarded in sessions. Few sport psychology measures are designed or validated for selection decisions, so the offer adds an evidence problem to a role problem."
   ],
   "takeaway": "When a coach or organization pays, negotiate role and information-sharing before contact with athletes, and make sure the athletes hear it too.",
   "refs": [
@@ -259,19 +259,19 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Wen, a conservatory pianist, self-refers for \"stage nerves.\" In the first session, the consultant, who has had success with a structured biofeedback program, begins describing it in detail. Wen listens quietly, then says the question really on her mind is whether she even wants a performance career. Using Bordin's model of the working alliance, what should the consultant do next?",
+  "stem": "Linnea, a conservatory pianist, self-refers for \"stage nerves.\" In the first session, the consultant, who has had success with a structured biofeedback program, begins describing it in detail. Linnea listens quietly, then says the question really on her mind is whether she even wants a performance career. Using Bordin's model of the working alliance, what should the consultant do next?",
   "options": [
-   "Continue presenting the biofeedback program, since it addresses the concern Wen named",
-   "Refer Wen to a career counselor, since career direction lies outside performance work",
-   "Assign biofeedback practice now and explore her career doubts once the nerves ease",
-   "Explore what Wen wants from consulting and agree on goals before choosing any tasks"
+   "Reflect her uncertainty, then offer biofeedback to ease her nerves while she decides",
+   "Set the program aside, and refer her to a career counselor for that question",
+   "Finish the program overview, then return to her career question before the session ends",
+   "Set the program aside and work out with Linnea what she wants from consulting"
   ],
   "answer": 3,
   "rationales": [
-   "Wen has just signaled that her goals are not yet settled. Pressing ahead with a consultant-chosen method risks an alliance built on the consultant's agenda rather than hers.",
-   "Doubts about continuing to perform are closely tied to motivation and meaning, which a consultant can explore. A referral may make sense later if specialized career services are needed, but it is premature now.",
-   "Assigning tasks while setting aside what she has named as most important skips agreement on goals, and she is unlikely to commit to tasks that serve a goal she has not chosen.",
-   "In Bordin's model, the alliance rests on agreement on goals, agreement on the tasks that serve them, and an emotional bond. Tasks only make sense once goals are agreed, so the consultant explores and negotiates goals with Wen first."
+   "Reflecting her uncertainty is a good start, but offering the consultant's method while her goals are unsettled puts tasks ahead of goals. She is unlikely to commit to a task that serves a goal she hasn't chosen.",
+   "Pausing the program is right, but doubts about continuing to perform are tied to motivation and meaning, which a consultant can explore with her. Referring the question out before any goals are discussed is premature and hands off the very issue she has said matters most; a career referral may help later if specialized services are needed.",
+   "Coming back to her question is better than ignoring it, but finishing the overview first signals that the consultant's agenda comes first. In Bordin's terms, goals need to be agreed before tasks are presented.",
+   "In Bordin's model, the alliance rests on agreement on goals, agreement on the tasks that serve them, and an emotional bond. Linnea has just shown that her goals are unsettled, so the consultant pauses the method and explores and negotiates goals with her before choosing any tasks."
   ],
   "takeaway": "Agree on goals before selecting tasks; a technique the client hasn't connected to her own goal weakens the alliance.",
   "refs": [
@@ -296,17 +296,17 @@
   },
   "stem": "A consultant with no para-sport experience accepts a contract with a national wheelchair rugby squad. Athletes compete under a classification system based on functional impairment, and several have recently been reclassified, which affects which lineups the coach can field. Before the first team meeting, what is the best way for the consultant to prepare?",
   "options": [
-   "Learn how classification works in the sport and plan to ask athletes what they want understood",
-   "Plan to open by asking each athlete how they acquired their impairment, to build rapport",
-   "Prepare the same workshop used with able-bodied teams, since mental skills are universal",
-   "Prepare a session on coping with reclassification, since it is likely the squad's main stressor"
+   "Learn how classification works, and plan to ask athletes what they want understood",
+   "Ask the coach to brief the consultant on each athlete's impairment and classification",
+   "Read up on classification rules, then prepare a session on coping with reclassification",
+   "Prepare the standard workshop, and adapt it as athletes raise sport-specific issues"
   ],
   "answer": 0,
   "rationales": [
    "Competent, culturally humble practice means learning the sport's context, including how classification shapes selection, lineups, and athletes' experiences, while treating athletes as the experts on their own lives and needs rather than assuming impairment is the focus.",
-   "Opening with how someone acquired an impairment is intrusive and assumes it is relevant to their goals. Athletes decide what personal history to share and when.",
-   "Core mental skills do transfer, but ignoring the sport's specific demands (classification, equipment, travel, accessibility) misses context that shapes performance and the relationship.",
-   "Reclassification may matter to some athletes, but deciding before meeting them that it is the squad's main issue replaces assessment with assumption. The athletes' own priorities should shape the content."
+   "Gathering each athlete's impairment details from the coach makes impairment the starting point and passes along personal information the athletes haven't chosen to share. Learning the system in general is appropriate; personal details are the athletes' to share.",
+   "Learning the rules is right, but deciding before meeting the athletes that reclassification is the squad's main issue replaces assessment with assumption. The athletes' own priorities should shape the content.",
+   "Core mental skills do transfer, but waiting for athletes to raise sport-specific issues puts the burden of educating the consultant on them. Some preparation about the sport's demands is part of competence before the first meeting."
   ],
   "takeaway": "In para sport, learn the context (including classification) and let athletes tell you what matters; impairment is not automatically the topic.",
   "refs": [
@@ -329,19 +329,19 @@
    "level": "youth",
    "delivery": "individual"
   },
-  "stem": "Lucía, an 11-year-old gymnast, comes to a first session with her mother, who arranged it after Lucía cried at a meet. Lucía sits half behind her mother and avoids eye contact. The mother has already signed the consent forms. What should the consultant do to begin establishing a relationship with Lucía?",
+  "stem": "Ximena, an 11-year-old gymnast, comes to a first session with her mother, who arranged it after Ximena cried at a meet. Ximena sits half behind her mother and avoids eye contact. The mother has already signed the consent forms. What should the consultant do to begin establishing a relationship with Ximena?",
   "options": [
-   "Ask the mother to describe the meet so that Lucía doesn't have to speak yet",
-   "Proceed with the planned session, since the mother's signed consent covers participation",
-   "Explain in kid-friendly words what the consultant does and ask if Lucía wants to try",
-   "Ask Lucía to explain why she cried, so the work can target the problem quickly"
+   "Start with a fun warm-up game, and explain what the consultant does at the next session",
+   "Ask the mother to step out so Ximena can speak more freely from the very start",
+   "Explain in simple words what the consultant does, and ask whether she would like to try",
+   "Invite Ximena to draw her favorite skill while her mother describes what happened"
   ],
   "answer": 2,
   "rationales": [
-   "The mother's account may be useful, but centering it tells Lucía she is being talked about rather than talked with, which works against rapport.",
-   "A parent's permission is necessary but not sufficient. A minor's assent matters both ethically and for building a relationship in which the child participates willingly.",
-   "With children, the relationship starts with a developmentally appropriate explanation of who the consultant is and what they do together (often framed as learning skills, not fixing something wrong) and an invitation for the child's questions and agreement. This seeks her assent alongside the parent's permission.",
-   "Asking a shy child to explain a distressing moment before any rapport exists is likely to increase her discomfort. That conversation comes once she feels safe."
+   "A game can help a shy child warm up, but postponing any explanation means Ximena takes part without knowing who the consultant is or agreeing to the work. Her assent is sought at the start, in words she understands.",
+   "Meeting alone may come later, but separating a child who is hiding behind her parent before any rapport exists is likely to raise her anxiety. Her mother's presence can be a source of safety at first.",
+   "With children, the relationship starts with a developmentally appropriate explanation of who the consultant is and what they will do together (often framed as learning skills, not fixing something wrong) and an invitation for the child's questions and agreement. This seeks her assent alongside the parent's permission.",
+   "Drawing is a child-friendly activity, but pairing it with her mother's account of the meet means Ximena is being talked about rather than talked with, and she still hasn't been told what consulting is."
   ],
   "takeaway": "With young clients, explain the work in their language and seek their assent; parental consent alone does not build the relationship.",
   "refs": [
@@ -366,17 +366,17 @@
   },
   "stem": "A consultant begins the season with a collegiate men's ice hockey team whose players have never worked with a mental performance consultant. Several veterans joke that \"the head doctor\" is only for guys with problems. The coach has given the consultant open access to practices and travel. Which early approach is most likely to build trust with the players?",
   "options": [
-   "Open the season with a required workshop explaining the benefits of mental skills training",
-   "Attend practices regularly, learn the team's culture, and be available for informal talk",
-   "Ask the coach to tell the players that meeting with the consultant is expected of them",
-   "Present research showing that most elite performers use mental skills extensively"
+   "Ask the coach to introduce the consultant as a performance resource rather than a doctor",
+   "Attend practices and trips, learn the team's culture, and be easy to talk to informally",
+   "Open with an optional workshop showing how widely elite players use mental skills",
+   "Schedule a brief one-on-one with each player, and explain what the consultant offers"
   ],
   "answer": 1,
   "rationales": [
-   "A required lecture before any relationship exists can confirm the players' view that the consultant is something imposed on them. Education lands better once there is some trust.",
-   "Consultants whom athletes rate as effective tend to be seen as trustworthy, approachable, and able to fit in with the team's culture. Being visible at practices, learning how the team operates, and making casual contact easy lets players judge the consultant for themselves and reduces stigma.",
-   "Mandating contact undermines voluntariness and casts the consultant as the coach's enforcer, which works directly against trust.",
-   "Information about elite performers may interest a few players, but facts alone rarely shift stigma or build a personal relationship with the consultant."
+   "A coach's endorsement can help, but the players already see the consultant as something the coach brought in; a better introduction from the coach doesn't let them judge the consultant for themselves. Trust is built through direct contact.",
+   "Consultants whom athletes rate as effective tend to be seen as trustworthy, approachable, and able to fit in with the team's culture. Being visible at practices and on trips, learning how the team operates, and making casual contact easy lets players form their own impressions and reduces stigma.",
+   "Making the workshop optional is better than requiring it, but information about elite performers rarely shifts stigma on its own, and a presentation before any relationship exists can confirm the \"head doctor\" image.",
+   "Individual meetings arranged for every player feel like a requirement to skeptical veterans and put each of them in the spotlight their jokes are deflecting. Informal contact lets players engage on their own terms first."
   ],
   "takeaway": "Early trust comes from being present, learning the culture, and being approachable, not from mandates or persuasion.",
   "refs": [
@@ -399,19 +399,19 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "During an intake, Yusuf, a professional boxer, mentions that his next fight falls during Ramadan and asks, \"Have you worked with athletes who fast before?\" The consultant has not and knows little about how athletes manage training while fasting. What is the best response?",
+  "stem": "During an intake, Bilal, a professional boxer, mentions that his next fight falls during Ramadan and asks, \"Have you worked with athletes who fast before?\" He watches the consultant closely, as if checking whether his faith will be taken seriously. The consultant has not, and knows little about how athletes manage training while fasting. What is the best response to his question?",
   "options": [
-   "Answer yes in general terms, to protect his confidence in the consultant's expertise",
-   "Offer to refer him to a consultant who shares his religious background",
-   "Reassure him that fasting is unlikely to matter for the mental skills work",
-   "Answer honestly and invite him to share what fasting means for his preparation"
+   "Say that they haven't, and plan to read up on fasting and training before the next session",
+   "Say that they haven't, and suggest exploring fueling around the fast with a sports dietitian",
+   "Describe how the consultant has adapted mental skills work to other athletes' schedules",
+   "Say that they haven't, and ask what fasting means for his preparation"
   ],
   "answer": 3,
   "rationales": [
-   "Implying experience the consultant lacks violates the principle of integrity and risks a damaging loss of trust if it comes to light.",
-   "Yusuf asked about experience, not for a different consultant. Referring based on shared religion presumes what he wants and is unnecessary when the work is within the consultant's competence.",
-   "This dismisses something he has flagged as important. Fasting can affect energy, sleep, and training schedules, so it is relevant context for preparation.",
-   "Cultural humility involves honesty about one's limits, openness, and treating the client as the expert on his own experience. An honest answer plus genuine curiosity builds trust, and the consultant can add consultation or reading to fill knowledge gaps."
+   "Honesty plus self-education is part of competence, but researching it alone casts the consultant as the expert-to-be and misses the chance to learn from Bilal, who is signaling right now that he wants his practice taken seriously.",
+   "A sports dietitian may be a useful referral for fueling, but jumping to nutrition treats his question as a logistics problem and moves away from what fasting means to him. It can follow once the consultant understands his experience.",
+   "Pointing to other athletes' scheduling demands sidesteps an honest answer and implies that fasting is just another scheduling issue, which is likely to feel dismissive of his faith.",
+   "Cultural humility involves honesty about one's limits, openness, and treating the client as the expert on his own experience. An honest answer plus genuine curiosity about what fasting means for his preparation builds trust; the consultant can add consultation, reading, or a dietitian referral afterward to fill gaps."
   ],
   "takeaway": "When you lack experience with a client's identity or practice, say so honestly and invite them to teach you what matters.",
   "refs": [
@@ -425,30 +425,30 @@
   "scored": true,
   "domain": "I",
   "kg": "L",
-  "topic": "Information-sharing with medical staff",
+  "topic": "Informal disclosure before consent",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
   "context": {
-   "setting": "team-sport",
-   "level": "collegiate",
+   "setting": "performing-arts",
+   "level": "professional",
    "delivery": "individual"
   },
-  "stem": "An athletic trainer refers Keoni, a collegiate soccer player recovering from knee surgery, because he seems unmotivated in rehab. After the first session, the athletic trainer stops the consultant in the hallway and asks, \"So what's going on with him? What did he tell you?\" Keoni and the consultant have not yet discussed sharing information. How should the consultant respond?",
+  "stem": "A ballet company has just hired a consultant, who is introduced to the dancers at a season-opening reception. Within minutes, Aroha, a soloist, pulls the consultant aside by the buffet, describes how her mind races before solos, and asks, \"So what should I do about it?\" Colleagues and the artistic director are within earshot, and Aroha has not met with the consultant before. What is the best response?",
   "options": [
-   "Share no content yet, and agree with Keoni on what can go to the sports medicine team",
-   "Share the main themes, since the athletic trainer made the referral and is on staff",
-   "Share whatever relates to rehab, because injury recovery is a medical team matter",
-   "Say the sessions are confidential and ask the athletic trainer not to ask again"
+   "Show interest, hold off on details, and offer a private meeting to explain the work",
+   "Offer one quick breathing tip now, and suggest she book a session if it seems to help",
+   "Move with her to a quieter corner of the room so she can keep talking more freely",
+   "Tell the artistic director she is interested, so that an intake can be arranged quickly"
   ],
   "answer": 0,
   "rationales": [
-   "Coordinating with medical staff can help an injured athlete, but session information is shared only with the client's consent. The consultant can tell the athletic trainer that they will follow up after talking with Keoni, then agree with him on what (for example, attendance or general progress) may be shared.",
-   "Making a referral does not entitle the referral source to session content. Sharing themes without Keoni's agreement breaches confidentiality.",
-   "Rehab is a medical matter, but what Keoni says to the consultant is still confidential. Medical relevance does not replace consent.",
-   "Withholding content is correct, but shutting the athletic trainer out damages a working relationship that could support Keoni. A collaborative, consent-based plan is better than a flat refusal."
+   "Informal first contacts are common in embedded roles, but the work, its confidentiality, and its limits haven't been explained yet, and she is disclosing within earshot of colleagues and her director. Responding warmly while saving details for a private first meeting, where informed consent can be covered, protects her privacy and starts the relationship on clear terms.",
+   "A tip may feel helpful, but it delivers an intervention before any assessment or consent, in a public setting, and frames the work as quick fixes. It also invites more disclosure in front of her colleagues.",
+   "A quieter corner is kinder than the buffet line, but it still turns a social event into an unstructured session before she knows how confidentiality works, and leaving together is visible to colleagues and the director.",
+   "Passing her interest to the artistic director discloses that she is seeking help to the person with the most say over her casting. She can arrange contact herself."
   ],
-  "takeaway": "Referral sources and medical staff receive information only with the client's consent; set up a sharing agreement rather than refusing or disclosing.",
+  "takeaway": "When someone starts disclosing in an informal setting, respond warmly and move the conversation to a private first meeting where consent and confidentiality come first.",
   "refs": [
    "aaspethics2024",
    "andersen2005"
@@ -469,19 +469,19 @@
    "level": "adult",
    "delivery": "organizational"
   },
-  "stem": "A technology company's HR director engages a consultant to work with Priya, a newly promoted vice president, on presenting under pressure. HR will pay for the engagement and wants \"to be kept in the loop.\" Priya has not yet met the consultant. Which step best establishes clear roles before the work begins?",
+  "stem": "A technology company's HR director engages a consultant to work with Soraya, a newly promoted vice president, on presenting under pressure. HR will pay and wants \"to be kept in the loop.\" When scheduling, Soraya asked who would see her session notes. The consultant wants HR and Soraya to leave with the same understanding of goals and reporting before sessions begin. Which step best achieves this?",
   "options": [
-   "Send HR a detailed progress note after each session, as HR is the paying party",
-   "Limit HR's role to paying invoices, to protect Priya's privacy and openness",
-   "Let Priya decide privately after the first session what HR should be told",
-   "Hold a three-way meeting on goals, what HR receives, and what stays private"
+   "Agree on reporting with HR first, then present those terms to Soraya at her intake",
+   "Meet with Soraya first to learn her goals, then agree with HR on what it will receive",
+   "Send HR and Soraya the standard confidentiality policy and ask each to sign it",
+   "Hold one meeting with Soraya and HR to agree on goals, reporting, and what stays private"
   ],
   "answer": 3,
   "rationales": [
-   "Session-by-session detail to the sponsor would discourage Priya from speaking openly and was never agreed to by her. Paying does not confer access to content.",
-   "The organization is a legitimate stakeholder in a sponsored engagement. Reducing it to a payer ignores its reasonable interest in whether the work is happening and what it is aimed at.",
-   "Priya's input is essential, but leaving the sponsor's expectations unsettled sets up conflict later. Expectations are best agreed with both parties before sessions start.",
-   "In organizational work, a contracting conversation among the consultant, client, and sponsor clarifies who the client is, the goals, what the sponsor will receive (such as attendance and broad progress), and what remains confidential. This is informed consent for a third-party arrangement."
+   "Settling terms with the sponsor first leaves Soraya to accept an arrangement she had no part in shaping, which is exactly what her question about notes suggests she is worried about.",
+   "Learning Soraya's goals first respects her, but separate conversations can leave HR and Soraya with different ideas of what \"in the loop\" means. A single conversation lets both hear and agree to the same terms.",
+   "A standard policy covers confidentiality in general but not the goals of this engagement or HR's specific expectations. Signing a form is not the same as negotiating a shared agreement.",
+   "In organizational work, a contracting conversation among consultant, client, and sponsor clarifies who the client is, the goals, what the sponsor will receive (such as attendance and broad progress), and what remains confidential. Holding it jointly ensures both parties hear and agree to the same terms, which is informed consent for a third-party arrangement."
   ],
   "takeaway": "In sponsored engagements, contract with both client and sponsor at the start about goals, reporting, and confidentiality.",
   "refs": [
@@ -508,14 +508,14 @@
   "options": [
    "Empathy, congruence, and unconditional positive regard",
    "Agreement on goals, agreement on tasks, and a bond",
-   "Closeness, commitment, and complementarity",
+   "Closeness, commitment, complementarity, and co-orientation",
    "Autonomy, competence, and relatedness"
   ],
   "answer": 1,
   "rationales": [
    "These are Rogers's core conditions for client-centered helping. They support the bond, but they are not Bordin's three alliance components.",
    "Bordin described the working alliance as agreement between helper and client on the goals of the work, agreement on the tasks used to reach them, and an emotional bond of trust and attachment. The model applies across theoretical approaches.",
-   "These are Jowett's components of the coach–athlete relationship, not Bordin's working alliance.",
+   "These are Jowett's 3+1Cs of the coach–athlete relationship. They describe that dyad, not Bordin's working alliance.",
    "These are the basic psychological needs in self-determination theory. They describe motivation, not the structure of the helping relationship."
   ],
   "takeaway": "Bordin's working alliance = agreement on goals + agreement on tasks + an emotional bond.",
@@ -538,19 +538,19 @@
    "level": "collegiate",
    "delivery": "virtual"
   },
-  "stem": "Jordan, a collegiate esports player, starts video sessions with a consultant. During the first session Jordan's answers grow shorter, and afterward Jordan mentions that the consultant \"seemed kind of distracted.\" Reviewing the session, the consultant sees that their gaze was often directed off-screen and that they showed almost no visible response while Jordan spoke. Which adjustment best improves attending in this format?",
+  "stem": "Ravi, a collegiate esports player, starts video sessions with a consultant. During the first session his answers grow shorter, and afterward he mentions that the consultant \"seemed kind of distracted.\" Reviewing the recording, the consultant sees that their gaze was often directed off-screen at notes and that they showed almost no visible response while Ravi spoke. Which adjustment best improves attending in this format?",
   "options": [
-   "Turn off video so both people can focus fully on the audio conversation",
-   "Ask more questions per minute to demonstrate interest and engagement",
-   "Look toward the camera, keep notes brief, and use visible nods and encouragers",
-   "Send Jordan a written summary after each session in place of live feedback"
+   "Explain at the start that notes are taken off-screen, then continue as before",
+   "Switch to a larger monitor and speaker view so Ravi's expressions are easier to read",
+   "Look toward the camera, keep notes brief, and show nods and encouragers on screen",
+   "Use more paraphrases and summaries so Ravi hears that he is being followed closely"
   ],
   "answer": 2,
   "rationales": [
-   "Removing video discards nonverbal cues that help both people feel connected. The problem is how the consultant is attending, not the medium.",
-   "Rapid questioning can feel like an interrogation and is not attending. Attending is about conveying attention through eye contact, body language, vocal tone, and verbal tracking.",
-   "Ivey's attending behaviors (culturally appropriate eye contact, attentive body language, vocal qualities, and verbal tracking) need deliberate adaptation on video: looking at the camera reads as eye contact, and nods and brief encouragers must be visible on screen. Minimizing note-taking reduces the impression of distraction.",
-   "A written summary may be a helpful extra, but it does not fix the in-session experience of not being heard."
+   "Transparency about note-taking is courteous, but it leaves the behavior that read as distraction unchanged. Ravi would still be talking to someone who looks away and shows little response.",
+   "A larger view helps the consultant read Ravi, but the problem is what Ravi sees: the consultant's attending isn't visible to him. Better equipment doesn't change the consultant's gaze or responsiveness.",
+   "Ivey's attending behaviors (culturally appropriate eye contact, attentive body language, vocal qualities, and verbal tracking) need deliberate adaptation on video: looking toward the camera reads as eye contact, nods and brief encouragers must be visible on screen, and minimizing note-taking reduces the impression of distraction.",
+   "Verbal tracking is part of attending, so more paraphrasing could help, but it doesn't address the off-screen gaze and lack of visible response that Ravi noticed. The nonverbal side of attending needs fixing too."
   ],
   "takeaway": "On video, attending must be made visible: camera-directed gaze, on-screen nods, verbal encouragers, minimal distraction.",
   "refs": [
@@ -575,17 +575,17 @@
   },
   "stem": "A consultant is employed by a university athletic department. In a first meeting, Aaliyah, a softball player, asks, \"Do you report to Coach? Because if you do, I'm not telling you anything.\" Under department policy, the consultant confirms attendance to coaches only for athletes the coaches referred, and session content stays private except for safety concerns. What is the best response?",
   "options": [
-   "Explain the reporting arrangement exactly, including the safety exceptions",
-   "Promise Aaliyah that nothing she says will ever leave the room",
-   "Tell her the consultant works for the athletes, not the coaches, and move on",
-   "Suggest an off-campus provider if she has concerns about her privacy here"
+   "Explain what coaches do and don't receive, and when safety would override privacy",
+   "Ask what she is worried Coach might hear, then address that particular concern",
+   "Tell her coaches learn only about attendance, and only for athletes they refer",
+   "Give her the department's confidentiality policy and invite her to read it first"
   ],
   "answer": 0,
   "rationales": [
-   "Trust grows from specific, honest information about confidentiality and its limits. Telling Aaliyah exactly what coaches would and would not learn, and when safety would override confidentiality, lets her make an informed choice and shows the consultant can be relied on.",
-   "An absolute promise is untrue because of the safety exceptions, and breaking it later would be far more damaging than explaining the limits now.",
-   "A vague reassurance sidesteps her direct question and is not quite accurate, since the consultant is employed by the department and has some reporting duties.",
-   "Steering her elsewhere avoids the conversation and implies the consultant cannot offer confidential support, when a clear explanation would likely address her concern."
+   "Trust grows from specific, honest information about confidentiality and its limits. Telling Aaliyah exactly what coaches would and would not learn, and when safety would override confidentiality, answers her direct question, lets her make an informed choice, and shows the consultant can be relied on.",
+   "Exploring her worry can be useful, but she has asked a direct factual question. Answering with a question can feel evasive, and addressing only her specific fear may leave other limits unexplained.",
+   "This is accurate as far as it goes, but it leaves out the safety exceptions, so it works as an implicit promise that content never leaves the room. Learning about the exceptions later would damage trust.",
+   "A written policy is a useful supplement, but handing it over instead of answering puts the work of interpretation on her and misses the chance to show, in person, that the consultant will be straight with her."
   ],
   "takeaway": "Answer \"Who do you report to?\" with specific, honest limits of confidentiality; never overpromise.",
   "refs": [
@@ -608,19 +608,19 @@
    "level": "elite",
    "delivery": "individual"
   },
-  "stem": "Marcus, an elite swimmer who is Deaf, emails a consultant to begin work on race-day focus. The consultant does not use sign language and has never worked with a Deaf client. What should the consultant do to set up the first session?",
+  "stem": "Emeka, an elite swimmer who is Deaf, emails a consultant to begin work on race-day focus. The consultant does not use sign language and has never worked with a Deaf client. What should the consultant do to set up the first session?",
   "options": [
-   "Plan to communicate through written notes, since that requires no outside help at all",
-   "Ask Marcus's coach to attend and relay information between the two of them",
-   "Speak slowly and clearly in person, on the assumption that Marcus can lip-read",
-   "Ask Marcus how he prefers to communicate and arrange it, such as an interpreter"
+   "Book a certified sign language interpreter for the first session before replying",
+   "Propose meeting by text-based chat, since Emeka chose to make contact by email",
+   "Ask his coach which communication approach works best for him at practice",
+   "Ask Emeka how he prefers to communicate, then arrange that access for the session"
   ],
   "answer": 3,
   "rationales": [
-   "Written notes might work for some clients, but choosing a method for Marcus without asking him may slow and flatten the conversation and ignores his preference.",
-   "The coach is not a qualified interpreter, and relaying through him compromises confidentiality and changes the relationship.",
-   "Many Deaf people do not rely on lip-reading, and it captures only part of speech. Assuming it shifts the communication burden onto Marcus.",
-   "Inclusive practice starts by asking the client what works for him (for example, a qualified sign language interpreter, captioning, or text) and arranging it, while speaking directly to the client rather than to an interpreter."
+   "Arranging an interpreter is often appropriate, but booking one without asking assumes Emeka uses sign language, and which one. Preferences among Deaf clients vary (interpreting, captioning, text, or a mix).",
+   "Text chat may suit him, but inferring his preference from one email assumes rather than asks. Text-only sessions can also slow and flatten a conversation for someone who would prefer an interpreter.",
+   "The coach may know what works at the pool, but asking the coach instead of Emeka goes around the client and discloses his inquiry before he has agreed to that. He is the authority on his own communication.",
+   "Inclusive practice starts by asking the client what works for him (for example, a qualified sign language interpreter, captioning, or text) and arranging it, then speaking directly to the client rather than to any interpreter."
   ],
   "takeaway": "Ask the client how they prefer to communicate and arrange appropriate access rather than assuming.",
   "refs": [
@@ -643,19 +643,19 @@
    "level": "collegiate",
    "delivery": "team"
   },
-  "stem": "A consultant will travel with a collegiate women's volleyball team for the first time this season and will stay in the team hotel at away tournaments. Several athletes have asked whether they can \"just come find\" the consultant on road trips. Before the first trip, what is the best step for setting expectations?",
+  "stem": "A consultant will travel with a collegiate women's volleyball team for the first time and will stay in the team hotel at away tournaments. The coach wants the consultant available in person on trips, and several athletes have asked whether they can \"just come find\" the consultant. Before the first trip, what is the best step for setting expectations?",
   "options": [
-   "Tell athletes they can stop by the consultant's hotel room whenever they need support",
-   "Agree with staff and athletes on when, where, and how travel consultations happen",
-   "Offer no consulting on road trips so that professional boundaries cannot blur",
-   "Handle each request on the road as it comes, using judgment about what fits"
+   "Ask the athletes to request travel sessions through the head coach, who will schedule them",
+   "Agree with coaches and athletes in advance on meeting times, places, and contact",
+   "Use the consultant's hotel room for sessions, keeping the door open and the times posted",
+   "Offer phone or video sessions on trips, and meet in person once the team is back on campus"
   ],
   "answer": 1,
   "rationales": [
-   "Hotel rooms are private, informal spaces that blur professional boundaries and create risk for both athletes and the consultant.",
-   "Informal settings like travel make boundary drift more likely, so expectations are set in advance: for example, availability windows, meeting in a designated room or common area, and how to make contact. Agreeing on this with coaches and athletes keeps support accessible while keeping it professional.",
-   "Travel is often when athletes most need support. Withholding services entirely is an unnecessary overcorrection when clear structure can manage the risks.",
-   "Deciding on the spot, often late at night and under pressure, is exactly how boundaries erode. Structure works best when it is set before the situation arises."
+   "Structure is good, but routing requests through the head coach tells the coach who is seeking help and may deter athletes from asking. Access to the consultant shouldn't depend on the coach knowing.",
+   "Informal settings like travel make boundary drift more likely, so expectations are set in advance: for example, availability windows, meeting in a designated room or common area, and how to make contact. Agreeing on this with coaches and athletes keeps in-person support accessible while keeping it professional.",
+   "Posted times and an open door add some structure, but a hotel room remains a private, personal space that blurs professional boundaries and creates risk for both athletes and the consultant.",
+   "Remote sessions avoid hotel-room problems, but the coach wants the consultant available in person, and tournaments are often when athletes most need face-to-face support. Clear in-person structure manages the risk without withdrawing access."
   ],
   "takeaway": "Set travel boundaries in advance (when, where, how to reach you) so support stays available and professional.",
   "refs": [
@@ -669,30 +669,30 @@
   "scored": true,
   "domain": "I",
   "kg": "L",
-  "topic": "Manager wants to sit in",
+  "topic": "Declining a go-between role",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
   "context": {
-   "setting": "individual-sport",
-   "level": "professional",
+   "setting": "team-sport",
+   "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "The manager of Dmitri, a professional mixed martial artist, hires a consultant and says he will sit in on every session \"so we're all on the same page.\" Dmitri said very little during the introductory phone call the manager arranged. What should the consultant do before the first session?",
+  "stem": "A consultant works with a collegiate water polo team under an agreement that individual sessions are confidential and that the consultant plays no part in selection or playing time. Zofia, a junior, is frustrated with her minutes and asks, \"Could you mention to Coach that I want more playing time? He listens to you.\" She has not raised it with the coach herself. What should the consultant do?",
   "options": [
-   "Accept the arrangement, since the manager is paying and organized the work",
-   "Tell the manager that confidentiality rules out his attending any session",
-   "Talk with Dmitri privately to learn his wishes and agree on the manager's role",
-   "Let the manager attend at first and reassess the arrangement after a few sessions"
+   "Mention it to the coach in general terms, since Zofia has given her consent to share it",
+   "Offer to set up a meeting with Zofia and the coach, and help facilitate the conversation",
+   "Decline to pass it on, explain why, and help her plan how to raise it herself",
+   "Explore her frustration about minutes, and come back to the request at a later session"
   ],
   "answer": 2,
   "rationales": [
-   "Payment does not make the manager the client. Accepting without Dmitri's input could silence him and leave him without a confidential space.",
-   "Confidentiality belongs to Dmitri, and he may want his manager involved in some ways, such as scheduling or broad updates. A blanket exclusion decided by the consultant overrides the client's own choice.",
-   "Dmitri is the client. Clarifying roles with multiple stakeholders starts with learning, privately, what the client wants, then agreeing with him (and communicating to the manager) what part, if any, the manager plays and what stays confidential.",
-   "Postponing role clarification lets an arrangement the client never chose become the norm, and a quiet client is unlikely to object with the manager in the room."
+   "Consent removes the confidentiality problem but not the role problem: lobbying for minutes would make the consultant an advocate in selection, which the agreement rules out, and would change how the coach and other players see the consultant.",
+   "A facilitated meeting can sometimes help, but Zofia hasn't yet tried speaking to the coach, and mediating a playing-time dispute pulls the consultant into the selection issues the role excludes. It is premature and outside the agreed role.",
+   "Clarifying roles includes holding them when a client asks the consultant to step outside them. Declining to act as go-between, explaining that the consultant stays out of playing-time decisions, and helping Zofia plan how to raise it herself keeps the role intact and builds her own self-advocacy.",
+   "Exploring her frustration is worthwhile, but leaving the request unanswered keeps her hoping the consultant will act and postpones the role clarification. A clear, kind answer now prevents misunderstanding."
   ],
-  "takeaway": "When a manager or agent hires you, confirm privately with the athlete what role the third party will play.",
+  "takeaway": "When a client asks you to carry a message to the coach, hold your role: decline the go-between job and help the client speak for themselves.",
   "refs": [
    "aaspethics2024",
    "andersen2005"
@@ -713,21 +713,21 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "Darnell, a high school basketball player, tells the consultant, \"Every time I go to the free-throw line in the fourth quarter, I already know I'm going to miss. Then Coach pulls me, and I just sit there feeling like I let everybody down.\" Which consultant response is the clearest reflection of feeling?",
+  "stem": "Tendai, a high school basketball player, tells the consultant, \"Every time I go to the free-throw line in the fourth quarter, I already know I'm going to miss. Then Coach pulls me, and I just sit there feeling like I let everybody down.\" Which consultant response is the clearest reflection of feeling?",
   "options": [
-   "So late in games you're missing free throws, and then Coach takes you out of the game.",
+   "So late in games you expect to miss, and then Coach ends up taking you out of the game.",
    "It sounds like you feel beaten before you shoot, and then like you've let people down.",
-   "What do you usually say to yourself as you walk up to the free-throw line late in games?",
-   "Lots of players struggle at the line late in games; it's very common and very fixable."
+   "How do you feel when you walk up to the line in the fourth quarter?",
+   "It sounds like you feel angry with Coach for pulling you late in close games."
   ],
   "answer": 1,
   "rationales": [
    "This restates the events (content) rather than the emotions, so it is a paraphrase, not a reflection of feeling.",
-   "A reflection of feeling names the client's emotions, explicit or implied, and checks them back tentatively (\"it sounds like\"). Naming both the sense of defeat before the shot and the feeling of having let others down shows Darnell he has been understood at an emotional level.",
-   "This is an open question, useful for exploring self-talk, but it moves to assessment before acknowledging what he feels.",
-   "Reassurance minimizes his experience and shifts away from his feelings; it can leave a client feeling unheard even when it is meant kindly."
+   "A reflection of feeling names the client's emotions, explicit or implied, and checks them back tentatively (\"it sounds like\"). Naming both the sense of defeat before the shot and the feeling of having let others down shows Tendai he has been understood at an emotional level.",
+   "This is an open question about feelings, useful for exploration, but it asks him to name emotions he has already expressed instead of reflecting them back.",
+   "This has the form of a reflection, but it names an emotion Tendai didn't express. He described defeat and letting others down, not anger at the coach, so the reflection is inaccurate and may leave him feeling misunderstood."
   ],
-  "takeaway": "A reflection of feeling names the emotion beneath the words; a paraphrase restates content.",
+  "takeaway": "A reflection of feeling accurately names the emotion beneath the words; a paraphrase restates content, and a mislabeled feeling misses the client.",
   "refs": [
    "ivey2013"
   ]
@@ -747,18 +747,18 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "In their fifth session, a consultant strongly encourages Hana, a professional ballet dancer, to adopt a new pre-performance routine. Hana agrees. At the next session she arrives late, gives brief answers, and says the routine \"was fine,\" in sharp contrast to her earlier openness. What should the consultant do?",
+  "stem": "In their fifth session, a consultant strongly encourages Aiko, a professional ballet dancer, to adopt a new pre-performance routine. Aiko agrees. At the next session she arrives late, gives brief answers, and says the routine \"was fine,\" in sharp contrast to her earlier openness. What should the consultant do?",
   "options": [
-   "Keep refining the routine, since Hana has reported that it went fine",
-   "Switch to a different technique, on the assumption the routine was a poor fit",
-   "Wait a few sessions to see whether Hana's engagement returns by itself",
-   "Gently name the change and ask how the last session sat with her"
+   "Ask Aiko to rate how useful the routine was, then adjust it based on her rating",
+   "Offer her a choice of two alternative routines to try before her next performance",
+   "Explore what has been happening in rehearsals this week that might explain the change",
+   "Note the shift between them and ask how the last session felt to her"
   ],
   "answer": 3,
   "rationales": [
-   "Taking \"fine\" at face value ignores clear nonverbal signs of withdrawal. Continuing as planned risks deepening a rupture the consultant may have caused.",
-   "Changing techniques unilaterally repeats the original problem: the consultant deciding for Hana. It also skips finding out what actually happened.",
-   "Withdrawal ruptures often widen when unaddressed, and clients may simply stop attending. Waiting leaves the strain unexamined.",
+   "Seeking feedback is good practice, but rating the routine keeps the focus on the task and misses the relational signals: lateness, brief answers, and flat agreement after the consultant pushed.",
+   "Offering choices respects autonomy, but it assumes the routine is the problem and skips finding out what happened. It treats a likely strain in the relationship as a technique issue.",
+   "Outside stressors can matter, but looking only to rehearsals locates the change outside the relationship, even though it followed the consultant's push. The consultant's own part is the first thing to check.",
    "Lateness, brief answers, and flat agreement after a push suggest a withdrawal rupture in the alliance. Repair involves immediacy: nondefensively naming the shift in the relationship, inviting her honest feedback, and accepting the consultant's own part, which often strengthens the alliance."
   ],
   "takeaway": "Signs of withdrawal after a push suggest a rupture; repair it by using immediacy and inviting feedback nondefensively.",
@@ -782,19 +782,19 @@
    "level": "collegiate",
    "delivery": "team"
   },
-  "stem": "During a film debrief with a collegiate women's lacrosse team, a sophomore admits she froze on a defensive assignment that led to a goal. A senior laughs and mutters, \"Shocking.\" Two other players look at the floor. At the start of the season, the team agreed that mistakes would be discussed without ridicule. What should the consultant do?",
+  "stem": "During a film debrief with a collegiate women's lacrosse team, a sophomore admits she froze on a defensive assignment that led to a goal. A senior laughs and mutters, \"Shocking,\" loudly enough for the whole room to hear. Two other players look at the floor. At the start of the season, the team agreed that mistakes would be discussed without ridicule. What should the consultant do in the moment?",
   "options": [
-   "Briefly restate the team's agreement and thank the sophomore for raising it",
-   "Move quickly to the next clip so the sophomore isn't embarrassed any further",
-   "Speak with the senior privately after the debrief rather than addressing it now",
-   "Ask the senior to explain to the whole group why she found the comment funny"
+   "Briefly restate the team's agreement, and thank the sophomore for owning the play",
+   "Thank the sophomore for her candor, and move on to the next clip without comment",
+   "Finish the clip, then remind the whole team of the agreement at the end of the debrief",
+   "Let the moment pass, and speak with the senior privately once the debrief is over"
   ],
   "answer": 0,
   "rationales": [
-   "Psychological safety depends on the group seeing that interpersonal risk-taking, like admitting a mistake, is protected. Calmly restating the shared norm in the moment and appreciating the disclosure signals to everyone that candor is valued and ridicule is not, without shaming anyone.",
-   "Moving on silently teaches the team that ridicule goes unchallenged, and the other players, already looking down, will be less likely to speak up next time.",
-   "A private follow-up may also be useful, but the comment happened in front of the group. Addressing it only in private leaves the public lesson, that mockery is tolerated, in place.",
-   "Putting the senior on the spot shames her publicly and escalates conflict. It models the very behavior the norm is meant to prevent."
+   "Psychological safety depends on the group seeing that interpersonal risk-taking, like admitting a mistake, is protected. Calmly restating the shared norm in the moment and appreciating the disclosure signals to everyone that candor is valued and ridicule is not, without shaming anyone. A private follow-up with the senior can be added later.",
+   "Thanking her reinforces candor, but leaving the comment unaddressed teaches the room that ridicule goes unchallenged, and the teammates looking at the floor will be less likely to speak up next time.",
+   "Restating the norm is right, but delaying it to the end separates the reminder from the behavior, so it reads as a general announcement rather than a response. The moment the group needed to see protected has passed.",
+   "A private conversation may also be useful, but the comment was public. Addressing it only in private leaves the group's lesson, that mockery is tolerated, in place."
   ],
   "takeaway": "When a team norm is broken in the room, restate it briefly in the moment and reinforce the behavior you want; that is how psychological safety is maintained.",
   "refs": [
@@ -817,19 +817,19 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "Three weeks ago, Rafael, a professional esports player, set a goal of being asleep by 1 a.m. to sharpen his reaction times. Today he says he is \"fully committed\" to it, then mentions he has been playing ranked matches until 4 a.m. most nights. Which response best challenges this discrepancy in a supportive way?",
+  "stem": "Three weeks ago, Dariusz, a professional esports player, set a goal of being asleep by 1 a.m. to sharpen his reaction times. Today he says he is \"fully committed\" to it, then mentions he has been playing ranked matches until 4 a.m. most nights. Which response best challenges this discrepancy in a supportive way?",
   "options": [
-   "Let's be honest with each other: you're not really committed to this goal.",
-   "Why do you keep staying up so late when you set this goal three weeks ago?",
+   "What would it take to be in bed by 1 a.m. on nights when you have ranked matches?",
+   "Why do you think the late matches keep winning out over the goal you set?",
    "You say you're fully committed, and you've been playing until 4. How do those fit?",
-   "It sounds like you're feeling frustrated and disappointed with yourself about sleep."
+   "It sounds like you're committed, and the late nights are just hard to give up right now."
   ],
   "answer": 2,
   "rationales": [
-   "This is a judgment, not a reflection of what he said. It is likely to provoke defensiveness and damage the relationship.",
-   "\"Why\" questions about a client's behavior often sound accusatory and invite excuses rather than reflection.",
-   "Ivey's confrontation is a supportive challenge: the consultant lays the two incongruent statements side by side without judgment and invites the client to examine them. This helps Rafael notice the gap himself, which is more likely to prompt change.",
-   "Reflecting feelings he has not expressed is an assumption, and it steps around the discrepancy rather than helping him look at it."
+   "This solution-focused question is collaborative, but it jumps to planning before Dariusz has looked at the gap between his words and his behavior, so the discrepancy is never examined.",
+   "Asking \"why\" about a client's behavior often sounds accusatory, even when softened, and tends to invite excuses rather than reflection.",
+   "Ivey's confrontation is a supportive challenge: the consultant lays the two incongruent statements side by side without judgment and invites the client to examine them. This helps Dariusz notice the gap himself, which is more likely to prompt change.",
+   "This reflection accepts his claim of commitment at face value and smooths over the gap. It is empathic, but it doesn't challenge the discrepancy."
   ],
   "takeaway": "Supportive confrontation names both sides of a discrepancy neutrally (\"On one hand… and on the other…\") and invites the client to make sense of it.",
   "refs": [
@@ -854,17 +854,17 @@
   },
   "stem": "Twenty minutes into a session, while recounting a recent bout, a consultant refers to Sam, a nonbinary collegiate fencer who uses they/them pronouns, as \"she.\" Sam pauses briefly, and the consultant realizes the mistake. What is the most appropriate response?",
   "options": [
-   "Briefly apologize, restate it using \"they,\" and continue the conversation",
-   "Apologize at length so Sam understands how badly the consultant feels about it",
-   "Continue without comment so the slip doesn't become a bigger moment than it was",
-   "Ask Sam how much being misgendered bothered them, to judge how serious it was"
+   "Briefly apologize, restate the sentence using \"they,\" and continue the conversation",
+   "Correct to \"they\" and keep going, without drawing attention to it with an apology",
+   "Apologize, and ask Sam whether there is anything the consultant should do differently",
+   "Finish the point, then apologize and correct the pronoun before the session ends"
   ],
   "answer": 0,
   "rationales": [
    "A brief acknowledgment and correction shows respect, takes responsibility, and keeps the focus on Sam's goals. The consultant then commits to getting it right, practicing outside sessions if needed.",
-   "An extended apology centers the consultant's discomfort and can pressure Sam into reassuring the consultant, shifting the emotional work onto the client.",
-   "Ignoring a mistake both people noticed signals that it doesn't matter and can quietly erode trust.",
-   "Asking Sam to rate the harm puts them on the spot and makes them manage the consultant's error."
+   "Correcting the pronoun is essential, but skipping any acknowledgment of a slip both people noticed can come across as if it didn't register or didn't matter. A short apology takes responsibility without making it a big moment.",
+   "Asking for feedback sounds respectful, but it turns a simple correction into a conversation in which Sam has to manage the consultant's mistake and reassure them.",
+   "Delaying the correction leaves the misgendering standing for the rest of the conversation and makes the later apology a bigger, more awkward moment than an immediate fix."
   ],
   "takeaway": "When you misgender someone, correct yourself briefly, apologize simply, and move on; don't make them comfort you.",
   "refs": [
@@ -887,18 +887,18 @@
    "level": "elite",
    "delivery": "individual"
   },
-  "stem": "Ingrid, an elite cross-country skier, has been struggling with fear of repeating a poor championship result. Midway through a session she asks the consultant, a former collegiate skier, \"Did you ever completely fall apart in a big race?\" The consultant did, twice. Which response reflects appropriate self-disclosure?",
+  "stem": "Brynja, an elite cross-country skier, has been struggling with fear of repeating a poor championship result. After saying she feels like \"the only one who falls apart,\" she asks the consultant, a former collegiate skier, \"Did you ever completely fall apart in a big race?\" The consultant did, twice. Which response reflects appropriate self-disclosure?",
   "options": [
-   "Decline to answer, explaining that consultants do not share personal experiences",
-   "Tell the full story of both races in detail, so Ingrid feels less alone with it",
-   "Say yes, then describe in detail the techniques that helped the consultant recover",
-   "Briefly say yes and how it felt, then turn the focus back to Ingrid's experience"
+   "Ask what prompted the question before deciding whether to share anything personal",
+   "Say yes, and describe in some detail what the consultant learned from both races",
+   "Say that many elite skiers have, and give examples from athletes the consultant knows",
+   "Briefly say yes and how it felt, then bring the focus back to Brynja"
   ],
   "answer": 3,
   "rationales": [
-   "There is no rule against self-disclosure. A flat refusal to a sincere question can feel cold and weaken the bond.",
-   "A long, detailed story shifts the session's focus to the consultant and may leave Ingrid tending to the consultant's experience instead of her own.",
-   "Jumping to the consultant's own recovery methods turns the disclosure into advice drawn from the consultant's story, before Ingrid's experience has been explored.",
+   "Exploring a client's question can be useful, but she has just explained why she is asking: she feels alone with this. Withholding an answer here can feel evasive and misses a chance to normalize her experience.",
+   "Sharing the consultant's lessons in detail shifts the session toward the consultant's story and turns the disclosure into advice before Brynja's own experience has been explored.",
+   "Normalizing is useful, but answering with other athletes' stories dodges her sincere question and risks sharing other people's experiences without their permission.",
    "Self-disclosure is most helpful when it is brief, relevant, genuine, timed for the client's benefit, and followed by a return to the client. A short answer can normalize her fear and strengthen the bond without taking over the session."
   ],
   "takeaway": "Useful self-disclosure is brief, relevant, for the client's benefit, and quickly returns the focus to the client.",
@@ -922,21 +922,21 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "After a tough loss, a consultant asks Kenji, a 14-year-old tennis player, \"Were you nervous?\" (\"Kinda.\") \"Did you stick to your routine?\" (\"No.\") \"Do you want to work on that?\" (\"Sure.\") The conversation stalls. Which question would best help Kenji open up?",
+  "stem": "After a tough loss, a consultant asks Jun, a 14-year-old tennis player, \"Were you nervous?\" (\"Kinda.\") \"Did you stick to your routine?\" (\"No.\") \"Do you want to work on that?\" (\"Sure.\") The conversation stalls. Which question would best help Jun open up about the match?",
   "options": [
-   "Were you more nervous today than at your last tournament?",
+   "How nervous were you between points, on a scale from 1 to 10?",
    "What was going through your mind between points in the second set?",
-   "Why didn't you use the routine you'd practiced all week?",
-   "Was it the nerves or the routine that was the bigger problem today?"
+   "Why do you think you didn't use the routine you practiced all week?",
+   "What do you think we should work on before your next tournament?"
   ],
   "answer": 1,
   "rationales": [
-   "This is another closed question; it invites a yes, no, or single comparison and keeps the conversation stalled.",
-   "Open questions, especially those beginning with \"what\" or \"how,\" invite the client to elaborate in his own words. Anchoring the question in a specific moment also makes it easier for a teenager to answer concretely.",
+   "A scaling question yields a useful number, but it invites a one-word answer and keeps the conversation stalled. It works better once he has started talking.",
+   "Open questions, especially those beginning with \"what\" or \"how,\" invite the client to elaborate in his own words. Anchoring the question in a specific moment of the match makes it easier for a teenager to answer concretely.",
    "Although open-ended in form, \"why\" questions about a lapse often sound critical and lead to defensiveness or \"I don't know.\"",
-   "A forced choice between two options the consultant has framed limits Kenji's answer and works like a closed question."
+   "This is open-ended, but it jumps to planning before Jun has said anything about the match, and abstract future questions are hard for a shut-down teenager to answer. Exploring the experience comes first."
   ],
-  "takeaway": "When answers are one word, switch to open \"what\" or \"how\" questions tied to a specific moment; avoid \"why\" questions about lapses.",
+  "takeaway": "When answers are one word, ask an open \"what\" or \"how\" question tied to a specific moment; avoid \"why\" questions about lapses and premature planning questions.",
   "refs": [
    "ivey2013"
   ]
@@ -956,19 +956,19 @@
    "level": "adult",
    "delivery": "virtual"
   },
-  "stem": "Near the end of a video session, a consultant says to Captain Okafor, an Army helicopter pilot: \"Okay. Your sleep has been ragged since the rotation started, the new crew member is getting under your skin, and the check ride is coming up fast. It sounds like the check ride is weighing on you most. Is that right?\" Which microskill is the consultant primarily using, and for what purpose?",
+  "stem": "Near the end of a video session, a consultant says to Captain Otieno, an Army helicopter pilot: \"Okay. Your sleep has been ragged since the rotation started, the new crew member is getting under your skin, and the check ride is coming up fast. It sounds like the check ride is weighing on you most. Is that right?\" Which microskill is the consultant primarily using, and for what purpose?",
   "options": [
-   "Paraphrasing, to restate a single key statement in fresh words",
-   "Immediacy, to address what is happening between them right now",
-   "Summarizing, to integrate several themes and check understanding",
-   "Confrontation, to highlight inconsistencies among the topics raised"
+   "Paraphrasing, to restate the client's main point in fresh words",
+   "Reflection of feeling, to name the emotion beneath the client's words",
+   "Summarizing, to draw several themes into one statement and check accuracy",
+   "Interpretation, to offer the client a new frame for his concerns"
   ],
   "answer": 2,
   "rationales": [
    "A paraphrase restates one statement or idea. This response pulls together several themes from across the session.",
-   "Immediacy addresses the here-and-now relationship between consultant and client, which is not the focus here.",
+   "The response does touch on feeling (\"weighing on you\"), but most of it pulls together sleep, the crew member, and the check ride, and it ends by checking accuracy. Reflecting feeling is part of it, not its main function.",
    "Summarizing draws together multiple themes from a session, often notes how they connect or which stands out, and checks accuracy with the client. It is especially useful at transitions and before agreeing on next steps.",
-   "The response does not point out any contradiction; it organizes the concerns and checks which matters most."
+   "Interpretation offers a new perspective or meaning the client hasn't stated. Here the consultant organizes what the pilot already said rather than reframing it."
   ],
   "takeaway": "Summaries integrate several threads and check accuracy; paraphrases restate one idea.",
   "refs": [
@@ -990,19 +990,19 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "A consultant whose own elite gymnastics career ended after years of competing through a back injury is working with Brielle, a 19-year-old collegiate gymnast who has recurring back pain. The consultant feels unusually anxious after their sessions and has twice urged Brielle to \"stand up to\" her coaches about training load, though Brielle has not asked for help with that. What should the consultant do?",
+  "stem": "A consultant whose own elite gymnastics career ended after years of competing through a back injury is working with Brielle, a 19-year-old collegiate gymnast who has recurring back pain. The consultant feels unusually anxious after their sessions and has twice urged Brielle to \"stand up to\" her coaches about training load, though Brielle has not asked for help with that. What should the consultant do about these reactions?",
   "options": [
-   "Treat the reactions as possible countertransference and seek supervision on them",
-   "Share the personal injury story with Brielle so she grasps the urgency of it",
-   "Transfer Brielle to another consultant right away to eliminate any chance of bias",
-   "Contact Brielle's coaches directly to raise concerns about her training load"
+   "Treat the reactions as possible countertransference and take them to supervision",
+   "Ask Brielle whether she would like help talking with her coaches about training load",
+   "Refer Brielle to sports medicine for her back, and keep sessions on her own goals",
+   "Tell Brielle about the consultant's own injury history so the concern makes sense to her"
   ],
   "answer": 0,
   "rationales": [
-   "The consultant's strong anxiety and push toward an agenda Brielle never set suggest the consultant's own history is shaping the work. Naming this as likely countertransference and taking it to supervision or peer consultation helps the consultant separate personal reactions from the client's goals, while the athlete's pain concerns are routed to sports medicine in the usual way.",
-   "Disclosing the story to create urgency serves the consultant's needs and adds pressure; it is not disclosure for the client's benefit.",
-   "Transfer may become necessary if the reaction cannot be managed, but it is premature before the consultant has examined it, and an abrupt transfer could harm Brielle.",
-   "Contacting coaches without Brielle's request or consent acts on the consultant's agenda and breaches confidentiality."
+   "The consultant's strong anxiety and push toward an agenda Brielle never set suggest the consultant's own history is shaping the work. Naming this as likely countertransference and taking it to supervision or peer consultation helps separate personal reactions from the client's goals; her pain concerns can be routed to sports medicine in the usual way.",
+   "Asking rather than urging is gentler, but the training-load agenda is still the consultant's, not Brielle's. Offering help with it keeps acting on the reaction instead of examining it.",
+   "Routing back pain to sports medicine and refocusing on her goals are both sound, but neither addresses the consultant's own reactions, which are likely to keep leaking into the work unless they are examined.",
+   "Disclosing the history to explain the concern serves the consultant's needs and adds pressure on Brielle; it is not disclosure for the client's benefit."
   ],
   "takeaway": "Strong personal reactions and pushing your own agenda signal countertransference; take it to supervision rather than acting on it.",
   "refs": [
@@ -1027,17 +1027,17 @@
   },
   "stem": "Lior, a collegiate diver, agreed with the consultant on a goal of recovering faster after a missed dive and says the sessions feel supportive. However, Lior has skipped the agreed post-meet journaling for three weeks, explaining, \"Writing stuff down just isn't me.\" Viewed through Bordin's working alliance, what should the consultant do?",
   "options": [
-   "Stress the research support for journaling and ask Lior to recommit to doing it",
-   "Revisit the goal itself, since poor follow-through suggests it isn't Lior's",
-   "Drop between-session work and use session time for reflection instead",
-   "Collaborate on another task, such as a voice memo, that serves the same goal"
+   "Explore together what makes writing hard, and set a smaller journaling target",
+   "Revisit with Lior whether faster recovery is still the right goal for the work",
+   "Spend more session time strengthening the bond, since follow-through reflects trust",
+   "Work with Lior on a different task, such as a voice memo, that serves the same goal"
   ],
   "answer": 3,
   "rationales": [
-   "Pressing harder on a task the client finds a poor fit treats the disagreement as a compliance problem and can strain the bond.",
-   "Lior has endorsed the goal and the bond is strong. The strain is specific to the task, so reopening the goal misreads the problem.",
-   "Between-session practice helps skills transfer to competition. Abandoning it gives up a useful element rather than adapting it.",
-   "Bordin's model separates agreement on goals, agreement on tasks, and the bond. Here goals and bond are intact but the task is not agreed, so the fix is to co-design a different task that serves the same goal and suits Lior."
+   "Problem-solving barriers together is collaborative, but it keeps a task Lior has said doesn't fit. Shrinking the task doesn't create agreement on it.",
+   "Lior has endorsed the goal and says the sessions feel supportive. The strain is specific to the task, so reopening the goal misreads the problem.",
+   "The bond is already strong by Lior's account. Treating missed journaling as a trust problem misdiagnoses which alliance component is strained.",
+   "Bordin's model separates agreement on goals, agreement on tasks, and the bond. Here goals and bond are intact but the task isn't agreed, so the fix is to co-design a different task that serves the same goal and suits Lior."
   ],
   "takeaway": "Diagnose which alliance component is strained; when only the task is the problem, renegotiate the task, not the goal.",
   "refs": [
@@ -1059,19 +1059,19 @@
    "level": "elite",
    "delivery": "individual"
   },
-  "stem": "A consultant is introducing imagery to Mei, an elite wheelchair racer preparing for a 1500-meter final. The consultant's standard script describes \"feeling your legs drive and your feet strike the track.\" What is the best way to adapt the imagery for Mei?",
+  "stem": "A consultant is introducing imagery to Kalani, an elite wheelchair racer preparing for a 1500-meter final. The consultant's standard script describes \"feeling your legs drive and your feet strike the track.\" What is the best way to adapt the imagery for Kalani?",
   "options": [
-   "Use the standard script, since imagery works whatever movements it describes",
-   "Build the script with Mei around her own stroke, chair, and race sensations",
-   "Remove physical sensations entirely and make the script purely visual instead",
-   "Ask Mei's coach which sensations to include so the session doesn't feel awkward"
+   "Rewrite the script around arm and push sensations, and have Kalani try it this week",
+   "Build the script with Kalani around her own stroke, chair, and race sensations",
+   "Keep the standard script but use an external visual view so legs aren't mentioned",
+   "Ask the coach to describe the race sensations so the script is technically accurate"
   ],
   "answer": 1,
   "rationales": [
-   "Imagery is most effective when it matches the athlete's actual movements. A script about legs and feet does not reflect how Mei races and may feel alienating.",
-   "PETTLEP-based imagery stresses matching the physical, task, and environmental details of the athlete's real performance. Co-creating the script with Mei around her pushing stroke, chair, and race sensations makes it more effective and respects her as the expert on her own sport.",
-   "Kinesthetic detail is a strength of good imagery. Removing it lowers the script's fidelity rather than solving the mismatch.",
-   "The coach may offer useful input, but going around Mei to avoid a conversation with her treats her impairment as awkward and sidelines the athlete."
+   "Adapting to upper-body movement is the right direction, but writing it alone relies on the consultant's guesses about how Kalani races. Her own sensations (trunk position, gloves, chair contact) are best captured with her.",
+   "PETTLEP-based imagery stresses matching the physical, task, and environmental details of the athlete's real performance. Co-creating the script with Kalani around her pushing stroke, chair, and race sensations makes it more effective and respects her as the expert on her own sport.",
+   "Switching to an external visual perspective sidesteps the mismatch but drops kinesthetic detail, a strength of good imagery, and the script still isn't built from her actual race.",
+   "The coach may offer useful technical input, but going to the coach rather than Kalani sidelines the athlete, who knows best what racing feels like from the chair."
   ],
   "takeaway": "Individualize imagery to the athlete's real movements and equipment, built with the athlete.",
   "refs": [
@@ -1096,17 +1096,17 @@
   },
   "stem": "After a strong season of work together, Alejandro, a 24-year-old professional cyclist, sends a follow request to the consultant's personal Instagram account with a message: \"Let's keep in touch here—way easier than email!\" They are still actively working together. What is the most appropriate response?",
   "options": [
-   "Accept the request, since Alejandro is an adult and started the connection himself",
-   "Ignore the request and the message without comment to avoid an awkward talk",
-   "Decline warmly, explain the reason, and keep contact on professional channels",
-   "Accept, but avoid liking or commenting on any of Alejandro's posts going forward"
+   "Accept, and move him to a restricted list that hides the consultant's personal posts",
+   "Accept, and agree together to keep session topics off the platform",
+   "Decline warmly, explain why, and keep contact on the professional channels",
+   "Decline without comment, and explain the boundary only if Alejandro raises it"
   ],
   "answer": 2,
   "rationales": [
-   "A personal social media connection with a current client creates a multiple relationship and can compromise confidentiality and boundaries, regardless of who initiates it or the client's age.",
-   "Silence may confuse or hurt Alejandro and could be read as rejection, straining the relationship. Boundaries are best explained, not left implied.",
-   "Managing multiple relationships, including on social media, is part of professional responsibility. Warmly declining, explaining why (ideally a social media policy is already covered at intake), and offering the professional channels for contact keeps the boundary clear while preserving the relationship.",
-   "Accepting still creates the personal connection; limiting one's own activity doesn't change what each person can see about the other or how the relationship is perceived."
+   "A restricted list limits what he sees but still creates a personal connection with a current client, a multiple relationship that can blur roles and expose both people's information.",
+   "Agreeing on ground rules is collaborative, but it accepts the personal connection the boundary is meant to prevent. The concern isn't only what gets discussed online; it's the dual relationship itself.",
+   "Managing multiple relationships, including on social media, is part of professional responsibility. Warmly declining, explaining why (ideally covered in a social media policy at intake), and offering the professional channels keeps the boundary clear while preserving the relationship.",
+   "Declining is right, but leaving the reason unexplained may confuse or hurt Alejandro and could be read as rejection. Boundaries work best when they are explained, not left to be discovered."
   ],
   "takeaway": "Don't connect with current clients on personal social media; explain why kindly and keep contact professional.",
   "refs": [
@@ -1128,21 +1128,21 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "At 11 p.m. during an away tournament, Destiny, a 20-year-old collegiate field hockey player, knocks on the consultant's hotel room door. She is upset after being benched and asks to come in and talk. She is not in danger but is clearly distressed. What should the consultant do?",
+  "stem": "At 11 p.m. during an away tournament, Destiny, a 20-year-old collegiate field hockey player, knocks on the consultant's hotel room door. She is upset after being benched, says she won't be able to sleep until she talks to someone, and asks to come in. She is not in danger. What should the consultant do?",
   "options": [
-   "Suggest they talk in a quiet corner of the hotel lobby or another common area",
+   "Talk with her briefly in a quiet corner of the lobby, then plan a fuller session tomorrow",
    "Invite her in briefly with the door propped open, since she is an adult athlete",
-   "Ask her to return to her room and schedule a full session after the trip ends",
-   "Talk with her in the hallway doorway for as long as she needs to tonight"
+   "Ask her to return to her room, and offer a full session first thing in the morning",
+   "Suggest she call the after-hours counseling line tonight, then meet with her tomorrow"
   ],
   "answer": 0,
   "rationales": [
-   "Moving to a common space keeps support available while maintaining a professional boundary. Informal travel settings blur roles, and a semi-public but quiet location protects both the athlete's privacy and the integrity of the relationship.",
-   "An open door does not change that a consultant's hotel room late at night is a private, personal space. It invites boundary blurring and misperception regardless of the athlete's age.",
-   "Sending a distressed athlete away when support can be offered appropriately is unnecessarily rejecting and may damage trust.",
-   "A hotel hallway exposes her distress to passing teammates and staff, compromising privacy, and remains an awkward, boundary-blurring setting."
+   "Moving to a common space keeps support available tonight while maintaining a professional boundary. A short, contained conversation in a quiet, semi-public spot protects both her privacy and the integrity of the relationship, and a fuller session can follow in a proper setting.",
+   "An open door doesn't change that a consultant's hotel room late at night is a private, personal space. It invites boundary blurring and misperception regardless of the athlete's age.",
+   "A morning session holds the boundary, but sending away a distressed adult athlete who can't sleep, when support can be offered appropriately now, is unnecessarily rejecting and may damage trust.",
+   "A crisis or counseling line fits risk or a mental health emergency; she is upset about being benched and is not in danger. Redirecting her there treats ordinary distress as a crisis and leaves her without the support she asked for."
   ],
-  "takeaway": "On the road, meet athletes in appropriate common spaces, never in a hotel room, even when the request is sincere.",
+  "takeaway": "On the road, meet athletes in appropriate common spaces rather than hotel rooms, even when the request is sincere and the need is real.",
   "refs": [
    "andersen2005",
    "aaspethics2024"
@@ -1165,17 +1165,17 @@
   },
   "stem": "A consultant receives a referral for Riley, a transgender woman on a university swim team, who wants help managing pre-race anxiety. The consultant has extensive experience with competitive anxiety but no training in working with transgender clients and worries about saying the wrong thing. What is the most appropriate course of action?",
   "options": [
-   "Refer Riley to a consultant who specializes in working with gender identity",
-   "Take on the anxiety work while seeking training and consultation on affirming practice",
-   "Begin by exploring Riley's gender identity to understand its role in her anxiety",
-   "Keep the work strictly on anxiety skills so identity never needs to come up"
+   "Refer Riley to a consultant who specializes in working with transgender athletes",
+   "Begin the anxiety work while seeking training and consultation on affirming practice",
+   "Complete training in affirming practice first, and start sessions in about a month",
+   "Accept, and ask her to educate the consultant about transgender athletes in general"
   ],
   "answer": 1,
   "rationales": [
-   "Riley's request is pre-race anxiety, which is within the consultant's competence. Referring solely because of her identity is unnecessary and can feel rejecting.",
-   "The competence standard asks consultants to practice within their training and to take reasonable steps (education, consultation, supervision) to serve diverse clients well. Here the presenting concern is squarely within competence, so the consultant proceeds while building knowledge of affirming practice and following Riley's lead on what is relevant.",
-   "Opening with her gender identity assumes it is the cause of her anxiety and makes identity the focus without her direction.",
-   "Treating clients identically sounds neutral, but refusing to engage with identity can dismiss context Riley may want to raise, such as team climate. The consultant follows her lead rather than ruling a topic out."
+   "Riley's request is pre-race anxiety, which is within the consultant's competence. Referring because of her identity is unnecessary and can feel rejecting; competence is judged against the presenting concern, with cultural knowledge built alongside.",
+   "The competence standard asks consultants to practice within their training and to take reasonable steps (education, consultation, supervision) to serve diverse clients well. The presenting concern is squarely within the consultant's competence, so the consultant proceeds while developing cultural competence in affirming practice and following Riley's lead on what is relevant.",
+   "Building knowledge is right, but delaying a request the consultant is already competent to handle leaves Riley without support for a month. Training and consultation can happen alongside the work.",
+   "Following a client's lead about her own experience is good practice, but asking her to educate the consultant about transgender athletes in general shifts the consultant's learning burden onto the client."
   ],
   "takeaway": "A client's identity is not a reason to refer; work within your competence on the presenting concern and build cultural competence alongside.",
   "refs": [
@@ -1200,17 +1200,17 @@
   },
   "stem": "A consultant in a small town is approached by the parents of Ethan, a 16-year-old club baseball pitcher. The consultant's own son pitches for the same team, the two boys compete for starts, and the families share carpools to games. Another qualified consultant in the next town offers in-person and virtual sessions. The parents say they chose this consultant because \"you already know everybody.\" What should the consultant do?",
   "options": [
-   "Accept, since familiarity with the team and the families will speed up rapport",
-   "Accept, and keep the arrangement quiet so Ethan's teammates don't find out",
-   "Accept, with a firm agreement never to discuss sessions in carpools or at games",
+   "Accept, after disclosing the son's role to the parents in a signed consent form",
+   "Accept, with a colleague supervising the case to monitor the consultant's objectivity",
+   "Ask Ethan whether he is comfortable working with a teammate's parent before deciding",
    "Explain the conflict to the parents and refer them to the other consultant"
   ],
   "answer": 3,
   "rationales": [
-   "Familiarity is the problem here, not an asset: the consultant's son competes with Ethan for starts, and the families share carpools, so both the consultant's objectivity and Ethan's freedom to talk openly about teammates are at risk.",
-   "Secrecy does not manage a multiple relationship; it adds risk and keeps the people affected from understanding the dual roles.",
-   "Boundaries like this can make an unavoidable overlap workable, but they cannot remove a direct conflict of interest involving the consultant's own child, especially when a qualified alternative is readily available.",
-   "Multiple relationships are not automatically unethical, but they should be avoided when they could reasonably be expected to impair objectivity or harm the client. With the consultant's son competing directly with Ethan and an accessible alternative nearby, transparently explaining the conflict and referring is the most protective choice."
+   "Informed consent about a conflict is necessary but not sufficient. Disclosure doesn't remove the consultant's stake in which boy gets starts, or the difficulty Ethan would have speaking openly about a rival who is his consultant's son.",
+   "Supervision can help manage an unavoidable overlap, but it can't remove a direct conflict of interest involving the consultant's own child, especially when a qualified alternative is readily available.",
+   "Ethan's comfort matters, but a 16-year-old may not feel free to object, and his comfort doesn't address the consultant's impaired objectivity. The consultant is responsible for resolving the conflict, not the client.",
+   "Multiple relationships aren't automatically unethical, but they should be avoided when they could reasonably be expected to impair objectivity or harm the client. With the consultant's son competing directly with Ethan and an accessible alternative nearby, transparently explaining the conflict and referring is the most protective choice."
   ],
   "takeaway": "When an overlapping relationship creates a real conflict of interest and a qualified alternative exists, explain the conflict and refer.",
   "refs": [
@@ -1235,17 +1235,17 @@
   },
   "stem": "Over two months, Noor, a 26-year-old professional squash player, has begun texting the consultant late at night with updates, calling the consultant \"the only one who really gets me,\" and asking for reassurance before every match. The consultant's stated policy, agreed at intake, is that texts are for scheduling only. What is the most appropriate response?",
   "options": [
-   "Reply to each text promptly so that Noor does not feel abandoned",
-   "Stop replying to texts without explanation until the pattern fades",
-   "Raise the pattern in session, restate the policy, and explore Noor's needs",
-   "End the consulting relationship, since Noor has become too dependent"
+   "Reply once by text restating the policy, then answer only scheduling messages",
+   "Agree to a short reassurance text before each match, since that seems to help her",
+   "Raise the pattern in session, restate the policy, and explore what Noor needs",
+   "Refer Noor to a counselor to address her growing reliance on the consultant"
   ],
   "answer": 2,
   "rationales": [
-   "Replying to every late-night message reinforces dependence on the consultant, erodes the agreed boundary, and is not sustainable.",
-   "Abruptly withdrawing without explanation is likely to feel like rejection and may intensify the pattern; boundaries work best when explained.",
+   "Restating the policy is right, but doing it by text and then going quiet skips the conversation about what is driving the pattern. Without that, the boundary may feel like rejection, and her underlying need goes unaddressed.",
+   "Pre-match reassurance is warm, but it formalizes the dependence the pattern shows and moves contact further from the agreed policy. It also delays her developing her own pre-match routine.",
    "Idealization and growing reliance on the consultant are common relationship dynamics (sometimes understood as transference). The practical response is to name the pattern warmly in session, restate the boundary consistently, and explore what Noor needs, such as her own pre-match routine or other supports, while staying alert to signs that a mental health referral is warranted.",
-   "Terminating abruptly could harm Noor and is not warranted when the dynamic can be addressed directly within the relationship."
+   "Referral may become appropriate if signs of a mental health concern emerge, but nothing described so far requires it, and referring before discussing the pattern can feel like being passed along. The dynamic can first be addressed within the relationship."
   ],
   "takeaway": "When a client leans on you beyond agreed limits, address it openly and keep the boundary consistent rather than over-responding or withdrawing.",
   "refs": [
@@ -1259,7 +1259,7 @@
   "scored": true,
   "domain": "VI",
   "kg": "L",
-  "topic": "Posting about a client's success",
+  "topic": "Unsolicited testimonial from a client",
   "cognitive": "application",
   "difficulty": 1,
   "format": "vignette",
@@ -1268,21 +1268,21 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "A consultant has worked for a year with Beatriz, a professional surfer who just won her first major event. Thrilled, the consultant drafts a public post: \"So proud of my client Beatriz—her mental game made the difference!\" The consultant has not discussed this with Beatriz. What should the consultant do with the draft?",
+  "stem": "A consultant has worked for a year with Folake, a professional surfer who just won her first major event. That evening, Folake posts publicly and tags the consultant's practice account: \"Couldn't have done it without my mental performance coach!\" She then texts the consultant, \"Repost it—you deserve the business!\" They are still working together. What should the consultant do?",
   "options": [
-   "Post it, since the win is public and the post only compliments her",
-   "Post it without Beatriz's name, since followers likely won't connect it to her",
-   "Post it, then take it down if Beatriz objects after she sees it",
-   "Hold the post and ask Beatriz whether she wants the work mentioned publicly"
+   "Repost it, since Folake wrote it freely and wasn't asked for it",
+   "Thank her, and ask her to remove the tag so the relationship stays confidential",
+   "Repost it with a note that individual results vary and success isn't guaranteed",
+   "Thank her warmly, and explain why the practice won't share or repost it"
   ],
   "answer": 3,
   "rationales": [
-   "The win is public, but the consulting relationship is not. Confidentiality covers the fact that someone is a client, not just what is said in sessions.",
-   "A post about \"my client\" winning a specific major event the same day identifies her almost as clearly as her name would.",
-   "Removing a post after the fact does not undo the disclosure, and it shifts the burden of protecting confidentiality onto the client.",
-   "Confidentiality covers the existence of the consulting relationship, so publicly identifying a client requires her consent. Asking first respects her right to decide; if she agrees, the post should congratulate her rather than credit the consultant, because using a current client's success to promote one's services edges toward a testimonial, which the Ethics Code does not allow from current clients."
+   "An unsolicited testimonial is still a testimonial. Reposting it uses a current client's endorsement to market the consultant's services, which the Ethics Code does not allow, because a current client's dependence on the relationship makes such an endorsement hard to treat as freely given.",
+   "Declining to amplify the post is appropriate, but Folake is free to share her own experience, including that she works with a consultant. Asking her to change her post polices her disclosure instead of managing the consultant's own conduct.",
+   "Disclaimers can make advertising more accurate, but they don't change that the content is a testimonial from a current client. The problem is using her endorsement at all, not how it is qualified.",
+   "The Ethics Code bars testimonials from current clients, and reposting or sharing her post would turn it into the consultant's advertising. Thanking her warmly and briefly explaining the rule respects her excitement and her right to post about her own experience while keeping the consultant from using it for promotion."
   ],
-  "takeaway": "Being someone's consultant is itself confidential; get consent before any public mention, and don't turn a current client's success into marketing.",
+  "takeaway": "A current client's unsolicited praise is still a testimonial; thank them, but don't repost it or use it to market your services.",
   "refs": [
    "aaspethics2024"
   ]
@@ -1302,21 +1302,21 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "At a national youth championship, Theo, a 15-year-old wrestler on a team covered by the U.S. Center for SafeSport's Minor Athlete Abuse Prevention Policies, asks the traveling consultant to talk privately about nerves before his first match. Teammates are around the hotel, and the consultant's room is down the hall. Where should this conversation take place?",
+  "stem": "At a national youth championship, Pavel, a 15-year-old wrestler on a team covered by the U.S. Center for SafeSport's Minor Athlete Abuse Prevention Policies, asks the traveling consultant to talk privately about nerves before his first match, which is about an hour away. Teammates are around the hotel, and the consultant's room is down the hall. Where should this conversation take place?",
   "options": [
-   "In the consultant's hotel room, after getting a parent's permission by text",
-   "In an observable, interruptible space, such as a quiet corner of the team area",
-   "Only after the team returns home, since one-on-one talks with minors are banned",
-   "In Theo's hotel room with the door shut, so that his privacy is fully protected"
+   "In the consultant's room with the door open, after texting a parent for permission",
+   "In a quiet corner of the team area, where others can see them but not overhear",
+   "In a private meeting room, with an assistant coach sitting in on the conversation",
+   "After his match, when one of his parents can join them for the conversation"
   ],
   "answer": 1,
   "rationales": [
-   "Parental permission does not make a one-on-one meeting with a minor in a hotel room acceptable; MAAPP restricts such meetings regardless.",
-   "MAAPP requires one-on-one interactions between adults and minor athletes to be observable and interruptible. A quiet spot in a common team area lets Theo speak privately in tone while remaining in view of others, protecting both him and the consultant.",
-   "MAAPP does not ban one-on-one interactions with minors; it requires that they be observable and interruptible. Delaying support he needs now is unnecessary.",
-   "A closed hotel room is neither observable nor interruptible, which violates the policy and creates risk for both the athlete and the consultant."
+   "A hotel room is a private space that is neither readily observable nor interruptible, and a parent's permission doesn't override MAAPP's requirements for one-on-one interactions with minor athletes. An open door doesn't change the setting.",
+   "MAAPP requires one-on-one interactions between adults and minor athletes to be observable and interruptible. A quiet spot in a common team area lets Pavel speak privately in tone while remaining in view of others, protecting both him and the consultant, and it fits the hour before his match.",
+   "A second adult makes the meeting compliant, but MAAPP doesn't require one, and adding an assistant coach to a private conversation about nerves gives up the privacy Pavel asked for when an observable, interruptible space would do.",
+   "Waiting for a parent goes beyond what the policy requires and leaves Pavel without support at the moment he asked for it, just before his match."
   ],
-  "takeaway": "With minor athletes under MAAPP, one-on-one conversations happen in observable and interruptible spaces, never in hotel rooms.",
+  "takeaway": "Under MAAPP, one-on-one conversations with minor athletes happen in observable and interruptible spaces, not hotel rooms; a parent's permission doesn't change that.",
   "refs": [
    "maapp2025"
   ]
