@@ -3,17 +3,18 @@
   "id": "card-i-goal-types",
   "kg": "I",
   "title": "Goal types and goal-setting principles",
-  "body": "Goals come in three types. Outcome goals concern results that depend partly on others, such as winning or placing. Performance goals concern the performer's own standard, judged against a personal baseline, such as a split time or a shooting percentage. Process goals concern the actions that produce performance, such as a relaxed grip or an early call-out. Outcome goals can motivate long-term effort, but on their own they are less controllable and can raise anxiety. Performance and process goals are more controllable and are linked to better focus, self-efficacy, and control of cognitive anxiety. Most plans combine all three, with process goals guiding the day-to-day work. Goal-setting research supports goals that are specific and measurable, challenging but attainable, set over short and long time frames, written down, and paired with regular feedback. Specific goals reliably beat 'do your best' goals.",
+  "body": "Goals come in three types. Outcome goals concern results that depend partly on others, such as winning or placing. Performance goals concern the performer's own standard, judged against a personal baseline, such as a split time or a shooting percentage. Process goals concern the actions that produce performance, such as a relaxed grip or an early call-out. Outcome goals can motivate long-term effort, but on their own they are less controllable and can raise anxiety. Performance and process goals are more controllable, and process goals in particular are linked to better focus, self-efficacy, and control of cognitive anxiety. Most plans combine all three, with process goals guiding the day-to-day work. Goal-setting research supports goals that are specific and measurable, challenging but attainable, set over short and long time frames, written down, and paired with regular feedback. Specific, challenging goals generally beat 'do your best' goals when there is commitment and feedback; sport findings are more mixed.",
   "points": [
    "Outcome = result vs. others; performance = own standard; process = how you execute",
    "Combine types; process goals drive daily practice and in-event focus",
-   "Specific, challenging-but-attainable goals with feedback beat vague 'do your best' goals",
+   "Specific, challenging-but-attainable goals with feedback generally beat vague 'do your best' goals",
    "Set goals collaboratively so the performer owns them"
   ],
   "examNote": "Expect a vignette where an athlete has only an outcome goal and anxiety about rivals; the best plan keeps the outcome goal but adds controllable performance and process goals.",
   "refs": [
    "locke2002",
-   "kingston1997"
+   "kingston1997",
+   "weinberg2024"
   ]
  },
  {
@@ -88,7 +89,7 @@
   "id": "card-i-pressure",
   "kg": "I",
   "title": "Performing under pressure and pressure training",
-  "body": "Performers often execute well in relaxed practice but struggle when evaluation, consequences, or audiences are added. Pressure can raise anxiety, narrow attention, and pull focus inward onto mechanics, which disrupts well-learned skills. Preparation works on two fronts. First, performers learn coping skills such as breathing, routines, refocusing cues, and reappraisal of arousal as readiness. Second, practice is made more competition-like in planned stages: scoring, consequences, time limits, observers, noise, or fatigue are added gradually so performers rehearse their coping skills under realistic demands. This graded exposure, sometimes called pressure training or stress inoculation, builds confidence that skills will hold up. Simply adding repetitions in relaxed conditions, or telling performers the moment does not matter, does not build this capacity. Pressure should be raised in manageable steps, with debriefs to reinforce what worked.",
+  "body": "Performers often execute well in relaxed practice but struggle when evaluation, consequences, or audiences are added. Pressure can raise anxiety, narrow attention, and pull focus inward onto mechanics, which disrupts well-learned skills. Preparation works on two fronts. First, performers learn coping skills such as breathing, routines, refocusing cues, and reappraisal of arousal as readiness. Second, practice is made more competition-like in planned stages: scoring, consequences, time limits, observers, noise, or fatigue are added gradually so performers rehearse their coping skills under realistic demands. This graded exposure is the core of pressure training and resembles the application phase of stress inoculation training. It can build confidence that skills will hold up. Simply adding repetitions in relaxed conditions, or telling performers the moment does not matter, is unlikely on its own to build this capacity. Pressure should be raised in manageable steps, with debriefs to reinforce what worked.",
   "points": [
    "Pressure can narrow attention and trigger inward focus on mechanics",
    "Teach coping skills, then practice them under graded pressure",

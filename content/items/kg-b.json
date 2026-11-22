@@ -329,7 +329,7 @@
    "level": "elite",
    "delivery": "individual"
   },
-  "stem": "Dmitri, a wheelchair basketball player on a national squad, shoots 78% on free throws through three quarters and 55% in the fourth. His coach, who rarely takes him off the court, says he loses focus. On the ACSI-28, Dmitri rates his concentration highly, and he describes the breath and cue word he uses on each attempt. Over two games the consultant saw the same breath, the same tempo, and the same cue late as early, and most of the late misses hit the front of the rim. What should the consultant do next?",
+  "stem": "Dmitri, a wheelchair basketball player on a national squad, shoots 78% on free throws through three quarters and 55% in the fourth. His coach, who rarely takes him off the court, says he loses focus. On the ACSI-28, Dmitri rates his concentration highly, and he says that late or early he thinks of nothing but his breath and cue word. Over two games the consultant saw the same breath, the same tempo, and the same cue late as early, and most of the late misses hit the front of the rim. What should the consultant do next?",
   "options": [
    "Compare late shooting in games with fewer minutes",
    "Code his free-throw routine over several more games",
@@ -340,7 +340,7 @@
   "rationales": [
    "Best. The routine holds up and the misses fall short, so tiring arms are a strong rival to lost focus. Records of games in which he played less are a simple check before a mental formulation is settled.",
    "Coding his routine would help if it seemed to break down or had gone unseen. In two games it did not change.",
-   "His account is in hand and matches what was seen. It cannot show why the shots fall short.",
+   "He has already said what he thinks late in games, and what was seen agrees with it. His account cannot show why the shots fall short.",
    "An attentional profile would suit signs that he is distracted or overloaded. Neither his reports nor his behavior shows any."
   ],
   "takeaway": "Before settling on a mental explanation, test the physical one that the data suggest.",
@@ -590,7 +590,7 @@
   ],
   "takeaway": "Knowing how confident an athlete is differs from knowing where the confidence comes from.",
   "refs": [
-   "vealey1986",
+   "vealey1998",
    "weinberg2024"
   ]
  },
@@ -679,10 +679,10 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "In an intake session, Amadou, a collegiate wrestler, asks for help getting tougher about making weight. He weighs in tomorrow. He has eaten almost nothing for three days and ran in a sweat suit last night. He admits that he panics when he eats these days. Reaching for his bag, he grips the desk until the room stops turning; it happened on the stairs too, he says, and his heart has been skipping since lunch. What should the consultant do first?",
+  "stem": "In an intake session, Amadou, a collegiate wrestler, asks for help getting tougher about making weight. He weighs in tomorrow. He has eaten almost nothing for three days and ran in a sweat suit last night. He admits that he panics when he eats these days. Reaching for his bag, he grips the desk until the room stops turning; it happened on the stairs too, he says, and his heart has been skipping since lunch. The team physician is in the sports medicine office across the hall. What should the consultant do first?",
   "options": [
    "Arrange a visit with a clinician who treats eating disorders",
-   "Take him to the sports medicine staff",
+   "Take him to the team physician",
    "Arrange a visit with the athletic department's dietitian",
    "Help him plan how to tell his coach that he's moving up"
   ],
@@ -714,7 +714,7 @@
    "level": "professional",
    "delivery": "virtual"
   },
-  "stem": "In a first video interview, Hyun-seo, a professional esports player, is asked about the frustration (\"tilt\") that follows lost rounds. He says, \"Am I stuck like this? No. I went a whole year on the academy roster without blowing up at anyone, and we lost plenty. That guy's still in here somewhere.\" The consultant reflects this back and notes it in the record. In motivational interviewing, what kind of change talk is it?",
+  "stem": "In a first video interview, Tadeo, a professional esports player, is asked about the frustration (\"tilt\") that follows lost rounds. He says, \"Am I stuck like this? No. I went a whole year on the academy roster without blowing up at anyone, and we lost plenty. That guy's still in here somewhere.\" The consultant reflects this back and notes it in the record. In motivational interviewing, what kind of change talk is it?",
   "options": [
    "A statement of desire to change",
    "A statement of reasons to change",
@@ -723,7 +723,7 @@
   ],
   "answer": 2,
   "rationales": [
-   "Desire talk tells what a person wants, as in \"I wish\" or \"I'd like.\" Hyun-seo does not say what he wants.",
+   "Desire talk tells what a person wants, as in \"I wish\" or \"I'd like.\" Tadeo does not say what he wants.",
    "Reason talk gives an argument for change, such as what tilt costs him. He gives no such argument.",
    "Best. He answers \"Am I stuck?\" with proof from his own past that he can stay composed. That is ability talk, one of the preparatory forms of change talk.",
    "Taking-steps talk reports recent action toward the change. His example is from a past season, offered as proof of what he can do."

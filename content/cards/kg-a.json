@@ -3,7 +3,7 @@
   "id": "card-a-cbt",
   "kg": "A",
   "title": "Cognitive-behavioral therapy (CBT) in performance consulting",
-  "body": "CBT rests on the cognitive model: it is not a situation by itself but how a person interprets it that shapes emotions, body reactions and behavior. A diver who reads a racing heart as \"I'm about to fail\" feels and acts differently from one who reads it as \"I'm ready.\" CBT work is structured and collaborative. Sessions often have an agenda, goals are explicit, and clients practice between sessions. The consultant uses guided discovery, asking Socratic questions about the evidence for and against an automatic thought so the client reaches a more balanced view on their own rather than being told it is wrong. Behavioral experiments test beliefs directly: the client makes a prediction, tries the feared action in a planned way (often after dropping a safety behavior), and compares what happened with what they expected. In assessment, a CBT consultant asks what the client was thinking or telling themselves in key moments.",
+  "body": "CBT rests on the cognitive model: it is not a situation by itself but how a person interprets it that shapes emotions, body reactions and behavior. A diver who reads a racing heart as \"I'm about to fail\" feels and acts differently from one who reads it as \"I'm ready.\" CBT work is structured and collaborative. Sessions often have an agenda, goals are explicit, and clients practice between sessions. The consultant uses guided discovery, asking Socratic questions about the evidence for and against an automatic thought so the client reaches a more balanced view on their own rather than being told it is wrong. Behavioral experiments test beliefs directly: the client makes a prediction, tries the feared action in a planned way (often while dropping a safety behavior), and compares what happened with what they expected. In assessment, the consultant asks what the client was thinking in key moments. Unlicensed CMPCs apply these methods to performance; they don't diagnose or treat disorders.",
   "points": [
    "Cognitive model: interpretation → emotion, physiology, behavior",
    "Structured, collaborative, goal-directed, with between-session practice",
@@ -54,7 +54,7 @@
   "id": "card-a-solution-focused",
   "kg": "A",
   "title": "Solution-focused approach",
-  "body": "Solution-focused brief therapy, associated with Steve de Shazer, is future-oriented and strengths-based. It spends little time analyzing where a problem came from. Instead it clarifies what the client wants instead and builds on what already works. Exceptions are times when the problem was absent or smaller, such as the games when a pitcher settled after a walk. The consultant asks what was different then and helps the client do more of it. Scaling questions (\"Where are you from 1 to 10?\") turn vague goals into steps. Typical follow-ups are what puts the rating where it is rather than lower, and what one point higher would look like in concrete, observable behavior. The miracle question asks the client to imagine the problem resolved overnight and describe what they would notice first, which helps define a preferred future. The client is treated as resourceful, and the consultant uses the client's own language and existing strengths rather than importing new techniques first.",
+  "body": "Solution-focused brief therapy, developed by Steve de Shazer, Insoo Kim Berg and colleagues, is future-oriented and strengths-based. It spends little time analyzing where a problem came from. Instead it clarifies what the client wants instead and builds on what already works. Exceptions are times when the problem was absent or smaller, such as the games when a pitcher settled after a walk. The consultant asks what was different then and helps the client do more of it. Scaling questions (\"Where are you from 1 to 10?\") turn vague goals into steps. Typical follow-ups are what puts the rating where it is rather than lower, and what one point higher would look like in concrete, observable behavior. The miracle question asks the client to imagine the problem resolved overnight and describe what they would notice first, which helps define a preferred future. The client is treated as resourceful, and the consultant uses the client's own language and existing strengths rather than importing new techniques first.",
   "points": [
    "Future- and strengths-focused; little time on problem origins",
    "Exception questions: when is the problem absent or smaller?",
@@ -71,14 +71,14 @@
   "id": "card-a-feminist",
   "kg": "A",
   "title": "Feminist approaches",
-  "body": "Feminist approaches start from the view that the personal is political. Individual distress is understood within its sociocultural context, including gender, power and other social structures, rather than located only inside the client. The relationship is egalitarian. The consultant demystifies the process by explaining methods and their rationale, invites the client to question them, shares decisions about goals, and is open about their own values instead of claiming neutrality. In conceptualization, the consultant asks how the environment contributes. Examples include a culture that brushes off a woman's ideas, or unequal access to facilities. This guards against simply accepting a client's self-blame. In delivery, the emphasis is empowerment: validating real inequities and helping clients recognize and use their own power, including collective advocacy through appropriate channels. The consultant does not reframe inequities away, and does not rescue clients by acting on their behalf. These approaches address gender-role socialization for clients of any gender.",
+  "body": "Feminist approaches start from the view that the personal is political. Individual distress is understood within its sociocultural context, including gender, power and other social structures, rather than located only inside the client. The relationship is egalitarian. The consultant demystifies the process by explaining methods and their rationale, invites the client to question them, shares decisions about goals, and is open about their own values instead of claiming neutrality. In conceptualization, the consultant asks how the environment contributes. Examples include a culture that brushes off a woman's ideas, or unequal access to facilities. This guards against simply accepting a client's self-blame. In delivery, the emphasis is empowerment: validating real inequities and helping clients recognize and use their own power, including collective advocacy through appropriate channels. The consultant does not reframe inequities away, and does not take over without the client's collaboration; advocacy agreed with the client is compatible. These approaches address gender-role socialization for clients of any gender.",
   "points": [
    "The personal is political: distress in sociocultural context",
    "Egalitarian relationship; demystify the process; values are not hidden",
-   "Empowerment rather than rescue",
+   "Empowerment and collaborative advocacy rather than taking over",
    "Examine power and gender rather than defaulting to self-blame"
   ],
-  "examNote": "Correct answers share power and examine context. Wrong answers present the consultant as the expert, claim value-neutrality, pathologize reactions to real inequity, or have the consultant act for the client.",
+  "examNote": "Correct answers share power and examine context. Wrong answers present the consultant as the expert, claim value-neutrality, pathologize reactions to real inequity, or have the consultant take over without the client's agreement.",
   "refs": [
    "sommersflanagan2018"
   ]
@@ -87,7 +87,7 @@
   "id": "card-a-systems-ecological",
   "kg": "A",
   "title": "Systems and ecological approaches",
-  "body": "Systems theory treats a family, team or organization as a set of interacting parts. A change in one part ripples through the others. Causality is circular rather than linear. A coach yells, defenders tighten up, more shots reach the goalie, the goalie's anxiety rises, and the coach yells more. Each behavior is both cause and effect, so a systems consultant asks what pattern keeps the problem going rather than who is to blame, and intervenes on the interaction pattern. The person labeled as the problem is often just where the system's strain shows. Bronfenbrenner's ecological model adds nested contexts: the immediate settings of family, school and club; the links between them; settings that affect the athlete indirectly, such as a parent's workplace or a sport federation; and the cultural values that surround them all. In practice, a systems-oriented consultant explains early that key adults or stakeholders may be part of the work, with consent and clear confidentiality limits. Assessment asks how changes at home, school and in sport connect with one another.",
+  "body": "Systems theory treats a family, team or organization as a set of interacting parts. A change in one part ripples through the others. Causality is circular rather than linear. A coach yells, defenders tighten up, more shots reach the goalie, the goalie's anxiety rises, and the coach yells more. Each behavior is both cause and effect, so the consultant asks what pattern keeps the problem going rather than who is to blame, and intervenes on the interaction pattern. The person labeled as the problem may be where strain shows most, though individual concerns still need assessment. Bronfenbrenner's ecological model adds nested contexts: the immediate settings of family, school and club; the links between them; settings that affect the athlete indirectly, such as a parent's workplace or a sport federation; and surrounding cultural values. A systems-oriented consultant explains early that key adults or stakeholders may be part of the work, with consent and clear confidentiality limits. Assessment asks how changes at home, school and in sport connect.",
   "points": [
    "Teams, families and organizations are interacting systems",
    "Circular, not linear, causality; target the pattern",
@@ -104,29 +104,30 @@
   "id": "card-a-ttm",
   "kg": "A",
   "title": "Transtheoretical model (stages of change)",
-  "body": "Prochaska and DiClemente's transtheoretical model describes readiness for change in stages. In precontemplation, the person has no intention to change, often because they see no problem. In contemplation, they intend to change within roughly six months but feel ambivalent. In preparation, they intend to act soon and have taken small steps. In action, they are actively changing. In maintenance, they are sustaining the change and preventing relapse. The practical lesson is to match strategies to the stage. With precontemplators, build rapport and raise awareness without pushing. With contemplators, explore pros and cons (decisional balance) and build confidence. With people in preparation, make concrete plans. In action and maintenance, use behavioral strategies such as cues, scheduling, support and relapse-prevention planning. Mismatching, such as handing a detailed action plan to someone who sees no reason to change, breeds resistance. Relapse is common and people often recycle through stages. It is normalized as part of change, and the consultant re-engages strategies that fit the client's current readiness.",
+  "body": "Prochaska and DiClemente's transtheoretical model describes readiness for change in stages. In precontemplation, the person has no intention to change, often because they see no problem. In contemplation, they intend to change within roughly six months but feel ambivalent. In preparation, they intend to act soon and have taken small steps. In action, they are actively changing. In maintenance, they are sustaining the change and preventing relapse. The practical lesson is to match strategies to the stage. With precontemplators, build rapport and raise awareness without pushing. With contemplators, explore pros and cons (decisional balance) and build confidence. With people in preparation, make concrete plans. In action and maintenance, use behavioral strategies such as cues, scheduling, support and relapse-prevention planning. Mismatching, such as handing a detailed action plan to someone who sees no reason to change, can increase resistance, although research support for strict stage-matching is mixed. Relapse is common and people often recycle through stages. It is normalized, and the consultant re-engages strategies that fit current readiness.",
   "points": [
    "Precontemplation → contemplation → preparation → action → maintenance",
    "Match the strategy to the stage",
-   "Decisional balance and self-efficacy are key in early stages",
+   "Decisional balance is key early; self-efficacy grows across stages and supports action and maintenance",
    "Relapse is normal; people recycle through stages"
   ],
   "examNote": "Identify the stage from the client's words, then reject action-stage tactics for early-stage clients and passive waiting for anyone.",
   "refs": [
    "prochaska1983",
-   "weinberg2024"
+   "weinberg2024",
+   "prochaska1992"
   ]
  },
  {
   "id": "card-a-tpb",
   "kg": "A",
   "title": "Theory of planned behavior",
-  "body": "Ajzen's theory of planned behavior explains deliberate behaviors such as attending training, doing an injury-prevention warm-up, or exercising regularly. Three determinants shape intention, and intention is the most immediate predictor of behavior. The first is attitude toward the behavior: is it good, worthwhile, enjoyable? The second is subjective norms: do important others expect it, and do I care what they think? The third is perceived behavioral control: how easy or possible is it for me, given time, skill and barriers? Perceived control can also predict behavior directly when it reflects real control. For consultants, the model works as a diagnostic map. Assessment asks about all three determinants plus intention. Planning then targets whichever determinant is weak. If people already value exercise and feel supported but believe they cannot fit it in, a benefits campaign or more endorsements miss the point. Protected time, short sessions and barrier planning address the real problem, which is low perceived control.",
+  "body": "Ajzen's theory of planned behavior explains deliberate behaviors such as attending training, doing an injury-prevention warm-up, or exercising regularly. Three determinants shape intention, and intention is the most immediate predictor of behavior. The first is attitude toward the behavior: is it good, worthwhile, enjoyable? The second is subjective norms: do important others expect it, and do I care what they think? The third is perceived behavioral control: how easy or possible is it for me, given time, skill and barriers? Perceived control can also predict behavior directly when it reflects real control. For consultants, the model works as a diagnostic map. Assessment asks about all three determinants plus intention. Planning then targets a determinant that is weak and matters for that behavior. If people already value exercise and feel supported but believe they cannot fit it in, a benefits campaign or more endorsements miss the point. Protected time, short sessions and barrier planning address the real problem, which is low perceived control.",
   "points": [
    "Attitudes + subjective norms + perceived behavioral control → intention → behavior",
    "Perceived behavioral control can also influence behavior directly",
    "Assess all three determinants and intention",
-   "Intervene on the weakest determinant"
+   "Intervene on a weak determinant that matters for the behavior"
   ],
   "examNote": "Don't confuse TPB with stages of change (TTM), SDT's basic needs, or the health belief model's susceptibility and severity.",
   "refs": [
@@ -147,7 +148,8 @@
   "examNote": "When asked what explains differences between consultants, or which plan fits a stated philosophy, trace back to core beliefs and pick the option consistent across the layers.",
   "refs": [
    "poczwardowski2004",
-   "gould2002"
+   "gould2002",
+   "orlick1988"
   ]
  }
 ]

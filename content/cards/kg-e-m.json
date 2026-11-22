@@ -3,23 +3,23 @@
   "id": "card-e-scope-comparison",
   "kg": "E",
   "title": "CMPC scope compared with other professionals",
-  "body": "A CMPC teaches and applies mental performance skills such as focus, confidence, arousal regulation, goal setting, and team dynamics. Many neighboring jobs overlap with that work, so scope questions come up constantly. Licensed clinicians (psychologists, counselors, social workers, psychiatrists) diagnose and treat mental disorders. Athletic trainers, physicians, and physical therapists evaluate and treat injuries and decide medical return to play. Strength and conditioning coaches design physical training. Registered dietitians write individualized nutrition plans and provide medical nutrition therapy. Executive coaches work on leadership and organizational issues under a title anyone can use. The working rule: a CMPC may share general, evidence-based information in these areas, but leaves assessment, diagnosis, and prescription to the right professional, and coordinates with them (with the client's consent) as part of a team.",
+  "body": "A CMPC teaches and applies mental performance skills such as focus, confidence, arousal regulation, goal setting, and team dynamics. Many neighboring jobs overlap with that work, so scope questions arise naturally. Licensed clinicians (such as psychologists, counselors, social workers, psychiatrists) diagnose and treat mental disorders as their licenses allow; a CMPC without such a license does not. Athletic trainers, physicians, and physical therapists evaluate and treat injuries, and the designated medical authority (often the team physician) decides return to play. Strength and conditioning coaches design physical training. Registered dietitians write individualized nutrition plans and provide medical nutrition therapy. Executive coaches work on leadership and organizational issues under a title anyone can use. The working rule: a CMPC may share general, evidence-based information in these areas, but leaves assessment, diagnosis, and prescription to the right professional, and coordinates with them (with the client's consent) as part of a team.",
   "points": [
    "Mental disorder diagnosis and treatment: licensed clinicians",
    "Injury care and return-to-play clearance: medical team",
    "Training programs: strength coach; meal plans: registered dietitian",
-   "General education is fine; individualized assessment or prescription is not"
+   "General education is fine; individualized medical, clinical, nutrition, or training assessment or prescription is not"
   ],
-  "examNote": "Items often offer a tempting option where the consultant does another professional's job (clears an athlete to play, writes a meal plan, treats a disorder). Choose the option that stays in scope while still helping, usually by sharing general information and coordinating or referring.",
+  "examNote": "A likely scenario offers a tempting option where the consultant does another professional's job (clears an athlete to play, writes a meal plan, treats a disorder). Choose the option that stays in scope while still helping, usually by sharing general information and coordinating or referring.",
   "refs": ["aaspethics2024", "weinberg2024"]
  },
  {
   "id": "card-e-safesport-maapp",
   "kg": "E",
   "title": "SafeSport Code and MAAPP essentials",
-  "body": "In the U.S. Olympic and Paralympic movement, the U.S. Center for SafeSport handles reports of sexual misconduct and sets abuse-prevention rules. Adults in the movement must report suspected child abuse, including sexual abuse, to law enforcement or child protective services as the law requires, and to the Center. Reporting requires reasonable suspicion, not proof. The adult who hears a disclosure should listen calmly, avoid promising secrecy, attend to safety, and report promptly. They should not investigate, gather evidence, or confront the alleged perpetrator. The Minor Athlete Abuse Prevention Policies (MAAPP) limit risky situations: one-on-one interactions with minors must be observable and interruptible (with narrow exceptions, such as emergencies), and electronic communication with minors must be professional and transparent, for example by copying a parent or guardian. Other MAAPP areas include travel, locker rooms, and massage or athletic training modalities.",
+  "body": "In the U.S. Olympic and Paralympic movement, the U.S. Center for SafeSport has authority over sexual misconduct reports, may take other abuse cases, and sets abuse-prevention rules. Adults in the movement must report suspected child abuse, including sexual abuse, to law enforcement or child protective services as the law requires, and to the Center. Reporting requires reasonable suspicion, not proof. The adult who hears a disclosure should listen calmly, avoid promising secrecy, attend to safety, and report promptly. They should not investigate, gather evidence, or confront the alleged perpetrator. The Minor Athlete Abuse Prevention Policies (MAAPP) limit risky situations: one-on-one interactions with minors must be observable and interruptible (with narrow exceptions, such as emergencies), and electronic communication with minors must be professional and transparent, for example by copying a parent or guardian. Other MAAPP areas include travel, locker rooms, and massage or athletic training modalities.",
   "points": [
-   "Report suspected abuse of a minor to authorities and the U.S. Center for SafeSport",
+   "Report suspected abuse of a minor promptly to CPS or police, and also to the Center in Olympic/Paralympic sport",
    "Don't investigate, confront, or promise secrecy",
    "One-on-one with minors: observable and interruptible, in person or online",
    "Electronic messages with minors: professional and open, e.g., parent copied"
@@ -59,7 +59,7 @@
   "id": "card-m-online-consulting-setup",
   "kg": "M",
   "title": "Online consulting: jurisdiction, consent, identity, emergencies",
-  "body": "Before technology-mediated work begins, the consultant checks the laws and regulations where both parties are located. These cover who may provide the service, which titles are allowed, and data protection; licensed professionals must also consider licensure in the client's jurisdiction. Informed consent covers the usual elements plus technology-specific ones: the risks of the platform (breaches, recording, interception), what happens if the connection fails, how and when to use messaging, response times, and the fact that remote work may not suit every concern. At the first session the consultant verifies the client's identity. At the start of each session, the consultant confirms where the client is physically located, because emergency services must be local to the client. An emergency plan includes a backup phone number, a local emergency contact, and local crisis resources, so that a dropped call during a risky moment has a clear next step.",
+  "body": "APA's telepsychology guidelines (written for psychologists, since revised) offer useful guidance. Before technology-mediated work begins, the consultant checks the laws and regulations where both parties are located. These cover who may provide the service, which titles are allowed, and data protection; licensed professionals must also consider licensure in the client's jurisdiction. Informed consent covers the usual elements plus technology-specific ones: the risks of the platform (breaches, recording, interception), what happens if the connection fails, how and when to use messaging, response times, and the fact that remote work may not suit every concern. At the first session the consultant verifies the client's identity. At the start of each session, the consultant confirms where the client is physically located, because emergency services must be local to the client. An emergency plan includes a backup phone number, a local emergency contact, and local crisis resources, so a dropped call has a clear next step. With minors, get guardian permission plus assent and keep one-on-one sessions observable and interruptible.",
   "points": [
    "Follow the laws where both consultant and client are located",
    "Consent covers technology risks, disconnection, and messaging rules",
@@ -67,13 +67,13 @@
    "Emergency plan: backup number, local contact, local crisis resources"
   ],
   "examNote": "\"First step\" items in virtual settings usually favor identity verification and emergency preparedness (location, local contacts, backup plan) before intake content. Emergency calls go to services where the client is, not where the consultant is.",
-  "refs": ["apa2013telepsych", "aaspethics2024"]
+  "refs": ["apa2013telepsych", "aaspethics2024", "maapp2025"]
  },
  {
   "id": "card-m-confidentiality-hipaa",
   "kg": "M",
   "title": "Confidentiality, HIPAA basics, and secure platforms",
-  "body": "The ethical duty to protect confidentiality applies to every consultant, whatever the technology. HIPAA's Privacy and Security Rules are federal law that apply to covered entities (health plans, health care clearinghouses, and health care providers who conduct certain transactions electronically, such as insurance billing) and to their business associates. Whether HIPAA applies therefore depends on the practice. Those it covers need safeguards for electronic health information and business associate agreements with vendors that handle it. Either way, consultants should use secure, encrypted platforms with access controls for video, messaging, assessment, and storage, avoid ordinary email or consumer apps for sensitive content, and tell clients how their data are handled. In group or team sessions online, encryption can't stop members from sharing what they hear, so agreed norms and honest limits of confidentiality still matter.",
+  "body": "The ethical duty to protect confidentiality applies to every consultant, whatever the technology. HIPAA's Privacy and Security Rules are federal regulations that apply to covered entities (health plans, health care clearinghouses, and health care providers who conduct certain transactions electronically, such as insurance billing) and to their business associates. Whether HIPAA applies therefore depends on the practice. Those it covers need safeguards for electronic health information and business associate agreements with vendors that handle it. Either way, consultants should use secure, encrypted platforms with access controls for video, messaging, assessment, and storage, avoid ordinary email or consumer apps for sensitive content, and tell clients how their data are handled. In group or team sessions online, encryption can't stop members from sharing what they hear, so agreed norms and honest limits of confidentiality still matter.",
   "points": [
    "HIPAA applies to covered entities and their business associates",
    "Ethical confidentiality duties apply regardless of HIPAA",
@@ -87,7 +87,7 @@
   "id": "card-m-documentation-technology",
   "kg": "M",
   "title": "Documentation and records with technology",
-  "body": "Technology changes where records live and who can reach them, but not the obligation to keep accurate records and store them securely. For remote sessions, useful documentation includes the delivery mode, the client's location, who else was present, technical disruptions, and any emergency steps taken. Records belong in encrypted, password-protected systems with access limited to people the client has agreed may see them, not on a shared organizational drive open to coaches or on an unsecured personal device. Devices that hold client information need passcodes, encryption, and automatic locking. Messages, recordings, app data, and wearable data that bear on services need the same care, and recordings require informed consent covering purpose, viewers, storage, and deletion. Records should be kept for the period required by law and policy, disposed of securely, and planned for if the consultant leaves or becomes unable to practice.",
+  "body": "Technology changes where records live and who can reach them, but not the obligation to keep accurate records and store them securely. For remote sessions, guidelines written for psychologists offer a useful model: document the delivery mode, the client's location, who else was present, technical disruptions, and any emergency steps taken. Records belong in encrypted, password-protected systems with access limited to people the client has agreed may see them, not on a shared organizational drive open to coaches or on an unsecured personal device. Devices that hold client information need passcodes, encryption, and automatic locking. Messages, recordings, app data, and wearable data that bear on services need the same care, and recordings require informed consent covering purpose, viewers, storage, and deletion. Records should be kept for the period required by law and policy, disposed of securely, and planned for if the consultant leaves or becomes unable to practice.",
   "points": [
    "Document modality, client location, disruptions, and emergency actions",
    "Encrypted, access-restricted storage; secure devices",
@@ -101,7 +101,7 @@
   "id": "card-m-social-media-conduct",
   "kg": "M",
   "title": "Social media and professional conduct online",
-  "body": "The Ethics Code's standards on confidentiality, multiple relationships, accurate public statements, and testimonials all apply online. Accepting friend or follow requests from current clients on personal accounts creates a social relationship alongside the professional one, so consultants usually decline, explain why, and put a written social media policy into informed consent. Merely working with someone is confidential, so posting about a client (even a public win) or a photo that implies the connection requires the client's explicit consent. Public commentary should share general, evidence-based information and never speculate about whether a specific person, especially someone the consultant has never assessed, has a mental disorder. Professional accounts should be kept separate from personal ones, marketing must be accurate, and endorsements from current clients are off limits.",
+  "body": "The Ethics Code's standards on confidentiality, multiple relationships, accurate public statements, and testimonials all apply online. Accepting friend or follow requests from current clients on personal accounts can create a social relationship alongside the professional one, so consultants usually decline, explain why, and put a written social media policy into informed consent. Merely working with someone is confidential, so posting about a client (even a public win) or a photo that implies the connection requires the client's explicit consent. Public commentary should share general, evidence-based information and never speculate about whether a specific person, especially someone the consultant has never assessed, has a mental disorder. Professional accounts should be kept separate from personal ones, marketing must be accurate, and testimonials from current clients are off limits even if they consent.",
   "points": [
    "Decline personal connections with clients; have a written social media policy",
    "Don't identify anyone as a client online without explicit consent",
@@ -109,6 +109,6 @@
    "Keep professional and personal accounts separate"
   ],
   "examNote": "Look for options that set a clear, explained boundary (not silent ignoring) and that protect the existence of the consulting relationship. \"It's already public\" is never a reason to disclose that someone is a client.",
-  "refs": ["aaspethics2024", "apa2013telepsych"]
+  "refs": ["aaspethics2024"]
  }
 ]

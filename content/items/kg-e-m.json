@@ -334,14 +334,14 @@
    "Publish them with her name, once she has approved in writing how they will appear",
    "Thank her, and keep them off the website for the time being",
    "Publish them without her name or title, once she has approved the wording",
-   "Ask her to take out the promise of results before they are published"
+   "Ask her to take out the line about boardrooms before they are published"
   ],
   "answer": 0,
   "rationales": [
    "The bar is on soliciting testimonials from current clients and others open to undue influence. Cordelia's work ended long ago, the offer was hers, and she wants to be named; written permission for the exact use completes it.",
    "Holding the lines back would be right for someone still receiving services. Cordelia hasn't been a client for three years.",
    "Leaving her name off suits a former client who wants to stay private. Being identified is the point Cordelia is making.",
-   "A guarantee of results would have to come out. Cordelia's lines describe her own experience and promise nothing to others."
+   "Editing would be needed if her words claimed or promised outcomes for others. She describes only her own experience."
   ],
   "takeaway": "Testimonials: none from current clients; a former client's freely offered words need written permission and accuracy.",
   "refs": [
@@ -710,7 +710,7 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "Ilya plays tennis in a U.S. Olympic and Paralympic movement program. Since he was 16 he has exchanged pre-match messages with the consultant on a thread that includes his father. The two of them have always kept it short and professional. Last month Ilya had a birthday, signed his own consent form, and registered to vote. He now asks, \"Can we take my dad off? Some of what I'd like to say before matches is just for us.\" How should the consultant handle the messages?",
+  "stem": "Ilya plays tennis in a U.S. Olympic and Paralympic movement program. Since he was 16 he has exchanged pre-match messages with the consultant on a thread that includes his father. The two of them have always kept it short and professional. Last month Ilya turned 18 and signed his own consent form. He now asks, \"Can we take my dad off? Some of what I'd like to say before matches is just for us.\" How should the consultant handle the messages?",
   "options": [
    "Move to direct messages, with limits on timing and content",
    "Keep his father on the thread, and explain why",
@@ -719,7 +719,7 @@
   ],
   "answer": 0,
   "rationales": [
-   "Copying a parent protects minors. Ilya can now vote and has signed for himself, so he is an adult client, and messaging can be private between them under agreed professional limits.",
+   "Copying a parent protects minors. Ilya is 18 and has signed for himself, so he is an adult client, and messaging can be private between them under agreed professional limits.",
    "Keeping a parent copied, with an explanation, is right for a minor. Ilya's birthday and signature show that he isn't one any longer.",
    "A squad thread suits reminders meant for everyone. He wants to say things that are for the consultant alone.",
    "Ending messages would fit if the program barred them or if they had become a problem. They have been brief and professional."
@@ -1060,14 +1060,14 @@
   "stem": "Before he has met the players, a consultant for a professional basketball team gets a file from the performance staff with each player's sleep and heart-rate variability. The consent form players signed in preseason reads: \"My nightly data go to the performance staff and the mental performance consultant for planning my support. I can opt out of either by checking a box.\" Two players checked the consultant's box; their rows are in the file as well. First meetings begin on Monday. What should he do?",
   "options": [
    "Set the file aside until players have been asked about his access",
-   "Use the file to prepare, after removing the players who opted out",
+   "Have the staff resend the file without the two players, and use the rest",
    "Use the team averages to prepare, and leave individual rows unopened",
    "Send the file back, and collect his own sleep ratings on Monday"
   ],
   "answer": 1,
   "rationales": [
    "Waiting would be right if players hadn't known about his access. The form named the consultant and the purpose, and players had the chance to refuse.",
-   "Players were told who would see the data and why, and most agreed. Honoring the form means using what they agreed to share and taking out the two who declined.",
+   "Players who left the box blank agreed to his access for this purpose; the two who checked it did not, and their rows should not have come. A clean file lets him prepare with the data he may see, and it tells staff about the error.",
    "Averages alone would be right if the form had limited him to group data. It speaks of planning each player's support.",
    "Collecting his own ratings would help if the device data were doubtful. Nothing suggests that they are."
   ],
@@ -1127,7 +1127,7 @@
    "level": "elite",
    "delivery": "virtual"
   },
-  "stem": "When they began, the consultant and Camille, an elite fencer, put in writing that messages on the secure app are for training notes, that he answers by ten the next morning, and that anything urgent means a call. Camille has used it well for months. At 11:40 tonight she sends a long, cheerful account of a new parry, with questions, and at midnight adds, \"Hello?? Are you there? I'm wide awake thinking about this!\" The consultant happens to see both. What is the best response?",
+  "stem": "When they began, the consultant and Camille, an elite fencer, put in writing that messages on the secure app are for training notes, that he answers by ten the next morning, and that anything urgent means a call. Camille has used it well for months. At 11:40 tonight she sends a long, cheerful account of a new parry, with questions, and at midnight adds, \"Sorry, I know you're asleep! Couldn't wait to get this down.\" The consultant happens to see both. What is the best response?",
   "options": [
    "Answer in the morning, as he would another training note",
    "Talk with her about what messages are for and how soon he replies",
@@ -1137,7 +1137,7 @@
   "answer": 0,
   "rationales": [
    "The message is a training note sent late at night, and the agreement already says when it will be answered. Keeping to it maintains a boundary that has been working.",
-   "That conversation sets expectations when none exist or when they've stopped working. They are in writing, and one impatient message after months isn't a breakdown.",
+   "That conversation sets expectations when none exist or when they've stopped working. They are in writing, and one late, excited message after months isn't a breakdown.",
    "A call is right when a message hints at danger. Camille is excited about a parry.",
    "A journal suits reflections that don't need a reply. She is asking questions, which is what the app is for."
   ],
@@ -1302,7 +1302,7 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "Seung-ho, a 22-year-old professional esports player, is a current client. On his public stream he tells viewers that he has been working on his nerves \"with a really good mental performance coach\" and tags the consultant's professional page. He mentions nobody else, and he never told her he was going to do it. Fans start asking under the clip whether it's true. What should the consultant do?",
+  "stem": "Matthias, a 22-year-old professional esports player, is a current client. On his public stream he tells viewers that he has been working on his nerves \"with a really good mental performance coach\" and tags the consultant's professional page. He mentions nobody else, and he never told her he was going to do it. Fans start asking under the clip whether it's true. What should the consultant do?",
   "options": [
    "Reply under the clip with a short thank-you",
    "Repost the clip on her page with his written permission",
@@ -1407,19 +1407,19 @@
    "level": "elite",
    "delivery": "na"
   },
-  "stem": "A consultant's newsletter goes to coaches throughout a small national track program. For the next issue she wants an example of a routine that settled panic about lane draws. She has seen it once in her career, with Abebe, a 24-year-old steeplechaser who is a current client and keeps that private. When she asked him about it he said, \"I'd rather not be in there. Even as a mystery guy, they'd know in a second.\" Which example should she use?",
+  "stem": "A consultant's newsletter goes to coaches throughout a small national track program. For the next issue she wants an example of a routine that settled panic about lane draws. She has seen it once in her career, with Rurik, a 24-year-old 400-meter hurdler who is a current client and keeps that private. When she asked him about it he said, \"I'd rather not be in there. Even as a mystery guy, they'd know in a second.\" Which example should she use?",
   "options": [
    "A composite drawn from several clients, with details altered",
    "An invented athlete, labeled for readers as made up",
-   "Abebe's story, with the wording he has signed off on",
-   "Abebe's story, with his name and event left out"
+   "Rurik's story, with the wording he has signed off on",
+   "Rurik's story, with his name and event left out"
   ],
   "answer": 1,
   "rationales": [
-   "Composites protect people when many clients share an experience. Only Abebe has had this one, so a composite would still be him.",
-   "Abebe declined and would be recognized in any version of his story. A clearly labeled fictional example teaches the same lesson and discloses nothing about him.",
+   "Composites protect people when many clients share an experience. Only Rurik has had this one, so a composite would still be him.",
+   "Rurik declined and would be recognized in any version of his story. A clearly labeled fictional example teaches the same lesson and discloses nothing about him.",
    "His story would be usable with specific written consent. He was asked and said no.",
-   "Removing identifiers can be enough when readers couldn't work out who it was and the client is content with it. Abebe isn't, and these readers would know."
+   "Removing identifiers can be enough when readers couldn't work out who it was and the client is content with it. Rurik isn't, and these readers would know."
   ],
   "takeaway": "If a client declines or would be recognizable, teach with fiction and label it.",
   "refs": [

@@ -918,6 +918,56 @@
     "I",
     "G"
    ]
+  },
+  "mountjoy2023": {
+   "short": "Mountjoy et al. (2023)",
+   "citation": "Mountjoy, M., et al. (2023). 2023 International Olympic Committee's (IOC) consensus statement on Relative Energy Deficiency in Sport (REDs). British Journal of Sports Medicine.",
+   "kg": [
+    "J"
+   ]
+  },
+  "prochaska1992": {
+   "short": "Prochaska, DiClemente & Norcross (1992)",
+   "citation": "Prochaska, J. O., DiClemente, C. C., & Norcross, J. C. (1992). In search of how people change: Applications to addictive behaviors. American Psychologist.",
+   "kg": [
+    "A"
+   ]
+  },
+  "vealey1998": {
+   "short": "Vealey et al. (1998)",
+   "citation": "Vealey, R. S., Hayashi, S. W., Garner-Holman, M., & Giacobbi, P. (1998). Sources of sport-confidence: Conceptualization and instrument development. Journal of Sport and Exercise Psychology.",
+   "kg": [
+    "G"
+   ]
+  },
+  "tuckman1977": {
+   "short": "Tuckman & Jensen (1977)",
+   "citation": "Tuckman, B. W., & Jensen, M. A. C. (1977). Stages of small-group development revisited. Group & Organization Studies.",
+   "kg": [
+    "G"
+   ]
+  },
+  "fletcher2016": {
+   "short": "Fletcher & Sarkar (2016)",
+   "citation": "Fletcher, D., & Sarkar, M. (2016). Mental fortitude training: An evidence-based approach to developing psychological resilience for sustained success. Journal of Sport Psychology in Action.",
+   "kg": [
+    "G",
+    "I"
+   ]
+  },
+  "duda1992": {
+   "short": "Duda & Nicholls (1992)",
+   "citation": "Duda, J. L., & Nicholls, J. G. (1992). Dimensions of achievement motivation in schoolwork and sport. Journal of Educational Psychology.",
+   "kg": [
+    "G"
+   ]
+  },
+  "cote2007": {
+   "short": "Côté, Baker & Abernethy (2007)",
+   "citation": "Côté, J., Baker, J., & Abernethy, B. (2007). Practice and play in the development of sport expertise. In G. Tenenbaum & R. C. Eklund (Eds.), Handbook of sport psychology. Wiley.",
+   "kg": [
+    "H"
+   ]
   }
  }
 }

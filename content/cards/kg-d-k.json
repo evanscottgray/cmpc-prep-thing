@@ -45,15 +45,15 @@
   "id": "card-d-microaggressions",
   "kg": "D",
   "title": "Microaggressions",
-  "body": "Microaggressions are brief, everyday comments or actions, often unintentional, that communicate hostile, demeaning, or invalidating messages to people based on a marginalized identity. Sue and colleagues described three forms: microassaults (explicit, usually deliberate attacks), microinsults (subtle snubs that demean a person's identity), and microinvalidations (comments that negate a person's experiences, such as 'I don't see color' or treating a U.S.-born person as a foreigner). Because intent is usually benign, the impact is easy to dismiss, yet repeated experiences add up. In a group, a consultant should address a microaggression promptly and briefly, without shaming, linking it to agreed norms and checking in with the person targeted. When the consultant is the source, the repair is to listen without defending, acknowledge the impact, apologize, and reflect.",
+  "body": "Sue and colleagues described racial microaggressions as brief, everyday verbal, behavioral, or environmental slights, intentional or not, that communicate hostile, demeaning, or invalidating messages to people of color. The term has since been extended to other marginalized identities. The authors described three forms: microassaults (explicit, usually deliberate attacks), microinsults (subtle snubs that demean a person's identity), and microinvalidations (comments that negate a person's experiences, such as 'I don't see color' or treating a U.S.-born person as a foreigner). Because microinsults and microinvalidations are often unintentional, their impact is easy to dismiss, yet repeated experiences add up. In a group, a consultant should address a microaggression promptly and briefly, without shaming, linking it to agreed norms and checking in with the person targeted. When the consultant is the source, the repair is to listen without defending, acknowledge the impact, apologize, and reflect.",
   "points": [
    "Three forms: microassaults, microinsults, microinvalidations",
-   "Impact matters more than intent",
+   "Attend to impact even when intent was benign",
    "In groups: name it briefly, tie it to norms, follow up privately",
    "Don't make the targeted person educate the group"
   ],
   "examNote": "Distractors include ignoring the comment, lecturing at length, explaining intent, or asking the targeted person to explain; the key is brief, non-shaming acknowledgment plus repair.",
-  "refs": ["sue2007"]
+  "refs": ["sue2007", "mio2023"]
  },
  {
   "id": "card-d-athletic-identity-transitions",
@@ -73,10 +73,10 @@
   "id": "card-d-organizational-deib",
   "kg": "D",
   "title": "DEIB at the organizational level",
-  "body": "Diversity, equity, inclusion, and belonging work happens at individual, team, and organizational levels. At the organizational level, culture is shaped by leadership behavior, policies, selection and scheduling practices, and everyday norms, such as praising athletes who play hurt or running programs only in one language at times families cannot attend. An ecological view reminds consultants that athletes are influenced by nested systems: family, team, institution, and community. Single workshops after an incident rarely change climate. Integrity requires being honest about what a one-off session can achieve, recommending assessment of climate and sustained, leadership-backed processes, designing programs around real access barriers with community input, and recognizing the limits of one's own competence by partnering with qualified DEI professionals when needed.",
+  "body": "Diversity, equity, inclusion, and belonging work happens at individual, team, and organizational levels. At the organizational level, culture is shaped by leadership behavior, policies, selection and scheduling practices, and everyday norms, such as praising athletes who play hurt or running programs only in one language at times families cannot attend. An ecological view reminds consultants that athletes are influenced by nested systems: family, team, institution, and community. A single workshop after an incident is unlikely on its own to change climate. Integrity requires being honest about what a one-off session can achieve, recommending assessment of climate and sustained, leadership-backed processes, designing programs around real access barriers with community input, and recognizing the limits of one's own competence by partnering with qualified DEI professionals when needed.",
   "points": [
    "Culture lives in leadership, policy, practices, and everyday norms",
-   "One-off sessions rarely change climate; sustained, leadership-backed work does",
+   "One-off sessions alone are unlikely to change climate; favor sustained, leadership-backed work",
    "Design around access barriers (schedule, transport, language) with community input",
    "Be transparent about competence; partner with DEI specialists when needed"
   ],
@@ -105,7 +105,7 @@
   "points": [
    "Appraisal ↔ emotional response ↔ behavioral response, cycling toward recovery",
    "Personal and situational factors shape appraisals",
-   "Adherence is a behavioral response driven by appraisals and emotions",
+   "Adherence is a behavioral response influenced by appraisals and emotions",
    "Stage/grief models are poorly supported; don't wait for 'acceptance'"
   ],
   "examNote": "Distractors often invoke grief stages or claim physical healing alone resolves psychological responses; the key ties appraisal to emotions and behavior.",
@@ -129,10 +129,10 @@
   "id": "card-k-rehab-roles-skills",
   "kg": "K",
   "title": "Interdisciplinary roles and mental skills in rehabilitation",
-  "body": "Injury care is a team effort. Physicians diagnose and decide on treatment and clearance; athletic trainers handle immediate care, injury management, and day-to-day rehab; physical therapists design and progress rehabilitation; coaches manage involvement and selection; and the CMPC supports the athlete's psychological adjustment and mental skills. All sharing of information runs on the athlete's informed consent, except for safety limits. Concussion assessment and return-to-play decisions belong to the medical team, so possible symptoms go to them right away. Mental skills are adjuncts to medical care: short-term process goals tied to rehab milestones improve adherence; imagery supports skill maintenance, healing, and re-entry; relaxation and attention strategies help with expected discomfort; and self-talk addresses unhelpful appraisals. When distress looks clinical, such as persistent hopelessness or loss of interest, refer to a licensed professional.",
+  "body": "Injury care is a team effort. Physicians diagnose and decide on treatment and clearance; athletic trainers handle immediate care, injury management, and day-to-day rehab; physical therapists design and progress rehabilitation; coaches manage involvement and selection; and the CMPC supports the athlete's psychological adjustment and mental skills. All sharing of information runs on the athlete's informed consent, except where safety or law requires otherwise. Concussion assessment and return-to-play decisions belong to the medical team, so possible symptoms go to them right away. Mental skills are adjuncts to medical care: short-term process goals tied to rehab milestones can support adherence; imagery may support skill maintenance, coping, and re-entry; relaxation and attention strategies help with expected discomfort; and self-talk addresses unhelpful appraisals. When distress looks clinical, such as persistent hopelessness or loss of interest, refer to a licensed professional.",
   "points": [
    "Medical team: diagnosis, treatment, clearance; CMPC: psychological adjustment and skills",
-   "Share information only within the athlete's consent (safety limits aside)",
+   "Share information only within the athlete's consent (safety and legal limits aside)",
    "Mental skills complement, never replace, prescribed rehab",
    "Concussion and clinical-level distress go to the right professionals"
   ],

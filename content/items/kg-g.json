@@ -1,1505 +1,1505 @@
 [
-  {
-    "id": "G-II-001",
-    "pool": "A",
-    "scored": true,
-    "domain": "II",
-    "kg": "G",
-    "topic": "Dimensions of anxiety symptoms",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "collegiate",
-      "delivery": "individual"
-    },
-    "stem": "Collegiate sprinter Temitope Ibekwe is describing meets to her consultant. Of a personal best she says, \"By warm-up my hands shook so hard I couldn't pin my number on, and I thought, good, here we go.\" Of last week's poor race she says, \"By warm-up there was a little tremble, like when you're cold, and I thought, good, here we go.\" Four more meets she recalls follow the same lines. Which rating, added to her pre-meet log, is most likely to show what separates her fast meets from her slow ones?",
-    "options": [
-      "Whether she expects each symptom to help or hurt",
-      "How early in the week each symptom comes on",
-      "How strongly she feels each symptom on race day",
-      "How often each symptom comes back during the day"
-    ],
-    "answer": 2,
-    "rationales": [
-      "Direction is worth logging when an athlete reads the same symptom as helpful at some meets and harmful at others. Temitope greets the shaking the same way before good and poor races.",
-      "Onset would matter if slow races followed days of symptoms. Her symptoms appear at warm-up in both accounts.",
-      "Her accounts match in timing and in how she reads the symptom. What differs is strength: violent shaking before fast races, a slight tremble before slow ones. Intensity is therefore the dimension to track.",
-      "Frequency is a real dimension of the anxiety response, but neither account suggests the shaking returned more often on one day than the other."
-    ],
-    "takeaway": "Anxiety symptoms vary in intensity, frequency, timing, and direction; assess the dimension on which good and poor performances differ.",
-    "refs": [
-      "jones1995",
-      "hanton1999"
-    ]
+ {
+  "id": "G-II-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "II",
+  "kg": "G",
+  "topic": "Dimensions of anxiety symptoms",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
   },
-  {
-    "id": "G-II-002",
-    "pool": "B",
-    "scored": true,
-    "domain": "II",
-    "kg": "G",
-    "topic": "Choosing individual comparison data",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "elite",
-      "delivery": "individual"
-    },
-    "stem": "A rowing federation report flags sculler Tomasz Wierzbicki as \"over-anxious\" because his pre-race scores ran well above the average for elite rowers all last season. His results that season ranged from a title to a last place. It is now the off-season, his plan for next year is due in two weeks, and he recalls his races vividly. He asks the consultant, \"Is that too high for me?\" Which information would best help the consultant answer him?",
-    "options": [
-      "How he recalls feeling before his best and worst races",
-      "How he feels before each race in the season ahead",
-      "How other elite scullers score on the same questionnaire",
-      "How he feels on ordinary training days away from racing"
-    ],
-    "answer": 0,
-    "rationales": [
-      "Hanin's model defines optimal intensity within the person, by comparing states recalled before successful and unsuccessful performances. Recall also works in the off-season, before the plan is due.",
-      "Tracking upcoming races is a sound way to refine a zone, but no races fall before the plan is due.",
-      "Scores from closer peers would show whether his level is unusual for a sculler. They can't show whether it is too high for him.",
-      "Training-day ratings would show whether racing brings the anxiety on. That is a different question from whether the level suits his racing."
-    ],
-    "takeaway": "Whether an intensity is too high is answered by comparing a performer's own best and worst performances.",
-    "refs": [
-      "hanin2000",
-      "weinberg2024"
-    ]
+  "stem": "Collegiate sprinter Temitope Ibekwe is describing meets to her consultant. Of a personal best she says, \"By warm-up my hands shook so hard I couldn't pin my number on, and I thought, good, here we go.\" Of last week's poor race she says, \"By warm-up there was a little tremble, like when you're cold, and I thought, good, here we go.\" Four more meets she recalls follow the same lines. Which rating, added to her pre-meet log, is most likely to show what separates her fast meets from her slow ones?",
+  "options": [
+   "Whether she expects each symptom to help or hurt",
+   "How early in the week each symptom comes on",
+   "How strongly she feels each symptom on race day",
+   "How often each symptom comes back during the day"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Direction is worth logging when an athlete reads the same symptom as helpful at some meets and harmful at others. Temitope greets the shaking the same way before good and poor races.",
+   "Onset would matter if slow races followed days of symptoms. Her symptoms appear at warm-up in both accounts.",
+   "Her accounts match in timing and in how she reads the symptom. What differs is strength: violent shaking before fast races, a slight tremble before slow ones. Intensity is therefore the dimension to track.",
+   "Frequency is a real dimension of the anxiety response, but neither account suggests the shaking returned more often on one day than the other."
+  ],
+  "takeaway": "Anxiety symptoms vary in intensity, frequency, timing, and direction; assess the dimension on which good and poor performances differ.",
+  "refs": [
+   "jones1995",
+   "hanton1999"
+  ]
+ },
+ {
+  "id": "G-II-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "II",
+  "kg": "G",
+  "topic": "Choosing individual comparison data",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
   },
-  {
-    "id": "G-II-003",
-    "pool": "drill",
-    "scored": true,
-    "domain": "II",
-    "kg": "G",
-    "topic": "Separating person from climate",
-    "cognitive": "analysis",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "performing-arts",
-      "level": "adolescent",
-      "delivery": "organizational"
-    },
-    "stem": "A ballet company's director wants to know why twelve teenage apprentices avoid difficult variations and cover up mistakes. Records from a summer residency at another school show the same twelve volunteering for hard roles and asking for corrections. Within two weeks of returning, nearly all had stopped, including those who are cast most often. The consultant's questionnaire packet has room for one more measure. What should it assess?",
-    "options": [
-      "How able each dancer feels compared with her peers",
-      "How each dancer tends to define success for herself",
-      "How strongly each dancer's identity rests on dance",
-      "How dancers see success being judged in company classes"
-    ],
-    "answer": 3,
-    "rationales": [
-      "Low perceived ability can lead to avoiding challenge, but the same group sought challenge over the summer, and even the most-cast dancers withdraw now.",
-      "Goal orientation is a fairly stable personal tendency. It would help explain differences among dancers in one setting better than a change in nearly all of them between settings.",
-      "Identity bears on reactions to injury, deselection, or leaving. It travels with the dancer and can't explain a change that follows the setting.",
-      "When the same people seek challenge in one place and hide mistakes in another, the likely difference is the perceived motivational climate: what people there seem to value, reward, and punish."
-    ],
-    "takeaway": "If behavior changes with the setting, measure the perceived climate; if it differs among people in one setting, measure the orientation.",
-    "refs": [
-      "ames1992",
-      "duda1989"
-    ]
+  "stem": "A rowing federation report flags sculler Tomasz Wierzbicki as \"over-anxious\" because his pre-race scores ran well above the average for elite rowers all last season. His results that season ranged from a title to a last place. It is now the off-season, his plan for next year is due in two weeks, and he recalls his races vividly. He asks the consultant, \"Is that too high for me?\" Which information would best help the consultant answer him?",
+  "options": [
+   "How he recalls feeling before his best and worst races",
+   "How he feels before each race in the season ahead",
+   "How other elite scullers score on the same questionnaire",
+   "How he feels on ordinary training days away from racing"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Hanin's model defines optimal intensity within the person, by comparing states recalled before successful and unsuccessful performances. Recall also works in the off-season, before the plan is due.",
+   "Tracking upcoming races is a sound way to refine a zone, but no races fall before the plan is due.",
+   "Scores from closer peers would show whether his level is unusual for a sculler. They can't show whether it is too high for him.",
+   "Training-day ratings would show whether racing brings the anxiety on. That is a different question from whether the level suits his racing."
+  ],
+  "takeaway": "Whether an intensity is too high is answered by comparing a performer's own best and worst performances.",
+  "refs": [
+   "hanin2000",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-II-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "G",
+  "topic": "Separating person from climate",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "adolescent",
+   "delivery": "organizational"
   },
-  {
-    "id": "G-III-001",
-    "pool": "A",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Multidimensional anxiety theory",
-    "cognitive": "analysis",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "collegiate",
-      "delivery": "individual"
-    },
-    "stem": "Collegiate golfer Diego Fuentes has CSAI-2 scores from nine tournaments. At all nine his cognitive anxiety was low and his self-confidence high. His somatic anxiety varied. At three small local events it was very low and he averaged 76; at three conference events it was moderate and he averaged 71; at three televised qualifiers it was very high and he averaged 77. The consultant's plan for this month is aimed at a fourth qualifier. According to multidimensional anxiety theory, what should the plan aim to do before that event?",
-    "options": [
-      "Raise the level of his bodily activation",
-      "Lower the level of his bodily activation",
-      "Reduce the amount of worry he carries",
-      "Strengthen the confidence he has in his game"
-    ],
-    "answer": 1,
-    "rationales": [
-      "Raising somatic activation would suit the small events, where it sat below his best range. The plan is for a qualifier, where it has been too high.",
-      "The theory predicts an inverted-U for somatic anxiety, and his scores show one: best at moderate levels, worse at both ends. Qualifiers put him on the high side, so the aim is to come down toward the middle.",
-      "The theory links rising worry to steadily poorer performance, but his worry is low throughout and can't account for the swings.",
-      "The theory expects confidence to relate positively to performance, but his is already high at good and poor events alike."
-    ],
-    "takeaway": "In multidimensional anxiety theory, target the component whose changes track performance, in the direction that moves toward its best level.",
-    "refs": [
-      "martens1990",
-      "weinberg2024"
-    ]
+  "stem": "A ballet company's director wants to know why twelve teenage apprentices avoid difficult variations and cover up mistakes. Records from a summer residency at another school show the same twelve volunteering for hard roles and asking for corrections. Within two weeks of returning, nearly all had stopped, including those who are cast most often. The consultant's questionnaire packet has room for one more measure. What should it assess?",
+  "options": [
+   "How able each dancer feels compared with her peers",
+   "How each dancer tends to define success for herself",
+   "How strongly each dancer's identity rests on dance",
+   "How dancers see success being judged in company classes"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Low perceived ability can lead to avoiding challenge, but the same group sought challenge over the summer, and even the most-cast dancers withdraw now.",
+   "Goal orientation is a fairly stable personal tendency. It would help explain differences among dancers in one setting better than a change in nearly all of them between settings.",
+   "Identity bears on reactions to injury, deselection, or leaving. It travels with the dancer and can't explain a change that follows the setting.",
+   "When the same people seek challenge in one place and hide mistakes in another, the likely difference is the perceived motivational climate: what people there seem to value, reward, and punish."
+  ],
+  "takeaway": "If behavior changes with the setting, measure the perceived climate; if it differs among people in one setting, measure the orientation.",
+  "refs": [
+   "ames1992",
+   "duda1989"
+  ]
+ },
+ {
+  "id": "G-III-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Multidimensional anxiety theory",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-002",
-    "pool": "A",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Matching an anxiety model to data",
-    "cognitive": "analysis",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "team-sport",
-      "level": "professional",
-      "delivery": "team"
-    },
-    "stem": "Five professional basketball players, Keisha Morrow among them, rated their anxiety before forty games, and a consultant has set the ratings beside their free-throw percentages. Plotted together, the ratings bear no relation to shooting. Plotted one player at a time, Keisha shoots best when her ratings are high, two teammates when theirs are low, and two near the middle, with a gradual fall on either side. The pattern repeats from month to month. Which account should guide plans for these players?",
-    "options": [
-      "The inverted-U hypothesis of arousal and performance",
-      "The catastrophe model of anxiety",
-      "The multidimensional theory of competitive anxiety",
-      "The individual zones of optimal functioning"
-    ],
-    "answer": 3,
-    "rationales": [
-      "The inverted-U allows a gradual fall on each side, but it places the best level near the middle. Three of the five shoot best well away from it.",
-      "The catastrophe model describes a sudden, large drop when arousal rises while worry is high. Here the falls are gradual and depend on each player's own level.",
-      "Multidimensional theory separates worry from bodily anxiety and gives one shape to each. These are single ratings whose best level differs from player to player.",
-      "Best levels that are high for one player, low for another, and stable over time for each are what the individual zones model describes. Pooling the players hid the pattern."
-    ],
-    "takeaway": "When best levels are stable within people but differ between them, plan with individual zones.",
-    "refs": [
-      "hanin2000",
-      "weinberg2024"
-    ]
+  "stem": "Collegiate golfer Diego Fuentes has CSAI-2 scores from nine tournaments. At all nine his cognitive anxiety was low and his self-confidence high. His somatic anxiety varied. At three small local events it was very low and he averaged 76; at three conference events it was moderate and he averaged 71; at three televised qualifiers it was very high and he averaged 77. The consultant's plan for this month is aimed at a fourth qualifier. According to multidimensional anxiety theory, what should the plan aim to do before that event?",
+  "options": [
+   "Raise the level of his bodily activation",
+   "Lower the level of his bodily activation",
+   "Reduce the amount of worry he carries",
+   "Strengthen the confidence he has in his game"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Raising somatic activation would suit the small events, where it sat below his best range. The plan is for a qualifier, where it has been too high.",
+   "The theory predicts an inverted-U for somatic anxiety, and his scores show one: best at moderate levels, worse at both ends. Qualifiers put him on the high side, so the aim is to come down toward the middle.",
+   "The theory links rising worry to steadily poorer performance, but his worry is low throughout and can't account for the swings.",
+   "The theory expects confidence to relate positively to performance, but his is already high at good and poor events alike."
+  ],
+  "takeaway": "In multidimensional anxiety theory, target the component whose changes track performance, in the direction that moves toward its best level.",
+  "refs": [
+   "martens1990",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-III-002",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Matching an anxiety model to data",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "team"
   },
-  {
-    "id": "G-III-003",
-    "pool": "A",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "SDT regulation continuum",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "collegiate",
-      "delivery": "individual"
-    },
-    "stem": "Collegiate rower Kazuki Matsuda has not missed one of his crew's optional 5 a.m. ergometer sessions. His coach assumes he loves them or fears for his seat. Kazuki laughs at both ideas. \"Nobody checks who comes, and I count the minutes until it's over. But I decided last year I want to find out how far I can go in this sport, and that room is how you find out.\" According to self-determination theory, what should the consultant's plan treat as the main driver of his attendance?",
-    "options": [
-      "Identified regulation of the behavior",
-      "External regulation of the behavior",
-      "Introjected regulation of the behavior",
-      "Intrinsic motivation for the behavior"
-    ],
-    "answer": 0,
-    "rationales": [
-      "Kazuki doesn't enjoy the sessions; he attends because they serve an aim he has chosen and personally values. That is identified regulation, an autonomous though not intrinsic form of motivation.",
-      "External regulation rests on rewards or punishments from others. The sessions are optional and unchecked.",
-      "Introjected regulation runs on guilt, shame, or pride. Kazuki speaks of an aim he chose, with no sense that he would feel bad about himself for missing.",
-      "Intrinsic motivation means doing something for its own interest or enjoyment. He counts the minutes until these sessions end."
-    ],
-    "takeaway": "Autonomous motivation need not feel fun: valuing what an activity serves is identified regulation.",
-    "refs": [
-      "ryan2017",
-      "weinberg2024"
-    ]
+  "stem": "Five professional basketball players, Keisha Morrow among them, rated their anxiety before forty games, and a consultant has set the ratings beside their free-throw percentages. Plotted together, the ratings bear no relation to shooting. Plotted one player at a time, Keisha shoots best when her ratings are high, two teammates when theirs are low, and two near the middle, with a gradual fall on either side. The pattern repeats from month to month. Which account should guide plans for these players?",
+  "options": [
+   "The inverted-U hypothesis of arousal and performance",
+   "The catastrophe model of anxiety",
+   "The multidimensional theory of competitive anxiety",
+   "The individual zones of optimal functioning"
+  ],
+  "answer": 3,
+  "rationales": [
+   "The inverted-U allows a gradual fall on each side, but it places the best level near the middle. Three of the five shoot best well away from it.",
+   "The catastrophe model describes a sudden, large drop when arousal rises while worry is high. Here the falls are gradual and depend on each player's own level.",
+   "Multidimensional theory separates worry from bodily anxiety and gives one shape to each. These are single ratings whose best level differs from player to player.",
+   "Best levels that are high for one player, low for another, and stable over time for each are what the individual zones model describes. Pooling the players hid the pattern."
+  ],
+  "takeaway": "When best levels are stable within people but differ between them, plan with individual zones.",
+  "refs": [
+   "hanin2000",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-III-003",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "SDT regulation continuum",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-004",
-    "pool": "A",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Sources of self-efficacy",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "tactical",
-      "level": "adult",
-      "delivery": "individual"
-    },
-    "stem": "Firefighter recruit Lena Brandt has completed the full aerial ladder climb six times in training, cleanly and with energy to spare. Two weeks before the graduation test she watched two other recruits, both about her height, lose their reach near the top and fail. Her confidence rating has since gone from 9 to 3. \"It's always the short ones who come off that thing,\" she says. In terms of self-efficacy theory, which support would most directly counter what lowered her confidence?",
-    "options": [
-      "Another set of supervised climbs that start low and go higher",
-      "An instructor's detailed account of why her technique is ready",
-      "A visit from recent graduates of similar build who passed",
-      "Practice in treating a racing heart as a sign of readiness"
-    ],
-    "answer": 2,
-    "rationales": [
-      "Mastery experience is usually the strongest source, but she has six clean climbs and they did not prevent the drop. Her doubt came from what she saw happen to others.",
-      "Credible feedback can help, especially when someone's words have shaken a performer. Nobody has questioned her technique.",
-      "Watching similar others fail lowered her efficacy: a vicarious source. Seeing people like her succeed supplies the opposite information from the same source.",
-      "Reinterpreting arousal suits a performer who takes bodily signs as proof of weakness. Lena reports no such signs."
-    ],
-    "takeaway": "Trace a loss of efficacy to its source; seeing similar others fail or succeed is vicarious information.",
-    "refs": [
-      "bandura1977",
-      "bandura1997"
-    ]
+  "stem": "Collegiate rower Kazuki Matsuda has not missed one of his crew's optional 5 a.m. ergometer sessions. His coach assumes he loves them or fears for his seat. Kazuki laughs at both ideas. \"Nobody checks who comes, and I count the minutes until it's over. But I decided last year I want to find out how far I can go in this sport, and that room is how you find out.\" According to self-determination theory, what should the consultant's plan treat as the main driver of his attendance?",
+  "options": [
+   "Identified regulation of the behavior",
+   "External regulation of the behavior",
+   "Introjected regulation of the behavior",
+   "Intrinsic motivation for the behavior"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Kazuki doesn't enjoy the sessions; he attends because they serve an aim he has chosen and personally values. That is identified regulation, an autonomous though not intrinsic form of motivation.",
+   "External regulation rests on rewards or punishments from others. The sessions are optional and unchecked.",
+   "Introjected regulation runs on guilt, shame, or pride. Kazuki speaks of an aim he chose, with no sense that he would feel bad about himself for missing.",
+   "Intrinsic motivation means doing something for its own interest or enjoyment. He counts the minutes until these sessions end."
+  ],
+  "takeaway": "Autonomous motivation need not feel fun: valuing what an activity serves is identified regulation.",
+  "refs": [
+   "ryan2017",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-III-004",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Sources of self-efficacy",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-005",
-    "pool": "A",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Attributions to strategy",
-    "cognitive": "application",
-    "difficulty": 3,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "adolescent",
-      "delivery": "individual"
-    },
-    "stem": "Tennis player Zara Khoury, 15, has lost five matches in a row to opponents she beat last year. After each loss she adds practice time and is now on court more than anyone at her academy. Her coach's video shows her hitting nearly every second serve to the same corner, where opponents stand waiting. \"I've doubled my hours and nothing changes,\" she tells the consultant. \"Maybe that's my level.\" Which understanding of her losses should the plan help Zara reach?",
-    "options": [
-      "She has not yet put in enough work",
-      "She has been relying on the wrong tactics",
-      "She has had a run of poor luck on big points",
-      "She has drawn some unusually strong opponents"
-    ],
-    "answer": 1,
-    "rationales": [
-      "Effort is a controllable cause and often a helpful one. When effort is already high, blaming effort invites the conclusion that ability must be lacking, which is where Zara is heading.",
-      "The video points to a predictable serve pattern. A strategy attribution is accurate, controllable, and changeable, and it explains why extra hours have not helped without implicating her ability.",
-      "A temporary, external cause can protect expectations when it is accurate. The video shows a repeated pattern that opponents exploit.",
-      "Task difficulty would be an accurate account of losses to better players. She beat these opponents last year."
-    ],
-    "takeaway": "When effort is high and results still lag, guide attributions toward strategy rather than more effort.",
-    "refs": [
-      "weiner1985",
-      "weinberg2024"
-    ]
+  "stem": "Firefighter recruit Lena Brandt has completed the full aerial ladder climb six times in training, cleanly and with energy to spare. Two weeks before the graduation test she watched two other recruits, both about her height, lose their reach near the top and fail. Her confidence rating has since gone from 9 to 3. \"It's always the short ones who come off that thing,\" she says. In terms of self-efficacy theory, which support would most directly counter what lowered her confidence?",
+  "options": [
+   "Another set of supervised climbs that start low and go higher",
+   "An instructor's detailed account of why her technique is ready",
+   "A visit from recent graduates of similar build who passed",
+   "Practice in treating a racing heart as a sign of readiness"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Mastery experience is usually the strongest source, but she has six clean climbs and they did not prevent the drop. Her doubt came from what she saw happen to others.",
+   "Credible feedback can help, especially when someone's words have shaken a performer. Nobody has questioned her technique.",
+   "Watching similar others fail lowered her efficacy: a vicarious source. Seeing people like her succeed supplies the opposite information from the same source.",
+   "Reinterpreting arousal suits a performer who takes bodily signs as proof of weakness. Lena reports no such signs."
+  ],
+  "takeaway": "Trace a loss of efficacy to its source; seeing similar others fail or succeed is vicarious information.",
+  "refs": [
+   "bandura1977",
+   "bandura1997"
+  ]
+ },
+ {
+  "id": "G-III-005",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Attributions to strategy",
+  "cognitive": "application",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "adolescent",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-006",
-    "pool": "A",
-    "scored": false,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Sources of sport confidence",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "elite",
-      "delivery": "individual"
-    },
-    "stem": "Elite figure skater Mei-Lin Zhou rated her confidence before eight competitions. The highest ratings came at her home rink and at a small arena abroad where she had once spent a training camp. The lowest came at three larger arenas. Of one she says, \"The boards looked miles away and I couldn't find my marks.\" Of another, \"I went left off the ice and the dressing rooms were right.\" Her next event is in a city she has never visited. Drawing on Vealey's work on sources of sport confidence, which plan best fits her ratings?",
-    "options": [
-      "Keep a log of elements she has improved",
-      "Record messages from her coach to play before she skates",
-      "Watch training mates skate the same elements cleanly",
-      "Arrive early to learn the arena and its ice"
-    ],
-    "answer": 3,
-    "rationales": [
-      "A log builds confidence from mastery. Nothing in her ratings tracks how her elements are coming along.",
-      "Coach support is a recognized source, but her ratings rise and fall with the venue.",
-      "Vicarious experience is a source of confidence. Her accounts of good and poor events don't involve what she saw others do.",
-      "Her confidence is high in places she knows and low in places she doesn't. Environmental comfort is one of the sources Vealey's work identified, and early visits can build it before a new venue."
-    ],
-    "takeaway": "Match a confidence plan to the source the performer's own pattern reveals, including comfort in the competition setting.",
-    "refs": [
-      "vealey1986",
-      "weinberg2024"
-    ]
+  "stem": "Tennis player Zara Khoury, 15, has lost five matches in a row to opponents she beat last year. After each loss she adds practice time and is now on court more than anyone at her academy. Her coach's video shows her hitting nearly every second serve to the same corner, where opponents stand waiting. \"I've doubled my hours and nothing changes,\" she tells the consultant. \"Maybe that's my level.\" Which understanding of her losses should the plan help Zara reach?",
+  "options": [
+   "She has not yet put in enough work",
+   "She has been relying on the wrong tactics",
+   "She has had a run of poor luck on big points",
+   "She has drawn some unusually strong opponents"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Effort is a controllable cause and often a helpful one. When effort is already high, blaming effort invites the conclusion that ability must be lacking, which is where Zara is heading.",
+   "The video points to a predictable serve pattern. A strategy attribution is accurate, controllable, and changeable, and it explains why extra hours have not helped without implicating her ability.",
+   "A temporary, external cause can protect expectations when it is accurate. The video shows a repeated pattern that opponents exploit.",
+   "Task difficulty would be an accurate account of losses to better players. She beat these opponents last year."
+  ],
+  "takeaway": "When effort is high and results still lag, guide attributions toward strategy rather than more effort.",
+  "refs": [
+   "weiner1985",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-III-006",
+  "pool": "A",
+  "scored": false,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Sources of sport confidence",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-007",
-    "pool": "B",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Temporal patterning of anxiety",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "masters",
-      "delivery": "individual"
-    },
-    "stem": "Masters swimmer Gloria Esposito logs her anxiety three times a day in the week before a championship. Her worry stays at 1 or 2 out of 10 from Monday until her race on Saturday. Butterflies and muscle tension are just as low until Saturday's warm-up, when they reach 8, and they are 9 behind the blocks. Her starts are sluggish, and her pace recovers once she is under way. Which strategy should her plan for the next championship call for, and when?",
-    "options": [
-      "Body-focused relaxation on race day",
-      "Body-focused relaxation throughout race week",
-      "Worry-focused strategies on race day",
-      "Worry-focused strategies throughout race week"
-    ],
-    "answer": 0,
-    "rationales": [
-      "Her only marked anxiety is bodily and it climbs shortly before racing, as multidimensional theory expects of somatic anxiety. A somatic technique used on race day fits both its type and its timing.",
-      "The technique fits the type of anxiety, but there is little bodily anxiety to reduce before Saturday.",
-      "Race day is the right time, but her worry is low then. A cognitive strategy would miss the bodily symptoms.",
-      "Cognitive anxiety is often raised for days before competing, and early cognitive work would then make sense. Gloria's log shows little worry all week."
-    ],
-    "takeaway": "Let the type of anxiety choose the technique and its time course choose when to use it.",
-    "refs": [
-      "martens1990",
-      "weinberg2024"
-    ]
+  "stem": "Elite figure skater Mei-Lin Zhou rated her confidence before eight competitions. The highest ratings came at her home rink and at a small arena abroad where she had once spent a training camp. The lowest came at three larger arenas. Of one she says, \"The boards looked miles away and I couldn't find my marks.\" Of another, \"I went left off the ice and the dressing rooms were right.\" Her next event is in a city she has never visited. Drawing on Vealey's work on sources of sport confidence, which plan best fits her ratings?",
+  "options": [
+   "Keep a log of elements she has improved",
+   "Record messages from her coach to play before she skates",
+   "Watch training mates skate the same elements cleanly",
+   "Arrive early to learn the arena and its ice"
+  ],
+  "answer": 3,
+  "rationales": [
+   "A log builds confidence from mastery. Nothing in her ratings tracks how her elements are coming along.",
+   "Coach support is a recognized source, but her ratings rise and fall with the venue.",
+   "Vicarious experience is a source of confidence. Her accounts of good and poor events don't involve what she saw others do.",
+   "Her confidence is high in places she knows and low in places she doesn't. Environmental comfort is one of the sources Vealey's work identified, and early visits can build it before a new venue."
+  ],
+  "takeaway": "Match a confidence plan to the source the performer's own pattern reveals, including comfort in the competition setting.",
+  "refs": [
+   "vealey1998",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-III-007",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Temporal patterning of anxiety",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "masters",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-008",
-    "pool": "B",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "IZOF profile in planning",
-    "cognitive": "analysis",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "elite",
-      "delivery": "individual"
-    },
-    "stem": "Judoka Rafael Moreira, a national team member, rated his recalled feelings before ten matches from 0 to 10. Before his best matches, tension was 7 to 9 and irritation 2 to 4. Before his worst, tension was 3 to 5 and irritation 7 to 9. Before the two matches he lost last weekend he rated both at 8. His coach asks the consultant for a plan that gets him to \"relax and stop being so wound up.\" Based on Hanin's model, what should the pre-match plan aim to do?",
-    "options": [
-      "Lower his tension and keep his irritation",
-      "Lower his tension and lower his irritation",
-      "Keep his tension and lower his irritation",
-      "Keep his tension and keep his irritation"
-    ],
-    "answer": 2,
-    "rationales": [
-      "This would move both emotions toward the levels that went with his worst matches.",
-      "This is what the coach's request implies, but a tension of 8 is within the range of his best matches and a fall would take him toward his worst.",
-      "A tension of 8 sits in the range of his best matches, unpleasant as it is, while an irritation of 8 sits in the range of his worst. In the IZOF model each emotion has its own individual zone.",
-      "An unpleasant emotion can be part of an optimal profile, and his tension is. His irritation, though, is at the level that went with poor matches."
-    ],
-    "takeaway": "In IZOF planning, each emotion is compared with its own zone; an unpleasant one may belong there while another doesn't.",
-    "refs": [
-      "hanin2000"
-    ]
+  "stem": "Masters swimmer Gloria Esposito logs her anxiety three times a day in the week before a championship. Her worry stays at 1 or 2 out of 10 from Monday until her race on Saturday. Butterflies and muscle tension are just as low until Saturday's warm-up, when they reach 8, and they are 9 behind the blocks. Her starts are sluggish, and her pace recovers once she is under way. Which strategy should her plan for the next championship call for, and when?",
+  "options": [
+   "Body-focused relaxation on race day",
+   "Body-focused relaxation throughout race week",
+   "Worry-focused strategies on race day",
+   "Worry-focused strategies throughout race week"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Her only marked anxiety is bodily and it climbs shortly before racing, as multidimensional theory expects of somatic anxiety. A somatic technique used on race day fits both its type and its timing.",
+   "The technique fits the type of anxiety, but there is little bodily anxiety to reduce before Saturday.",
+   "Race day is the right time, but her worry is low then. A cognitive strategy would miss the bodily symptoms.",
+   "Cognitive anxiety is often raised for days before competing, and early cognitive work would then make sense. Gloria's log shows little worry all week."
+  ],
+  "takeaway": "Let the type of anxiety choose the technique and its time course choose when to use it.",
+  "refs": [
+   "martens1990",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-III-008",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "IZOF profile in planning",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-009",
-    "pool": "B",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Nideffer's attentional styles",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "team-sport",
-      "level": "professional",
-      "delivery": "individual"
-    },
-    "stem": "At stoppages, professional point guard Ondine Caldwell can say where every defender stood and which of them were switching. Once a play begins, her passes and shots are crisp. Yet she calls the same two sets whatever the defense shows her. \"I see it,\" she tells the consultant. \"Then the whistle goes, and I've called the usual before I've thought about what it means.\" In Nideffer's terms, which kind of attention should the plan have her practice at stoppages?",
-    "options": [
-      "Attention that is broad and external",
-      "Attention that is broad and internal",
-      "Attention that is narrow and external",
-      "Attention that is narrow and internal"
-    ],
-    "answer": 1,
-    "rationales": [
-      "This focus takes in the surroundings. She already reads where defenders stood and what they were doing.",
-      "Ondine takes the information in but doesn't stop to work out what it means or weigh her options. Analyzing and planning call for a broad-internal focus.",
-      "This focus locks onto a target, as in shooting. Her execution once the play starts is sound.",
-      "This focus suits settling oneself or rehearsing a movement. Nothing suggests she is unsettled or unsure of a movement."
-    ],
-    "takeaway": "Locate the point where attention breaks down: taking in, working out, settling, or executing.",
-    "refs": [
-      "nideffer2001",
-      "nideffer1976"
-    ]
+  "stem": "Judoka Rafael Moreira, a national team member, rated his recalled feelings before ten matches from 0 to 10. Before his best matches, tension was 7 to 9 and irritation 2 to 4. Before his worst, tension was 3 to 5 and irritation 7 to 9. Before the two matches he lost last weekend he rated both at 8. His coach asks the consultant for a plan that gets him to \"relax and stop being so wound up.\" Based on Hanin's model, what should the pre-match plan aim to do?",
+  "options": [
+   "Lower his tension and keep his irritation",
+   "Lower his tension and lower his irritation",
+   "Keep his tension and lower his irritation",
+   "Keep his tension and keep his irritation"
+  ],
+  "answer": 2,
+  "rationales": [
+   "This would move both emotions toward the levels that went with his worst matches.",
+   "This is what the coach's request implies, but a tension of 8 is within the range of his best matches and a fall would take him toward his worst.",
+   "A tension of 8 sits in the range of his best matches, unpleasant as it is, while an irritation of 8 sits in the range of his worst. In the IZOF model each emotion has its own individual zone.",
+   "An unpleasant emotion can be part of an optimal profile, and his tension is. His irritation, though, is at the level that went with poor matches."
+  ],
+  "takeaway": "In IZOF planning, each emotion is compared with its own zone; an unpleasant one may belong there while another doesn't.",
+  "refs": [
+   "hanin2000"
+  ]
+ },
+ {
+  "id": "G-III-009",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Nideffer's attentional styles",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-010",
-    "pool": "B",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Goal orientation and perceived ability",
-    "cognitive": "analysis",
-    "difficulty": 3,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "youth",
-      "delivery": "individual"
-    },
-    "stem": "A youth wrestling club is about to move several athletes up an age group, and its consultant is reviewing notes on one of them, Sven. On days with scored bouts he asks for the strongest partners, expects to beat them, and works harder than anyone. During technique weeks, when nothing is scored, he drifts between mats and asks a coach, \"So who's ahead?\" Shown that his takedown has become quicker, he shrugs. Which achievement goal profile should the consultant's plan assume?",
-    "options": [
-      "High task orientation, low ego orientation, low perceived ability",
-      "High task orientation, high ego orientation, high perceived ability",
-      "Low task orientation, high ego orientation, low perceived ability",
-      "Low task orientation, high ego orientation, high perceived ability"
-    ],
-    "answer": 3,
-    "rationales": [
-      "A highly task-oriented wrestler would care that his takedown had improved. Sven also expects to beat strong partners, which points to high perceived ability.",
-      "His confidence and interest in rank fit, but work without scores leaves him cold, so there is little sign of a high task orientation.",
-      "The orientation fits, but an ego-oriented wrestler who doubted his ability would tend to steer clear of strong partners on scored days.",
-      "He comes alive when he can be compared with others, expects to come out ahead, and shows little interest in improvement. The profile works while he wins, so the plan should build task involvement before the move up."
-    ],
-    "takeaway": "Read orientation from what engages a performer and perceived ability from the challenges the performer seeks.",
-    "refs": [
-      "nicholls1984",
-      "duda1989"
-    ]
+  "stem": "At stoppages, professional point guard Ondine Caldwell can say where every defender stood and which of them were switching. Once a play begins, her passes and shots are crisp. Yet she calls the same two sets whatever the defense shows her. \"I see it,\" she tells the consultant. \"Then the whistle goes, and I've called the usual before I've thought about what it means.\" In Nideffer's terms, which kind of attention should the plan have her practice at stoppages?",
+  "options": [
+   "Attention that is broad and external",
+   "Attention that is broad and internal",
+   "Attention that is narrow and external",
+   "Attention that is narrow and internal"
+  ],
+  "answer": 1,
+  "rationales": [
+   "This focus takes in the surroundings. She already reads where defenders stood and what they were doing.",
+   "Ondine takes the information in but doesn't stop to work out what it means or weigh her options. Analyzing and planning call for a broad-internal focus.",
+   "This focus locks onto a target, as in shooting. Her execution once the play starts is sound.",
+   "This focus suits settling oneself or rehearsing a movement. Nothing suggests she is unsettled or unsure of a movement."
+  ],
+  "takeaway": "Locate the point where attention breaks down: taking in, working out, settling, or executing.",
+  "refs": [
+   "nideffer2001",
+   "nideffer1976"
+  ]
+ },
+ {
+  "id": "G-III-010",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Goal orientation and perceived ability",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "youth",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-011",
-    "pool": "B",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Dimensions of team cohesion",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "team-sport",
-      "level": "collegiate",
-      "delivery": "team"
-    },
-    "stem": "A collegiate volleyball coach tells a consultant that his players compete hard for one another and share the blame when they lose, but something \"feels thin.\" In interviews every player names two or three teammates among her closest friends and says leaving them would hurt. On road trips, though, the team eats at three separate tables, and no one can remember an evening when all sixteen were in one room by choice. In terms of the Group Environment Questionnaire, which dimension should the plan target?",
-    "options": [
-      "Individual attraction on the task side",
-      "Group integration on the task side",
-      "Group integration on the social side",
-      "Individual attraction on the social side"
-    ],
-    "answer": 2,
-    "rationales": [
-      "This is each player's own draw to the team's goals, productivity, and her part in them. Players are competing hard for the team.",
-      "This is the team's unity around its goals. The coach describes a team that competes for one another and shares responsibility.",
-      "Individual friendships are strong, yet the team as a unit splits into three and does not gather. Closeness of the group as a whole in social life is group integration–social.",
-      "This is each player's own sense of acceptance and friendship in the group. Every player names close friends she would hate to leave."
-    ],
-    "takeaway": "Cohesion has task and social sides, each seen from the individual's bond to the group and from the group's unity as a whole.",
-    "refs": [
-      "carron1985",
-      "weinberg2024"
-    ]
+  "stem": "A youth wrestling club is about to move several athletes up an age group, and its consultant is reviewing notes on one of them, Sven. On days with scored bouts he asks for the strongest partners, expects to beat them, and works harder than anyone. During technique weeks, when nothing is scored, he drifts between mats and asks a coach, \"So who's ahead?\" Shown that his takedown has become quicker, he shrugs. Which achievement goal profile should the consultant's plan assume?",
+  "options": [
+   "High task orientation, low ego orientation, low perceived ability",
+   "High task orientation, high ego orientation, high perceived ability",
+   "Low task orientation, high ego orientation, low perceived ability",
+   "Low task orientation, high ego orientation, high perceived ability"
+  ],
+  "answer": 3,
+  "rationales": [
+   "A highly task-oriented wrestler would care that his takedown had improved. Sven also expects to beat strong partners, which points to high perceived ability.",
+   "His confidence and interest in rank fit, but work without scores leaves him cold, so there is little sign of a high task orientation.",
+   "The orientation fits, but an ego-oriented wrestler who doubted his ability would tend to steer clear of strong partners on scored days.",
+   "He comes alive when he can be compared with others, expects to come out ahead, and shows little interest in improvement. The profile works while he wins, so the plan should build task involvement before the move up."
+  ],
+  "takeaway": "Read orientation from what engages a performer and perceived ability from the challenges the performer seeks.",
+  "refs": [
+   "nicholls1984",
+   "duda1989"
+  ]
+ },
+ {
+  "id": "G-III-011",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Dimensions of team cohesion",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "team"
   },
-  {
-    "id": "G-III-012",
-    "pool": "B",
-    "scored": false,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Perceived support and resilience",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "tactical",
-      "level": "adult",
-      "delivery": "organizational"
-    },
-    "stem": "A police academy asks a consultant to plan a resilience program. Interviewed after the hardest training scenarios, cadets come across as able and sure of themselves. Those who had a bad week describe getting through it alone. Asked about the peer mentors down the hall, one says, \"They're not there for somebody like me,\" and many agree. The mentors say they wish more cadets would come; they have turned no one away. Drawing on Fletcher and Sarkar's theory of psychological resilience, what should the program target first?",
-    "options": [
-      "Cadets' belief that support is there for them",
-      "The number of mentors the academy provides",
-      "Cadets' confidence in handling hard scenarios",
-      "Cadets' ability to focus during hard scenarios"
-    ],
-    "answer": 0,
-    "rationales": [
-      "Perceived social support is one of the protective factors in the theory. Support exists, yet cadets don't see it as available to them, so the perception is the thing to change.",
-      "More mentors would help if there were too few. Those in place have room and turn no one away.",
-      "Confidence is a protective factor, but the cadets already come across as sure of themselves.",
-      "Focus is also a protective factor. The gap in the interviews appears after bad weeks and concerns support."
-    ],
-    "takeaway": "Support protects through being perceived as available; having it on site isn't enough.",
-    "refs": [
-      "fletcher2012",
-      "tod2024"
-    ]
+  "stem": "A collegiate volleyball coach tells a consultant that his players compete hard for one another and share the blame when they lose, but something \"feels thin.\" In interviews every player names two or three teammates among her closest friends and says leaving them would hurt. On road trips, though, the team eats at three separate tables, and no one can remember an evening when all sixteen were in one room by choice. In terms of the Group Environment Questionnaire, which dimension should the plan target?",
+  "options": [
+   "Individual attraction on the task side",
+   "Group integration on the task side",
+   "Group integration on the social side",
+   "Individual attraction on the social side"
+  ],
+  "answer": 2,
+  "rationales": [
+   "This is each player's own draw to the team's goals, productivity, and her part in them. Players are competing hard for the team.",
+   "This is the team's unity around its goals. The coach describes a team that competes for one another and shares responsibility.",
+   "Individual friendships are strong, yet the team as a unit splits into three and does not gather. Closeness of the group as a whole in social life is group integration–social.",
+   "This is each player's own sense of acceptance and friendship in the group. Every player names close friends she would hate to leave."
+  ],
+  "takeaway": "Cohesion has task and social sides, each seen from the individual's bond to the group and from the group's unity as a whole.",
+  "refs": [
+   "carron1985",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-III-012",
+  "pool": "B",
+  "scored": false,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Perceived support and resilience",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "organizational"
   },
-  {
-    "id": "G-III-013",
-    "pool": "drill",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Tuckman's stages in a new roster",
-    "cognitive": "application",
-    "difficulty": 1,
-    "format": "vignette",
-    "context": {
-      "setting": "esports",
-      "level": "professional",
-      "delivery": "team"
-    },
-    "stem": "An esports organization assembled a five-player roster ten weeks ago. The first scrims were polite; then came three weeks of shouting over who makes the calls. Since then the players have written down a shot-calling order. In scrims they stop to ask, \"Whose call is this?\" and remind anyone who speaks out of turn. They have also begun eating together. Results are middling, and the general manager wonders about changing the roster. Which stage of Tuckman's model should the consultant's plan assume?",
-    "options": [
-      "The forming stage of group development",
-      "The norming stage of group development",
-      "The storming stage of group development",
-      "The performing stage of group development"
-    ],
-    "answer": 1,
-    "rationales": [
-      "Forming is marked by politeness and uncertainty about roles. The roster passed through that in its first scrims.",
-      "Conflict has given way to agreed rules that players remind one another to follow, along with growing closeness. They still have to stop and check, so the rules are not yet second nature.",
-      "Storming is the open conflict over calls that ended some weeks ago.",
-      "In performing, roles are settled enough that energy goes into the task. This roster still pauses to work out whose call it is."
-    ],
-    "takeaway": "Norming shows in newly agreed rules being used and enforced, before they run smoothly.",
-    "refs": [
-      "tuckman1965",
-      "weinberg2024"
-    ]
+  "stem": "A police academy asks a consultant to plan a resilience program. Interviewed after the hardest training scenarios, cadets come across as able and sure of themselves. Those who had a bad week describe getting through it alone. Asked about the peer mentors down the hall, one says, \"They're not there for somebody like me,\" and many agree. The mentors say they wish more cadets would come; they have turned no one away. Drawing on Fletcher and Sarkar's theory of psychological resilience, what should the program target first?",
+  "options": [
+   "Cadets' belief that support is there for them",
+   "The number of mentors the academy provides",
+   "Cadets' confidence in handling hard scenarios",
+   "Cadets' ability to focus during hard scenarios"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Perceived social support is one of the protective factors in the theory. Support exists, yet cadets don't see it as available to them, so the perception is the thing to change.",
+   "More mentors would help if there were too few. Those in place have room and turn no one away.",
+   "Confidence is a protective factor, but the cadets already come across as sure of themselves.",
+   "Focus is also a protective factor. The gap in the interviews appears after bad weeks and concerns support."
+  ],
+  "takeaway": "Support protects through being perceived as available; having it on site isn't enough.",
+  "refs": [
+   "fletcher2012",
+   "tod2024"
+  ]
+ },
+ {
+  "id": "G-III-013",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Tuckman's stages in a new roster",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "esports",
+   "level": "professional",
+   "delivery": "team"
   },
-  {
-    "id": "G-III-014",
-    "pool": "drill",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Lazarus's appraisal types",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "tactical",
-      "level": "adult",
-      "delivery": "individual"
-    },
-    "stem": "Paramedic Oluwaseun spent four years on a helicopter crew until the service closed in the spring. He now works ambulance shifts. \"The shifts are fine; I could do them half asleep,\" he tells his consultant. \"But that crew was the best thing I ever built, and it's finished. Every time a helicopter goes over, I fly the last call again.\" He is sleeping well and sees friends often. In Lazarus's terms, which appraisal should the consultant's plan address?",
-    "options": [
-      "A primary appraisal of threat",
-      "A primary appraisal of challenge",
-      "A secondary appraisal of too few coping resources",
-      "A primary appraisal of harm or loss"
-    ],
-    "answer": 3,
-    "rationales": [
-      "Threat concerns harm that may still come. Oluwaseun speaks about something that has already ended.",
-      "Challenge concerns a chance to gain or grow. He describes nothing ahead of him in that way.",
-      "Secondary appraisal weighs what one can do about the situation. He says the new work is well within his abilities.",
-      "His stress centers on damage already done: a crew that mattered to him is gone. Lazarus calls that harm/loss, and it is worked with differently from a threat that might be prevented."
-    ],
-    "takeaway": "Harm/loss looks back at damage done, threat looks ahead to possible harm, and challenge looks ahead to possible gain.",
-    "refs": [
-      "lazarus1999",
-      "weinberg2024"
-    ]
+  "stem": "An esports organization assembled a five-player roster ten weeks ago. The first scrims were polite; then came three weeks of shouting over who makes the calls. Since then the players have written down a shot-calling order. In scrims they stop to ask, \"Whose call is this?\" and remind anyone who speaks out of turn. They have also begun eating together. Results are middling, and the general manager wonders about changing the roster. Which stage of Tuckman's model should the consultant's plan assume?",
+  "options": [
+   "The forming stage of group development",
+   "The norming stage of group development",
+   "The storming stage of group development",
+   "The performing stage of group development"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Forming is marked by politeness and uncertainty about roles. The roster passed through that in its first scrims.",
+   "Conflict has given way to agreed rules that players remind one another to follow, along with growing closeness. They still have to stop and check, so the rules are not yet second nature.",
+   "Storming is the open conflict over calls that ended some weeks ago.",
+   "In performing, roles are settled enough that energy goes into the task. This roster still pauses to work out whose call it is."
+  ],
+  "takeaway": "Norming shows in newly agreed rules being used and enforced, before they run smoothly.",
+  "refs": [
+   "tuckman1965",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-III-014",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Lazarus's appraisal types",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-015",
-    "pool": "drill",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Bioinformational theory of imagery",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "performing-arts",
-      "level": "collegiate",
-      "delivery": "individual"
-    },
-    "stem": "Conservatory pianist Anaya Deshpande practices an audition script every evening: \"My pulse quickens and my palms are damp. I let my shoulders drop. My fingers sink into the opening chord and I feel it in my forearms. This is what four years were for, and I play as though I belong.\" Walking into the real hall for a rehearsal, she tells her consultant, she felt as if she had never imagined it at all. Drawing on Lang's bioinformational theory, what should the revised script add?",
-    "options": [
-      "The panel's table, the stage lights, and the piano",
-      "The dryness in her mouth, the warm arms, and the slow breath out",
-      "The reasons the audition matters to her and her family",
-      "The real length of the pauses between her pieces"
-    ],
-    "answer": 0,
-    "rationales": [
-      "Lang holds that effective imagery links features of the situation (stimulus information) with the person's responses. Her script is rich in responses and meaning and contains almost nothing of the scene that should call them up.",
-      "Response details are often what a script lacks. Hers is made almost wholly of them already.",
-      "What the scene means to her belongs in a script, and hers has it: this is what four years were for.",
-      "Matching real timing is a PETTLEP concern. Her trouble was failing to recognize the situation."
-    ],
-    "takeaway": "In bioinformational terms, a script joins the situation's features with the performer's responses; add whichever is missing.",
-    "refs": [
-      "williams2020",
-      "weinberg2024"
-    ]
+  "stem": "Paramedic Oluwaseun spent four years on a helicopter crew until the service closed in the spring. He now works ambulance shifts. \"The shifts are fine; I could do them half asleep,\" he tells his consultant. \"But that crew was the best thing I ever built, and it's finished. Every time a helicopter goes over, I fly the last call again.\" He is sleeping well and sees friends often. In Lazarus's terms, which appraisal should the consultant's plan address?",
+  "options": [
+   "A primary appraisal of threat",
+   "A primary appraisal of challenge",
+   "A secondary appraisal of too few coping resources",
+   "A primary appraisal of harm or loss"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Threat concerns harm that may still come. Oluwaseun speaks about something that has already ended.",
+   "Challenge concerns a chance to gain or grow. He describes nothing ahead of him in that way.",
+   "Secondary appraisal weighs what one can do about the situation. He says the new work is well within his abilities.",
+   "His stress centers on damage already done: a crew that mattered to him is gone. Lazarus calls that harm/loss, and it is worked with differently from a threat that might be prevented."
+  ],
+  "takeaway": "Harm/loss looks back at damage done, threat looks ahead to possible harm, and challenge looks ahead to possible gain.",
+  "refs": [
+   "lazarus1999",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-III-015",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Bioinformational theory of imagery",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "collegiate",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-016",
-    "pool": "drill",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "SDT basic psychological needs",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "youth",
-      "delivery": "organizational"
-    },
-    "stem": "Gymnasts at a youth club seem to like the place. They pick among stations, know what each is for, and linger afterward to talk. Attendance has slipped since winter all the same. \"I've been on my kip for five months,\" one tells the consultant. \"Coach says 'nice work' to all of us every time, so I guess it's the same as it was.\" Others make similar remarks. Based on self-determination theory, what should the coach training in the consultant's plan focus on?",
-    "options": [
-      "Offering gymnasts choices within clear limits",
-      "Showing personal interest in each gymnast",
-      "Giving gymnasts information about their progress",
-      "Explaining the purpose of each drill in practice"
-    ],
-    "answer": 2,
-    "rationales": [
-      "Choice supports autonomy. These gymnasts already choose among stations, and the remark is about not knowing where they stand.",
-      "Personal warmth supports relatedness, and the gymnasts already stay to talk.",
-      "Uniform praise tells a gymnast nothing about whether she is getting better, so the need for competence goes unmet. Specific information on progress is the support that is missing.",
-      "A rationale supports autonomy and internalization. The gymnasts already know what the stations are for."
-    ],
-    "takeaway": "Competence needs information: praise that is the same for everyone doesn't tell anyone she is improving.",
-    "refs": [
-      "ryan2017",
-      "mageau2003"
-    ]
+  "stem": "Conservatory pianist Anaya Deshpande practices an audition script every evening: \"My pulse quickens and my palms are damp. I let my shoulders drop. My fingers sink into the opening chord and I feel it in my forearms. This is what four years were for, and I play as though I belong.\" Walking into the real hall for a rehearsal, she tells her consultant, she felt as if she had never imagined it at all. Drawing on Lang's bioinformational theory, what should the revised script add?",
+  "options": [
+   "The panel's table, the stage lights, and the piano",
+   "The dryness in her mouth, the warm arms, and the slow breath out",
+   "The reasons the audition matters to her and her family",
+   "The real length of the pauses between her pieces"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Lang holds that effective imagery links features of the situation (stimulus information) with the person's responses. Her script is rich in responses and meaning and contains almost nothing of the scene that should call them up.",
+   "Response details are often what a script lacks. Hers is made almost wholly of them already.",
+   "What the scene means to her belongs in a script, and hers has it: this is what four years were for.",
+   "Matching real timing is a PETTLEP concern. Her trouble was failing to recognize the situation."
+  ],
+  "takeaway": "In bioinformational terms, a script joins the situation's features with the performer's responses; add whichever is missing.",
+  "refs": [
+   "williams2020",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-III-016",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "SDT basic psychological needs",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "youth",
+   "delivery": "organizational"
   },
-  {
-    "id": "G-III-017",
-    "pool": "drill",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Matching models to need",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "exercise-health",
-      "level": "youth",
-      "delivery": "team"
-    },
-    "stem": "An aquatics program's 9- to 11-year-olds can't wait for the deep end. At the signal they run to the edge and leap, laughing, and nearly all land flat on their stomachs or backs. None has yet landed feet first, and the instructor's explanations of arm and leg position have changed nothing. The consultant is helping her plan one short demonstration for the next class. Based on social cognitive theory, which demonstration best fits what these children need?",
-    "options": [
-      "A child their age who hesitates at the edge, then jumps",
-      "A child their age who is cheered for jumping well",
-      "A video that shows each child's own best jump so far",
-      "An instructor who jumps with correct form, slowed down"
-    ],
-    "answer": 3,
-    "rationales": [
-      "A similar model who copes with fear raises efficacy in fearful children. These children aren't afraid.",
-      "Seeing a model rewarded adds an incentive. The children are already eager.",
-      "Viewing one's own best attempts suits a learner with successes to show. No child has landed one yet.",
-      "The children lack a clear picture of the movement. A skilled model shown so that the form can be seen conveys how to do it, which is what observation must supply here."
-    ],
-    "takeaway": "Choose a model for what the learner lacks: form, confidence, incentive, or belief in repeating success.",
-    "refs": [
-      "bandura1986",
-      "weinberg2024"
-    ]
+  "stem": "Gymnasts at a youth club seem to like the place. They pick among stations, know what each is for, and linger afterward to talk. Attendance has slipped since winter all the same. \"I've been on my kip for five months,\" one tells the consultant. \"Coach says 'nice work' to all of us every time, so I guess it's the same as it was.\" Others make similar remarks. Based on self-determination theory, what should the coach training in the consultant's plan focus on?",
+  "options": [
+   "Offering gymnasts choices within clear limits",
+   "Showing personal interest in each gymnast",
+   "Giving gymnasts information about their progress",
+   "Explaining the purpose of each drill in practice"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Choice supports autonomy. These gymnasts already choose among stations, and the remark is about not knowing where they stand.",
+   "Personal warmth supports relatedness, and the gymnasts already stay to talk.",
+   "Uniform praise tells a gymnast nothing about whether she is getting better, so the need for competence goes unmet. Specific information on progress is the support that is missing.",
+   "A rationale supports autonomy and internalization. The gymnasts already know what the stations are for."
+  ],
+  "takeaway": "Competence needs information: praise that is the same for everyone doesn't tell anyone she is improving.",
+  "refs": [
+   "ryan2017",
+   "mageau2003"
+  ]
+ },
+ {
+  "id": "G-III-017",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Matching models to need",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "exercise-health",
+   "level": "youth",
+   "delivery": "team"
   },
-  {
-    "id": "G-III-018",
-    "pool": "drill",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Attribution dimensions and expectancy",
-    "cognitive": "analysis",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "elite",
-      "delivery": "individual"
-    },
-    "stem": "Distance runners Kwabena and Anders missed a national final by the same margin. Both went out too fast, and both say so. \"I got carried away that day,\" says Kwabena, who expects to qualify next year. \"I know how to hold back, and nobody's stopping me,\" says Anders. \"I just don't, and I've raced that way since I was twelve.\" He expects to miss again. For the consultant's planning, which feature of their explanations best accounts for the difference in what they expect?",
-    "options": [
-      "The locus of the cause",
-      "The stability of the cause",
-      "The controllability of the cause",
-      "The globality of the cause"
-    ],
-    "answer": 1,
-    "rationales": [
-      "Locus bears mainly on pride and self-esteem. Both runners place the cause in themselves.",
-      "Kwabena describes a lapse on one day; Anders describes a habit that does not change. In Weiner's theory, expectancy of future success depends mainly on how stable the cause is seen to be.",
-      "Controllability bears on guilt and responsibility, and both runners describe something they could have done differently.",
-      "Globality concerns whether a cause spreads to other areas. Neither speaks of anything beyond racing."
-    ],
-    "takeaway": "Stability drives expectations; locus and controllability bear more on pride, shame, and guilt.",
-    "refs": [
-      "weiner1985",
-      "cox2012"
-    ]
+  "stem": "An aquatics program's 9- to 11-year-olds can't wait for the deep end. At the signal they run to the edge and leap, laughing, and nearly all land flat on their stomachs or backs. None has yet landed feet first, and the instructor's explanations of arm and leg position have changed nothing. The consultant is helping her plan one short demonstration for the next class. Based on social cognitive theory, which demonstration best fits what these children need?",
+  "options": [
+   "A child their age who hesitates at the edge, then jumps",
+   "A child their age who is cheered for jumping well",
+   "A video that shows each child's own best jump so far",
+   "An instructor who jumps with correct form, slowed down"
+  ],
+  "answer": 3,
+  "rationales": [
+   "A similar model who copes with fear raises efficacy in fearful children. These children aren't afraid.",
+   "Seeing a model rewarded adds an incentive. The children are already eager.",
+   "Viewing one's own best attempts suits a learner with successes to show. No child has landed one yet.",
+   "The children lack a clear picture of the movement. A skilled model shown so that the form can be seen conveys how to do it, which is what observation must supply here."
+  ],
+  "takeaway": "Choose a model for what the learner lacks: form, confidence, incentive, or belief in repeating success.",
+  "refs": [
+   "bandura1986",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-III-018",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Attribution dimensions and expectancy",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-019",
-    "pool": "drill",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Direction of anxiety symptoms",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "collegiate",
-      "delivery": "individual"
-    },
-    "stem": "Collegiate diver Lachlan Reid's CSAI-2 intensity scores for worry and bodily symptoms have been the highest on his team at four straight meets. His coach forwards them to the consultant and asks for a plan to settle him. The form also included direction ratings, on which Lachlan marked nearly every symptom as helpful, and he set personal bests at three of the four meets. What should the consultant plan for Lachlan's pre-dive preparation?",
-    "options": [
-      "Keep the preparation he already uses",
-      "Teach him to read his symptoms as readiness",
-      "Teach him relaxation to reduce his symptoms",
-      "Add an energizing routine to build his intensity"
-    ],
-    "answer": 0,
-    "rationales": [
-      "From a directional perspective, high intensity is not a problem in itself. He reads his symptoms as facilitative and is diving better than ever, so there is nothing here to settle.",
-      "Reinterpretation suits an athlete who reads symptoms as harmful. Lachlan already marks his as helpful.",
-      "Lowering intensity may suit someone whose symptoms disrupt performance. His go with personal bests.",
-      "Energizing suits a performer who is below his best level. Lachlan's intensity is already high and serving him well."
-    ],
-    "takeaway": "High anxiety intensity calls for no change when the performer reads it as helpful and performs well.",
-    "refs": [
-      "hanton1999",
-      "jones1995"
-    ]
+  "stem": "Distance runners Kwabena and Anders missed a national final by the same margin. Both went out too fast, and both say so. \"I got carried away that day,\" says Kwabena, who expects to qualify next year. \"I know how to hold back, and nobody's stopping me,\" says Anders. \"I just don't, and I've raced that way since I was twelve.\" He expects to miss again. For the consultant's planning, which feature of their explanations best accounts for the difference in what they expect?",
+  "options": [
+   "The locus of the cause",
+   "The stability of the cause",
+   "The controllability of the cause",
+   "The globality of the cause"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Locus bears mainly on pride and self-esteem. Both runners place the cause in themselves.",
+   "Kwabena describes a lapse on one day; Anders describes a habit that does not change. In Weiner's theory, expectancy of future success depends mainly on how stable the cause is seen to be.",
+   "Controllability bears on guilt and responsibility, and both runners describe something they could have done differently.",
+   "Globality concerns whether a cause spreads to other areas. Neither speaks of anything beyond racing."
+  ],
+  "takeaway": "Stability drives expectations; locus and controllability bear more on pride, shame, and guilt.",
+  "refs": [
+   "weiner1985",
+   "cox2012"
+  ]
+ },
+ {
+  "id": "G-III-019",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Direction of anxiety symptoms",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
   },
-  {
-    "id": "G-III-020",
-    "pool": "drill",
-    "scored": true,
-    "domain": "III",
-    "kg": "G",
-    "topic": "Diagnosing a team performance loss",
-    "cognitive": "analysis",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "tactical",
-      "level": "adult",
-      "delivery": "team"
-    },
-    "stem": "Eight officers on a police tactical team practice searching a warehouse for hidden items. When the floor is split into marked zones and each officer's finds are recorded, they work quickly and miss little. When all eight share the whole floor for one team score, they spread out smoothly and rarely cross paths, yet they cover a third less ground and miss twice as much. Afterward they agree that the team is a good one and the exercise worthwhile. Which concept best explains the drop and should guide the consultant's plan?",
-    "options": [
-      "Low cohesion around the task",
-      "Gaps in shared mental models",
-      "Social loafing in the group",
-      "Low collective efficacy for the search"
-    ],
-    "answer": 2,
-    "rationales": [
-      "Low task cohesion would show in disagreement about the exercise or a lack of commitment to it. They agree that it is worthwhile and the team is good.",
-      "Differing pictures of who does what would produce collisions, repeated searching, and overlooked areas. They move smoothly and rarely cross paths.",
-      "Individuals do well when their finds are recorded and do less when the work is pooled into one score. Reduced effort when contributions can't be identified is social loafing.",
-      "Low collective efficacy would show as doubt that the team can do the job. They call the team a good one."
-    ],
-    "takeaway": "When coordination is smooth but output falls as individual contributions disappear from view, suspect social loafing.",
-    "refs": [
-      "weinberg2024",
-      "cox2012"
-    ]
+  "stem": "Collegiate diver Lachlan Reid's CSAI-2 intensity scores for worry and bodily symptoms have been the highest on his team at four straight meets. His coach forwards them to the consultant and asks for a plan to settle him. The form also included direction ratings, on which Lachlan marked nearly every symptom as helpful, and he set personal bests at three of the four meets. What should the consultant plan for Lachlan's pre-dive preparation?",
+  "options": [
+   "Keep the preparation he already uses",
+   "Teach him to read his symptoms as readiness",
+   "Teach him relaxation to reduce his symptoms",
+   "Add an energizing routine to build his intensity"
+  ],
+  "answer": 0,
+  "rationales": [
+   "From a directional perspective, high intensity is not a problem in itself. He reads his symptoms as facilitative and is diving better than ever, so there is nothing here to settle.",
+   "Reinterpretation suits an athlete who reads symptoms as harmful. Lachlan already marks his as helpful.",
+   "Lowering intensity may suit someone whose symptoms disrupt performance. His go with personal bests.",
+   "Energizing suits a performer who is below his best level. Lachlan's intensity is already high and serving him well."
+  ],
+  "takeaway": "High anxiety intensity calls for no change when the performer reads it as helpful and performs well.",
+  "refs": [
+   "hanton1999",
+   "jones1995"
+  ]
+ },
+ {
+  "id": "G-III-020",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "G",
+  "topic": "Diagnosing a team performance loss",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "team"
   },
-  {
-    "id": "G-IV-001",
-    "pool": "A",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Catastrophe model and recovery",
-    "cognitive": "analysis",
-    "difficulty": 3,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "professional",
-      "delivery": "individual"
-    },
-    "stem": "Tennis professional Sofia Lindqvist had fretted all week about her ranking. Leading 5–1 with her heart pounding, she went within one game from striking the ball cleanly to barely finding the court, and she lost five games in a row. At the 5–6 changeover she took slow breaths until she felt, she said, \"about how I felt at 5–1.\" The next game went the same way, and the set was gone. In case it happens again, which changeover plan should the consultant teach her?",
-    "options": [
-      "Ease her activation to just under its current level, then hold it",
-      "Lift her activation with quick movement, then hold it there",
-      "Bring her activation far down, then build it up gradually",
-      "Hold her activation steady, then change her shot selection"
-    ],
-    "answer": 2,
-    "rationales": [
-      "A small reduction suits a gradual slide past a moderate peak. Her play collapsed at once, and coming back to the earlier level did not restore it.",
-      "Energizing suits a player who has gone flat. Her heart was pounding when her play collapsed.",
-      "High worry, a sudden drop, and no recovery on returning to the earlier level fit the catastrophe model. Because of hysteresis, arousal has to fall well below the point of collapse before performance returns, and then be raised again with care.",
-      "A tactical change suits a player whose state is unchanged and whose opponent has found an answer. Sofia could barely find the court with any shot."
-    ],
-    "takeaway": "After a catastrophic drop, returning to the pre-drop level isn't enough; come well down before building back up.",
-    "refs": [
-      "hardy1996",
-      "weinberg2024"
-    ]
+  "stem": "Eight officers on a police tactical team practice searching a warehouse for hidden items. When the floor is split into marked zones and each officer's finds are recorded, they work quickly and miss little. When all eight share the whole floor for one team score, they spread out smoothly and rarely cross paths, yet they cover a third less ground and miss twice as much. Afterward they agree that the team is a good one and the exercise worthwhile. Which concept best explains the drop and should guide the consultant's plan?",
+  "options": [
+   "Low cohesion around the task",
+   "Gaps in shared mental models",
+   "Social loafing in the group",
+   "Low collective efficacy for the search"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Low task cohesion would show in disagreement about the exercise or a lack of commitment to it. They agree that it is worthwhile and the team is good.",
+   "Differing pictures of who does what would produce collisions, repeated searching, and overlooked areas. They move smoothly and rarely cross paths.",
+   "Individuals do well when their finds are recorded and do less when the work is pooled into one score. Reduced effort when contributions can't be identified is social loafing.",
+   "Low collective efficacy would show as doubt that the team can do the job. They call the team a good one."
+  ],
+  "takeaway": "When coordination is smooth but output falls as individual contributions disappear from view, suspect social loafing.",
+  "refs": [
+   "weinberg2024",
+   "cox2012"
+  ]
+ },
+ {
+  "id": "G-IV-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Catastrophe model and recovery",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "professional",
+   "delivery": "individual"
   },
-  {
-    "id": "G-IV-002",
-    "pool": "A",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Matching support to an unmet need",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "team-sport",
-      "level": "collegiate",
-      "delivery": "team"
-    },
-    "stem": "Attendance at a collegiate soccer team's optional mental skills sessions has slid from twenty to eight. Players pick their own skill each week, and their refocusing times in practice keep improving. \"Oh, it works,\" a midfielder says of the sessions. \"You put your headphones in, do your recording, and go. Half the reserves are in there and I couldn't tell you one of their names.\" Others describe it in much the same way. Based on self-determination theory, which change should the consultant make?",
-    "options": [
-      "Have players practice skills in pairs and compare notes",
-      "Let players choose when, where, and how long they practice",
-      "Show players charts of how their skills are improving",
-      "Explain how each skill applies to match situations"
-    ],
-    "answer": 0,
-    "rationales": [
-      "The players choose freely and see results; what they describe is sitting alone among teammates they don't know. Working in pairs gives the sessions a chance to meet the need for relatedness.",
-      "More choice supports autonomy, which the sessions already respect: attendance is optional and players pick their skills.",
-      "Progress charts support competence. The players already say the sessions work.",
-      "A rationale helps players value an activity whose point is unclear. These players see the benefit."
-    ],
-    "takeaway": "Find which need the setting leaves unmet before choosing a support; an effective activity can still lack connection.",
-    "refs": [
-      "ryan2017",
-      "weinberg2024"
-    ]
+  "stem": "Tennis professional Sofia Lindqvist had fretted all week about her ranking. Leading 5–1 with her heart pounding, she went within one game from striking the ball cleanly to barely finding the court, and she lost five games in a row. At the 5–6 changeover she took slow breaths until she felt, she said, \"about how I felt at 5–1.\" The next game went the same way, and the set was gone. In case it happens again, which changeover plan should the consultant teach her?",
+  "options": [
+   "Ease her activation to just under its current level, then hold it",
+   "Lift her activation with quick movement, then hold it there",
+   "Bring her activation far down, then build it up gradually",
+   "Hold her activation steady, then change her shot selection"
+  ],
+  "answer": 2,
+  "rationales": [
+   "A small reduction suits a gradual slide past a moderate peak. Her play collapsed at once, and coming back to the earlier level did not restore it.",
+   "Energizing suits a player who has gone flat. Her heart was pounding when her play collapsed.",
+   "High worry, a sudden drop, and no recovery on returning to the earlier level fit the catastrophe model. Because of hysteresis, arousal has to fall well below the point of collapse before performance returns, and then be raised again with care.",
+   "A tactical change suits a player whose state is unchanged and whose opponent has found an answer. Sofia could barely find the court with any shot."
+  ],
+  "takeaway": "After a catastrophic drop, returning to the pre-drop level isn't enough; come well down before building back up.",
+  "refs": [
+   "hardy1996",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-002",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Matching support to an unmet need",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "team"
   },
-  {
-    "id": "G-IV-003",
-    "pool": "A",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Cue utilization under stress",
-    "cognitive": "analysis",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "tactical",
-      "level": "adult",
-      "delivery": "individual"
-    },
-    "stem": "After calm runs of a police scenario, recruit Dana Kowalczyk can list the wall posters, the observers on the catwalk, and both armed role players. After the most stressful run, with her heart rate near its peak, she could describe both role players, their hands, and the exit she had covered, and her decisions were rated excellent. She recalled no posters and no observers. Her instructor calls it tunnel vision and asks what the consultant will change before the next stressful run. Based on cue utilization theory, what should the consultant do?",
-    "options": [
-      "Teach her breathing that brings her arousal down",
-      "Teach her a routine that brings her arousal up",
-      "Have her repeat calm runs until scanning is automatic",
-      "Continue her present training at this intensity"
-    ],
-    "answer": 3,
-    "rationales": [
-      "Lowering arousal fits once narrowing has begun to cost relevant cues. She caught every cue that mattered.",
-      "Raising arousal fits when attention is so broad that irrelevant cues get in the way. In the stressful run they didn't.",
-      "More scanning practice fits a recruit who misses people in calm conditions too. She sees them all.",
-      "Narrowing first drops irrelevant cues, which helps. Posters and observers are irrelevant; she kept the relevant cues and decided well, so nothing needs correcting at this intensity."
-    ],
-    "takeaway": "Arousal-driven narrowing is a problem only once relevant cues begin to drop out.",
-    "refs": [
-      "easterbrook1959",
-      "weinberg2024"
-    ]
+  "stem": "Attendance at a collegiate soccer team's optional mental skills sessions has slid from twenty to eight. Players pick their own skill each week, and their refocusing times in practice keep improving. \"Oh, it works,\" a midfielder says of the sessions. \"You put your headphones in, do your recording, and go. Half the reserves are in there and I couldn't tell you one of their names.\" Others describe it in much the same way. Based on self-determination theory, which change should the consultant make?",
+  "options": [
+   "Have players practice skills in pairs and compare notes",
+   "Let players choose when, where, and how long they practice",
+   "Show players charts of how their skills are improving",
+   "Explain how each skill applies to match situations"
+  ],
+  "answer": 0,
+  "rationales": [
+   "The players choose freely and see results; what they describe is sitting alone among teammates they don't know. Working in pairs gives the sessions a chance to meet the need for relatedness.",
+   "More choice supports autonomy, which the sessions already respect: attendance is optional and players pick their skills.",
+   "Progress charts support competence. The players already say the sessions work.",
+   "A rationale helps players value an activity whose point is unclear. These players see the benefit."
+  ],
+  "takeaway": "Find which need the setting leaves unmet before choosing a support; an effective activity can still lack connection.",
+  "refs": [
+   "ryan2017",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-003",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Cue utilization under stress",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "individual"
   },
-  {
-    "id": "G-IV-004",
-    "pool": "A",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Structures of a mastery climate",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "team-sport",
-      "level": "youth",
-      "delivery": "organizational"
-    },
-    "stem": "A youth basketball coach asks a consultant for help keeping slower learners engaged. In practice, mixed groups of players choose among stations, and the coach quietly tells players how their own skills are coming along. A whistle moves every group on after four minutes. \"I nearly had the left-hand layup,\" one girl says, \"and then it was passing.\" Several players have stopped attempting new moves. Which change should the consultant help the coach make?",
-    "options": [
-      "Let players decide more of what they practice",
-      "Let players stay longer with a skill they are learning",
-      "Recognize players in private for improving on their own marks",
-      "Group players of differing ability together"
-    ],
-    "answer": 1,
-    "rationales": [
-      "Sharing authority supports a mastery climate, and players already choose their stations.",
-      "Time is one of the structures that shape climate. A fixed whistle cuts slower learners off before they can improve, so varying the time lets effort pay off for them.",
-      "Private, self-referenced recognition is already part of the coach's practice.",
-      "Mixed grouping reduces social comparison, and the groups are already mixed."
-    ],
-    "takeaway": "Climate is built from tasks, authority, recognition, grouping, evaluation, and time; change the one that is failing.",
-    "refs": [
-      "ames1992",
-      "smith2007mac"
-    ]
+  "stem": "After calm runs of a police scenario, recruit Dana Kowalczyk can list the wall posters, the observers on the catwalk, and both armed role players. After the most stressful run, with her heart rate near its peak, she could describe both role players, their hands, and the exit she had covered, and her decisions were rated excellent. She recalled no posters and no observers. Her instructor calls it tunnel vision and asks what the consultant will change before the next stressful run. Based on cue utilization theory, what should the consultant do?",
+  "options": [
+   "Teach her breathing that brings her arousal down",
+   "Teach her a routine that brings her arousal up",
+   "Have her repeat calm runs until scanning is automatic",
+   "Continue her present training at this intensity"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Lowering arousal fits once narrowing has begun to cost relevant cues. She caught every cue that mattered.",
+   "Raising arousal fits when attention is so broad that irrelevant cues get in the way. In the stressful run they didn't.",
+   "More scanning practice fits a recruit who misses people in calm conditions too. She sees them all.",
+   "Narrowing first drops irrelevant cues, which helps. Posters and observers are irrelevant; she kept the relevant cues and decided well, so nothing needs correcting at this intensity."
+  ],
+  "takeaway": "Arousal-driven narrowing is a problem only once relevant cues begin to drop out.",
+  "refs": [
+   "easterbrook1959",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-004",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Structures of a mastery climate",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "youth",
+   "delivery": "organizational"
   },
-  {
-    "id": "G-IV-005",
-    "pool": "A",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Aided success and self-efficacy",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "exercise-health",
-      "level": "adult",
-      "delivery": "individual"
-    },
-    "stem": "Renée Dubois, 52, has finished every workout of a six-week supervised exercise program for which she has medical clearance. The program ends in two weeks. Asked by her consultant how sure she is that she could train by herself, she says, \"Two out of ten. Of course I finish here. My instructor sets the machines, counts for me, and keeps a hand on the bar.\" Based on self-efficacy theory, which step would do most to raise her confidence for training alone?",
-    "options": [
-      "Have her watch members her age who train by themselves",
-      "Have her instructor talk with her about how capable she has become",
-      "Help her read heavy breathing as a normal response",
-      "Have her run a workout with her instructor standing by"
-    ],
-    "answer": 3,
-    "rationales": [
-      "Similar models help when someone doubts that people like her can do it. Renée's doubt is about who deserves credit for her workouts.",
-      "Persuasion is a weaker source, and more words from the person she credits would not show that she can manage without help.",
-      "Reinterpreting bodily signs suits someone who takes them as proof of weakness. She mentions no such signs.",
-      "Success builds little efficacy when it is credited to outside help. Managing a workout without aid, with the instructor still in the room, is mastery she can credit to herself."
-    ],
-    "takeaway": "Success raises efficacy most when performers can credit it to themselves; withdraw aids so that they can.",
-    "refs": [
-      "bandura1997",
-      "weinberg2024"
-    ]
+  "stem": "A youth basketball coach asks a consultant for help keeping slower learners engaged. In practice, mixed groups of players choose among stations, and the coach quietly tells players how their own skills are coming along. A whistle moves every group on after four minutes. \"I nearly had the left-hand layup,\" one girl says, \"and then it was passing.\" Several players have stopped attempting new moves. Which change should the consultant help the coach make?",
+  "options": [
+   "Let players decide more of what they practice",
+   "Let players stay longer with a skill they are learning",
+   "Recognize players in private for improving on their own marks",
+   "Group players of differing ability together"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Sharing authority supports a mastery climate, and players already choose their stations.",
+   "Time is one of the structures that shape climate. A fixed whistle cuts slower learners off before they can improve, so varying the time lets effort pay off for them.",
+   "Private, self-referenced recognition is already part of the coach's practice.",
+   "Mixed grouping reduces social comparison, and the groups are already mixed."
+  ],
+  "takeaway": "Climate is built from tasks, authority, recognition, grouping, evaluation, and time; change the one that is failing.",
+  "refs": [
+   "ames1992",
+   "smith2007mac"
+  ]
+ },
+ {
+  "id": "G-IV-005",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Aided success and self-efficacy",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "exercise-health",
+   "level": "adult",
+   "delivery": "individual"
   },
-  {
-    "id": "G-IV-006",
-    "pool": "A",
-    "scored": false,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Team building in exercise groups",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "exercise-health",
-      "level": "adult",
-      "delivery": "organizational"
-    },
-    "stem": "Attendance in an adult exercise class is falling, and its instructor asks a consultant for help. Members wear the class's own shirt and chat readily with whoever is nearby. Each session, though, opens with people hunting for floor space. Newer members end up at the edges, doing moves too hard or too easy for them, and several leave partway through. \"I never know where I belong in there,\" one says. Drawing on Carron and Spink's team-building work, which strategy should the consultant suggest?",
-    "options": [
-      "Have members choose a class name and slogan",
-      "Mark areas by fitness level where members keep a spot",
-      "Have members agree on a goal for class attendance",
-      "Have members pair up for partner exercises"
-    ],
-    "answer": 1,
-    "rationales": [
-      "A name builds distinctiveness. The class already has an identity of its own, and the trouble lies within the room.",
-      "Individual positions are part of group structure in Carron and Spink's approach. Areas matched to fitness, in which members keep a place, meet the trouble these members describe.",
-      "Shared goals and norms help when coming and going is taken lightly. Newer members want a place in the class.",
-      "Partner work builds interaction, and members already chat with those nearby."
-    ],
-    "takeaway": "Carron and Spink's strategies include distinctiveness, positions, norms, and interaction; choose by what the group lacks.",
-    "refs": [
-      "carron1993",
-      "weinberg2024"
-    ]
+  "stem": "Renée Dubois, 52, has finished every workout of a six-week supervised exercise program for which she has medical clearance. The program ends in two weeks. Asked by her consultant how sure she is that she could train by herself, she says, \"Two out of ten. Of course I finish here. My instructor sets the machines, counts for me, and keeps a hand on the bar.\" Based on self-efficacy theory, which step would do most to raise her confidence for training alone?",
+  "options": [
+   "Have her watch members her age who train by themselves",
+   "Have her instructor talk with her about how capable she has become",
+   "Help her read heavy breathing as a normal response",
+   "Have her run a workout with her instructor standing by"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Similar models help when someone doubts that people like her can do it. Renée's doubt is about who deserves credit for her workouts.",
+   "Persuasion is a weaker source, and more words from the person she credits would not show that she can manage without help.",
+   "Reinterpreting bodily signs suits someone who takes them as proof of weakness. She mentions no such signs.",
+   "Success builds little efficacy when it is credited to outside help. Managing a workout without aid, with the instructor still in the room, is mastery she can credit to herself."
+  ],
+  "takeaway": "Success raises efficacy most when performers can credit it to themselves; withdraw aids so that they can.",
+  "refs": [
+   "bandura1997",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-006",
+  "pool": "A",
+  "scored": false,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Team building in exercise groups",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "exercise-health",
+   "level": "adult",
+   "delivery": "organizational"
   },
-  {
-    "id": "G-IV-007",
-    "pool": "B",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Credible persuasion and efficacy",
-    "cognitive": "application",
-    "difficulty": 3,
-    "format": "vignette",
-    "context": {
-      "setting": "team-sport",
-      "level": "collegiate",
-      "delivery": "individual"
-    },
-    "stem": "Field hockey player Nia Achterberg has scored on nearly every penalty stroke this season. At breakfast before a collegiate final, the assistant coach, a former national-team striker, joked to her, \"Let's hope it doesn't come down to your nerve.\" Nia's confidence rating went from 9 to 3. In warm-up she scored ten out of ten, and the rating stayed at 3: \"She's seen hundreds of strikers. She'd know.\" The coach, mortified, asks the consultant how to help in the last half hour. Based on self-efficacy theory, which step fits best?",
-    "options": [
-      "Have the coach tell Nia what she sees in her play",
-      "Have Nia score on one more set of strokes",
-      "Show Nia clips of a similar player scoring in finals",
-      "Help Nia read her pounding heart as readiness"
-    ],
-    "answer": 0,
-    "rationales": [
-      "A credible person's words lowered Nia's efficacy, and she weighs that judgment above her own results. Sincere, specific feedback from the same person works on the source that did the damage.",
-      "Mastery is usually the strongest source, but ten straight goals changed nothing, because Nia gives the coach's judgment more weight.",
-      "Vicarious information fits a doubt that came from watching someone like her fail. Hers came from a remark.",
-      "Reinterpretation fits a player who takes arousal as a sign she will miss. She mentions no bodily signs."
-    ],
-    "takeaway": "Persuasion carries weight through the credibility of the source, for harm and for repair.",
-    "refs": [
-      "bandura1997",
-      "weinberg2024"
-    ]
+  "stem": "Attendance in an adult exercise class is falling, and its instructor asks a consultant for help. Members wear the class's own shirt and chat readily with whoever is nearby. Each session, though, opens with people hunting for floor space. Newer members end up at the edges, doing moves too hard or too easy for them, and several leave partway through. \"I never know where I belong in there,\" one says. Drawing on Carron and Spink's team-building work, which strategy should the consultant suggest?",
+  "options": [
+   "Have members choose a class name and slogan",
+   "Mark areas by fitness level where members keep a spot",
+   "Have members agree on a goal for class attendance",
+   "Have members pair up for partner exercises"
+  ],
+  "answer": 1,
+  "rationales": [
+   "A name builds distinctiveness. The class already has an identity of its own, and the trouble lies within the room.",
+   "Individual positions are part of group structure in Carron and Spink's approach. Areas matched to fitness, in which members keep a place, meet the trouble these members describe.",
+   "Shared goals and norms help when coming and going is taken lightly. Newer members want a place in the class.",
+   "Partner work builds interaction, and members already chat with those nearby."
+  ],
+  "takeaway": "Carron and Spink's strategies include distinctiveness, positions, norms, and interaction; choose by what the group lacks.",
+  "refs": [
+   "carron1993",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-007",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Credible persuasion and efficacy",
+  "cognitive": "application",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
   },
-  {
-    "id": "G-IV-008",
-    "pool": "B",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Informational rewards",
-    "cognitive": "analysis",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "exercise-health",
-      "level": "adult",
-      "delivery": "virtual"
-    },
-    "stem": "In a company's virtual walking challenge, employees earn a badge for reaching weekly targets that they set themselves. An executive who has read that rewards undermine motivation asks the consultant running it for a redesign. In surveys, employees say things like \"The badge shows me I'm getting fitter.\" Walking and enjoyment ratings rose during the challenge. During a two-month break without badges, both stayed where they were. Based on self-determination theory, what should the consultant recommend?",
-    "options": [
-      "Phase out the badges and help employees find their own reasons",
-      "Keep the badges and add groups in which employees walk",
-      "Keep the badges and give employees a say in targets",
-      "Keep the badges and the way that they are earned"
-    ],
-    "answer": 3,
-    "rationales": [
-      "This would suit rewards that had become the reason to walk. Walking and enjoyment held up without them.",
-      "Groups would support relatedness. Nothing suggests that employees feel alone in the challenge.",
-      "A say in targets supports autonomy, and employees set their targets already.",
-      "Cognitive evaluation theory holds that rewards undermine intrinsic motivation when they are felt as controlling. Here badges inform employees about progress toward self-set targets, and motivation lasted without them."
-    ],
-    "takeaway": "A reward's effect depends on whether it is experienced as controlling or as information about competence.",
-    "refs": [
-      "ryan2017"
-    ]
+  "stem": "Field hockey player Nia Achterberg has scored on nearly every penalty stroke this season. At breakfast before a collegiate final, the assistant coach, a former national-team striker, joked to her, \"Let's hope it doesn't come down to your nerve.\" Nia's confidence rating went from 9 to 3. In warm-up she scored ten out of ten, and the rating stayed at 3: \"She's seen hundreds of strikers. She'd know.\" The coach, mortified, asks the consultant how to help in the last half hour. Based on self-efficacy theory, which step fits best?",
+  "options": [
+   "Have the coach tell Nia what she sees in her play",
+   "Have Nia score on one more set of strokes",
+   "Show Nia clips of a similar player scoring in finals",
+   "Help Nia read her pounding heart as readiness"
+  ],
+  "answer": 0,
+  "rationales": [
+   "A credible person's words lowered Nia's efficacy, and she weighs that judgment above her own results. Sincere, specific feedback from the same person works on the source that did the damage.",
+   "Mastery is usually the strongest source, but ten straight goals changed nothing, because Nia gives the coach's judgment more weight.",
+   "Vicarious information fits a doubt that came from watching someone like her fail. Hers came from a remark.",
+   "Reinterpretation fits a player who takes arousal as a sign she will miss. She mentions no bodily signs."
+  ],
+  "takeaway": "Persuasion carries weight through the credibility of the source, for harm and for repair.",
+  "refs": [
+   "bandura1997",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-008",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Informational rewards",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "exercise-health",
+   "level": "adult",
+   "delivery": "virtual"
   },
-  {
-    "id": "G-IV-009",
-    "pool": "B",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Under-arousal and broad attention",
-    "cognitive": "application",
-    "difficulty": 3,
-    "format": "vignette",
-    "context": {
-      "setting": "team-sport",
-      "level": "collegiate",
-      "delivery": "individual"
-    },
-    "stem": "In close games, collegiate center fielder Mateo Ruiz gets an instant jump on fly balls and couldn't say who was in the stands. Late in lopsided games he picks the ball up a beat late. Afterward he can repeat the bullpen's jokes, the song between innings, and the score on the next field. His coach wants something he can do before each pitch in those innings. Based on cue utilization theory, what should the consultant have him practice?",
-    "options": [
-      "Slow, deep breaths with a long exhale",
-      "Quick foot taps with a sharp exhale",
-      "A scan of the runners and the outs",
-      "An image of his route to the wall"
-    ],
-    "answer": 1,
-    "rationales": [
-      "Calming fits arousal so high that relevant cues drop out. In lopsided games he is taking in too much.",
-      "When arousal is low, attention is broad and takes in irrelevant cues along with relevant ones. A brief activating routine raises arousal so that the irrelevant cues drop away.",
-      "Scanning fits a fielder who misses the situation. He is already taking in more than he needs.",
-      "Rehearsing a route fits errors of movement. His trouble is how late he picks up the ball."
-    ],
-    "takeaway": "Too little arousal leaves attention broad enough to let irrelevant cues in; activation can narrow it.",
-    "refs": [
-      "easterbrook1959",
-      "weinberg2024"
-    ]
+  "stem": "In a company's virtual walking challenge, employees earn a badge for reaching weekly targets that they set themselves. An executive who has read that rewards undermine motivation asks the consultant running it for a redesign. In surveys, employees say things like \"The badge shows me I'm getting fitter.\" Walking and enjoyment ratings rose during the challenge. During a two-month break without badges, both stayed where they were. Based on self-determination theory, what should the consultant recommend?",
+  "options": [
+   "Phase out the badges and help employees find their own reasons",
+   "Keep the badges and add groups in which employees walk",
+   "Keep the badges and give employees a say in targets",
+   "Keep the badges and the way that they are earned"
+  ],
+  "answer": 3,
+  "rationales": [
+   "This would suit rewards that had become the reason to walk. Walking and enjoyment held up without them.",
+   "Groups would support relatedness. Nothing suggests that employees feel alone in the challenge.",
+   "A say in targets supports autonomy, and employees set their targets already.",
+   "Cognitive evaluation theory holds that rewards undermine intrinsic motivation when they are felt as controlling. Here badges inform employees about progress toward self-set targets, and motivation lasted without them."
+  ],
+  "takeaway": "A reward's effect depends on whether it is experienced as controlling or as information about competence.",
+  "refs": [
+   "ryan2017"
+  ]
+ },
+ {
+  "id": "G-IV-009",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Under-arousal and broad attention",
+  "cognitive": "application",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
   },
-  {
-    "id": "G-IV-010",
-    "pool": "B",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Attributions after success",
-    "cognitive": "analysis",
-    "difficulty": 3,
-    "format": "vignette",
-    "context": {
-      "setting": "team-sport",
-      "level": "professional",
-      "delivery": "team"
-    },
-    "stem": "A professional rugby team beat the league leaders by two points and will meet them again in the final. The leaders had rested seven starters, who will return. Video shows the winners missing more tackles than in any loss this season. In the changing room, players say they have the leaders figured out. The head coach asks the consultant to help with a debrief that leaves players with accurate expectations for the final. Based on attribution theory, which account of the win should it draw out?",
-    "options": [
-      "The lineup their opponents chose",
-      "The preparation that the squad did",
-      "The ability that the squad has",
-      "The effort that the squad gave"
-    ],
-    "answer": 0,
-    "rationales": [
-      "The evidence points to an external, unstable cause that will be gone in the final. Crediting it keeps players from expecting the same result against a stronger side.",
-      "Crediting controllable preparation after a win is often wise when it is accurate. The video shows one of their poorer defensive games.",
-      "A stable, internal cause raises expectations. That would fit a run of good wins; here it would feed an inflated view.",
-      "Effort would be an accurate account if they had worked unusually hard. Nothing in the video suggests it."
-    ],
-    "takeaway": "Accurate attributions set useful expectations; after a flattering win the accurate cause may be external.",
-    "refs": [
-      "weiner1985",
-      "weinberg2024"
-    ]
+  "stem": "In close games, collegiate center fielder Mateo Ruiz gets an instant jump on fly balls and couldn't say who was in the stands. Late in lopsided games he picks the ball up a beat late. Afterward he can repeat the bullpen's jokes, the song between innings, and the score on the next field. His coach wants something he can do before each pitch in those innings. Based on cue utilization theory, what should the consultant have him practice?",
+  "options": [
+   "Slow, deep breaths with a long exhale",
+   "Quick foot taps with a sharp exhale",
+   "A scan of the runners and the outs",
+   "An image of his route to the wall"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Calming fits arousal so high that relevant cues drop out. In lopsided games he is taking in too much.",
+   "When arousal is low, attention is broad and takes in irrelevant cues along with relevant ones. A brief activating routine raises arousal so that the irrelevant cues drop away.",
+   "Scanning fits a fielder who misses the situation. He is already taking in more than he needs.",
+   "Rehearsing a route fits errors of movement. His trouble is how late he picks up the ball."
+  ],
+  "takeaway": "Too little arousal leaves attention broad enough to let irrelevant cues in; activation can narrow it.",
+  "refs": [
+   "easterbrook1959",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-010",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Attributions after success",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "team"
   },
-  {
-    "id": "G-IV-011",
-    "pool": "B",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Social facilitation and skill level",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "collegiate",
-      "delivery": "individual"
-    },
-    "stem": "Collegiate gymnast Yolanda Pires has added two elements to her bars routine. She has hit the release move in 47 of her last 50 tries. She has hit the dismount in 11 of 50, and no two misses look alike. Her team holds closed practices, with only the event coach present, and open practices, where teammates, parents, and donors watch. The coach asks the consultant where she is likely to perform each element better over the next two weeks. Based on Zajonc's social facilitation theory, which schedule fits?",
-    "options": [
-      "Both the release move and the dismount in closed practices",
-      "Both the release move and the dismount in open practices",
-      "The release move in open practices, the dismount in closed ones",
-      "The dismount in open practices, the release move in closed ones"
-    ],
-    "answer": 2,
-    "rationales": [
-      "Closed practice suits elements on which errors are likely. The release move is well learned and would gain from an audience.",
-      "An audience helps when the dominant response is correct. On the dismount, errors are still far more likely than hits.",
-      "Zajonc held that an audience raises arousal, which strengthens the dominant response. That response is correct for the release move and wrong for the dismount.",
-      "This exposes the less learned element to an audience and shields the one that would benefit."
-    ],
-    "takeaway": "An audience strengthens the dominant response: show what is well learned and protect what is not.",
-    "refs": [
-      "weinberg2024",
-      "cox2012"
-    ]
+  "stem": "A professional rugby team beat the league leaders by two points and will meet them again in the final. The leaders had rested seven starters, who will return. Video shows the winners missing more tackles than in any loss this season. In the changing room, players say they have the leaders figured out. The head coach asks the consultant to help with a debrief that leaves players with accurate expectations for the final. Based on attribution theory, which account of the win should it draw out?",
+  "options": [
+   "The lineup their opponents chose",
+   "The preparation that the squad did",
+   "The ability that the squad has",
+   "The effort that the squad gave"
+  ],
+  "answer": 0,
+  "rationales": [
+   "The evidence points to an external, unstable cause that will be gone in the final. Crediting it keeps players from expecting the same result against a stronger side.",
+   "Crediting controllable preparation after a win is often wise when it is accurate. The video shows one of their poorer defensive games.",
+   "A stable, internal cause raises expectations. That would fit a run of good wins; here it would feed an inflated view.",
+   "Effort would be an accurate account if they had worked unusually hard. Nothing in the video suggests it."
+  ],
+  "takeaway": "Accurate attributions set useful expectations; after a flattering win the accurate cause may be external.",
+  "refs": [
+   "weiner1985",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-011",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Social facilitation and skill level",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
   },
-  {
-    "id": "G-IV-012",
-    "pool": "B",
-    "scored": false,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Coping with an uncontrollable wait",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "business",
-      "level": "adult",
-      "delivery": "individual"
-    },
-    "stem": "Startup founder Priscila Navarro pitched to investors on Tuesday. They vote in nine days and have asked founders to stay out of touch until then. \"Either way we'll be all right; we have a second offer,\" she tells her consultant. \"But I reread my slides at midnight, I snap at my team, and every email makes me jump.\" Drawing on Lazarus's work on stress and coping, which focus best fits their session?",
-    "options": [
-      "Weighing what the vote will mean for the company",
-      "Preparing answers to questions the investors may ask",
-      "Finding another source of funds in case of a no",
-      "Finding ways to settle herself through the wait"
-    ],
-    "answer": 3,
-    "rationales": [
-      "Reappraising the stakes helps when they are being magnified. Priscila already sees that the company will be all right.",
-      "Problem-focused preparation fits a demand she can still act on. The pitch is over and contact is closed.",
-      "Problem-focused coping would fit if a no left a gap that she could work to fill. She has a second offer.",
-      "For nine days nothing she does can change the outcome. When a stressor can't be acted on, emotion-focused coping, which eases the distress itself, is the better fit."
-    ],
-    "takeaway": "Problem-focused coping fits what can be changed; emotion-focused coping fits what can't.",
-    "refs": [
-      "lazarus1999",
-      "williams2020"
-    ]
+  "stem": "Collegiate gymnast Yolanda Pires has added two elements to her bars routine. She has hit the release move in 47 of her last 50 tries. She has hit the dismount in 11 of 50, and no two misses look alike. Her team holds closed practices, with only the event coach present, and open practices, where teammates, parents, and donors watch. The coach asks the consultant where she is likely to perform each element better over the next two weeks. Based on Zajonc's social facilitation theory, which schedule fits?",
+  "options": [
+   "Both the release move and the dismount in closed practices",
+   "Both the release move and the dismount in open practices",
+   "The release move in open practices, the dismount in closed ones",
+   "The dismount in open practices, the release move in closed ones"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Closed practice suits elements on which errors are likely. The release move is well learned and would gain from an audience.",
+   "An audience helps when the dominant response is correct. On the dismount, errors are still far more likely than hits.",
+   "Zajonc held that an audience raises arousal, which strengthens the dominant response. That response is correct for the release move and wrong for the dismount.",
+   "This exposes the less learned element to an audience and shields the one that would benefit."
+  ],
+  "takeaway": "An audience strengthens the dominant response: show what is well learned and protect what is not.",
+  "refs": [
+   "weinberg2024",
+   "cox2012"
+  ]
+ },
+ {
+  "id": "G-IV-012",
+  "pool": "B",
+  "scored": false,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Coping with an uncontrollable wait",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "business",
+   "level": "adult",
+   "delivery": "individual"
   },
-  {
-    "id": "G-IV-013",
-    "pool": "drill",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Refocusing with Nideffer's model",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "esports",
-      "level": "professional",
-      "delivery": "individual"
-    },
-    "stem": "Esports professional Jae-won Park wants one cue word for the start of a duel. Replays show that he reaches duels from good positions, having read the opponents' route correctly. As the duel opens, eye tracking shows his gaze flicking to the minimap and his teammates' health bars, and his first shots go wide. When a coach covers those displays in practice, he wins most duels. Using Nideffer's model, which cue should the consultant help him practice?",
-    "options": [
-      "\"Map\" as he checks where everyone is",
-      "\"Plan\" as he picks his next move",
-      "\"Dot\" as he fixes on his crosshair",
-      "\"Loose\" as he feels his grip soften"
-    ],
-    "answer": 2,
-    "rationales": [
-      "This cues a broad-external focus, which he has already used well by the time the duel opens.",
-      "This cues a broad-internal focus for deciding. His decisions on the way to the duel are sound.",
-      "His attention stays broad and external when the duel calls for one external target. A cue that moves him to a narrow-external focus fits the moment his aim fails.",
-      "This cues a narrow-internal focus, which suits settling tension. His shots go wide because his eyes leave the target."
-    ],
-    "takeaway": "A refocusing cue should shift attention to the width and direction the moment demands.",
-    "refs": [
-      "nideffer2001",
-      "pedraza2020"
-    ]
+  "stem": "Startup founder Priscila Navarro pitched to investors on Tuesday. They vote in nine days and have asked founders to stay out of touch until then. \"Either way we'll be all right; we have a second offer,\" she tells her consultant. \"But I reread my slides at midnight, I snap at my team, and every email makes me jump.\" Drawing on Lazarus's work on stress and coping, which focus best fits their session?",
+  "options": [
+   "Weighing what the vote will mean for the company",
+   "Preparing answers to questions the investors may ask",
+   "Finding another source of funds in case of a no",
+   "Finding ways to settle herself through the wait"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Reappraising the stakes helps when they are being magnified. Priscila already sees that the company will be all right.",
+   "Problem-focused preparation fits a demand she can still act on. The pitch is over and contact is closed.",
+   "Problem-focused coping would fit if a no left a gap that she could work to fill. She has a second offer.",
+   "For nine days nothing she does can change the outcome. When a stressor can't be acted on, emotion-focused coping, which eases the distress itself, is the better fit."
+  ],
+  "takeaway": "Problem-focused coping fits what can be changed; emotion-focused coping fits what can't.",
+  "refs": [
+   "lazarus1999",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "G-IV-013",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Refocusing with Nideffer's model",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "esports",
+   "level": "professional",
+   "delivery": "individual"
   },
-  {
-    "id": "G-IV-014",
-    "pool": "drill",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Challenge and support for resilience",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "team-sport",
-      "level": "adolescent",
-      "delivery": "organizational"
-    },
-    "stem": "Players at a youth soccer academy say they can go to their coaches with anything, and coaches sit down with each player after every match. Practice stops when a drill becomes frustrating, matches are arranged against weaker sides, and starting places are never in doubt. At an outside tournament the players fell apart after conceding first, as they had the year before. Drawing on resilience research in sport, how should the consultant advise the coaches to adjust the environment?",
-    "options": [
-      "Raise the demands on players and keep the support as it is",
-      "Keep the demands on players as they are and raise the support",
-      "Raise the demands on players and raise the support",
-      "Keep the demands on players and the support as they are"
-    ],
-    "answer": 0,
-    "rationales": [
-      "Support is strong and challenge is slight, a comfortable setting in which players seldom practice dealing with difficulty. Raising demands within that support gives them the practice.",
-      "More support fits an environment whose demands outrun it. Here support is the stronger of the two.",
-      "Raising both fits a setting in which players are neither stretched nor backed. These players are well backed.",
-      "Leaving things alone fits a setting that is working. Two tournaments suggest players are not ready for setbacks."
-    ],
-    "takeaway": "Resilience grows where challenge and support are both high; adjust whichever is low.",
-    "refs": [
-      "fletcher2012",
-      "weinberg2024"
-    ]
+  "stem": "Esports professional Jae-won Park wants one cue word for the start of a duel. Replays show that he reaches duels from good positions, having read the opponents' route correctly. As the duel opens, eye tracking shows his gaze flicking to the minimap and his teammates' health bars, and his first shots go wide. When a coach covers those displays in practice, he wins most duels. Using Nideffer's model, which cue should the consultant help him practice?",
+  "options": [
+   "\"Map\" as he checks where everyone is",
+   "\"Plan\" as he picks his next move",
+   "\"Dot\" as he fixes on his crosshair",
+   "\"Loose\" as he feels his grip soften"
+  ],
+  "answer": 2,
+  "rationales": [
+   "This cues a broad-external focus, which he has already used well by the time the duel opens.",
+   "This cues a broad-internal focus for deciding. His decisions on the way to the duel are sound.",
+   "His attention stays broad and external when the duel calls for one external target. A cue that moves him to a narrow-external focus fits the moment his aim fails.",
+   "This cues a narrow-internal focus, which suits settling tension. His shots go wide because his eyes leave the target."
+  ],
+  "takeaway": "A refocusing cue should shift attention to the width and direction the moment demands.",
+  "refs": [
+   "nideffer2001",
+   "pedraza2020"
+  ]
+ },
+ {
+  "id": "G-IV-014",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Challenge and support for resilience",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "organizational"
   },
-  {
-    "id": "G-IV-015",
-    "pool": "drill",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Autonomy support without choice",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "para-sport",
-      "level": "elite",
-      "delivery": "virtual"
-    },
-    "stem": "Para swimmers training alone in different cities must swim the same 40-minute test set each Monday so that results can be compared. On a group call the consultant asks how it is going. \"We get why it has to be that set, and they ask nicely,\" says one. \"But it's forty minutes, alone, the same thing, and then everybody tells us how exciting the data are.\" The others laugh and groan. Motivation for Mondays is falling. Based on self-determination theory, which step should the consultant suggest to their coach?",
-    "options": [
-      "Explain what the set shows and how results are used",
-      "Invite swimmers to pick from several versions of the set",
-      "Replace pressuring phrases in the weekly messages",
-      "Acknowledge that the set is dull to swim alone"
-    ],
-    "answer": 3,
-    "rationales": [
-      "A rationale supports autonomy when the reason is unclear. The swimmers understand it.",
-      "Choice supports autonomy where there is room for it. Here the set must be the same for everyone.",
-      "Noncontrolling language supports autonomy. They say they are already asked nicely.",
-      "With choice unavailable and the reason understood, what remains is that nobody recognizes how it feels. Acknowledging feelings is an autonomy-supportive behavior that helps people internalize tasks that aren't interesting."
-    ],
-    "takeaway": "Autonomy support includes choice, rationale, noncontrolling language, and acknowledging feelings; the last works even when the task is fixed.",
-    "refs": [
-      "ryan2017",
-      "mageau2003"
-    ]
+  "stem": "Players at a youth soccer academy say they can go to their coaches with anything, and coaches sit down with each player after every match. Practice stops when a drill becomes frustrating, matches are arranged against weaker sides, and starting places are never in doubt. At an outside tournament the players fell apart after conceding first, as they had the year before. Drawing on resilience research in sport, how should the consultant advise the coaches to adjust the environment?",
+  "options": [
+   "Raise the demands on players and keep the support as it is",
+   "Keep the demands on players as they are and raise the support",
+   "Raise the demands on players and raise the support",
+   "Keep the demands on players and the support as they are"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Support is strong and challenge is slight, a comfortable setting in which players seldom practice dealing with difficulty. Raising demands within that support gives them the practice.",
+   "More support fits an environment whose demands outrun it. Here support is the stronger of the two.",
+   "Raising both fits a setting in which players are neither stretched nor backed. These players are well backed.",
+   "Leaving things alone fits a setting that is working. Two tournaments suggest players are not ready for setbacks."
+  ],
+  "takeaway": "Resilience grows where challenge and support are both high; adjust whichever is low.",
+  "refs": [
+   "fletcher2016",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-015",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Autonomy support without choice",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "para-sport",
+   "level": "elite",
+   "delivery": "virtual"
   },
-  {
-    "id": "G-IV-016",
-    "pool": "drill",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Coach leadership and sport confidence",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "elite",
-      "delivery": "individual"
-    },
-    "stem": "Alpine skier Lukas Brenner is healthy, and his training times are the best of his career. His coach of nine seasons retired last month. \"I used to push out of the gate knowing he'd read the course right for me,\" Lukas tells his consultant. \"Now I stand up there going over the line myself.\" His confidence before races has fallen, and a world championship is three weeks away. Using Vealey's sources of sport confidence, which step should the consultant take?",
-    "options": [
-      "Go back over his training log and times with him",
-      "Have his new coach take him through course decisions",
-      "Have him watch teammates ski the course cleanly",
-      "Arrange for his family to be with him at the start and finish"
-    ],
-    "answer": 1,
-    "rationales": [
-      "Evidence of preparation helps an athlete who doubts his preparation. His training is going well and he doesn't question it.",
-      "Trust in a coach's decisions is one of the sources of sport confidence, and Lukas lost it with the retirement. Seeing how the new coach reads a course can begin to rebuild that trust.",
-      "Seeing others succeed is another source. Lukas's doubt is about whose course reading he can rely on.",
-      "Encouragement from family is social support, another source. He describes missing a judgment he trusted."
-    ],
-    "takeaway": "Trust in a coach's leadership is its own source of sport confidence and may need rebuilding after a change.",
-    "refs": [
-      "vealey1986",
-      "weinberg2024"
-    ]
+  "stem": "Para swimmers training alone in different cities must swim the same 40-minute test set each Monday so that results can be compared. On a group call the consultant asks how it is going. \"We get why it has to be that set, and they ask nicely,\" says one. \"But it's forty minutes, alone, the same thing, and then everybody tells us how exciting the data are.\" The others laugh and groan. Motivation for Mondays is falling. Based on self-determination theory, which step should the consultant suggest to their coach?",
+  "options": [
+   "Explain what the set shows and how results are used",
+   "Invite swimmers to pick from several versions of the set",
+   "Replace pressuring phrases in the weekly messages",
+   "Acknowledge that the set is dull to swim alone"
+  ],
+  "answer": 3,
+  "rationales": [
+   "A rationale supports autonomy when the reason is unclear. The swimmers understand it.",
+   "Choice supports autonomy where there is room for it. Here the set must be the same for everyone.",
+   "Noncontrolling language supports autonomy. They say they are already asked nicely.",
+   "With choice unavailable and the reason understood, what remains is that nobody recognizes how it feels. Acknowledging feelings is an autonomy-supportive behavior that helps people internalize tasks that aren't interesting."
+  ],
+  "takeaway": "Autonomy support includes choice, rationale, noncontrolling language, and acknowledging feelings; the last works even when the task is fixed.",
+  "refs": [
+   "ryan2017",
+   "mageau2003"
+  ]
+ },
+ {
+  "id": "G-IV-016",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Coach leadership and sport confidence",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
   },
-  {
-    "id": "G-IV-017",
-    "pool": "drill",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Learning goals for new tasks",
-    "cognitive": "application",
-    "difficulty": 3,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "adolescent",
-      "delivery": "individual"
-    },
-    "stem": "Junior track cyclist Ayesha Rahman took up the Madison, a relay event, a month ago and is still working out its hand-sling exchanges. Her coach set a specific, demanding lap-time target; she signed on eagerly, and she sees her time after every run. Her times have stopped falling. On video she makes the same late reach in each exchange and pedals harder out of it. Based on goal-setting theory, what should the consultant suggest to the coach?",
-    "options": [
-      "Set a faster lap time for the next block",
-      "Set a goal of finding three ways to exchange",
-      "Give her lap times partway through each run",
-      "Talk through why the lap-time target matters to her"
-    ],
-    "answer": 1,
-    "rationales": [
-      "A harder target helps when a goal is too easy for someone who has the skills. Ayesha is short of an effective way to make the exchange.",
-      "On a complex task that is still new, a specific, hard performance goal can lead people to press harder with poor strategies. A learning goal directs effort to finding better ones.",
-      "Feedback moderates the effect of goals, and she gets her time after each run. Earlier times wouldn't show her how to exchange.",
-      "Commitment moderates the effect of goals. She signed on eagerly and rides hard."
-    ],
-    "takeaway": "For complex, unfamiliar tasks, set learning goals before performance goals.",
-    "refs": [
-      "locke2002",
-      "weinberg2024"
-    ]
+  "stem": "Alpine skier Lukas Brenner is healthy, and his training times are the best of his career. His coach of nine seasons retired last month. \"I used to push out of the gate knowing he'd read the course right for me,\" Lukas tells his consultant. \"Now I stand up there going over the line myself.\" His confidence before races has fallen, and a world championship is three weeks away. Using Vealey's sources of sport confidence, which step should the consultant take?",
+  "options": [
+   "Go back over his training log and times with him",
+   "Have his new coach take him through course decisions",
+   "Have him watch teammates ski the course cleanly",
+   "Arrange for his family to be with him at the start and finish"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Evidence of preparation helps an athlete who doubts his preparation. His training is going well and he doesn't question it.",
+   "Trust in a coach's decisions is one of the sources of sport confidence, and Lukas lost it with the retirement. Seeing how the new coach reads a course can begin to rebuild that trust.",
+   "Seeing others succeed is another source. Lukas's doubt is about whose course reading he can rely on.",
+   "Encouragement from family is social support, another source. He describes missing a judgment he trusted."
+  ],
+  "takeaway": "Trust in a coach's leadership is its own source of sport confidence and may need rebuilding after a change.",
+  "refs": [
+   "vealey1998",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-017",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Learning goals for new tasks",
+  "cognitive": "application",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "adolescent",
+   "delivery": "individual"
   },
-  {
-    "id": "G-IV-018",
-    "pool": "drill",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Matching technique to anxiety type",
-    "cognitive": "application",
-    "difficulty": 1,
-    "format": "vignette",
-    "context": {
-      "setting": "individual-sport",
-      "level": "recreational",
-      "delivery": "individual"
-    },
-    "stem": "Amateur triathlete Minh Tran has spent three weeks learning to question his race worries. \"My head's quiet now,\" he tells his consultant after the season's first race. \"But I'm in the start pen with my shoulders up by my ears and my jaw locked, and my arms are gone by the second buoy.\" His swim time was unchanged. Which technique should the consultant teach him next for use in the start pen?",
-    "options": [
-      "Progressive relaxation of his shoulders and jaw",
-      "Written evidence for and against his worries",
-      "Energizing self-talk with quick, sharp movements",
-      "An external cue to focus on, such as the first buoy"
-    ],
-    "answer": 0,
-    "rationales": [
-      "His worry has eased and what remains is muscle tension, a somatic symptom. The matching principle points to a somatic technique.",
-      "Restructuring is a cognitive technique for cognitive anxiety. It has done its work: his head is quiet.",
-      "Energizing suits a flat start. Minh is too tense.",
-      "An external focus suits a swimmer whose mind wanders or turns inward. His trouble in the pen is muscle tension."
-    ],
-    "takeaway": "As symptoms change, change the technique: somatic methods for bodily tension, cognitive methods for worry.",
-    "refs": [
-      "martens1990",
-      "williams2020"
-    ]
+  "stem": "Junior track cyclist Ayesha Rahman took up the Madison, a relay event, a month ago and is still working out its hand-sling exchanges. Her coach set a specific, demanding lap-time target; she signed on eagerly, and she sees her time after every run. Her times have stopped falling. On video she makes the same late reach in each exchange and pedals harder out of it. Based on goal-setting theory, what should the consultant suggest to the coach?",
+  "options": [
+   "Set a faster lap time for the next block",
+   "Set a goal of finding three ways to exchange",
+   "Give her lap times partway through each run",
+   "Talk through why the lap-time target matters to her"
+  ],
+  "answer": 1,
+  "rationales": [
+   "A harder target helps when a goal is too easy for someone who has the skills. Ayesha is short of an effective way to make the exchange.",
+   "On a complex task that is still new, a specific, hard performance goal can lead people to press harder with poor strategies. A learning goal directs effort to finding better ones.",
+   "Feedback moderates the effect of goals, and she gets her time after each run. Earlier times wouldn't show her how to exchange.",
+   "Commitment moderates the effect of goals. She signed on eagerly and rides hard."
+  ],
+  "takeaway": "For complex, unfamiliar tasks, set learning goals before performance goals.",
+  "refs": [
+   "locke2002",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-018",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Matching technique to anxiety type",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "recreational",
+   "delivery": "individual"
   },
-  {
-    "id": "G-IV-019",
-    "pool": "drill",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Self-efficacy and collective efficacy",
-    "cognitive": "analysis",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "team-sport",
-      "level": "professional",
-      "delivery": "team"
-    },
-    "stem": "A professional ice hockey team's penalty kill has slipped, and the consultant interviews the unit's six regulars. About the unit they sound alike: \"This group has always killed penalties. We'll sort it out.\" About their own jobs, four of the six say something like, \"I'm not getting into lanes the way I was. The other guys are covering for me.\" Based on Bandura's work, which practice change should the consultant suggest first?",
-    "options": [
-      "Drills in which the unit gets stops as a group",
-      "Drills in which each player gets stops in his role",
-      "Video of a similar unit that turned its season around",
-      "A talk in which the coaches voice faith in the unit"
-    ],
-    "answer": 1,
-    "rationales": [
-      "Group mastery builds collective efficacy. The players' belief in the unit is intact.",
-      "The doubt is about individual capability while belief in the group holds. Mastery experience at each player's own task matches the level at which efficacy is low.",
-      "A similar group's success is vicarious information about what a group can do. Their belief in the group isn't in question.",
-      "Persuasion about the unit addresses a belief the players hold already."
-    ],
-    "takeaway": "Check whether doubt is about oneself or the group; build efficacy at the level where it is low.",
-    "refs": [
-      "bandura1997",
-      "weinberg2024"
-    ]
+  "stem": "Amateur triathlete Minh Tran has spent three weeks learning to question his race worries. \"My head's quiet now,\" he tells his consultant after the season's first race. \"But I'm in the start pen with my shoulders up by my ears and my jaw locked, and my arms are gone by the second buoy.\" His swim time was unchanged. Which technique should the consultant teach him next for use in the start pen?",
+  "options": [
+   "Brief progressive relaxation of his shoulders and jaw",
+   "Written evidence for and against his worries",
+   "Energizing self-talk with quick, sharp movements",
+   "An external cue to focus on, such as the first buoy"
+  ],
+  "answer": 0,
+  "rationales": [
+   "His worry has eased and what remains is muscle tension, a somatic symptom. The matching principle points to a somatic technique.",
+   "Restructuring is a cognitive technique for cognitive anxiety. It has done its work: his head is quiet.",
+   "Energizing suits a flat start. Minh is too tense.",
+   "An external focus suits a swimmer whose mind wanders or turns inward. His trouble in the pen is muscle tension."
+  ],
+  "takeaway": "As symptoms change, change the technique: somatic methods for bodily tension, cognitive methods for worry.",
+  "refs": [
+   "martens1990",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "G-IV-019",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Self-efficacy and collective efficacy",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "team"
   },
-  {
-    "id": "G-IV-020",
-    "pool": "drill",
-    "scored": true,
-    "domain": "IV",
-    "kg": "G",
-    "topic": "Adjourning stage of groups",
-    "cognitive": "application",
-    "difficulty": 2,
-    "format": "vignette",
-    "context": {
-      "setting": "performing-arts",
-      "level": "professional",
-      "delivery": "team"
-    },
-    "stem": "A regional theatre cast has worked together happily through a five-month run. In its final week, actors who had been close begin bickering over dressing-room space, two skip the usual warm-up circle, and another has gone quiet. When the stage manager offers to sort out the rooms, an actor says, \"Why bother? On Monday there's no 'us' left to argue.\" The director asks the consultant to run one session with the cast. Drawing on Tuckman's expanded model, what should it focus on?",
-    "options": [
-      "Helping cast members get to know one another",
-      "Airing and settling disputes over space and duties",
-      "Looking back on the run and marking its close",
-      "Agreeing on ground rules for backstage life"
-    ],
-    "answer": 2,
-    "rationales": [
-      "Getting acquainted belongs to the forming stage. This cast has been together for months.",
-      "Working through conflict belongs to the storming stage. The squabbles have appeared as the group is about to end, and the actor's remark shows what they are about.",
-      "Friction, withdrawal, and low investment at the end of a group's life fit adjourning. Acknowledging the ending and what the group achieved meets what the cast is reacting to.",
-      "Setting shared rules belongs to the norming stage. Rules would be of little use to a cast that disbands on Monday."
-    ],
-    "takeaway": "When a settled group frays near its end, the ending may be the issue.",
-    "refs": [
-      "tuckman1965",
-      "weinberg2024"
-    ]
-  }
+  "stem": "A professional ice hockey team's penalty kill has slipped, and the consultant interviews the unit's six regulars. About the unit they sound alike: \"This group has always killed penalties. We'll sort it out.\" About their own jobs, four of the six say something like, \"I'm not getting into lanes the way I was. The other guys are covering for me.\" Based on Bandura's work, which practice change should the consultant suggest first?",
+  "options": [
+   "Drills in which the unit gets stops as a group",
+   "Drills in which each player gets stops in his role",
+   "Video of a similar unit that turned its season around",
+   "A talk in which the coaches voice faith in the unit"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Group mastery builds collective efficacy. The players' belief in the unit is intact.",
+   "The doubt is about individual capability while belief in the group holds. Mastery experience at each player's own task matches the level at which efficacy is low.",
+   "A similar group's success is vicarious information about what a group can do. Their belief in the group isn't in question.",
+   "Persuasion about the unit addresses a belief the players hold already."
+  ],
+  "takeaway": "Check whether doubt is about oneself or the group; build efficacy at the level where it is low.",
+  "refs": [
+   "bandura1997",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "G-IV-020",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "G",
+  "topic": "Adjourning stage of groups",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "professional",
+   "delivery": "team"
+  },
+  "stem": "A regional theatre cast has worked together happily through a five-month run. In its final week, actors who had been close begin bickering over dressing-room space, two skip the usual warm-up circle, and another has gone quiet. When the stage manager offers to sort out the rooms, an actor says, \"Why bother? On Monday there's no 'us' left to argue.\" The director asks the consultant to run one session with the cast. Drawing on Tuckman's expanded model, what should it focus on?",
+  "options": [
+   "Helping cast members get to know one another",
+   "Airing and settling disputes over space and duties",
+   "Looking back on the run and marking its close",
+   "Agreeing on ground rules for backstage life"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Getting acquainted belongs to the forming stage. This cast has been together for months.",
+   "Working through conflict belongs to the storming stage. The squabbles have appeared as the group is about to end, and the actor's remark shows what they are about.",
+   "Friction, withdrawal, and low investment at the end of a group's life fit adjourning. Acknowledging the ending and what the group achieved meets what the cast is reacting to.",
+   "Setting shared rules belongs to the norming stage. Rules would be of little use to a cast that disbands on Monday."
+  ],
+  "takeaway": "When a settled group frays near its end, the ending may be the issue.",
+  "refs": [
+   "tuckman1977",
+   "weinberg2024"
+  ]
+ }
 ]

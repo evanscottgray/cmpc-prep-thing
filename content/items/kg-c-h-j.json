@@ -598,33 +598,33 @@
   "scored": true,
   "domain": "III",
   "kg": "H",
-  "topic": "Developmental views of effort and ability",
-  "cognitive": "analysis",
-  "difficulty": 3,
+  "topic": "Choosing a measure of learning",
+  "cognitive": "application",
+  "difficulty": 2,
   "format": "vignette",
   "context": {
-   "setting": "individual-sport",
-   "level": "youth",
-   "delivery": "individual"
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "team"
   },
-  "stem": "Before setting goals with Yasmin, a 10-year-old swimmer, a consultant asks her about two girls who swim the same time, though one skips half of the training sets. \"Maybe the one who skips is just better at swimming,\" Yasmin says. A moment later she shakes her head. \"No. If they both worked, they'd get the same time. She probably does extra at home.\" Given two more stories like it, she goes back and forth in much the same way. Based on Nicholls's account of development, which understanding should the goal work be built around?",
+  "stem": "A consultant and a high school volleyball coach are planning a six-week program in which setters learn a refocusing routine at one session each Monday. In a trial run, the setters used every step well by the close of each session. \"And then by the next Monday we're back to zero,\" the coach says. \"Or it feels like that. I can't tell.\" Before they change anything, the two of them want one measure that will settle whether she is right. Which should they use?",
   "options": [
-   "She treats trying hard and being good as the same thing",
-   "She sees effort as what decides how people do",
-   "She sees ability as separate from effort some of the time",
-   "She sees ability as a limit on what effort can achieve"
+   "How well setters use the routine as each session closes",
+   "How well setters use it in a match situation new to them",
+   "How well setters use it as each session opens, before review",
+   "How well setters believe they have learned it, rated weekly"
   ],
   "answer": 2,
   "rationales": [
-   "Young children don't separate effort, ability, and outcome. Yasmin at moments proposes that someone could be better without working as hard.",
-   "Children at the next level explain results by effort and expect equal effort to bring equal results. Yasmin leans on this at times, but she also offers ability as a cause.",
-   "Yasmin brings up ability as a cause and then falls back on effort. That inconsistency marks the partly differentiated view, common at around 10 or 11.",
-   "A fully differentiated view, usual from about 12, would lead her to conclude consistently that the girl who skips has more ability. She doesn't hold on to that."
+   "Performance at the close shows acquisition. It was already strong in the trial and says nothing about what lasts until the next week.",
+   "A new situation tests transfer, and would fit if the question were whether the routine carries over to matches.",
+   "Best. The coach's doubt is about retention: what remains after a week without help. A check at the opening, before review, measures learning and not the temporary effect of practice.",
+   "Learners' judgments can show confidence, but they are a weak guide to retention, because ease during practice tends to inflate them."
   ],
-  "takeaway": "Around ages 10 and 11, children separate effort from ability only in part, and they apply the idea unevenly.",
+  "takeaway": "Learning is what remains after a delay: test retention before review, not performance at the end of practice.",
   "refs": [
-   "nicholls1984",
-   "weinberg2024"
+   "bjork2011",
+   "singer2001"
   ]
  },
  {
@@ -737,7 +737,7 @@
   "scored": true,
   "domain": "III",
   "kg": "H",
-  "topic": "Scheduling biofeedback displays",
+  "topic": "Fading biofeedback",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -746,21 +746,21 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Collegiate swimmer Siobhan had her first heart rate variability biofeedback session yesterday. With the on-screen display she kept to a slow breathing rhythm for a minute at a time. Her consultant then turned the screen away and asked her to carry on and to say how it was going. \"Nice and slow, I think,\" she answered, breathing 14 times a minute by the sensor. No screens will be allowed on deck at her meets, which begin in two months. How should the consultant plan to use the display in next week's sessions?",
+  "stem": "Collegiate swimmer Siobhan has done heart rate variability biofeedback for five weeks. With the on-screen display she holds her slow breathing pace for ten minutes. Last week her consultant hid the display. For the first two minutes she kept the pace and judged it within a breath of the sensor; then she sped up without noticing until the screen came back. No screens will be allowed on deck at her meets, which begin in six weeks. How should the consultant plan to use the display in the next few weeks?",
   "options": [
    "Turn it off, and check her against the sensor at the end",
-   "Show it on some trials and hide it on others",
-   "Keep it on through most of her breathing practice",
-   "Let her decide when she wants to look at it"
+   "Let her decide when she wants to look at it",
+   "Show it on some stretches and hide it on others",
+   "Keep it on through most of her breathing practice"
   ],
   "answer": 2,
   "rationales": [
-   "Working without it is the eventual aim, close to competition. Without the screen she can't yet tell 14 breaths a minute from slow breathing.",
-   "Fading feedback prevents dependence once the skill is taking hold. After one session, she can't hold the rhythm or sense that she has lost it.",
-   "Frequent feedback is most useful at the very start, when the learner has no reliable internal sense of the target. Two months leaves plenty of time to fade it.",
-   "Learner-chosen feedback works when the learner can tell that she needs it. Siobhan thought that she was doing well."
+   "Working without it is the aim, and would fit if she held the pace with the screen hidden. She still drifts after two minutes, so she would practice long stretches off target.",
+   "Learner-chosen feedback works when the learner can tell that she needs it. Siobhan drifted without noticing.",
+   "Best. She can feel the pace for a short time and loses it later, so feedback should be faded: enough to correct the drift, with growing stretches in which she must rely on herself. The guidance hypothesis warns that constant feedback would leave her dependent on the screen.",
+   "Frequent feedback suits the very start, before a learner has any inner sense of the target. After five weeks she has one, and more of the same would build dependence."
   ],
-  "takeaway": "Feedback should be frequent when a learner can't yet sense the target, and faded as that sense develops.",
+  "takeaway": "Fade feedback as an internal sense of the skill develops: neither constant display nor sudden removal.",
   "refs": [
    "salmoni1984",
    "lehrer2000"
@@ -1472,16 +1472,16 @@
    "level": "professional",
    "delivery": "organizational"
   },
-  "stem": "A consultant has spent a season with a professional women's soccer team and wants to interview players about which parts of the program they used and why, to help decide what to offer next year. The last match is on a Sunday in October. Four weeks of rest follow, during which staff are in the office; preseason opens in January. Eleven of the 24 players are on loan and fly back to their own clubs on the Wednesday after the match; by the team's habit, others leave for places without much signal. Staff won't have time to read the interviews until November. When should the consultant hold them?",
+  "stem": "A consultant has spent a season with a professional women's soccer team and wants to interview players about which parts of the program they used and why, to help decide what to offer next year. The last match, on a Sunday in October, will decide the title, and the coach wants nothing new asked of players before it. Four weeks of rest follow, during which staff are in the office; preseason opens in January. Eleven of the 24 players are on loan and fly back to their own clubs on the Wednesday after the match; by the team's habit, others leave for places without much signal. Staff won't have time to read the interviews until November. When should the consultant hold them?",
   "options": [
-   "In the quiet week before the last match",
+   "In the week before the last match",
    "During the four weeks of rest",
    "In the opening days of preseason",
    "In the first days after the last match"
   ],
   "answer": 3,
   "rationales": [
-   "Asking before the season is over misses its final test and intrudes on preparation, and the players will still be there afterward.",
+   "Interviews then would go against the coach's request before the title match and would miss the season's final test. The players will still be there afterward.",
    "The transition is usually the time for analysis and revision, and staff will do that part then. By that point nearly half of the players will have gone to other clubs.",
    "Preseason suits questions about the coming squad's needs. Loan players won't be back, and memories will have faded.",
    "The whole season can be covered, all players are still there, and memories are fresh. Analysis can wait for the transition, but access to nearly half of the players can't."

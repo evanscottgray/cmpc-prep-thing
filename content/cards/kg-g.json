@@ -3,10 +3,10 @@
   "id": "card-g-multidimensional-anxiety",
   "kg": "G",
   "title": "Multidimensional Anxiety Theory",
-  "body": "Multidimensional anxiety theory splits competitive state anxiety into separate parts that relate to performance in different ways. Cognitive anxiety (worry, negative expectations) is predicted to have a negative linear relationship with performance: more worry, worse performance. Somatic anxiety (perceived bodily activation such as butterflies, tension, racing heart) is predicted to follow an inverted-U, so moderate levels are best. Self-confidence is predicted to relate positively and linearly to performance. The components also follow different timelines: cognitive anxiety rises early and stays fairly steady before an event, while somatic anxiety stays low until shortly before the start, peaks at the start, and fades once performance begins. The CSAI-2 was built to measure these three components. In practice, the theory tells a consultant which component to target, when to intervene, and why matching the technique to the type of anxiety makes sense.",
+  "body": "Multidimensional anxiety theory splits competitive state anxiety into separate parts that relate to performance in different ways. Cognitive anxiety (worry, negative expectations) is predicted to have a negative linear relationship with performance: more worry, worse performance. Somatic anxiety (perceived bodily activation such as butterflies, tension, racing heart) is predicted to follow an inverted-U, so moderate levels are best. Self-confidence is predicted to relate positively and linearly to performance. Research support for these performance predictions is mixed. The components also follow different timelines: cognitive anxiety rises early and stays fairly steady before an event, while somatic anxiety stays low until shortly before the start, peaks at the start, and fades once performance begins. The CSAI-2 was built to measure these three components. In practice, the theory tells a consultant which component to target, when to intervene, and why matching the technique to the type of anxiety makes sense.",
   "points": [
-   "Cognitive anxiety: negative linear with performance",
-   "Somatic anxiety: inverted-U; self-confidence: positive linear",
+   "Predicted: cognitive anxiety negative linear with performance",
+   "Predicted: somatic anxiety inverted-U; self-confidence positive linear",
    "Cognitive anxiety builds early; somatic anxiety spikes near the start and then dissipates",
    "Measured with the CSAI-2; supports matching technique to anxiety type"
   ],
@@ -31,12 +31,12 @@
   "id": "card-g-catastrophe",
   "kg": "G",
   "title": "Catastrophe Model",
-  "body": "Hardy's catastrophe model describes how cognitive anxiety and physiological arousal interact to affect performance. When cognitive anxiety is low, rising physiological arousal has a mild, inverted-U effect, so performance changes gradually. When cognitive anxiety is high, increasing arousal can improve performance up to a point, after which performance drops suddenly and steeply rather than tapering off: the catastrophe. The model also predicts hysteresis: once a collapse occurs, slightly lowering arousal does not restore performance along the same path. Recovery usually requires bringing arousal down well below the collapse point and dealing with worry before rebuilding toward an optimal state. The model implies that physiological arousal is not harmful in itself; it becomes risky in combination with high worry, which makes managing cognitive anxiety especially important.",
+  "body": "The catastrophe model (Hardy and colleagues) describes how cognitive anxiety and physiological arousal interact to affect performance. When cognitive anxiety is low, rising physiological arousal has a mild, inverted-U effect, so performance changes gradually. When cognitive anxiety is high, increasing arousal can improve performance up to a point, after which performance drops suddenly and steeply rather than tapering off: the catastrophe. The model also predicts hysteresis: once a collapse occurs, slightly lowering arousal does not restore performance along the same path. In practice, recovery usually means bringing arousal down well below the collapse point and dealing with worry before rebuilding toward an optimal state. The model implies that neither arousal nor cognitive anxiety is harmful in itself: cognitive anxiety can even help when arousal is low. The risk lies in combining high worry with high arousal. Research support is mixed.",
   "points": [
    "Low cognitive anxiety: arousal has a gradual, mild effect",
    "High cognitive anxiety: arousal past a threshold causes a sudden, large drop",
    "Hysteresis: recovery is not a simple reversal of the collapse",
-   "Recovery: lower arousal substantially, reset worry, then rebuild"
+   "In practice: lower arousal substantially, address worry, then rebuild"
   ],
   "examNote": "Look for abrupt collapses that happen only when worry is high, or an athlete whose small calming efforts fail mid-competition. The inverted-U, which ignores cognitive anxiety and predicts smooth change, is the usual distractor.",
   "refs": ["hardy1996", "weinberg2024"]
@@ -87,7 +87,7 @@
   "id": "card-g-achievement-goal",
   "kg": "G",
   "title": "Achievement Goal Theory and Motivational Climate",
-  "body": "Achievement goal theory explains motivation by how people define success. With a task orientation, success means improving, learning, and giving effort, judged against one's own past performance. With an ego orientation, success means beating others or doing as well with less effort. The orientations are independent, so a person can be high in both. The most vulnerable profile is high ego orientation with low perceived ability: when winning is the only route to feeling competent and the person doubts they can win, they tend to avoid challenges, withdraw effort, and drop out. A strong task orientation protects motivation. The motivational climate created by coaches and leaders also matters. A task-involving (mastery) climate recognizes individual improvement, effort, and cooperation; an ego-involving (performance) climate emphasizes public comparison, rankings, and praise mainly for top performers. Orientation is often measured with the TEOSQ.",
+  "body": "Achievement goal theory explains motivation by how people define success. With a task orientation, success means improving, learning, and giving effort, judged against one's own past performance. With an ego orientation, success means beating others or doing as well with less effort. The orientations are independent, so a person can be high in both. The most vulnerable profile is high ego orientation with low perceived ability: when winning is the only route to feeling competent and the person doubts they can win, they tend to avoid challenges, withdraw effort, and drop out. A strong task orientation tends to protect motivation. The motivational climate created by coaches and leaders also matters. A task-involving (mastery) climate recognizes individual improvement, effort, and cooperation; an ego-involving (performance) climate emphasizes public comparison, rankings, and praise mainly for top performers. Orientation is often measured with the TEOSQ.",
   "points": [
    "Task orientation: self-referenced improvement; ego orientation: beating others",
    "High ego plus low perceived ability is the highest-risk profile",
@@ -95,7 +95,7 @@
    "Performance climate: rankings, comparison, and results-only praise"
   ],
   "examNote": "Coach-behavior vignettes usually test climate (what to change), while athlete-profile vignettes test orientation plus perceived ability (who is at risk). Assess both the person and the environment.",
-  "refs": ["nicholls1984", "ames1992"]
+  "refs": ["nicholls1984", "ames1992", "duda1992"]
  },
  {
   "id": "card-g-sdt",
@@ -143,15 +143,15 @@
   "id": "card-g-sport-confidence",
   "kg": "G",
   "title": "Vealey's Sport-Confidence Model",
-  "body": "Vealey defined sport confidence as an athlete's belief or degree of certainty about their ability to be successful in sport. Her original model separated trait sport confidence (a general disposition) from state sport confidence (confidence in a particular moment) and included competitive orientation, meaning whether an athlete defines success by performing well or by winning. Trait confidence and competitive orientation were proposed to shape state confidence, which in turn influences performance. Later work took a multidimensional approach and identified sources of sport confidence, including mastery, demonstration of ability, physical and mental preparation, physical self-presentation, social support, vicarious experience, coaches' leadership, environmental comfort, and situational favorableness. Sources athletes control, such as mastery and preparation, tend to give a sturdier foundation than sources that depend on others' evaluations or on circumstances. Consultants help athletes broaden confidence toward these controllable sources and reconnect with evidence of their preparation.",
+  "body": "Vealey defined sport confidence as an athlete's belief or degree of certainty about their ability to be successful in sport. Her original model separated trait sport confidence (a general disposition) from state sport confidence (confidence in a particular moment) and included competitive orientation, meaning whether an athlete defines success by performing well or by winning. Trait confidence and competitive orientation were proposed to shape state confidence, which in turn influences performance. Later work took a multidimensional approach and identified sources of sport confidence, including mastery, demonstration of ability, physical and mental preparation, physical self-presentation, social support, vicarious experience, coaches' leadership, environmental comfort, and situational favorableness. Sources athletes control, such as mastery and preparation, are thought to give a sturdier foundation than sources that depend on others' evaluations or on circumstances. Consultants help athletes broaden confidence toward these controllable sources and reconnect with evidence of their preparation.",
   "points": [
    "Trait vs. state sport confidence; competitive orientation",
    "Later work identified multiple sources of sport confidence",
-   "Controllable sources (mastery, preparation) are sturdier",
+   "Controllable sources (mastery, preparation) are thought to be sturdier",
    "Confidence that relies on others' approval tends to be fragile"
   ],
   "examNote": "Vignettes describe confidence that swings with feedback, results, or disrupted training. The best answer rebuilds it from mastery and preparation rather than more praise or lower goals.",
-  "refs": ["vealey1986", "weinberg2024"]
+  "refs": ["vealey1986", "weinberg2024", "vealey1998"]
  },
  {
   "id": "card-g-group-dynamics",
@@ -165,13 +165,13 @@
    "Shared mental models drive coordination among skilled individuals"
   ],
   "examNote": "Read GEQ profiles by dimension, recognize storming as normal rather than failure, and choose shared-mental-model work when skilled individuals coordinate poorly.",
-  "refs": ["carron1985", "tuckman1965"]
+  "refs": ["carron1985", "tuckman1965", "tuckman1977", "eccles2004", "carron1993"]
  },
  {
   "id": "card-g-resilience",
   "kg": "G",
   "title": "Resilience and Stress Appraisal",
-  "body": "Lazarus's transactional model holds that stress comes from appraisal, not from demands alone. Primary appraisal asks what is at stake; secondary appraisal asks whether one's coping resources are adequate. Demands appraised as exceeding resources produce threat and distress; demands seen as manageable can be appraised as challenges. This explains why two people facing identical demands respond differently, and it points interventions toward both the meaning of the demand and the person's resources. Fletcher and Sarkar's grounded theory of resilience in Olympic champions found that psychological factors (positive personality, motivation, confidence, focus, and perceived social support) protected performers from the potential negative effects of stressors, partly by promoting challenge appraisals and helpful meta-cognitions. Resilience is a process that can be developed, and it grows through engagement with manageable challenge combined with support, not through removing all adversity.",
+  "body": "Lazarus's transactional model holds that stress comes from appraisal, not from demands alone. Primary appraisal asks what is at stake; secondary appraisal asks whether one's coping resources are adequate. Demands appraised as exceeding resources produce threat and distress; demands seen as manageable can be appraised as challenges. This explains why two people facing identical demands respond differently, and it points interventions toward both the meaning of the demand and the person's resources. Fletcher and Sarkar's grounded theory of resilience in Olympic champions found that psychological factors (positive personality, motivation, confidence, focus, and perceived social support) protected performers from the potential negative effects of stressors, partly by promoting challenge appraisals and helpful meta-cognitions. Resilience is a process that can be developed; their later work on mental fortitude training emphasizes manageable challenge combined with support, not removing all adversity.",
   "points": [
    "Primary appraisal: what's at stake; secondary appraisal: can I cope",
    "Same demands, different appraisals, different stress",
@@ -179,6 +179,6 @@
    "Resilience develops through challenge with support"
   ],
   "examNote": "If people face equal demands but respond differently, the answer involves appraisal. For resilience programs, reject options that remove all stressors or treat resilience as a fixed trait.",
-  "refs": ["lazarus1999", "fletcher2012"]
+  "refs": ["lazarus1999", "fletcher2012", "fletcher2016"]
  }
 ]

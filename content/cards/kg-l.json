@@ -17,21 +17,21 @@
   "id": "card-l-rapport-trust",
   "kg": "L",
   "title": "Building rapport and trust",
-  "body": "Rapport is the foundation of the consulting sequence and comes before assessment or intervention. Rogers's core conditions (accurate empathy, unconditional positive regard, and congruence, or genuineness) describe the helper's stance. Studies of what athletes value in consultants consistently point to trustworthiness, keeping confidences, being approachable and easy to relate to, fitting in with the team's culture, and practical, sport-relevant help. Trust grows from transparency: explaining exactly what the consultant does, who receives what information, and where confidentiality ends, without overpromising. In team settings, being visible at practices and in informal moments lets athletes judge the consultant before they commit. Boundaries are part of trust, not opposed to it: consistent, warmly explained limits around contact, travel, and social media make the relationship safer and more dependable.",
+  "body": "Rapport is the foundation of the consulting sequence; it begins before assessment or intervention and continues throughout. Rogers's core conditions (accurate empathy, unconditional positive regard, and congruence, or genuineness) describe the helper's stance. Research with athletes, coaches, and consultants points to trustworthiness, keeping confidences, being approachable and easy to relate to, fitting in with the team's culture, and practical, sport-relevant help. Trust grows from transparency: explaining exactly what the consultant does, who receives what information, and where confidentiality ends, without overpromising. In team settings, being visible at practices and in informal moments lets athletes judge the consultant before they commit. Boundaries are part of trust, not opposed to it: consistent, warmly explained limits around contact, travel, and social media make the relationship safer and more dependable.",
   "points": [
    "Rogers: empathy, unconditional positive regard, congruence",
    "Be specific and honest about confidentiality limits; never promise total secrecy",
    "Fit in and be present before formal interventions",
    "Clear, consistent boundaries support trust"
   ],
-  "examNote": "\"First step\" items usually reward clarifying the role and building rapport before assessment or technique; answers that overpromise confidentiality or impose mandatory contact are distractors.",
-  "refs": ["rogers1957", "sharp2011"]
+  "examNote": "A likely scenario asks for the first step: clarifying the role and building rapport come before assessment or technique; answers that overpromise confidentiality or impose mandatory contact are distractors.",
+  "refs": ["rogers1957", "sharp2011", "gould1991"]
  },
  {
   "id": "card-l-microskills",
   "kg": "L",
   "title": "Counseling microskills (Ivey)",
-  "body": "Ivey's microskills break effective helping conversations into learnable behaviors. Attending behavior, meaning culturally appropriate eye contact, body language, vocal qualities, and verbal tracking, comes first; on video it must be made visible. The basic listening sequence follows: open questions (\"what\" and \"how\" invite elaboration; \"why\" can sound accusatory) and closed questions (for specific facts), encouragers, paraphrasing (restating content), reflection of feeling (naming the emotion beneath the words), and summarizing (pulling several themes together and checking accuracy). Confrontation is a supportive challenge that lays two discrepant statements side by side without judgment. Influencing skills include immediacy, which addresses what is happening between consultant and client right now, and self-disclosure, which helps when it is brief, relevant, for the client's benefit, and followed by a return of focus to the client.",
+  "body": "Ivey's microskills break effective helping conversations into learnable behaviors. Attending behavior, meaning culturally appropriate eye contact, body language, vocal qualities, and verbal tracking, comes first; on video it must be made visible. The basic listening sequence follows: open questions (\"what\" and \"how\" invite elaboration; \"why\" can sound accusatory) and closed questions (for specific facts), encouragers, paraphrasing (restating content), reflection of feeling (naming the emotion beneath the words), and summarizing (pulling several themes together and checking accuracy). Confrontation is a supportive challenge that lays two discrepant statements side by side without judgment. Other skills include immediacy, which addresses what is happening between consultant and client right now, and self-disclosure, which helps when it is brief, relevant, for the client's benefit, and followed by a return of focus to the client.",
   "points": [
    "Paraphrase = content; reflection of feeling = emotion",
    "Summary = several themes integrated and checked",
@@ -45,14 +45,14 @@
   "id": "card-l-role-clarity",
   "kg": "L",
   "title": "Role clarity with multiple stakeholders",
-  "body": "Consultants often work in triangles: a parent, coach, athletic director, sports medicine team, agent, manager, or HR sponsor arranges or pays for services delivered to someone else. Before services begin, the consultant clarifies who the client is, what role the consultant will and will not play (for example, whether they will offer any input on selection), what information each party receives (often attendance and broad progress, not session content), and the exceptions, such as safety. Everyone affected, especially the athlete, hears the same arrangement before disclosing anything. With minors, parents give permission and the young athlete gives assent. Paying for services or making a referral does not entitle anyone to session content; sharing with medical staff or coaches happens with the client's consent. When a stakeholder misstates the consultant's role, the consultant corrects it promptly and respectfully.",
+  "body": "Consultants often work in triangles: a parent, coach, athletic director, sports medicine team, agent, manager, or HR sponsor arranges or pays for services delivered to someone else. Before services begin, the consultant clarifies who the client is, what role the consultant will and will not play (for example, whether they will offer any input on selection), what information each party receives (often attendance and broad progress, not session content), and the exceptions, such as safety. Everyone affected, especially the athlete, hears the same arrangement before disclosing anything. With minors, parents give permission and the young athlete gives assent. Paying for services or making a referral does not by itself entitle anyone to session content, though guardians of minors may have legal access rights, so clarify this at the outset. Sharing with medical staff or coaches happens with consent, except where safety or law requires disclosure. When a stakeholder misstates the consultant's role, the consultant corrects it promptly and respectfully.",
   "points": [
    "Identify the client and the consultant's role at the outset",
    "Agree in advance what each stakeholder receives",
-   "Payment or referral does not equal access to content",
+   "Payment or referral alone does not equal access to content",
    "Minors: parental permission plus the athlete's assent"
   ],
-  "examNote": "Third-party scenarios almost always reward an upfront joint agreement on role and information-sharing over either full disclosure to the payer or total refusal to share.",
+  "examNote": "A likely scenario has a third party asking for information: prefer an upfront joint agreement on role and information-sharing over either full disclosure to the payer or total refusal to share.",
   "refs": ["aaspethics2024", "andersen2005"]
  },
  {

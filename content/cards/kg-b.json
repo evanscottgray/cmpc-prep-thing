@@ -17,25 +17,25 @@
   "id": "card-b-motivational-interviewing",
   "kg": "B",
   "title": "Motivational interviewing: OARS and change talk",
-  "body": "Motivational interviewing (MI) is a collaborative, person-centered way of talking with someone who is ambivalent about change. Its core skills are OARS: Open questions, Affirmations, Reflections, and Summaries. During assessment, MI helps the consultant gauge readiness and hear the client's own reasons for change. Change talk is the client's language in favor of change: desire (\"I want...\"), ability (\"I could...\"), reasons, need, and, later, commitment and taking steps. Sustain talk argues for staying the same. The consultant evokes and reflects change talk and responds to sustain talk with reflection rather than argument. A double-sided reflection that ends on the change side is a common tool. The \"righting reflex\" (pushing, persuading, confronting, or jumping to fix) tends to increase resistance, especially with clients referred by a coach.",
+  "body": "Motivational interviewing (MI) is a collaborative, person-centered way of talking with someone who is ambivalent about change. Its core skills are OARS: Open questions, Affirmations, Reflections, and Summaries. During assessment, MI helps the consultant gauge readiness and hear the client's own reasons for change. Change talk is the client's language in favor of change: desire (\"I want...\"), ability (\"I could...\"), reasons, need, and, later, commitment and taking steps. Sustain talk argues for staying the same. The consultant evokes and reflects change talk and responds to sustain talk with reflection rather than argument. A double-sided reflection that ends on the change side is a common tool. The \"righting reflex,\" also called the \"fixing reflex\" (pushing, persuading, confronting, or jumping to fix) tends to increase resistance, especially with clients referred by a coach.",
   "points": [
     "OARS: open questions, affirmations, reflections, summaries",
     "Change talk: desire, ability, reasons, need, commitment",
     "Respond to sustain talk with reflection, not argument",
     "Avoid the righting reflex with reluctant or referred clients"
   ],
-  "examNote": "Items often ask for the best response to an ambivalent client or which statement is change talk; the key reflects or evokes the client's own motivation, never confronts.",
+  "examNote": "A likely scenario asks for the best response to an ambivalent client or which statement is change talk; the key reflects or evokes the client's own motivation, never confronts.",
   "refs": ["miller2013", "ivey2013"]
  },
  {
   "id": "card-b-socratic-questioning",
   "kg": "B",
   "title": "Socratic questioning",
-  "body": "Socratic questioning uses open, curious questions that help clients examine their own thoughts and reach their own conclusions instead of being told what to think. In assessment it shows what a belief is, how firmly it is held, and what evidence the client draws on, which feeds the formulation. Later it supports cognitive restructuring through guided discovery. Typical questions ask for evidence (\"What have you seen happen when...?\"), alternatives (\"How else could you read that?\"), consequences (\"What does believing this do to your preparation?\"), and perspective (\"What would you tell a teammate?\"). Socratic questioning is not the same as reassurance, lecturing, labeling a thought as \"irrational,\" or asking closed yes/no questions. Its strength is that conclusions the client reaches themselves tend to be more convincing and lasting.",
+  "body": "Socratic questioning uses open, curious questions that help clients examine their own thoughts and reach their own conclusions instead of being told what to think. In assessment it shows what a belief is, how firmly it is held, and what evidence the client draws on, which feeds the formulation. Later it supports cognitive restructuring through guided discovery. Typical questions ask for evidence (\"What have you seen happen when...?\"), alternatives (\"How else could you read that?\"), consequences (\"What does believing this do to your preparation?\"), and perspective (\"What would you tell a teammate?\"). Socratic questioning is not the same as reassurance, lecturing, labeling a thought as \"irrational,\" or asking closed yes/no questions. The rationale is that conclusions clients reach themselves are likely to feel more convincing.",
   "points": [
     "Open, evidence-seeking, non-leading questions",
     "Guided discovery: the client reaches the conclusion",
-    "Not reassurance, disputation, or closed questions",
+    "Not reassurance, arguing, or lecturing",
     "Useful in assessment for mapping beliefs"
   ],
   "examNote": "When asked which response \"reflects Socratic questioning,\" pick the open question that invites the client to examine evidence, not the one that reassures or corrects.",
@@ -59,35 +59,35 @@
   "id": "card-b-questionnaire-use",
   "kg": "B",
   "title": "Selecting, administering, and debriefing questionnaires",
-  "body": "Start with the question, then choose the instrument. Is the interest a state (how someone feels before this event) or a trait (a general tendency)? Does the instrument have validity and reliability evidence for this population, age, and language? Norms only apply to the groups they were built on, and ad hoc translations lack validity evidence. Obtain informed consent that says who will see the results and for what purpose. For minors, get guardian permission plus the minor's assent. Administer under consistent conditions: state measures depend on timing, and anonymity matters for team measures. Store data securely. Give feedback as a collaborative conversation that treats scores as hypotheses to check against the client's experience. Never base a decision on a single score, and never use results for purposes, such as selection, that the instrument and consent do not support. Clinical screeners may be used per policy, but they flag rather than diagnose and lead to referral.",
+  "body": "Start with the question, then choose the instrument. Is the interest a state (how someone feels before this event) or a trait (a general tendency)? Does the instrument have validity and reliability evidence for this population, age, and language? Norms only apply to the groups they were built on, and ad hoc translations lack validity evidence. Obtain informed consent that says who will see the results and for what purpose. For minors, get guardian permission plus the minor's assent. Administer under consistent conditions: state measures depend on timing, and anonymity or confidential coding matters for team measures. Store data securely. Give feedback as a collaborative conversation that treats scores as hypotheses to check against the client's experience. Never base a decision on a single score, and never use results for purposes, such as selection, that the instrument and consent do not support. Clinical screeners may be used only with appropriate training, policy, and a referral pathway; they flag rather than diagnose.",
   "points": [
     "Match state vs. trait to the question; check population, age, language",
     "Consent defines who sees results and how they are used",
-    "Consistent administration; secure storage; anonymity for team measures",
+    "Consistent administration; secure storage; anonymity or coding for team measures",
     "Debrief collaboratively; never rely on one score"
   ],
-  "examNote": "Many items hinge on appropriate use rather than the instrument itself: wrong population norms, a coach wanting individual scores, or a screener treated as a diagnosis.",
+  "examNote": "A likely scenario turns on appropriate use rather than the instrument itself: wrong population norms, a coach wanting individual scores, or a screener treated as a diagnosis.",
   "refs": ["tenenbaum2012", "aaspethics2024"]
  },
  {
   "id": "card-b-anxiety-instruments",
   "kg": "B",
   "title": "Anxiety instruments: CSAI-2 and SAS-2",
-  "body": "The Competitive State Anxiety Inventory-2 (CSAI-2) measures state cognitive anxiety, somatic anxiety, and self-confidence. It was built from multidimensional anxiety theory and is designed to be completed shortly before competition (traditionally about an hour before). Because it captures a moment, it is ideal for tracking pre-competition states across events. Comparisons are meaningful only when timing and the type of event are kept similar. Later work added directional scales asking whether symptoms feel facilitative or debilitative. The Sport Anxiety Scale-2 (SAS-2) measures trait sport performance anxiety: somatic anxiety, worry, and concentration disruption. It was developed for children as well as adults. Use it to describe a general tendency, such as an athlete who is nervous before every competition regardless of stakes, or as a pre/post measure of change in that tendency.",
+  "body": "The Competitive State Anxiety Inventory-2 (CSAI-2) measures state cognitive anxiety, somatic anxiety, and self-confidence. It was built from multidimensional anxiety theory and is designed to be completed shortly before competition (traditionally about an hour before). Because it captures a moment, it is ideal for tracking pre-competition states across events. Comparisons are meaningful only when timing and the type of event are kept similar. Later work added directional scales asking whether symptoms feel facilitative or debilitative, and concerns about factor structure led to a revised form (CSAI-2R). The Sport Anxiety Scale-2 (SAS-2) measures trait sport performance anxiety: somatic anxiety, worry, and concentration disruption. It was developed for children as well as adults. Use it to describe a general tendency, such as an athlete who is nervous before every competition regardless of stakes, or as a pre/post measure of change in that tendency.",
   "points": [
     "CSAI-2: state cognitive anxiety, somatic anxiety, self-confidence",
     "CSAI-2 timing: close to competition; repeat under similar conditions",
     "SAS-2: trait somatic anxiety, worry, concentration disruption",
     "SAS-2 suits youth and adults"
   ],
-  "examNote": "Decide state vs. trait from the stem (\"before races\" vs. \"in general\") and check the client's age; then pick the CSAI-2 or the SAS-2.",
-  "refs": ["martens1990", "smith2006sas2"]
+  "examNote": "Decide state vs. trait from the stem (\"right now, before this race\" vs. \"usually, across competitions\") and check the client's age; then pick the CSAI-2 or the SAS-2.",
+  "refs": ["martens1990", "smith2006sas2", "cox2012"]
  },
  {
   "id": "card-b-skills-attention-inventories",
   "kg": "B",
   "title": "Skills and attention inventories: TOPS, ACSI-28, TAIS",
-  "body": "The Test of Performance Strategies (TOPS) measures how often athletes use psychological skills and strategies, with separate practice and competition sections. Practice-section scales include goal setting, imagery, self-talk, relaxation, activation, emotional control, automaticity, and attentional control; the competition section includes negative thinking. This makes it the tool of choice when performance differs between training and competition. The Athletic Coping Skills Inventory-28 (ACSI-28) gives a broad picture of psychological coping skills in sport, such as coping with adversity, peaking under pressure, concentration, confidence, and coachability. It does not separate settings. The Test of Attentional and Interpersonal Style (TAIS), based on Nideffer's model, profiles attentional width (broad–narrow) and direction (internal–external), including overload tendencies, plus interpersonal style. Choose it when the question is the type of attention, not just how well someone concentrates.",
+  "body": "The Test of Performance Strategies (TOPS) measures how often athletes use psychological skills and strategies, with separate practice and competition sections. Practice-section scales include goal setting, imagery, self-talk, relaxation, activation, emotional control, automaticity, and attentional control; the competition section includes negative thinking. This makes it a good fit when performance differs between training and competition. The Athletic Coping Skills Inventory-28 (ACSI-28) gives a broad picture of psychological coping skills in sport, such as coping with adversity, peaking under pressure, concentration, confidence and achievement motivation, and coachability. It does not separate settings. The Test of Attentional and Interpersonal Style (TAIS), based on Nideffer's model, profiles attentional width (broad–narrow) and direction (internal–external), including overload tendencies, plus interpersonal style. Choose it when the question is the type of attention, not just how well someone concentrates. Interpret it cautiously, because evidence for its factor structure and validity is mixed.",
   "points": [
     "TOPS: skill use, separately for practice and competition",
     "ACSI-28: broad sport coping skills profile",
@@ -95,7 +95,7 @@
     "ACSI-28 concentration is not the same as attentional style"
   ],
   "examNote": "Practice-vs-competition gaps point to the TOPS; broad/narrow or internal/external attention problems point to the TAIS.",
-  "refs": ["thomas1999tops", "nideffer1976"]
+  "refs": ["thomas1999tops", "nideffer1976", "smith1995acsi", "weinberg2024"]
  },
  {
   "id": "card-b-other-instruments-observation",

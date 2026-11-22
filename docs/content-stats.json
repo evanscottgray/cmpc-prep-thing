@@ -33,22 +33,22 @@
     "L": 38
   },
   "cognitive": {
-    "application": 231,
-    "analysis": 131,
+    "application": 232,
+    "analysis": 130,
     "recall": 2
   },
   "difficulty": {
     "1": 34,
-    "2": 280,
-    "3": 50
+    "2": 281,
+    "3": 49
   },
   "format": {
     "vignette": 362,
     "direct": 2
   },
   "setting": {
-    "individual-sport": 132,
-    "team-sport": 113,
+    "individual-sport": 131,
+    "team-sport": 114,
     "business": 17,
     "tactical": 27,
     "esports": 18,
@@ -60,25 +60,25 @@
   "level": {
     "collegiate": 96,
     "elite": 51,
-    "youth": 22,
+    "youth": 21,
     "professional": 72,
     "adult": 60,
-    "adolescent": 41,
+    "adolescent": 42,
     "na": 5,
     "masters": 13,
     "recreational": 4
   },
   "delivery": {
-    "individual": 220,
-    "team": 60,
+    "individual": 219,
+    "team": 61,
     "virtual": 26,
     "na": 8,
     "organizational": 50
   },
   "cueing": {
     "n": 364,
-    "keyLongestPct": 14.8,
-    "keyShortestPct": 22.3,
+    "keyLongestPct": 15.9,
+    "keyShortestPct": 22.8,
     "keyOnlyHedgedPct": 0.8,
     "keyReferPct": 0.3,
     "distractorReferPct": 0.5,
@@ -93,7 +93,7 @@
     ],
     "absolutesOnlyInDistractorsPct": 0.3,
     "collaborativeOnlyKeyPct": 0.8,
-    "multistepOnlyKeyPct": 1.9
+    "multistepOnlyKeyPct": 2.2
   },
   "drillCells": {
     "A": {
@@ -189,8 +189,8 @@
     "ethicsStandards": 25
   },
   "references": {
-    "registry": 121,
-    "cited": 117,
+    "registry": 128,
+    "cited": 119,
     "aaspListCited": 24
   }
 }
