@@ -66,6 +66,19 @@ const HEDGE = /\b(may|might|often|usually|generally|typically|in most cases|tend
 const REFER = /\b(refer|referral|referring)\b/i;
 const NEG = /\b(NOT|EXCEPT|LEAST)\b/;
 const LETTER_REF = /\b(option|choice|answer|alternative)\s*\(?[A-D]\)?(?![a-z])|\([A-D]\)|\b[A-D]\)\s|\b(first|second|third|fourth|last) (option|choice)\b/;
+const ABSOLUTE = /\b(always|never|only|all|every|everyone|entirely|fully|completely|immediately|guarantee\w*|must|nothing|any|regardless|solely|totally|at once|no matter)\b/i;
+const COLLAB = /\b(together|collaborat\w*|jointly|with (him|her|them|the (athlete|client|player|players|team|coach|dancer|crew|staff))|explor\w+|consent|agree\w*|invit\w+|ask(s|ing)? (him|her|them|the|what|how|whether)|discuss\w*|her own|his own|their own|co-\w+|check (in )?with)\b/i;
+const MULTI = /\bthen\b|, and |;| before | while | plus /i;
+/** Heuristic cue flags for one item (test-wiseness patterns found by the options-only check). */
+function cueFlags(it) {
+  const f = [];
+  if (!Array.isArray(it.options) || it.options.length !== 4) return f;
+  const k = it.answer, d = it.options.filter((_, i) => i !== k);
+  if (!ABSOLUTE.test(it.options[k]) && d.filter((o) => ABSOLUTE.test(o)).length >= 2) f.push('absolutes-only-in-distractors');
+  if (COLLAB.test(it.options[k]) && !d.some((o) => COLLAB.test(o))) f.push('collaborative-only-key');
+  if (MULTI.test(it.options[k]) && !d.some((o) => MULTI.test(o))) f.push('multistep-only-key');
+  return f;
+}
 const BANNED_OPT = /\b(all|none|both) of the (above|these|options)\b|\b[A-D] and [A-D]\b/i;
 
 // ---------- item validation ----------
@@ -114,6 +127,7 @@ function cueStats(items) {
   const n = items.length || 1;
   let keyLongest = 0, keyShortest = 0, keyHedgeOnly = 0, keyRefer = 0, distRefer = 0, neg = 0, vignette = 0, recall = 0;
   const pos = [0, 0, 0, 0];
+  const flagCount = {};
   for (const it of items) {
     if (!Array.isArray(it.options) || it.options.length !== 4 || !Number.isInteger(it.answer)) continue;
     const L = it.options.map((o) => String(o).length);
@@ -128,6 +142,7 @@ function cueStats(items) {
     if (it.format === 'vignette') vignette++;
     if (it.cognitive === 'recall') recall++;
     pos[k]++;
+    for (const fl of cueFlags(it)) flagCount[fl] = (flagCount[fl] || 0) + 1;
   }
   return {
     n: items.length,
@@ -140,6 +155,9 @@ function cueStats(items) {
     vignettePct: +(100 * vignette / n).toFixed(1),
     recallPct: +(100 * recall / n).toFixed(1),
     answerPositions: pos,
+    absolutesOnlyInDistractorsPct: +(100 * (flagCount['absolutes-only-in-distractors'] || 0) / n).toFixed(1),
+    collaborativeOnlyKeyPct: +(100 * (flagCount['collaborative-only-key'] || 0) / n).toFixed(1),
+    multistepOnlyKeyPct: +(100 * (flagCount['multistep-only-key'] || 0) / n).toFixed(1),
   };
 }
 
@@ -152,6 +170,9 @@ function checkCue(label, s, strict) {
   if (s.negativeStemPct > 6) report(`${label}: negative stems ${s.negativeStemPct}% (limit ~5%)`);
   if (s.vignettePct < 75) report(`${label}: vignettes ${s.vignettePct}% (need ≥75%)`);
   if (s.recallPct > 22) report(`${label}: recall items ${s.recallPct}% (limit ~20%)`);
+  if (s.absolutesOnlyInDistractorsPct > 10) report(`${label}: ${s.absolutesOnlyInDistractorsPct}% of items have absolute words only in distractors (limit 10%)`);
+  if (s.collaborativeOnlyKeyPct > 12) report(`${label}: ${s.collaborativeOnlyKeyPct}% of items have collaborative wording only in the key (limit 12%)`);
+  if (s.multistepOnlyKeyPct > 15) report(`${label}: ${s.multistepOnlyKeyPct}% of items have the key as the only multi-step option (limit 15%)`);
   const lo = Math.floor(s.n * 0.15), hi = Math.ceil(s.n * 0.35);
   s.answerPositions.forEach((c, i) => { if (c < lo || c > hi) report(`${label}: answer position ${i} used ${c}/${s.n} times (want ${lo}–${hi})`); });
 }
@@ -213,6 +234,7 @@ if (cardsArg) {
     for (const key of Object.keys(got)) if (!w.slots.find((s) => `${s.kg}|${s.domain}` === key)) err(`${rel}: items in unallocated cell ${key}`);
   }
   const s = cueStats(items);
+  for (const it of items) { const fl = cueFlags(it); if (fl.length) warn(`${it.id}: cue pattern ${fl.join(', ')}`); }
   checkCue(rel, s, true);
   for (const [a, b, sim] of nearDupes(items, 0.35)) (sim >= 0.5 ? err : warn)(`near-duplicate (${sim}): ${a.id} ~ ${b.id}`);
   finish({ stats: s });

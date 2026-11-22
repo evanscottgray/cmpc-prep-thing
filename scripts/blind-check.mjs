@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // Blind check tooling.
-//   node scripts/blind-check.mjs make <outDir> [--ids id1,id2] [--per 45]
+//   node scripts/blind-check.mjs make <outDir> [--ids id1,id2] [--per 45] [--options-only]
 //     → writes packet-N.json files: stems + shuffled options labelled A–D, no keys, rationales or topics,
 //       plus a private key map (keymap.json) used for scoring.
-//   node scripts/blind-check.mjs score <outDir>
+//   node scripts/blind-check.mjs score <outDir> [--keymap <path>]
 //     → reads answers-N.json ([{id, answer:"A"-"D", confidence:1-5, note}]) and reports agreement,
 //       disagreements and low-confidence items (confidence ≤ 2). Writes report.json.
 import fs from 'node:fs';
@@ -30,6 +30,7 @@ if (cmd === 'make') {
     const out = pk.map((it) => {
       const order = [0, 1, 2, 3].sort((a, b) => h(it.id + a).localeCompare(h(it.id + b)));
       keymap[it.id] = { order, key: L[order.indexOf(it.answer)] };
+      if (process.argv.includes('--options-only')) return { id: it.id, options: Object.fromEntries(order.map((o, d) => [L[d], it.options[o]])) };
       return { id: it.id, stem: it.stem, options: Object.fromEntries(order.map((o, d) => [L[d], it.options[o]])) };
     });
     fs.writeFileSync(path.join(dir, `packet-${n + 1}.json`), JSON.stringify(out, null, 1));
@@ -37,7 +38,7 @@ if (cmd === 'make') {
   fs.writeFileSync(path.join(dir, 'keymap.json'), JSON.stringify(keymap));
   console.log(`${list.length} items → ${packets.length} packets in ${dir}`);
 } else if (cmd === 'score') {
-  const keymap = JSON.parse(fs.readFileSync(path.join(dir, 'keymap.json'), 'utf8'));
+  const keymap = JSON.parse(fs.readFileSync(arg('--keymap') || path.join(dir, 'keymap.json'), 'utf8'));
   const answers = fs.readdirSync(dir).filter((f) => /^answers-\d+\.json$/.test(f)).flatMap((f) => JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')));
   const byId = new Map(answers.map((a) => [a.id, a]));
   const missing = Object.keys(keymap).filter((id) => !byId.has(id));
