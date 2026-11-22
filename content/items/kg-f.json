@@ -5,7 +5,7 @@
   "scored": true,
   "domain": "III",
   "kg": "F",
-  "topic": "Establishing a stable baseline",
+  "topic": "Ending a baseline phase",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -14,21 +14,21 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Ilan, a collegiate golfer who transferred this year from a program that played much easier courses, rushes his short putts under pressure. He and his consultant agree to build a pre-putt routine, and Ilan is eager to start it at tomorrow's practice. The consultant wants to be able to show Ilan and his coach later in the season whether the routine itself changed his short putting. Before the routine is introduced, what should the consultant do?",
+  "stem": "Ilan, a collegiate golfer, rushes his short putts. Before teaching a pre-putt routine, his consultant has been charting pre-stroke time and short-putt makes, the two measures Ilan and his coach agree matter most. Across the last eight practices, both have stayed within a narrow range with no trend. His next event is five weeks away. The consultant wants to be able to show later whether the routine changed his putting. What should the consultant do next?",
   "options": [
-   "Start the routine tomorrow, and log his short-putt makes at every practice from then on",
-   "Give him the CSAI-2 before his next event, then repeat it once the season has ended",
-   "Chart his short-putt makes and pre-stroke timing over several practices until stable",
-   "Pull his putting statistics from last season to serve as the comparison for this season"
+   "Chart several more practices, and introduce the routine after that",
+   "Wait until his next event is over, and introduce the routine then",
+   "Introduce the routine at the next practice, and keep charting",
+   "Choose a new target measure, and chart a fresh baseline for it"
   ],
   "answer": 2,
   "rationales": [
-   "Tracking makes from the first day of the routine produces intervention-phase data with nothing to compare them against; without a baseline, later improvement cannot be separated from ordinary practice or familiarity with new courses.",
-   "The CSAI-2 measures state anxiety and confidence, not the target behavior of rushed putting, and two administrations months apart are too sparse to link any change to the routine.",
-   "In an A–B single-case design, the target behavior is measured repeatedly in a baseline phase until it is stable, and change after the intervention is judged against that baseline. Choosing behavior-specific measures (makes and pre-stroke timing) and collecting them before intervening is part of planning the evaluation.",
-   "Last season's statistics come from easier courses, a different program, and different training conditions, so a comparison with them cannot isolate the effect of the routine."
+   "A longer baseline is warranted when data are trending or scattered. Eight practices within a narrow range with no trend already give a steady standard for comparison, so more charting only delays the work.",
+   "Holding off would make sense if an event were days away and changes to his putting were unwelcome. With five weeks before he competes, waiting gives up practice time and improves nothing about the comparison.",
+   "In a single-case A–B design, the baseline has done its job once the target measures are stable. His are, the measures are agreed, and the calendar is open, so the intervention phase can begin with the same measures continued.",
+   "New measures are needed when the charted ones miss what the client cares about. Ilan and his coach agree that these two matter most, so starting over would discard a usable baseline."
   ],
-  "takeaway": "Choose a target measure and collect a stable baseline before introducing an intervention, so later change can be judged against it.",
+  "takeaway": "End the baseline when the agreed measures are stable; extend it only if the data are trending or too variable.",
   "refs": [
    "anderson2002",
    "tenenbaum2012"
@@ -40,7 +40,7 @@
   "scored": true,
   "domain": "III",
   "kg": "F",
-  "topic": "Process versus outcome measures",
+  "topic": "Matching a measure to the goal",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -49,23 +49,23 @@
    "level": "professional",
    "delivery": "team"
   },
-  "stem": "A consultant is planning a six-week in-game communication program for a professional esports team. The coach says league win rate is the measure that matters and that he puts little stock in how players say they feel. The schedule pits the team against the league's strongest opponents during those weeks, and a new player joined last month. How should the consultant propose measuring progress?",
+  "stem": "A consultant is planning an eight-week program with a professional esports team. The agreed goal is for players to feel safe admitting mistakes and disagreeing during match reviews. Recordings show that the reviews are already full of lively talk, yet several players say they voice what they think the coach wants to hear. The organization wants one primary progress measure, chosen before the program starts. Which measure fits best?",
   "options": [
-   "Keep win rate, and add coded counts of clear, timely callouts from recorded matches",
-   "Track win rate, and weight each result by the opponent's current league ranking",
-   "Replace win rate with weekly player ratings of how well the team communicated",
-   "Settle on measures with the coach after the first two weeks show how players respond"
+   "Players' own ratings, gathered anonymously every two weeks",
+   "Coded counts of players' comments from recorded reviews",
+   "The coach's weekly ratings of each player during reviews",
+   "Match results, adjusted for the strength of each opponent"
   ],
   "answer": 0,
   "rationales": [
-   "A process measure that directly reflects the targeted skill (the quality of in-game callouts), coded from recordings, is sensitive to the program and objective enough for a skeptical coach. Keeping win rate respects his priority while making the evaluation, and any attribution, realistic.",
-   "Weighting by opponent strength makes the outcome fairer, but win rate still depends on the new player, strategy, and much else, so it cannot show whether communication itself improved.",
-   "Player ratings are a process measure, but they are the kind of self-report the coach discounts, and dropping his priority measure undermines his buy-in to the evaluation.",
-   "Measures should be chosen during planning, before the program starts, so a baseline can be collected and the choice of measures is not shaped by early results."
+   "The goal is a perception, so the people who hold it are the direct source. Players already tailor what they say in front of the coach, so anonymity protects the accuracy of brief, repeated psychological-safety ratings.",
+   "Comment counts suit a goal of getting more players to talk. These reviews are already full of talk that does not reflect what players think, so counts would look good whether or not players felt safer.",
+   "Coach ratings suit behavior the coach can see firsthand. Here, players are shaping what they show the coach, so the coach's view is the one most distorted by the problem itself.",
+   "Match results suit a goal about performance. They are far removed from whether players feel able to speak honestly in reviews and have many other causes."
   ],
-  "takeaway": "Pair outcome measures with an objective process measure of the targeted skill, and choose them before the program begins.",
+  "takeaway": "Choose the primary measure from the goal: a goal about how people feel is best tracked by protected self-report.",
   "refs": [
-   "weinberg2024",
+   "edmondson1999",
    "anderson2002"
   ]
  },
@@ -84,21 +84,21 @@
    "level": "adult",
    "delivery": "organizational"
   },
-  "stem": "A consultant will deliver arousal-regulation training to an infantry company before a field training cycle. The commander says, \"I don't need to know if they liked it. I need to know whether soldiers actually use this stuff when they're under pressure out there.\" While planning the evaluation, which measure best answers the commander's question?",
+  "stem": "A consultant is planning the evaluation of a voluntary arousal-regulation course for an infantry company. The commander says, \"The last provider taught sound material and taught it well. But soldiers decided in the first hour that it wasn't made for infantry, and they quit coming. Before I look at anything else, I want to know after session one whether yours lands differently.\" Which measure fits the commander's request?",
   "options": [
-   "Soldiers' end-of-training ratings of how likely they are to use breathing and refocusing",
-   "A scenario test at the end of training in which soldiers explain when to use each technique",
-   "Changes in the company's scores on its next timed live-fire qualification",
-   "Squad leaders' structured checklists of breathing and refocusing in later field exercises"
+   "A scenario test of when and how to use each technique",
+   "Squad leaders' checklists of technique use in the field",
+   "The company's scores on its next timed qualification",
+   "Soldiers' ratings of the session's relevance and value"
   ],
   "answer": 3,
   "rationales": [
-   "Ratings of intended use, collected before soldiers have faced field pressure, are reaction-level data in Kirkpatrick's terms; intentions often do not match what people do under stress.",
-   "A scenario test measures the learning level: it shows soldiers know when a technique applies, not that they use it under pressure in the field.",
-   "Qualification scores are a results-level outcome shaped by marksmanship training, equipment, and conditions; they cannot show whether the techniques were actually used.",
-   "Whether trainees apply skills in the real performance environment is Kirkpatrick's behavior level. Structured observation by squad leaders during later field exercises, planned before training begins, answers the commander's question directly."
+   "A scenario test shows learning. The commander has no doubt that such material can be taught and is asking first how soldiers receive it.",
+   "Field checklists capture behavior, the level for asking whether soldiers apply the skills on exercises. They cannot answer a question to be settled after one session.",
+   "Qualification scores sit at the results level. They come later and have many causes, and they would not show whether soldiers see the course as made for them.",
+   "Whether a session lands with participants as relevant and worth attending is Kirkpatrick's reaction level. It is the right level here because attendance is voluntary and the last course failed at that point."
   ],
-  "takeaway": "Match the evaluation level to the stakeholder's question: using skills in the real setting is Kirkpatrick's behavior level.",
+  "takeaway": "No Kirkpatrick level is best in general: the stakeholder's question picks the level, and sometimes that level is reaction.",
   "refs": [
    "kirkpatrick2006"
   ]
@@ -109,7 +109,7 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Diagnosing a transfer gap",
+  "topic": "Locating where a program is failing",
   "cognitive": "analysis",
   "difficulty": 2,
   "format": "vignette",
@@ -118,21 +118,21 @@
    "level": "professional",
    "delivery": "organizational"
   },
-  "stem": "A consultant ran four workshops on managing performance anxiety for a professional ballet company. Dancers rated the workshops highly, and a follow-up quiz showed they understood the techniques. Yet during two weeks of rehearsal observation, the consultant saw almost no dancers using them, and several said there is \"no time\" in the rehearsal schedule, which the artistic staff set. What is the most appropriate next step?",
+  "stem": "A consultant ran four performance-anxiety workshops for a professional ballet company. Dancers rated them as highly relevant. The artistic staff set aside ten minutes of every rehearsal for skills practice, and observation shows most dancers using it to try the techniques. In a midseason skills check, however, most dancers could not pace their breathing as taught or produce a workable refocusing cue. Their performance-anxiety ratings have not changed. What is the most appropriate next step?",
   "options": [
-   "Run a follow-up workshop that drills each technique in short, rehearsal-length bursts",
-   "Work with the artistic staff to build brief practice into rehearsals, then observe again",
-   "Give dancers a daily home-practice log, and review the logs with them each week",
-   "Report the strong reaction and learning results to the director and continue the program"
+   "Ask the artistic staff to build more practice time into rehearsals",
+   "Reteach the techniques with demonstration and coached repetition",
+   "Redesign the workshops around the topics that dancers request",
+   "Continue the program as it is, and track anxiety ratings for longer"
   ],
   "answer": 1,
   "rationales": [
-   "Shorter drills may make the techniques feel quicker, but learning has already been shown, and another workshop leaves the scheduling barrier the dancers named untouched.",
-   "The evaluation located the breakdown at Kirkpatrick's behavior level, and the dancers named a barrier in the work environment. Transfer depends on a climate that makes room for skill use, so revising the plan with the stakeholders who control rehearsal time and then measuring again is the evidence-based response.",
-   "Home practice can build familiarity, but the goal is use during rehearsal and performance, and a home log neither removes the scheduling barrier nor measures transfer to the studio.",
-   "Reaction and learning results do not show behavior change; Kirkpatrick's levels are not interchangeable, and continuing unchanged ignores the observation data showing transfer has not happened."
+   "More time would help if dancers could perform the skills but had no chance to practice. They already have daily time and use it, so extra minutes would mean rehearsing the techniques incorrectly.",
+   "Reaction is good and the setting supports practice, but the skills check shows that learning did not happen. Demonstration and coached repetition address that level, on which later behavior and results depend.",
+   "New topics would be the answer to low ratings of relevance. Dancers see the content as highly relevant; they have not mastered it.",
+   "Waiting is reasonable when skills are being performed correctly and outcomes simply need time. These dancers cannot yet do the techniques, so later ratings would tell the consultant little."
   ],
-  "takeaway": "When reaction and learning are strong but behavior is not, look for transfer barriers in the environment and revise with the stakeholders who control them.",
+  "takeaway": "Trace the evaluation chain to the first level that fails, and revise the program there.",
   "refs": [
    "kirkpatrick2006"
   ]
@@ -143,7 +143,7 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Interpreting a baseline trend",
+  "topic": "Reading single-case data",
   "cognitive": "analysis",
   "difficulty": 3,
   "format": "vignette",
@@ -152,21 +152,21 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "A consultant tracks an adolescent swimmer's 100-m freestyle times in weekly time trials. Over six baseline weeks, as her training block progressed, her times dropped steadily by about the same amount each week. Imagery training then began, and over the next six weeks her times kept dropping at the same steady rate. What is the most defensible conclusion about imagery from these data?",
+  "stem": "With his assent and a parent's permission, a consultant charts an adolescent swimmer's weekly 100-m freestyle time trials, held under the same conditions with a steady training load. His six baseline times, in seconds, were 62.2, 62.1, 62.3, 62.2, 62.1, and 62.2. Imagery training then began, and the next six times were 62.2, 62.0, 61.7, 61.4, 61.0, and 60.7. Which reading best fits these data?",
   "options": [
-   "Imagery added to her gains, since her times kept improving throughout the imagery phase",
-   "Imagery has been shown not to help her, since training explains all of her improvement",
-   "The data cannot be interpreted, since her baseline times were not stable before imagery",
-   "No imagery effect is evident, since her rate of improvement held steady at the switch"
+   "The baseline trend carried on, giving no sign of an added effect",
+   "The level shifted at the switch, consistent with a rapid effect",
+   "The times vary too widely within phases to support a judgment",
+   "The slope changed at the switch, consistent with a gradual effect"
   ],
   "answer": 3,
   "rationales": [
-   "Faster times during the imagery phase are exactly what the baseline trend predicted on its own; crediting imagery ignores that trend and is post hoc reasoning.",
-   "An A–B comparison on one measure cannot prove the absence of an effect; imagery may still affect other targets such as race-day focus or confidence that these times do not capture.",
-   "Baseline stability means predictability, not flatness; a steady, consistent trend is a predictable baseline, so the data are interpretable and simply show no change at the phase shift.",
-   "In single-case evaluation, an intervention effect is inferred from a change in level, trend, or variability when the phase changes. Because the improvement seen in baseline (likely from training) continued unchanged, it cannot be attributed to imagery; this is realistic attribution."
+   "This reading fits a baseline that was already improving and went on improving at the same rate. These baseline times are flat, so there was no downward trend to carry on.",
+   "A shift in level would show up as a drop at the first imagery data points. The first imagery time, 62.2, equals baseline, and the improvement builds week by week.",
+   "Wide, overlapping scatter would prevent a judgment. Baseline times fall within 0.2 seconds of each other, and the imagery times follow an orderly path.",
+   "A flat baseline followed by steady improvement after imagery began is a change in slope, the pattern expected of a skill that builds with practice. A single A–B sequence does not prove the cause, but this is the reading that fits."
   ],
-  "takeaway": "A single-case effect requires a change in level or trend at the phase change; a continuing baseline trend can't be credited to the intervention.",
+  "takeaway": "In single-case data, compare level, trend, and variability across phases; a slope change can signal an effect that builds.",
   "refs": [
    "anderson2002",
    "tenenbaum2012"
@@ -178,8 +178,8 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Triangulating discrepant data",
-  "cognitive": "analysis",
+  "topic": "Holding to a planned review",
+  "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
   "context": {
@@ -187,24 +187,24 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Midway through a plan to help Folasade, a collegiate softball pitcher, regain composure after issuing a walk, she tells her consultant she feels \"way calmer\" on the mound. Her pitching coach, however, reports no visible change, and her walk and strikeout numbers are unchanged. Folasade agreed at the outset that the coach could share observations with the consultant. What should the consultant do next?",
+  "stem": "Folasade, a collegiate softball pitcher, is two weeks into an eight-week plan to regain composure after walks. Video coding shows her completing a reset routine after most walks, up from none at baseline, and she and her pitching coach both describe her as steadier. Her walk and strikeout numbers are unchanged; all three agreed at the outset to weigh those at week eight. The coach, eager for results, now suggests trying something else. What should the consultant do?",
   "options": [
-   "Explore the mismatch with Folasade and add structured observation of her between-pitch routine",
-   "Agree with Folasade to keep the plan as it is, since felt calm often comes before visible change",
-   "Revise the plan now to target observable behaviors, since the coach and the statistics agree",
-   "Have her complete the CSAI-2 before her next start to check the calm she has been reporting"
+   "Continue the plan as designed until the scheduled review",
+   "Explore with her why her view differs from the coach's",
+   "Replace the reset routine with another composure strategy",
+   "Add a structured measure of her behavior between pitches"
   ],
   "answer": 0,
   "rationales": [
-   "Triangulating client, coach, and performance data means treating disagreement as information. Exploring the mismatch with the athlete and adding a direct, targeted measure (such as observing her routine after a walk) clarifies whether change is internal only, not yet visible, or absent before the plan is revised.",
-   "Internal change can precede visible change, but keeping the plan unchanged without examining the discrepancy leaves the evaluation unresolved and sets aside two sources of data that disagree with her report.",
-   "Statistics and a coach's general impression can lag behind or miss process changes; revising midway, before the discrepancy has been explored, is premature.",
-   "A second self-report measure adds more of the same kind of data; it cannot resolve a disagreement between how she feels and what others observe."
+   "The process measure is moving as intended, the sources agree, and the performance numbers are not due to be judged for six weeks. Changing course now would abandon a plan that is on track because of impatience.",
+   "Exploring a mismatch is the step when athlete and coach see different things. Here both describe her as steadier, so there is no gap in their views to explain.",
+   "A replacement is justified when a strategy has been used as planned for long enough and has not helped. After two weeks, with composure improving, it has had neither a full trial nor a failure.",
+   "Structured observation would fill a gap if impressions were the sole evidence. Coded video of her routine already does that job."
   ],
-  "takeaway": "When client, coach, and performance data disagree, explore the discrepancy and add targeted measures before judging the plan.",
+  "takeaway": "When process data are on track and outcomes are not yet due, keeping the plan is the evidence-based decision.",
   "refs": [
    "anderson2002",
-   "tod2024"
+   "weinberg2024"
   ]
  },
  {
@@ -213,31 +213,32 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Gathering feedback on the consultant",
+  "topic": "Choosing a source of consultant feedback",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
   "context": {
-   "setting": "team-sport",
+   "setting": "performing-arts",
    "level": "professional",
    "delivery": "team"
   },
-  "stem": "After a season with a professional rugby club, a consultant wants candid feedback on her own effectiveness from the 30 players she worked with, beyond what the head coach has already told her. Several players have said they would hesitate to criticize her to her face, or anywhere teammates or staff might hear. Which method best fits her goal?",
+  "stem": "A consultant has worked for two seasons with a professional string quartet. On an anonymous evaluation form, all four musicians recently rated her support as useful but not well fitted to them individually, and none gave details. They have long been comfortable disputing her ideas in sessions. They declined her offer to have someone else gather their views, and two do not want sessions recorded. She wants to learn what to change for each musician. Which method best fits?",
   "options": [
-   "Hold brief one-on-one exit interviews in which she asks each player for honest feedback",
-   "Ask the club's welfare officer to gather players' views in small group discussions",
-   "Distribute a structured consultant evaluation form that players return anonymously",
-   "Compare players' pre- and post-season scores on a mental skills questionnaire"
+   "A second anonymous form with more open-ended questions",
+   "A mentor's review of recorded sessions with the musicians",
+   "A one-to-one conversation with each musician, led by her",
+   "An interview of each musician, led by a trusted colleague"
   ],
   "answer": 2,
   "rationales": [
-   "One-on-one interviews keep teammates out of the room, but players have said they hesitate to criticize her directly, so face-to-face feedback is likely to be softened.",
-   "Small group discussions put players in front of teammates, which is the setting they are wary of, and routing views through a staff member adds a filter.",
-   "Structured consultant evaluation forms, such as the one developed by Partington and Orlick, ask athletes to rate specific consultant characteristics and the usefulness of the service. Anonymous completion reduces social-desirability pressure and fear of exposure, so the feedback is more candid.",
-   "Change in players' mental skills is useful outcome evidence, but it does not tell her how players experienced her as a consultant or which of her behaviors to keep or change."
+   "Anonymity helps when clients fear speaking frankly, but these musicians do not. An unnamed form also cannot show her which change belongs to which musician.",
+   "Recordings show what she does in sessions, which would help with a question about her technique. Two musicians object to being recorded, and what each needs is better heard from them.",
+   "She needs individual detail from clients who already disagree with her openly and do not want a go-between. Talking with each of them directly supplies exactly that.",
+   "An independent interviewer reduces pressure to please when clients would hold back with the consultant. These musicians have turned that arrangement down and do not hold back."
   ],
-  "takeaway": "Use structured, anonymous consultant evaluation forms to get candid client feedback on your effectiveness.",
+  "takeaway": "Match the feedback method to the question and to the clients' candor; direct conversation can be the best source.",
   "refs": [
+   "sharp2011",
    "partington1987"
   ]
  },
@@ -256,21 +257,21 @@
    "level": "adolescent",
    "delivery": "team"
   },
-  "stem": "After a goal-setting session with a high school track team went poorly, a consultant writes a journal entry. It describes what happened (athletes on their phones, little discussion) and how he felt (frustrated, a bit embarrassed), then ends: \"Next time I'll be more engaging.\" His mentor says the plan is too vague to act on. Using Gibbs's reflective cycle, what gap in the entry best explains why his plan is so vague?",
+  "stem": "After a goal-setting session with a high school track team, a consultant writes a journal entry. It recounts the session step by step, judges the goal cards a success and the group discussion a flop, and reasons that a crowded room and a recent loss kept athletes quiet. It ends with two things he could have done instead and a detailed outline for next week. His mentor remarks that it reads as if someone else had led the session. Under Gibbs's reflective cycle, what should he add?",
   "options": [
-   "He has not described the session in enough detail, such as when each athlete disengaged",
-   "He has not judged what went well or poorly, or worked out why the session went that way",
-   "He has not explored his frustration and embarrassment in enough depth before moving on",
-   "He has not named specific activities and timings to use in the next session he leads"
+   "A weighing of what worked and what did not",
+   "An account of what he thought and felt",
+   "An explanation of why it unfolded as it did",
+   "A plan for how to lead the next session"
   ],
   "answer": 1,
   "rationales": [
-   "He has already described the session; more detail at the description stage records the problem without producing the sense-making that a specific plan depends on.",
-   "Gibbs's cycle moves from description and feelings to evaluation (what was good and bad about the experience) and analysis (making sense of it, for example with theory or context), then to a conclusion and an action plan. Because he skipped evaluation and analysis, he has no basis for a conclusion or for a plan more specific than \"be more engaging.\"",
-   "His feelings are already named; dwelling on them further does not supply the evaluation and analysis stages that give the plan its content.",
-   "Listing activities treats the symptom: without evaluating and analyzing why the session failed, any specific activities he names are guesses rather than responses to the actual problem."
+   "This is Gibbs's evaluation stage, and it is in the entry: he judged the goal cards a success and the discussion a flop.",
+   "The entry covers description, evaluation, analysis, conclusion, and action plan, but he is absent from it. Gibbs's feelings stage, what he was thinking and feeling, is the missing part the mentor noticed.",
+   "This is the analysis stage, and it is present: he linked the quiet group to the crowded room and the recent loss.",
+   "This is the action plan stage, and it is present in the detailed outline for next week."
   ],
-  "takeaway": "Reflection that jumps from feelings to \"do better next time\" skips evaluation and analysis, the stages that make a conclusion and action plan specific.",
+  "takeaway": "Gibbs's cycle moves from description through feelings, evaluation, analysis, and conclusion to an action plan; check which stage is missing.",
   "refs": [
    "gibbs1988",
    "anderson2004"
@@ -282,7 +283,7 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Relapse prevention before ending",
+  "topic": "Focus of the final sessions",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -291,24 +292,24 @@
    "level": "masters",
    "delivery": "individual"
   },
-  "stem": "Rosalind, a masters triathlete, has met her goals for managing race-morning worry after four months of work, and she and her consultant agree to end after two more sessions. Her next goal race is overseas, with an unfamiliar course, long travel, and a large time-zone change, and she notes that her current routine assumes her home course and usual sleep. Which focus for the final sessions best supports her keeping her gains after consultation ends?",
+  "stem": "Rosalind, a masters triathlete, has met her goals for race-morning worry, and two sessions remain before the agreed end. She has written up the skills that helped, has rehearsed what she will do if travel or an unfamiliar course unsettles her at her overseas race, and wants no later check-ins so she can see how she manages alone. But whenever the consultant mentions finishing, she changes the subject, and last week she joked, \"Don't make me say goodbye.\" Which focus best serves the final sessions?",
   "options": [
-   "Teach two new worry-management strategies suited to unfamiliar race settings",
-   "Book a video check-in for race week in case her worry returns while she travels",
-   "Review which skills helped most and compile them into a written race-morning plan",
-   "Map the trouble spots that race could pose and rehearse handling each one herself"
+   "Rehearsing responses to situations that could bring worry back",
+   "Compiling the skills that helped her into a written plan",
+   "Setting the date and purpose of a check-in after her race",
+   "Talking about what their work and its ending mean to her"
   ],
   "answer": 3,
   "rationales": [
-   "New skills introduced in the last two sessions compete with consolidating the ones that already work and risk sending her off with partly learned tools.",
-   "A race-week check-in extends support rather than building independence; an optional open door is reasonable, but it does not prepare her to cope with the new demands on her own.",
-   "Consolidating what worked is useful, but a plan built around her home routine does not anticipate the unfamiliar course, travel, and sleep disruption she has said her routine does not cover.",
-   "Planned termination includes generalization and relapse-prevention planning: anticipating high-risk situations, rehearsing self-directed coping for them, and building the client's independence so skills transfer to new settings after consultation ends."
+   "Relapse prevention matters near the end of a consultation, and she has already done it for the race most likely to test her.",
+   "Consolidating useful skills is a sound closing task, but she has already written them up.",
+   "Planned follow-up supports some clients after the work ends. She has considered it and prefers to manage alone.",
+   "Her skills and plans are in place; the unfinished business is the goodbye she keeps sidestepping. Acknowledging the relationship and its ending is part of a good conclusion and lets her leave on purpose rather than by avoidance."
   ],
-  "takeaway": "Before ending, build independence: anticipate high-risk situations and rehearse self-directed coping so gains generalize.",
+  "takeaway": "A good ending covers the relationship as well as the skills; look for whichever part is unfinished.",
   "refs": [
-   "williams2020",
-   "tod2024"
+   "tod2024",
+   "petitpas1999"
   ]
  },
  {
@@ -317,7 +318,7 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Realistic attribution of outcomes",
+  "topic": "Claims that evaluation data support",
   "cognitive": "analysis",
   "difficulty": 2,
   "format": "vignette",
@@ -326,24 +327,24 @@
    "level": "collegiate",
    "delivery": "team"
   },
-  "stem": "A consultant spent a season with a collegiate volleyball team that went on to win its conference title. The athletic director plans a press release this week saying the mental training program \"won us the championship\" and asks the consultant for a supporting quote. During the same season, the team added a transfer setter and overhauled its strength program. How should the consultant respond?",
+  "stem": "After a season-long refocusing program with a collegiate volleyball team, a consultant drafts an annual report. Players' ratings of the program were high. On a practical skills test given before and after it, they improved sharply, while a similar team without the program did not change. Nobody recorded what players did between rallies in matches. The team, which had added a transfer setter, won its conference. What is the strongest claim these data support?",
   "options": [
-   "Offer wording that names the program as one contributor, citing its process and behavior data",
-   "Approve the quote, and ask that the release also mention the setter and the new strength program",
-   "Ask the director to hold the announcement until a formal program evaluation has been completed",
-   "Suggest the release credit the athletes' effort and the new staff rather than the program"
+   "The players learned the refocusing skills that were taught",
+   "The players found the program relevant and worth their time",
+   "The players used the refocusing skills in their matches",
+   "The program contributed to the team's match results"
   ],
   "answer": 0,
   "rationales": [
-   "A championship is a results-level outcome (Kirkpatrick) with many causes, here including a new setter and a new strength program. Honest evaluation frames the program as a contributor and points to evidence more directly tied to it, such as process and behavior data, which protects the consultant's integrity and credibility.",
-   "Listing other factors alongside the quote still endorses the claim that the program won the title, which overstates the evidence and sets the program up to look like a failure in a losing season.",
-   "The release is going out this week, and delaying it is not the consultant's call; the season's data already allow an accurate statement of the program's contribution now.",
-   "Steering credit entirely to others ignores the program's real evidence; the goal is accurate attribution, not modesty."
+   "Improvement on a before-and-after skills test, with no change in a similar team, is evidence at Kirkpatrick's learning level. It is the highest level for which the consultant has sound data.",
+   "High ratings do support this claim, but it rests at the reaction level. The skills-test data support a stronger claim about what players gained.",
+   "This is a behavior-level claim. Nobody recorded what players did between rallies, so there is no evidence of use in matches.",
+   "A results claim needs a chain of evidence running through match behavior. That link is missing, and the new setter offers another explanation for winning."
   ],
-  "takeaway": "Present outcomes as multi-causal: claim a contribution, not sole credit, and point to the evidence closest to what the program targeted.",
+  "takeaway": "Claim as much as the data reach and no more: name the highest evaluation level with sound evidence.",
   "refs": [
-   "anderson2002",
-   "kirkpatrick2006"
+   "kirkpatrick2006",
+   "anderson2002"
   ]
  },
  {
@@ -352,7 +353,7 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Social validation",
+  "topic": "Evaluating maintenance",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -361,24 +362,24 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "A consultant has worked with Stellan, a conservatory violist preparing for orchestra auditions, on a pre-performance routine. Session logs show he now completes the routine before nearly every mock audition, and his self-rated tension has dropped. His viola teacher has remarked that the routine looks \"fussy\" onstage, and Stellan is unsure he will keep it once real auditions begin. Which evaluation step best addresses what the consultant needs to learn now?",
+  "stem": "Stellan, a conservatory violist, has worked on a pre-performance routine with a consultant, who messages him a cue before each mock audition. His tension ratings dropped well below baseline and have stayed there. Video shows him completing every step, and he and his teacher both call the routine natural and worthwhile. Sessions and messages end next week; real auditions come in the spring. He asks, \"Is this mine now, or is it you nudging me?\" Which evaluation step best answers him?",
   "options": [
-   "Continue logging routine use through his first real audition to confirm the trend holds",
-   "Video his mock auditions and time how much the routine adds before each piece",
-   "Ask Stellan and his teacher, in structured interviews, how acceptable and useful it is",
-   "Add a validated performance-anxiety inventory to his self-rated tension scores"
+   "Score videos of his mock auditions for routine steps completed",
+   "Interview him and his teacher on how acceptable the routine is",
+   "Repeat his measures some weeks after support has stopped",
+   "Compare his current tension ratings with those at baseline"
   ],
   "answer": 2,
   "rationales": [
-   "More completion data strengthens the evidence that behavior changed, but it cannot capture whether Stellan and his teacher regard the change as worth keeping.",
-   "Timing the routine gives an objective view of its length, but whether it looks fussy or fits a performer's life is a judgment only the stakeholders can make.",
-   "Social validation asks clients and significant others whether the goals were important, the procedures acceptable, and the effects meaningful in everyday performance life. The teacher's remark and Stellan's doubts are exactly these questions, and interviews complement the behavioral and self-report data already collected.",
-   "A second anxiety measure adds detail about tension, which has already improved; it does not address whether the routine is acceptable to the people who will decide whether it continues."
+   "Scoring steps checks whether the routine is carried out as designed. Video already shows that it is, and while the messages continue it cannot show what he does without them.",
+   "Acceptability interviews are social validation. He and his teacher have already said that the routine is natural and worthwhile.",
+   "He is asking whether the change lasts without help, which is maintenance. Repeating the same measures after sessions and messages have stopped is the step that can show it.",
+   "The comparison with baseline shows that tension changed, which is already known. It cannot separate his own command of the routine from the consultant's prompting."
   ],
-  "takeaway": "Social validation asks clients and stakeholders whether goals, procedures, and outcomes were important, acceptable, and meaningful.",
+  "takeaway": "To learn whether gains belong to the client, measure again after support is withdrawn.",
   "refs": [
    "anderson2002",
-   "tenenbaum2012"
+   "tod2024"
   ]
  },
  {
@@ -396,21 +397,21 @@
    "level": "elite",
    "delivery": "team"
   },
-  "stem": "Midway through an Olympic cycle, a consultant to a national rowing team reviews anonymous evaluation forms. Athletes rate her as knowledgeable, trustworthy, and easy to talk to, but many add that her sessions are \"interesting but hard to use on the water,\" and several say the ideas feel \"the same for everyone.\" Based on research on consultant effectiveness with elite athletes, which change should she prioritize?",
+  "stem": "Midway through an Olympic cycle, a consultant to a national rowing team reads anonymous evaluation forms. Rowers praise her feel for the sport, say the strategies she gives them are personal and work on the water, and mention that she circles back to see how each one is going. The criticisms run along one line: \"Tuesdays in the meeting room and that's it,\" \"Hard to catch,\" \"Still a guest here.\" Based on research on consultants' effectiveness with elite athletes, which change should she prioritize?",
   "options": [
-   "Add case examples from published research on elite rowers to each session",
-   "Turn session content into individual strategies rowers practice on the water",
-   "Move sessions to the boathouse right before water training so ideas stay fresh",
-   "Shorten sessions and send each rower a written summary of the main points"
+   "Tailor her strategies more closely to individual rowers",
+   "Spend more of her time around training and camps",
+   "Follow up more often on strategies already introduced",
+   "Deepen her knowledge of rowing's technical demands"
   ],
   "answer": 1,
   "rationales": [
-   "Research examples may make the content feel more relevant, but they keep it at the level of ideas and leave it identical for every athlete, which is what the feedback criticizes.",
-   "Studies of consultant effectiveness with Olympic athletes (Partington and Orlick's evaluation work; Gould and colleagues) found that effective consultants offer clear, practical strategies individualized to the athlete and usable in the sport. The feedback points to exactly that gap.",
-   "Holding sessions closer to training changes timing and setting, but the content would still be general and untried in the boat, so the transfer problem remains.",
-   "Shorter sessions and summaries change the format of delivery, not its practicality; the same general content would still be hard to apply on the water."
+   "Individualized, practical strategies are a mark of effective consultants, and rowers already credit her with them.",
+   "Elite athletes value consultants who fit in with the team and are accessible. The criticisms are about being absent and an outsider, and regular presence in the team's own setting addresses both.",
+   "Follow-up is a recognized strength of effective consultants, but rowers say that she already circles back.",
+   "Sport knowledge supports credibility, but rowers praise her feel for the sport. More of it would not make her easier to find or less of a guest."
   ],
-  "takeaway": "Elite athletes value consultants who fit in and give practical, individualized strategies they can use in their sport.",
+  "takeaway": "Elite athletes value consultants who fit in, are accessible, individualize, and follow up; let the feedback show which one is missing.",
   "refs": [
    "partington1987",
    "gould1991"
@@ -431,21 +432,21 @@
    "level": "youth",
    "delivery": "team"
   },
-  "stem": "A consultant tried a new trust-building activity with a youth hockey team, and it fell flat: players joked through it and the coach cut it short. That evening he reviewed his notes and observed that the activity ran long, came right after a hard skate, and asked 12-year-olds to share personal stories in front of the group. According to Kolb's experiential learning cycle, what should he do next?",
+  "stem": "A consultant led a new trust-building activity with a youth hockey team, and players joked their way through it. That evening he went over his notes and saw that the joking began when he asked 12-year-olds for personal stories. Over the weekend he read about group development and early adolescence, and decided that light, low-risk sharing needs to come before personal disclosure. According to Kolb's experiential learning cycle, what comes next?",
   "options": [
-   "Run a shorter version of the activity next week and see whether the response changes",
-   "Ask the coach and two players how the activity felt from their side of the room",
-   "Write a fuller reflective account of what each player said and did during it",
-   "Link what he noticed to theory on group development and early-adolescent disclosure"
+   "Looking back over what he noticed in players' reactions",
+   "Working out a principle for when such activities suit a group",
+   "Taking part in a trust activity to gain firsthand experience",
+   "Trying out a revised activity at an upcoming practice"
   ],
   "answer": 3,
   "rationales": [
-   "Trying a revised version is active experimentation, the final phase of the cycle; doing it before making sense of the observations means the revision is based on a guess rather than an understanding of why the activity failed.",
-   "Gathering others' perspectives adds to reflective observation, a phase he has already completed with clear observations; it does not move him forward in the cycle.",
-   "A fuller account is more reflective observation; he already has specific observations, and the cycle now calls for interpreting them.",
-   "Kolb's cycle runs from concrete experience to reflective observation, abstract conceptualization, and active experimentation. Having reflected on what happened, his next step is abstract conceptualization: making sense of the observations with concepts such as age-appropriate disclosure, timing, and group development, which then informs what he tests."
+   "Looking back on an experience is reflective observation, which he did that evening with his notes.",
+   "Forming a general idea is abstract conceptualization. He did that over the weekend when he drew on theory to decide what should come before disclosure.",
+   "Kolb's cycle includes concrete experience, but leading the activity already supplied it. Seeking another experience now would leave his new idea untested.",
+   "He has had the experience, reflected on it, and formed a general idea. The next stage is active experimentation: putting the idea to the test in practice."
   ],
-  "takeaway": "In Kolb's cycle, reflection is followed by abstract conceptualization, making sense of the experience with theory, before testing a revised approach.",
+  "takeaway": "Kolb's cycle runs experience, reflection, conceptualization, experimentation; place the consultant on it to find the next step.",
   "refs": [
    "kolb1984",
    "anderson2004"
@@ -457,7 +458,7 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Ending when the fit is poor",
+  "topic": "When a client chooses to stop",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -466,21 +467,21 @@
    "level": "elite",
    "delivery": "virtual"
   },
-  "stem": "A consultant has met by video with Annika, an elite figure skater, for eight sessions on competition focus. They reviewed progress together at session four and revised the plan, but Annika's ratings and her coach's reports still show little change, and Annika says the cognitive approach \"just doesn't click\" for her. The consultant's training is mainly in cognitive-behavioral methods. What is the most appropriate step?",
+  "stem": "A consultant has met by video for eight sessions with Annika, an adult elite figure skater. She has reached two of her three goals and is halfway to the third. Annika says she has what she came for and would like to handle the rest on her own. She likes the approach, has time for sessions in any part of the year, and shows no signs of distress. The consultant thinks four more sessions would secure the third goal and says so once; she thanks the consultant and repeats her wish. What should the consultant do?",
   "options": [
-   "Raise ending with Annika and name practitioners whose methods could suit her better",
-   "Revise the plan a second time, swapping in different cognitive-behavioral techniques",
-   "Take a short course in an acceptance-based approach and begin using it with her",
-   "Ask her coach whether the consultation should continue, given the lack of change"
+   "Close the work after a final review",
+   "Help her move to another consultant",
+   "Revise the third goal and continue",
+   "Pause now and resume in the offseason"
   ],
   "answer": 0,
   "rationales": [
-   "When a client is not benefiting despite a joint review and revision, and the mismatch involves the consultant's approach, ethical practice is to discuss ending openly and help the client find a better-fitting provider. This protects her welfare and respects her autonomy.",
-   "A second revision within the same framework does not answer her feedback that the cognitive approach itself does not suit her, and it adds time and cost after one revision has already failed.",
-   "A brief course does not create competence in a new approach; practicing it with a current client would exceed the consultant's competence, which the Ethics Code asks practitioners to stay within.",
-   "The coach is a useful source of observations, but the decision about continuing belongs to Annika and the consultant, and handing it to the coach bypasses her autonomy."
+   "Participation is voluntary, and an informed adult with no signs of risk may stop before every goal is met. The consultant has given an honest view; informed consent rests on voluntariness, so reviewing her gains and ending well honors her choice.",
+   "A transfer fits a client who wants more help but finds the approach a poor match. She likes the approach and wants no further consulting.",
+   "Revision fits a client who wants to go on but is stuck. She has said twice that she wants to work on the rest alone.",
+   "A pause fits a client who wants to go on but lacks time. She has the time and has chosen to finish rather than postpone."
   ],
-  "takeaway": "When a client isn't benefiting after the plan has been revised, discuss ending and help them find a better-fitting practitioner.",
+  "takeaway": "A client's informed choice to stop is reason enough to end well, even when the consultant sees more to gain.",
   "refs": [
    "aaspethics2024",
    "tod2024"
@@ -492,30 +493,30 @@
   "scored": false,
   "domain": "V",
   "kg": "F",
-  "topic": "Handoff when the consultant leaves",
+  "topic": "Sharing information at a handoff",
   "cognitive": "application",
-  "difficulty": 1,
+  "difficulty": 2,
   "format": "vignette",
   "context": {
    "setting": "business",
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "A consultant who works with six executives at a financial firm on performing under pressure accepts a position abroad and will stop consulting altogether in three months. Two of the executives are midway through their plans and want to keep working on their goals with someone. How should the consultant handle these two clients?",
+  "stem": "A consultant who works with executives at a financial firm is moving abroad and closing her practice. One client, midway through his plan, has decided to continue with a colleague she recommended. He has agreed in writing that the colleague may know he has been her client, and he would like her to make the first contact because he tends to put such things off. He wants the colleague to hear about his goals from him, in a first meeting with no one else present. Which handoff is most appropriate?",
   "options": [
-   "Line up a trusted colleague to take over, and send her notes ahead so there is no gap",
-   "Tell them soon, review their progress, and with their consent arrange a handoff",
-   "Keep sessions on track, then discuss referral options with them in the final session",
-   "Let the firm's HR lead know which clients need coverage so the firm can arrange it"
+   "Send the colleague a short summary of his goals and progress",
+   "Introduce the two by email, and leave the work undescribed",
+   "Give him the colleague's details, and leave the contact to him",
+   "Hold a joint closing session with him and the colleague"
   ],
   "answer": 1,
   "rationales": [
-   "Arranging a successor and sending records without the clients' consent breaches confidentiality and takes away their choice about whether, and with whom, to continue.",
-   "Ending because of the consultant's own circumstances still calls for planned termination: timely notice, a review of progress, and, with each client's consent, a transition to another qualified provider, sharing information only as the client authorizes.",
-   "Waiting until the final session leaves no time to consolidate gains or arrange continuity, which amounts to an abrupt termination even if options are discussed.",
-   "Telling the employer which employees are clients and what they need breaches confidentiality unless the clients agreed to it; the firm is a stakeholder but is not entitled to that information by default."
+   "A summary supports continuity when the client has authorized it. His permission covers the fact that he has been a client, and he wants to present his goals himself.",
+   "Under the Ethics Code's confidentiality standard, what is shared follows the client's consent. He has authorized the relationship to be known and asked her to start the contact, and he has kept the content for himself.",
+   "Leaving contact to the client suits someone who has not agreed to be identified. He has agreed, and he asked her to make the first move because he might not.",
+   "A joint session can ease a transfer for a client who wants one. He wants the first meeting to be between himself and the colleague, and it would expose content he has not agreed to share."
   ],
-  "takeaway": "When you must end, give timely notice, review progress, and arrange a consented handoff to another provider.",
+  "takeaway": "At a handoff, share as much as the client has authorized: the relationship, its content, or neither.",
   "refs": [
    "aaspethics2024"
   ]
@@ -526,7 +527,7 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Multiple-baseline design",
+  "topic": "Choosing a single-case design",
   "cognitive": "analysis",
   "difficulty": 3,
   "format": "vignette",
@@ -535,24 +536,24 @@
    "level": "elite",
    "delivery": "individual"
   },
-  "stem": "A consultant is introducing a free-throw routine to three wheelchair basketball players in a national-team development squad, and all three will eventually receive it. She wants evidence that the routine, rather than ordinary practice or shared team events, drives any improvement, and she records each player's free-throw percentage at every practice. Which way of introducing the routine would best support that inference?",
+  "stem": "A wheelchair basketball player on a national squad wonders whether a warm-up playlist lifts her effort, which staff already chart at practice as pushes per minute. No one else will use the playlist, and it will be played in practice warm-ups alone. She and the consultant expect any benefit to fade as soon as the music is off. Her baseline is stable, and she is happy to go without music for stretches. Which design would give the most convincing evidence that the playlist makes the difference?",
   "options": [
-   "Start the routine for the three together after a two-week baseline, then compare levels",
-   "Teach it to two players and keep the third without it as a comparison for the season",
-   "Start it with each player at a different point while the others stay in baseline",
-   "Start the routine for the three together and add weekly confidence ratings as an outcome"
+   "Start the intervention with several players on different dates",
+   "Start the intervention in one setting, and add others later on",
+   "Introduce the intervention, withdraw it, and reintroduce it",
+   "Raise the target level in steps as each step is reached"
   ],
   "answer": 2,
   "rationales": [
-   "A shared start after a baseline is an A–B comparison repeated three times; any team-wide influence that coincides with the start, such as a change in practice or the season calendar, cannot be ruled out.",
-   "Withholding the routine from one player all season conflicts with the plan for all three to receive it, and a single comparison player who differs in skill and role gives weak evidence.",
-   "A multiple-baseline design across participants staggers when the intervention starts. If each player's percentage changes only after the routine is introduced for that player, while players still in baseline stay the same, ordinary practice and shared events become unlikely explanations.",
-   "A second outcome adds information about confidence, but with everyone starting at once it still cannot separate the routine's effect from practice or shared events."
+   "Staggered starts make a multiple-baseline design across people, which suits a skill that cannot be unlearned and is taught to several athletes. Here, one player will use the playlist.",
+   "Staggering across settings is also a multiple-baseline design, but the playlist will be used in a single setting.",
+   "An A–B–A–B withdrawal design suits an effect expected to reverse when the intervention stops, with a client who accepts going without it. If effort rises and falls with the music, rival explanations are unlikely.",
+   "Stepped targets make a changing-criterion design, which suits behavior being shaped gradually toward a goal. The question here is whether the presence of music matters."
   ],
-  "takeaway": "Staggering the start across individuals (a multiple-baseline design) strengthens causal inference in single-case evaluation.",
+  "takeaway": "Use a withdrawal design when the effect is reversible and withdrawal is acceptable; stagger starts when learning cannot be undone.",
   "refs": [
-   "anderson2002",
-   "tenenbaum2012"
+   "tenenbaum2012",
+   "anderson2002"
   ]
  },
  {
@@ -561,33 +562,33 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Reflection-in-action",
+  "topic": "Reflection and evaluation concepts",
   "cognitive": "application",
-  "difficulty": 2,
+  "difficulty": 1,
   "format": "vignette",
   "context": {
    "setting": "tactical",
    "level": "adult",
    "delivery": "virtual"
   },
-  "stem": "During a live video workshop on stress management for a fire department's new recruits, a consultant notices that cameras are switching off and the chat has gone quiet ten minutes into her slides. Without stopping the session to plan, she asks recruits to type the situations they expect to find most stressful and builds the rest of the workshop around their answers. Which concept best describes what she did?",
+  "stem": "In a virtual stress-management series for fire recruits, a consultant saw cameras switching off and swapped her slides for a chat about the recruits' own stressors. That night she watched the recording to work out why the slides had lost them. She began the next session with a redesigned exercise to see how it would go. When the series ended, she asked recruits and their captains whether the skills were worth the hours and whether the next class should get them. Which concept best describes this last step?",
   "options": [
-   "Reflection-on-action, in which practice is reviewed to improve how it is delivered",
-   "Gibbs's evaluation stage, in which the good and bad aspects of an experience are judged",
-   "Kolb's active experimentation, in which a new approach is tried out in practice",
-   "Reflection-in-action, in which a practitioner reshapes practice as it unfolds"
+   "Reflection-on-action, as described by Schön",
+   "Reflection-in-action, as described by Schön",
+   "Active experimentation, as described by Kolb",
+   "Social validation, as used in applied evaluation"
   ],
   "answer": 3,
   "rationales": [
-   "Reflection-on-action is Schön's term for looking back on practice after it is over to learn from it; she changed course during the session itself.",
-   "Gibbs's evaluation stage is part of a structured cycle completed after an experience, judging what went well and poorly; she acted in the moment rather than working through a reflective cycle.",
-   "Active experimentation in Kolb's cycle tests ideas formed through reflection and conceptualization on an earlier experience; her change came from noticing and responding within the same experience.",
-   "Schön distinguished reflection-in-action, thinking and adjusting while practice is unfolding, from reflection-on-action, reviewing afterward. Noticing disengagement and reshaping the workshop on the spot is reflection-in-action."
+   "Reflection-on-action is looking back at one's practice afterward, as she did when she watched the recording that night. The last step gathered other people's judgments of the program's worth.",
+   "Reflection-in-action is adjusting while practice unfolds, as she did when she dropped her slides. The last step took place after the series ended.",
+   "Active experimentation is testing a revised approach, as she did with the redesigned exercise. The last step tested no change in delivery.",
+   "Asking participants and stakeholders whether the goals, methods, and effects of a program were worthwhile to them is social validation."
   ],
-  "takeaway": "Reflection-in-action is adjusting during the session; reflection-on-action is the structured review afterward. Skilled consultants use both.",
+  "takeaway": "Reflection examines the consultant's practice; social validation asks clients and stakeholders whether the work was worthwhile.",
   "refs": [
-   "schon1983",
-   "anderson2004"
+   "anderson2002",
+   "schon1983"
   ]
  },
  {
@@ -596,7 +597,7 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Concluding work with a team",
+  "topic": "Fading support before concluding",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -605,23 +606,24 @@
    "level": "collegiate",
    "delivery": "team"
   },
-  "stem": "A consultant's season-long contract with a collegiate lacrosse team ends after the final tournament. Over the year she ran team sessions, met with individual athletes, and began training the coaching staff to lead short pre-practice focus routines. The head coach wants those routines to continue next season without her. Which plan best concludes the consultation?",
+  "stem": "A consultant's contract with a collegiate lacrosse team ends in three weeks, and the head coach wants the assistants to run the pre-practice focus routines without her next season. The assistants watched her lead the routines in the fall and co-led them over the winter. For the past month they have led alone while she observed, and her last several reviews found nothing to correct. They ask her to keep coming, \"just in case.\" How should she handle the routines in her final three weeks?",
   "options": [
-   "Hold a closing team session, coach the staff as they lead routines, and set a follow-up plan",
-   "Write a detailed manual of the routines and leave it with the coaching staff for next season",
-   "Give the head coach a written summary of each athlete's progress to carry into next season",
-   "Run a final session on two advanced skills, and leave practice guides with the staff"
+   "Let the assistants run them without her, and check in weekly",
+   "Watch the assistants lead them, and give feedback afterward",
+   "Share the lead with the assistants, and debrief each routine",
+   "Lead them while the assistants watch, and explain each step"
   ],
   "answer": 0,
   "rationales": [
-   "Ending with a team is a planned process: a closing session to review and consolidate, building the staff's capacity through guided practice so the work is sustainable once the consultant leaves, and an agreed follow-up or open-door arrangement within the contract's terms.",
-   "A manual records the routines, but staff whose training is unfinished need guided practice leading them, and a document alone provides no closure with the team or follow-up.",
-   "Individual athletes' progress and what they discussed are confidential; a summary for the coach requires each athlete's consent and must match what was agreed at the outset.",
-   "New skills at the very end dilute consolidation and leave the staff trying to sustain skills the team never established, even with written guides."
+   "The assistants have moved through observing, co-leading, and leading under observation, and nothing is left to correct. Stepping back while she is still available tests the independence the coach wants and limits reliance on her.",
+   "Observation with feedback fits assistants who are leading alone for the first time. A month of it now turns up nothing to correct, so staying would feed the \"just in case\" reliance.",
+   "Co-leading fits assistants who have watched but not yet led. They passed that point over the winter.",
+   "Modeling fits assistants who have not seen the routines led well. They did that in the fall."
   ],
-  "takeaway": "Conclude team work with a closing session, a handoff of routines to staff, and agreed follow-up, while keeping individual content confidential.",
+  "takeaway": "Before concluding, fade support in stages, and leave room for staff to work independently while help is still available.",
   "refs": [
-   "tod2024"
+   "tod2024",
+   "callary2019"
   ]
  },
  {
@@ -631,7 +633,7 @@
   "domain": "V",
   "kg": "F",
   "topic": "Using feedback for development",
-  "cognitive": "application",
+  "cognitive": "analysis",
   "difficulty": 2,
   "format": "vignette",
   "context": {
@@ -639,24 +641,24 @@
    "level": "na",
    "delivery": "na"
   },
-  "stem": "A newly certified consultant in solo private practice reviews end-of-program evaluation forms from three different teams. On all three, athletes rate her strategies as useful but repeatedly comment that she \"talks more than she listens\" in individual sessions. She has new contracts starting next month. What is the most appropriate next step for her professional development?",
+  "stem": "On evaluation forms from three teams, athletes say that a consultant's strategies help but that she \"talks more than she listens.\" On client-approved recordings she finds the same pattern with every athlete: closed questions, few reflections, quick advice. She feels at ease in her sessions, and no athlete or topic stands out as hard for her. Her graduate program offered nothing on interviewing. When she shadowed a seasoned colleague last year, she could see that it worked but could not name what the colleague was doing. Which development step best fits?",
   "options": [
-   "Record sessions with client consent and review them on her own for talk-to-listen ratio",
-   "Arrange peer consultation or mentoring to review her sessions and set a listening goal",
-   "Ask each client at the end of each session to rate how well she listened that day",
-   "Enroll in a graduate counseling-skills course before her next contracts begin"
+   "Code more of her recordings for talk time and question types",
+   "Take a course in counseling and interviewing skills",
+   "Explore her reactions to certain athletes with a mentor",
+   "Sit in on an experienced colleague's individual sessions"
   ],
   "answer": 1,
   "rationales": [
-   "Self-review of recordings is a useful tool, but reviewing alone is prone to the same blind spots the feedback revealed, and it does not add the outside perspective and accountability of consultation.",
-   "A theme that recurs across independent evaluations is credible feedback. Taking it to peer consultation or a mentor (for example, reviewing session recordings or detailed case notes with client consent) and setting a concrete skill goal is how practitioners turn evaluation data into reflective, ongoing development.",
-   "Session-by-session ratings collected face to face invite socially desirable answers, and gathering more data does not by itself build the skill the existing feedback already identified.",
-   "A formal course may build general skills, but it cannot be completed before her contracts begin, and it does not give targeted feedback on her own sessions."
+   "More coding fits a consultant who does not yet know what she does in sessions. Her recordings have already shown a clear pattern, so further counts would confirm it without changing it.",
+   "The pattern holds across athletes, she is at ease, and she was never taught these skills. That points to a gap in knowledge and skill, which structured instruction fills; the same gap kept her from learning by watching.",
+   "Exploring reactions with a mentor fits a problem that flares with particular clients or feelings. Hers is uniform and comes with no discomfort.",
+   "Observation fits a consultant who knows the skills but has not seen them used well. She has shadowed a colleague and lacked the concepts to recognize what she saw."
   ],
-  "takeaway": "Treat consistent client feedback as data for growth: take it to peer consultation or mentoring and set a specific skill goal.",
+  "takeaway": "Diagnose the gap first: knowledge, modeling, self-monitoring, and personal reactions each call for a different development step.",
   "refs": [
    "sharp2011",
-   "anderson2004"
+   "ivey2013"
   ]
  },
  {
@@ -665,7 +667,7 @@
   "scored": true,
   "domain": "V",
   "kg": "F",
-  "topic": "Reassessing after a decline",
+  "topic": "Revising a plan from monitoring data",
   "cognitive": "application",
   "difficulty": 1,
   "format": "vignette",
@@ -674,23 +676,24 @@
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "Darnell, a 45-year-old office manager, is working with a consultant on building a consistent running habit before a charity 10K. His training logs show he met his weekly target for six straight weeks, then dropped to about half of it in weeks seven and eight. Nothing in the plan has changed. What should the consultant do first?",
+  "stem": "Darnell, an office manager, is working with a consultant on keeping up a running habit before a charity 10K. He set his own target of four runs a week and met it for six weeks, then dropped to two in weeks seven and eight. Talking it over, he explained that year-end reporting and his mother's care now fill his mornings and evenings, and will for another month. He is as keen as ever and says that two runs are what he can manage. What should the consultant suggest now?",
   "options": [
-   "Lower his weekly target for now, then raise it again once he is back on track",
-   "Add a small reward for each week he meets his target, starting this week",
-   "Go over the last two weeks' logs with Darnell to learn what changed",
-   "Readminister his exercise motivation questionnaire to check for a drop in motivation"
+   "Reviewing his logs to find out what preceded the drop",
+   "Retaking the exercise motivation questionnaire from intake",
+   "Reducing his weekly target for a limited period",
+   "Shifting his runs to a different time of day"
   ],
   "answer": 2,
   "rationales": [
-   "Lowering the target may help eventually, but adjusting the plan before understanding the cause may not address the real barrier and could discard a target that worked for six weeks.",
-   "A reward adds a new technique before anyone knows why the drop happened; if the barrier is a schedule change or an injury, the reward will not help.",
-   "Monitoring data signal that something changed but not why. Reassessing collaboratively with the client (for example, a new work schedule, a minor injury, or fading motivation) identifies the barrier so that any revision is targeted and the client stays engaged in the plan.",
-   "A questionnaire assumes the cause is motivational; talking through the logs with him can surface practical barriers, such as work or injury, that a motivation scale would miss."
+   "A log review is the step when the reason for a change is unknown. He has already explained what happened and how long it will last.",
+   "Reassessing motivation would fit an unexplained loss of interest. He is as keen as ever, and the limit is time.",
+   "The cause is known, temporary, and out of his hands, and his motivation is intact. A smaller, time-limited target keeps the goal attainable and the habit going until his schedule opens up.",
+   "Rescheduling would help if one part of his day were blocked and another were free. Both mornings and evenings are full."
   ],
-  "takeaway": "When monitoring data shift, reassess with the client to learn why before revising the plan.",
+  "takeaway": "Once the reason for a decline is known, adjust the plan to fit it rather than assess again.",
   "refs": [
-   "weinberg2024"
+   "weinberg2024",
+   "locke2002"
   ]
  }
 ]

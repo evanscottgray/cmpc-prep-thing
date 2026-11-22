@@ -5,7 +5,7 @@
   "scored": true,
   "domain": "I",
   "kg": "A",
-  "topic": "Explaining a person-centered process",
+  "topic": "Philosophy shaping the process explained",
   "cognitive": "application",
   "difficulty": 1,
   "format": "vignette",
@@ -14,24 +14,24 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Consultant Priya Raman describes her practice as person-centered. At their first meeting, collegiate swimmer Tomasz Wójcik asks, \"So how does this work? Do you give me a program to follow?\" Which explanation of the process is most consistent with Priya's theoretical orientation?",
+  "stem": "Priya Raman sees performers as healthy learners who struggle mostly because nobody has shown them the right techniques, and she sees her own role as that of an instructor. At a first meeting, collegiate swimmer Tomasz Wójcik says he isn't sure what to expect and asks, \"So how does this work?\" Which explanation is most consistent with Priya's philosophy of practice?",
   "options": [
-   "\"You'll pick the goals, and I'll teach you mental skills matched to them to practice.\"",
-   "\"We'll explore the thoughts behind your nerves and test new ones between sessions.\"",
-   "\"You'll lead the conversation; my part is to understand your experience as you see it.\"",
-   "\"You'll describe what you want instead, and we'll build on times it already happens.\""
+   "\"You'll lead our talks, and my part is to understand your experience as you see it.\"",
+   "\"We'll look for races that already go well, and you'll do more of what works in them.\"",
+   "\"I'll teach you a set sequence of skills, and you'll practice them between our meetings.\"",
+   "\"We'll look at how you interpret your races, and you'll test whether those readings hold up.\""
   ],
   "answer": 2,
   "rationales": [
-   "Letting the client choose goals is collaborative, but the consultant still supplies a skills curriculum. That is a mental skills training model with the consultant as technical expert, not the nondirective, relationship-driven process of person-centered work.",
-   "Examining the thoughts behind nerves and testing alternatives between sessions describes a cognitive-behavioral process, which is structured and consultant-guided rather than person-centered.",
-   "Person-centered practice (Rogers) treats the client as the expert on his own experience and relies on the relationship itself, built on empathy, unconditional positive regard, and genuineness, to support self-directed growth. Explaining the process this way sets accurate expectations for that kind of work.",
-   "Defining a preferred future and building on times it already happens describes a solution-focused process. It is client-centered in tone, but it steers the conversation toward exceptions and solutions rather than following the client's own exploration."
+   "This is a person-centered explanation. It suits a consultant who trusts clients to find their own direction when deeply understood, but Priya sees clients as lacking techniques and herself as the one who supplies them.",
+   "Building on existing successes is solution-focused and assumes the swimmer already has workable solutions. Priya's stated belief is that performers have not yet been shown the techniques they need.",
+   "An educational, skills-training process follows directly from Priya's beliefs: the difficulty is untaught technique, so the instructor teaches and the learner practices. A consultant's philosophy should show in the process and roles described to a new client.",
+   "Examining and testing interpretations is cognitive-behavioral and locates the difficulty in how events are read. Priya locates it in techniques nobody has taught."
   ],
-  "takeaway": "A person-centered consultant explains the work as client-directed and relationship-driven, not as a prescribed program.",
+  "takeaway": "Beliefs about why people struggle and what the consultant is for should show in how the process is explained.",
   "refs": [
-   "rogers1957",
-   "sommersflanagan2018"
+   "poczwardowski2004",
+   "weinberg2024"
   ]
  },
  {
@@ -40,7 +40,7 @@
   "scored": true,
   "domain": "I",
   "kg": "A",
-  "topic": "Feminist egalitarian relationship",
+  "topic": "Feminist view of the consulting relationship",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -49,21 +49,21 @@
    "level": "elite",
    "delivery": "individual"
   },
-  "stem": "Lena Okafor's consulting practice is grounded in feminist approaches. She begins working with Marisol Vega, an elite rugby player who says earlier consultants \"talked at me and decided what I needed.\" Which first-session action is most consistent with Lena's approach to building the working relationship?",
+  "stem": "Lena Okafor's practice is grounded in feminist approaches, and she regards a consultant's hidden authority as a problem in its own right. She begins work with Marisol Vega, an elite rugby player who says earlier consultants \"acted neutral, so I could never tell where they were coming from or why they picked what we did.\" Which first-session action best puts Lena's view of the working relationship into practice?",
   "options": [
-   "Explain how she works and why, and invite Marisol to challenge it and help shape the focus",
-   "Give a standardized mental skills inventory, then share the profile to set the session focus",
-   "Keep her own values out of the sessions so that Marisol's choices are not influenced by them",
-   "Meet with Marisol and her coach together so that all three can agree on the session focus"
+   "State for Marisol the values and beliefs that shape how she works as a consultant",
+   "Reflect Marisol's feelings back to her without steering where the session goes",
+   "Ask Marisol to describe recent matches in which she performed closer to her hopes",
+   "Map the people and settings around Marisol that bear on how she performs"
   ],
   "answer": 0,
   "rationales": [
-   "Feminist approaches build an egalitarian relationship: the consultant demystifies the process by explaining methods and their rationale, treats the client as an expert on her own life, and shares decisions about the work. That directly answers Marisol's experience of being talked at.",
-   "Sharing assessment results is good practice, but letting an inventory set the focus keeps the consultant and the instrument in the expert role. It does not address the power imbalance Marisol describes or invite her to shape the work.",
-   "Feminist approaches reject the idea that consulting is value-neutral; they favor being open about one's values so the client can weigh them. Aiming for strict neutrality also does nothing to share power in the relationship.",
-   "Coach input can matter, but bringing a third party into the first decision about focus repeats the pattern of others deciding for her. A feminist consultant would first establish an egalitarian relationship with Marisol herself."
+   "Feminist approaches reject the idea of a value-free helper and use transparency and purposeful self-disclosure to reduce the power difference. It also answers what Marisol found missing: knowing where a consultant stands.",
+   "Nondirective reflection is central to person-centered work. Here it would leave Lena's own position just as hidden as that of the consultants who \"acted neutral.\"",
+   "Looking for exceptions is a solution-focused move. It may be useful later, but it does nothing about the concealed authority that Lena and Marisol have both named.",
+   "Mapping surrounding settings expresses an ecological view of the performer. The stem asks about the relationship between the two of them, where the concern is the consultant's unstated position."
   ],
-  "takeaway": "Feminist practice builds an egalitarian relationship: demystify the process and share decisions with the client.",
+  "takeaway": "In feminist work, openness about the consultant's own values is a way to share power.",
   "refs": [
    "sommersflanagan2018"
   ]
@@ -74,8 +74,8 @@
   "scored": true,
   "domain": "I",
   "kg": "A",
-  "topic": "Ecological view of stakeholders",
-  "cognitive": "application",
+  "topic": "Levels of the ecological model",
+  "cognitive": "analysis",
   "difficulty": 2,
   "format": "vignette",
   "context": {
@@ -83,24 +83,23 @@
    "level": "youth",
    "delivery": "individual"
   },
-  "stem": "A youth soccer academy hires consultant Daniel Whitfield to help a 12-year-old player whose performance has dropped since her parents separated. Daniel works from an ecological systems perspective. When he explains his process to the academy director, which description best reflects that perspective?",
+  "stem": "A youth soccer academy asks Daniel Whitfield to help a 12-year-old whose play has dropped since January. Working from Bronfenbrenner's ecological model, Daniel learns that she gets on well with her coach, teammates, and parents, that her parents and coach talk often and agree, and that local support for girls' soccer is strong. What changed in January was a hospital's decision to move her mother to night shifts, which has upset the family's week. When Daniel explains his thinking to her parents, at which level should he place the origin of this change?",
   "options": [
-   "\"I'll build her focus, confidence, and coping skills one-on-one so she can handle home stress.\"",
-   "\"I'll help her identify the beliefs behind her decline and, with consent, update her coach.\"",
-   "\"I'll refer the family to a counselor for the separation and keep my sessions on her soccer.\"",
-   "\"I'll look at how home, school, and the club affect her and, with consent, involve key adults.\""
+   "The microsystem, the settings she takes part in and the people in them",
+   "The mesosystem, the connections among the settings she takes part in",
+   "The macrosystem, the customs and beliefs of the culture she lives in",
+   "The exosystem, a setting she isn't part of that still affects her life"
   ],
   "answer": 3,
   "rationales": [
-   "Individual skill building can help, but it treats the problem as located solely in the player. An ecological consultant would not plan to work around her home life; the family transition is part of what needs to be understood.",
-   "Updating the coach with consent is appropriate, but the core of this plan is identifying and changing her beliefs, which is a cognitive-behavioral, individual-level explanation of the decline rather than an ecological one.",
-   "A counseling referral may be useful for the family, but splitting home off from her soccer work treats her settings as separate compartments. The ecological view is that her performance emerges from how those settings interact.",
-   "An ecological systems perspective (Bronfenbrenner) holds that development and performance are shaped by interacting settings such as family, school, and club. Explaining that these settings and the key adults in them are part of the work, with consent, reflects that view and sets expectations for the director."
+   "The effect is felt in her home, which is a microsystem, but her relationships in each setting are sound. The question is where the change began, and that was in a workplace she is not part of.",
+   "Connections between her settings, such as home and club, are working: her parents and coach talk often and agree. The change began elsewhere.",
+   "Cultural beliefs form the macrosystem, and the stem describes strong local support for girls' soccer. A staffing decision at one hospital is not a cultural custom.",
+   "A parent's workplace is the classic exosystem: the player does not take part in it, yet its decisions reach her through home. Naming the origin helps Daniel focus the discussion on the family's schedule rather than on faults in the girl, her coach, or her parents."
   ],
-  "takeaway": "From a systems view, the consultant explains up front that the client's settings and key adults are part of the work.",
+  "takeaway": "Ecological levels depend on the person's place in the setting: in it, between settings, outside it, or surrounded by it.",
   "refs": [
-   "bronfenbrenner1979",
-   "tod2024"
+   "bronfenbrenner1979"
   ]
  },
  {
@@ -109,7 +108,7 @@
   "scored": false,
   "domain": "I",
   "kg": "A",
-  "topic": "Explaining the MAC approach",
+  "topic": "Explaining a cognitive model at intake",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -118,23 +117,24 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "At intake, professional golfer Hiroshi Tanaka says, \"I need you to get rid of my nerves on the first tee.\" His consultant, Anika Brandt, works from the Mindfulness-Acceptance-Commitment (MAC) approach. Which explanation of the work ahead is most consistent with that approach?",
+  "stem": "At intake, professional golfer Hiroshi Tanaka says the walk to the first tee is miserable: he is certain he will shank his opening drive in front of the gallery, though he can't recall when he last did. His consultant, Anika Brandt, works from Beck's cognitive model. When Hiroshi asks what they will actually do about the first tee, which explanation is most consistent with that model?",
   "options": [
-   "\"We'll build a breathing routine that brings your arousal down before each opening shot.\"",
-   "\"We'll practice noticing the nerves without fighting them as you commit to each shot.\"",
-   "\"We'll examine what the nerves are telling you and practice more helpful ways to read them.\"",
-   "\"We'll find the intensity level where you play best and build a routine to help you reach it.\""
+   "\"We'll practice letting the dread be there while you commit to the shot in front of you.\"",
+   "\"We'll write down what you expect will happen and compare it with what does happen.\"",
+   "\"We'll find first tees where you felt steadier and work out what you did differently there.\"",
+   "\"We'll build a breathing routine that settles your body in the minutes before you swing.\""
   ],
   "answer": 1,
   "rationales": [
-   "Lowering arousal with breathing is a sound regulation technique, but it pursues the same goal Hiroshi brought in: changing or reducing the internal state. MAC instead shifts the aim away from controlling the nerves.",
-   "The Mindfulness-Acceptance-Commitment approach (Gardner and Moore) holds that performance improves when athletes accept internal states such as nerves without trying to control them and keep attention on task-relevant, values-consistent action.",
-   "Reappraising what the nerves mean is a cognitive-behavioral strategy: it works to change the content of the interpretation, whereas MAC changes the athlete's relationship to the experience without disputing it.",
-   "Finding an individual optimal intensity reflects IZOF-style arousal regulation. It is evidence-based, but it still aims to manage the internal state into a target zone rather than accept it."
+   "Making room for dread while committing to action describes acceptance-based work such as Mindfulness-Acceptance-Commitment. Beck's model works on the content and accuracy of his forecast.",
+   "Beck's model holds that appraisals such as Hiroshi's certainty of a shank drive his distress, and treats them as hypotheses to check against evidence. Recording a forecast and comparing it with the outcome is that collaborative empiricism in action.",
+   "Searching for times the problem was smaller is solution-focused. It sidesteps the forecast that Beck's model would make the target.",
+   "A breathing routine matches bodily tension. Hiroshi describes a prediction rather than physical symptoms, and Beck's cognitive model would address that prediction."
   ],
-  "takeaway": "MAC reframes the goal from eliminating uncomfortable states to accepting them while committing to performance-relevant action.",
+  "takeaway": "Cognitive work treats a client's forecast as a hypothesis to check against evidence.",
   "refs": [
-   "gardner2007"
+   "beck2011",
+   "sommersflanagan2018"
   ]
  },
  {
@@ -143,7 +143,7 @@
   "scored": true,
   "domain": "I",
   "kg": "A",
-  "topic": "Recognizing a CBT orientation",
+  "topic": "Recognizing a consultant's orientation",
   "cognitive": "application",
   "difficulty": 1,
   "format": "vignette",
@@ -152,23 +152,24 @@
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "Executive Olivia Grant asks consultant Marcus Bell how their sessions will run. He replies, \"Each time, we'll set an agenda together, look at how your interpretations of high-stakes meetings shape how you feel and act, and agree on something to try before the next session.\" Which theoretical orientation does Marcus's explanation best reflect?",
+  "stem": "Executive Olivia Grant dreads presenting to her board and asks consultant Hollis Penrose how their sessions will run. He replies, \"I won't try to talk you out of the dread or wait for it to fade. We'll get clear on the kind of leader you want to be in that room, and you'll practice presenting that way with the dread along for the ride.\" Which theoretical orientation does Hollis's explanation best reflect?",
   "options": [
-   "Person-centered",
-   "Cognitive-behavioral",
-   "Acceptance and commitment",
-   "Solution-focused"
+   "Rogers's person-centered counseling approach",
+   "Hayes's acceptance and commitment therapy",
+   "Beck's cognitive behavior therapy",
+   "De Shazer's solution-focused brief therapy"
   ],
   "answer": 1,
   "rationales": [
-   "A person-centered consultant would not set structured agendas or assign between-session tasks; the process is nondirective and driven by the relationship.",
-   "Collaborative agenda setting, a focus on how interpretations of situations shape emotions and behavior (the cognitive model), and between-session practice are hallmarks of cognitive-behavioral work (Beck).",
-   "ACT also uses between-session practice, but it targets the client's relationship to thoughts and values-based action rather than examining how particular interpretations drive feelings and behavior.",
-   "Solution-focused work centers on exceptions, preferred futures, and scaling rather than on analyzing how interpretations produce emotional reactions."
+   "Person-centered work would leave the direction to Olivia and rely on the relationship. Hollis lays out a plan of his own: clarify how she wants to lead, then practice it while the dread is present.",
+   "Letting the dread remain (acceptance), clarifying how she wants to lead (values), and presenting that way anyway (committed action) are core processes of acceptance and commitment therapy.",
+   "Cognitive behavior therapy would examine and test the thoughts behind the dread. Hollis says outright that he won't try to change the dread before she acts.",
+   "Solution-focused work would look for times when presenting already goes better and build on them. Hollis mentions no exceptions, scaling, or existing successes."
   ],
-  "takeaway": "Structured agendas, the thought–feeling–behavior link, and between-session practice signal a cognitive-behavioral orientation.",
+  "takeaway": "Acceptance, values, and committed action together signal ACT: feelings need not change before behavior does.",
   "refs": [
-   "beck2011"
+   "hayes2012",
+   "sommersflanagan2018"
   ]
  },
  {
@@ -177,7 +178,7 @@
   "scored": true,
   "domain": "I",
   "kg": "A",
-  "topic": "Communicating accurate empathy",
+  "topic": "Congruence when asked directly",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -186,21 +187,21 @@
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "Police sergeant Ray Delgado tells consultant Aisha Mensah, \"During the standoff I froze for a few seconds. My partner covered for me. Now I keep wondering whether I can be trusted out there.\" Aisha works from a person-centered orientation. Which response best communicates accurate empathy?",
+  "stem": "Police sergeant Ray Delgado has told consultant Aisha Mensah about freezing for a few seconds during a standoff. Aisha, who is person-centered, has reflected his feelings several times, and he agrees she has them right. Now he says, \"You get it, but you're being careful with me. Straight up, what do you think of me after hearing this?\" Aisha feels real respect for him. Which response best offers the facilitative condition Ray is asking for?",
   "options": [
-   "\"Brief freezing under extreme threat is a common stress response, even among veteran officers.\"",
-   "\"It sounds like you want to feel ready; let's build a breathing routine for calls that escalate.\"",
-   "\"Help me understand what was happening for you in the seconds just before you froze.\"",
-   "\"Since those few seconds, you've been doubting whether you can rely on yourself out there.\""
+   "\"It sounds like you feel ashamed, and worn out from doubting yourself since that night.\"",
+   "\"What was it like for you to tell your partner about those few seconds?\"",
+   "\"So you've gone from questioning that night to questioning whether you still belong out there.\"",
+   "\"I respect you, and hearing how you've faced this has deepened that for me.\""
   ],
   "answer": 3,
   "rationales": [
-   "Normalizing may be accurate and well meant, but reassurance moves away from his felt experience and can signal that his concern should be set aside rather than understood.",
-   "It opens with a brief reflection but quickly turns to a technique. In a person-centered frame, conveying understanding of his experience comes before any problem solving, and the advice shifts the focus to the consultant's agenda.",
-   "An open invitation to explore is respectful, but it asks for details of the event rather than communicating that the consultant already grasps what the event means to him.",
-   "Accurate empathy (Rogers) means sensing the client's inner world and communicating that understanding back. This reflection captures the meaning he has drawn (doubting he can rely on himself) and the ongoing weight of it, which builds the working relationship."
+   "Reflecting feeling conveys empathy, which Ray says he already has (\"You get it\"). Another reflection would confirm his sense that Aisha is holding herself back.",
+   "An open question invites more detail, and nothing in Ray's request calls for that. He has asked Aisha something, and answering with a question would avoid it.",
+   "Tying his concerns together shows that Aisha follows his meaning. Ray agrees she already understands; what he lacks is her own honest reaction.",
+   "Ray is asking for congruence, or genuineness: the person behind the role. Aisha's respect is real and he has asked for her reaction, so stating it openly is consistent with Rogers's view that the helper should be transparent rather than hide behind technique."
   ],
-  "takeaway": "Accurate empathy reflects the client's felt meaning back to them; reassurance, advice, and fact-finding do not.",
+  "takeaway": "When a client understands he's been heard and asks where you stand, genuineness may matter more than another reflection.",
   "refs": [
    "rogers1957",
    "sommersflanagan2018"
@@ -221,21 +222,21 @@
    "level": "collegiate",
    "delivery": "team"
   },
-  "stem": "Consultant Jordan Avery's written philosophy states that the aim of consulting is athlete self-reliance: athletes should learn to use mental skills without depending on the consultant. At a first meeting, a collegiate volleyball coach asks how Jordan will work with the team this season. Which description of Jordan's role is most consistent with that philosophy?",
+  "stem": "Jordan Avery's written philosophy states that athletes open up to someone who shares their daily world, that lasting change usually starts in unplanned moments, and that formal sessions are a supplement. At a first meeting, a collegiate volleyball coach asks how Jordan will work with the team this season. Which description is most consistent with that philosophy?",
   "options": [
-   "\"I'll teach the skills early, then gradually hand responsibility for using them to the players.\"",
-   "\"I'll attend matches and help players settle during timeouts, then debrief with them afterward.\"",
-   "\"I'll offer drop-in sessions so players can come to me whenever a problem starts to build.\"",
-   "\"I'll design an individual routine for each player and review how they're using it each week.\""
+   "\"I'll be around practice and on trips, and most of my work will be brief chats.\"",
+   "\"I'll teach skills early in the season, and players will run them without me by playoffs.\"",
+   "\"I'll work mainly with your staff, and players will hear the ideas from their coaches.\"",
+   "\"I'll see players by appointment, and each one will choose what we work on.\""
   ],
   "answer": 0,
   "rationales": [
-   "A philosophy of practice (Poczwardowski and colleagues) links core beliefs to the consultant's role and methods. A self-reliance aim implies an educational role: teach the skills, then fade the consultant's involvement so athletes own their use.",
-   "Match support and debriefs can be valuable, but if the consultant is the one settling players during timeouts, they learn to rely on the consultant in the moments that matter most, which runs against the stated aim.",
-   "Accessible drop-in support is well meant, but a reactive, consultant-centered service invites players to bring problems to the consultant rather than building their own capacity to handle them.",
-   "Individual routines can be effective, but having the consultant design and monitor them keeps ownership with the consultant. The philosophy calls for transferring that responsibility to the players."
+   "Being present in the team's everyday setting and working through short, informal contacts follows from each of Jordan's stated beliefs. Consultants' roles and methods should flow from their core beliefs about how people change.",
+   "Teaching early and fading out fits a philosophy of athlete self-reliance. Jordan's philosophy puts formal teaching second and values being there when unplanned moments arise.",
+   "Working through coaches suits a philosophy that sees them as the main influence on athletes. Jordan's rests on athletes' trust in the consultant, which this arrangement would give up.",
+   "Scheduled, player-led meetings suit a philosophy of private, self-directed work. Jordan treats formal sessions as a supplement to sharing the daily world of the team."
   ],
-  "takeaway": "The role a consultant describes should follow from their core beliefs; a self-reliance philosophy implies teaching and then handing over responsibility.",
+  "takeaway": "A consultant's delivery style should be traceable to stated beliefs about how people change.",
   "refs": [
    "poczwardowski2004"
   ]
@@ -246,7 +247,7 @@
   "scored": false,
   "domain": "I",
   "kg": "A",
-  "topic": "Explaining a solution-focused process",
+  "topic": "Explaining an interpersonal process approach",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -255,23 +256,23 @@
    "level": "professional",
    "delivery": "virtual"
   },
-  "stem": "In a video call, professional esports player Malik Haddad asks how working with consultant Sofia Lindqvist will help with the tilt he experiences after losing early rounds. Sofia uses a solution-focused approach. Which explanation of her process is most consistent with that approach?",
+  "stem": "In a video call, professional esports player Malik Haddad says that after a lost round he goes silent or snaps at teammates, as he has done for years with anyone he might disappoint. He asks how working with Ottilie Brekke will help. Ottilie uses an interpersonal process approach, which expects a client's patterns to show up in sessions too. Which explanation is most consistent with that approach?",
   "options": [
-   "\"We'll trace the tilt back to its roots so you understand why it started in the first place.\"",
-   "\"We'll identify the beliefs behind the tilt, then test them against what happens in games.\"",
-   "\"We'll get clear on what you want instead, find times you already recover, and build on those.\"",
-   "\"We'll learn to notice the frustration without struggling against it as you keep playing.\""
+   "\"We'll spot rounds when you shook off a loss, and build on what you did then.\"",
+   "\"We'll catch what you tell yourself after a loss, and check how well it fits the facts.\"",
+   "\"We'll notice how you deal with people under strain, including how you deal with me.\"",
+   "\"We'll practice letting the frustration come and go while you keep playing your game.\""
   ],
   "answer": 2,
   "rationales": [
-   "Tracing the origins of a problem reflects insight-oriented approaches. Solution-focused practice deliberately spends little time analyzing a problem's causes.",
-   "Identifying beliefs and testing them against real outcomes is a cognitive-behavioral process. It focuses on the problem's maintaining thoughts rather than on the client's preferred future and existing successes.",
-   "Solution-focused practice (de Shazer) is future- and strengths-oriented: it clarifies the client's preferred outcome, looks for exceptions (times the problem is absent or smaller), and builds on what already works.",
-   "Noticing frustration without struggling against it while staying engaged in play describes an acceptance-based process such as ACT or MAC."
+   "Building on rounds that went better is solution-focused. Ottilie's approach attends to the pattern as it unfolds between people, sessions included.",
+   "Checking self-statements against facts is cognitive-behavioral. Ottilie's approach makes his way of relating, rather than the accuracy of his thoughts, the focus.",
+   "An interpersonal process approach treats the working relationship as a live sample of the client's patterns, so what happens between consultant and client becomes material for change. Telling Malik this now sets accurate expectations.",
+   "Letting frustration come and go describes mindfulness- and acceptance-based work. It targets his inner experience, while Ottilie's approach targets how he relates to others."
   ],
-  "takeaway": "Solution-focused consultants explain the work as building on exceptions and the client's preferred future, not analyzing the problem.",
+  "takeaway": "Interpersonal process work uses what happens between client and consultant as material for change.",
   "refs": [
-   "deshazer1985"
+   "teyber2016"
   ]
  },
  {
@@ -280,7 +281,7 @@
   "scored": true,
   "domain": "I",
   "kg": "A",
-  "topic": "Precontemplation at first meeting",
+  "topic": "Matching a first session to readiness",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -289,21 +290,21 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "A high school basketball coach refers 16-year-old Devon Harris to consultant Rachel Kim because he \"won't do the team's pre-game routine.\" With his parent's permission and Devon's assent in place, Rachel meets him. Devon says the routine is pointless and he sees no reason to change anything. Using the transtheoretical model, which approach to this first session fits best?",
+  "stem": "A high school basketball coach refers 16-year-old Devon Harris to Rachel Kim, saying Devon \"refuses to do any pre-game routine.\" With a parent's permission and Devon's assent in place, Rachel meets him. Devon says that was true last season; since then he has made up his mind that a routine would help, tried a teammate's version once at home, and wants one in place within two weeks. Using the transtheoretical model, which focus for this first session fits Devon best?",
   "options": [
-   "Set a small, specific goal for him to try one part of the routine before this week's game",
-   "Review the pros and cons of the routine with him, then ask him to commit to a trial week",
-   "Build rapport, then ask him to pick one part of the routine he could try this week",
-   "Build rapport and explore his views on game preparation, leaving change plans for later"
+   "Ask what he has heard about pre-game routines and what he makes of them",
+   "Weigh with him what he would gain and lose by using a routine",
+   "Work out how he will keep his routine going on trips and bad days",
+   "Help him settle on a routine and pick the game in which he'll start it"
   ],
   "answer": 3,
   "rationales": [
-   "A small, specific goal is a good action-stage tool, but Devon sees no reason to change. Setting behavioral goals before he is even considering change mismatches his stage and is likely to increase resistance.",
-   "Weighing pros and cons suits someone who is already ambivalent, and asking for a commitment fits preparation. For a precontemplator, both steps move faster than he is ready to go.",
-   "Building rapport is the right start, but moving straight to choosing a part of the routine to try asks for action from someone who does not yet see a reason to change. In precontemplation, the work is understanding his view and raising awareness, not selecting a first step.",
-   "The transtheoretical model matches strategy to stage. Devon sees no reason to change, which marks precontemplation, so the first session should build rapport and gently raise awareness by understanding his perspective, leaving action planning until he is considering change."
+   "Raising awareness without pressure suits precontemplation, which is the Devon the coach describes. Devon's own account is that he has decided and has already tried a routine.",
+   "Weighing pros and cons suits the ambivalence of contemplation. Devon has made up his mind and has a time frame, so this would hold him at a point he has passed.",
+   "Protecting an established habit suits later action and maintenance. Devon does not have a routine in place yet.",
+   "Intending to act very soon and having taken a small step place Devon in preparation, where a specific plan and start point help most. His own report of readiness, rather than the coach's description, should set the session's focus."
   ],
-  "takeaway": "With a precontemplator, match the stage: build rapport and raise awareness before asking for action.",
+  "takeaway": "Let the client's current readiness, not the referral's description, set the starting point.",
   "refs": [
    "prochaska1983",
    "weinberg2024"
@@ -315,7 +316,7 @@
   "scored": true,
   "domain": "I",
   "kg": "A",
-  "topic": "Core beliefs beneath consultant role",
+  "topic": "Levels of a professional philosophy",
   "cognitive": "analysis",
   "difficulty": 2,
   "format": "direct",
@@ -324,21 +325,21 @@
    "level": "na",
    "delivery": "na"
   },
-  "stem": "Two consultants with similar years of experience work with the same university's teams, and both use goal setting and imagery. One presents herself as an expert who diagnoses weaknesses and prescribes fixes; the other presents herself as a collaborator who helps athletes find their own solutions. According to frameworks for a professional philosophy of practice, what best explains this difference in how they relate to clients?",
+  "stem": "Two consultants serve the same university. Their written philosophies list the same core beliefs about people, both name cognitive-behavioral theory, both describe themselves as collaborators with athletes, and both rely on self-talk and imagery. Yet one counts her work done when competition results improve, while the other counts it done when athletes are thriving in and out of sport. In a hierarchical view of professional philosophy, at which level do the two consultants most clearly differ?",
   "options": [
-   "They differ in session structure, such as the length, frequency, and format they use",
-   "They differ in their underlying beliefs about people, change, and the consultant's role",
-   "They differ in how much experience they have, since an expert style develops with practice",
-   "They differ in the demands of the sports and competitive levels their athletes compete at"
+   "Personal core beliefs and values about people",
+   "Goals that each intervention is meant to reach",
+   "Model of practice and role taken with clients",
+   "Techniques and methods used to intervene"
   ],
   "answer": 1,
   "rationales": [
-   "Session length, frequency, and format are delivery choices that follow from a philosophy. They describe how the work is packaged, not why one consultant takes an expert stance and the other a collaborative one.",
-   "Frameworks for a philosophy of practice (Poczwardowski and colleagues) place core beliefs and values about people, behavior change, and the consultant's role at the foundation. Those beliefs shape how a consultant relates to clients even when the techniques are identical.",
-   "The stem says the two have similar years of experience, so experience cannot explain the difference. Expert and collaborative stances are found at every career stage.",
-   "Both consultants serve the same university's teams, so sport and level are held constant. The difference lies in what each believes about clients and the consultant's role."
+   "Core beliefs sit at the base of the hierarchy, and the stem says the two lists are the same. The difference appears in the end each is working toward.",
+   "One aims at competitive results and the other at the whole person's thriving, so they differ in intervention goals. Beliefs, theory, role, and techniques are each described as shared.",
+   "Both describe themselves as collaborators, so the role each takes with athletes is the same. What differs is the outcome that each treats as success.",
+   "Both rely on self-talk and imagery, so their methods match. The same techniques are being put to different ends."
   ],
-  "takeaway": "Same techniques and setting, different roles: the difference lives in core beliefs, the foundation of a philosophy of practice.",
+  "takeaway": "Two consultants can share beliefs, theory, role, and techniques yet differ in what they count as success.",
   "refs": [
    "poczwardowski2004"
   ]
@@ -349,33 +350,33 @@
   "scored": true,
   "domain": "I",
   "kg": "A",
-  "topic": "Transparency about model and fit",
+  "topic": "Acting on a clear mismatch",
   "cognitive": "analysis",
-  "difficulty": 3,
+  "difficulty": 2,
   "format": "vignette",
   "context": {
    "setting": "individual-sport",
    "level": "masters",
    "delivery": "individual"
   },
-  "stem": "Consultant Ben Asante works from a structured cognitive-behavioral model with set goals, agendas, and between-session practice. At an initial meeting, masters marathoner Ingrid Solberg, 58, says she wants open-ended conversations to make sense of what running means to her as she nears the end of her competitive career. What should Ben do first?",
+  "stem": "Ben Asante works from a structured cognitive-behavioral model and has no training in other approaches. At intake, masters marathoner Ingrid Solberg, 58, asked for open-ended conversations about what running means to her as her racing years end. Ben described how he works, and they talked over whether it would suit her. After a week's thought, Ingrid tells him clearly that she still wants the open-ended kind and doesn't want to try his. What should Ben do next?",
   "options": [
-   "Describe how he works and discuss openly whether that fits what Ingrid is seeking",
-   "Explain his model briefly, then start his program and review the fit with her after two sessions",
-   "Adapt to an open-ended, nondirective style for her, since the client's preference should lead",
-   "Refer her to a colleague who offers open-ended work, since her goals differ from his model"
+   "Give her the names of colleagues who are trained in nondirective work",
+   "Explain his structured model and ask how well it suits her aims",
+   "Begin his usual cognitive-behavioral program and review the fit with her in two weeks",
+   "Set his usual structure aside and let her lead their conversations"
   ],
   "answer": 0,
   "rationales": [
-   "A clearly articulated philosophy lets a consultant describe their approach transparently at intake. Discussing fit openly respects Ingrid's informed choice and is the necessary first step before deciding whether to proceed, adapt, or refer.",
-   "Explaining the model is a good start, but beginning the program anyway, when she has already said she wants something different, puts the method ahead of her stated goals and her informed choice. Fit should be discussed before the work begins, not reviewed afterward.",
-   "Responding to client preference is important, but abruptly adopting a nondirective style he is not trained in risks practicing outside his competence and abandons a coherent philosophy of practice.",
-   "A referral may turn out to be right, but making it before he has explained his approach and talked with her about fit is premature; she may value elements of his work or clarify what she wants."
+   "Ben has been transparent, the two have discussed fit, and Ingrid has made an informed choice that lies outside his training. Connecting her with someone competent in what she wants respects both her autonomy and the limits of his competence.",
+   "Explaining the model and discussing fit comes first in such cases, and it has been done. Ingrid took a week to think and gave a clear answer.",
+   "A short trial with a review is reasonable when a client is curious about it. Ingrid says she doesn't want to try his approach.",
+   "Adapting to a client's preference fits a consultant competent in both ways of working. Ben has no training outside his structured model."
   ],
-  "takeaway": "A clear philosophy lets a consultant describe their approach transparently so the client can judge fit before the work begins.",
+  "takeaway": "Once fit has been discussed openly and the answer is no, help the client reach someone who fits.",
   "refs": [
    "poczwardowski2004",
-   "tod2024"
+   "aaspethics2024"
   ]
  },
  {
@@ -384,7 +385,7 @@
   "scored": true,
   "domain": "I",
   "kg": "A",
-  "topic": "Unconditional positive regard",
+  "topic": "Identifying a missing core condition",
   "cognitive": "analysis",
   "difficulty": 2,
   "format": "vignette",
@@ -393,21 +394,21 @@
    "level": "elite",
    "delivery": "virtual"
   },
-  "stem": "Reviewing recordings of virtual sessions with wheelchair tennis player Camila Reyes, a supervisor notices that consultant Theo Nguyen, who identifies as person-centered, becomes warm and animated when Camila reports wins but noticeably cooler and more distant when she describes losses or setbacks. Which of Rogers's conditions is Theo most clearly failing to provide?",
+  "stem": "A supervisor reviews recordings of virtual sessions between wheelchair tennis player Camila Reyes and Theo Nguyen, who identifies as person-centered. Theo is sincerely fond of Camila and equally warm after wins and losses; Camila says so and feels at ease with him. But when she describes shame at letting her coach down, he restates it as anger about the draw, much as he felt in his own playing days, and she often has to correct him. Which of Rogers's conditions is Theo most clearly failing to provide?",
   "options": [
-   "Accurate empathic understanding",
-   "Congruence, or genuineness",
-   "Unconditional positive regard",
-   "Psychological contact"
+   "Psychological contact between consultant and client",
+   "Congruence between what he feels and shows",
+   "Accurate empathy for her frame of reference",
+   "Unconditional positive regard for her as a person"
   ],
   "answer": 2,
   "rationales": [
-   "Empathy concerns understanding the client's inner experience. The pattern described is not mainly a failure to understand Camila; it is acceptance that shifts with how she performs.",
-   "Congruence means the consultant's outward expression matches his inner experience. Nothing suggests Theo is masking his feelings; the problem is that his regard depends on her results.",
-   "Unconditional positive regard (Rogers) is acceptance of the client that does not depend on what she reports or achieves. Warmth that rises with wins and fades with losses communicates conditional worth and can teach Camila to hide setbacks.",
-   "Psychological contact, meaning that the two are in a relationship in which each affects the other, is clearly present. The issue is the conditional quality of Theo's regard."
+   "Psychological contact means the two are in a relationship in which each registers the other. Camila feels at ease and engages with Theo, so contact is present.",
+   "Congruence means the consultant's outward manner matches inner experience. Theo's fondness is sincere, so nothing suggests a front.",
+   "Theo hears Camila's shame as anger because he filters it through his own history, and she has to correct him. Empathic understanding requires sensing her experience as if it were his own without letting his experience take over.",
+   "Unconditional positive regard means acceptance that doesn't depend on how the client performs. Theo is equally warm after wins and losses."
   ],
-  "takeaway": "Warmth that tracks results is conditional regard; unconditional positive regard accepts the person regardless of performance.",
+  "takeaway": "Warmth and sincerity don't guarantee empathy, which means grasping the client's meaning rather than one's own.",
   "refs": [
    "rogers1957"
   ]
@@ -418,7 +419,7 @@
   "scored": true,
   "domain": "II",
   "kg": "A",
-  "topic": "Ecological assessment question",
+  "topic": "Behavioral assessment question",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -427,24 +428,23 @@
    "level": "adolescent",
    "delivery": "individual"
   },
-  "stem": "Consultant Grace Liu takes an ecological systems approach. With his guardian's permission and his assent in place, she begins assessing Mateo Ruiz, a 14-year-old figure skater whose jumps have become inconsistent this season. Which assessment question best reflects Grace's theoretical approach?",
+  "stem": "Fourteen-year-old figure skater Corentin Quiroga has begun turning planned jumps into easier ones at the last moment in practice. With his guardian's permission and Corentin's assent, Grace Liu begins her assessment. Grace works from an operant behavioral perspective and wants to find out what might be maintaining the habit. Which assessment question best fits her perspective?",
   "options": [
-   "\"What goes through your mind as you set up for a jump you've been missing?\"",
-   "\"How have things changed this year among the people in your life on and off the ice?\"",
-   "\"On a scale of 1 to 10, where are your jumps now, and what would one step higher look like?\"",
-   "\"How confident are you, right now, that you can land each jump in your program?\""
+   "\"What goes through your mind as you set up for one of those jumps?\"",
+   "\"What happens right after you turn a jump into an easier one?\"",
+   "\"Which recent practices went a little better, and what was different in them?\"",
+   "\"How do the adults at home and at the rink get along about your skating?\""
   ],
   "answer": 1,
   "rationales": [
-   "Asking about thoughts during setup targets cognitive appraisals, the starting point of a cognitive-behavioral assessment rather than an ecological one.",
-   "An ecological systems approach (Bronfenbrenner) assesses the athlete within interacting settings and relationships, such as family, school, and the rink, so it asks how things have shifted among the people across those settings.",
-   "A scaling question with a next-step follow-up is a solution-focused technique; it tracks progress rather than mapping the athlete's environments.",
-   "Rating confidence for specific jumps assesses task-specific self-efficacy, an individual-level variable, without exploring the systems around the athlete."
+   "Asking about thoughts suits a cognitive perspective. An operant perspective explains the habit by what surrounds and follows it, so thoughts are not Grace's first target.",
+   "Operant theory holds that behavior is maintained by its consequences, such as relief, praise, or escape from a fall. Asking what follows the switch looks for the reinforcer that keeps the habit going.",
+   "Asking about exceptions suits a solution-focused perspective, which builds on what works. Grace wants to know what maintains the habit.",
+   "Asking how home and rink connect suits an ecological perspective. Grace's operant perspective focuses on the events tied to the behavior itself."
   ],
-  "takeaway": "Ecological assessment maps how the athlete's settings (family, school, sport) interact, not just individual thoughts or ratings.",
+  "takeaway": "An operant assessment asks what follows a behavior, because consequences keep it going.",
   "refs": [
-   "bronfenbrenner1979",
-   "tod2024"
+   "sommersflanagan2018"
   ]
  },
  {
@@ -453,7 +453,7 @@
   "scored": true,
   "domain": "II",
   "kg": "A",
-  "topic": "Cognitive-behavioral assessment question",
+  "topic": "Systems assessment question",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -462,23 +462,23 @@
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "Orchestral trumpet player Nadia Petrova tells consultant Samuel Osei that her hands shake and her chest tightens before auditions. Samuel works from a cognitive-behavioral model and wants to understand what keeps these reactions going. Which assessment question best fits his model?",
+  "stem": "Orchestral trumpet player Nadia Petrova tells consultant Samuel Osei that her hands shake before auditions and that her doctor has found no medical cause. She adds that the shaking has become \"a whole thing\" at home and in her section. Samuel works from a systems perspective and wants to understand what keeps the shaking going. Which assessment question best fits his perspective?",
   "options": [
-   "\"When you notice your hands shaking backstage, what do you tell yourself it means?\"",
-   "\"Tell me about an audition when the shaking was milder. What was different that day?\"",
-   "\"How do your family and teachers talk about auditions, and how does that affect you?\"",
-   "\"Which values do you want to bring into the audition room, whatever you're feeling?\""
+   "\"When your hands shake, who notices first, and how do people respond?\"",
+   "\"When your hands shake, what do you tell yourself that it means?\"",
+   "\"When have your hands shaken less, and what was different that day?\"",
+   "\"When you try to stop the shaking, what does the effort cost you?\""
   ],
   "answer": 0,
   "rationales": [
-   "The cognitive model (Beck) holds that emotional and physical reactions are shaped by how a person interprets situations and sensations. Asking what she tells herself the shaking means identifies the automatic thoughts and appraisals that may be maintaining her anxiety.",
-   "Searching for exceptions, times when the problem was smaller, is a solution-focused assessment strategy that builds on what works rather than mapping the thoughts that maintain the problem.",
-   "Asking how family and teachers talk about auditions explores her social system. It can add context, but it is a systems question rather than a cognitive-behavioral one.",
-   "Clarifying values to carry into performance regardless of feelings is an acceptance and commitment strategy, which works on her relationship to inner experience rather than on her appraisals."
+   "A systems perspective looks for the pattern of interaction around a problem: each person's response may help maintain it. Asking who notices and how people respond traces that pattern across home and section.",
+   "Asking about the meaning she gives the symptom suits a cognitive perspective, which places the maintaining factor in her appraisal. Samuel looks for it in interactions.",
+   "Asking when the problem is smaller suits a solution-focused perspective, which looks for exceptions rather than for what maintains a problem.",
+   "Asking about the cost of control suits acceptance and commitment therapy, which targets her struggle with the symptom. Samuel's perspective focuses on what happens among people."
   ],
-  "takeaway": "CBT assessment asks what the client believes a situation or sensation means, linking appraisals to emotions and behavior.",
+  "takeaway": "Systems assessment asks how people's responses to one another keep a pattern going.",
   "refs": [
-   "beck2011"
+   "sommersflanagan2018"
   ]
  },
  {
@@ -487,30 +487,30 @@
   "scored": true,
   "domain": "II",
   "kg": "A",
-  "topic": "Theory of planned behavior assessment",
-  "cognitive": "recall",
-  "difficulty": 1,
+  "topic": "Completing a planned behavior survey",
+  "cognitive": "application",
+  "difficulty": 2,
   "format": "vignette",
   "context": {
    "setting": "team-sport",
    "level": "collegiate",
    "delivery": "organizational"
   },
-  "stem": "A college athletic department asks consultant Elena Vasquez why many athletes skip the injury-prevention warm-up designed by the sports medicine staff. Elena will build her questionnaire and focus-group questions around the theory of planned behavior. Which set of topics should those questions cover?",
+  "stem": "A college athletic department asks Elena Vasquez why many athletes skip the injury-prevention warm-up designed by the sports medicine staff. She is building a survey on the theory of planned behavior. Her draft already asks how worthwhile athletes think the warm-up is, whether they have the time and know-how to do it, and whether they mean to do it this month. Which of the theory's constructs does she still need to cover?",
   "options": [
-   "Which stage of change each athlete is in, from precontemplation to maintenance",
-   "How competent, autonomous, and connected to teammates athletes feel in warm-ups",
-   "How susceptible athletes feel to injury and how severe they think an injury would be",
-   "Athletes' attitudes toward it, what others expect, and how much control they feel they have"
+   "How useful and pleasant athletes judge the warm-up to be",
+   "How easy or difficult athletes expect the warm-up to be",
+   "How strong athletes' intentions are to complete the warm-up",
+   "How much athletes sense that teammates and coaches expect it"
   ],
   "answer": 3,
   "rationales": [
-   "Stages of change come from the transtheoretical model. They describe readiness but are not the determinants of intention specified by the theory of planned behavior.",
-   "Competence, autonomy, and relatedness are the basic psychological needs of self-determination theory, a different motivational framework.",
-   "Perceived susceptibility and severity are constructs from the health belief model, not the theory of planned behavior.",
-   "The theory of planned behavior (Ajzen) holds that attitudes toward the behavior, subjective norms, and perceived behavioral control shape intention, which in turn predicts behavior. Assessment should therefore target these determinants, along with intention itself."
+   "This is the attitude component, which her question about how worthwhile the warm-up is already covers.",
+   "This is perceived behavioral control, which her questions about time and know-how already cover.",
+   "This is intention, which her question about whether athletes mean to do it this month already covers.",
+   "In the theory of planned behavior, attitudes, subjective norms, and perceived behavioral control shape intention. Her draft covers the others, so the perceived expectations of people who matter (subjective norm) are missing."
   ],
-  "takeaway": "TPB assessment targets attitudes, subjective norms, and perceived behavioral control as the drivers of intention.",
+  "takeaway": "Planned behavior needs attitudes, subjective norms, and perceived control to account for intention.",
   "refs": [
    "ajzen1991"
   ]
@@ -521,7 +521,7 @@
   "scored": true,
   "domain": "III",
   "kg": "A",
-  "topic": "ACT conceptualization and plan",
+  "topic": "Choosing the ACT process to plan around",
   "cognitive": "analysis",
   "difficulty": 3,
   "format": "vignette",
@@ -530,21 +530,21 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Assessment with collegiate pole vaulter Amara Diallo shows that she treats thoughts like \"I'll balk again\" as facts, works hard to push them out of her mind, and has begun skipping high-pressure meets. She says she vaults because she loves the challenge. Her consultant, Felix Romero, works from acceptance and commitment therapy (ACT). Which plan best fits an ACT interpretation of these data?",
+  "stem": "Assessment with collegiate pole vaulter Amara Diallo shows that she can watch thoughts like \"I'll balk\" come and go without arguing with them, lets herself feel fear on the runway, and has entered every meet on the schedule. Asked why she vaults, she shrugs: \"I've done it since I was ten. I couldn't tell you what it's for anymore.\" Her consultant, Felix Romero, works from acceptance and commitment therapy (ACT). Which focus should the plan take first?",
   "options": [
-   "Clarify her values first, then return her to meets once the balking thoughts are less frequent",
-   "Weigh the evidence for and against each balking thought, then test it at a practice meet",
-   "Build her willingness to have the thoughts and defuse from them as she returns to meets",
-   "Teach a pre-vault centering routine so that she can clear the thoughts before each attempt"
+   "Practice treating her thoughts as passing words rather than facts",
+   "Practice making room for fear rather than pushing it away",
+   "Clarify what she wants her vaulting to be about and stand for",
+   "Commit to dates for the meets that she would rather avoid"
   ],
   "answer": 2,
   "rationales": [
-   "Values work belongs in an ACT plan, but making her return to meets contingent on the thoughts decreasing keeps the control agenda that ACT targets. In ACT, values-based action proceeds with the thoughts present.",
-   "Weighing evidence and testing a thought is cognitive restructuring. It treats the thought's content as the problem, whereas ACT addresses fusion with the thought rather than its accuracy.",
-   "ACT (Hayes) interprets treating thoughts as facts as cognitive fusion and pushing thoughts away and skipping meets as experiential avoidance. Building willingness and defusion while returning to valued action targets both processes and links to her stated value of loving the challenge.",
-   "A centering routine is a useful pre-performance tool, but using it to clear the thoughts is another attempt to control internal experience, which an ACT conceptualization identifies as part of the problem."
+   "This is cognitive defusion, for a client caught up in her thoughts. Amara already lets hers come and go without arguing.",
+   "This is acceptance, for a client who struggles against her feelings. Amara already lets herself feel fear.",
+   "Amara shows defusion, acceptance, and action but can't say what the action serves. Values clarification is the ACT process missing from the data, and it gives direction to the skills she already has.",
+   "This is committed action, for a client who knows what matters but isn't acting on it. Amara already enters every meet."
   ],
-  "takeaway": "ACT reads 'thoughts as facts' and avoidance as fusion and experiential avoidance, and plans acceptance, defusion, and values-based action.",
+  "takeaway": "Let the data show which ACT process is missing instead of working through them all.",
   "refs": [
    "hayes2012",
    "gardner2007"
@@ -556,7 +556,7 @@
   "scored": true,
   "domain": "III",
   "kg": "A",
-  "topic": "Planning for contemplation stage",
+  "topic": "Planning for the maintenance stage",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -565,21 +565,21 @@
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "Intake data show that firefighter Owen Gallagher sleeps poorly between shifts. He says, \"I know I should change my pre-sleep habits, maybe in the next few months, but I'm not sure it's worth giving up my late-night gaming.\" Using the transtheoretical model to plan, which focus best fits his current stage?",
+  "stem": "Firefighter Owen Gallagher used to play video games until 3 a.m. between shifts. Eight months ago he moved to an earlier bedtime with screens off, and he has kept to it nearly every free night since, sleeping well. He starts at a busier station next month, wants to hold on to what he has, and asks his consultant for a plan. Using the transtheoretical model, what should the plan focus on?",
   "options": [
-   "A detailed sleep schedule with a nightly log, starting tonight, to build the new habits",
-   "Identifying with him the high-risk nights, such as after hard calls, and how to protect sleep",
-   "Setting a firm start date within the next two weeks and telling his crew about the plan",
-   "Exploring with him what he would gain and lose by changing, and what would tip the balance"
+   "Learning how too little sleep affects alertness and decisions on emergency calls",
+   "Weighing what he would gain and lose by changing his bedtime habits",
+   "Choosing a start date and telling his crew about the coming change",
+   "Spotting nights when old habits could return and preparing for them"
   ],
   "answer": 3,
   "rationales": [
-   "A detailed schedule and log are action-stage tools. Owen is still ambivalent and is thinking about change only in the coming months, so an immediate program skips the work his stage calls for.",
-   "Anticipating high-risk situations is relapse-prevention work suited to people who have already changed and are maintaining it. Owen has not yet started.",
-   "Setting a firm date and making a public commitment are preparation-stage strategies for someone intending to act within about a month. Owen's 'maybe in the next few months' and his doubt that it is worth it place him earlier.",
-   "In the transtheoretical model, Owen's intention to change within months, combined with ambivalence, marks contemplation. Decisional balance work, exploring the pros and cons of change and what would shift it, helps resolve that ambivalence and move him toward preparation."
+   "Consciousness raising suits earlier stages, when a person hasn't yet seen a reason to change. Owen changed eight months ago and sees the value.",
+   "A decisional balance suits contemplation, when a person is torn about changing. Owen has already changed and wants to keep it up.",
+   "Setting a date and making a public commitment suit preparation. Owen's new habit is eight months old.",
+   "More than six months of sustained change places Owen in maintenance, where the work is consolidating gains and preventing relapse. A busier station makes it timely to plan for high-risk nights."
   ],
-  "takeaway": "For a client in contemplation, plan around decisional balance and resolving ambivalence, not an immediate action program.",
+  "takeaway": "After six months of change, planning shifts from starting the behavior to protecting it.",
   "refs": [
    "prochaska1983",
    "weinberg2024"
@@ -591,7 +591,7 @@
   "scored": true,
   "domain": "III",
   "kg": "A",
-  "topic": "Feminist conceptualization of context",
+  "topic": "Person-centered conceptualization",
   "cognitive": "analysis",
   "difficulty": 2,
   "format": "vignette",
@@ -600,21 +600,21 @@
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "Leah Brooks, the only woman on her firm's trading desk, tells consultant Hana Ito that she has stopped sharing ideas in strategy meetings because they are \"usually brushed off,\" and she blames herself for \"not being assertive enough.\" Hana works from a feminist approach. Which interpretation of this information best fits that approach?",
+  "stem": "Analyst Leah Brooks has gone quiet in her trading desk's strategy meetings. She tells Hana Ito that junior staff get little airtime there, that \"one bad idea and I'm finished,\" that she feels relief each time she stays silent, and that growing up she was praised when useful and ignored otherwise, \"so I keep the real me out of it.\" Hana works from person-centered theory. Which interpretation of Leah's silence best fits that theory?",
   "options": [
-   "Her silence reflects the desk's norms about whose ideas count, not simply a personal deficit",
-   "Her self-blame reflects an all-or-nothing thinking pattern to examine with her in sessions",
-   "Her silence reflects an assertiveness skills gap that targeted training could help her close",
-   "Her self-blame reflects low confidence built up through setbacks earlier in her career"
+   "She hides who she is to meet conditions set on her worth",
+   "She treats one poor idea as proof that she would fail",
+   "She is rewarded with relief when she stays out of discussions",
+   "She has adapted to a desk where some people's ideas count less"
   ],
   "answer": 0,
   "rationales": [
-   "Feminist approaches hold that the personal is political: individual distress is understood in its sociocultural context, including gender and power. Reading her silence as a response to the desk's norms counters self-blame without denying her agency.",
-   "Examining thinking patterns collaboratively is a cognitive-behavioral conceptualization. It locates the problem in her cognition and can reinforce self-blame by overlooking how the environment responds to her.",
-   "Assertiveness skills may help her later, but framing the issue as her deficit puts the problem entirely inside her. A feminist conceptualization first asks how the context is shaping her behavior.",
-   "Career history may play some part, but this interpretation stays at the individual level and ignores the current, observable pattern of her ideas being brushed off on a desk where she is the only woman."
+   "Person-centered theory holds that people who learn their worth is conditional come to deny parts of themselves to keep others' regard. Leah's history of praise when useful, and keeping \"the real me\" out, fit conditions of worth and the incongruence they create.",
+   "Her \"one bad idea and I'm finished\" could be read as a distorted appraisal, which is the focus of cognitive therapy. Hana's theory looks at conditional regard and the hidden self.",
+   "Relief that strengthens silence is a negative reinforcement reading, which belongs to behavioral theory. Hana's theory centers on self and worth.",
+   "Attention to who gets heard is a power analysis, as in feminist theory. It fits some of the data, but Hana works from person-centered theory."
   ],
-  "takeaway": "Feminist conceptualization places individual struggles in sociocultural context, examining power and gender rather than defaulting to self-blame.",
+  "takeaway": "The same data support several readings; the consultant's theory decides which one organizes the plan.",
   "refs": [
    "sommersflanagan2018"
   ]
@@ -625,7 +625,7 @@
   "scored": true,
   "domain": "III",
   "kg": "A",
-  "topic": "Targeting low perceived control",
+  "topic": "Targeting a weak attitude",
   "cognitive": "analysis",
   "difficulty": 2,
   "format": "vignette",
@@ -634,21 +634,21 @@
    "level": "adult",
    "delivery": "organizational"
   },
-  "stem": "Consultant Raj Patel is helping a tech company plan an employee exercise initiative. His theory of planned behavior survey shows that employees rate exercise as highly worthwhile and believe managers and coworkers approve of it, yet most report weak intentions and say back-to-back meetings leave no realistic window for a workout. Which planning priority best follows from these results?",
+  "stem": "Raj Patel is helping a tech company plan an employee exercise program. His theory of planned behavior survey shows that employees have paid time for it and know how to use the on-site gym, believe that managers and coworkers want them to exercise, and have weak intentions to do so. Most rate working out during the workday as unpleasant and of little benefit to them. Which planning priority best follows from these results?",
   "options": [
-   "A campaign highlighting the health and work-performance benefits of regular exercise",
-   "Protected time on calendars and short workouts that fit between scheduled meetings",
-   "Senior-leader endorsements signaling that the company values employee exercise",
-   "Goal-setting workshops in which employees commit to a specific weekly exercise target"
+   "Shorter workouts and protected calendar time that make exercise easier to fit in",
+   "Enjoyable sample classes and messages on what employees gain from exercise",
+   "Senior leaders and respected coworkers who visibly encourage staff to exercise",
+   "Planning prompts in which staff write down when and where they will exercise"
   ],
   "answer": 1,
   "rationales": [
-   "Attitudes are already favorable, so a benefits campaign targets a determinant that is not the problem.",
-   "In the theory of planned behavior (Ajzen), intention depends on attitudes, subjective norms, and perceived behavioral control. Attitudes and norms are already strong here; the weak link is control, so structural supports such as protected time and short sessions should come first.",
-   "Employees already believe managers and coworkers approve, so more endorsements target subjective norms, which are already high.",
-   "Goal setting can strengthen follow-through once people intend to act, but asking for a weekly commitment does not remove the scheduling barrier that is keeping intentions weak in the first place."
+   "Removing obstacles raises perceived behavioral control, but employees already have paid time and know-how. Control is not what holds intentions down.",
+   "Control and subjective norms are strong, so the weak link is attitude: employees expect exercise to be unpleasant and unrewarding. Positive experience and information on benefits target those beliefs, and through them intention.",
+   "Visible endorsement strengthens subjective norms. Employees already believe that managers and coworkers want them to exercise.",
+   "Writing when and where helps people who intend to act but don't follow through. These employees' intentions are weak, so there is little yet to carry out."
   ],
-  "takeaway": "Use TPB data diagnostically: target whichever determinant (attitude, norm, or perceived control) is weak.",
+  "takeaway": "Aim a planned behavior intervention at the predictor the data show is weak.",
   "refs": [
    "ajzen1991"
   ]
@@ -659,7 +659,7 @@
   "scored": true,
   "domain": "III",
   "kg": "A",
-  "topic": "Circular causality in a team",
+  "topic": "Triangulation in a team system",
   "cognitive": "analysis",
   "difficulty": 3,
   "format": "vignette",
@@ -668,24 +668,23 @@
    "level": "collegiate",
    "delivery": "team"
   },
-  "stem": "A collegiate hockey coach asks consultant Mira Hoffman to \"fix\" the starting goalie's anxiety. Her observations show a repeating pattern: after an early goal against, the coach yells at the defense, defenders play tentatively, more shots reach the goalie, his anxiety rises, and the coach yells louder. Mira works from a systems perspective. Which interpretation should guide her plan?",
+  "stem": "Mira Hoffman, who works from a systems perspective, is asked to help a collegiate hockey team. She learns that the head coach and the starting goalie haven't spoken directly about his playing time in weeks. Each takes complaints to the assistant coach instead, who soothes both and carries messages. Tension eases for a few days after these talks, the disagreement stays unsettled, and the assistant is worn out. Which interpretation should guide Mira's plan?",
   "options": [
-   "The goalie's anxiety drives the cycle, so building his coping skills should come first",
-   "The coach's reactions start the cycle, so changing his bench communication should come first",
-   "Each link sustains the others, so the plan should target the cycle as a whole",
-   "Weak team cohesion drives the cycle, so team-building for the whole roster should come first"
+   "Homeostasis, in which a group pulls back toward its usual way of working",
+   "Enmeshment, in which members become so involved that their roles blur",
+   "Triangulation, in which two people handle their tension through a third person",
+   "Circular causality, in which each person's reaction feeds the other's"
   ],
   "answer": 2,
   "rationales": [
-   "Coping skills may help the goalie, but treating his anxiety as the driver accepts the coach's linear framing. In a systems view his anxiety is one link in the loop, and changing it alone leaves the rest of the pattern intact.",
-   "The coach's behavior is an important link, but naming it as the starting point is still linear cause-and-effect thinking. A systems view sees the yelling as both a cause and a result of what happens on the ice.",
-   "A systems perspective uses circular rather than linear causality: each person's behavior is both a response to and a trigger for the others. Planning around the whole cycle, involving coach, defense, and goalie, is how a systems-oriented consultant interrupts it.",
-   "Team-building works at the group level, but the observations show a specific interaction sequence among coach, defense, and goalie, not low cohesion. A general social intervention would not interrupt the cycle that keeps the goalie's anxiety going."
+   "Homeostasis explains a system drifting back after someone tries to change it. No one here has attempted a change; the striking feature is who carries the conflict.",
+   "Enmeshment describes overly close, blurred boundaries. The coach and goalie are avoiding each other, and their roles remain distinct.",
+   "Coach and goalie route their conflict through the assistant, which lowers tension for a while and lets the issue go unsettled. Seeing a triangle points the plan toward direct talk between the two and relief for the assistant.",
+   "Circular causality describes reactions that feed each other back and forth. The coach and goalie have little direct exchange; both go through the assistant."
   ],
-  "takeaway": "Systems thinking replaces 'who is the cause?' with 'what cycle keeps this going?' and intervenes on the cycle.",
+  "takeaway": "When two people send their conflict through a third, work toward direct contact between the two.",
   "refs": [
-   "sommersflanagan2018",
-   "williams2020"
+   "sommersflanagan2018"
   ]
  },
  {
@@ -696,31 +695,31 @@
   "kg": "A",
   "topic": "Plan consistent with philosophy",
   "cognitive": "analysis",
-  "difficulty": 3,
+  "difficulty": 2,
   "format": "vignette",
   "context": {
    "setting": "team-sport",
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "Consultant Zoe Adler's written philosophy states that performance problems are maintained by how athletes interpret events and that her role is to help athletes become skilled at questioning those interpretations themselves. After assessing professional soccer player Luis Ortega, who reports harsh self-criticism after mistakes, she is drafting his plan. Which plan is most consistent with her philosophy of practice?",
+  "stem": "Zoe Adler's written philosophy states that her role in season is that of an expert who supplies tools athletes can use the same day, and that work on how they think belongs in the off-season. In the middle of a playoff run, professional soccer player Luis Ortega reports harsh self-criticism after mistakes and wants something for tomorrow's match. Which plan is most consistent with Zoe's philosophy of practice?",
   "options": [
-   "Teach Luis to log his post-mistake thoughts and weigh the evidence for and against them",
-   "Teach Luis to notice his self-critical thoughts and let them pass without engaging them",
-   "Give Luis a set of confident statements to repeat after mistakes in place of the criticism",
-   "Review his mistakes with him on video, then build a reset routine he can use on the pitch"
+   "Give Luis a short phrase to say to himself after each mistake",
+   "Have Luis log his self-criticism and weigh the evidence for it",
+   "Train Luis to observe his self-criticism without reacting to it",
+   "Help Luis talk through what his self-criticism means to him"
   ],
   "answer": 0,
   "rationales": [
-   "Her philosophy names interpretations as the maintaining factor and the consultant's role as teaching athletes to examine them. Teaching Luis to record and evaluate his own thoughts (cognitive restructuring, Beck) applies both beliefs directly, so the plan follows from the philosophy.",
-   "Noticing and letting thoughts pass is an acceptance-based strategy. It can reduce the grip of self-criticism, but it deliberately avoids evaluating the thoughts, which is the skill her philosophy says she is there to teach.",
-   "Replacement statements target his thinking, but the consultant supplies the new content instead of teaching Luis to question his interpretations, so the plan does not build the self-evaluation skill her philosophy emphasizes.",
-   "Video review and a reset routine are useful behavioral tools, but they work on what he does after mistakes rather than on the interpretations her philosophy identifies as the source of the problem."
+   "A ready-made self-talk phrase is a same-day tool supplied by an expert, which is how Zoe defines her in-season role. Plans should follow from the consultant's philosophy, including its view of timing and role.",
+   "Logging and evaluating thoughts is cognitive restructuring, which takes repeated practice and works on how he thinks. Zoe's philosophy saves that for the off-season.",
+   "Training a new stance toward thoughts is mindfulness work built up over weeks. Luis wants something for tomorrow, and Zoe's philosophy calls for same-day tools.",
+   "Exploring personal meaning suits a person-centered philosophy. Zoe defines her in-season role as supplying tools rather than exploring how athletes think."
   ],
-  "takeaway": "A consistent plan follows from the consultant's beliefs about what maintains problems and what the consultant's role is.",
+  "takeaway": "A philosophy of practice guides not just which techniques to use but when to use them.",
   "refs": [
    "poczwardowski2004",
-   "beck2011"
+   "hatzigeorgiadis2011"
   ]
  },
  {
@@ -729,8 +728,8 @@
   "scored": true,
   "domain": "IV",
   "kg": "A",
-  "topic": "Designing a behavioral experiment",
-  "cognitive": "application",
+  "topic": "Coping cards after restructuring",
+  "cognitive": "analysis",
   "difficulty": 2,
   "format": "vignette",
   "context": {
@@ -738,21 +737,21 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Collegiate diver Bianca Moretti believes, \"If I don't feel completely calm on the board, I'll miss the dive.\" She now repeats her breathing routine until she feels calm, often delaying long after her coach signals her to go. Her consultant, Isaac Levin, uses cognitive-behavioral methods and wants to test this belief in practice. Which next step is most consistent with that approach?",
+  "stem": "Collegiate diver Bianca Moretti believed, \"If I'm not calm, I'll miss the dive.\" Over six weeks Isaac Levin, who uses cognitive-behavioral methods, had her record the thought, weigh the evidence for it, and test it by diving while nervous, in practice and at two small meets. Away from competition she now says with conviction, \"I can dive well nervous.\" Just before her dives at meets, though, the old idea crowds in and she \"can't call up what we worked out.\" What should Isaac do next?",
   "options": [
-   "Help her shorten the breathing routine so that she reaches calm sooner before each dive",
-   "Review evidence with her that many divers score well without feeling calm on the board",
-   "Teach her a cue word to refocus on the takeoff whenever she notices nerves on the board",
-   "Have her predict, then perform, practice dives while still nervous, and compare results"
+   "Have her record the thoughts she has at the pool this week",
+   "Have her weigh what supports and contradicts her belief about calm",
+   "Have her predict and then test how she dives while nervous",
+   "Have her write her conclusion on a card that she reads poolside"
   ],
   "answer": 3,
   "rationales": [
-   "Making the routine more efficient still treats feeling calm as a requirement. It keeps the safety behavior in place, so the belief that she must feel calm to dive well never gets tested.",
-   "Discussing evidence is a cognitive-behavioral move, but it is verbal rather than experiential. The consultant wants to test the belief in practice, which calls for a behavioral experiment.",
-   "A refocusing cue can help attention, but it does not test her prediction about what happens when she dives without feeling calm, so the belief itself goes unexamined.",
-   "A behavioral experiment (Beck) tests a belief directly: the client states a prediction, acts without the safety behavior (here, diving while still nervous), and compares the outcome with the prediction. Disconfirming evidence from her own experience is more persuasive than reassurance."
+   "Recording thoughts helps identify what a client is thinking. The thought has been identified, and Bianca reports exactly what crowds in at meets.",
+   "Weighing evidence helps when the client still believes the thought. Bianca has done this and is convinced of the new conclusion.",
+   "A behavioral experiment tests a belief that talking hasn't shifted. Bianca has run those dives, at meets too, and is convinced; her trouble is recall under pressure.",
+   "Bianca has reached and believes a new conclusion but can't retrieve it at meets. A coping card is the cognitive-behavioral tool for bringing a hard-won conclusion into the situation where it's needed."
   ],
-  "takeaway": "Behavioral experiments test a belief by having the client predict, act without safety behaviors, and compare the results.",
+  "takeaway": "If the new belief is sound but hard to recall under pressure, support retrieval instead of repeating the analysis.",
   "refs": [
    "beck2011"
   ]
@@ -763,32 +762,33 @@
   "scored": true,
   "domain": "IV",
   "kg": "A",
-  "topic": "Solution-focused scaling follow-up",
+  "topic": "Solution-focused coping question",
   "cognitive": "application",
-  "difficulty": 1,
+  "difficulty": 2,
   "format": "vignette",
   "context": {
    "setting": "para-sport",
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "During a session, wheelchair basketball player Kofi Boateng rates his confidence at the free-throw line as 4 out of 10. His consultant, Elif Demir, uses a solution-focused approach. Which follow-up to the rating is most consistent with how that approach uses scaling questions?",
+  "stem": "Wheelchair basketball player Kofi Boateng rates his confidence at the free-throw line 1 out of 10, though the rest of his game and his life are going well. Elif Demir, who uses a solution-focused approach, has asked him to picture the problem solved, to describe one point higher, and to recall any better spell. To each he answers, \"I've got nothing.\" He still stays late to shoot after every practice. Which question best fits the approach now?",
   "options": [
-   "\"What would a 10 look like, and how will you get there this week?\"",
-   "\"What would you notice yourself doing differently at a 5?\"",
-   "\"When did your confidence at the line first start to slip?\"",
-   "\"What thoughts tend to go through your mind at a 4?\""
+   "\"What would you notice yourself doing if you were one point higher?\"",
+   "\"How have you managed to keep going through a stretch this hard?\"",
+   "\"When has your shooting been even slightly better than it is now?\"",
+   "\"If this were solved overnight, what would you notice first tomorrow?\""
   ],
   "answer": 1,
   "rationales": [
-   "Describing a 10 borrows solution-focused language about the preferred future, but asking how to reach it this week jumps to the top of the scale in one leap. Solution-focused scaling uses the rating to define the next small, achievable step, so the move to a 5 is the better follow-up here.",
-   "Solution-focused scaling (de Shazer) uses the client's own rating to define one small next step in concrete, observable terms. Asking what he would notice himself doing at a 5 keeps the conversation on progress and makes change feel achievable.",
-   "Exploring when the problem began is problem-history work; solution-focused consultants spend little time on a problem's origins.",
-   "Assessing the thoughts that accompany low confidence is a cognitive-behavioral move. It focuses on what maintains the problem rather than on signs of progress."
+   "A next-point question helps a client define a small step. Kofi has just been asked this and could not answer.",
+   "When a client can't see exceptions or a better future, solution-focused practice turns to coping questions. Kofi's extra shooting is a strength, and this question draws out what sustains it.",
+   "An exception question finds times the problem is smaller. Elif has asked, and Kofi could recall none.",
+   "The miracle question helps a client picture a preferred future. Kofi has been asked to picture the problem solved and came up empty."
   ],
-  "takeaway": "In solution-focused work, a scaling rating is a springboard to the next small, observable step.",
+  "takeaway": "When exceptions and future pictures come up empty, ask how the client has coped.",
   "refs": [
-   "deshazer1985"
+   "deshazer1985",
+   "sommersflanagan2018"
   ]
  },
  {
@@ -797,7 +797,7 @@
   "scored": true,
   "domain": "IV",
   "kg": "A",
-  "topic": "Feminist empowerment in a team session",
+  "topic": "Respecting a team's chosen focus",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -806,21 +806,21 @@
    "level": "collegiate",
    "delivery": "team"
   },
-  "stem": "During a team session, players on a collegiate women's ice hockey team say they receive far less ice time and worse practice slots than the men's team. They feel powerless about it, though several say they would push for change if they knew how. Their consultant, Naomi Barrett, works from a feminist approach. Which response during the session is most consistent with that approach?",
+  "stem": "Naomi Barrett, who works from a feminist approach, has supported a collegiate women's ice hockey team that gets worse practice slots than the men's team. Last month the players named the inequity, planned their case, and presented it to the athletic director, who will answer in two weeks. Today they say there is nothing more to do until then, and they want to spend the hour on Saturday's opponent. Which response is most consistent with Naomi's approach?",
   "options": [
-   "Acknowledge their frustration, then guide them back to the controllables for upcoming games",
-   "Raise the inequity with the athletic director herself, then report back to the team on it",
-   "Validate the inequity as real and help them plan how to raise it through proper channels",
-   "Explore how each player's beliefs about the situation are adding to their sense of powerlessness"
+   "Examine how the rules of their program affect how they see themselves",
+   "Work out who will raise the practice slots, with whom, and how",
+   "Focus the session on what they can control in their upcoming game",
+   "Offer to speak to the athletic director about the practice slots"
   ],
   "answer": 2,
   "rationales": [
-   "Focusing on controllables is a common performance strategy, but steering away from a real inequity treats it as a distraction and leaves the players' sense of powerlessness untouched.",
-   "Advocacy has a place in feminist practice, but taking the issue up on the players' behalf, when they have said they want to act themselves, rescues them rather than empowering them and keeps the power with the consultant.",
-   "Feminist approaches validate that clients' distress can reflect real structural inequities and emphasize empowerment: helping clients recognize their power and act on their own behalf. Supporting the players to raise the issue themselves does both.",
-   "Examining beliefs is a cognitive-behavioral move. Here it risks locating the problem in the players' thinking when the inequity they describe is an external, structural one."
+   "Consciousness raising helps people connect personal distress to unequal conditions. These players named the inequity a month ago and acted on it.",
+   "Planning collective action empowers a team that is ready to act. The case has been planned and presented, and an answer is due.",
+   "Feminist practice treats clients as the experts on their own needs and shares power over the agenda. The players have acted on the inequity, are waiting on a set date, and have chosen how to use the hour.",
+   "Advocacy with clients' agreement can fit a feminist approach when their own voice has been shut out. These players were heard, and speaking for them now would take over a process that they're leading."
   ],
-  "takeaway": "Feminist practice validates real inequities and empowers clients to act for themselves, rather than reframing the issue away or rescuing them.",
+  "takeaway": "Empowerment includes honoring a group's own decision about when to act and when to move on.",
   "refs": [
    "sommersflanagan2018"
   ]
@@ -831,30 +831,30 @@
   "scored": true,
   "domain": "IV",
   "kg": "A",
-  "topic": "Guided discovery in restructuring",
-  "cognitive": "application",
-  "difficulty": 2,
+  "topic": "When an automatic thought is accurate",
+  "cognitive": "analysis",
+  "difficulty": 3,
   "format": "vignette",
   "context": {
    "setting": "tactical",
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "After one poor training flight, military flight student Rohan Mehta tells consultant Dana Whitaker, \"I'm definitely going to wash out of this program.\" Dana is using cognitive restructuring and wants Rohan to learn to reappraise thoughts like this on his own. Which next step is most consistent with that technique?",
+  "stem": "Military flight student Rohan Mehta tells Dana Whitaker, \"I could wash out of this program.\" Dana, who uses cognitive methods, goes through his record with him: he has failed two check rides, and one more failure ends his training. They agree the thought is accurate. Rohan doesn't see it as a verdict on himself; he says he just has no idea how to organize the ten days before his next ride. What should Dana do next?",
   "options": [
-   "Ask him what in his training record supports and contradicts that prediction",
-   "Point out the catastrophizing and offer him a more balanced statement to rehearse",
-   "Invite him to notice the thought without judgment and refocus on his values",
-   "Have him use a confident self-talk cue each time the prediction comes to mind"
+   "Turn to problem solving and lay out his preparation time",
+   "Ask him what in his record supports and contradicts the thought",
+   "Ask him what the thought would mean about him if it came true",
+   "Set up an experiment that tests whether the thought is accurate"
   ],
   "answer": 0,
   "rationales": [
-   "Cognitive restructuring in CBT (Beck) uses guided discovery: Socratic questions about the evidence for and against an automatic thought help the client reach a more balanced appraisal himself, which builds the skill Dana wants him to use on his own.",
-   "Naming the distortion and offering a balanced alternative is a recognizable restructuring step, but the consultant supplies the answer. Rohan learns her reappraisal rather than how to reach one himself.",
-   "Noticing a thought nonjudgmentally and returning to values is an acceptance-based (ACT) strategy, which changes his relationship to the thought rather than evaluating its accuracy.",
-   "A self-talk cue can help in the moment, but it swaps one unexamined statement for another. Restructuring aims for balanced, evidence-based thinking that he arrives at by examining the thought."
+   "When an automatic thought proves accurate, cognitive therapy moves from evaluating it to solving the problem it points to. Rohan's difficulty is organizing ten days, and he isn't drawing a harsher conclusion about himself.",
+   "Weighing evidence suits a thought that may be distorted. Dana and Rohan have gone through the record and agree the thought is accurate.",
+   "Tracing the meaning of a thought, as in the downward arrow, helps when a deeper self-judgment drives distress. Rohan says he doesn't see this as a verdict on himself.",
+   "A behavioral experiment tests a belief whose truth is uncertain. The record has already shown that this thought is accurate."
   ],
-  "takeaway": "Cognitive restructuring examines the evidence for a thought through guided discovery, not by decree or affirmation.",
+  "takeaway": "If a worrying thought checks out as true and carries no distorted meaning, solve the problem.",
   "refs": [
    "beck2011"
   ]
@@ -865,30 +865,30 @@
   "scored": true,
   "domain": "IV",
   "kg": "A",
-  "topic": "Cognitive defusion technique",
+  "topic": "Matching an ACT technique",
   "cognitive": "application",
-  "difficulty": 1,
+  "difficulty": 2,
   "format": "vignette",
   "context": {
    "setting": "individual-sport",
    "level": "masters",
    "delivery": "individual"
   },
-  "stem": "Midway through races, masters triathlete Gwen Holloway, 61, gets caught up in the thought \"I'm too old for this,\" and her pace drops. Her consultant, Pavel Novak, uses acceptance and commitment therapy and wants to teach her cognitive defusion. Which technique best fits that aim?",
+  "stem": "Masters triathlete Gwen Holloway, 61, has medical clearance and no injury. Late in races she tenses up and battles the ordinary burn in her legs, trying to make it stop, and her pace drops. She says that her thoughts don't bother her, that her mind stays on the race, and that she knows just why she competes. Pavel Novak uses acceptance and commitment therapy. Which technique best fits what Gwen describes?",
   "options": [
-   "Listing evidence that she is still fit and competitive in her age group",
-   "Saying \"Stop\" silently and switching to a confident cue word instead",
-   "Turning her attention to her stroke and breathing as soon as the thought shows up",
-   "Restating it as \"I'm having the thought that I'm too old\" and carrying on"
+   "Saying \"I'm having the thought that\" before what her mind tells her",
+   "Naming three sights and sounds around her at each kilometer",
+   "Writing down what she wants to stand for as a competitor",
+   "Breathing around the sensations and letting them stay as she runs"
   ],
   "answer": 3,
   "rationales": [
-   "Gathering counterevidence is cognitive restructuring. It disputes the thought's content, whereas defusion leaves the content alone and changes her relationship to it.",
-   "Thought stopping followed by a replacement cue tries to suppress the thought, which ACT views as experiential control that can make thoughts more persistent.",
-   "Shifting attention to the task can help, but using it to get away from the thought is distraction rather than defusion. Defusion means seeing the thought as a thought while it is present.",
-   "Cognitive defusion in ACT (Hayes) helps a person see a thought as a passing mental event rather than a literal truth. Prefacing it with 'I'm having the thought that…' creates that distance without disputing or suppressing it, so she can keep racing."
+   "This is a defusion technique for a client caught up in thoughts. Gwen says her thoughts don't bother her.",
+   "This is a present-moment technique for a client whose attention drifts. Gwen says her mind stays on the race.",
+   "This is a values technique for a client unsure what the effort serves. Gwen knows just why she competes.",
+   "Gwen's difficulty is the struggle to get rid of ordinary discomfort. Acceptance, or willingness, means making room for such sensations while continuing to act, which frees the effort that she spends fighting them."
   ],
-  "takeaway": "Defusion changes the client's relationship to a thought by seeing it as a thought, without disputing or suppressing it.",
+  "takeaway": "Pick the ACT technique for the process that's stuck: thoughts, attention, values, or struggle with sensations.",
   "refs": [
    "hayes2012"
   ]
@@ -899,30 +899,30 @@
   "scored": true,
   "domain": "IV",
   "kg": "A",
-  "topic": "Responding to relapse in TTM",
-  "cognitive": "application",
-  "difficulty": 2,
+  "topic": "Finding the missing process of change",
+  "cognitive": "analysis",
+  "difficulty": 3,
   "format": "vignette",
   "context": {
    "setting": "exercise-health",
    "level": "adult",
    "delivery": "individual"
   },
-  "stem": "Andre Lefebvre exercised four times a week for eight months until a family move disrupted his routine three weeks ago. He tells consultant Lucia Ferraro that he feels like a failure but wants to restart next week. Applying the transtheoretical model, what is the most appropriate response in this session?",
+  "stem": "Andre Lefebvre began exercising four times a week two months ago. He sets out his gear with phone alerts on, trains with his sister on most days, and buys himself a record after each full week. The workouts he still misses all follow tense work calls, when he turns on the television to settle himself. Lucia Ferraro is using the transtheoretical model's processes of change. Which addition best supplies the process missing from his plan?",
   "options": [
-   "Revisit his reasons for exercising with a decisional balance exercise before planning a restart",
-   "Set a weekly target that matches his old routine so that he picks up where he left off",
-   "Normalize the lapse as common in change and plan his restart around strategies that worked",
-   "Explore his sense of failure first, and leave restart planning for a later session"
+   "Post reminders to exercise where he'll see them each evening",
+   "Arrange for a friend to join him at his weekly workouts",
+   "Swap his usual way of unwinding after work for a brisk walk",
+   "Earn a small treat for each workout that he completes"
   ],
   "answer": 2,
   "rationales": [
-   "Decisional balance suits clients who are still ambivalent. Andre already wants to restart next week, so going back to weighing reasons misreads his readiness and slows him down.",
-   "Returning straight to his old volume ignores the disruption and his sense of failure; an ambitious target after a lapse raises the risk of another setback. Restarts usually build back gradually.",
-   "The transtheoretical model treats lapse and relapse as a normal part of change, often with recycling through stages. Normalizing the lapse reduces self-blame, and planning around strategies that worked before matches his readiness to act.",
-   "Attending to his feelings matters, but postponing planning when he is ready to restart next week misses the opportunity. Normalizing the lapse can address the failure feeling and planning can happen in the same session."
+   "Reminders are stimulus control, which his gear and phone alerts already provide. The missed workouts come from how he settles himself, not from forgetting.",
+   "A workout partner is a helping relationship, which he already has in his sister.",
+   "Counterconditioning means substituting a healthier response for the one that competes with the new behavior. Television is how Andre settles after tense calls, and a brisk walk can take its place; cues, support, and rewards are already covered.",
+   "Rewards are reinforcement management, which his record for each full week already provides."
   ],
-  "takeaway": "TTM treats relapse as part of change: normalize it, match the client's current readiness, and re-engage proven strategies.",
+  "takeaway": "Compare the processes of change already in use with the pattern of slips to see which one is missing.",
   "refs": [
    "prochaska1983"
   ]
@@ -933,7 +933,7 @@
   "scored": true,
   "domain": "IV",
   "kg": "A",
-  "topic": "Person-centered shift during delivery",
+  "topic": "Following a client's stated wish",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -942,23 +942,24 @@
    "level": "collegiate",
    "delivery": "individual"
   },
-  "stem": "Partway through a planned imagery session, collegiate rower Imani Carter becomes tearful and says she can't concentrate because her father was just diagnosed with a serious illness. She shows no signs of risk to herself. Her consultant, Erik Sandberg, works from a person-centered orientation. What is the most consistent next move?",
+  "stem": "Collegiate rower Imani Carter arrives for a planned imagery session and tears up, saying her father was diagnosed with a serious illness on Monday. Erik Sandberg, who is person-centered, listens, reflects what he hears, and asks what she would like from today. Imani shows no signs of risk. She says she has talked with family and a campus counselor every day, doesn't want to go over it again, and would love \"an hour of just rowing in my head.\" What should Erik do next?",
   "options": [
-   "Acknowledge her news briefly, then offer a shorter imagery script so the session still helps",
-   "Set the imagery aside and reflect what she is feeling, letting her lead the conversation",
-   "Acknowledge her distress and give her information about counseling services for grief",
-   "Help her plan how to balance visits to her father with her training and classes"
+   "Reflect what she is feeling and give her room to talk",
+   "Guide her through the imagery session that they had planned",
+   "Give her the details of the campus counseling service",
+   "Help her work out how to fit family visits around training"
   ],
   "answer": 1,
   "rationales": [
-   "Shortening the script is a considerate adjustment, but it still puts the planned agenda ahead of what she has brought. A person-centered consultant follows the client's immediate experience.",
-   "Person-centered practice (Rogers) follows the client's lead and offers empathy, acceptance, and genuineness. When she brings something this significant, setting the plan aside and reflecting her feelings is the most consistent response.",
-   "Sharing counseling information may be useful later, but she shows no risk and is having a normal reaction to hard news. Moving to resources now redirects her before she has been heard.",
-   "Practical planning may help eventually, but it shifts to problem solving that the consultant leads, rather than staying with her emotional experience as a person-centered orientation calls for."
+   "Erik has already listened and reflected, and Imani says she doesn't want to go over it again. Steering her back to it would put his idea of what she needs ahead of hers.",
+   "Person-centered work trusts the client to know what she needs. Imani has been heard, has support, and has plainly asked for the imagery, so going ahead with it is following her lead.",
+   "Offering a counseling contact helps a client who lacks support or asks for it. Imani is already seeing a campus counselor daily and shows no signs of risk.",
+   "Practical planning helps a client who is torn over logistics. Imani raises no such difficulty and has said what she wants from the hour."
   ],
-  "takeaway": "When a client brings something important, a person-centered consultant sets the agenda aside and follows her lead with empathy.",
+  "takeaway": "Following the client's lead can mean going ahead with the planned skill when that is what they ask for.",
   "refs": [
-   "rogers1957"
+   "rogers1957",
+   "sommersflanagan2018"
   ]
  },
  {
@@ -967,32 +968,33 @@
   "scored": true,
   "domain": "IV",
   "kg": "A",
-  "topic": "Amplifying exceptions",
-  "cognitive": "application",
-  "difficulty": 2,
+  "topic": "Choosing a solution-focused task",
+  "cognitive": "analysis",
+  "difficulty": 3,
   "format": "vignette",
   "context": {
    "setting": "team-sport",
    "level": "professional",
    "delivery": "individual"
   },
-  "stem": "Professional softball pitcher Rosa Jimenez says, \"Once I walk a batter, I always fall apart.\" Reviewing game charts with her, consultant Will Thornton notices two recent games in which she walked a batter and then retired the side in order. Will uses a solution-focused approach. Which next step is most consistent with that approach?",
+  "stem": "Professional softball pitcher Rosa Jimenez says that after walking a batter she falls apart. At their third session, game charts bear her out: across eleven outings there is no exception. Each time she has responded the same way, stepping off the mound, lecturing herself, and throwing harder. Rosa wants a task for this week's games. Will Thornton uses a solution-focused approach. Which task best fits what they know?",
   "options": [
-   "Ask what she did differently in those two games and how she could do more of it",
-   "Explore with her when the pattern began and what earlier experiences may be driving it",
-   "Work with her to build a new reset routine to replace the habits she uses after walks",
-   "Point out that \"always\" is an overgeneralization and have her dispute the belief"
+   "Do something different after a walk, even if it seems odd",
+   "Do more of what she did in outings that went better",
+   "Notice what in her pitching she would like to keep happening",
+   "Predict before each outing how it will go after a walk, and check"
   ],
   "answer": 0,
   "rationales": [
-   "Solution-focused practice (de Shazer) looks for exceptions, times the problem did not happen, and helps the client identify and repeat what she was already doing that worked.",
-   "Tracing the origins of the pattern is problem-focused, insight-oriented work that solution-focused consultants deliberately avoid, however collaboratively it is done.",
-   "A new routine may help eventually, but it bypasses solutions she has already shown she can produce; solution-focused work builds on existing strengths first.",
-   "Labeling \"always\" as an overgeneralization and disputing it is cognitive restructuring. It may draw on the same games, but through a cognitive-behavioral rather than solution-focused lens."
+   "With no exceptions and the same unhelpful response repeated, solution-focused practice follows the rule that if something isn't working, do something different. De Shazer's \"do something different\" task breaks the pattern without analyzing its cause.",
+   "Doing more of what works needs exceptions that the client can repeat. The charts show none in eleven outings.",
+   "Noticing what she wants to continue is the formula first-session task, useful when the complaint is vague. This is the third session, and the complaint is specific.",
+   "Prediction tasks help when good outings occur but the client can't explain them. Rosa's charts show no good outings after a walk."
   ],
-  "takeaway": "Solution-focused consultants find exceptions and help clients do more of what already works.",
+  "takeaway": "Solution-focused tasks follow the data: repeat what works, and when nothing has worked, do something different.",
   "refs": [
-   "deshazer1985"
+   "deshazer1985",
+   "sommersflanagan2018"
   ]
  },
  {
@@ -1001,7 +1003,7 @@
   "scored": true,
   "domain": "IV",
   "kg": "A",
-  "topic": "Constructive post-race evaluation",
+  "topic": "Orlick and Partington's elements",
   "cognitive": "application",
   "difficulty": 2,
   "format": "vignette",
@@ -1010,21 +1012,21 @@
    "level": "elite",
    "delivery": "individual"
   },
-  "stem": "After a disappointing World Cup race, elite cross-country skier Freya Lind dwells only on her errors and has avoided reviewing the race. Her consultant, Carlos Mendes, grounds his work in Orlick's research-based elements of excellence. In their debrief a few days later, which approach best reflects that model?",
+  "stem": "Freya Lind, an elite cross-country skier, reaches each start through a settled warm-up routine, knows her focus cues for every section of the course, and writes down the lessons after each race. When something unexpected happens, such as a broken pole or a late course change, she stays rattled for several kilometers. Her consultant, Carlos Mendes, builds on Orlick and Partington's mental links to excellence. Which element should they practice next?",
   "options": [
-   "Let her decide when to review the race, and use this debrief to plan her recovery block",
-   "Review her split times with her, then pinpoint the errors that cost her the most time",
-   "Set process goals with her for the next race so that her attention turns to what's ahead",
-   "Guide her to name what went well, what to adjust, and the lessons to take into training"
+   "A pre-race plan for her warm-up and the final minutes before the start",
+   "A race plan with focus cues for each section",
+   "An evaluation plan for drawing lessons from races",
+   "A distraction control plan for getting back on task quickly"
   ],
   "answer": 3,
   "rationales": [
-   "Respecting her timing is well meant, but she is already avoiding the review. Orlick's model treats constructive evaluation as a core element, so deferring it indefinitely leaves her focus on errors unchallenged.",
-   "Split data are useful, but a review aimed only at the costliest errors reinforces the error-focused dwelling she already shows instead of the balanced evaluation the model calls for.",
-   "Forward-looking process goals matter, but setting them without first drawing lessons from this race skips the evaluation step that should inform them.",
-   "Orlick's elements of excellence include constructive evaluation: after each performance, identify what went well, what needs adjusting, and the lessons to carry forward. This balances her error focus and turns the race into usable learning."
+   "A precompetition plan is one of the elements, and Freya already has a settled warm-up routine. Her difficulty arises during races.",
+   "A competition focus plan is one of the elements, and Freya knows her cues for every section. Those cues don't cover what to do when something goes wrong.",
+   "Constructive evaluation is one of the elements, and Freya already writes down lessons after each race.",
+   "Successful Olympians in Orlick and Partington's study had practiced ways to refocus after distractions. Freya's preparation, focus cues, and evaluation are in place; what she lacks is a rehearsed way back when things go wrong."
   ],
-  "takeaway": "Constructive evaluation balances what went well with what to adjust and turns each performance into lessons for training.",
+  "takeaway": "Check which mental link is missing before adding more of those that the athlete already has.",
   "refs": [
    "orlick1988"
   ]
@@ -1035,8 +1037,8 @@
   "scored": true,
   "domain": "IV",
   "kg": "A",
-  "topic": "Developing champion characteristics",
-  "cognitive": "application",
+  "topic": "How champions' characteristics develop",
+  "cognitive": "analysis",
   "difficulty": 2,
   "format": "vignette",
   "context": {
@@ -1044,21 +1046,21 @@
    "level": "youth",
    "delivery": "organizational"
   },
-  "stem": "Consultant Thandiwe Mokoena is leading a workshop for youth club coaches, several of whom say mental strengths such as confidence, focus, and coping with pressure are \"things kids either have or don't.\" Drawing on research into the psychological characteristics of Olympic champions, which message should she emphasize?",
+  "stem": "Thandiwe Mokoena consults with coaches at a youth club who want players to develop composure. Her observations show that the coaches stay calm on the sideline, give warm support, and expect full effort. Players admire how calm their coaches are but say they have no idea how to do it themselves; the coaches had assumed it would rub off. Drawing on research into how Olympic champions' psychological characteristics developed, which coach action should she help them add?",
   "options": [
-   "These strengths are fairly stable by adolescence, so coaches should prioritize screening for them",
-   "These strengths emerge mainly through elite competition, so youth coaches can focus on physical skills",
-   "These strengths develop over years with help from coaches and parents, so coaches can foster them",
-   "These strengths are best taught by a sport psychology specialist, so coaches should refer athletes"
+   "Model the calm behavior that they want to see from players",
+   "Give players more encouragement and emotional support after losses",
+   "Teach players composure skills directly during regular practice time",
+   "Set higher expectations for players' effort and discipline at practice"
   ],
   "answer": 2,
   "rationales": [
-   "Treating mental strengths as fixed by adolescence and screening for them reflects a talent-selection view that the research does not support; champions described these strengths as developed over time.",
-   "Champions reported that these strengths were shaped well before the elite level, so postponing them until elite competition misses the developmental window the research highlights.",
-   "Research on U.S. Olympic champions (Gould and colleagues) found that psychological characteristics such as confidence, focus, and coping with pressure were developed over many years, with coaches, parents, and the wider environment playing key roles. Coaches can intentionally build them.",
-   "Specialists can contribute, but the research identified coaches and parents as central influences on how these strengths developed. Handing the job off entirely to a specialist misses the message that coaches themselves can build them."
+   "Modeling is one route through which coaches influenced champions, and these coaches already do it. Players admire the calm but can't tell how to produce it.",
+   "Support from coaches featured in champions' development, and these coaches already give it warmly. It doesn't show players how to become composed.",
+   "Gould and colleagues found that coaches and parents shaped champions' psychological characteristics both directly, by teaching, and indirectly, as by modeling. The indirect route is in place here, and players need to be taught how.",
+   "High expectations featured in champions' development, and these coaches already expect full effort. Expectations don't tell players how to stay calm."
   ],
-  "takeaway": "Research on Olympic champions shows mental strengths are developed through supportive people and environments, so coaches can build them.",
+  "takeaway": "Coaches shape mental strengths both by example and by direct teaching; add the route that's missing.",
   "refs": [
    "gould2002"
   ]

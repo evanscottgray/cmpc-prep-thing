@@ -16,3 +16,10 @@
 Never trade correctness for difficulty: exactly one best answer, all facts certain, guide anchors binding, safety/scope handling unchanged. Keep id, pool, scored, domain, kg and stored answer positions; keep stems about 45–110 words, options 4–20 words and parallel; rationales for every option (say what the stem's fact is that rules it out); no letters. You may change topic, scenario, and key freely within the same cell. Don't duplicate other items (see `grep` across `content/items`). Keep new names unique across `content/items`.
 
 Record the swaps in `content/items/.work/<file>-swaps.json` as `{ "<id>": ["option text → swap sentence", ...] }`. Edit only your item file. No git, no network, no subagents. Validate with `node scripts/validate-bank.mjs --file <file>` to 0 errors. Reply with items changed, how many keys are now the "less ideal out of context" option, and items you're unsure about.
+
+## Pilot results and what to do better
+On 51 pilot items, options-only guessing fell from 80–82% to 25–27% (chance is 25%) while two full-item readers still agreed with every key. Reviewers' complaint: some stems were **contrived**, with a separate clause ruling out each distractor, so a reader can match clauses to options. So:
+- Let **one or two telling facts** decide, ideally requiring an inference (what the data pattern means, which phase this is, whose decision it is), not a list of exclusions. A stem should read like a case note, not a logic puzzle.
+- Don't state the answer ("feels real respect for him") or quote the concept's definition. Show the behavior.
+- "Less ideal out of context" keys must still be genuinely good practice for this case. Don't invent odd circumstances to make poor practice win.
+- Keep Form A and Form B topic coverage comparable within the file.
