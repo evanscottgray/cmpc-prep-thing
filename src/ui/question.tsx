@@ -81,12 +81,12 @@ export function References({ ids }: { ids: string[] }) {
   );
 }
 
-export function ItemMeta({ item }: { item: Item }) {
+export function ItemMeta({ item, showTopic = true }: { item: Item; showTopic?: boolean }) {
   return (
     <div class="q-meta">
       <span class="badge">Domain {item.domain}</span>
       <span class="badge">KG {item.kg}</span>
-      <span class="badge">{item.topic}</span>
+      {showTopic && <span class="badge">{item.topic}</span>}
     </div>
   );
 }

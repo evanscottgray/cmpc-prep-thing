@@ -256,10 +256,9 @@ table.grid th { background: var(--surface-2); }
 .exam-foot {
   position: sticky; bottom: 0; z-index: 20; background: var(--exam-bar); border-top: 1px solid var(--border);
   padding: .55rem calc(.75rem + var(--safe-r)) calc(.55rem + var(--safe-b)) calc(.75rem + var(--safe-l));
-  display: grid; grid-template-columns: 1fr auto 1fr; gap: .5rem; align-items: center;
+  display: flex; gap: .5rem; align-items: center; justify-content: center;
 }
-.exam-foot .btn { min-height: 48px; border-radius: 8px; }
-.exam-foot .prev { justify-self: start; } .exam-foot .next { justify-self: end; }
+.exam-foot .btn { min-height: 48px; border-radius: 8px; flex: 1 1 0; max-width: 220px; padding-left: .5rem; padding-right: .5rem; }
 .flag-btn[aria-pressed="true"] { color: var(--warn); }
 .flag-btn[aria-pressed="true"] svg { fill: currentColor; }
 .paused-cover { position: fixed; inset: 0; z-index: 60; background: var(--exam-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2rem; text-align: center; }

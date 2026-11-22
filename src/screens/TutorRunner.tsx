@@ -39,7 +39,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
         <span>Item {pos + 1} of {s.items.length}</span>
         <span aria-label={`${correct} correct out of ${done} checked`}>{correct}/{done} correct</span>
       </div>
-      <ItemMeta item={item} />
+      <ItemMeta item={item} showTopic={revealed} />
       <p class="stem" id="q-stem" tabIndex={-1}>{item.stem}</p>
       {!revealed ? (
         <>

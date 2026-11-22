@@ -15,7 +15,7 @@ export const IcChevron = (p: P) => S(<path d="M9 6l6 6-6 6" />, p);
 export const IcBack = (p: P) => S(<path d="M15 6l-6 6 6 6" />, p);
 export const IcFlag = (p: P) => S(<><path d="M5 21V4" /><path d="M5 4h11l-2 4 2 4H5" /></>, p);
 export const IcFlagFill = (p: P) => S(<path d="M5 21V3h1v1h11l-2.2 4.2L17 12.5H6V21z" />, p, true);
-export const IcStrike = (p: P) => S(<><path d="M4 12h16" /><path d="M8 6h8" /><path d="M8 18h8" /></>, p);
+export const IcStrike = (p: P) => S(<><path d="M16.5 6.5A4 4 0 0 0 13 5h-2.5a3.5 3.5 0 0 0 0 7" /><path d="M14 12a3.5 3.5 0 0 1 0 7h-3a4 4 0 0 1-3.5-1.5" /><path d="M3.5 12h17" /></>, p);
 export const IcCheck = (p: P) => S(<path d="M5 12.5l4.5 4.5L19 7" />, p);
 export const IcX = (p: P) => S(<><path d="M6 6l12 12" /><path d="M18 6L6 18" /></>, p);
 export const IcCheckCircle = (p: P) => S(<><circle cx="12" cy="12" r="9.5" /><path d="M7.5 12.5l3 3 6-6.5" /></>, p);
