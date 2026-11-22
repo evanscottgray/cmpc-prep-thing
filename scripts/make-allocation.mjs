@@ -5,6 +5,8 @@ const extras = { // extra drill items per [kg][domain]
   I: { IV: 5, III: 2, I: 1, II: 1, V: 1 }, G: { III: 3, IV: 3 }, L: { I: 3, IV: 2, VI: 1 },
   A: { I: 1, IV: 1 }, B: { II: 2 }, E: { VI: 2 }, D: { VI: 1, II: 1 },
 };
+// Added after drafting (separate file): extra Domain V drill items so a drill-only mixed exam can fill its unscored V slots.
+const extraFile = { file: 'kg-extra', slots: [{ kg: 'B', domain: 'V', drill: 1 }, { kg: 'F', domain: 'V', drill: 1 }] };
 const writers = [
   { file: 'kg-i-a', kgs: ['I'], domains: ['I', 'II', 'III', 'V'] },
   { file: 'kg-i-b', kgs: ['I'], domains: ['IV'] },
@@ -28,6 +30,8 @@ for (const w of writers) {
   total += count;
   out.writers.push({ file: `content/items/${w.file}.json`, kgs: w.kgs, total: count, slots });
 }
+out.writers.push({ file: `content/items/${extraFile.file}.json`, kgs: ['B', 'F'], total: 2, slots: extraFile.slots.map((x) => ({ formA_scored: 0, formA_unscored: 0, formB_scored: 0, formB_unscored: 0, ...x })) });
+total += 2;
 out.total = total;
 fs.writeFileSync('content/allocation.json', JSON.stringify(out, null, 1));
 console.log(out.writers.map(w => `${w.file}: ${w.total}`).join('\n'), '\nTOTAL', total);

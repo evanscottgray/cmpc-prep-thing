@@ -1,0 +1,1051 @@
+[
+ {
+  "id": "B-II-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "State anxiety instrument selection",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Mireille, a collegiate 400 m hurdler, tells the consultant at intake that her nerves \"show up in the call room\" and that her confidence seems to swing from meet to meet. The consultant wants data on how her worry, physical tension, and confidence vary in the period just before races over the coming month. Which assessment approach best fits this purpose?",
+  "options": [
+   "Administer the SAS-2 once at intake to establish her characteristic anxiety level",
+   "Administer the TAIS once at intake to profile her attentional strengths and weaknesses",
+   "Administer the CSAI-2 shortly before several meets and compare the subscale patterns",
+   "Administer the POMS after each meet to capture her emotional reactions to results"
+  ],
+  "answer": 2,
+  "rationales": [
+   "The SAS-2 measures trait (dispositional) performance anxiety. A single administration describes her general tendency, not how her worry, tension, and confidence shift before specific races.",
+   "The TAIS assesses attentional and interpersonal style. It does not measure cognitive anxiety, somatic anxiety, or self-confidence, so it does not answer the question being asked.",
+   "The CSAI-2 is a state measure of cognitive anxiety, somatic anxiety, and self-confidence designed to be completed close to competition. Repeating it before several meets shows how her pre-race state varies, which is exactly the purpose here (choose state measures for state questions).",
+   "The POMS measures general mood states, and completing it after meets captures reactions to results rather than her pre-race anxiety and confidence."
+  ],
+  "takeaway": "Match the instrument to the question: a state measure such as the CSAI-2 for pre-competition fluctuations, a trait measure such as the SAS-2 for characteristic tendencies.",
+  "refs": [
+   "martens1990",
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "B-II-002",
+  "pool": "A",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Motivational interviewing reflections",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "A professional rugby club's head coach referred Tomasz, a fly-half, to the consultant after several poor goal-kicking games. In the first meeting Tomasz says, \"Honestly, I'm only here because the coach sent me. I suppose my kicking under pressure has slipped a bit this year.\" The consultant wants to assess his readiness for change using motivational interviewing. Which response is best?",
+  "options": [
+   "\"Coming here wasn't your idea, and you've noticed your pressure kicks slipping.\"",
+   "\"The coach wouldn't have sent you unless there was a real problem for us to fix.\"",
+   "\"Let's start a pre-kick routine now so you can show the coach some quick progress.\"",
+   "\"Do you agree that your kicking has become a problem for the team this season?\""
+  ],
+  "answer": 0,
+  "rationales": [
+   "This double-sided reflection acknowledges his reluctance without arguing and places his own change talk last, which invites him to say more about it. Reflective listening (the R in OARS) that highlights change talk is how motivational interviewing explores ambivalence and readiness.",
+   "Insisting there is a real problem is the righting reflex. Confronting an ambivalent client tends to provoke sustain talk and defensiveness rather than revealing readiness.",
+   "Jumping to an intervention skips assessment and frames the work around pleasing the coach, which undercuts his autonomy and tells the consultant little about his own reasons for change.",
+   "This closed question pressures him to accept a label. It can be answered with a single word and is likely to elicit defensiveness rather than elaboration."
+  ],
+  "takeaway": "In motivational interviewing, reflect ambivalence without arguing and end on the client's own change talk so they elaborate on it.",
+  "refs": [
+   "miller2013",
+   "ivey2013"
+  ]
+ },
+ {
+  "id": "B-II-003",
+  "pool": "A",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Integrating multi-source data",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "The coach of a collegiate field hockey team describes Adaeze, a midfielder, as \"unmotivated\" because she arrives late to optional film sessions and looks flat in morning practices. In the intake interview, Adaeze says she works night shifts to send money home and averages five hours of sleep. Her ACSI-28 scores fall in a typical range, and her match statistics are strong. What is the most appropriate working formulation?",
+  "options": [
+   "Low commitment is the core problem, so goal setting to rebuild her motivation comes first",
+   "Her coping skills are adequate, so the coach's concern needs no further assessment",
+   "Her flat practices reflect a mental-skills deficit that more questionnaires should pinpoint",
+   "Work demands and sleep loss are a hypothesis to refine with her, not a motivation deficit"
+  ],
+  "answer": 3,
+  "rationales": [
+   "This adopts the coach's label even though her interview, questionnaire, and match data point elsewhere. Building the plan on one stakeholder's interpretation ignores the contextual factors the assessment uncovered.",
+   "Normal ACSI-28 scores do not resolve the coach's observations; they measure coping skills, not the fatigue and scheduling demands that explain the behavior. Dismissing the concern also misses a real well-being and performance issue.",
+   "Nothing in the data suggests a mental-skills deficit, and adding more self-report measures will not capture the life demands outside sport that the interview revealed.",
+   "A case formulation integrates all sources, including factors outside the performance environment, into a tentative explanation. Here the work schedule and sleep loss account for the late arrivals and flat practices, while her strong match play contradicts a motivation deficit; the formulation is then checked and refined collaboratively."
+  ],
+  "takeaway": "A good formulation integrates interview, questionnaire, stakeholder, and performance data, including life outside sport, and is held as a testable hypothesis.",
+  "refs": [
+   "tod2024",
+   "andersen2005"
+  ]
+ },
+ {
+  "id": "B-II-004",
+  "pool": "A",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Language and norms in assessment",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "Kenji, an elite judoka who recently moved from Japan to train at a U.S. center, speaks conversational English but reads it slowly. The consultant usually gives new athletes an English-language anxiety inventory and compares their scores with norms from North American college athletes. What is the most appropriate way to handle the questionnaire part of Kenji's initial assessment?",
+  "options": [
+   "Give him the English version and compare his scores with the usual norms as planned",
+   "Use a Japanese version with validity evidence, and treat norm comparisons cautiously",
+   "Translate the inventory into Japanese with an online tool so that he can read it easily",
+   "Skip questionnaires and base the assessment on his coach's observations of him alone"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Reading slowly in a second language threatens the validity of his responses, and norms from North American college athletes may not represent an elite athlete from a different language and cultural background.",
+   "Assessment standards call for instruments with validity evidence for the client's language and population. A validated translation addresses the language barrier, and comparisons with norms from a different population are treated as tentative and checked against interview data.",
+   "An ad hoc machine translation has no validity evidence; item meanings can shift, so the resulting scores cannot be interpreted with confidence.",
+   "Relying on a single stakeholder's observations abandons multi-method assessment. Questionnaires can still contribute if an appropriate version is used, alongside interviews with Kenji himself."
+  ],
+  "takeaway": "Use instruments validated for the client's language and population, and interpret norms only for the groups they represent.",
+  "refs": [
+   "aaspethics2024",
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "B-II-005",
+  "pool": "A",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Interpreting a clinical screener",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Following the athletic department's intake policy, the consultant gives Lucía, a collegiate softball pitcher, a validated depression screening questionnaire alongside performance measures. Her score falls in the range the department flags for follow-up, and she describes six weeks of poor sleep, low energy, and losing interest in things she used to enjoy. She denies any thoughts of self-harm. What should the consultant do next?",
+  "options": [
+   "Tell her the results indicate major depression and begin a cognitive restructuring plan",
+   "Set the screener aside, since mood concerns fall outside a performance assessment",
+   "Discuss the results with her and help arrange a referral to a licensed clinician",
+   "Begin confidence and goal-setting work, then re-screen her mood at the end of the term"
+  ],
+  "answer": 2,
+  "rationales": [
+   "A screener flags possible concerns; it does not diagnose. Naming a disorder and starting treatment goes beyond the scope of a consultant who is not a licensed mental health professional.",
+   "Having administered the screener under policy, the consultant is responsible for acting on a flagged result. Ignoring it leaves a possible mental health concern unaddressed.",
+   "A CMPC may use validated screeners under departmental policy but interprets them within scope. Sharing the results, explaining what a flagged score means, and connecting her with a licensed clinician follows the competence and referral standards; performance work can continue in coordination with that provider.",
+   "Delaying follow-up for months while doing performance work treats a possible depressive episode as a skills problem and postpones appropriate care."
+  ],
+  "takeaway": "Screeners flag, they don't diagnose: share results, refer to a licensed clinician per protocol, and coordinate any ongoing performance work.",
+  "refs": [
+   "aaspethics2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "B-II-006",
+  "pool": "A",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Performance profiling for ownership",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "esports",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "Rhys, a 20-year-old professional esports player, tells the consultant that past \"mental coaching\" felt like being handed someone else's checklist. For the initial assessment, the consultant wants to capture which mental and performance qualities Rhys himself believes matter most in his role and how he rates himself on each, so that he owns the priorities that follow. Which method best fits?",
+  "options": [
+   "Performance profiling, in which he names key qualities and rates himself on each",
+   "The ACSI-28, scored against norms so that his coping skills can be compared with peers",
+   "A coach rating form listing the qualities the organization values most in its players",
+   "The TOPS, to identify which psychological strategies he uses in practice and in matches"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Performance profiling, grounded in personal construct theory, has the performer generate the qualities that matter in their role and rate themselves on each. Because the content comes from Rhys, it reveals his perspective and builds ownership of later goals.",
+   "A standardized inventory measures predetermined constructs chosen by its developers, so it cannot show which qualities Rhys himself considers important.",
+   "A coach-generated list reflects the organization's priorities and repeats the \"someone else's checklist\" experience he described.",
+   "The TOPS measures how often he uses a fixed set of psychological strategies; it does not elicit his own view of the qualities his role demands."
+  ],
+  "takeaway": "Performance profiling elicits the performer's own constructs and ratings, which aids awareness and ownership of priorities.",
+  "refs": [
+   "butler1992",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "B-II-007",
+  "pool": "A",
+  "scored": false,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Systematic behavioral observation",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "team"
+  },
+  "stem": "A high school volleyball coach asks the consultant to assess why the team's on-court communication breaks down during close sets. The consultant plans to observe practices and matches as part of the initial assessment. Which approach to observation will yield the most useful data?",
+  "options": [
+   "Attend one important match and write down overall impressions of the team afterward",
+   "Watch from the bench and step in to correct communication as problems arise",
+   "Ask the coach to observe and report back on which players communicate poorly",
+   "Define target behaviors beforehand and record them across practices and matches"
+  ],
+  "answer": 3,
+  "rationales": [
+   "A single occasion may not be representative, and impressions written afterward are vulnerable to memory and confirmation bias.",
+   "Intervening during observation changes the behavior being assessed and mixes assessment with implementation before the problem is understood.",
+   "The coach's report is useful stakeholder input, but it substitutes one person's judgments for direct observation and may focus on blame rather than patterns.",
+   "Systematic behavioral observation defines what will be recorded (for example, calls for the ball or talk after errors), records it in real time, and samples several occasions and contexts, including close sets. These data can then be triangulated with interviews and team input."
+  ],
+  "takeaway": "Useful observation is systematic: defined behaviors, recorded as they happen, sampled across settings, then triangulated.",
+  "refs": [
+   "tenenbaum2012",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "B-II-008",
+  "pool": "B",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Trait anxiety measure for youth",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "youth",
+   "delivery": "individual"
+  },
+  "stem": "The parents of Priya, an 11-year-old competitive gymnast, have given permission for her to work with the consultant, and Priya has given her assent. Her coach says she \"gets nervous at every meet, no matter how big.\" For the initial assessment, the consultant wants a questionnaire that captures Priya's general tendency toward performance anxiety and has validity evidence for children her age. Which instrument best fits?",
+  "options": [
+   "The CSAI-2, completed in the hour before her next meet",
+   "The SAS-2, which assesses worry, somatic anxiety, and concentration disruption",
+   "The POMS, which profiles mood states including tension and vigor",
+   "The TEOSQ, which assesses her task and ego goal orientations"
+  ],
+  "answer": 1,
+  "rationales": [
+   "The CSAI-2 is a state measure taken before a particular competition; it captures anxiety at one moment rather than her general tendency, and it was developed with older athletes.",
+   "The SAS-2 measures trait sport performance anxiety (somatic anxiety, worry, and concentration disruption) and was developed and validated for children as well as adults. It fits both the trait question and her age.",
+   "The POMS assesses transient mood states, not a dispositional tendency toward performance anxiety.",
+   "The TEOSQ measures how she defines success (task vs. ego orientation). Goal orientation may relate to anxiety, but it does not measure anxiety itself."
+  ],
+  "takeaway": "For a youth athlete's characteristic performance anxiety, choose a trait measure validated for children, such as the SAS-2.",
+  "refs": [
+   "smith2006sas2",
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "B-II-009",
+  "pool": "B",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Socratic questioning in intake",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "adult",
+   "delivery": "individual"
+  },
+  "stem": "During an intake session, Nalani, a contemporary dancer preparing for company auditions, says, \"If I make a single mistake in the audition, I'm finished in this industry.\" Before planning any intervention, the consultant wants to understand how firmly Nalani holds this belief and what it rests on. Which response best reflects Socratic questioning?",
+  "options": [
+   "\"That's all-or-nothing thinking, and we'll work on replacing it with something realistic.\"",
+   "\"You're clearly talented, so one small mistake is not going to end your career.\"",
+   "\"Do you always think this way before an important audition or performance?\"",
+   "\"What have you seen happen when dancers you know made a mistake in an audition?\""
+  ],
+  "answer": 3,
+  "rationales": [
+   "Labeling the thought and announcing a plan to replace it is direct disputation. It tells the client what to think instead of exploring the belief, and it moves to intervention before assessment is complete.",
+   "Reassurance may feel supportive, but it offers the consultant's conclusion rather than helping Nalani examine her own evidence, and it reveals little about the belief.",
+   "This is a closed question that can be answered yes or no; it gathers little information about what the belief is based on.",
+   "Socratic questioning uses open, curious questions that guide the client to examine the evidence for a belief and reach their own conclusions. Asking what she has actually observed reveals how rigid the belief is and what supports it, which informs the formulation."
+  ],
+  "takeaway": "Socratic questions are open and evidence-seeking; they help clients examine their beliefs rather than being told what to believe.",
+  "refs": [
+   "beck2011",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "B-II-010",
+  "pool": "B",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Resolving conflicting assessment data",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "para-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "Dmitri, a wheelchair basketball player on a national development squad, rates his concentration highly on the ACSI-28. However, game statistics show his free-throw percentage drops sharply in the final quarter, and his coach reports that he argues with officials after contested calls late in games. Before finalizing a case formulation, what should the consultant do next?",
+  "options": [
+   "Observe late-game situations and explore the discrepancy with him in an interview",
+   "Accept his ACSI-28 score, since self-report is the most direct view of concentration",
+   "Conclude from the statistics that he has a concentration deficit and begin training",
+   "Refer him to a licensed clinician to evaluate his anger toward game officials"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Conflicting sources are informative, not a problem to be settled by picking one. Observing the late-game situations and asking Dmitri about them can test competing explanations, such as fatigue, emotional reactions to calls, or limited awareness of attention shifts, before the formulation is finalized (triangulation).",
+   "No single score should drive decisions. Self-report reflects his perceptions, which may differ from what happens under late-game fatigue and frustration.",
+   "The statistics show an outcome, not its cause; a late-game drop could stem from physical fatigue, emotional reactivity, or other factors, so concluding a concentration deficit is premature.",
+   "Arguing with officials after contested calls is not by itself a sign of a clinical concern. Referral would be premature before the consultant has explored the pattern within the performance assessment."
+  ],
+  "takeaway": "When data sources disagree, gather more information and explore the discrepancy with the client rather than trusting any single score.",
+  "refs": [
+   "tenenbaum2012",
+   "smith1995acsi"
+  ]
+ },
+ {
+  "id": "B-II-011",
+  "pool": "B",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Culturally responsive interviewing",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "When the consultant's intake form asks about personal goals, Ezra, a first-year collegiate cross-country runner, keeps answering in terms of what his family and home community expect and what would honor them. The standard form has no space for this, and the consultant notices an urge to steer him back to \"what you want for yourself.\" Which interviewing approach is most culturally responsive?",
+  "options": [
+   "Redirect him toward individual goals, since personal ownership predicts commitment",
+   "Note that his motivation seems mostly external and plan autonomy-building work",
+   "Ask open questions about what his family and community mean to his sport and goals",
+   "Invite his family to the next session so that they can state their expectations directly"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Steering him back to the form imposes an individualistic framework and signals that his way of describing goals is wrong, which can damage rapport and distort the assessment.",
+   "This interprets his answers through the consultant's cultural lens. Goals tied to family and community can be deeply valued and self-endorsed, so labeling them external is an unsupported assumption.",
+   "Culturally responsive assessment follows the client's own framing with curiosity and humility. Open questions about what family and community mean to him let these relationships enter the assessment as possible sources of motivation, support, or pressure, as he understands them.",
+   "Involving family is the client's decision, not the consultant's; arranging it unasked bypasses his autonomy and consent and assumes what he wants."
+  ],
+  "takeaway": "Adapt the interview to the client's worldview: explore what matters to them in their own terms instead of forcing a standard template.",
+  "refs": [
+   "schinke2012",
+   "hook2013"
+  ]
+ },
+ {
+  "id": "B-II-012",
+  "pool": "B",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Misuse of scores for selection",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "organizational"
+  },
+  "stem": "Midway through preseason, the general manager of a professional women's basketball club asks the consultant for every player's ACSI-28 and TAIS scores, ranked, to help decide which two players to cut. The players completed the inventories after consenting to their use for individual mental skills planning. How should the consultant respond?",
+  "options": [
+   "Provide the rankings, since the club is paying for the assessment services",
+   "Decline, explaining the scores were not validated or consented for selection",
+   "Provide scores only for the players whose results fell below the team average",
+   "Provide the rankings, adding a caution that questionnaires contain measurement error"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Paying for services does not give the organization rights to use results beyond what the players consented to; the consultant should have clarified these limits when the contract began.",
+   "Assessment results may be used only for purposes the instrument supports and the client consented to. These inventories were not designed or validated to make roster decisions, the players agreed to a different use, and a single score should never drive a high-stakes decision; declining while explaining why protects the players and the integrity of the service.",
+   "Sharing only the low scorers still breaches the agreed purpose of the assessment and singles out the players most likely to be harmed by the disclosure.",
+   "A caveat about measurement error does not cure the consent problem or make the inventories valid for selection, so it is still an inappropriate use."
+  ],
+  "takeaway": "Use assessment results only for the purpose they were validated and consented for, and never let a single score drive a high-stakes decision.",
+  "refs": [
+   "aaspethics2024",
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "B-II-013",
+  "pool": "B",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Practice versus competition skills",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Mateo, a collegiate archer, posts consistently high scores in training but drops sharply at tournaments. He says he \"does the same mental stuff in both places\" but cannot describe it in detail. The consultant wants a questionnaire that compares how often he uses psychological skills, such as self-talk, imagery, and relaxation, in training versus at tournaments. Which instrument best fits?",
+  "options": [
+   "The CSAI-2, to measure his anxiety and confidence before each tournament",
+   "The ACSI-28, to measure his overall psychological coping skills in sport",
+   "The SIQ, to measure how often he uses the different functions of imagery",
+   "The TOPS, which assesses his mental skill use in each setting"
+  ],
+  "answer": 3,
+  "rationales": [
+   "The CSAI-2 measures pre-competition state anxiety and confidence; it does not ask about skill use, and it cannot compare training with tournaments.",
+   "The ACSI-28 measures general psychological coping skills, but it does not separate practice from competition, which is the comparison the consultant needs.",
+   "The SIQ covers only imagery use. It would miss self-talk and relaxation and does not provide separate practice and competition scales.",
+   "The Test of Performance Strategies has separate practice and competition sections covering skills such as self-talk, imagery, relaxation, goal setting, and emotional control. It directly shows whether Mateo's skill use differs between training and tournaments."
+  ],
+  "takeaway": "To compare skill use in practice and competition, use the TOPS, which measures each setting separately.",
+  "refs": [
+   "thomas1999tops",
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "B-II-014",
+  "pool": "B",
+  "scored": false,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Gathering stakeholder input",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "A ballet company has contracted the consultant to work with Zainab, a soloist, who has agreed in writing that the artistic director may share observations with the consultant. The director says Zainab \"falls apart under pressure\" and \"lacks presence.\" What is the most useful way for the consultant to gather the director's input for the initial assessment?",
+  "options": [
+   "Ask for specific recent examples of what the director saw, when, and in what context",
+   "Record the director's descriptions as the main conclusions of the assessment file",
+   "Ask the director to complete a TAIS on her behalf to quantify the concerns raised",
+   "Decline the input, since stakeholder views tend to bias an athlete-centered assessment"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Stakeholder input is valuable, but global labels are interpretations. Asking for concrete, observable examples (what happened, in which rehearsals or performances) turns the director's view into data that can be compared with Zainab's own account and with observation.",
+   "Treating one stakeholder's global judgments as conclusions skips the performer's perspective and triangulation, and the labels are too vague to guide planning.",
+   "The TAIS is a self-report inventory; having someone else complete it on her behalf is not a valid use and would produce uninterpretable scores.",
+   "With Zainab's consent in place, the director's perspective is a legitimate source; the remedy for possible bias is triangulation, not exclusion."
+  ],
+  "takeaway": "Turn stakeholder labels into specific, observable examples, then triangulate them with the client's account and other data.",
+  "refs": [
+   "tod2024",
+   "andersen2005"
+  ]
+ },
+ {
+  "id": "B-II-015",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Assessing attentional style",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "Hana, a professional golfer, reads the course and the wind well, but over the ball she \"keeps thinking about everything\" and loses her focus on the target. The consultant wants a questionnaire to explore the width and direction of her attention and how it shifts under pressure. Which approach is most appropriate?",
+  "options": [
+   "Administer the ACSI-28 and discuss her concentration subscale with her",
+   "Administer the SIQ and discuss her cognitive imagery use with her",
+   "Administer the TAIS and review her profile using examples from rounds",
+   "Administer the MIQ-3 and discuss her visual imagery ability with her"
+  ],
+  "answer": 2,
+  "rationales": [
+   "The ACSI-28 concentration subscale gives a general index of staying focused, but it does not distinguish broad from narrow or internal from external attention, which is the question here.",
+   "The SIQ measures how often she uses imagery for different functions; it does not assess attentional width or direction.",
+   "The TAIS is built on Nideffer's model of attentional width (broad–narrow) and direction (internal–external) and includes scales for overload, such as being overloaded by internal stimuli. Reviewing her profile with concrete examples from rounds links the scores to her over-the-ball experience.",
+   "The MIQ-3 measures the ability to generate movement images, which is not the problem she describes."
+  ],
+  "takeaway": "The TAIS assesses attentional width and direction, including overload tendencies; the ACSI-28 concentration scale does not.",
+  "refs": [
+   "nideffer1976",
+   "nideffer2001"
+  ]
+ },
+ {
+  "id": "B-II-016",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Measuring goal orientation",
+  "cognitive": "recall",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "organizational"
+  },
+  "stem": "As a baseline before a coach-education program, a youth soccer academy director wants to know whether the club's 13- and 14-year-old players mainly judge their success by personal improvement or by outperforming others. Parents will give permission and players will give assent. Which instrument most directly measures this?",
+  "options": [
+   "The GEQ, completed anonymously by each age-group squad",
+   "The TEOSQ, completed by each player and summarized by group",
+   "The SAS-2, completed by each player before a league match",
+   "The AIMS, completed by each player and reviewed individually"
+  ],
+  "answer": 1,
+  "rationales": [
+   "The GEQ measures team cohesion (task and social), not how individual players define success.",
+   "The Task and Ego Orientation in Sport Questionnaire measures task orientation (success as improvement and mastery) and ego orientation (success as outperforming others), from achievement goal theory. Summarizing by group gives the director a baseline without exposing individual players.",
+   "The SAS-2 measures trait performance anxiety; it does not assess how players define success.",
+   "The AIMS measures the strength and exclusivity of athletic identity, which is a different construct from goal orientation."
+  ],
+  "takeaway": "The TEOSQ measures task versus ego goal orientation, that is, how athletes define success.",
+  "refs": [
+   "duda1989",
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "B-II-017",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Assessing athletic identity",
+  "cognitive": "recall",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "After a second ACL reconstruction, Callum, a senior collegiate lacrosse player, says, \"If I can't play, I don't know who I am.\" As part of an initial assessment for career-transition support, the consultant wants a brief measure of how strongly and exclusively Callum identifies with the athlete role. Which instrument best fits?",
+  "options": [
+   "The AIMS, discussed with him in a follow-up session",
+   "The POMS, discussed with him in a follow-up session",
+   "The TOPS, discussed with him in a follow-up session",
+   "The ACSI-28, discussed with him in a follow-up session"
+  ],
+  "answer": 0,
+  "rationales": [
+   "The Athletic Identity Measurement Scale assesses the strength and exclusivity of identification with the athlete role, which is directly relevant to how he may experience transition out of sport.",
+   "The POMS measures current mood states; it may show distress but not how central the athlete role is to his identity.",
+   "The TOPS measures use of psychological skills in practice and competition, not identity.",
+   "The ACSI-28 measures coping skills in sport, which does not address the identity question."
+  ],
+  "takeaway": "The AIMS measures the strength and exclusivity of athletic identity, a key factor in injury and career-transition work.",
+  "refs": [
+   "brewer1993",
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "B-II-018",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Imagery ability versus use",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "individual"
+  },
+  "stem": "The consultant is considering imagery training for Elif, a police officer preparing for a firearms qualification. Before writing any scripts, the consultant wants to know how easily Elif can generate clear visual and kinesthetic images of movements, because this will shape how imagery is introduced. Which instrument best fits this question?",
+  "options": [
+   "Administer the SIQ before writing any imagery scripts",
+   "Administer the TAIS before writing any imagery scripts",
+   "Administer the POMS before writing any imagery scripts",
+   "Administer the MIQ-3 before writing any imagery scripts"
+  ],
+  "answer": 3,
+  "rationales": [
+   "The SIQ measures how often a performer uses imagery for its various functions (cognitive and motivational). It describes imagery use, not the ability to form vivid images, and its items are written for sport.",
+   "The TAIS assesses attentional and interpersonal style, not imagery.",
+   "The POMS measures mood states and says nothing about imagery ability.",
+   "The Movement Imagery Questionnaire-3 assesses imagery ability (the ease of generating external visual, internal visual, and kinesthetic images of movements). Knowing which perspectives and modalities come easily helps the consultant decide how to introduce and build imagery."
+  ],
+  "takeaway": "MIQ-3 = imagery ability; SIQ = imagery use (how often, for which functions).",
+  "refs": [
+   "williams2012miq3",
+   "hall1998siq"
+  ]
+ },
+ {
+  "id": "B-II-019",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Administering team questionnaires",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "team"
+  },
+  "stem": "A professional ice hockey club hires the consultant to assess team cohesion at the start of the season using the GEQ. The head coach asks to see each player's completed questionnaire so that staff can \"deal with the players who aren't bought in.\" What is the most appropriate way to administer and report the GEQ?",
+  "options": [
+   "Have players add their names so that the coach can follow up individually",
+   "Let the coach collect the forms and pass the completed set to the consultant",
+   "Collect responses anonymously, store them securely, and report team-level results",
+   "Collect named responses but report only the lowest-scoring players to the coach"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Named responses that the coach will act on invite socially desirable answering and expose players to consequences, undermining both validity and trust.",
+   "Having the coach handle the forms compromises confidentiality and signals that responses are not private, which distorts honest answers.",
+   "The GEQ assesses players' perceptions of the group, and its results are most meaningful in aggregate. Anonymous collection, secure storage, and team-level reporting, agreed with the coach and players in advance, protect confidentiality and encourage honest responses, consistent with ethical assessment practice.",
+   "Identifying low scorers to the coach turns a cohesion assessment into individual surveillance and breaches the confidentiality players would reasonably expect."
+  ],
+  "takeaway": "For team questionnaires, agree up front on anonymity, secure storage, and aggregate reporting before anyone fills them in.",
+  "refs": [
+   "carron1985",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "B-II-020",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Disordered eating warning signs",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "In an intake session, Joaquín, a collegiate wrestler, asks for help \"getting mentally tougher about cutting weight.\" He describes skipping meals for days before weigh-ins, frequent dizziness, running at night in sweat suits, and feeling panicky whenever he eats. What is the most appropriate response to this assessment information?",
+  "options": [
+   "Teach imagery and self-talk he can use to tolerate hunger and fatigue during the cut",
+   "Share concern and, with consent, refer him to sports medicine and a qualified clinician",
+   "Help him set weekly weight-loss targets so that the cut feels more manageable",
+   "Explain that his behaviors meet criteria for an eating disorder and outline a treatment plan"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Using mental skills to help him push through hunger would reinforce dangerous weight-control behaviors and could worsen his health.",
+   "Severe restriction, dizziness, dehydration practices, and distress around eating are warning signs of disordered eating and medical risk. Voicing concern and connecting him with the sports medicine team and a clinician experienced with eating concerns follows the competence standard; the consultant recognizes and refers rather than treating.",
+   "Weight-loss targets fall outside a CMPC's scope (nutrition prescription belongs to a registered dietitian) and would support the risky pattern he describes.",
+   "Diagnosing a disorder and outlining treatment exceeds the scope of a consultant who is not a licensed mental health professional."
+  ],
+  "takeaway": "Warning signs of disordered eating or medical risk in an intake call for expressing concern and referring, not mental skills to push through.",
+  "refs": [
+   "aaspethics2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "B-II-021",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Recognizing change talk",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "esports",
+   "level": "professional",
+   "delivery": "virtual"
+  },
+  "stem": "During an initial video interview, Ji-woo, a professional esports player, makes several statements about the frustration (\"tilt\") that follows lost rounds. Which statement is the clearest example of change talk that the consultant should reflect and explore?",
+  "options": [
+   "\"Everyone on the team tilts sometimes; it's just part of the game.\"",
+   "\"My coach thinks I tilt more than anyone else on our roster.\"",
+   "\"I want to be the one who stays calm when we drop a round.\"",
+   "\"I've tried breathing exercises before, and they never really worked.\""
+  ],
+  "answer": 2,
+  "rationales": [
+   "This statement normalizes the problem and argues for keeping things as they are, which makes it sustain talk.",
+   "This reports someone else's view; it expresses no desire, ability, reason, or need for change on Ji-woo's part.",
+   "A statement of desire (\"I want to...\") is change talk in motivational interviewing. Reflecting it and asking for elaboration builds the client's own case for change.",
+   "Doubts that change strategies work are sustain talk; they deserve a reflective response, but they are not the change talk to build on."
+  ],
+  "takeaway": "Change talk is the client's own language of desire, ability, reasons, need, or commitment to change; reflect and explore it.",
+  "refs": [
+   "miller2013"
+  ]
+ },
+ {
+  "id": "B-II-022",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "B",
+  "topic": "Debriefing questionnaire results",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "masters",
+   "delivery": "individual"
+  },
+  "stem": "Wren, a masters-age competitive cyclist, completed the ACSI-28 at intake. Her lowest relative score is on peaking under pressure, which surprised the consultant given her strong record in close races. What is the most appropriate way to give Wren feedback on her results?",
+  "options": [
+   "Review the scores together as hypotheses and ask how they fit her racing experience",
+   "Email her a score report showing how she compares with collegiate athlete norms",
+   "Tell her that peaking under pressure is her main weakness and the plan's first priority",
+   "Hold back the results until the plan is ready, so they do not influence her answers"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Feedback is part of ethical assessment, and it works best as a collaborative conversation. Treating scores as hypotheses and asking how they match her experience helps explain the surprising result (for example, how she read the items) and keeps a single score from defining the plan.",
+   "An emailed report gives no chance to explain or check the results, and collegiate norms may not represent a masters-age cyclist.",
+   "Declaring a weakness from one subscale treats a single score as a conclusion, especially when it conflicts with her race history.",
+   "Clients are entitled to feedback on their assessments, and withholding it undermines the collaborative relationship and informed participation."
+  ],
+  "takeaway": "Debrief assessment results collaboratively, treating scores as hypotheses to check against the client's experience.",
+  "refs": [
+   "aaspethics2024",
+   "smith1995acsi"
+  ]
+ },
+ {
+  "id": "B-V-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "V",
+  "kg": "B",
+  "topic": "Re-administering a state measure",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "For eight weeks, Ingrid, an elite sprint canoeist, has practiced a pre-race routine with breathing and cue words to manage pre-race worry. At baseline, she completed the CSAI-2 about an hour before two national-level regattas. The consultant now wants to evaluate whether the routine is helping. Which reassessment approach is most sound?",
+  "options": [
+   "Have her complete the CSAI-2 at a midweek training session for convenience",
+   "Compare one CSAI-2 taken before her next regatta with published norms for paddlers",
+   "Judge effectiveness solely from her race times over the next few regattas",
+   "Repeat the CSAI-2 about an hour before comparable regattas, with her own reports"
+  ],
+  "answer": 3,
+  "rationales": [
+   "A state measure reflects the situation in which it is completed. Training-day scores cannot be compared with pre-regatta baselines, so any difference would be uninterpretable.",
+   "Comparing one score with norms ignores her own baseline and the event-to-event variability of state anxiety; change should be judged against her earlier pre-race scores.",
+   "Race times are influenced by many factors (fitness, conditions, competitors), so they cannot on their own show whether the routine changed her pre-race worry.",
+   "Re-administering a state measure under conditions that match the baseline (same timing, similar importance of event) makes the comparison meaningful, and triangulating with her own account of the routine gives a fuller picture of effectiveness."
+  ],
+  "takeaway": "Reassess under the same conditions as the baseline, and triangulate scores with the client's report and performance data.",
+  "refs": [
+   "martens1990",
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "B-V-002",
+  "pool": "A",
+  "scored": true,
+  "domain": "V",
+  "kg": "B",
+  "topic": "Re-rating a performance profile",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "At intake, Thandiwe, a collegiate tennis player, built a performance profile and rated \"composure after errors\" at 3 out of 10, with a target of 8. After ten weeks of work on between-point routines, the consultant wants to use the profile to review progress with her. Which approach best uses performance profiling for reassessment?",
+  "options": [
+   "Have her build a new profile from scratch so that fresh qualities can emerge",
+   "Have her re-rate the same qualities and compare them with her baseline ratings",
+   "Have her coach rate her composure and replace her self-ratings with those scores",
+   "Use her match win–loss record as the measure of change in her composure"
+  ],
+  "answer": 1,
+  "rationales": [
+   "A new profile can be useful later, but starting over loses the baseline needed to judge whether the work on composure has produced change.",
+   "Re-rating the same athlete-generated qualities against the original ratings shows perceived change on her own terms, and discussing the shifts with her guides decisions about continuing or revising the plan. Repeated profiling is a standard way to monitor progress.",
+   "Coach ratings can usefully be compared with hers, but replacing her ratings discards the athlete-centered perspective that profiling is designed to capture.",
+   "Win–loss records depend on opponents and many other factors, so they are a poor index of change in one psychological quality."
+  ],
+  "takeaway": "Re-rate the same profile qualities and compare them with baseline to monitor progress from the performer's perspective.",
+  "refs": [
+   "butler1992",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "B-V-003",
+  "pool": "A",
+  "scored": false,
+  "domain": "V",
+  "kg": "B",
+  "topic": "Wearable data versus self-report",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "business",
+   "level": "adult",
+   "delivery": "virtual"
+  },
+  "stem": "Farah, a corporate executive who meets with the consultant by video, has practiced paced breathing for six weeks. With her consent, she shares wearable data showing improved overnight heart rate variability. However, her weekly self-ratings of stress before board presentations have not changed. How should the consultant interpret these results?",
+  "options": [
+   "Explore both sources with her to see why they differ before revising the plan",
+   "Conclude that the breathing is working, since physiological data is more objective",
+   "Conclude that the breathing is failing, since her own stress ratings matter most",
+   "Refer her to a physician to evaluate what her heart rate variability data means"
+  ],
+  "answer": 0,
+  "rationales": [
+   "The two sources measure different things at different times: overnight recovery versus stress before a specific demand. Discussing both with her (for example, whether she uses the breathing before presentations) is how triangulation turns a discrepancy into a decision about the plan.",
+   "Physiological data is not automatically more valid; overnight heart rate variability says little about how she feels before presentations, which is the target of the work.",
+   "Her self-ratings are central, but the wearable data suggests something has changed, and the reason the gain is not showing up before presentations has not been explored.",
+   "Nothing suggests a medical concern; the question is how to interpret routine monitoring data, which the consultant can do with her."
+  ],
+  "takeaway": "When monitoring sources disagree, consider what each actually measures and explore the gap with the client before changing course.",
+  "refs": [
+   "tenenbaum2012",
+   "lehrer2000"
+  ]
+ },
+ {
+  "id": "B-V-004",
+  "pool": "B",
+  "scored": true,
+  "domain": "V",
+  "kg": "B",
+  "topic": "Reassessing team cohesion",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "team"
+  },
+  "stem": "A consultant is delivering a season-long team-building program for a collegiate rowing team. Preseason GEQ results, collected anonymously, showed high task cohesion but low social cohesion. At midseason, the coach asks whether the program is working. Which evaluation approach is most appropriate?",
+  "options": [
+   "Ask the coach to judge cohesion from the crews' recent race results",
+   "Interview the two team captains and generalize their views to the rest of the team",
+   "Re-administer the GEQ anonymously, compare with preseason, and add observation",
+   "Administer the TEOSQ to see whether the rowers' goal orientations have shifted"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Race results reflect many influences besides cohesion, so they cannot show whether social cohesion in particular has changed.",
+   "Captains are a useful source, but two people's views may not represent the team, and leaders often see cohesion differently from other members.",
+   "Re-administering the same measure under the same conditions (anonymous, team-level) allows a meaningful comparison with the baseline, and observing team interactions adds a second method to triangulate the change in social cohesion.",
+   "The TEOSQ measures goal orientation, a different construct from the cohesion the program targets, so it cannot evaluate the program's effect."
+  ],
+  "takeaway": "Evaluate change by repeating the baseline measure under the same conditions and adding a second method.",
+  "refs": [
+   "carron1985",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "B-V-005",
+  "pool": "B",
+  "scored": true,
+  "domain": "V",
+  "kg": "B",
+  "topic": "Interpreting TOPS reassessment",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "After twelve weeks of mental skills training, Teodor, a professional alpine skier, completes the TOPS again. Compared with baseline, his practice scores for imagery and self-talk have risen markedly, but his competition scores for those skills are unchanged, as are his race results. What is the most appropriate next step?",
+  "options": [
+   "Conclude the program has failed and switch to teaching a different set of skills",
+   "Conclude the program has succeeded, since his use of skills in practice has grown",
+   "Re-administer the TOPS weekly until his competition scores begin to rise",
+   "Explore with him what blocks his skill use in races and add race-like rehearsal"
+  ],
+  "answer": 3,
+  "rationales": [
+   "The gains in practice show the skills are being learned; abandoning them ignores that evidence and misreads the problem, which is transfer to competition.",
+   "The program's aim is better competitive performance; improved practice use without change in races means the plan is only partly working.",
+   "Repeating the questionnaire more often adds burden and does nothing to address the gap it has already revealed.",
+   "Reassessment data should guide plan revision. The pattern points to a transfer problem, so the next step is to learn from Teodor what interferes with using the skills on race day and to build rehearsal under competition-like conditions."
+  ],
+  "takeaway": "Use reassessment patterns to diagnose where the plan is falling short and revise it collaboratively, rather than declaring success or failure.",
+  "refs": [
+   "thomas1999tops",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "B-V-006",
+  "pool": "B",
+  "scored": false,
+  "domain": "V",
+  "kg": "B",
+  "topic": "Brief ongoing progress monitoring",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "individual"
+  },
+  "stem": "Malik, a firefighter working with the consultant on managing arousal during high-stakes calls, completed a lengthy psychological skills inventory at intake. The consultant wants to track progress each week between intake and a planned full reassessment at three months. Which monitoring approach is most appropriate?",
+  "options": [
+   "Re-administer the full intake inventory every week to track change precisely",
+   "Use brief weekly ratings tied to his goals, with the full inventory at three months",
+   "Skip monitoring until three months so that practice effects do not distort results",
+   "Ask his company officer each week whether he seems calmer on emergency calls"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Weekly full administrations create response burden and practice effects, and long trait-like inventories are not designed to detect week-to-week change.",
+   "Brief ratings linked to his own goals give timely, low-burden feedback for adjusting the work, while repeating the full inventory at the planned point gives a comparable broader reassessment.",
+   "Waiting three months removes the ongoing feedback needed to adjust the plan if it is not helping.",
+   "One supervisor's impression is a single, indirect source, and weekly reports about him to his officer would need his explicit consent and could change the nature of the work."
+  ],
+  "takeaway": "Pair brief, goal-linked ongoing monitoring with periodic full reassessment.",
+  "refs": [
+   "tenenbaum2012",
+   "andersen2005"
+  ]
+ },
+ {
+  "id": "B-V-007",
+  "pool": "drill",
+  "scored": true,
+  "domain": "V",
+  "kg": "B",
+  "topic": "Mood monitoring during heavy training",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "With his consent, a consultant at a national training center has tracked Yerlan, an elite long-track speed skater, with the POMS every two weeks. During a heavy training block, his profile has shifted from high vigor and low fatigue to low vigor and high fatigue, and he reports heavy legs and poor sleep. What is the most appropriate action?",
+  "options": [
+   "Discuss the trend with him and, with consent, alert coaching and sport science staff",
+   "Add energizing imagery and self-talk to restore the vigor he showed before the block",
+   "Tell him the profile shows overtraining syndrome and that he must stop training now",
+   "Keep monitoring without comment, since mood often dips during hard training"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Mood monitoring is used to detect responses to training load. A flipped iceberg profile with physical symptoms is a warning sign of possible non-functional overreaching, so the trend should be discussed with Yerlan and, with consent, brought to the coaches and sport science or medical staff who manage load and recovery.",
+   "Mental skills cannot fix a load–recovery imbalance and could mask a signal that training needs adjusting.",
+   "Overtraining syndrome is a medical diagnosis made by excluding other causes; a mood profile cannot establish it, and training decisions belong to the coaching and medical team.",
+   "Some mood disturbance is expected in hard training, but the purpose of monitoring is to act on meaningful changes; staying silent wastes the information."
+  ],
+  "takeaway": "Use mood monitoring to flag possible maladaptation to training and route it, with consent, to the staff who manage load and health.",
+  "refs": [
+   "mcnair1971",
+   "meeusen2013"
+  ]
+ },
+ {
+  "id": "B-V-008",
+  "pool": "drill",
+  "scored": true,
+  "domain": "V",
+  "kg": "B",
+  "topic": "Video coding for reassessment",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Before the consultant introduced a pre-dive routine, video from three meets was coded for Saoirse's time on the board and the steps she completed before each dive. After six weeks of practicing the routine, the consultant wants to evaluate whether Saoirse is using it consistently in competition. Which approach is most sound?",
+  "options": [
+   "Ask her teammates whether she seems to be using the routine at meets",
+   "Code practice video, which is easier to film, using the same steps",
+   "Code meet video with the same criteria and compare it with the baseline",
+   "Rely on her dive scores, since a consistent routine should raise them"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Teammates' impressions are informal and indirect and cannot match the precision of the baseline coding.",
+   "Routines often hold up in practice but break down under competitive pressure, so practice video does not answer the competition question.",
+   "Applying the same coding criteria to competition video allows a direct comparison with the baseline, showing whether the routine is being used consistently where it matters.",
+   "Scores reflect many influences, so they cannot show whether the routine itself is being carried out; process should be measured directly."
+  ],
+  "takeaway": "Reassess behavior with the same method, criteria, and context as the baseline.",
+  "refs": [
+   "tenenbaum2012",
+   "cotterill2010"
+  ]
+ }
+]

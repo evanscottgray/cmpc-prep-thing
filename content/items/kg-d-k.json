@@ -1,0 +1,1367 @@
+[
+ {
+  "id": "D-I-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "I",
+  "kg": "D",
+  "topic": "Family roles in consent with minors",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "individual"
+  },
+  "stem": "A consultant begins working with Sina, a 15-year-old soccer player whose family moved to the United States two years ago. At the first meeting, Sina's father explains that in their family important decisions are made together, and he expects to sit in on every session. The consultant usually meets minors one-on-one under a confidentiality agreement. Sina says little and glances at her father before answering. What is the most appropriate way for the consultant to proceed?",
+  "options": [
+   "Explain that sessions are always one-on-one and that the father's attendance would undermine the work",
+   "Agree that the father will attend every session and receive a full summary of everything discussed",
+   "Ask Sina and her father how they see the family's role, then agree on involvement that protects Sina's voice",
+   "Suggest that the family look for a consultant from their own cultural background who shares their expectations"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Imposing the consultant's default format as a rule ignores the family's values and risks losing the guardian's permission and the alliance before work begins; the format can be negotiated.",
+   "Full attendance plus full summaries removes any space for Sina's own voice and assent, and it sets confidentiality limits without asking her what she wants.",
+   "Best. Culturally responsive consent with a minor combines guardian permission with the minor's assent. Asking both how they see the family's role, rather than assuming, lets the consultant negotiate an arrangement (for example, the father joins parts of sessions) with clear, agreed confidentiality limits.",
+   "Matching on cultural background is neither necessary nor what the family asked for; the difference in expectations is a normal consent conversation, not a reason to hand the family off."
+  ],
+  "takeaway": "When a family's norms differ from your default format, ask and negotiate a consent arrangement that honors both guardian permission and the minor's assent.",
+  "refs": [
+   "mio2023",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "D-I-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "I",
+  "kg": "D",
+  "topic": "Entering a tactical organizational culture",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "organizational"
+  },
+  "stem": "A city fire department contracts a consultant, who has worked only with college athletes, to offer performance and stress-management support to its crews. At the first station visit, several firefighters joke about 'the shrink from campus,' and a captain says outsiders 'never get how things work here.' The chief offers to make attendance at the consultant's sessions mandatory. What should the consultant do first to build credibility and rapport?",
+  "options": [
+   "Spend time learning the crews' routines, language, and norms, and ask them what support would actually be useful",
+   "Present research on firefighter stress to demonstrate the value of the services the department has purchased",
+   "Accept the chief's offer of mandatory attendance so that every crew member hears the material at least once",
+   "Adopt the crews' jargon and share sport stories that show the consultant already understands high-pressure work"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Best. Contextual intelligence means understanding an organization's culture, unwritten rules, and power structures before intervening. Learning the crews' world and asking what would help signals respect and builds the credibility an outsider lacks.",
+   "Evidence matters, but leading with research answers a question the crews have not asked and reinforces the 'outsider who doesn't get it' image.",
+   "Mandated attendance undermines voluntariness and trust, and it ties the consultant to the chief's authority before rapport with the crews exists.",
+   "Borrowing insider language and equating sport with emergency work can come across as inauthentic; credibility comes from learning the culture, not claiming familiarity with it."
+  ],
+  "takeaway": "Entering a new culture, learn its norms and ask what is needed before offering expertise.",
+  "refs": [
+   "brown2005ci",
+   "tod2024"
+  ]
+ },
+ {
+  "id": "D-I-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "I",
+  "kg": "D",
+  "topic": "Choosing an interpreter",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "Lucía, a professional volleyball player who recently joined a club abroad, has limited proficiency in the local language and asks to meet with the club's consultant about her worries over playing time and her relationship with the head coach. The club suggests that its bilingual assistant coach, who helps with lineup decisions, interpret the sessions. How should the consultant arrange communication for these sessions?",
+  "options": [
+   "Use the assistant coach, since his existing rapport with Lucía will help her open up more quickly",
+   "Conduct the sessions in the local language, speaking slowly and checking her understanding frequently",
+   "Rely on a translation app during sessions so that the conversation stays strictly between the two of them",
+   "With Lucía's agreement, use a trained interpreter outside the staff who is bound by confidentiality"
+  ],
+  "answer": 3,
+  "rationales": [
+   "The assistant coach influences lineups, so his presence creates a dual role that compromises confidentiality and makes candor about playing time and the head coach unlikely.",
+   "Working in a language she does not speak well limits her ability to express nuanced concerns and puts the burden of the language gap on her.",
+   "Apps are unreliable for nuanced emotional content and raise data-privacy questions; they are a stopgap, not a sound basis for consultation.",
+   "Best. A trained interpreter with no role in team decisions, who is bound by confidentiality and agreed to by the client, protects both accurate communication and the confidentiality boundaries of the relationship."
+  ],
+  "takeaway": "Interpreters should be trained, independent of decision-makers, bound by confidentiality, and acceptable to the client.",
+  "refs": [
+   "mio2023",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "D-II-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "II",
+  "kg": "D",
+  "topic": "Assessment validity across languages",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "team"
+  },
+  "stem": "A consultant hired by a national handball federation plans to assess competitive anxiety in its under-17 squad. The players' first language is not English. The consultant's usual inventory has been validated only in English-speaking samples, but researchers have published a version validated with adolescent athletes in the players' language. An assistant coach offers to translate the usual inventory overnight so results can be compared with its familiar published norms. What is the most appropriate assessment approach?",
+  "options": [
+   "Accept the coach's translation and compare scores with the published norms, noting the translation in the report",
+   "Use the version validated in the players' language, interpreted alongside interviews and observation",
+   "Use the validated version, but compare the scores with the English-sample norms the consultant knows best",
+   "Skip formal assessment with this squad and rely on the coaching staff's descriptions of each player's anxiety"
+  ],
+  "answer": 1,
+  "rationales": [
+   "An informal overnight translation has no established equivalence, and norms from English-speaking samples do not apply to this population; a footnote does not fix invalid comparisons.",
+   "Best. Assessment instruments should be validated for the population and language in which they are used, scores should be interpreted against appropriate norms, and multi-method assessment (interviews, observation) reduces reliance on any single tool.",
+   "Choosing the right instrument but interpreting it against norms from a different population reintroduces the validity problem; comparisons should use norms for the population tested.",
+   "Coaches' impressions are useful stakeholder input but are not a substitute for hearing from the athletes through culturally appropriate methods."
+  ],
+  "takeaway": "Use instruments validated for the client's language and population, and pair them with interviews and observation.",
+  "refs": [
+   "tenenbaum2012",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "D-II-002",
+  "pool": "A",
+  "scored": false,
+  "domain": "II",
+  "kg": "D",
+  "topic": "Assessing religious practice in training",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "During an intake session in the middle of the competitive season, Yusuf, a collegiate 10,000-meter runner, mentions that he is fasting from dawn to sunset for Ramadan and has felt flat during afternoon workouts. His coach referred him, asking the consultant to 'find out why his motivation has dropped.' What should the consultant do next?",
+  "options": [
+   "Suggest that Yusuf postpone his fast until the off-season so that his training is not compromised",
+   "Report to the coach that the fatigue reflects the fast rather than any drop in his motivation",
+   "Give Yusuf a standard motivation questionnaire, since the coach's referral question is about motivation",
+   "Ask Yusuf how he observes the fast, what it means to him, and how he would like training issues handled"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Advising a client to change a religious observance imposes the consultant's priorities and disrespects his autonomy; how he practices his faith is his decision.",
+   "Reporting a conclusion to the coach is premature and may breach confidentiality; the consultant has not yet explored the issue with Yusuf or agreed on what will be shared.",
+   "Staying narrowly on the coach's framing risks missing the contextual factor the athlete has just raised, and a questionnaire cannot capture what the fast means to him.",
+   "Best. Culturally responsive assessment explores the practice from the client's perspective rather than assuming its meaning or impact. Understanding his observance and preferences comes before any planning or, with his consent, coordination with the coach."
+  ],
+  "takeaway": "When a client names a cultural or religious practice, ask what it means to them before interpreting its effect on performance.",
+  "refs": [
+   "mio2023",
+   "tod2024"
+  ]
+ },
+ {
+  "id": "D-II-003",
+  "pool": "B",
+  "scored": true,
+  "domain": "II",
+  "kg": "D",
+  "topic": "Contextual factors outside sport",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Malik, a first-year rugby player, was referred because his tackling has become hesitant and he has missed several early-morning lifts. The consultant's intake form focuses on performance history and mental skills. Near the end of the session, Malik mentions that he is the first in his family to attend college, works late shifts at a warehouse, and sends part of his pay home. How should the consultant proceed with the assessment?",
+  "options": [
+   "Keep the assessment focused on tackling and mental skills, since those are the reasons for the referral",
+   "Refer Malik to the financial aid office and resume the mental skills assessment at the next session",
+   "Broaden the assessment to explore his job, family responsibilities, and adjustment to college life",
+   "Recommend that Malik cut back his work hours so the assessment can isolate the performance problem"
+  ],
+  "answer": 2,
+  "rationales": [
+   "The referral question frames the work but does not limit the assessment; ignoring late shifts and family obligations would likely miss explanations for missed lifts and hesitancy.",
+   "Financial resources might help later, but sending him elsewhere before understanding his situation is premature and treats his context as a side issue.",
+   "Best. Initial assessment should include cultural and contextual factors inside and outside the performance environment. Work demands, family obligations, and being a first-generation student may shape his fatigue, focus, and stress, and their meaning to him matters.",
+   "Advising him to change his work, which may be essential to his family, imposes a solution before the consultant understands his circumstances."
+  ],
+  "takeaway": "Assessment covers the athlete's whole context; life outside sport often explains performance changes.",
+  "refs": [
+   "bronfenbrenner1979",
+   "tod2024"
+  ]
+ },
+ {
+  "id": "D-II-004",
+  "pool": "B",
+  "scored": false,
+  "domain": "II",
+  "kg": "D",
+  "topic": "Judging consultant–client fit",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "In a first meeting, Theo, a professional contemporary dancer, says he is gay and asks whether the consultant has worked with LGBTQ+ performers, adding that past providers 'didn't get it.' The consultant has little experience with LGBTQ+ clients but solid experience with performance anxiety, which is Theo's presenting concern. What is the most appropriate response?",
+  "options": [
+   "Be honest about the experience gap, ask what he needs, and decide together whether the fit works",
+   "Reassure Theo that every client is treated exactly the same, so his sexual orientation will not affect the work",
+   "Redirect the conversation to his performance anxiety, since that is the concern he came in to address",
+   "Tell Theo he would be better served by a consultant who specializes in working with LGBTQ+ performers"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Best. Judging consultant–client fit is part of assessment. Transparency about experience, curiosity about what 'getting it' means to the client, and a shared decision reflect cultural humility and respect his autonomy.",
+   "A 'treat everyone the same' stance sounds fair but dismisses the experiences he just named, the same invalidation he described in past providers.",
+   "Sidestepping his question signals discomfort and leaves unanswered the fit concern he explicitly raised.",
+   "Immediate handoff is premature and paternalistic: his presenting concern is within the consultant's competence, and he has not said he wants a specialist."
+  ],
+  "takeaway": "When a client asks about your experience with their identity, answer honestly and decide fit together.",
+  "refs": [
+   "hook2013",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "D-II-005",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "D",
+  "topic": "Checking cultural interpretations of observation",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "elite",
+   "delivery": "team"
+  },
+  "stem": "A consultant observes a visiting national field hockey team at a training camp and interviews each player briefly. Most players give short answers, defer to the captain, and rarely make eye contact. The consultant's draft summary describes the squad as 'low in confidence with poor communication skills.' The team's liaison mentions that the consultant's interview style differs from how the players usually talk with staff. What should the consultant do before finalizing the summary?",
+  "options": [
+   "Add a confidence questionnaire to confirm the low-confidence finding with a standardized measure",
+   "Treat the impressions as tentative and check what these behaviors mean in the players' own context",
+   "Keep the summary, since the observations were consistent across nearly every player on the squad",
+   "Remove the communication finding but keep the confidence finding, which observation supports more directly"
+  ],
+  "answer": 1,
+  "rationales": [
+   "A questionnaire 'to confirm' assumes the conclusion, and a measure may not be validated for this group; it does not address the possibility that the behavior reflects norms.",
+   "Best. Eye contact, brevity, and deference carry different meanings across cultural contexts. Culturally responsive assessment treats observations as tentative and checks them with clients and cultural informants before drawing conclusions.",
+   "Consistency across players is just as likely to reflect shared cultural norms for talking with staff as a squad-wide deficit, so it does not validate the interpretation.",
+   "The confidence inference rests on the same behaviors (brief answers, little eye contact) as the communication one, so keeping it repeats the error."
+  ],
+  "takeaway": "Read observed behavior through the client's cultural norms; check interpretations before labeling deficits.",
+  "refs": [
+   "mio2023",
+   "schinke2012"
+  ]
+ },
+ {
+  "id": "D-II-006",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "D",
+  "topic": "Assessing athletic identity",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Hana, a senior swimmer in her final collegiate season, tells the consultant, 'I don't know who I am without swimming. Everything I do is about the pool.' She has no plans for after graduation and has been avoiding conversations about the future. Before planning support for her life after swimming, the consultant wants a measure that captures the issue Hana is describing. Which assessment approach best fits this purpose?",
+  "options": [
+   "The Profile of Mood States, given weekly to track how her mood shifts as her final season ends",
+   "The Task and Ego Orientation in Sport Questionnaire, to identify how she defines success in the pool",
+   "The Athletic Identity Measurement Scale, paired with an interview about her other life roles",
+   "The Competitive State Anxiety Inventory-2, given before her final championship meet to gauge worry"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Mood monitoring may be useful later, but the POMS does not measure how central or exclusive her identification with sport is.",
+   "Goal orientation describes how she judges competence and success, not the strength or exclusivity of her athletic identity.",
+   "Best. The AIMS measures the strength and exclusivity of athletic identity, a known risk factor for difficult career transitions; an interview about other roles and supports adds the context needed for planning.",
+   "The CSAI-2 measures state anxiety around a specific competition, which is not the question the consultant is asking."
+  ],
+  "takeaway": "Strong, exclusive athletic identity predicts harder transitions; the AIMS plus an interview assesses it.",
+  "refs": [
+   "brewer1993",
+   "wylleman2004"
+  ]
+ },
+ {
+  "id": "D-III-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "D",
+  "topic": "Culturally congruent goal framing",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "During goal setting, Leilani, a collegiate softball pitcher, says she is uncomfortable with goals that feel 'all about me.' What drives her, she explains, is contributing to her team and making her family and home community proud. The consultant's usual template asks athletes to list personal outcome, performance, and process goals. How should the consultant approach the goal-setting plan?",
+  "options": [
+   "Explain that individual goals are best supported by research and encourage her to try the standard template",
+   "Set only team outcome goals, such as conference standings, so the plan matches her collective focus",
+   "Set the goal-setting component aside and move to imagery, which does not require personal goals",
+   "Co-create performance and process goals that she frames around the contributions and values she named"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Pressing the template overrides what she has said motivates her; goals the athlete does not own are unlikely to drive commitment.",
+   "Team outcome goals depend heavily on others and are less controllable, and dropping her own performance and process goals removes the most useful targets.",
+   "Abandoning goal setting discards an evidence-based tool when the issue is only how the goals are framed.",
+   "Best. Collaborative goal setting keeps the evidence-based structure (controllable performance and process goals) while framing it in the athlete's own values, which increases ownership and commitment."
+  ],
+  "takeaway": "Adapt how goals are framed to the client's values; keep the evidence-based structure.",
+  "refs": [
+   "mio2023",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "D-III-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "D",
+  "topic": "Planning around access barriers",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "youth",
+   "delivery": "organizational"
+  },
+  "stem": "A community youth soccer league asks a consultant to design a season-long mental skills program for players aged 10 to 13 and their families. In assessment interviews, coaches report that many parents work evenings, few families have reliable transportation, and many households speak Spanish or Vietnamese at home. Which planning decision best addresses these resources and barriers?",
+  "options": [
+   "Schedule evening parent seminars at a central location and offer all materials in English for consistency",
+   "Embed sessions in existing practices and co-design translated family materials with parent representatives",
+   "Offer the full program as self-paced online modules so families can complete it at any time of day",
+   "Limit the program to players only, because family involvement is not feasible under these constraints"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Evening, off-site, English-only seminars run into all three barriers the assessment identified: work schedules, transportation, and language.",
+   "Best. Planning should use the assessment's resources and barriers: practices already bring players together, and co-designing materials in families' home languages with parent representatives builds access, relevance, and buy-in.",
+   "Online modules ease scheduling but assume device and internet access, leave the language barrier unaddressed, and give families no voice in the design.",
+   "Excluding families gives up an important influence on young athletes when the barriers can be worked around."
+  ],
+  "takeaway": "Design programs around the community's real barriers and involve its members in the design.",
+  "refs": [
+   "bronfenbrenner1979",
+   "mio2023"
+  ]
+ },
+ {
+  "id": "D-III-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "D",
+  "topic": "Pre-retirement transition planning",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "Rafael, a 31-year-old national-team kayaker, plans to retire after the world championships in 18 months. He wants to stay fully focused on racing and asks to leave any talk about life after sport until his final race is over. He has trained full time since age 19, has no other work experience, and says he 'can't picture' a life without paddling. How should the consultant approach planning for his transition?",
+  "options": [
+   "Discuss with him how gradual pre-retirement planning can begin now without taking his focus off racing",
+   "Agree to postpone all transition work until after the championships, exactly as he has requested",
+   "Refer him to a career counselor now and keep the consultation centered strictly on racing performance",
+   "Shift the main focus of consultation to career exploration, since his retirement date is already fixed"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Best. Planned, gradual transitions with pre-retirement planning and a broader identity are associated with better adjustment, and such planning need not hurt performance. Discussing this openly respects his autonomy while giving him the evidence to decide.",
+   "Honoring his request without discussion leaves an athlete with an exclusive sport identity and no other work experience facing an abrupt transition, a known risk for difficult adjustment.",
+   "Career counseling may become part of his support, but handing the issue off before exploring his concerns about distraction is premature and fragments the plan.",
+   "Making career exploration the main focus overrides his stated performance goal and is likely to damage the working alliance."
+  ],
+  "takeaway": "Pre-retirement planning can start well before the final race and supports adjustment without costing performance.",
+  "refs": [
+   "wylleman2004",
+   "brewer1993"
+  ]
+ },
+ {
+  "id": "D-IV-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "D",
+  "topic": "Responding to a microaggression in a workshop",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "team"
+  },
+  "stem": "During a team-building workshop with a collegiate women's basketball team, a player asks a U.S.-born teammate of Korean descent, 'But where are you really from?' A few players laugh, and the teammate goes quiet and looks down. Earlier in the workshop, the team agreed on norms of respect and speaking up. How should the consultant respond?",
+  "options": [
+   "Let the moment pass to avoid embarrassing anyone, then raise the comment privately with the coach afterward",
+   "Stop the workshop and deliver an extended lecture to the team on racism and the harm caused by stereotypes",
+   "Briefly name the comment's impact, connect it to the agreed norms, and check in with the teammate afterward",
+   "Invite the teammate to explain to the group why the question felt hurtful, so others can learn from her"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Letting it pass leaves the targeted athlete unsupported and signals to the group that the agreed norms are not enforced.",
+   "A long lecture shames the speaker, derails the session, and tends to produce defensiveness rather than learning.",
+   "Best. The question conveys that she is a perpetual foreigner, a classic microaggression. Naming its impact briefly and without shaming, tied to norms the team set, protects psychological safety, and a private check-in supports the athlete who was targeted.",
+   "Asking the targeted person to educate the group places the burden on her and can deepen the harm."
+  ],
+  "takeaway": "Address microaggressions promptly and briefly, anchored in group norms, and follow up with the person affected.",
+  "refs": [
+   "sue2007",
+   "tod2024"
+  ]
+ },
+ {
+  "id": "D-IV-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "D",
+  "topic": "Adapting methods to religious concerns",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "organizational"
+  },
+  "stem": "A consultant is delivering a breath-focused mindfulness program to a police academy class to help recruits manage stress during scenario training. Two recruits tell the consultant privately that mindfulness feels like a religious practice that conflicts with their own faith, and they are uneasy about taking part. The academy director wants every recruit to complete the stress-management training. What is the most appropriate way to proceed?",
+  "options": [
+   "Explain that mindfulness is fully secular, so their objection rests on a misunderstanding of the method",
+   "Excuse the two recruits from the training entirely and let them use the time for physical conditioning",
+   "Drop the mindfulness component for the whole class so that no recruit feels singled out by the change",
+   "Explore their concerns and offer an alternative attention-control exercise that serves the same purpose"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Telling clients their beliefs are mistaken dismisses their values and damages trust, even if the consultant views the method as secular.",
+   "Excusing them avoids the conflict but denies them stress-management skills they need for the job and the director's training aim.",
+   "Removing an effective component for the whole class over two recruits' concerns is an overcorrection when an individual adaptation would work.",
+   "Best. Respecting clients' rights and dignity means hearing their concerns and adapting the method, not the goal. An alternative attention-control or arousal-regulation exercise can build the same skill without asking them to act against their beliefs."
+  ],
+  "takeaway": "When a method conflicts with a client's beliefs, keep the goal and adapt the technique.",
+  "refs": [
+   "mio2023",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "D-IV-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "D",
+  "topic": "Adapting imagery for a blind athlete",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "para-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "A consultant begins imagery training with Amara, an elite para judoka who has been blind since birth. The consultant's standard scripts rely heavily on visual descriptions, such as seeing the opponent's stance and the arena lights. Amara is enthusiastic about imagery but says the first script 'didn't really land.' What should the consultant do next?",
+  "options": [
+   "Conclude that imagery is a poor fit for Amara and move her program toward self-talk and goal setting",
+   "Ask Amara how she experiences grips, movement, and sound in matches, and build scripts around those senses",
+   "Keep the visual script but slow its pace and repeat it more often until the images become clearer",
+   "Ask her coach to describe in detail what an ideal throw looks like so the visual script can be made more vivid"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Imagery is multisensory, and Amara wants to use it; dropping it assumes a limitation instead of adapting the method.",
+   "Best. Effective imagery reflects the performer's real sensory experience (the PETTLEP idea of functional equivalence). Asking how she experiences judo, rather than assuming, lets the consultant build kinesthetic, tactile, and auditory scripts that fit her.",
+   "Repeating a script built on a sense she does not use for judo will not make it more meaningful to her.",
+   "A sighted coach's visual description adds more of what did not work and still leaves Amara out of designing her own imagery."
+  ],
+  "takeaway": "Adapt techniques to how the client actually experiences performance; ask, don't assume.",
+  "refs": [
+   "holmes2001",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "D-V-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "V",
+  "kg": "D",
+  "topic": "Culturally responsive program evaluation",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "team"
+  },
+  "stem": "At the end of a season with a professional women's soccer team, a consultant collects program evaluation forms that players complete with their names on them. Every rating is at the top of the scale. Several international players later mention informally that, in their previous clubs, criticizing staff was considered disrespectful. How should the consultant interpret and follow up on this evaluation?",
+  "options": [
+   "Treat the ratings cautiously and add anonymous or peer-facilitated ways for players to give candid feedback",
+   "Conclude that the program was highly effective, since the ratings were uniformly positive across the squad",
+   "Discard the international players' ratings and base the season evaluation only on the other players' forms",
+   "Ask the international players to complete the same named form again now that the expectations are clear"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Best. Named forms, power differences, and norms against criticizing staff all push ratings upward, so uniform top scores are weak evidence. Anonymous or peer-facilitated methods make candid feedback culturally and practically safer.",
+   "Uniformly perfect ratings from a named form are more likely to reflect social desirability than true effectiveness, so this conclusion is not justified.",
+   "The pressure toward positive ratings applies to everyone completing a named form, and excluding one group silences them rather than fixing the method.",
+   "Repeating the same named format does nothing to remove the pressure that produced the uniform ratings."
+  ],
+  "takeaway": "Design evaluation methods that make honest feedback safe across cultural norms and power differences.",
+  "refs": [
+   "mio2023",
+   "tod2024"
+  ]
+ },
+ {
+  "id": "D-V-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "V",
+  "kg": "D",
+  "topic": "Concluding work after deselection",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "A consultant employed by a professional hockey club has worked for a season with Jonas, a 27-year-old forward. The club tells Jonas his contract will not be renewed; he stays on the roster for two more weeks, and the consultant's role covers only rostered players. Jonas is shaken, says hockey is 'all I've ever been,' and is unsure whether to keep playing elsewhere. How should the consultant handle the end of this consultation?",
+  "options": [
+   "End contact now, since the club's contract will soon no longer cover any work with Jonas",
+   "Continue meeting with Jonas informally under the club contract until he signs with a new team",
+   "Plan a closing session that reviews his gains and links him to transition support options",
+   "Use the remaining sessions to prepare Jonas for tryouts, since staying in hockey would protect his identity"
+  ],
+  "answer": 2,
+  "rationales": [
+   "An abrupt end leaves a distressed client without closure or resources at a vulnerable moment; ending consultation responsibly includes planning the termination.",
+   "Working outside the role the club contracts creates a role and boundary problem; any continued work needs a clear, separate arrangement.",
+   "Best. Deselection is an involuntary transition that is especially hard when athletic identity is strong. A planned closing session consolidates what he has learned, and linking him to transition support (such as player-association programs, independent consulting, or counseling if needed) ensures continuity of care.",
+   "Steering him toward continuing in hockey decides his career question for him and reinforces an exclusive identity rather than supporting his own choice."
+  ],
+  "takeaway": "Conclude consultation deliberately, especially after an involuntary transition: review gains and connect the client to ongoing support.",
+  "refs": [
+   "wylleman2004",
+   "brewer1993"
+  ]
+ },
+ {
+  "id": "D-V-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "V",
+  "kg": "D",
+  "topic": "Revising a plan for acculturation stress",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Six weeks into a plan focused on pre-shot routines, a consultant reassesses progress with Ji-woo, a first-year collegiate golfer who moved from overseas for school. Her routine is consistent in practice, but her tournament scores have not improved. In the review, she describes feeling isolated, struggling with coursework in her second language, and rarely talking with teammates outside practice. What is the most appropriate next step?",
+  "options": [
+   "Add more pressure-simulation reps to the routine work, since the routine has not yet transferred to tournaments",
+   "Refer Ji-woo to a licensed counselor and pause mental performance work until her adjustment improves",
+   "Keep the plan as written for another six weeks, since routine work often takes a full season to show results",
+   "Revise the plan with Ji-woo to address her adjustment and social connection alongside routine work"
+  ],
+  "answer": 3,
+  "rationales": [
+   "More routine practice addresses a skill that is already consistent and ignores the barrier the reassessment just revealed.",
+   "Isolation and academic strain during a cross-cultural move are common adjustment stresses, not by themselves signs of a clinical concern; pausing performance work and handing her off is premature.",
+   "Continuing unchanged disregards new reassessment data; evaluation exists to revise the plan when the picture changes.",
+   "Best. Reassessment showed that acculturation stress and limited social support are likely barriers. Revising the plan collaboratively, for example by building connection with teammates and linking to campus international-student resources, responds to the data while continuing the skill work."
+  ],
+  "takeaway": "When reassessment reveals contextual barriers, revise the plan with the client rather than doubling down on the original skill.",
+  "refs": [
+   "tod2024",
+   "mio2023"
+  ]
+ },
+ {
+  "id": "D-VI-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "VI",
+  "kg": "D",
+  "topic": "Cultural humility vs. competence",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "After attending a workshop on Latino cultural values, a consultant opens a first session with Andrés, a collegiate baseball player, by saying, 'I know family comes first in Latino culture, so let's start with your family's expectations.' Andrés looks puzzled and says his main concern is handling pressure at the plate. Which practice would best reflect cultural humility in this situation?",
+  "options": [
+   "Continue with the family focus, since the workshop described values that are well documented in research",
+   "Treat cultural knowledge as a starting hypothesis and let Andrés define what his identities mean to him",
+   "Complete further workshops on Latino culture until the consultant can anticipate clients' values accurately",
+   "Avoid any mention of culture in future sessions so that Andrés does not feel stereotyped again"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Group-level findings describe tendencies, not individuals; applying them over the client's own stated concern is stereotyping.",
+   "Best. Cultural humility is an other-oriented stance in which the client is the expert on their own identities, paired with ongoing self-reflection. Knowledge about groups is useful only as a tentative hypothesis checked with the individual.",
+   "More group knowledge reflects a mastery view of cultural competence; no amount of it lets a consultant predict an individual's values.",
+   "Avoiding culture altogether swings to a 'culture-blind' stance that can miss what does matter to him; the goal is to ask, not to avoid."
+  ],
+  "takeaway": "Cultural humility treats group knowledge as a hypothesis and the client as the expert on their own identity.",
+  "refs": [
+   "hook2013",
+   "mio2023"
+  ]
+ },
+ {
+  "id": "D-VI-002",
+  "pool": "A",
+  "scored": true,
+  "domain": "VI",
+  "kg": "D",
+  "topic": "Self-reflexivity about privilege",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "adult",
+   "delivery": "individual"
+  },
+  "stem": "A consultant is growing frustrated with Dante, a 19-year-old amateur boxer who often cancels sessions because his shifts at a delivery job change weekly. In her notes, the consultant writes that Dante 'doesn't seem committed.' She recalls that, as a college athlete, she never had to work during her season. What is the most appropriate next step?",
+  "options": [
+   "Examine how her own background shapes this judgment, take it to supervision, and adapt scheduling",
+   "Tell Dante that consultation requires consistent attendance and set a firm limit on further cancellations",
+   "Refer Dante to a consultant who has more experience working with athletes from lower-income backgrounds",
+   "Raise her concern about Dante's commitment with his coach, who may be able to improve his attendance"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Best. Self-reflexive cultural praxis asks consultants to examine how their own identities and privileges shape their interpretations. Her 'not committed' label may reflect her own experience rather than his; supervision supports that reflection, and flexible scheduling addresses the real barrier.",
+   "A firm attendance rule treats a structural constraint as a motivation problem and is likely to end the work.",
+   "The issue is the consultant's assumption, not a competence gap requiring a specialist; referring out avoids the reflection the situation calls for.",
+   "Sharing an untested judgment about his commitment with the coach risks his standing and may breach confidentiality."
+  ],
+  "takeaway": "When frustrated with a client, check whether your own background is shaping the interpretation.",
+  "refs": [
+   "schinke2012",
+   "mio2023"
+  ]
+ },
+ {
+  "id": "D-VI-003",
+  "pool": "B",
+  "scored": true,
+  "domain": "VI",
+  "kg": "D",
+  "topic": "Extending competence for a Deaf client",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Nia, a collegiate wrestler who is Deaf and communicates primarily in American Sign Language, asks to work with the athletic department's consultant on pre-match nerves. The consultant does not sign and has never worked with a Deaf client. The consultant cannot find a signing consultant, including by telehealth, and Nia prefers to work with this consultant. What is the most appropriate way to proceed?",
+  "options": [
+   "Communicate through written notes in sessions, which keeps the conversation private and avoids a third party",
+   "Ask a hearing teammate who signs to interpret, since Nia already trusts her",
+   "Decline the request, since the consultant has no training or experience in working with Deaf clients",
+   "Arrange a qualified ASL interpreter and seek consultation on Deaf culture as the work begins"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Written English may not be Nia's first language, and note-passing slows and flattens the conversation; it shifts the burden of the gap onto her.",
+   "A teammate has a dual relationship with Nia and is not a trained interpreter, which compromises both confidentiality and accuracy.",
+   "Declining leaves her without services when no alternative exists and she has chosen this consultant; competence can be responsibly extended with supports and consultation.",
+   "Best. When no specialist is available and the client prefers the consultant, competence is extended responsibly by using a qualified, confidentiality-bound interpreter (often arranged through campus disability services) and seeking consultation and education on Deaf culture and interpreter-mediated work."
+  ],
+  "takeaway": "Extend competence through qualified supports and consultation rather than declining or improvising.",
+  "refs": [
+   "aaspethics2024",
+   "mio2023"
+  ]
+ },
+ {
+  "id": "D-VI-004",
+  "pool": "B",
+  "scored": true,
+  "domain": "VI",
+  "kg": "D",
+  "topic": "Challenging a playing-through-pain culture",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "organizational"
+  },
+  "stem": "While consulting with a collegiate football program, a consultant hears position coaches praise players who 'play hurt' and joke that players in the athletic training room are 'soft.' Two players have told the consultant in confidence that they hide minor injuries to keep their spots. The consultant's contract is with the athletic department. Which action best fulfills the consultant's professional responsibilities?",
+  "options": [
+   "Teach the two players pain-coping skills so they can keep practicing while managing their injuries",
+   "Keep the observations private, since changing coaching culture falls outside the consultant's contracted role",
+   "Urge the two players to get their injuries evaluated, and raise the broader pattern with department leadership",
+   "Encourage the two players to report the coaches' comments to the athletic director on their own"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Helping athletes tolerate pain from injuries they are hiding increases the risk of worse injury; pain coping is an adjunct to medical care, not a substitute for reporting.",
+   "Concern for others' welfare and social responsibility apply to what the consultant observes in the organization, and staying silent leaves a risky norm in place.",
+   "Best. Concern for others' welfare calls for getting the hidden injuries evaluated by sports medicine and for addressing the norm itself. Praising players who play hurt and stigmatizing the training room discourages injury reporting, so the pattern is raised at the organizational level, framed around what the consultant observed rather than the players' confidences.",
+   "Asking the two players with the least power, who already fear losing their spots, to confront the culture alone is unlikely to change it, leaves their injuries unaddressed, and may expose them to retaliation."
+  ],
+  "takeaway": "Sport norms that discourage reporting injuries are a welfare issue to address at the organizational level, protecting individual confidences.",
+  "refs": [
+   "aaspethics2024",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "D-VI-005",
+  "pool": "drill",
+  "scored": true,
+  "domain": "VI",
+  "kg": "D",
+  "topic": "Repairing the consultant's microaggression",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "esports",
+   "level": "professional",
+   "delivery": "virtual"
+  },
+  "stem": "On a video call with Diego, a professional esports player born and raised in Texas, the consultant comments, 'Your English is really good.' At their next session, Diego says the remark bothered him because people often assume he is not American. What is the most appropriate response from the consultant?",
+  "options": [
+   "Explain that the remark was meant as a compliment, so Diego can see there was no bad intent behind it",
+   "Listen without defending, acknowledge the impact and the assumption behind it, and apologize",
+   "Apologize at length across the session to show Diego how seriously the consultant takes the mistake",
+   "Move on to performance topics quickly so that the session does not become focused on the consultant"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Explaining intent centers the consultant and implicitly asks the client to discount the impact he just described.",
+   "Best. The remark is a microaggression that treats him as a foreigner in his own country. Repairing the rupture means non-defensive listening, acknowledging impact and the underlying assumption, and a sincere apology, followed by the consultant's own reflection.",
+   "Extended apology shifts attention to the consultant's feelings and can leave the client managing the consultant's guilt.",
+   "Moving on quickly skips the repair the client invited and can signal that his concern is unwelcome."
+  ],
+  "takeaway": "When told you caused harm, focus on impact over intent: listen, acknowledge, apologize, and reflect.",
+  "refs": [
+   "sue2007",
+   "hook2013"
+  ]
+ },
+ {
+  "id": "D-VI-006",
+  "pool": "drill",
+  "scored": true,
+  "domain": "VI",
+  "kg": "D",
+  "topic": "Developing contextual intelligence",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "organizational"
+  },
+  "stem": "Priya, a newly certified consultant who has worked only in collegiate athletics, takes a position with a professional baseball organization. In her first month she notices unwritten rules about who speaks in staff meetings, how players view staff who 'haven't played,' and how roster moves affect trust in the clubhouse. Which plan would best develop her contextual intelligence in this new setting?",
+  "options": [
+   "Seek mentoring from experienced staff, observe before intervening, and reflect regularly on what she learns",
+   "Rely on the same intervention package that worked in college, since the mental skills themselves transfer",
+   "Complete an advanced course in baseball biomechanics to establish credibility with coaches and players",
+   "Schedule individual meetings with every player in the first week to introduce her full service menu"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Best. Contextual intelligence, the ability to read and work within an organization's culture, history, and power dynamics, develops through experience, mentoring, observation, and deliberate reflection.",
+   "Skills may transfer, but delivery depends on context; ignoring the unwritten rules she has noticed is exactly what contextual intelligence guards against.",
+   "Technical knowledge can help credibility, but it does not teach the organization's culture, relationships, or politics.",
+   "Rushing every player in week one before understanding clubhouse dynamics risks violating the norms she has just begun to notice."
+  ],
+  "takeaway": "Contextual intelligence grows through mentoring, observation, and reflection in the new setting.",
+  "refs": [
+   "brown2005ci",
+   "tod2024"
+  ]
+ },
+ {
+  "id": "D-VI-007",
+  "pool": "drill",
+  "scored": true,
+  "domain": "VI",
+  "kg": "D",
+  "topic": "Organizational DEIB requests",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "business",
+   "level": "adult",
+   "delivery": "organizational"
+  },
+  "stem": "After a widely shared incident in which a manager mocked an employee's accent, a technology company asks a consultant who provides performance and team-development services to deliver a one-hour diversity session for all staff next week. An executive says the goal is 'to show we've dealt with it.' Which response best reflects the consultant's professional responsibilities?",
+  "options": [
+   "Agree to deliver the session next week and assure leadership that it will resolve the climate problem",
+   "Decline the request outright, since the company's motives appear to be mainly about public relations",
+   "Explain the limits of a single session and propose sustained work alongside qualified DEI specialists",
+   "Deliver the session and allow the company to cite the consultant's endorsement in its public statements"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Promising that a single session will fix the climate misrepresents what the service can achieve, which conflicts with integrity.",
+   "Declining outright forgoes a chance to steer the organization toward meaningful change; the consultant can be honest about the limits instead.",
+   "Best. Integrity requires honesty about what a single session can and cannot do, since climate change depends on leadership commitment, policy, and sustained work. Competence requires recognizing that organizational DEI work may exceed a performance consultant's training, so partnering with qualified DEI specialists is part of a responsible proposal.",
+   "Lending the consultant's name to public relations risks misrepresenting the work and blurs the consultant's role."
+  ],
+  "takeaway": "In organizational DEIB work, be honest about what a one-off session can achieve and push for sustained, leadership-backed change.",
+  "refs": [
+   "aaspethics2024",
+   "mio2023"
+  ]
+ },
+ {
+  "id": "K-III-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "K",
+  "topic": "Integrated model and rehab planning",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "Six weeks after ACL reconstruction, Ingrid, an elite alpine skier, tells the consultant, 'I'll never ski the way I did.' She has been skipping home exercises and has stopped attending team video sessions. Her physical therapist reports normal healing. Using the integrated model of psychological response to sport injury, how should the consultant interpret these data to guide the plan?",
+  "options": [
+   "She is moving through predictable grief stages, so the plan should wait until she has reached acceptance",
+   "Her stress response has narrowed her attention, so the plan should focus mainly on preventing re-injury",
+   "Her healing is on schedule, so her mood and adherence should recover on their own as function returns",
+   "Her appraisals are driving her emotions and adherence, so the plan should address them"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Stage or grief models of injury response are poorly supported; responses do not follow a fixed sequence, and waiting would delay help with her adherence.",
+   "Attentional narrowing under stress belongs to the stress–injury model, which predicts injury risk; it does not explain her post-injury reactions.",
+   "Physical healing does not guarantee psychological recovery; the integrated model shows thoughts and emotions affecting rehab behavior independently of tissue healing.",
+   "Best. In Wiese-Bjornstal's integrated model, cognitive appraisals ('I'll never be the same') shape emotional and behavioral responses such as adherence and withdrawal, so the plan targets her appraisals and, given her withdrawal, her social support."
+  ],
+  "takeaway": "In the integrated model, appraisals drive emotional and behavioral responses to injury, so they are a key intervention target.",
+  "refs": [
+   "wiesebjornstal1998",
+   "brewer1994"
+  ]
+ },
+ {
+  "id": "K-III-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "K",
+  "topic": "Stress–injury model in prevention",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "professional",
+   "delivery": "organizational"
+  },
+  "stem": "A ballet company's artistic director asks a consultant to help reduce injuries during its demanding audition and premiere season. Medical staff report that most injuries occur among dancers facing major life stressors, such as relocation or contract uncertainty, and dancers describe intense worry and muscle tension before casting announcements. Based on the stress–injury model, which program component should the consultant prioritize?",
+  "options": [
+   "Stress-management training aimed at dancers' threat appraisals and their physical and attentional reactions",
+   "Post-injury goal setting to improve dancers' adherence to rehabilitation once injuries have occurred",
+   "Pre-performance routines to sharpen dancers' focus during auditions and premiere performances",
+   "Motivational imagery of successful premieres to increase dancers' drive during the demanding season"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Best. Andersen and Williams' model holds that history of stressors, personality, and coping resources shape the stress response (cognitive appraisal plus physiological and attentional changes), which raises injury risk. Prevention targets the appraisal and the physiological and attentional responses.",
+   "Rehab goal setting is useful after injury, but the request is to reduce injuries, which the model addresses before injury occurs.",
+   "Routines can steady focus in the moment of performance, but they do not address the life stress, threat appraisals, and chronic tension the model links to injury across the season.",
+   "Raising drive does nothing to reduce the threat appraisals and tension the model links to injury, and added arousal may intensify the stress response."
+  ],
+  "takeaway": "The stress–injury model points prevention at the stress response: appraisals, muscle tension, and attention.",
+  "refs": [
+   "andersen1988",
+   "williams1998"
+  ]
+ },
+ {
+  "id": "K-III-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "K",
+  "topic": "Goal setting for rehab adherence",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "individual"
+  },
+  "stem": "Marcus, a firefighter recovering from shoulder surgery, has been inconsistent with his prescribed home exercises and keeps asking his physical therapist when he can return to duty. He says the long rehab timeline feels 'like a black hole.' With his consent, the consultant and physical therapist are developing his plan together. Which goal-setting approach best fits this situation?",
+  "options": [
+   "Set a firm return-to-duty date as his main goal, so the long timeline has a clear endpoint to work toward",
+   "Set short-term process goals linked to his rehab milestones and track them with the therapist",
+   "Let Marcus choose any goals he likes, keeping the consultant's goals separate from the rehab protocol",
+   "Delay goal setting until he is closer to clearance, when the targets will feel more realistic and motivating"
+  ],
+  "answer": 1,
+  "rationales": [
+   "A fixed return date is an outcome goal controlled by healing and medical clearance; if it slips, it can undermine motivation and pressure an early return.",
+   "Best. Short-term, specific process goals tied to protocol milestones break a long timeline into achievable steps, and shared self-monitoring with the therapist supports adherence and keeps goals aligned with the medical plan.",
+   "Goals separate from the rehab protocol risk working against it; coordination with the physical therapist is the point of the joint plan.",
+   "Waiting forgoes goal setting exactly when the long, vague timeline is undermining adherence."
+  ],
+  "takeaway": "In rehab, short-term process goals tied to the medical protocol improve adherence more than a distant return date.",
+  "refs": [
+   "podlog2011",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "K-IV-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "K",
+  "topic": "Working with athletic trainers and consent",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "An athletic trainer tells the consultant that Keisha, a collegiate lacrosse player recovering from an ankle sprain, often skips the last sets of her rehab exercises and seems discouraged. The trainer asks the consultant to 'work with her on it' and to share what they discuss. Keisha has not yet met with the consultant. What should the consultant do first?",
+  "options": [
+   "Ask the trainer for Keisha's full injury file so the consultant can prepare before meeting with her",
+   "Suggest that the trainer shorten her rehab sets so they feel more manageable and less discouraging",
+   "Meet with Keisha, clarify each person's role, and get her consent about what the trainer will be told",
+   "Agree to send the trainer brief notes after each session, since both are part of her care team"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Requesting her medical file before she has agreed to work with the consultant bypasses her consent.",
+   "Changing rehab prescriptions is the athletic trainer's clinical decision, not something the consultant should direct.",
+   "Best. A third-party referral starts with meeting the athlete, explaining the consultant's role, and obtaining her informed consent, including exactly what will and will not be shared with the athletic trainer. Coordination follows from that agreement.",
+   "Being on the same staff does not authorize sharing session content; the athlete decides what is released."
+  ],
+  "takeaway": "Interdisciplinary teamwork runs on the athlete's informed consent; get it before sharing anything.",
+  "refs": [
+   "aaspethics2024",
+   "podlog2011"
+  ]
+ },
+ {
+  "id": "K-IV-002",
+  "pool": "A",
+  "scored": false,
+  "domain": "IV",
+  "kg": "K",
+  "topic": "Pain coping as an adjunct",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "masters",
+   "delivery": "individual"
+  },
+  "stem": "Gloria, a 58-year-old triathlete, is four weeks into physical therapy after knee surgery. She tells the consultant that her stretching exercises are painful, that she tenses up and holds her breath during them, and that she has started skipping them at home. Her physical therapist has said some discomfort is expected. How should the consultant help Gloria during this phase?",
+  "options": [
+   "Teach paced breathing and attention strategies, and have her report sharp pain to her therapist",
+   "Teach her to block out all pain sensations so she can push through every exercise regardless of intensity",
+   "Suggest she reduce the number of stretches she does at home until the discomfort becomes more manageable",
+   "Focus sessions on her return-to-race goals so that motivation outweighs the discomfort of the stretches"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Best. Relaxation and attentional strategies are evidence-based adjuncts that reduce tension and help athletes tolerate expected rehab discomfort, while the physical therapist remains the judge of which pain signals a problem.",
+   "Ignoring all pain removes a warning signal and can lead to reinjury; coping skills should help with expected discomfort, not override it.",
+   "Changing the prescribed exercise volume is the physical therapist's decision, and cutting back would worsen adherence.",
+   "Motivation may help, but it ignores what is actually happening (tensing and breath-holding during stretches), which coping skills address directly."
+  ],
+  "takeaway": "Mental skills help athletes cope with expected rehab discomfort; the medical team decides what pain means and what to change.",
+  "refs": [
+   "podlog2011",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "K-IV-003",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "K",
+  "topic": "Suspected concussion disclosed in session",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "individual"
+  },
+  "stem": "During a mental skills session, Owen, a 16-year-old on his high school hockey team, mentions that he has had headaches, trouble concentrating, and sensitivity to light since taking a hard hit two days ago. He has not told the team's athletic trainer because Friday's playoff game is important and he does not want to be held out. He asks the consultant to keep this between them. What should the consultant do?",
+  "options": [
+   "Teach him relaxation breathing to ease the headaches and help him stay focused for Friday's game",
+   "Advise him to sit out Friday's game and tell his coach that he needs a few days of rest to recover",
+   "Explore with Owen how he wants to handle it, and agree together on whether to tell the trainer",
+   "Explain that these symptoms need medical evaluation and ensure the athletic trainer is told today"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Managing possible concussion symptoms with mental skills treats a medical problem as a performance problem and could let him play while injured.",
+   "Deciding that he should sit out, and for how long, is a medical judgment; the consultant's job is to get him evaluated, not to set his return-to-play plan.",
+   "Collaboration is usually right, but whether a possible concussion is reported is not negotiable: it is a safety limit on confidentiality, and leaving the decision to a minor who wants to play exposes him to further injury.",
+   "Best. Concussion assessment and return-to-play decisions belong to the medical team. Explaining why, and ideally informing the athletic trainer together with Owen, protects his safety and respects the safety limits of confidentiality set out at consent; the trainer's protocol will also involve his parents."
+  ],
+  "takeaway": "Suspected concussion goes to the medical team immediately; it is a safety limit on confidentiality.",
+  "refs": [
+   "patricios2023",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "K-IV-004",
+  "pool": "B",
+  "scored": false,
+  "domain": "IV",
+  "kg": "K",
+  "topic": "Social support during rehabilitation",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Bianca, a collegiate volleyball setter, is three months into rehab for a torn Achilles tendon. Her rehab sessions are scheduled during team practice, and she tells the consultant she feels 'invisible' and disconnected from her teammates. She gives the consultant permission to talk with her coach about this. Which strategy should the consultant suggest to the coach?",
+  "options": [
+   "Encourage her to step back from the team until rehab ends, so she can focus fully on her recovery",
+   "Keep her involved through a meaningful role, such as charting opponents, and include her in team meetings",
+   "Ask teammates to send her encouraging texts while keeping team activities focused on healthy players",
+   "Have the coach track her rehab progress weekly with the athletic trainer and share updates with the team"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Distance from the team deepens the isolation she describes, which is a known risk to mood and adherence during long rehab.",
+   "Best. Injured athletes often lose belonging and identity when separated from the team. A meaningful role and inclusion in team activities supply social support and keep her connected, which supports adjustment and recovery.",
+   "Texts are a small gesture that still keeps her outside team activities, which is the core of what she feels.",
+   "Status updates do not reconnect her, and sharing her medical progress with the team goes beyond what she agreed to."
+  ],
+  "takeaway": "Keep injured athletes connected to the team through meaningful roles; isolation undermines recovery.",
+  "refs": [
+   "podlog2011",
+   "wiesebjornstal1998"
+  ]
+ },
+ {
+  "id": "K-IV-005",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "K",
+  "topic": "Healing imagery as an adjunct",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "Mei, an elite figure skater recovering from an ankle fracture, has been using healing imagery that the consultant introduced and says she enjoys it. Her physical therapist reports that she has missed two appointments, and Mei explains that she believes the imagery is 'doing the healing,' so the exercises matter less. What is the most appropriate response from the consultant?",
+  "options": [
+   "Stop the healing imagery, since it is now interfering with her rehabilitation and may not help at all",
+   "Encourage her belief in the imagery, since confidence in her recovery will help her heal faster",
+   "Explain that imagery complements rather than replaces rehab, and tie her practice to therapy sessions",
+   "Ask her physical therapist to replace some clinic sessions with imagery, since Mei clearly prefers it"
+  ],
+  "answer": 2,
+  "rationales": [
+   "The imagery itself is not the problem; her belief about what it does is. Correcting the belief keeps a useful tool in place.",
+   "Reinforcing a belief that leads her to skip treatment harms her recovery, and no evidence shows imagery replaces physical rehabilitation.",
+   "Best. Imagery and other mental skills are adjuncts to medical care. Correcting the misunderstanding and linking imagery to her rehab sessions (for example, practicing before exercises) supports adherence instead of competing with it.",
+   "Treatment decisions belong to the physical therapist, and swapping clinic care for imagery is not evidence-based."
+  ],
+  "takeaway": "Imagery supports rehabilitation but never replaces prescribed medical care.",
+  "refs": [
+   "podlog2011",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "K-V-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "V",
+  "kg": "K",
+  "topic": "Psychological readiness vs. clearance",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "Nine months after ACL reconstruction, Samuel, a professional soccer midfielder, has been medically cleared to return. In reassessment sessions he reports vivid worries about re-tearing the ligament, and he avoids tackles and sharp cuts in training. The head coach asks the consultant whether Samuel is 'ready to play.' Samuel has agreed that the consultant can share general progress with the coach. How should the consultant respond?",
+  "options": [
+   "Explain that clearance and readiness can differ, and outline ongoing work on his confidence",
+   "State that Samuel is not ready to play and recommend that the medical team withdraw his clearance",
+   "Tell the coach that clearance means he is ready and close the consultation now that rehab is complete",
+   "Share Samuel's detailed session notes so the coach can judge his readiness to play for himself"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Best. Physical clearance and psychological readiness are distinct: re-injury anxiety and avoidance can persist after medical clearance. Within the consent Samuel gave, the consultant can describe this in general terms and the continuing work on confidence, while return-to-play and selection decisions stay with the medical team and coach.",
+   "Readiness and selection decisions are not the consultant's to make, and recommending that clearance be withdrawn oversteps into the medical team's role.",
+   "Equating medical clearance with readiness ignores the reassessment data, and ending support now removes help when re-injury anxiety is active.",
+   "Detailed notes exceed the general progress Samuel agreed to share."
+  ],
+  "takeaway": "Medical clearance does not equal psychological readiness; communicate within consent and leave clearance decisions to the medical team.",
+  "refs": [
+   "ardern2016",
+   "podlog2011"
+  ]
+ },
+ {
+  "id": "K-V-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "V",
+  "kg": "K",
+  "topic": "Recognizing a clinical concern in rehab",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "At a scheduled progress review three months into rehabilitation for a back injury, Carmen, a collegiate gymnast, says that for several weeks she has felt hopeless nearly every day, sleeps poorly, has lost interest in friends and classes, and 'can't see the point anymore.' When asked directly, she denies any thoughts of harming herself and any plan to do so. What is the most appropriate next step?",
+  "options": [
+   "Normalize these feelings as a typical stage of injury grief that will pass once she returns to training",
+   "Ask Carmen what she thinks would help, and build her ideas into the mental skills plan",
+   "Contact emergency services, since her hopelessness shows that she is at imminent risk of harm",
+   "Discuss a referral to a licensed mental health professional and help her connect, with her consent"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Persistent, pervasive symptoms are not a normal 'stage'; stage models are poorly supported, and normalizing would delay needed care.",
+   "Collaborating on the plan sounds client-centered, but these symptoms suggest a possible mood disorder that mental skills work does not treat; keeping it within the performance plan delays appropriate care.",
+   "She has denied thoughts of self-harm and any plan when asked directly, so emergency procedures are not indicated; the consultant should still monitor risk and know the crisis resources.",
+   "Best. Weeks of near-daily hopelessness, disrupted sleep, and loss of interest go beyond a typical injury response and suggest a clinical concern outside CMPC scope. A referral with a warm handoff gets her appropriate care, and performance support can continue alongside it."
+  ],
+  "takeaway": "When injury response looks like a clinical concern, refer to a licensed professional; reserve emergency steps for imminent risk.",
+  "refs": [
+   "reardon2019",
+   "podlog2011"
+  ]
+ },
+ {
+  "id": "K-V-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "V",
+  "kg": "K",
+  "topic": "Revising rehab goals after a setback",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "para-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "Tomás, an elite wheelchair basketball player, had been meeting his weekly rehab goals after shoulder surgery. At a progress review, he reports that a post-surgical complication has led his surgeon to extend his rehab timeline by eight weeks, and he says his goals 'feel pointless now.' What should the consultant do next?",
+  "options": [
+   "Keep the original goals and target date to preserve his motivation and sense of momentum",
+   "Review the gains he has made and reset his short-term goals around the new medical timeline",
+   "Drop formal goal setting for now, since the setback has shown that his goals were unrealistic",
+   "Shift the consultation toward life after sport, since the setback may signal the end of his career"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Goals tied to a date the surgeon has already moved are now unattainable, which will undermine motivation rather than preserve it.",
+   "Best. Evaluation includes revising goals when circumstances change. Reviewing progress already made and recalibrating short-term goals to the medical team's new timeline restores attainable targets and a sense of control.",
+   "The goals were realistic for the original timeline; the complication changed the conditions, so they need adjustment, not abandonment.",
+   "Nothing suggests his career is ending; jumping to retirement planning catastrophizes a temporary setback."
+  ],
+  "takeaway": "After a rehab setback, revise goals to the new timeline and highlight progress already made.",
+  "refs": [
+   "podlog2011",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "K-VI-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "VI",
+  "kg": "K",
+  "topic": "Scope in medical treatment decisions",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "esports",
+   "level": "professional",
+   "delivery": "virtual"
+  },
+  "stem": "Rin, a professional esports player with chronic wrist pain, tells the consultant during a virtual session that her hand surgeon has offered either surgery or a longer course of conservative treatment. She asks, 'You know me best, so which should I choose?' She has an important tournament in three months. What is the most appropriate response?",
+  "options": [
+   "Recommend conservative treatment, since it avoids surgical risk before her important tournament",
+   "Recommend surgery, since a definitive fix will best protect her long-term career in esports",
+   "Help her clarify her priorities and questions for the surgeon, without advising on the choice",
+   "Tell her this is a medical question and redirect the session to her preparation for the tournament"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Choosing between treatments is medical advice outside CMPC competence, however reasonable the logic sounds.",
+   "Recommending surgery is equally outside scope; the consultant lacks the medical knowledge to weigh the options.",
+   "Best. Practicing within competence means not advising on medical treatment, but the consultant can still help: clarifying her values, concerns, and questions supports an informed decision made with her surgeon.",
+   "Shutting the topic down is technically within scope but abandons a client facing a stressful decision the consultant can help her think through."
+  ],
+  "takeaway": "Don't make medical recommendations; help the athlete prepare for an informed conversation with the medical team.",
+  "refs": [
+   "aaspethics2024",
+   "podlog2011"
+  ]
+ },
+ {
+  "id": "K-VI-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "VI",
+  "kg": "K",
+  "topic": "Confidentiality in sports medicine teams",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "organizational"
+  },
+  "stem": "At a weekly sports medicine meeting, a physical therapist asks the consultant to describe what Ayesha, an injured collegiate soccer player, has said in sessions about her fears and her family situation. Ayesha signed a release allowing the consultant to share her mental skills plan and attendance with the medical staff. How should the consultant respond?",
+  "options": [
+   "Share only the plan and attendance that Ayesha authorized, and keep her other disclosures confidential",
+   "Share the requested details, since everyone at the meeting is part of Ayesha's sports medicine care team",
+   "Decline to share any information at all, since sessions with the consultant are fully confidential",
+   "Share her fears but not her family situation, since fears are directly relevant to her rehabilitation"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Best. Disclosure is limited to what the client has authorized. The release covers her plan and attendance, so other content stays confidential unless a safety exception applies; the consultant can ask Ayesha whether she wants more shared.",
+   "Team membership does not override the scope of her release; interdisciplinary care still depends on the athlete's consent.",
+   "Withholding everything ignores the release Ayesha signed and undercuts the coordination she agreed to.",
+   "Relevance to rehab does not authorize disclosure; her fears fall outside what she agreed to release."
+  ],
+  "takeaway": "In interdisciplinary teams, share exactly what the athlete has authorized, no more and no less.",
+  "refs": [
+   "aaspethics2024",
+   "podlog2011"
+  ]
+ },
+ {
+  "id": "K-VI-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "VI",
+  "kg": "K",
+  "topic": "Evidence on stage models of injury",
+  "cognitive": "recall",
+  "difficulty": 2,
+  "format": "direct",
+  "context": {
+   "setting": "general",
+   "level": "na",
+   "delivery": "na"
+  },
+  "stem": "A consultant is preparing an evidence summary for athletic trainers who often describe injured athletes as moving through fixed stages, such as denial, anger, and acceptance. Which statement best reflects current research on psychological responses to sport injury?",
+  "options": [
+   "Most athletes pass through the same stages in order, though the timing differs from athlete to athlete",
+   "Stage models are well supported for severe injuries but not for minor injuries with short recoveries",
+   "Emotional responses mainly reflect injury severity, so appraisals add little once severity is known",
+   "Responses vary widely with appraisals and context, and fixed-stage models are poorly supported"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Research does not show a common, ordered sequence of stages, even allowing for differences in timing.",
+   "Stage models are not well supported for severe injuries either; the limitation is not about severity.",
+   "Severity matters, but cognitive appraisal models show that how the athlete interprets the injury shapes emotional responses beyond severity alone.",
+   "Best. Reviews of injury-response models found little support for fixed grief-like stages; responses are better explained by cognitive appraisal models, in which personal and situational factors shape appraisals, emotions, and behaviors."
+  ],
+  "takeaway": "Stage/grief models of injury response are poorly supported; appraisal-based models fit the evidence better.",
+  "refs": [
+   "brewer1994",
+   "wiesebjornstal1998"
+  ]
+ }
+]

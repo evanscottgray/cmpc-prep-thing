@@ -1,0 +1,71 @@
+[
+ {
+  "id": "B-V-009",
+  "pool": "drill",
+  "scored": true,
+  "domain": "V",
+  "kg": "B",
+  "topic": "Comparing scores across instruments",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "virtual"
+  },
+  "stem": "At intake, a consultant working online with Talia, a collegiate fencer, had her complete the Test of Performance Strategies. Twelve weeks later, wanting something shorter, the consultant gave her the Athletic Coping Skills Inventory-28 instead. Talia's ACSI-28 coping-with-adversity score looks high next to her intake TOPS emotional-control score. What is the most appropriate conclusion?",
+  "options": [
+   "Her emotional control has improved since intake, so the plan can move on to new goals",
+   "The ACSI-28 is the more sensitive tool, so its score should become her new baseline",
+   "The TOPS tends to underestimate fencers, which explains the gap between the scores",
+   "The scores aren't directly comparable, so re-measure with the intake tool and other data"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Concluding improvement treats two different instruments as if they were one. The subscales measure related but different constructs on different scales, so the gap says nothing reliable about change.",
+   "Neither instrument is established as 'more sensitive' for this purpose, and swapping baselines midstream still leaves no valid comparison with where she started.",
+   "There's no basis for claiming the TOPS systematically underestimates fencers; this invents an explanation instead of recognizing the measurement problem.",
+   "Best answer. Monitoring change requires the same (or an established parallel) measure administered under comparable conditions. Re-administering the intake instrument and corroborating with other sources — her own report, coach observation, bout data — gives a defensible picture of change."
+  ],
+  "takeaway": "To show change, repeat the same measure under comparable conditions and triangulate; scores from different instruments can't be compared directly.",
+  "refs": [
+   "tenenbaum2012",
+   "thomas1999tops"
+  ]
+ },
+ {
+  "id": "F-V-018",
+  "pool": "drill",
+  "scored": true,
+  "domain": "V",
+  "kg": "F",
+  "topic": "Evaluating transfer of team training",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "esports",
+   "level": "professional",
+   "delivery": "organizational"
+  },
+  "stem": "An esports organization hired a consultant to run a four-week communication program for its five-player roster. End-of-session ratings were uniformly positive. The general manager now asks whether the players actually communicate differently during competition. Which evaluation step best answers that question?",
+  "options": [
+   "Repeat the satisfaction survey a month later to confirm the ratings held",
+   "Give the players a short quiz on the communication model they were taught",
+   "Code recorded voice comms from matches before and after the program for the targeted behaviors",
+   "Compare the team's tournament placings in the season before and after the program"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Satisfaction ratings are Kirkpatrick's reaction level; repeating them shows the players still liked the program, not that their in-match communication changed.",
+   "A quiz assesses learning (knowledge of the model), Kirkpatrick's second level. Players can know the model without using it under competitive pressure.",
+   "Best choice. The manager's question is about behavior transfer — Kirkpatrick's third level. Systematically coding the specific trained behaviors (e.g., concise callouts, confirmations) in match recordings before and after the program measures whether the skills are being used where it matters.",
+   "Placings are a results-level outcome influenced by roster changes, opponents, game patches, and many other factors, so they can't show whether communication itself changed."
+  ],
+  "takeaway": "Match the evaluation level to the question: reaction and learning don't show transfer — observe the targeted behavior in the performance setting.",
+  "refs": [
+   "kirkpatrick2006"
+  ]
+ }
+]

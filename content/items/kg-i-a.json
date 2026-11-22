@@ -1,0 +1,1296 @@
+[
+ {
+  "id": "I-I-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "I",
+  "kg": "I",
+  "topic": "Single-session expectations before a final",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "team"
+  },
+  "stem": "Four days before the conference final, the head coach of a collegiate women's soccer team asks a consultant for one 45-minute session to 'get rid of the nerves' that have hurt the team in big matches. The consultant has never worked with the team. Which response best sets realistic expectations for mental performance training?",
+  "options": [
+   "Decline, explaining that mental skills cannot be taught in the few days left before the final",
+   "Agree, and assure the coach that the session will resolve the team's pressure problems before the final",
+   "Offer a brief session on one simple strategy, explaining that lasting change requires practice over time",
+   "Deliver a condensed program covering imagery, self-talk, relaxation, and goal setting in the single session"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Refusing outright withholds a modest, legitimate contribution. A few days is too little to learn a new skill set, but it is enough to introduce one simple tool with honest framing.",
+   "Promising that one session will fix pressure problems overstates what mental performance training can do and sets the consultant, coach, and players up for disappointment.",
+   "Mental skills are learned like physical skills, through systematic practice over time. A short session can introduce one simple, low-demand tool, as long as the consultant is honest that durable change comes from ongoing practice and a fuller program later.",
+   "Cramming several new skills into one session days before a final overloads players and leaves no time to practice any of them, so none is likely to hold up under pressure."
+  ],
+  "takeaway": "Be honest that mental skills take practice over time; offer a small, realistic contribution rather than a promise or a refusal.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "I-I-002",
+  "pool": "A",
+  "scored": true,
+  "domain": "I",
+  "kg": "I",
+  "topic": "Client's active role in training",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "At an intake meeting, Haruto, an elite golfer, says, 'I'll show up every week and you can tell me what's wrong with my head, the same way my swing coach fixes my mechanics.' Which explanation of how mental performance training works should the consultant give?",
+  "options": [
+   "Skills develop through his own practice between sessions, with the two of them shaping the plan together",
+   "The consultant will identify the flaws in his mental game and give him corrections at each weekly meeting",
+   "Insight gained in weekly sessions transfers to competition on its own, so extra practice is rarely needed",
+   "The consultant's main job is to provide motivation, while skill development stays with the swing coach"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Mental performance training is collaborative and educational: the client is an active partner who practices skills between sessions, and the consultant guides, teaches, and adjusts the plan with him. Setting this expectation early supports engagement and ownership.",
+   "This accepts the 'fix me' model the golfer described, casting him as a passive recipient. Skills he does not practice himself are unlikely to change his performance.",
+   "Understanding a skill in a session is not the same as being able to use it under competitive conditions; mental skills need deliberate, repeated practice to transfer.",
+   "Mental performance training teaches skills such as focus, arousal regulation, and self-talk; it is not limited to motivation, and those skills are not the swing coach's role."
+  ],
+  "takeaway": "Explain early that the client is an active partner whose between-session practice drives progress.",
+  "refs": [
+   "weinberg2024",
+   "andersen2005"
+  ]
+ },
+ {
+  "id": "I-I-003",
+  "pool": "A",
+  "scored": true,
+  "domain": "I",
+  "kg": "I",
+  "topic": "Realistic outcomes of a one-off workshop",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "business",
+   "level": "adult",
+   "delivery": "organizational"
+  },
+  "stem": "The vice president of a logistics company asks a consultant to run a single 90-minute 'resilience workshop' for 200 employees. She says she expects the company's burnout survey scores to drop by next quarter. Before agreeing, what should the consultant clarify with her first?",
+  "options": [
+   "Which burnout survey the company uses, so that scores before and after the workshop can be compared",
+   "Whether employees with high burnout scores can be identified so that the consultant can follow up with each of them",
+   "How many further workshops she will approve once the first session produces a drop in burnout scores",
+   "What one workshop can realistically achieve, and what objectives, follow-up, and supports success would need"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Choosing how to measure change matters, but it is premature while the expected outcome itself is unrealistic; agreeing on objectives comes before deciding how to evaluate them.",
+   "Singling out individual employees from survey data raises confidentiality and consent problems and shifts the work toward individual follow-up that was never agreed. It does not address the mismatch in expectations.",
+   "This builds on the assumption that one workshop will lower burnout, which is the very expectation the consultant needs to correct before committing.",
+   "A single psychoeducational session can raise awareness and introduce skills, but it is unlikely by itself to shift burnout, which also reflects workload and organizational conditions. Clarifying realistic objectives and what follow-up and supports would be needed comes first in organizational work."
+  ],
+  "takeaway": "In organizational work, align on what the format can realistically achieve before agreeing to deliver or measure it.",
+  "refs": [
+   "williams2020",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "I-I-004",
+  "pool": "B",
+  "scored": true,
+  "domain": "I",
+  "kg": "I",
+  "topic": "Explaining what MPT is",
+  "cognitive": "recall",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "organizational"
+  },
+  "stem": "A high school athletic director plans to offer mental performance training only to 'athletes who are struggling or have problems.' He worries that offering it to everyone will suggest something is wrong with them. Which explanation best describes what mental performance training is?",
+  "options": [
+   "A form of counseling for athletes with psychological difficulties, so limiting it to those athletes is appropriate",
+   "Learnable skills that help any performer, much like physical training, rather than a treatment for problems",
+   "A service best suited to athletes who already excel, so it should go mainly to top varsity performers",
+   "A crisis service that should follow a poor season rather than be built into regular athlete training"
+  ],
+  "answer": 1,
+  "rationales": [
+   "This confuses mental performance training with mental health treatment. Athletes with clinical concerns should be referred to licensed professionals, but performance skills training is not a treatment for disorders.",
+   "Mental performance training is an educational, skills-based approach: skills such as goal setting, focus, and arousal regulation are learnable and benefit performers at every level, just as physical training does. Framing it this way also reduces the stigma the director is worried about.",
+   "Skills training benefits developing and struggling performers as well as top ones; restricting it to elite athletes misreads what the training is for.",
+   "Mental skills are best built proactively and practiced over time, not introduced only in response to a crisis or a bad season."
+  ],
+  "takeaway": "Mental performance training is skill education for all performers, not therapy and not a crisis response.",
+  "refs": [
+   "weinberg2024",
+   "vanraalte2014"
+  ]
+ },
+ {
+  "id": "I-I-005",
+  "pool": "B",
+  "scored": true,
+  "domain": "I",
+  "kg": "I",
+  "topic": "Team versus individual delivery scope",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "team"
+  },
+  "stem": "A professional volleyball club hires a consultant for six hours per month. The head coach expects the consultant to design and deliver an individualized mental performance plan for each of the 18 players on the roster. What should the consultant do first?",
+  "options": [
+   "Accept the expectation and shorten each player's sessions so that all 18 plans fit in the contracted hours",
+   "Ask the club to extend the contract before agreeing to provide any services to the team or the players",
+   "Discuss which goals suit team sessions and how limited individual time will work, then agree on a model",
+   "Begin intake interviews with all 18 players to find out which of them most needs a personal plan"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Spreading six hours across 18 individualized plans leaves too little contact for any of them to work, so agreeing to it sets up a program that cannot deliver what was promised.",
+   "More hours might help, but making any service conditional on a bigger contract skips the conversation about what can realistically be delivered within the current one.",
+   "Clarifying the delivery model with the coach at the outset, including which needs are best met through team sessions and how individual work will be offered within the hours available, aligns expectations with resources before services begin.",
+   "Interviewing every player is itself a large commitment of the limited hours and starts the work before the coach and consultant agree on what the service will look like."
+  ],
+  "takeaway": "Before starting team work, agree with the coach on what team versus individual delivery can realistically cover in the time available.",
+  "refs": [
+   "andersen2005",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "I-I-006",
+  "pool": "B",
+  "scored": true,
+  "domain": "I",
+  "kg": "I",
+  "topic": "Managing, not eliminating, anxiety",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "Isabela, a professional violist preparing for orchestra auditions, tells a consultant at their first meeting, 'I want you to make my nerves go away completely, so I never feel them on stage again.' Which response best sets accurate expectations for the work?",
+  "options": [
+   "Agree to that goal and begin with relaxation training to reduce her nerves before each audition",
+   "Tell her the goal is impossible and that she must simply accept that nerves will sometimes ruin her auditions",
+   "Recommend that she see a physician about medication before beginning any mental performance work",
+   "Explain that training aims to help her manage and interpret nerves so they interfere less, not to remove them"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Relaxation skills may help, but agreeing to a goal of never feeling nerves sets an unattainable target and may lead her to treat any nervousness as failure. Some arousal before a high-stakes performance is normal and can be useful.",
+   "Correcting the goal is right, but framing nerves as something that will ruin auditions is discouraging and inaccurate; skills can change how much nerves interfere.",
+   "Nothing in her request suggests a medical or clinical concern, so steering her to medication first is premature and sidesteps the expectation-setting she needs.",
+   "Mental performance training helps performers regulate arousal and reinterpret symptoms; research on directional interpretation shows the same symptoms can be experienced as facilitative. Setting the goal as managing nerves rather than removing them is realistic and motivating."
+  ],
+  "takeaway": "Set the goal as managing and reinterpreting nerves, not eliminating them.",
+  "refs": [
+   "jones1995",
+   "hanton1999"
+  ]
+ },
+ {
+  "id": "I-I-007",
+  "pool": "drill",
+  "scored": true,
+  "domain": "I",
+  "kg": "I",
+  "topic": "Season timing for starting training",
+  "cognitive": "recall",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "team"
+  },
+  "stem": "In the spring off-season, a collegiate men's basketball coach tells a consultant he would rather wait until the playoffs to start mental performance training, 'when the pressure actually matters.' Which explanation best reflects how season timing should shape the program?",
+  "options": [
+   "Starting now gives players time to learn and rehearse skills so they hold up when the pressure arrives",
+   "Waiting is ideal, because players are most motivated to learn new skills when the stakes are highest",
+   "Timing matters little, since new mental skills work equally well whether they are introduced early or late",
+   "Training should begin in the playoffs but be limited to the starters, who face the most pressure"
+  ],
+  "answer": 0,
+  "rationales": [
+   "The off-season and preseason are the best times to introduce and practice new mental skills, because players have time to learn them well before they must rely on them. Skills first tried in high-pressure games are rarely dependable.",
+   "Motivation may peak in the playoffs, but that is when players have the least time and attention for learning something new, and untested skills tend to break down under pressure.",
+   "Mental skills need practice to become reliable, so when they are introduced matters a great deal; late introduction leaves too little time to learn them.",
+   "This repeats the timing problem and adds a narrow scope; bench players also face pressure, and all players need time to learn skills before the playoffs."
+  ],
+  "takeaway": "Introduce new mental skills in the off-season or preseason so they are well learned before high-pressure competition.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "I-I-008",
+  "pool": "drill",
+  "scored": true,
+  "domain": "I",
+  "kg": "I",
+  "topic": "Engaging a reluctant adolescent",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "adolescent",
+   "delivery": "individual"
+  },
+  "stem": "A parent books mental performance sessions for Mateo, a 14-year-old figure skater, hoping to improve his consistency in competition. At the first meeting, Mateo shrugs and says he is only there because his mother made him come. What should the consultant explain to Mateo and his parent?",
+  "options": [
+   "Sessions will go ahead as planned, because a parent's consent is enough for training with a minor to work",
+   "The work depends on Mateo's own involvement, so they will first explore what he wants and seek his assent",
+   "Mateo's reluctance shows he is not ready, so services will end until he asks for help on his own",
+   "The consultant will report Mateo's effort in each session to his mother so that she can encourage practice"
+  ],
+  "answer": 1,
+  "rationales": [
+   "A guardian's permission is required for a minor, but it does not make the training effective; skills develop only if the athlete engages, and the minor's assent is also expected.",
+   "Mental skills are learned through the performer's active practice, so progress depends on Mateo's engagement. Exploring his own goals and seeking his assent, alongside the parent's permission, sets realistic expectations for both and gives the work a chance to succeed.",
+   "Initial reluctance is common when someone else arranged the sessions. Ending services immediately skips the step of finding out whether Mateo has goals of his own.",
+   "Promising session-by-session reports to the parent before discussing confidentiality and Mateo's wishes would undermine trust and his willingness to engage."
+  ],
+  "takeaway": "When someone else arranges the work, explain that progress depends on the performer's own engagement and seek a minor's assent.",
+  "refs": [
+   "andersen2005",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "I-I-009",
+  "pool": "drill",
+  "scored": true,
+  "domain": "I",
+  "kg": "I",
+  "topic": "Timeline for visible progress",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "masters",
+   "delivery": "virtual"
+  },
+  "stem": "Gwen, a 52-year-old triathlete who works with a consultant by video, asks how soon her race times will improve once she starts mental performance training. Which answer sets the most accurate expectations?",
+  "options": [
+   "Race times typically improve within two weeks, since mental skills take effect faster than fitness gains do",
+   "Race times are not a useful marker, so progress should be judged only by how much she enjoys sessions",
+   "Mental training seldom affects race results, so she should treat it mainly as a way to reduce stress",
+   "Progress shows first in steady skill use and process measures; race times change later and have many causes"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Promising faster-than-physical gains on a fixed timeline is inaccurate; mental skills also need weeks of practice before they are dependable in races.",
+   "Outcomes still matter, and enjoyment alone does not show whether skills are being learned or used. Progress is best tracked through skill use, process indicators, and eventually performance.",
+   "This undersells the training. Mental skills can support performance, even if race times also depend on fitness, conditions, and other factors.",
+   "Skill acquisition and consistent use, along with process indicators such as pacing or focus ratings, change before outcomes do. Race times are influenced by fitness, course, and conditions, so explaining this sequence sets realistic expectations about timelines."
+  ],
+  "takeaway": "Tell clients that skill use and process measures improve before outcome measures, which have many influences.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "I-I-010",
+  "pool": "drill",
+  "scored": true,
+  "domain": "I",
+  "kg": "I",
+  "topic": "Organizational program role clarity",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "organizational"
+  },
+  "stem": "A fire chief hires a consultant to deliver mental performance training to all firefighters in the department. He also asks the consultant to use the sessions to identify which firefighters are 'mentally weak' so he can consider reassigning them. What should the consultant do?",
+  "options": [
+   "Agree, because observations from the training sessions offer the chief useful information for staffing decisions",
+   "Run the training but share only general impressions of individuals rather than formal ratings of them",
+   "Clarify that the program builds skills rather than evaluating individuals, and agree on what will be reported",
+   "Decline the contract, because consultants should not work for organizations that make personnel decisions"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Turning a skills program into a covert screening tool misleads participants, discourages honest engagement, and goes beyond what the program was designed to do.",
+   "Informal impressions are still evaluations of individuals; sharing them without firefighters' knowledge has the same problems as formal ratings.",
+   "In organizational work, the consultant clarifies at the outset who the client is, the purpose of the service, and what information will be shared. Framing the program as skill development, and agreeing on reporting that participants know about, protects trust and keeps the training effective.",
+   "Organizations routinely make personnel decisions; that alone is no reason to decline. Clarifying the role allows the consultant to offer the training appropriately."
+  ],
+  "takeaway": "Agree with organizational sponsors on the program's purpose and on what will be reported before delivery begins.",
+  "refs": [
+   "aaspethics2024",
+   "andersen2005"
+  ]
+ },
+ {
+  "id": "I-II-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "II",
+  "kg": "I",
+  "topic": "Measuring current mental-skill use",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Tomasz, a collegiate tennis player, says he 'loses focus' in matches even though he practices well. Before planning any intervention, the consultant wants a questionnaire showing how often he already uses strategies such as imagery, self-talk, and relaxation, separately in practice and in competition. Which instrument best fits this purpose?",
+  "options": [
+   "Competitive State Anxiety Inventory-2 (CSAI-2)",
+   "Test of Performance Strategies (TOPS)",
+   "Task and Ego Orientation in Sport Questionnaire (TEOSQ)",
+   "Sport Anxiety Scale-2 (SAS-2)"
+  ],
+  "answer": 1,
+  "rationales": [
+   "The CSAI-2 measures state cognitive anxiety, somatic anxiety, and self-confidence before a competition; it does not assess which mental strategies an athlete uses.",
+   "The TOPS assesses the use of psychological strategies, such as imagery, self-talk, relaxation, goal setting, and attentional control, with separate practice and competition scales. That makes it well suited to mapping current skill use before planning.",
+   "The TEOSQ measures task and ego goal orientations, which describe how an athlete defines success, not which mental skills he uses.",
+   "The SAS-2 measures trait anxiety, including a concentration-disruption subscale. That may relate to his focus complaint, but it does not show his current use of mental strategies."
+  ],
+  "takeaway": "To map which mental strategies a performer already uses in practice and competition, the TOPS fits; anxiety and orientation measures answer different questions.",
+  "refs": [
+   "thomas1999tops",
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "I-II-002",
+  "pool": "A",
+  "scored": true,
+  "domain": "II",
+  "kg": "I",
+  "topic": "Performance profiling for self-awareness",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "individual"
+  },
+  "stem": "Noah, a 16-year-old junior hockey player, struggles to describe his mental strengths and weaknesses and tends to repeat what his coach says about him. The consultant wants an assessment method that builds his self-awareness and increases his ownership of the goals they will set later. Which approach best fits?",
+  "options": [
+   "Have the coach rate Noah on a standard list of mental skills and then share those ratings with him",
+   "Give Noah a personality inventory to identify the stable traits that underlie his performance",
+   "Observe several of his games and give Noah a written summary of the consultant's conclusions",
+   "Guide Noah to build a performance profile, naming the qualities that matter to him and rating himself"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Coach ratings can be useful input, but handing Noah another outside view reinforces his habit of repeating others' judgments rather than building his own awareness.",
+   "Personality inventories describe broad, stable traits and do little to build awareness of specific, trainable mental skills or ownership of goals.",
+   "Observation adds valuable data, but presenting the consultant's conclusions keeps Noah in a passive role and does little for his self-awareness.",
+   "Performance profiling asks the athlete to identify the qualities he sees as important and to rate where he is now against where he wants to be. Because it starts from his own perspective, it builds self-awareness and ownership of later goals."
+  ],
+  "takeaway": "Performance profiling is both an assessment and a self-awareness tool because the athlete generates and rates the qualities.",
+  "refs": [
+   "butler1992",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "I-II-003",
+  "pool": "B",
+  "scored": true,
+  "domain": "II",
+  "kg": "I",
+  "topic": "Assessing imagery ability",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "A consultant is planning imagery training for Ama, a collegiate pole vaulter who says she 'can't really picture or feel' her jumps when she tries to imagine them. Before designing the program, the consultant wants to measure how easily Ama can form visual and kinesthetic images of her jumps. Which instrument best fits this purpose?",
+  "options": [
+   "Movement Imagery Questionnaire-3 (MIQ-3)",
+   "Sport Imagery Questionnaire (SIQ)",
+   "Test of Attentional and Interpersonal Style (TAIS)",
+   "Athletic Coping Skills Inventory-28 (ACSI-28)"
+  ],
+  "answer": 0,
+  "rationales": [
+   "The MIQ-3 measures imagery ability, meaning the ease of generating internal visual, external visual, and kinesthetic images, which is exactly what the consultant wants to know before designing the program.",
+   "The SIQ measures how often athletes use imagery for its cognitive and motivational functions. It describes frequency of use, not how easily she can form images.",
+   "The TAIS assesses attentional and interpersonal style and does not measure imagery ability.",
+   "The ACSI-28 measures broad psychological coping skills, such as concentration and coping with adversity, and has no imagery-ability scale."
+  ],
+  "takeaway": "Imagery ability (MIQ-3) and imagery use (SIQ) are different questions; pick the measure that matches what you need to know.",
+  "refs": [
+   "williams2012miq3",
+   "hall1998siq"
+  ]
+ },
+ {
+  "id": "I-II-004",
+  "pool": "B",
+  "scored": true,
+  "domain": "II",
+  "kg": "I",
+  "topic": "Readiness for mental skills training",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "esports",
+   "level": "professional",
+   "delivery": "virtual"
+  },
+  "stem": "Kenji, a professional esports player referred by his team's coach, meets a consultant by video. He says, 'I guess mental training could help me in clutch rounds, but I'm not sure it's worth the time with our scrim schedule.' Which response best fits his readiness for mental performance training?",
+  "options": [
+   "Assign a full daily practice schedule so that he sees results quickly and commits to the program",
+   "Tell the coach that Kenji is not ready and suggest postponing all services until the off-season",
+   "Explore what he would gain and what it would cost him, then let him choose a manageable first step",
+   "Summarize the research on mental training in esports so he can see why the time is worthwhile"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Kenji is ambivalent, not committed; a demanding schedule ignores the time concern he raised and is likely to increase resistance.",
+   "Ambivalence is not the same as being unready for any work. Postponing services misses the chance to help him resolve his doubts.",
+   "His statement fits contemplation: he sees possible benefits but doubts the cost. Exploring both sides of his ambivalence, as in motivational interviewing, and letting him choose a small first step respects his autonomy and moves readiness forward.",
+   "Information can help later, but leading with the case for change tends to prompt an ambivalent person to defend the other side. Exploring his own reasons first is more effective at this stage."
+  ],
+  "takeaway": "Match the response to readiness: explore ambivalence and let the performer choose a small first step.",
+  "refs": [
+   "miller2013",
+   "prochaska1983"
+  ]
+ },
+ {
+  "id": "I-II-005",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "I",
+  "topic": "Physiological data for self-awareness",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "individual"
+  },
+  "stem": "During scenario-based training, a SWAT officer insists that he 'stays calm' under stress, yet instructors notice that his hands shake and his radio calls speed up. The consultant wants to assess his stress response in a way that also builds his self-awareness. Which approach best fits?",
+  "options": [
+   "Interview him in detail about how he experiences stress, relying on his account of it",
+   "Pair heart-rate monitoring during scenarios with a debrief comparing the data with his own ratings",
+   "Give him a trait anxiety questionnaire and compare his score with the average score of officers in his unit",
+   "Have instructors tell him after each scenario that he looked anxious, until he accepts it"
+  ],
+  "answer": 1,
+  "rationales": [
+   "An interview is useful, but relying on his account alone repeats the problem: his self-report conflicts with what observers see, which suggests limited awareness of his stress response.",
+   "Objective physiological data gathered in realistic scenarios, reviewed with him alongside his own ratings, lets him notice the gap between what he feels and what his body does. That builds self-awareness, and the multi-method data also informs planning.",
+   "A trait questionnaire relies on the same self-perception that seems inaccurate here, and comparing him with peers does not build awareness of his responses in the moment.",
+   "Repeated outside judgments are likely to provoke defensiveness and do not help him learn to recognize his own signals."
+  ],
+  "takeaway": "When self-report and observation disagree, objective data reviewed with the performer can build self-awareness.",
+  "refs": [
+   "tenenbaum2012",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "I-II-006",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "I",
+  "topic": "Reconciling conflicting assessment data",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Lucía, a collegiate water polo player, scores high on the concentration subscale of the Athletic Coping Skills Inventory-28. Her coach, however, reports that she often loses track of her defensive assignment late in close games. What should the consultant do next?",
+  "options": [
+   "Explore the discrepancy through an interview with Lucía and by observing her in game situations",
+   "Rely on the questionnaire score, since standardized instruments are more objective than coach reports",
+   "Rely on the coach's report, since athletes usually rate themselves too favorably on questionnaires",
+   "Start concentration training immediately, since the coach's concern alone is enough to justify it"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Good assessment is multi-method. When a questionnaire and a stakeholder report disagree, interviewing the athlete and observing the specific situations, such as late in close games, helps explain the gap, for example fatigue or game pressure rather than general concentration.",
+   "Questionnaires capture self-perceptions in general terms and can miss situation-specific problems, so the coach's report should not simply be dismissed.",
+   "Coach reports are also only one perspective. Assuming the athlete is wrong skips the step of finding out what is actually happening.",
+   "Beginning an intervention before understanding the discrepancy risks targeting the wrong problem; the lapses could reflect fatigue, tactics, or pressure rather than a concentration skill gap."
+  ],
+  "takeaway": "When data sources disagree, gather more information in context rather than choosing one source.",
+  "refs": [
+   "tenenbaum2012",
+   "smith1995acsi"
+  ]
+ },
+ {
+  "id": "I-II-007",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "I",
+  "topic": "Assessing before team building",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "team"
+  },
+  "stem": "The head coach of a collegiate women's rowing team asks a consultant to run a team-building retreat because the boat 'doesn't feel like a team this year.' The consultant has not yet met the athletes. Which step should come first?",
+  "options": [
+   "Plan an outdoor adventure retreat built around shared physical challenges for the crew",
+   "Schedule a social event so the athletes can get to know each other before training resumes",
+   "Ask the captains which rowers are causing the problems so those athletes can be addressed",
+   "Assess task and social cohesion with a questionnaire and interviews with athletes and staff"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Choosing an activity before understanding the problem is premature, and adventure activities do not by themselves reliably improve cohesion.",
+   "A social event assumes the issue is social cohesion; the problem might instead be task cohesion, such as unclear roles or goals.",
+   "Asking captains to name problem athletes invites blame and scapegoating and skips a fair assessment of the group.",
+   "Team building should follow assessment. Measuring task and social cohesion, for example with the Group Environment Questionnaire plus interviews, shows which aspects of cohesion are weak so the intervention can be targeted."
+  ],
+  "takeaway": "Assess task and social cohesion before choosing a team-building intervention.",
+  "refs": [
+   "carron1985",
+   "carron1993"
+  ]
+ },
+ {
+  "id": "I-V-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "V",
+  "kg": "I",
+  "topic": "Checking practice before judging a skill",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Six weeks into an imagery plan to improve her composure in juried recitals, Anjali, a collegiate pianist, reports no change in her performances. Her practice log shows she completed imagery twice in six weeks, although she had agreed to four short sessions per week. What should the consultant do next?",
+  "options": [
+   "Explore with her what has blocked practice, and revise the plan so it is realistic for her schedule",
+   "Switch to a shorter technique, such as a cue word, that she may find easier to use",
+   "Keep the plan unchanged and remind her that the results depend on following it as agreed",
+   "Refer her to a counselor, since her lack of follow-through suggests an underlying motivational disorder"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Monitoring has to check whether the skill was actually practiced before judging whether it works. Exploring the barriers collaboratively and adjusting the dose or format to fit her schedule addresses the real problem.",
+   "Changing techniques without understanding why practice did not happen may leave the same barrier in place, and imagery has not really been tested yet.",
+   "Repeating the same expectations ignores whatever made the plan unworkable and is likely to produce the same result.",
+   "Missing practice sessions is common and does not indicate a clinical disorder; nothing in the scenario suggests a concern outside the consultant's scope."
+  ],
+  "takeaway": "Before deciding an intervention isn't working, check whether it was actually used, and adjust the plan to remove barriers.",
+  "refs": [
+   "williams2020",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "I-V-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "V",
+  "kg": "I",
+  "topic": "Revising an unrealistic goal",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Liam, a collegiate swimmer, set a weekly goal of hitting a target stroke rate on every set. After four weeks he has met it only once and says he feels discouraged, although his stroke rate has improved steadily and is still short of the target. What is the most appropriate adjustment?",
+  "options": [
+   "Drop the stroke-rate goal and replace it with an outcome goal tied to his race placings",
+   "Keep the goal exactly as written, since persisting through difficulty builds mental toughness",
+   "Revise it with him to a challenging but attainable target that builds toward the original",
+   "Shift him to effort goals, such as finishing every set, until his confidence returns"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Outcome goals are less controllable and would remove the process focus that is producing steady improvement.",
+   "A goal that is almost never met undermines motivation and confidence; persistence does not justify keeping an unrealistic target.",
+   "Goal-setting principles call for goals that are challenging but attainable, reviewed and adjusted based on progress. Setting a stepped target with him keeps the direction, rewards real improvement, and restores a sense of success.",
+   "Effort goals are easy to meet but drop the specific stroke-rate focus that is producing real improvement; adjusting the target's difficulty keeps that focus."
+  ],
+  "takeaway": "When goals are consistently missed despite progress, revise them collaboratively to be challenging but attainable.",
+  "refs": [
+   "locke2002",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "I-V-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "V",
+  "kg": "I",
+  "topic": "Evaluating transfer to the job",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "organizational"
+  },
+  "stem": "After a six-week stress-management program for paramedics, participants rate the sessions highly and pass a quiz on breathing techniques. The agency director now asks whether the program is actually helping crews on emergency calls. Which evaluation step best answers her question?",
+  "options": [
+   "Repeat the satisfaction survey with a larger sample of paramedics drawn from other shifts",
+   "Check whether crews use the techniques on calls, using self-reports and supervisor observation",
+   "Give a more detailed knowledge test to confirm that participants understand each technique",
+   "Compare the agency's yearly operating costs from before and after the program ended"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Satisfaction data reflect reactions to the program; a larger sample still says nothing about whether skills are used on the job.",
+   "The director's question concerns behavior in the real setting. Collecting data on whether crews actually use the techniques on calls, from more than one source, evaluates transfer, which is the behavior level in Kirkpatrick's model.",
+   "Knowledge has already been shown; a harder test measures learning, not whether the skills are applied during calls.",
+   "Operating costs are influenced by many factors and are too distant from the program to show whether crews are using the skills."
+  ],
+  "takeaway": "High satisfaction and knowledge scores don't show transfer; evaluate whether skills are actually used in the performance setting.",
+  "refs": [
+   "kirkpatrick2006",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "I-V-004",
+  "pool": "drill",
+  "scored": true,
+  "domain": "V",
+  "kg": "I",
+  "topic": "Adjusting to the type of anxiety",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "For four weeks, Yusuf, an elite judo athlete, has used diaphragmatic breathing before every match, as his log confirms. He says his body now feels calm before competing, but the night before each tournament he still spends hours replaying worst-case scenarios. How should the consultant adjust the plan?",
+  "options": [
+   "Add more breathing sessions, since the technique needs longer to reduce all of his anxiety",
+   "Replace breathing with progressive muscle relaxation to target the tension that remains",
+   "Add a cognitive strategy, such as restructuring or defusion, aimed at his worry",
+   "Stop the breathing practice, since it has not resolved his anxiety before competition"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Breathing has already calmed his body; more of the same somatic technique is unlikely to address the worry that remains.",
+   "Progressive muscle relaxation is another somatic technique, and he reports no remaining bodily tension; the remaining problem is cognitive.",
+   "Monitoring shows the skill is being used and has reduced somatic anxiety, while cognitive anxiety persists. The matching hypothesis suggests targeting cognitive anxiety with cognitive techniques, so adding one while keeping the breathing that works is the best adjustment.",
+   "Breathing is working for the somatic symptoms; stopping it would discard a successful part of the plan."
+  ],
+  "takeaway": "When monitoring shows one component of anxiety improving but another persisting, add a technique matched to the remaining component.",
+  "refs": [
+   "weinberg2024",
+   "martens1990"
+  ]
+ },
+ {
+  "id": "I-III-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Balancing outcome and process goals",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "Priya, a collegiate distance runner, has one goal for the season: finish in the top three at nationals. Assessment shows that she worries about rivals during races and that her anxiety spikes whenever she falls behind them. Which goal-setting plan best fits her assessment data?",
+  "options": [
+   "Replace her outcome goal with a general goal of simply doing her best in each race",
+   "Keep the top-three goal as her only focus so that her motivation stays as high as possible",
+   "Keep the outcome goal for long-term motivation, but focus races on pacing and process goals",
+   "Set an outcome goal for every race, such as beating particular rivals, to build toward nationals"
+  ],
+  "answer": 2,
+  "rationales": [
+   "'Do your best' goals are vague and less effective than specific goals, and dropping the outcome goal removes a source of long-term motivation she values.",
+   "An exclusive outcome focus depends on rivals she cannot control and is likely to keep feeding the comparison-driven anxiety her assessment revealed.",
+   "Outcome goals can motivate, but performance goals (such as split times) and process goals (such as relaxed form or cadence) are more controllable. Research comparing goal types links process goals to better attentional focus, self-efficacy, and control of cognitive anxiety, which fits her pattern.",
+   "Rival-based race goals would intensify her focus on competitors, the very pattern that raises her anxiety."
+  ],
+  "takeaway": "Pair outcome goals with controllable performance and process goals, especially when outcome focus fuels anxiety.",
+  "refs": [
+   "kingston1997",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "I-III-002",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Planning for under-arousal",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "Assessment shows that Darnell, an elite sprinter, performs best when he feels highly energized. Before his recent races, though, he has felt flat and sluggish, rating his arousal well below his own optimal level. Which intervention should his plan prioritize?",
+  "options": [
+   "Cognitive restructuring of his worries about where he will finish in each race",
+   "Progressive muscle relaxation in the call room to lower his pre-race tension even further",
+   "A long body-scan meditation immediately before he steps onto the track to race",
+   "Energizing strategies, such as upbeat music, quick breathing, and motivational cue words"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Nothing in the assessment points to worry; the problem is low activation, so a cognitive anxiety strategy targets the wrong issue.",
+   "Relaxation lowers arousal, which would move him further from the high-energy state in which he performs best.",
+   "A long, calming practice right before a sprint is likely to reduce activation further when he needs to raise it.",
+   "His arousal is below his optimal zone, so the plan should raise activation. Energizing techniques are the evidence-informed choice; the IZOF view emphasizes that optimal intensity is individual, and his is high."
+  ],
+  "takeaway": "Not every performer needs to calm down; match the direction of arousal regulation to the person's optimal zone.",
+  "refs": [
+   "hanin2000",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "I-III-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "In-season planning with limited time",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "team"
+  },
+  "stem": "In mid-season, a collegiate softball coach gives a consultant 15 minutes of team time each week. Assessment shows that players lose composure after errors, and none has formal experience with mental skills. Which plan best fits the season timing and the time available?",
+  "options": [
+   "Teach one brief post-error reset, practiced in drills, and plan a fuller program for the off-season",
+   "Introduce several new skills each week so the team covers a full curriculum before the postseason",
+   "Postpone all mental training until the off-season, when there is enough time to do it properly",
+   "Have players read about mental skills on their own and use the weekly time to answer questions"
+  ],
+  "answer": 0,
+  "rationales": [
+   "In-season, with little time and novice players, the plan should target the highest-priority need with one simple skill that can be built into existing practice, saving comprehensive skill development for the off-season. This fits both the assessment data and the delivery constraints.",
+   "Cramming many unfamiliar skills into short in-season sessions overloads players and leaves no time for practice, so few skills will hold up in games.",
+   "The assessment shows a clear, current need; a brief, targeted skill can help now without waiting months.",
+   "Self-directed reading without guided practice is unlikely to change behavior after errors in games."
+  ],
+  "takeaway": "In-season with little time, prioritize one simple, practiced skill and save the full program for the off-season.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "I-III-004",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Matching self-talk to task demands",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "recreational",
+   "delivery": "individual"
+  },
+  "stem": "A consultant is planning self-talk training for Elena, a recreational adult archer who is relearning her release technique with her coach. She wants cue words to use on practice shots. Based on self-talk research, which type of cue fits this task best?",
+  "options": [
+   "Motivational phrases such as 'Come on, you've got this' said before each shot",
+   "Instructional cues such as 'smooth release' that are tied to the technical change",
+   "No cue words at all, so that her attention stays only on the target throughout",
+   "Positive affirmations about her overall ability, repeated at the start of each session"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Motivational self-talk tends to help more on strength, endurance, and power tasks; a fine-motor technique change benefits more from instructional cues.",
+   "Research shows instructional self-talk is especially effective for fine-motor, precision tasks and for learning new technique. A short cue tied to the change she is making directs attention to the key element of the skill.",
+   "Brief cue words can support attention to the target rather than distract from it, especially while a new technique is being learned.",
+   "General affirmations may support mood, but they give no guidance on the specific movement she is trying to learn."
+  ],
+  "takeaway": "Use instructional self-talk for precision and learning tasks, motivational self-talk for strength, endurance, and power.",
+  "refs": [
+   "theodorakis2000",
+   "hatzigeorgiadis2011"
+  ]
+ },
+ {
+  "id": "I-III-005",
+  "pool": "A",
+  "scored": false,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Planning practice for virtual delivery",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "para-sport",
+   "level": "elite",
+   "delivery": "virtual"
+  },
+  "stem": "Rafael, an elite wheelchair racer, will spend three months training abroad and can meet his consultant only by video every two weeks. Together they plan to build a pre-race routine that includes breathing and imagery. Which plan element best supports his skill development between sessions?",
+  "options": [
+   "Postponing the routine work until he returns home and can practice with the consultant in person",
+   "Providing recorded guided practice and a brief practice log that they review at each video session",
+   "Scheduling longer video calls so that all of the skill practice happens with the consultant present",
+   "Recommending a general meditation app and leaving him to decide how often he will use it"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Virtual delivery can support skill building, and a three-month delay would waste valuable training time.",
+   "With infrequent virtual contact, the plan needs structured, independent practice. Recorded guidance tailored to his routine, plus a log reviewed at each session, supports regular practice, accountability, and monitoring.",
+   "Skills need frequent practice; meetings every two weeks cannot provide enough repetitions, however long they are.",
+   "A generic app is not tailored to his routine, and leaving the dose unstructured provides no accountability or monitoring."
+  ],
+  "takeaway": "With infrequent or virtual contact, build in structured between-session practice and a way to review it.",
+  "refs": [
+   "williams2020",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "I-III-006",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Making a team goal specific",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "esports",
+   "level": "collegiate",
+   "delivery": "team"
+  },
+  "stem": "The coach of a collegiate esports team says the team's goal for the semester is to 'communicate better.' After reviewing match recordings, the consultant notes that players are slow to tell teammates where opponents are. Which revision of the goal best fits goal-setting research?",
+  "options": [
+   "Do their best to talk more, with the coach reminding players to communicate during matches",
+   "Keep the goal broad, so players do not feel pressured by specific targets during their matches",
+   "Win more matches this semester, since better communication will show up in the results",
+   "Report at least 90 percent of enemy sightings within two seconds, tracked weekly in match reviews"
+  ],
+  "answer": 3,
+  "rationales": [
+   "'Do your best' goals are consistently less effective than specific, challenging goals, and reminders do not replace a clear standard.",
+   "Vague goals give players nothing concrete to aim for and no way to know whether they are improving.",
+   "Match wins are an outcome goal influenced by many factors beyond communication and do not tell players what to do differently.",
+   "Specific, measurable goals with regular feedback lead to better performance than vague goals. This revision targets the observed problem, sets a clear standard, and builds in a way to track progress."
+  ],
+  "takeaway": "Turn vague goals into specific, measurable behaviors with built-in feedback.",
+  "refs": [
+   "locke2002",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "I-III-007",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Designing imagery with PETTLEP",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "Assessment shows that Mei, an elite springboard diver, does her imagery lying in bed at night, imagines her dives in slow motion, and pictures an empty pool. Her consultant is planning a revised imagery program based on the PETTLEP model. Which change best fits that model?",
+  "options": [
+   "Imagine dives on the board in her takeoff stance, in real time, with competition sights and sounds",
+   "Move her imagery to a dim, quiet room so that she can relax fully before each session",
+   "Keep the slow-motion images but add positive statements about winning the event",
+   "Replace imagery with watching video of elite divers performing the same dives"
+  ],
+  "answer": 0,
+  "rationales": [
+   "PETTLEP calls for imagery that is functionally equivalent to performance: physical position (Physical), the real setting (Environment), real-time speed (Timing), and the cues and emotions of competition. This revision addresses several elements at once.",
+   "A dim, relaxing room moves her further from the physical and environmental conditions of competition, which PETTLEP aims to match.",
+   "Real-time speed is generally preferred for rehearsal, and statements about winning are outcome-focused rather than improving the imagery's similarity to performance.",
+   "Watching others is observational learning, not imagery, and it drops her own perspective; PETTLEP refines her imagery rather than replacing it."
+  ],
+  "takeaway": "PETTLEP imagery should resemble the real performance in body position, environment, timing, and emotion.",
+  "refs": [
+   "holmes2001"
+  ]
+ },
+ {
+  "id": "I-III-008",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Sequencing a short team program",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "team"
+  },
+  "stem": "A consultant has six weekly one-hour sessions with a high school volleyball team that has never done mental skills training. The coach wants players to have a reliable pre-serve routine by the end. Which sequence best fits an evidence-informed plan?",
+  "options": [
+   "Teach the complete pre-serve routine in week one, then explain each of its parts in later weeks",
+   "Cover a different skill each week as a stand-alone lecture, with no practice between sessions",
+   "Build awareness and basic skills first, then combine them into a pre-serve routine and practice it",
+   "Spend all six weeks on goal setting, since it underlies every other mental skill the team will need"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Players cannot use a routine well before they understand and can perform its parts, so starting with the full routine reverses the logical order.",
+   "Stand-alone lectures without practice may build knowledge but not usable skills; mental skills need repetition between sessions.",
+   "A sound plan moves from education and awareness to basic skills, such as breathing and cue words, then integrates them into a routine practiced in drills. Building from components to integration gives the routine time to become reliable.",
+   "Goal setting is useful, but six weeks on it alone would not produce the pre-serve routine the coach wants."
+  ],
+  "takeaway": "Sequence plans from awareness and basic skills to integrated routines, with practice throughout.",
+  "refs": [
+   "cotterill2010",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "I-III-009",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Values and committed action plan",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "Assessment shows that Adaeze, an elite fencer, avoids starting attacks in close bouts because she fears looking foolish if they fail. She says she wants to be known as a bold, creative fencer. Her consultant is planning an acceptance-based approach. Which plan element best fits that approach?",
+  "options": [
+   "Setting committed-action goals to attack in practice bouts while making room for the fear",
+   "Scheduling more defensive drills so that she can win bouts without needing to attack",
+   "Teaching thought-stopping so that she can eliminate fearful thoughts before each bout",
+   "Lowering her anxiety with relaxation training first, then reintroducing attacking drills"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Acceptance-based approaches such as ACT and MAC pair values with committed action: she sets concrete steps toward bold fencing and practices taking them while willingly experiencing the fear rather than waiting for it to disappear.",
+   "Avoiding attacks through defensive play reinforces the avoidance pattern and moves her away from what she values.",
+   "Trying to suppress or eliminate thoughts is a control strategy that acceptance-based approaches move away from, and suppression can make unwanted thoughts more frequent.",
+   "Relaxation skills have a place, but making action wait until anxiety is reduced keeps the avoidance pattern in charge. Acceptance-based work has her act on her values with the fear present."
+  ],
+  "takeaway": "In acceptance-based plans, committed action toward values happens with discomfort present, not after it is gone.",
+  "refs": [
+   "gardner2007",
+   "hayes2012"
+  ]
+ },
+ {
+  "id": "I-III-010",
+  "pool": "B",
+  "scored": false,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Planning pressure training",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "elite",
+   "delivery": "team"
+  },
+  "stem": "The coach of an elite women's field hockey team says players convert penalty strokes well in practice but miss them in tournaments. Assessment shows that practice strokes are taken casually, with no consequences, scoring, or audience. Which plan best prepares players for competitive pressure?",
+  "options": [
+   "Teach players to tell themselves that tournament strokes do not really matter to the result",
+   "Keep practice relaxed so players build confidence before they face pressure in tournaments",
+   "Increase the number of practice strokes, since extra repetitions alone will make the skill automatic under pressure",
+   "Add pressure to practice in stages, such as scoring and consequences, while players use coping skills"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Telling themselves the stroke does not matter is unlikely to be believed in a tournament and does not develop coping skills.",
+   "Relaxed practice is already the setting in which players succeed; it does not prepare them for the pressure where they struggle.",
+   "More repetitions under the same casual conditions build the skill but not the ability to execute it under pressure.",
+   "Graded pressure training adds competition-like demands, such as evaluation, consequences, and an audience, in manageable steps, so players learn to use their coping skills under pressure. It closes the gap between relaxed practice and tournament conditions."
+  ],
+  "takeaway": "Prepare for pressure by adding realistic, graded pressure to practice while performers apply coping skills.",
+  "refs": [
+   "williams2020",
+   "hardy1996"
+  ]
+ },
+ {
+  "id": "I-III-011",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Building confidence through mastery",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "After several poor outings, Caleb, a collegiate pitcher, says he has lost confidence in his slider. His coach plans to keep telling him he is a great pitcher. According to self-efficacy theory, which strategy should the confidence-building plan emphasize?",
+  "options": [
+   "Frequent verbal encouragement from coaches and teammates about his overall ability",
+   "Watching video of professional pitchers throwing sliders successfully in important games",
+   "Graded bullpen tasks that build a record of successful sliders before he uses it in games",
+   "Relaxation training to reduce the tension he feels before throwing the pitch"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Verbal persuasion can help, but it is a weaker source of self-efficacy than personal success, and general praise does not address confidence in the specific pitch.",
+   "Vicarious experience contributes to self-efficacy but is weaker than mastery, especially when the models are far more skilled than he is.",
+   "Bandura identified performance accomplishments (mastery experiences) as the strongest source of self-efficacy. Structuring graded tasks he can succeed at gives him direct evidence that he can throw the pitch.",
+   "Managing physiological states is one source of self-efficacy, but nothing suggests tension is the main problem, and it is weaker than mastery."
+  ],
+  "takeaway": "Mastery experiences are the strongest source of self-efficacy; design graded successes.",
+  "refs": [
+   "bandura1997",
+   "bandura1977"
+  ]
+ },
+ {
+  "id": "I-III-012",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Dosing a mindfulness program",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "business",
+   "level": "adult",
+   "delivery": "organizational"
+  },
+  "stem": "A software company's leaders want a mindfulness program to help managers stay focused during high-pressure product launches. They can offer either one half-day seminar or 30 minutes per week for eight weeks. No manager has practiced mindfulness before. Which plan best fits the evidence on building this skill?",
+  "options": [
+   "The half-day seminar, so managers learn the full set of practices in one focused block",
+   "The eight-week format, with brief daily practice between sessions to build the skill",
+   "Either format, since mindfulness benefits depend mainly on managers' starting attitudes",
+   "The half-day seminar, followed by an optional reading list for any interested managers"
+  ],
+  "answer": 1,
+  "rationales": [
+   "A single session can introduce mindfulness, but covering many practices at once without spaced repetition does not build the skill; benefits come from regular practice over time.",
+   "Mindfulness is a skill built through regular practice. Established programs such as MBSR run over about eight weeks with daily home practice, so spaced sessions plus brief daily practice fit novices best.",
+   "Attitudes matter, but format and dose do too; repeated practice spread over weeks is how mindfulness develops.",
+   "Optional reading does not provide guided practice, so most managers would not build a usable skill."
+  ],
+  "takeaway": "Mindfulness, like other mental skills, needs regular practice spread over weeks rather than a one-off session.",
+  "refs": [
+   "kabatzinn1990",
+   "gardner2007"
+  ]
+ },
+ {
+  "id": "I-III-013",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Collaboratively prioritizing goals",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "A performance profile completed with Sienna, a collegiate dance major, shows large gaps in six areas, from audition nerves to focus in technique class. She has a major audition in ten weeks and little time outside rehearsals. How should the consultant approach planning?",
+  "options": [
+   "Address all six areas at once so that no weakness is left untouched before the audition",
+   "Choose the two areas the consultant judges most important and present that plan to her",
+   "Start with the smallest gap so that an early success motivates her to tackle the rest",
+   "Work with her to choose one or two priorities that matter most for the audition"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Working on six areas at once with little time spreads practice too thin for any skill to develop.",
+   "Narrowing the focus is right, but deciding for her undercuts the ownership that collaborative goal setting builds.",
+   "An early win can help motivation, but the smallest gap may not matter for the audition; priority should reflect importance and her input, not size alone.",
+   "Planning should prioritize collaboratively: a small number of goals chosen with the performer, based on what matters most for the upcoming demand, keeps the plan realistic and builds commitment."
+  ],
+  "takeaway": "Prioritize a few goals together with the client, guided by upcoming demands and time available.",
+  "refs": [
+   "butler1992",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "I-III-014",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Planning how to measure progress",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "Omar, a professional squash player, and his consultant agree on a goal: using a between-rally refocusing routine to reduce mental lapses after he loses a point. Which plan for measuring progress fits best?",
+  "options": [
+   "Take baseline measures, then track routine use, focus ratings, and points after errors",
+   "Judge progress mainly by his world ranking at the end of the season, since it reflects results",
+   "Ask him at the final session whether he feels the routine has helped his focus in matches",
+   "Wait until the routine is fully learned before collecting data, to avoid distracting him"
+  ],
+  "answer": 0,
+  "rationales": [
+   "A good measurement plan sets a baseline before the intervention and then tracks change repeatedly with several indicators: whether the routine is used, his own ratings of focus, and a performance indicator tied to the goal.",
+   "Ranking is a distant outcome shaped by many factors and is too infrequent to guide adjustments during the season.",
+   "A single retrospective impression at the end gives no baseline and no chance to adjust the plan along the way.",
+   "Without baseline data collected early, there is nothing to compare later results against, and problems cannot be caught as they emerge."
+  ],
+  "takeaway": "Plan measurement up front: baseline, then repeated measures of skill use, process, and performance tied to the goal.",
+  "refs": [
+   "anderson2002",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "I-III-015",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Attention shifts in a routine",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "masters",
+   "delivery": "individual"
+  },
+  "stem": "A masters golfer reports that he thinks through his swing mechanics while he is swinging, and his shots have become erratic. His consultant is planning a pre-shot routine using Nideffer's model of attention. Which sequence of attentional focus fits best?",
+  "options": [
+   "A narrow-internal focus on mechanics throughout the routine and swing, to keep technique precise",
+   "A broad-external focus throughout, scanning the course and other players during the swing itself",
+   "Assess conditions, plan the shot, then use a cue word to shift to a narrow-external target focus",
+   "Planning the shot while swinging, so that analysis and execution happen at the same moment"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Focusing internally on mechanics during execution is the problem he describes; for skilled performers it tends to disrupt automatic movements.",
+   "A broad-external focus suits reading the course, not executing the swing; scanning during the swing pulls attention away from the target.",
+   "Nideffer's model describes attention shifting by width and direction. A routine that moves from broad-external (reading conditions) to broad-internal (planning), then uses a cue to move to narrow-external focus on the target, places analysis before the swing and keeps execution free of it.",
+   "Combining analysis with execution is the current problem; the routine should separate planning from the swing."
+  ],
+  "takeaway": "Design routines that move attention from broad assessment and planning to a narrow-external focus at execution.",
+  "refs": [
+   "nideffer2001",
+   "cotterill2010"
+  ]
+ },
+ {
+  "id": "I-III-016",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "I",
+  "topic": "Adapting training for children",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "youth",
+   "delivery": "team"
+  },
+  "stem": "A youth soccer club asks a consultant to plan mental skills training for players aged 9 to 11. The coaches can give 15 minutes during each practice. Which plan best fits this population's developmental level?",
+  "options": [
+   "Seated talks on cognitive restructuring in each practice block, followed by written homework",
+   "Short, active, game-based activities with simple cues that coaches reinforce in practice",
+   "Detailed performance profiles that each child completes alone and then scores",
+   "The program used with the club's adult team, trimmed down to fit the time available"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Abstract cognitive techniques delivered as talks and homework do not suit children's attention spans or concrete thinking.",
+   "Applying research to the population means adapting format and content: children learn best through brief, active, playful activities with concrete cues, reinforced by coaches in everyday practice.",
+   "Children this age usually need help to reflect on and rate their own skills; working alone on detailed profiles is too demanding.",
+   "Adult programs assume abstract reasoning and self-direction that 9- to 11-year-olds are still developing; shortening the program does not fix the mismatch."
+  ],
+  "takeaway": "For children, keep mental skills training short, active, concrete, and woven into practice by coaches.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ }
+]

@@ -490,7 +490,35 @@
      "drill": 1
     }
    ]
+  },
+  {
+   "file": "content/items/kg-extra.json",
+   "kgs": [
+    "B",
+    "F"
+   ],
+   "total": 2,
+   "slots": [
+    {
+     "formA_scored": 0,
+     "formA_unscored": 0,
+     "formB_scored": 0,
+     "formB_unscored": 0,
+     "kg": "B",
+     "domain": "V",
+     "drill": 1
+    },
+    {
+     "formA_scored": 0,
+     "formA_unscored": 0,
+     "formB_scored": 0,
+     "formB_unscored": 0,
+     "kg": "F",
+     "domain": "V",
+     "drill": 1
+    }
+   ]
   }
  ],
- "total": 360
+ "total": 362
 }

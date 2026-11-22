@@ -1,0 +1,194 @@
+{
+  "generatedAt": "2026-11-22",
+  "items": 362,
+  "pools": {
+    "A": 115,
+    "B": 115,
+    "drill": 132
+  },
+  "unscored": {
+    "A": 15,
+    "B": 15
+  },
+  "byDomain": {
+    "I": 51,
+    "II": 50,
+    "III": 62,
+    "IV": 112,
+    "V": 43,
+    "VI": 44
+  },
+  "byKg": {
+    "A": 31,
+    "B": 31,
+    "C": 14,
+    "H": 17,
+    "J": 12,
+    "D": 25,
+    "K": 14,
+    "E": 28,
+    "M": 14,
+    "F": 21,
+    "G": 43,
+    "I": 74,
+    "L": 38
+  },
+  "cognitive": {
+    "application": 284,
+    "analysis": 69,
+    "recall": 9
+  },
+  "difficulty": {
+    "1": 81,
+    "2": 239,
+    "3": 42
+  },
+  "format": {
+    "vignette": 358,
+    "direct": 4
+  },
+  "setting": {
+    "individual-sport": 130,
+    "team-sport": 116,
+    "business": 17,
+    "tactical": 27,
+    "esports": 18,
+    "general": 9,
+    "para-sport": 16,
+    "performing-arts": 21,
+    "exercise-health": 8
+  },
+  "level": {
+    "collegiate": 99,
+    "elite": 50,
+    "youth": 23,
+    "professional": 70,
+    "adult": 57,
+    "adolescent": 40,
+    "na": 7,
+    "masters": 13,
+    "recreational": 3
+  },
+  "delivery": {
+    "individual": 218,
+    "team": 61,
+    "virtual": 26,
+    "na": 10,
+    "organizational": 47
+  },
+  "cueing": {
+    "n": 362,
+    "keyLongestPct": 18.2,
+    "keyShortestPct": 15.7,
+    "keyOnlyHedgedPct": 0,
+    "keyReferPct": 1.4,
+    "distractorReferPct": 5.5,
+    "negativeStemPct": 0,
+    "vignettePct": 98.9,
+    "recallPct": 2.5,
+    "answerPositions": [
+      91,
+      88,
+      92,
+      91
+    ]
+  },
+  "drillCells": {
+    "A": {
+      "I": "4/3",
+      "II": "1/1",
+      "III": "2/2",
+      "IV": "4/3"
+    },
+    "B": {
+      "II": "8/6",
+      "V": "3/2"
+    },
+    "C": {
+      "I": "1/1",
+      "IV": "3/3"
+    },
+    "D": {
+      "I": "1/1",
+      "II": "2/1",
+      "III": "1/1",
+      "IV": "1/1",
+      "V": "1/1",
+      "VI": "3/2"
+    },
+    "E": {
+      "I": "1/1",
+      "II": "1/1",
+      "VI": "8/6"
+    },
+    "F": {
+      "III": "1/1",
+      "V": "6/5"
+    },
+    "G": {
+      "II": "1/1",
+      "III": "8/5",
+      "IV": "8/5"
+    },
+    "H": {
+      "III": "2/2",
+      "IV": "3/3"
+    },
+    "I": {
+      "I": "4/3",
+      "II": "3/2",
+      "III": "6/4",
+      "IV": "15/10",
+      "V": "2/1"
+    },
+    "J": {
+      "II": "1/1",
+      "III": "1/1",
+      "IV": "1/1",
+      "V": "1/1"
+    },
+    "K": {
+      "III": "1/1",
+      "IV": "1/1",
+      "V": "1/1",
+      "VI": "1/1"
+    },
+    "L": {
+      "I": "8/5",
+      "IV": "5/3",
+      "VI": "3/2"
+    },
+    "M": {
+      "II": "1/1",
+      "IV": "1/1",
+      "V": "1/1",
+      "VI": "1/1"
+    }
+  },
+  "nearDuplicateWarnings": 0,
+  "cards": {
+    "total": 121,
+    "byKg": {
+      "E": 35,
+      "A": 9,
+      "B": 8,
+      "C": 4,
+      "H": 5,
+      "J": 4,
+      "D": 6,
+      "K": 4,
+      "M": 4,
+      "F": 5,
+      "G": 13,
+      "I": 18,
+      "L": 6
+    },
+    "ethicsPrinciples": 6,
+    "ethicsStandards": 25
+  },
+  "references": {
+    "registry": 121,
+    "cited": 116,
+    "aaspListCited": 24
+  }
+}

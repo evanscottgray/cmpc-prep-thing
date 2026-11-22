@@ -1,0 +1,1495 @@
+[
+ {
+  "id": "C-I-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "I",
+  "kg": "C",
+  "topic": "Entry with a skeptical head coach",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "organizational"
+  },
+  "stem": "A minor-league baseball organization hires a consultant to support its players. The field manager, Tomasz Nowak, has managed for 25 years and runs a highly structured program. At their first meeting he says he 'doesn't need anyone telling him how to coach.' The organization wants him on board before any services begin. What should the consultant do first to build a working relationship with the manager?",
+  "options": [
+   "Share research showing that democratic, athlete-centered coaching styles yield higher player satisfaction",
+   "Begin player workshops right away so that early results can win the manager over",
+   "Ask about his coaching philosophy, his goals for players, and how he wants communication handled",
+   "Survey the players about his leadership style and review the findings with him next week"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Opening with evidence that implicitly critiques his style casts the consultant as an evaluator and invites defensiveness; rapport with a coach starts with understanding, not persuasion.",
+   "Going around the manager when the organization wants his buy-in damages the working relationship and risks services that clash with how he runs the program.",
+   "Coaches are key stakeholders whose philosophy and leadership style shape the environment the consultant enters. Learning his goals, priorities, and language first lets the consultant frame services as supporting what he is trying to achieve and clarify roles before any work starts.",
+   "Collecting athlete ratings of his leadership before rapport or agreement exists positions the consultant as a judge of the coach and is premature at this entry stage."
+  ],
+  "takeaway": "With a skeptical coach, start by learning their philosophy and goals so services are framed as supporting the coach, not judging them.",
+  "refs": [
+   "williams2020",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "C-I-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "I",
+  "kg": "C",
+  "topic": "Role clarity in coach education",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "youth",
+   "delivery": "organizational"
+  },
+  "stem": "A youth soccer club director hires a consultant to run a season-long, mastery-oriented training program for the club's 30 volunteer coaches, including practice observations with individual feedback. During contracting, the director adds that he would like the consultant to rank the coaches using the observations so he can decide who keeps a team next season. What is the most appropriate response?",
+  "options": [
+   "Agree up front that the role is coach development, and settle with all parties what data is shared",
+   "Accept the request, since the director is paying for the program and is therefore the only client",
+   "Agree to rank the coaches privately for the director while keeping the ranking hidden from the coaches",
+   "Decline the contract, because coach-development programs can never be linked to any coach evaluation"
+  ],
+  "answer": 0,
+  "rationales": [
+   "When a third party contracts services that involve others, the consultant clarifies at the outset who the client is, what the consultant's role is, and where confidentiality ends. Mastery-oriented coach training depends on coaches feeling safe to try new behaviors, so whether observations feed evaluation must be settled openly with the director and the coaches before work begins.",
+   "Paying for services does not settle the role question; the coaches being observed must also know how their information will be used, and an unannounced evaluative role would undermine the program.",
+   "Producing rankings the coaches don't know about is deceptive and violates the expectation that limits of confidentiality are disclosed before services start.",
+   "Declining outright is an overreaction; the conflict can be resolved during contracting by defining the role and the information-sharing rules."
+  ],
+  "takeaway": "In third-party contracting, settle role and information sharing with every party before work starts, especially when development and evaluation could mix.",
+  "refs": [
+   "aaspethics2024",
+   "callary2019"
+  ]
+ },
+ {
+  "id": "C-I-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "I",
+  "kg": "C",
+  "topic": "Contracting with a coach–athlete dyad",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "An elite figure skater, Anya, and her coach of six years jointly contact a consultant because their communication in training has broken down, and both want to keep working together. The consultant plans to meet with each of them separately and then together, using the coach–athlete relationship literature as a framework. What should the consultant establish with both of them before the first meeting?",
+  "options": [
+   "That the skater is the client, so the coach will receive only general progress updates",
+   "That the coach is the client, because the coach directs the skater's training program",
+   "That the consultant will decide privately which concerns to share once both meetings are done",
+   "That the relationship is the focus, and how material from separate meetings will be handled"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Naming only the skater as the client contradicts their joint request and leaves the coach with little reason to engage in repairing the relationship.",
+   "Treating the coach as the client because of the coach's authority ignores that both sought help together and risks the skater seeing the consultant as the coach's agent.",
+   "Deciding later, without the parties' agreement, what to pass on violates the principle that the limits of confidentiality are discussed up front and can damage trust with both.",
+   "In dyadic work the consultant clarifies at the outset who the client is (here, the partnership both want to repair) and sets explicit rules for how information from individual meetings will be used in joint sessions, so neither party is surprised and trust in the process is protected."
+  ],
+  "takeaway": "When a coach and athlete seek help together, define the relationship as the focus and agree on how individual disclosures will be handled before starting.",
+  "refs": [
+   "jowett2004",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "C-IV-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "C",
+  "topic": "Mistake-contingent encouragement",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "youth",
+   "delivery": "individual"
+  },
+  "stem": "As part of a club's coach-development program, a consultant observes an under-11 soccer practice. When players misplay a pass, Coach Diego Alvarez shouts, 'That's terrible—pay attention!' Several players have started avoiding the ball during drills. The coach tells the consultant he wants to keep standards high. Based on mastery-oriented coach training principles, which response to mistakes should the consultant help him adopt?",
+  "options": [
+   "Ignore mistakes entirely and comment only on the moments when a player does something well",
+   "Encourage the player right after the error, then give brief instruction on how to fix it",
+   "Withhold praise until a player shows consistently correct execution of the skill",
+   "Have players who repeat an error run a short lap to sharpen their attention"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Ignoring mistakes withholds the corrective information young athletes need; mastery-oriented training pairs encouragement with instruction rather than staying silent.",
+   "Coach Effectiveness Training and the Mastery Approach to Coaching recommend responding to mistakes with encouragement followed by corrective instruction given in a supportive tone. This keeps standards high while reducing the fear of failure that is driving players to avoid the ball.",
+   "Holding back reinforcement until mastery removes the frequent positive reinforcement of effort and progress that mastery-oriented coaching emphasizes.",
+   "Punishing errors is exactly the behavior mastery-oriented coach training aims to reduce; it raises fear of failure and increases avoidance."
+  ],
+  "takeaway": "Mastery-oriented coaching answers mistakes with encouragement plus corrective instruction, not punishment or silence.",
+  "refs": [
+   "smith1979cet",
+   "smith2007mac"
+  ]
+ },
+ {
+  "id": "C-IV-002",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "C",
+  "topic": "Preferred–actual leadership gap",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "With the coach's agreement, a consultant gives a university women's rowing team a leadership questionnaire asking how often athletes prefer, and how often they perceive, specific coaching behaviors. Preferred and perceived ratings for training and instruction match closely, but athletes prefer considerably more positive feedback than they report receiving. Team satisfaction has fallen this season. Based on the multidimensional model of leadership, what should the consultant recommend when debriefing the coach?",
+  "options": [
+   "Shift training decisions to the athletes, since member preferences should drive all coaching behavior",
+   "Keep the current amount of positive feedback, because performance rather than satisfaction is the goal",
+   "Encourage the athletes to adjust their expectations so they match the coach's existing style",
+   "Add specific, frequent positive feedback while keeping training and instruction as they are"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Nothing in the data points to decision style, and handing training decisions to athletes overcorrects; the model weighs what the situation requires, not member preferences alone.",
+   "Chelladurai's model links congruence between actual and preferred behavior to satisfaction, and satisfaction matters for commitment and team functioning; dismissing it ignores the clearest finding in the data.",
+   "Asking athletes to change their preferences places the burden on them and leaves the modifiable coaching behavior untouched.",
+   "In the multidimensional model, satisfaction follows from congruence between the leader's actual behavior and members' preferences. The gap is specific to positive feedback, so the coach can close it while keeping training and instruction, which already matches athletes' preferences."
+  ],
+  "takeaway": "Use preferred-versus-actual gaps to target the specific coaching behavior that is out of line, not the coach's whole style.",
+  "refs": [
+   "chelladurai1980",
+   "horn2008"
+  ]
+ },
+ {
+  "id": "C-IV-003",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "C",
+  "topic": "Mediating teammate conflict",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "esports",
+   "level": "professional",
+   "delivery": "team"
+  },
+  "stem": "A professional esports coach asks a consultant for help after two starting players, Bao and Malik, began trading blame over voice communications during scrimmages. The conflict has spread to shouting matches after losses, and teammates say in-game comms have become chaotic. Both players agree to meet with the consultant. What is the most appropriate way to structure the meeting?",
+  "options": [
+   "Have each describe the problem and its effect using 'I' statements, then agree on specific comms behaviors",
+   "Ask each player to list the other's specific mistakes so the consultant can judge who is mainly at fault",
+   "Plan a social outing to rebuild their friendship and leave the in-game communication problems to the coach",
+   "Hold the discussion in front of the full roster so that teammates can hold both players accountable"
+  ],
+  "answer": 0,
+  "rationales": [
+   "A structured, private conversation in which each person describes the issue from their own perspective, listens to the other, and commits to concrete, observable behaviors (here, agreed comms rules that can be reviewed later) is the core of effective conflict management between teammates.",
+   "Assigning blame turns the consultant into a judge and hardens positions; it does not produce a shared plan for how they will communicate.",
+   "Social bonding may help, but it sidesteps the task conflict that is disrupting performance; the communication behaviors themselves need to be addressed.",
+   "Airing a two-person conflict in front of the roster raises defensiveness and embarrassment and is a poor first step; a private, facilitated discussion comes first."
+  ],
+  "takeaway": "Resolve teammate conflict in a private, structured conversation that ends in specific, reviewable behavior agreements.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "C-IV-004",
+  "pool": "A",
+  "scored": false,
+  "domain": "IV",
+  "kg": "C",
+  "topic": "Preseason parent orientation",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "youth",
+   "delivery": "individual"
+  },
+  "stem": "Coach Leilani Kahale of an age-group swim club tells a consultant that several parents shout technical instructions from the stands that contradict hers, and some swimmers now look to the bleachers rather than to her between races. The new season starts in three weeks. Which step should the consultant recommend first?",
+  "options": [
+   "Ban parents from attending meets until each one agrees to stop giving instructions",
+   "Ask the swimmers to tell their own parents to stop shouting instructions during races",
+   "Hold a preseason parent meeting explaining the program's goals and the roles of coach and parents",
+   "Speak individually with the loudest parents after the first meet to correct their sideline behavior"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Banning parents is punitive and premature; it damages the coach–parent relationship before any education has been tried.",
+   "Making children deliver the message puts them in the middle of an adult issue and adds to the pressure they already feel.",
+   "Coach-training programs such as Coach Effectiveness Training recommend a preseason parent orientation that explains the program's philosophy, clarifies the complementary roles of coach, athlete, and parent, and sets expectations for behavior at competitions, preventing problems instead of reacting to them.",
+   "Waiting for the first meet is reactive, and singling out a few parents misses the rest; individual conversations can follow if problems continue after the group meeting."
+  ],
+  "takeaway": "Prevent parent–coach role confusion with a preseason parent meeting that sets out roles and expectations.",
+  "refs": [
+   "smith1979cet",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "C-IV-005",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "C",
+  "topic": "Adding transformational behaviors",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "individual"
+  },
+  "stem": "A high school girls' basketball coach, Marcus Bell, motivates players almost entirely through exchanges: starters keep their minutes by hitting statistical targets, and he steps in mainly when mistakes occur. He tells the consultant his players comply but seem uninspired and rarely go beyond what is asked. Drawing on transformational leadership, which change should the consultant help him make?",
+  "options": [
+   "Set clearer statistical targets and tie more playing-time rewards to meeting them",
+   "Meet briefly with each player to learn her goals and tailor his support and challenge",
+   "Step back from daily decisions and let the captains run most of the team's practices for him",
+   "Monitor practice closely and correct each departure from the standards as it happens"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Sharper targets and rewards strengthen the transactional exchange he already relies on; they do not add the transformational behaviors linked to effort beyond expectations.",
+   "Transformational leadership adds individualized consideration, inspirational motivation, intellectual stimulation, and idealized influence on top of transactional exchanges. Learning each player's goals and tailoring support is individualized consideration, which is associated with greater effort, satisfaction, and commitment.",
+   "Withdrawing from leadership resembles laissez-faire leadership, the least effective style in the full-range model, and is not the same as empowering athletes.",
+   "Close monitoring and correction of deviations is active management by exception, a transactional behavior he already uses."
+  ],
+  "takeaway": "Transformational leadership builds on transactional exchanges with individualized consideration, inspiration, and intellectual stimulation.",
+  "refs": [
+   "bass2006",
+   "horn2008"
+  ]
+ },
+ {
+  "id": "C-IV-006",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "C",
+  "topic": "Co-orientation in a coach–athlete dyad",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "A consultant interviews an elite judoka, Yusuf, and his coach separately. Both describe strong mutual trust and respect, and both intend to keep working together for years. However, the coach believes Yusuf wants to peak at this year's world championships, while Yusuf privately hopes to compete less while he finishes a degree. Each assumes the other agrees. Which intervention best addresses the main relationship issue?",
+  "options": [
+   "Run team-style trust-building activities to deepen the emotional bond between athlete and coach",
+   "Have Yusuf commit in writing to the coach's championship plan to secure his full effort",
+   "Facilitate a joint conversation in which each shares their goals and how they see the other's",
+   "Advise the coach to set the season goal, since the coach has the broader career perspective"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Closeness (trust, respect, liking) is already strong, so trust-building targets a part of the relationship that is not the problem.",
+   "Pressing him into the coach's plan suppresses the real disagreement and is likely to erode his commitment and autonomy.",
+   "In Jowett's 3+1Cs model, co-orientation is how far coach and athlete share views and accurately perceive each other's views. Here closeness and commitment are high, but each wrongly assumes agreement, so a facilitated joint discussion that surfaces both perspectives builds shared understanding before the season plan is set.",
+   "Letting the coach decide alone ignores the athlete's goals and leaves the hidden mismatch in place, which is the core problem."
+  ],
+  "takeaway": "When coach and athlete each assume agreement that doesn't exist, work on co-orientation by surfacing both perspectives together.",
+  "refs": [
+   "jowett2004",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "C-IV-007",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "C",
+  "topic": "Developing shared athlete leadership",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "team"
+  },
+  "stem": "A consultant runs a leadership program for a university men's lacrosse team. The senior captain, Kofi, is respected for his work ethic but is worn out from running warm-ups, settling locker-room disputes, motivating teammates, and acting as the team's link to the coaches. Teammates name several other players they already turn to informally. Which approach should the consultant take with the team's leadership group?",
+  "options": [
+   "Coach Kofi on time management so that he can keep handling each of these roles by himself",
+   "Ask the head coach to take over the social and motivational roles Kofi now fills",
+   "Name a second formal captain who will share all of Kofi's current duties equally",
+   "Help the team spread task, motivational, social, and external roles across athletes"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Better time management leaves one athlete carrying every leadership function and ignores the informal leaders the team already relies on.",
+   "Handing peer leadership to the coach removes it from athletes, and social and motivational leadership from teammates serves functions a coach cannot fully replace.",
+   "A co-captain who duplicates all duties adds a title without differentiating roles or drawing on the informal leaders teammates already follow.",
+   "Athlete leadership research shows leadership is usually shared among formal and informal leaders who fill distinct roles (task, motivational, social, and external). Building a shared structure around existing informal leaders improves team functioning and relieves the captain."
+  ],
+  "takeaway": "Develop athlete leadership as a shared structure of distinct roles, not a burden carried by one captain.",
+  "refs": [
+   "weinberg2024",
+   "tod2024"
+  ]
+ },
+ {
+  "id": "C-IV-008",
+  "pool": "B",
+  "scored": false,
+  "domain": "IV",
+  "kg": "C",
+  "topic": "Coaching a parent conversation",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "youth",
+   "delivery": "individual"
+  },
+  "stem": "After a weekend tournament, a parent sends a youth softball coach, Rosa Delgado, an angry late-night email about her daughter's playing time, comparing the girl with a named teammate. Coach Delgado asks the consultant who works with the club how to handle it. What should the consultant advise?",
+  "options": [
+   "Set up a private meeting after a cooling-off period and keep it on the daughter's development",
+   "Reply right away by email with the playing-time statistics for every player on the roster",
+   "Ignore the email, since engaging with complaints tends to invite more parent pressure",
+   "Discuss the email with the team so the players understand how playing time is decided"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Guidance for coaches on working with parents recommends handling emotionally charged concerns in a scheduled, private conversation once emotions have settled, listening first and keeping the focus on the athlete's own development rather than on comparisons with teammates.",
+   "An immediate reply sharing every player's data escalates the comparison and exposes other athletes' information.",
+   "Ignoring a parent's concern damages the coach–parent relationship and usually escalates the conflict rather than ending it.",
+   "Bringing a private family concern to the team embarrasses the athlete and publicizes an issue that belongs between the coach and parent."
+  ],
+  "takeaway": "Help coaches meet upset parents privately, after a cooling-off period, with the focus on that athlete's development.",
+  "refs": [
+   "smith1979cet",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "C-IV-009",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "C",
+  "topic": "Required versus preferred behavior",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "elite",
+   "delivery": "team"
+  },
+  "stem": "A national-league women's ice hockey team hires a new coach midseason who adopts the relaxed, highly social, low-structure style the players say they prefer, and players report high satisfaction. However, the roster is young and the team faces a demanding schedule in which the staff agree detailed tactical instruction is essential. The consultant is preparing to discuss this with the coaching staff. According to Chelladurai's multidimensional model, which outcome is most expected if nothing changes?",
+  "options": [
+   "Higher performance and satisfaction, because the coach matches preferences",
+   "High satisfaction, with lower performance than the team could achieve",
+   "Low satisfaction and low performance, because the athletes dislike structure",
+   "Improving performance but falling satisfaction as the season progresses"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Matching preferences predicts satisfaction, but the model ties performance to meeting what the situation requires, which this coach is not doing.",
+   "The model links congruence between actual and preferred behavior to satisfaction, and congruence between actual and required behavior to performance. A coach who matches preferences but not situational requirements is expected to have satisfied athletes who underperform.",
+   "Satisfaction is already high because the coach matches preferences; nothing in the scenario indicates athletes dislike structure.",
+   "This pattern fits a coach who meets situational requirements while ignoring preferences, the reverse of this case."
+  ],
+  "takeaway": "Chelladurai: actual–preferred congruence drives satisfaction; actual–required congruence drives performance.",
+  "refs": [
+   "chelladurai1980",
+   "horn2008"
+  ]
+ },
+ {
+  "id": "C-IV-010",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "C",
+  "topic": "Complementarity in coach–athlete work",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "para-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "A Paralympic wheelchair racer, Imani, and her coach say they like and trust each other, and both plan to stay together through the next Games. Yet sessions feel disjointed: when the coach gives technical instructions, Imani often starts a different drill, and when Imani asks for input on her push technique, the coach tells her to figure it out herself. Which aspect of the relationship should the consultant's work primarily target?",
+  "options": [
+   "Complementarity: cooperative, corresponding behaviors during training",
+   "Closeness: deepening their mutual trust, respect, and emotional connection",
+   "Commitment: strengthening both partners' intent to keep the partnership going",
+   "Co-orientation: resolving a mismatch between their stated long-term goals"
+  ],
+  "answer": 0,
+  "rationales": [
+   "In Jowett's 3+1Cs model, complementarity refers to cooperative, corresponding behaviors, such as the coach instructing and the athlete responding, or the athlete asking and the coach providing input. Their training interactions are not reciprocal, so complementarity is the target.",
+   "They already report liking and trust, so closeness is a strength rather than the problem.",
+   "Both intend to stay together through the next Games, so commitment is intact.",
+   "Nothing indicates a goal mismatch or inaccurate perceptions of each other's views; the difficulty lies in how they behave toward each other in sessions."
+  ],
+  "takeaway": "Uncoordinated, non-reciprocal training interactions signal a complementarity problem even when closeness and commitment are strong.",
+  "refs": [
+   "jowett2004"
+  ]
+ },
+ {
+  "id": "C-IV-011",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "C",
+  "topic": "Train-the-trainer with managers",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "business",
+   "level": "adult",
+   "delivery": "organizational"
+  },
+  "stem": "A regional sales company asks a consultant to prepare its team managers to lead short weekly check-ins in which staff practice a reset routine after setbacks such as lost deals. The managers will keep delivering the check-ins themselves after the consultant's contract ends. Which training approach best prepares the managers to deliver the skill well?",
+  "options": [
+   "Give managers a detailed slide deck and a script to follow word for word in each check-in",
+   "Have managers sit in on the consultant's staff sessions and pick up the routine by watching",
+   "Model a check-in, have managers rehearse leading one with feedback, then support their first sessions",
+   "Run one long workshop on resilience research so the managers fully understand the theory"
+  ],
+  "answer": 2,
+  "rationales": [
+   "A script alone gives no practice or feedback, so managers are unprepared for real questions or a check-in that goes off plan.",
+   "Observation offers a model but no rehearsal or feedback on the managers' own delivery.",
+   "Effective train-the-trainer programs move from explanation and modeling to rehearsal with feedback and then supported delivery, so new trainers build both the skill and the confidence to lead on their own. This mirrors skill-acquisition principles of guided practice and feedback.",
+   "Understanding the theory does not build delivery skill; without practice and feedback, managers are unlikely to run the check-ins well."
+  ],
+  "takeaway": "Train trainers by modeling, rehearsal with feedback, and supported early delivery, not by handing over materials.",
+  "refs": [
+   "callary2019",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "H-III-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "H",
+  "topic": "Early specialization request",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "youth",
+   "delivery": "individual"
+  },
+  "stem": "The parents of a 10-year-old, Mateo, ask a consultant to help design a plan to make him a professional tennis player. They want him to quit soccer and swimming and train tennis year-round because 'he's already behind kids who started at six.' Mateo says he enjoys all three sports. Consistent with the Developmental Model of Sport Participation, what should the consultant's recommended plan emphasize?",
+  "options": [
+   "Year-round tennis starting now, with deliberate practice increasing each season so he can catch up",
+   "Tennis only, with fun games mixed into each practice to protect his motivation",
+   "Stopping organized sport until he is old enough to choose a specialization himself",
+   "Continued sampling of several sports with plenty of deliberate play, specializing later"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Early, year-round specialization at 10 is the pattern the DMSP associates with higher risk of burnout and dropout in sports such as tennis, where peak performance comes well after maturity.",
+   "Adding games inside a single sport still ends sampling; the DMSP's sampling years involve several sports, not one sport made more enjoyable.",
+   "Removing organized sport is not part of the model; the sampling years include both deliberate play and some structured practice across sports.",
+   "The DMSP describes sampling years (roughly ages 6–12) with involvement in several sports and high amounts of deliberate play, followed by specializing (about 13–15) and investment (about 16+). For a later-peaking sport such as tennis, sampling supports enjoyment, motivation, and transferable skills and is associated with less dropout and burnout."
+  ],
+  "takeaway": "For most children, the DMSP favors sampling and deliberate play before specializing in the early teens.",
+  "refs": [
+   "cote1999",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "H-III-002",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "H",
+  "topic": "Practice scheduling for a routine",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "A collegiate golfer, Hana, has built a solid pre-shot routine with her consultant. On the range she hits long blocks of the same club at one target and performs well, but on the course her routine breaks down and her shots scatter. She and her coach ask the consultant to help plan her practice for the next month. Which plan is most likely to improve transfer to competition?",
+  "options": [
+   "Keep blocked practice until the routine feels fully automatic, and then add variety next month",
+   "Use the full routine on every shot while switching clubs, targets, and shot types randomly",
+   "Rehearse the routine on its own, away from the range, so she can focus entirely on its steps",
+   "Hit more balls per session with one club so the routine is repeated as often as possible"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Blocked practice inflates practice performance without building transfer, so prolonging it delays the very change that is needed.",
+   "Contextual interference research shows that random practice looks worse during practice but produces better retention and transfer than blocked practice. Using the full routine on every varied shot reproduces the course, where no two consecutive shots are the same.",
+   "Practicing the routine apart from hitting shots separates it from the performance it is meant to support and does not recreate competition demands.",
+   "More blocked repetitions raise practice performance but still do not prepare her for changing shots on the course."
+  ],
+  "takeaway": "Random, game-like practice with the full routine on every attempt builds retention and transfer that blocked practice doesn't.",
+  "refs": [
+   "shea1979",
+   "bjork2011"
+  ]
+ },
+ {
+  "id": "H-III-003",
+  "pool": "A",
+  "scored": false,
+  "domain": "III",
+  "kg": "H",
+  "topic": "Structuring deliberate practice",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "A conservatory violinist, Ximena, is preparing for an orchestra audition in ten weeks. She plays her audition excerpts start to finish several times a day and says she is 'putting in the hours,' yet the same three passages break down on every run. She asks a consultant to help plan her practice. Which plan best reflects deliberate practice?",
+  "options": [
+   "Target the weak passages with specific goals, focused repetition, and recorded feedback",
+   "Keep full run-throughs but add more of them each day as the audition approaches",
+   "Play through the excerpts only when she feels motivated, so practice stays enjoyable",
+   "Replace most of her playing with imagery of flawless run-throughs to build her confidence"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Deliberate practice is effortful, goal-directed work on specific weaknesses with immediate feedback and chances to refine, which is what targeting the failing passages with recordings provides. It is not inherently enjoyable and is distinct from simply piling up repetitions.",
+   "More run-throughs add volume without isolating the passages that fail, so the same errors keep being rehearsed.",
+   "Deliberate practice is defined by effort and focus on improvement, not by enjoyment; waiting for motivation reduces structured work on weaknesses.",
+   "Imagery can complement physical practice, but replacing practice of passages that are breaking down removes the feedback-rich work she needs."
+  ],
+  "takeaway": "Deliberate practice targets specific weaknesses with clear goals and feedback; hours of run-throughs are not the same thing.",
+  "refs": [
+   "ericsson1993"
+  ]
+ },
+ {
+  "id": "H-III-004",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "H",
+  "topic": "Developmental views of effort and ability",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "adolescent",
+   "delivery": "individual"
+  },
+  "stem": "During an intake, a 13-year-old swimmer, Elif, tells a consultant, 'If I have to work that hard to keep up, I guess I'm just not talented.' Her parents note that at age 8 she believed the hardest workers were automatically the best swimmers. She shows no other signs of distress and still enjoys training. How should the consultant interpret this and plan the work?",
+  "options": [
+   "As an early sign of a mood disorder that calls for referral before any planning",
+   "As immaturity that will pass on its own, so planning should wait until she is older",
+   "As a normal developmental shift, so plan goals and feedback that link effort to improvement",
+   "As readiness for social-comparison goals, such as beating specific rivals at meets"
+  ],
+  "answer": 2,
+  "rationales": [
+   "A single belief about effort, with no other signs of distress, does not suggest a mood disorder; referral here would be premature.",
+   "This is a lasting change in how she understands ability, not a phase to wait out, and her motivation can be supported now.",
+   "Around early adolescence, children begin to separate effort from ability, so needing high effort can be read as a sign of low ability (Nicholls). Planning self-referenced goals and feedback that tie effort to improvement promotes a task-involving view and protects her motivation.",
+   "Leaning on social comparison encourages an ego-involving view that makes her effort-equals-low-ability conclusion more, not less, threatening."
+  ],
+  "takeaway": "Early adolescents begin to see high effort as a sign of low ability; counter with task-involving, self-referenced goals.",
+  "refs": [
+   "nicholls1984",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "H-III-005",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "H",
+  "topic": "Cue planning for a novice learner",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "recreational",
+   "delivery": "individual"
+  },
+  "stem": "A 52-year-old recreational triathlete, Owen, is learning freestyle swimming for the first time. His swim coach gives him six technical reminders about his hands, elbows, and hips before each length, and Owen says his mind 'goes blank' and his stroke falls apart. He asks a consultant to help him plan what to think about during practice. Which plan best fits his stage of learning?",
+  "options": [
+   "Keep all six reminders, but say each one aloud before every length",
+   "Think about nothing so the stroke can run automatically, as it does for experts",
+   "Attend to the feel of each joint in turn, cycling through the six reminders",
+   "Use one short cue on the movement's effect, such as 'push the water back'"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Saying every reminder aloud keeps the same overload that is causing his mind to go blank.",
+   "Running the skill without conscious attention fits the autonomous stage; a beginner cannot yet perform the stroke automatically.",
+   "Cycling attention through body parts keeps both the overload and an internal focus, which tends to hinder learning.",
+   "In the cognitive stage (Fitts & Posner), learners have limited attentional capacity, so one or two simple cues work better than many. Research on attentional focus also shows that an external focus on the movement's effect, such as pushing the water back, generally aids learning more than an internal focus on body parts."
+  ],
+  "takeaway": "Give cognitive-stage learners one simple, externally focused cue rather than a list of body-part instructions.",
+  "refs": [
+   "fitts1967",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "H-III-006",
+  "pool": "B",
+  "scored": false,
+  "domain": "III",
+  "kg": "H",
+  "topic": "Spacing a mental skills curriculum",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "organizational"
+  },
+  "stem": "A fire department training academy asks a consultant to teach recruits a stress-management curriculum (breathing, self-talk, and mental rehearsal) within six hours of contact time over a 12-week academy. Training officers want recruits to retain and use the skills months later on real calls. Which schedule should the consultant plan?",
+  "options": [
+   "One six-hour workshop in the first week so that recruits have every skill from the start",
+   "Short sessions spread across the 12 weeks, with practice of earlier skills built into each",
+   "Two three-hour sessions in the final week so the skills are fresh at graduation",
+   "One six-hour workshop at midpoint, with a printed summary handed out for later review"
+  ],
+  "answer": 1,
+  "rationales": [
+   "A single massed session can feel efficient but produces weaker long-term retention than the same time spaced out.",
+   "Spacing practice over time and revisiting earlier skills in later sessions are desirable difficulties that strengthen long-term retention compared with massed sessions, which is what officers need for skills used months later.",
+   "Cramming at the end boosts short-term recall but is a poor match for retention months after the academy.",
+   "This is still massed delivery, and rereading a summary is passive restudy, which is weaker than spaced, active practice."
+  ],
+  "takeaway": "Spread mental skills training over time and revisit earlier skills; massed workshops feel efficient but fade fast.",
+  "refs": [
+   "bjork2011"
+  ]
+ },
+ {
+  "id": "H-III-007",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "H",
+  "topic": "Planning around a technique change",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "An elite javelin thrower, Chidi, and his coach have decided to rebuild his throwing technique during the off-season. The coach warns that his early-season distances may be shorter while the new pattern stabilizes. Chidi worries this will mean the change is failing. When planning goals with Chidi for the first competitions of the season, what should the consultant emphasize?",
+  "options": [
+   "Process goals for the new technique, with a planned expectation of a temporary dip",
+   "Outcome goals that match his personal best, so the new technique is held to a high standard",
+   "Reassurance that any drop will be too small to notice, so that his confidence is protected",
+   "No goals at all until the new technique feels completely automatic in competition"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Changing a well-learned skill moves the athlete back to a more conscious, earlier stage of learning, so a temporary performance dip is common. Process goals tied to the new technique, plus advance preparation for the dip, keep attention on what he controls and protect confidence.",
+   "Outcome goals at personal-best level are likely to be missed while the technique is still consolidating, making the change feel like failure.",
+   "False reassurance contradicts what the coach has said and leaves him unprepared when distances drop.",
+   "Going without goals removes direction and feedback during the period when structure and process focus help most."
+  ],
+  "takeaway": "When technique is being rebuilt, plan process goals and prepare the athlete for a temporary performance dip.",
+  "refs": [
+   "fitts1967",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "H-III-008",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "H",
+  "topic": "Fading biofeedback across a program",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "A consultant is planning an eight-week heart rate variability biofeedback program to help a collegiate swimmer, Siobhan, use slow breathing to settle before races. She will practice with a sensor and an on-screen display at first, but no display will be available at meets. How should the consultant plan the use of real-time feedback across the eight weeks?",
+  "options": [
+   "Show the display on every breath for all eight weeks to keep her practice accurate",
+   "Withhold the display from the start so that she never comes to depend on it",
+   "Use frequent display feedback early, then fade it as she learns to self-monitor",
+   "Use the display only in the final session to confirm that she has learned the skill"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Constant feedback throughout builds reliance on the display, which will be missing at meets.",
+   "Removing feedback entirely denies her the guidance a beginner needs to learn what the target breathing pattern feels like.",
+   "The guidance hypothesis holds that frequent feedback aids early acquisition but creates dependence if it continues. Fading the display as she learns to detect her own state supports retention and transfer to meets, where no feedback is available.",
+   "Feedback only at the end gives no guidance during learning; it measures the skill rather than helping build it."
+  ],
+  "takeaway": "Start feedback frequent and fade it so the learner develops self-monitoring for settings without feedback.",
+  "refs": [
+   "salmoni1984",
+   "lehrer2000"
+  ]
+ },
+ {
+  "id": "H-IV-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "H",
+  "topic": "Feedback dependency in a routine",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "Over six weeks, a consultant has helped an elite archer, Freya, build a pre-shot routine, commenting after every arrow in training on whether she followed each step. Freya executes the routine well whenever the consultant is present, but at a recent competition, with no consultant on the field, she lost track of her steps. What change to the training sessions is most appropriate?",
+  "options": [
+   "Give feedback more often, adding comments during each step of the routine",
+   "Reduce feedback gradually and have Freya rate her own routine before hearing any input",
+   "Pause routine practice and focus on general relaxation before the next competition",
+   "Attend her competitions so that she receives the same feedback there that she gets in training"
+  ],
+  "answer": 1,
+  "rationales": [
+   "More frequent feedback deepens the dependence that caused the breakdown.",
+   "The guidance hypothesis explains the pattern: feedback after every attempt guides performance during practice but creates reliance on the external source. Fading feedback and asking the athlete to evaluate herself first builds her own error detection, improving retention in competition.",
+   "Relaxation does not address why the routine breaks down without feedback, and pausing practice slows learning of the routine.",
+   "Being present at competitions keeps the dependence in place and is often not possible on the field of play."
+  ],
+  "takeaway": "When skills hold up only with the consultant present, fade feedback and build the athlete's self-evaluation.",
+  "refs": [
+   "salmoni1984",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "H-IV-002",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "H",
+  "topic": "Explaining breathing to young children",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "youth",
+   "delivery": "team"
+  },
+  "stem": "A consultant is introducing a calming breathing skill to a group of 8-year-old recreational gymnasts before their first in-house meet. Partway through the consultant's explanation of how slow exhaling activates the nervous system's 'rest and digest' response, the children begin fidgeting and talking. What adjustment best fits their developmental level?",
+  "options": [
+   "Repeat the nervous-system explanation more slowly, using a diagram on the whiteboard",
+   "Hand out a worksheet so each child can write down how breathing changes the body",
+   "Ask the children to sit quietly until everyone is ready to listen to the explanation",
+   "Teach it as a game with a concrete image, such as smelling a flower and blowing out a candle"
+  ],
+  "answer": 3,
+  "rationales": [
+   "Slowing an abstract physiological explanation does not make it concrete; 8-year-olds still won't connect with it.",
+   "A written task keeps the content abstract and adds a literacy demand, which is not how young children best learn a physical skill.",
+   "Demanding attention for an explanation pitched above their level does not fix the mismatch and turns the session into a behavior-management exercise.",
+   "Children around age 8 think concretely and have short attention spans, so skills are best taught with brief, concrete imagery and playful, active practice rather than abstract explanations of physiology."
+  ],
+  "takeaway": "Teach young children mental skills through concrete images and play, not abstract explanations.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "H-IV-003",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "H",
+  "topic": "Retrieval practice in team sessions",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "team"
+  },
+  "stem": "A consultant meets weekly with a university women's soccer team, teaching one mental skill per session. By midseason, players can't describe skills from earlier sessions, and the coach says the team 'nods along' but rarely uses them. Each session currently opens with the consultant summarizing the previous week's slides. Which change to the session format is best supported by learning research?",
+  "options": [
+   "Email the slides after each session so players can reread them at home",
+   "Lengthen each session's presentation so that every skill can be covered in much more depth",
+   "Open each session with players recalling and briefly using earlier skills, without notes",
+   "Teach two new skills per session so more content is covered before playoffs"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Rereading is passive restudy, which feels productive but strengthens retention less than retrieving the material from memory.",
+   "More presentation time adds exposure but not the effortful recall that makes skills stick.",
+   "Retrieval practice, in which learners recall and use material from memory, strengthens long-term retention more than re-presenting it. Revisiting earlier skills across later sessions adds spacing, another desirable difficulty.",
+   "Covering more content faster increases the load without improving retention of what has already been taught."
+  ],
+  "takeaway": "Have athletes retrieve and use earlier skills from memory instead of re-presenting the material.",
+  "refs": [
+   "bjork2011"
+  ]
+ },
+ {
+  "id": "H-IV-004",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "H",
+  "topic": "Bandwidth feedback through a coach",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "para-sport",
+   "level": "adult",
+   "delivery": "individual"
+  },
+  "stem": "The coach of a club wheelchair basketball team asks a consultant why several players have become hesitant at the free-throw line. The consultant notices that the coach comments on every practice free throw, pointing out even small differences in release and follow-through. The coach wants to keep giving players useful information. Which feedback approach should the consultant suggest the coach try?",
+  "options": [
+   "Comment only when a shot falls outside an agreed range of acceptable form",
+   "Keep commenting on every shot, but in a gentler and more encouraging tone",
+   "Show players video of every shot right afterward so they can see each small error",
+   "Stop all comments so players learn only from whether the ball goes in"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Bandwidth feedback gives feedback only when error exceeds a preset tolerance. It lowers feedback frequency as performance improves, avoids correcting normal movement variability, and lets silence signal that form was acceptable, which supports retention and reduces both dependence and hesitancy.",
+   "A gentler tone helps the atmosphere but keeps the constant feedback that encourages overcorrection and dependence.",
+   "Video after every shot is still feedback on every attempt and draws attention to trivial variability.",
+   "Removing all augmented feedback discards useful information; the issue is how often and when feedback is given, not whether it is given at all."
+  ],
+  "takeaway": "Bandwidth feedback, given only when errors exceed a set range, reduces dependence and overcorrection.",
+  "refs": [
+   "salmoni1984",
+   "singer2001"
+  ]
+ },
+ {
+  "id": "H-IV-005",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "H",
+  "topic": "Progressing a new mental skill",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "tactical",
+   "level": "adult",
+   "delivery": "team"
+  },
+  "stem": "A consultant has just introduced tactical breathing to a class of police recruits. In the classroom, most recruits still need to count each phase deliberately and lose the rhythm when distracted. The training officer wants them to start using the technique during high-stress, scenario-based use-of-force drills next week. What should the consultant recommend?",
+  "options": [
+   "Start the high-stress drills next week, because pressure speeds up learning of new skills",
+   "Build consistency in calm practice, then add stressors step by step before the full drills",
+   "Drop the breathing for a simpler cue word, since recruits are struggling to learn the counts",
+   "Have recruits study the physiology of stress until they understand why the technique works"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Using a skill that is still effortful and fragile under full pressure is likely to fail and can undermine recruits' confidence in it.",
+   "The recruits are in the cognitive stage of learning (Fitts & Posner): performance is effortful and easily disrupted. The skill should become more consistent in calm practice and then be exposed to gradually increasing stress, as in stress inoculation, so that it holds up in demanding drills.",
+   "Early struggle is expected in the cognitive stage; abandoning the skill instead of progressing practice gives up a technique widely trained for high-stress work.",
+   "Understanding the rationale can aid buy-in, but knowledge does not build a motor-like skill; practice under graduated conditions does."
+  ],
+  "takeaway": "Teach mental skills like motor skills: build consistency in calm settings, then add pressure gradually.",
+  "refs": [
+   "fitts1967",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "H-IV-006",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "H",
+  "topic": "Blocked serving practice and transfer",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "team"
+  },
+  "stem": "At the coach's request, a consultant observes a high school volleyball practice. Players serve 40 consecutive float serves to the same zone and look confident, yet in matches their serving percentage drops sharply and they say they 'feel rushed.' The players were recently taught a short pre-serve routine. Which practice change should the consultant suggest to the coach?",
+  "options": [
+   "Increase the block to 60 identical serves so the motion becomes more automatic",
+   "Have players rehearse the routine on its own before practice, apart from serving",
+   "Cut back on serving practice so players are not fatigued going into matches",
+   "Vary serve types and targets randomly, using the full routine before each serve"
+  ],
+  "answer": 3,
+  "rationales": [
+   "A longer block raises practice performance but does not build the transfer that is failing in matches.",
+   "Rehearsing the routine separately from serving does not link it to execution under game-like conditions.",
+   "Nothing suggests fatigue is the cause; less practice would not address the gap between practice and matches.",
+   "Contextual interference research shows that random, variable practice may look worse in practice but improves retention and transfer. Combining varied serves with the full routine before each one recreates match conditions, where each serve follows a break in play."
+  ],
+  "takeaway": "Random, variable practice paired with the routine closes the gap between confident practice and match performance.",
+  "refs": [
+   "shea1979",
+   "singer2001"
+  ]
+ },
+ {
+  "id": "H-IV-007",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "H",
+  "topic": "Building deliberate play into practice",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "youth",
+   "delivery": "organizational"
+  },
+  "stem": "A youth hockey association asks a consultant to help its under-9 coaches keep children engaged and enjoying the sport. Current practices consist mostly of children waiting in lines for their turn in adult-run drills. Drawing on the Developmental Model of Sport Participation, which suggestion best fits this age group?",
+  "options": [
+   "Add more structured drills to each practice so every child gets more repetitions",
+   "Introduce weekly fitness testing so children can track their improvement over time",
+   "Center practices on small-area games with flexible rules and little adult correction",
+   "Begin sorting players into elite and developmental groups based on current ability"
+  ],
+  "answer": 2,
+  "rationales": [
+   "More structured drills shift practice further toward adult-led work, which the DMSP places mainly in later years.",
+   "Fitness testing adds evaluation, not play, and doesn't address the lack of engagement.",
+   "In the sampling years, the DMSP emphasizes deliberate play: intrinsically motivating, flexible, often child-modified games alongside some structured practice. Small-area games also raise activity and enjoyment compared with waiting in lines.",
+   "Ability grouping at under-9 introduces early selection pressure, which runs against the sampling-years emphasis on enjoyment and broad development."
+  ],
+  "takeaway": "For young children, build practices around deliberate play: flexible, game-based, and enjoyable.",
+  "refs": [
+   "cote1999",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "H-IV-008",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "H",
+  "topic": "Explicit monitoring in experts",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "performing-arts",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "A professional concert pianist, Sakura, has performed a concerto flawlessly for years. Before a high-profile recital, a well-meaning teacher urged her to concentrate on exactly how each finger strikes the keys during the difficult passages. In the dress rehearsal those passages fell apart. With three days to go, Sakura asks the consultant what to focus on. What is the best recommendation?",
+  "options": [
+   "Focus on a holistic cue, such as the shape of the musical phrase, not finger mechanics",
+   "Monitor each finger movement even more closely until the attention feels natural",
+   "Play the difficult passages at half tempo in the recital so she can control each finger",
+   "Swap in easier repertoire for the recital, since her command of the concerto is gone"
+  ],
+  "answer": 0,
+  "rationales": [
+   "A long-practiced skill is in the autonomous stage, and directing step-by-step attention to its mechanics (explicit monitoring) disrupts automatic execution. A holistic or external cue, such as phrasing or musical intent, lets the well-learned skill run.",
+   "Closer monitoring intensifies the conscious control that caused the breakdown.",
+   "Changing the tempo in performance alters the well-learned skill and invites more conscious control, not less.",
+   "One disrupted rehearsal reflects a shift in attention, not a lost skill; dropping the repertoire is an unnecessary overreaction."
+  ],
+  "takeaway": "For autonomous-stage skills, step-by-step attention to mechanics disrupts performance; use holistic or external cues.",
+  "refs": [
+   "fitts1967",
+   "singer2001"
+  ]
+ },
+ {
+  "id": "H-IV-009",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "H",
+  "topic": "Restructuring into deliberate practice",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "esports",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "A professional esports player, Tariq, plays ranked matches for ten hours a day, but his performance has plateaued. Reviewing his week with a consultant, he admits most matches are played on autopilot and he rarely reviews them afterward. He wants to improve before the next competitive split. Which change best reflects deliberate practice principles?",
+  "options": [
+   "Add two more hours of ranked matches every day to raise his total weekly practice volume",
+   "Switch to casual matches with friends so that practice feels enjoyable again",
+   "Watch professional streams for several hours each day instead of playing",
+   "Swap some matches for focused drills on identified weaknesses, reviewed with feedback"
+  ],
+  "answer": 3,
+  "rationales": [
+   "More hours of autopilot play add volume without the focus, goals, and feedback that drive improvement.",
+   "Enjoyable play has value, but it is not deliberate practice and does not target his specific weaknesses.",
+   "Passive watching provides models but no effortful practice with feedback on his own performance.",
+   "Deliberate practice is effortful, concentrated work on specific weaknesses guided by clear goals and feedback (for example, reviewing recordings of his own play). The quality of practice, not the sheer volume of play, drives improvement."
+  ],
+  "takeaway": "Plateaus after heavy volume call for focused, feedback-rich work on weaknesses, not more hours.",
+  "refs": [
+   "ericsson1993"
+  ]
+ },
+ {
+  "id": "J-II-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "II",
+  "kg": "J",
+  "topic": "Recognizing RED-S warning signs",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "During an initial assessment, a collegiate distance runner, Astrid, says she wants help with 'mental toughness' because her race times have slipped. She also mentions two stress fractures in the past year, constant fatigue, no menstrual period for five months, and cutting back on meals to 'race lighter.' What is the most appropriate action for the consultant?",
+  "options": [
+   "Begin mental toughness training now, since that is the service she requested at intake",
+   "Share concerns and, with consent, connect her to sports medicine and a dietitian",
+   "Design a meal plan that raises her daily energy intake to match her training load",
+   "Advise her to stop training entirely until her menstrual cycle returns on its own"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Proceeding with the requested service ignores health warning signs that may explain her slipping times and need medical attention first or alongside mental skills work.",
+   "Recurrent stress fractures, loss of menstrual periods, fatigue, and deliberate restriction are warning signs of low energy availability (RED-S), which affects both health and performance. The consultant recognizes them and coordinates with medical and nutrition professionals rather than diagnosing or prescribing; mental performance work can continue within that coordinated plan.",
+   "Prescribing a meal plan is nutrition therapy, which belongs to a registered dietitian, and it skips the medical evaluation these signs call for.",
+   "Training restrictions and judgments about menstrual function are medical decisions for the physician and sports medicine team, not the consultant."
+  ],
+  "takeaway": "Signs of low energy availability call for coordinated care with medical and nutrition professionals, not consultant prescriptions.",
+  "refs": [
+   "mountjoy2018"
+  ]
+ },
+ {
+  "id": "J-II-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "II",
+  "kg": "J",
+  "topic": "Assessing sleep before planning",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "adolescent",
+   "delivery": "individual"
+  },
+  "stem": "A 17-year-old soccer player, Liam, is sent to a consultant by his coach for 'focus problems' late in matches and during afternoon classes. In the intake he mentions staying up past 1 a.m. most nights playing video games and waking at 6:30 a.m. for school. He reports no low mood, no snoring, and still enjoys soccer. What should the consultant do next in the assessment?",
+  "options": [
+   "Give him an attentional-style inventory and start concentration training at next week's session",
+   "Refer him to a sleep clinic to be evaluated for a possible sleep disorder",
+   "Gather details on his sleep pattern, such as a two-week sleep log, and discuss sleep needs",
+   "Suggest his coach reduce his match minutes until his concentration improves"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Starting attention training now skips over a likely contributor to his focus problems that the assessment has just uncovered.",
+   "A late bedtime by choice, with no other warning signs, does not yet suggest a sleep disorder; referral would be appropriate if problems persist despite adequate sleep opportunity or other symptoms appear.",
+   "Initial assessment covers health and self-care. About five and a half hours of sleep is far below the roughly 8–10 hours recommended for teenagers and plausibly explains his attention lapses, so clarifying his sleep pattern before planning attention work makes sure the plan targets the likely cause.",
+   "Changing his playing time is the coach's decision and does nothing to clarify or address what is driving the focus problems."
+  ],
+  "takeaway": "Assess sleep before building a concentration plan; teens need roughly 8–10 hours.",
+  "refs": [
+   "hirshkowitz2015"
+  ]
+ },
+ {
+  "id": "J-II-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "II",
+  "kg": "J",
+  "topic": "Concussion symptoms disclosed at intake",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "In a first session, a university rugby player, Rhys, says he wants help with pre-match nerves. Later he mentions that since a heavy tackle five days ago he has had headaches, feels 'foggy,' and is bothered by bright lights, but he hasn't told anyone because he doesn't want to miss the final. What should the consultant do?",
+  "options": [
+   "Urge him to report the symptoms to the athletic trainer today and offer to go with him",
+   "Keep the disclosure confidential and continue with the pre-match nerves plan as agreed",
+   "Give him a brief symptom checklist and decide from his scores whether he can play",
+   "Teach relaxation for the headaches and check in about the symptoms after the final"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Possible concussion symptoms need evaluation by the medical team, which owns concussion assessment and return-to-play decisions. The consultant urges and helps with prompt reporting and, if he refuses, acts within the limits of confidentiality discussed at the outset and the team's safety protocols.",
+   "Confidentiality does not require ignoring a potential injury that puts him at risk if he keeps playing.",
+   "Scoring a checklist and judging readiness to play is concussion assessment, which is outside the consultant's scope.",
+   "Treating symptoms with relaxation and delaying until after the final leaves a possible brain injury unevaluated while he keeps competing."
+  ],
+  "takeaway": "Possible concussion symptoms go to the medical team promptly; the consultant facilitates reporting, not assessment.",
+  "refs": [
+   "patricios2023"
+  ]
+ },
+ {
+  "id": "J-III-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "III",
+  "kg": "J",
+  "topic": "Timing new skills in the season plan",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "A national-team swimmer, Valentina, and her coach meet with a consultant in early autumn to plan mental skills work for a season that peaks at championships in August. The coach's macrocycle has general preparation through winter, specific preparation and early-season meets in spring, then a taper in July. Valentina wants to learn imagery and a new pre-race routine. How should the consultant align the plan with the training phases?",
+  "options": [
+   "Teach both skills during the July taper, when training volume is lowest and time is available",
+   "Wait to teach new skills until after the championships so the plan does not disrupt this season",
+   "Introduce both skills in the final week before the championships so they feel fresh when needed",
+   "Teach them in general preparation, refine them at spring meets, and only rehearse them in the taper"
+  ],
+  "answer": 3,
+  "rationales": [
+   "The taper is for consolidating and sharpening, not learning; a brand-new skill right before the peak adds uncertainty when stability matters most.",
+   "There is ample time this season to learn the skills safely, so waiting gives up their benefit for no reason.",
+   "Introducing untested skills days before the peak competition is the riskiest timing, as there is no chance to practice them under lower stakes.",
+   "Mental skills follow the same periodization logic as physical training: new skills are learned in preparation phases, when there is time to practice and make mistakes, refined in lower-stakes competitions, and then used as well-rehearsed routines during the taper and peak, when anything new adds risk."
+  ],
+  "takeaway": "Learn new mental skills in preparation phases, test them in lower-stakes meets, and only rehearse them in the taper.",
+  "refs": [
+   "bompa2019",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "J-III-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "III",
+  "kg": "J",
+  "topic": "Planning for taper restlessness",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "collegiate",
+   "delivery": "individual"
+  },
+  "stem": "A collegiate 800-meter runner, Jamal, has a history of feeling sluggish, restless, and doubtful about his fitness during the two-week tapers before championship meets, and his worry peaks in those weeks. His well-established mental skills include imagery and a pre-race routine. When planning the coming taper with Jamal and his coach, what should the consultant include?",
+  "options": [
+   "Brief education that taper sensations are expected, plus scheduled imagery and routine rehearsal",
+   "Extra hard workouts during the taper so that he can prove his fitness to himself",
+   "A new cognitive restructuring program, started in the taper, to address his doubts",
+   "No mental skills work at all during the taper, so that he can rest mentally as well as physically"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Reduced training during a taper often brings unfamiliar sluggishness and restlessness that athletes misread as lost fitness. Preparing him to expect these sensations and filling the extra time with rehearsal of his established skills addresses his doubts without adding anything new before the peak.",
+   "Changing the training load is the coach's decision, and extra hard sessions would undermine the purpose of the taper.",
+   "Starting a new program right before the championships adds something unpracticed at the point in the macrocycle when established routines should be used.",
+   "Mental rest has a place, but his worry peaks in these weeks; leaving the taper unstructured invites rumination rather than preventing it."
+  ],
+  "takeaway": "Plan tapers so athletes expect the sensations of reduced load and rehearse established skills, not new ones.",
+  "refs": [
+   "bompa2019",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "J-III-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "III",
+  "kg": "J",
+  "topic": "Arousal regulation under exertion",
+  "cognitive": "analysis",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "elite",
+   "delivery": "individual"
+  },
+  "stem": "An elite biathlete, Ingrid, shoots well in calm training sessions but misses targets in races, where she arrives at the range after hard skiing with her heart pounding. She and her coach ask the consultant to help plan her mental training for the next training block. Which plan best fits the physiological demands of her event?",
+  "options": [
+   "Practice a seated relaxation script before each training session to lower her overall arousal",
+   "Rehearse a brief breathing-and-routine reset at the range during high-intensity training",
+   "Use psych-up music and self-talk before shooting to raise her intensity for the range",
+   "Rehearse shooting with imagery at rest, since physical fatigue cannot be trained mentally"
+  ],
+  "answer": 1,
+  "rationales": [
+   "General relaxation at rest lowers baseline arousal but does not prepare her for the race-specific state of shooting right after intense exertion.",
+   "Biathlon shooting happens under high physiological arousal from hard skiing. Mental skills transfer best when practiced under conditions that match competition, so a short breathing-and-routine reset rehearsed at elevated heart rate in training targets the actual demand.",
+   "Raising arousal is the wrong direction for a precision task performed when she is already highly activated.",
+   "Imagery at rest leaves out the physiological state that is disrupting her, and skills can in fact be rehearsed under fatigue in training."
+  ],
+  "takeaway": "Practice arousal-regulation skills under the physiological conditions in which they will be used.",
+  "refs": [
+   "kenney2019",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "J-IV-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "IV",
+  "kg": "J",
+  "topic": "Adolescent risk-taking with peers",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "adolescent",
+   "delivery": "individual"
+  },
+  "stem": "A 15-year-old snowboarder, Kai, is talented and usually careful in training. When friends film from the side of the halfpipe, however, he attempts tricks well beyond what his coach has cleared, and he has had two hard falls. Afterward he can clearly explain why the attempts were unwise. Which approach should the consultant use with Kai?",
+  "options": [
+   "Explain the long-term injury risks in detail so he fully understands the consequences",
+   "Have him train alone, without friends present, for the remainder of the season",
+   "Help him make and rehearse if-then plans, in calm moments, for when friends are filming",
+   "Wait for him to mature, since adolescents grow out of risk-taking without intervention"
+  ],
+  "answer": 2,
+  "rationales": [
+   "He already understands the risks when calm; more information targets knowledge, which is not what fails in the moment.",
+   "Removing friends avoids the trigger temporarily but builds no skill and is unrealistic for a social sport culture he will keep training in.",
+   "In adolescence, reward and social-emotional systems are highly reactive while prefrontal control continues to mature into the mid-20s, so knowledge often fails in emotionally charged, peer-present moments. If-then plans made and rehearsed in calm states give him a prepared response for those 'hot' situations.",
+   "Waiting ignores the current injury risk; self-regulation strategies can be built now and support development."
+  ],
+  "takeaway": "Adolescents often know better but act on impulse with peers; rehearse if-then plans made in calm moments.",
+  "refs": [
+   "casey2008"
+  ]
+ },
+ {
+  "id": "J-IV-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "IV",
+  "kg": "J",
+  "topic": "Correcting overbreathing in paced breathing",
+  "cognitive": "application",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "business",
+   "level": "adult",
+   "delivery": "virtual"
+  },
+  "stem": "Over a video call, a consultant is teaching slow-paced breathing to Priya, a sales executive who gets tense before major client presentations. After a few minutes of practice, Priya says she feels lightheaded and tingly. The consultant notices she is taking very large, forceful breaths to keep pace with a six-breaths-per-minute guide. What is the best adjustment?",
+  "options": [
+   "Encourage her to push through, since these sensations show that the technique is starting to work",
+   "Switch her to rapid, energizing breaths, since slow breathing does not suit her",
+   "End the practice and refer her to a physician before any further breathing work",
+   "Coach her to keep breaths slow but comfortable in size, with a relaxed, longer exhale"
+  ],
+  "answer": 3,
+  "rationales": [
+   "The sensations signal overbreathing, not progress; continuing would make them worse.",
+   "Fast breathing raises activation and abandons a sound technique because of a fixable error in how she is doing it.",
+   "The symptoms have a clear, correctable cause in her technique; a medical referral would be warranted only if they persist after adjustment or she has a relevant health condition.",
+   "Lightheadedness and tingling during paced breathing typically come from overbreathing, in which overly deep breaths blow off too much carbon dioxide. Slow-paced breathing aims for a slower rate with natural, comfortable breath size, so reducing the depth of each breath usually resolves the symptoms."
+  ],
+  "takeaway": "Slow breathing should be slow, not big; oversized breaths cause lightheadedness from overbreathing.",
+  "refs": [
+   "lehrer2000"
+  ]
+ },
+ {
+  "id": "J-IV-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "IV",
+  "kg": "J",
+  "topic": "Sleep education for early-training teens",
+  "cognitive": "application",
+  "difficulty": 1,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "adolescent",
+   "delivery": "team"
+  },
+  "stem": "A consultant works with a high school swim team whose 15- and 16-year-old swimmers train at 5:30 a.m. Many report getting about six hours of sleep, using phones in bed late at night, and feeling exhausted in afternoon classes. The coach asks the consultant to address this at the next team session. Which approach is most appropriate?",
+  "options": [
+   "Recommend that swimmers take an over-the-counter melatonin supplement to fall asleep earlier",
+   "Teach a wind-down routine and share teen sleep needs with swimmers, parents, and the coach",
+   "Reassure swimmers that six hours is adequate for teenagers if they nap on weekends",
+   "Assign nightly mental skills homework to build discipline, completed after evening study time"
+  ],
+  "answer": 1,
+  "rationales": [
+   "Recommending a supplement is a medical recommendation outside the consultant's scope; questions about sleep aids belong with a physician.",
+   "Teenagers need about 8–10 hours of sleep, so six hours is chronic restriction that impairs attention, mood, and recovery. Sleep education, a consistent wind-down with phones out of bed, and sharing sleep needs with parents and the coach (who sets practice times) are within scope and address both habits and the environment.",
+   "Six hours is well below teen sleep needs, and weekend naps do not offset chronic weekday restriction.",
+   "Adding nightly homework takes away more sleep time and ignores the problem the coach raised."
+  ],
+  "takeaway": "Teens need about 8–10 hours; educate athletes, parents, and coaches and build a wind-down routine within scope.",
+  "refs": [
+   "hirshkowitz2015"
+  ]
+ },
+ {
+  "id": "J-V-001",
+  "pool": "A",
+  "scored": true,
+  "domain": "V",
+  "kg": "J",
+  "topic": "Interpreting mood dips during overload",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "professional",
+   "delivery": "individual"
+  },
+  "stem": "A consultant monitors a professional cyclist, Lucas, with brief weekly mood and confidence ratings. During a planned three-week high-volume training block, his ratings drop and he reports heavy legs and irritability; the coach expects these effects to ease after the scheduled recovery week. Lucas shows no other concerning signs. How should the consultant interpret the data when evaluating the mental skills plan?",
+  "options": [
+   "As expected training fatigue, so share it with the coach and reassess after the recovery week",
+   "As evidence that the mental skills plan has failed, so it should be replaced with a new approach",
+   "As a sign of clinical depression that calls for an immediate referral for diagnosis",
+   "As overtraining syndrome, so advise him to stop training until his mood recovers"
+  ],
+  "answer": 0,
+  "rationales": [
+   "Temporary drops in mood and performance during planned overload fit functional overreaching, which resolves with recovery. Evaluating the plan means reading the data in light of the training phase, sharing it with the coach, and reassessing after the recovery week before revising anything.",
+   "Concluding that the plan failed ignores the training context that best explains the change in his ratings.",
+   "There are no signs beyond expected training fatigue, so referral now is premature; continued monitoring would catch mood that stays low after recovery.",
+   "Overtraining syndrome involves prolonged maladaptation that persists for weeks to months despite rest, and the consultant neither diagnoses it nor prescribes training changes."
+  ],
+  "takeaway": "Read monitoring data in light of the training phase; short-term dips during overload are expected and recoverable.",
+  "refs": [
+   "meeusen2013",
+   "bompa2019"
+  ]
+ },
+ {
+  "id": "J-V-002",
+  "pool": "B",
+  "scored": true,
+  "domain": "V",
+  "kg": "J",
+  "topic": "Prolonged decline despite rest",
+  "cognitive": "analysis",
+  "difficulty": 3,
+  "format": "vignette",
+  "context": {
+   "setting": "individual-sport",
+   "level": "masters",
+   "delivery": "individual"
+  },
+  "stem": "A consultant has worked with a masters rower, Beatriz, for a year. At a quarterly review, she reports that for nearly three months her times have worsened, she sleeps poorly, and she feels flat and unmotivated, even though her coach reduced her training load six weeks ago. Her mental skills practice has stayed consistent. What is the most appropriate next step in evaluating and revising the plan?",
+  "options": [
+   "Intensify her mental skills program, since her low motivation is the main cause of the decline",
+   "Conclude that she has overtraining syndrome and design a new plan around that diagnosis",
+   "Recommend a medical evaluation with her physician and adjust her mental skills goals for now",
+   "Suggest her coach raise her training load again to rebuild her fitness and confidence"
+  ],
+  "answer": 2,
+  "rationales": [
+   "Assuming motivation is the cause overlooks the physiological and health picture; more mental skills work will not resolve a possible medical problem.",
+   "Diagnosing overtraining syndrome is outside the consultant's scope, and it is diagnosed only after other causes are ruled out.",
+   "A decline lasting months despite reduced load, with poor sleep and flat mood, goes beyond normal training fatigue and fits possible overtraining syndrome or another medical or psychological cause. Because these are identified by excluding other conditions, a medical evaluation is needed; the consultant coordinates with the physician (with consent) and adjusts goals rather than diagnosing.",
+   "Training-load decisions belong to the coach and medical team, and adding load during unexplained, prolonged decline could worsen her condition."
+  ],
+  "takeaway": "Months of decline despite rest points beyond training fatigue; coordinate a medical evaluation and adjust goals.",
+  "refs": [
+   "meeusen2013"
+  ]
+ },
+ {
+  "id": "J-V-003",
+  "pool": "drill",
+  "scored": true,
+  "domain": "V",
+  "kg": "J",
+  "topic": "Season review in the transition phase",
+  "cognitive": "application",
+  "difficulty": 2,
+  "format": "vignette",
+  "context": {
+   "setting": "team-sport",
+   "level": "professional",
+   "delivery": "organizational"
+  },
+  "stem": "A consultant has supported a professional women's soccer team through a long season. The coaching staff want a full evaluation of the mental performance program, including player feedback, outcome data, and revisions for next year. The schedule includes a final playoff stretch, a four-week transition period of rest and active recovery, and then preseason. When should the consultant conduct the comprehensive review?",
+  "options": [
+   "In the middle of the playoff stretch, while the program's effects are most visible",
+   "On the first day of preseason, so revisions can be launched at the same moment",
+   "Only after next season, so that two full years of data are available to compare",
+   "During the transition period, with brief monitoring kept up through the playoffs"
+  ],
+  "answer": 3,
+  "rationales": [
+   "A full review during playoffs adds demands on players and staff at the most performance-critical point and pulls attention from competition.",
+   "Starting the review at preseason leaves no time to analyze feedback and redesign the program before it must be delivered.",
+   "Waiting a full extra season delays needed revisions and loses the timely feedback the staff want now.",
+   "The transition phase between macrocycles is lower in competitive demand and suited to reflection, so it is the natural window to gather feedback, review outcomes, and plan revisions before preseason, while light monitoring continues through the playoffs."
+  ],
+  "takeaway": "Align comprehensive program reviews with the transition phase, between the season's end and the next preparation period.",
+  "refs": [
+   "bompa2019",
+   "anderson2002"
+  ]
+ }
+]
