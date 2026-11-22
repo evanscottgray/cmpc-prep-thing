@@ -3,7 +3,7 @@ import './styles.css';
 import type { Bank } from './types';
 import { ctx } from './ctx';
 import { openBestKv } from './lib/db';
-import { loadState, Store } from './lib/store';
+import { loadState, PING_KEY, Store } from './lib/store';
 import { detectCaps } from './lib/caps';
 import { registerSW } from './lib/sw-register';
 import { requestPersistence } from './lib/persist';
@@ -25,6 +25,7 @@ async function boot() {
     ctx.store = new Store(kv, state, mirror);
     root.textContent = '';
     render(<App />, root);
+    window.addEventListener('storage', (e) => { if (e.key === PING_KEY) ctx.store.reload(); });
     // flush pending writes when the app is backgrounded
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') ctx.store.flush(); });
     if (state.settings.onboarded) requestPersistence();

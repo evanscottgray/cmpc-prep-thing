@@ -1,4 +1,4 @@
-import { ctx, useDb } from '../ctx';
+import { ctx, useDb, useNow } from '../ctx';
 import { navigate } from '../router';
 import { createSession } from '../lib/actions';
 import { buildDrill, buildQuiz, buildReview } from '../lib/assemble';
@@ -17,7 +17,7 @@ export function startWeak(count: number) {
   createSession(s); navigate(`s/${s.id}`);
 }
 export function startReview() {
-  const s = buildReview(ctx.bank, ctx.store.state, dueIds(ctx.store.state.srs, ymd()));
+  const s = buildReview(ctx.bank, ctx.store.state, dueIds(ctx.store.state.srs, ymd(), ctx.store.state.settings.examDate));
   if (!s) return alertDialog({ title: 'No reviews due', body: 'Missed and uncertain items come back here on a schedule that fits the time left before your exam.' });
   createSession(s); navigate(`s/${s.id}`);
 }
@@ -53,7 +53,7 @@ function Primary({ a, why }: { a: Action; why: string }) {
 
 export function Today() {
   const db = useDb();
-  const p = plan(db);
+  const p = plan(db, useNow(60000)); // refreshes after midnight and when the app returns to the foreground
   const s = db.settings;
   const progress = Math.min(100, Math.round((100 * p.answeredToday) / Math.max(1, s.dailyTarget)));
   const needBackup = db.attempts.length > 0 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);

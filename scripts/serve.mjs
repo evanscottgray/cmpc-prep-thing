@@ -21,14 +21,15 @@ const TYPES = {
 };
 
 const server = http.createServer((req, res) => {
-  let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
+  let p;
+  try { p = decodeURIComponent(new URL(req.url, 'http://x').pathname); } catch { res.writeHead(400).end(); return; }
   if (p.endsWith('/')) p += 'index.html';
   const file = path.join(root, path.normalize(p).replace(/^([/\\])+/, ''));
-  if (!file.startsWith(root)) { res.writeHead(403).end(); return; }
+  if (p.includes('\0') || (file !== root && !file.startsWith(root + path.sep))) { res.writeHead(403).end(); return; }
   fs.stat(file, (err, st) => {
     if (err || !st.isFile()) { res.writeHead(404, { 'content-type': 'text/plain' }).end('Not found'); return; }
     const ext = path.extname(file);
-    const noCache = ext === '.html' || p.endsWith('/sw.js') || ext === '.webmanifest' || p.includes('/data/');
+    const noCache = !p.includes('/assets/'); // only content-hashed files are cached long-term
     res.writeHead(200, {
       'content-type': TYPES[ext] || 'application/octet-stream',
       'cache-control': noCache ? 'no-cache' : 'public, max-age=31536000, immutable',

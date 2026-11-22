@@ -44,6 +44,9 @@ export function scheduleCard(prev: SrsEntry | undefined, grade: Grade, today: st
   return { box, due, last: now };
 }
 
-export function dueIds(map: Record<string, SrsEntry>, today = ymd()): string[] {
-  return Object.entries(map).filter(([, e]) => e.due <= today).sort((a, b) => a[1].due.localeCompare(b[1].due) || a[1].box - b[1].box).map(([id]) => id);
+/** Due items. If the exam date has moved closer than a scheduled review, that review becomes due the day before the exam. */
+export function dueIds(map: Record<string, SrsEntry>, today = ymd(), examDate: string | null = null): string[] {
+  const last = examDate && examDate > today ? addDays(examDate, -1) : null;
+  const due = (e: SrsEntry) => (last && e.due > last ? last : e.due);
+  return Object.entries(map).filter(([, e]) => due(e) <= today).sort((a, b) => a[1].due.localeCompare(b[1].due) || a[1].box - b[1].box).map(([id]) => id);
 }

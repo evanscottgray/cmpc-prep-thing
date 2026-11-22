@@ -52,9 +52,10 @@ export function buildForm(bank: Bank, db: DbState, form: 'A' | 'B', mode: ExamMo
     return { id: sub.id, scored: i.scored };
   });
   const kind = form === 'A' ? 'formA' : 'formB';
-  const retake = formTaken(db, kind);
+  const exposed = new Set(db.meta.exposed ?? []);
+  const seenBefore = list.filter((x) => stats.has(x.id) || exposed.has(x.id)).length;
   return newSession(kind, `Form ${form}`, toSessionItems(shuffle(list, rand), rand), {
-    timed: true, durationMs: bank.blueprint.exam.minutes * 60000, mode, retake, seenBefore: retake ? list.length : list.filter((x) => stats.has(x.id)).length,
+    timed: true, durationMs: bank.blueprint.exam.minutes * 60000, mode, retake: formTaken(db, kind) || list.some((x) => exposed.has(x.id)), seenBefore,
   }, now);
 }
 
@@ -83,7 +84,8 @@ export function buildMixed(bank: Bank, db: DbState, mode: ExamMode, now = Date.n
     if (cands.length < need) cands = cands.concat(pool.filter((i) => !chosen.has(i.id) && i.domain !== d.id).sort(byPr));
     for (const i of cands.slice(0, need)) { chosen.add(i.id); list.push({ id: i.id, scored: false }); }
   }
-  const seenBefore = list.filter((x) => stats.has(x.id)).length;
+  const exposed = new Set(db.meta.exposed ?? []);
+  const seenBefore = list.filter((x) => stats.has(x.id) || exposed.has(x.id)).length;
   return newSession('mixed', 'Mixed exam', toSessionItems(shuffle(list, rand), rand), {
     timed: true, durationMs: bank.blueprint.exam.minutes * 60000, mode, retake: seenBefore > 0, seenBefore,
   }, now);

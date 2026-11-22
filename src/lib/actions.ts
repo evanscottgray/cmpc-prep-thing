@@ -118,7 +118,6 @@ export function submit(id: string, auto = false, now = Date.now()) {
   const pausedMs = s.pausedAt ? s.pausedMs + (end - s.pausedAt) : s.pausedMs;
   const done: Session = { ...s, timeOnItem, pausedAt: null, pausedMs, visitAt: null, status: 'submitted', submittedAt: end, autoSubmitted: auto };
   done.result = scoreSession(done, ctx.items, ctx.store.state.settings.rawTarget, end);
-  put(done);
   const flags = new Set(s.flags);
   const attempts: Attempt[] = [];
   const grades: { id: string; grade: Grade }[] = [];
@@ -131,8 +130,10 @@ export function submit(id: string, auto = false, now = Date.now()) {
     else if (flags.has(pos)) grades.push({ id: si.id, grade: 'unsure' });
     else if (ctx.store.state.srs[si.id]) grades.push({ id: si.id, grade: 'right' });
   });
-  addAttempts(attempts);
-  updateSrs(grades);
+  // Progress is written before the session is marked submitted. If the app dies in between, the next load
+  // submits again; attempts already recorded for this session are not duplicated.
+  if (!ctx.store.state.attempts.some((a) => a.s === s.id)) { addAttempts(attempts); updateSrs(grades); }
+  put(done);
 }
 
 /** Called on load and on every tick: submits sessions whose time ran out while the app was closed. */
@@ -147,7 +148,16 @@ export function markReviewed(id: string) {
   put({ ...s, reviewedAt: Date.now() });
 }
 
-export function abandon(id: string) { ctx.store.deleteSession(id); }
+/** Discard an unfinished session. Items already opened are remembered so a later sitting isn't called fresh. */
+export function abandon(id: string) {
+  const s = get(id);
+  if (s?.startedAt) {
+    const st = ctx.store.state;
+    const opened = s.items.filter((_, p) => p === s.current || s.responses[p] !== undefined || s.timeOnItem[p] !== undefined).map((x) => x.id);
+    ctx.store.set('meta', { ...st.meta, exposed: [...new Set([...(st.meta.exposed ?? []), ...opened])] });
+  }
+  ctx.store.deleteSession(id);
+}
 
 export function hideItem(itemId: string, hide: boolean) {
   const h = new Set(ctx.store.state.hidden);

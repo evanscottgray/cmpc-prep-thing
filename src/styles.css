@@ -105,7 +105,7 @@ main.page.notabs { padding-bottom: calc(var(--safe-b) + 2rem); }
 .section > h2 { font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 .5rem .25rem; font-weight: 650; }
 .eyebrow { font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; color: var(--accent); font-weight: 700; margin-bottom: .35rem; }
 .list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-.list > * + * { border-top: 1px solid var(--border); }
+
 .list-item {
   display: flex; align-items: center; gap: .75rem; padding: .7rem 1rem; min-height: 52px; width: 100%;
   background: none; border: 0; text-align: left; color: var(--text); text-decoration: none; cursor: pointer;
@@ -338,3 +338,16 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 [tabindex="-1"]:focus { outline: none; }
+
+.list > .list-item + .list-item { border-top: 1px solid var(--border); }
+.tabbar { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.actionbar { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.skip { position: absolute; left: -999px; top: 0; z-index: 200; background: var(--surface); padding: .75rem 1rem; }
+.skip:focus { left: .5rem; top: calc(var(--safe-t) + .5rem); }
+/* touch targets: at least 44 CSS px */
+.chip, .seg span, .check, .input { min-height: 44px; }
+.exam-bar .timer { min-height: 44px; }
+.banner a, .center a { display: inline-block; padding: .65rem 0; }
+.dialog .sticky-actions { position: sticky; bottom: calc(-1.25rem - var(--safe-b)); background: var(--surface); padding: .75rem 0 calc(1.25rem + var(--safe-b)); margin-bottom: calc(-1.25rem - var(--safe-b)); border-top: 1px solid var(--border); }
+.chip, .btn.small, .banner a, .center a { min-width: 44px; }
+.chip { justify-content: center; text-align: center; }

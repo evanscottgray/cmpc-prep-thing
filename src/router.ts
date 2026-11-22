@@ -15,23 +15,21 @@ export function navigate(to: string, replace = false) {
 export function back(fallback = 'today') {
   if (depth > 0) { depth--; history.back(); } else navigate(fallback, true);
 }
-// Route changes are detected three ways: hashchange, popstate, and a light poll of location.hash.
-// (WebKit was observed to stop delivering hashchange to listeners after a reload; the poll makes routing robust.)
+// Listeners are attached at module load, not in an effect: effects run after paint, so a hash change that
+// lands between first render and the effect would otherwise be missed. useRoute re-reads the hash on subscribe.
 const subs = new Set<() => void>();
 let lastHash = typeof location !== 'undefined' ? location.hash : '';
 function check() { if (location.hash !== lastHash) { lastHash = location.hash; for (const f of subs) f(); } }
 if (typeof window !== 'undefined') {
   window.addEventListener('hashchange', check);
   window.addEventListener('popstate', check);
-  window.addEventListener('pageshow', check);
-  setInterval(check, 250);
 }
 export function useRoute(): Route {
   const [r, setR] = useState(parseHash());
   useEffect(() => {
     const on = () => setR(parseHash());
     subs.add(on);
-    if (location.hash !== lastHash) check(); else on();
+    check(); on();
     return () => { subs.delete(on); };
   }, []);
   return r;

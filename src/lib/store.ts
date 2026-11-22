@@ -14,6 +14,7 @@ type Part = 'settings' | 'attempts' | 'srs' | 'cardSrs' | 'reports' | 'hidden' |
 const PARTS: Part[] = ['settings', 'attempts', 'srs', 'cardSrs', 'reports', 'hidden', 'meta'];
 const SESSION_PREFIX = 'session:';
 const MIRROR_KEY = 'cmpc-prep:active-session';
+export const PING_KEY = 'cmpc-prep:ping';
 
 /** Loads the whole state from a Kv. Sessions are stored one per key so exam writes stay small. */
 export async function loadState(kv: Kv, mirror?: Storage | null): Promise<DbState> {
@@ -51,9 +52,18 @@ export class Store {
   private emit() { for (const l of this.listeners) l(); }
 
   private persist(key: string, value: unknown) {
-    this.queue = this.queue.then(() => this.kv.set(key, value)).catch((e) => { this.lastError = String(e); this.emit(); });
+    this.queue = this.queue.then(() => this.kv.set(key, value)).then(() => this.ping()).catch((e) => { this.lastError = String(e); this.emit(); });
   }
   flush() { return this.queue; }
+  /** Tell other tabs at this address that stored data changed (they reload it instead of overwriting it). */
+  private ping() { try { this.mirror?.setItem(PING_KEY, `${Date.now()}-${Math.random()}`); } catch { /* */ } }
+  async reload(): Promise<void> {
+    await this.flush();
+    const q = this.queue;
+    const next = await loadState(this.kv, null);
+    if (this.queue !== q) return this.reload(); // we wrote something meanwhile: read again
+    this.state = next; this.emit();
+  }
 
   set<P extends Part>(part: P, value: DbState[P]) {
     this.state = { ...this.state, [part]: value };
@@ -75,7 +85,7 @@ export class Store {
   deleteSession(id: string) {
     const { [id]: _, ...rest } = this.state.sessions;
     this.state = { ...this.state, sessions: rest };
-    this.queue = this.queue.then(() => this.kv.del(SESSION_PREFIX + id)).catch(() => {});
+    this.queue = this.queue.then(() => this.kv.del(SESSION_PREFIX + id)).then(() => this.ping()).catch(() => {});
     try { if (this.mirror?.getItem(MIRROR_KEY)?.includes(`"id":"${id}"`)) this.mirror.removeItem(MIRROR_KEY); } catch { /* */ }
     this.emit();
   }
@@ -87,6 +97,7 @@ export class Store {
     for (const p of PARTS) await this.kv.set(p, next[p]);
     for (const s of Object.values(next.sessions)) await this.kv.set(SESSION_PREFIX + s.id, s);
     try { this.mirror?.removeItem(MIRROR_KEY); } catch { /* */ }
+    this.ping();
     this.state = next;
     this.emit();
   }

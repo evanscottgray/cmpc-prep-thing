@@ -1,0 +1,110 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+import { ctx } from '../../src/ctx';
+import { memoryKv } from '../../src/lib/db';
+import { Store, emptyState } from '../../src/lib/store';
+import { abandon, autoSubmitExpired, choose, createSession, pause, resume, startSession, submit, toggleFlag, toggleStrike, goTo } from '../../src/lib/actions';
+import { buildForm, buildMixed } from '../../src/lib/assemble';
+import { dueIds } from '../../src/lib/srs';
+import { availableItems } from '../../src/lib/stats';
+import { loadBank } from './helpers';
+
+const bank = loadBank();
+beforeEach(() => {
+  ctx.bank = bank; ctx.items = new Map(bank.items.map((i) => [i.id, i]));
+  ctx.store = new Store(memoryKv(), emptyState(1), null);
+});
+const start = (mode: 'strict' | 'coached' = 'strict', t = 1000) => {
+  const s = buildForm(bank, ctx.store.state, 'A', mode, t, 5);
+  createSession(s); startSession(s.id, t); return s.id;
+};
+const S = (id: string) => ctx.store.state.sessions[id];
+const key = (id: string, pos: number) => ctx.items.get(S(id).items[pos].id)!.answer;
+
+describe('exam lifecycle', () => {
+  it('scores a perfect paper as 100/100 and records all 115 attempts once', () => {
+    const id = start();
+    for (let p = 0; p < 115; p++) choose(id, p, key(id, p));
+    submit(id, false, 60000);
+    expect(S(id).result!.raw).toBe(100);
+    expect(S(id).result!.scaled).toBe(800);
+    expect(ctx.store.state.attempts).toHaveLength(115);
+    submit(id, false, 70000);
+    expect(ctx.store.state.attempts).toHaveLength(115);
+  });
+  it('does not duplicate attempts if a crash left the session active after they were saved', () => {
+    const id = start();
+    choose(id, 0, key(id, 0));
+    const before = S(id);
+    submit(id, false, 60000);
+    ctx.store.putSession(before); // as if the final write never landed
+    submit(id, false, 61000);
+    expect(ctx.store.state.attempts).toHaveLength(115);
+    expect(S(id).status).toBe('submitted');
+  });
+  it('auto-submits at exactly the deadline however late the app is reopened', () => {
+    const id = start('strict', 1000);
+    choose(id, 0, key(id, 0));
+    expect(autoSubmitExpired(1000 + 89 * 60000)).toEqual([]);
+    expect(autoSubmitExpired(1000 + 500 * 60000)).toEqual([id]);
+    expect(S(id).autoSubmitted).toBe(true);
+    expect(S(id).submittedAt).toBe(1000 + 90 * 60000);
+    expect(S(id).result!.timeUsedMs).toBe(90 * 60000);
+    expect(S(id).result!.answered).toBe(1);
+  });
+  it('strict mode refuses to pause; coached pause stops the clock', () => {
+    const a = start('strict'); pause(a, 2000); expect(S(a).pausedAt).toBeNull();
+    const b = start('coached', 1000); pause(b, 2000); resume(b, 2000 + 50 * 60000);
+    expect(autoSubmitExpired(1000 + 100 * 60000)).toEqual([a]);
+    expect(S(b).status).toBe('active');
+  });
+  it('queues missed and flagged items for review, but not plain correct ones', () => {
+    const id = start();
+    for (let p = 0; p < 115; p++) choose(id, p, p === 1 ? (key(id, p) + 1) % 4 : key(id, p));
+    toggleFlag(id, 2);
+    submit(id, false, 60000);
+    expect(Object.keys(ctx.store.state.srs).sort()).toEqual([S(id).items[1].id, S(id).items[2].id].sort());
+  });
+  it('striking the chosen option clears it; choosing a struck option restores it', () => {
+    const id = start();
+    choose(id, 0, 2); toggleStrike(id, 0, 2);
+    expect(S(id).responses[0]).toBeUndefined();
+    choose(id, 0, 2);
+    expect(S(id).strikes[0]).toEqual([]);
+  });
+});
+
+describe('discarded exams', () => {
+  it('remember which items were opened, so the next sitting is not called fresh, and keep the form locked', () => {
+    const id = start();
+    choose(id, 0, 1); goTo(id, 1, 5000);
+    const opened = [S(id).items[0].id, S(id).items[1].id];
+    abandon(id);
+    expect(ctx.store.state.meta.exposed!.sort()).toEqual(opened.sort());
+    const again = buildForm(bank, ctx.store.state, 'A', 'strict', 9, 9);
+    expect(again.retake).toBe(true);
+    expect(again.seenBefore).toBe(2);
+    expect(availableItems(bank, ctx.store.state).some((i) => i.pool === 'A')).toBe(false);
+    expect(buildForm(bank, ctx.store.state, 'B', 'strict', 9, 9).retake).toBe(false);
+    expect(buildMixed(bank, ctx.store.state, 'strict', 9, 9).seenBefore).toBe(0);
+  });
+});
+
+describe('moved exam date', () => {
+  it('pulls reviews that would fall on or after exam day back to the day before', () => {
+    const srs = { x: { box: 4, due: '2026-03-20', last: 0 } };
+    expect(dueIds(srs, '2026-03-09', '2026-03-10')).toEqual(['x']);
+    expect(dueIds(srs, '2026-03-08', '2026-03-10')).toEqual([]);
+    expect(dueIds(srs, '2026-03-08', null)).toEqual([]);
+  });
+});
+
+describe('every blueprint cell', () => {
+  it('a mixed exam matches the grid across 25 seeds', () => {
+    for (let seed = 1; seed <= 25; seed++) {
+      const s = buildMixed(bank, emptyState(1), 'strict', 1, seed);
+      const n: Record<string, number> = {};
+      for (const x of s.items.filter((y) => y.scored)) { const i = ctx.items.get(x.id)!; n[`${i.kg}|${i.domain}`] = (n[`${i.kg}|${i.domain}`] || 0) + 1; }
+      for (const k of bank.blueprint.kgs) for (const d of bank.blueprint.domains) expect(n[`${k.id}|${d.id}`] ?? 0).toBe(bank.blueprint.grid[k.id][d.id]);
+    }
+  });
+});

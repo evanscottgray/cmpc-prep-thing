@@ -20,7 +20,7 @@ export function Study() {
   const stats = itemStats(db.attempts);
   const avail = availableItems(ctx.bank, db);
   const count = (src: DrillSource) => drillPool(ctx.bank, db, src).length;
-  const due = dueIds(db.srs, ymd()).filter((id) => !db.hidden.includes(id)).length;
+  const due = dueIds(db.srs, ymd(), db.settings.examDate).filter((id) => !db.hidden.includes(id)).length;
   const tookA = formTaken(db, 'formA'), tookB = formTaken(db, 'formB');
   const seen = avail.filter((i) => stats.has(i.id)).length;
 

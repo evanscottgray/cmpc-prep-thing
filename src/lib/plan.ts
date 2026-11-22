@@ -31,14 +31,14 @@ const FULL = new Set(['formA', 'formB', 'mixed']);
  */
 export function plan(db: DbState, now = Date.now()): Plan {
   const today = ymd(now);
-  const dueItems = dueIds(db.srs, today).filter((id) => !db.hidden.includes(id)).length;
-  const dueCards = dueIds(db.cardSrs, today).length;
+  const dueItems = dueIds(db.srs, today, db.settings.examDate).filter((id) => !db.hidden.includes(id)).length;
+  const dueCards = dueIds(db.cardSrs, today, db.settings.examDate).length;
   const answeredToday = todayCount(db, now);
   const base = { dueItems, dueCards, answeredToday };
   const active = Object.values(db.sessions).filter((s) => s.status === 'active' && s.startedAt && s.timed && FULL.has(s.kind)).sort((a, b) => b.createdAt - a.createdAt)[0];
   const examDate = db.settings.examDate;
   const daysLeft = examDate ? daysBetween(today, examDate) : null;
-  if (active) return { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'resume', session: active }, why: 'Your exam is still running — the timer has kept going.' };
+  if (active) return { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'resume', session: active }, why: active.pausedAt ? 'Your exam is paused.' : 'Your exam is still running — the timer has kept going.' };
   if (daysLeft === null) return { ...base, phase: 'no-date', daysLeft, primary: { kind: 'setDate' }, why: 'Set your exam date so the plan can pace itself.' };
   if (daysLeft < 0) return { ...base, phase: 'after', daysLeft, primary: { kind: 'passed' }, why: 'Your exam date has passed. Update it in Settings if you have a new date.' };
   if (daysLeft === 0) return { ...base, phase: 'exam-day', daysLeft, primary: { kind: 'light' }, why: 'Exam day. Skim a few concept cards at most, eat, and arrive early with matching ID.' };

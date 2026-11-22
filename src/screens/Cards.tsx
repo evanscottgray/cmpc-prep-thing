@@ -15,7 +15,7 @@ export function CardsHub({ query }: { query: URLSearchParams }) {
   const [q, setQ] = useState('');
   const kg = query.get('kg') ?? '';
   const bp = ctx.bank.blueprint;
-  const due = dueIds(db.cardSrs, ymd()).length;
+  const due = dueIds(db.cardSrs, ymd(), db.settings.examDate).length;
   const fresh = ctx.bank.cards.filter((c) => !db.cardSrs[c.id]).length;
   const needle = q.trim().toLowerCase();
   const list = ctx.bank.cards.filter((c) => (!kg || c.kg === kg) && (!needle || `${c.title} ${c.body}`.toLowerCase().includes(needle)));
@@ -87,7 +87,7 @@ function RateRow({ id, onRated }: { id: string; onRated?: () => void }) {
 export function CardStudy() {
   const db = ctx.store.state;
   const queue = useMemo(() => {
-    const due = dueIds(db.cardSrs, ymd());
+    const due = dueIds(db.cardSrs, ymd(), db.settings.examDate);
     const { byKg } = areaAccuracy(ctx.bank, itemStats(db.attempts), 'last');
     const w = (c: Card) => (ctx.bank.blueprint.kgs.find((k) => k.id === c.kg)?.weight ?? 1) * (1 - smooth(byKg[c.kg] ?? { c: 0, n: 0 })) * (0.75 + Math.random() * 0.5);
     const fresh = ctx.bank.cards.filter((c) => !db.cardSrs[c.id]).sort((a, b) => w(b) - w(a));

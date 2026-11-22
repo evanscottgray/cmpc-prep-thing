@@ -3,7 +3,7 @@ import type { Session } from '../types';
 import { ctx } from '../ctx';
 import { navigate } from '../router';
 import { check, choose, finishTutor, goTo, setUnsure, toggleStrike } from '../lib/actions';
-import { ItemMeta, ItemReview, OptionList } from '../ui/question';
+import { ItemActions, ItemMeta, ItemReview, OptionList } from '../ui/question';
 import { Page } from '../ui/bits';
 import { confirmDialog } from '../ui/dialog';
 import { IcCheckCircle, IcXCircle } from '../ui/icons';
@@ -49,6 +49,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
             <input type="checkbox" checked={s.unsure.includes(pos)} onChange={(e) => setUnsure(s.id, pos, (e.target as HTMLInputElement).checked)} />
             I'm not sure (adds this item to spaced review)
           </label>
+          <ItemActions item={item} />
         </>
       ) : (
         <>

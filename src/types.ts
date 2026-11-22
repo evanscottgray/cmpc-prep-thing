@@ -105,5 +105,5 @@ export interface DbState {
   cardSrs: Record<string, SrsEntry>;    // card id → entry
   reports: Report[];
   hidden: string[];                      // hidden item ids
-  meta: { createdAt: number; schema: number };
+  meta: { createdAt: number; schema: number; exposed?: string[] }; // exposed: items opened in exams that were then discarded
 }

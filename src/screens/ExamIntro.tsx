@@ -16,14 +16,17 @@ export function ExamIntro({ kind }: { kind: Kind }) {
   const db = useDb();
   const [mode, setMode] = useState<ExamMode>(db.settings.mode);
   const full = kind !== 'block';
-  const taken = full && formTaken(db, kind);
+  const exposed = new Set(db.meta.exposed ?? []);
+  const formPool = kind === 'formA' ? 'A' : kind === 'formB' ? 'B' : null;
+  const opened = formPool ? ctx.bank.items.filter((i) => i.pool === formPool && exposed.has(i.id)).length : 0;
+  const taken = full && kind !== 'mixed' && formTaken(db, kind);
   const active = Object.values(db.sessions).find((s) => s.kind === kind && s.status === 'active' && s.startedAt) as Session | undefined;
   const otherActive = Object.values(db.sessions).find((s) => s.kind !== kind && s.status === 'active' && s.startedAt && s.timed && ['formA', 'formB', 'mixed'].includes(s.kind));
   const ex = ctx.bank.blueprint.exam;
 
   async function start() {
     if (otherActive && full) {
-      const ok = await confirmDialog({ title: `${otherActive.title} is still running`, body: 'Starting a new exam will discard the unfinished one (its answers are not scored).', ok: 'Discard and start', danger: true });
+      const ok = await confirmDialog({ title: `${otherActive.title} is still running`, body: 'Starting a new exam will discard the unfinished one. Its answers are not scored, and items you opened count as already seen.', ok: 'Discard and start', danger: true });
       if (!ok) return;
       abandon(otherActive.id);
     }
@@ -37,7 +40,7 @@ export function ExamIntro({ kind }: { kind: Kind }) {
   }
   async function discard() {
     if (!active) return;
-    const ok = await confirmDialog({ title: 'Discard the unfinished attempt?', body: 'Its answers will not be scored or saved to your progress.', ok: 'Discard', danger: true });
+    const ok = await confirmDialog({ title: 'Discard the unfinished attempt?', body: 'Its answers will not be scored or saved. Items you opened will count as already seen.', ok: 'Discard', danger: true });
     if (ok) abandon(active.id);
   }
 
@@ -79,6 +82,9 @@ export function ExamIntro({ kind }: { kind: Kind }) {
           </div>
           {taken && (
             <div class="banner warn mt" role="note"><IcAlert /><div><strong>Retake.</strong> You've taken {TITLES[kind]} before, so this score is <strong>not a fresh estimate</strong> — you've seen these items and their rationales.</div></div>
+          )}
+          {!taken && opened > 0 && (
+            <div class="banner warn mt" role="note"><IcAlert /><div><strong>Partly seen.</strong> You opened {opened} of these items in an attempt you discarded, so this score is <strong>not a fresh estimate</strong>.</div></div>
           )}
           {kind === 'mixed' && <p class="small muted mt">If it includes items you've already seen, the score report will say so.</p>}
           <div class="section">

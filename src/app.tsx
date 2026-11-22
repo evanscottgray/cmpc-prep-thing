@@ -90,16 +90,21 @@ export function App() {
     }
     default: screen = head ? <NotFound /> : null;
   }
+  // an update may reload the page, so never offer it while any timed session is running (even in the background)
+  const timedRunning = Object.values(db.sessions).some((x) => x.status === 'active' && x.timed && x.startedAt);
   const showTabs = TAB_ROOTS.has(head) && !(head === 'cards' && rest[0] === 'study');
   return (
     <>
       <div id="app-root" class="app">
-        <a href="#main" class="sr-only" onClick={(e) => { e.preventDefault(); document.getElementById('main')?.focus(); }}>Skip to content</a>
-        {update && !inExam && (
+        <a href="#main" class="skip" onClick={(e) => { e.preventDefault(); document.getElementById('main')?.focus(); }}>Skip to content</a>
+        {update && !inExam && !timedRunning && (
           <div class="banner info" style={{ margin: 'calc(var(--safe-t) + .5rem) 1rem 0', borderRadius: 12 }} role="status">
             <div class="grow small"><strong>Update ready.</strong> A new version is downloaded.</div>
             <button class="btn small primary" onClick={applyUpdate}>Update now</button>
           </div>
+        )}
+        {ctx.store.lastError && !inExam && (
+          <div class="banner warn" style={{ margin: 'calc(var(--safe-t) + .5rem) 1rem 0' }} role="alert"><div class="small"><strong>Saving failed.</strong> The browser refused to store your latest progress ({ctx.store.lastError}). <a href="#/backup">Back up now</a>, then free up space and reload.</div></div>
         )}
         {screen}
         {showTabs && <TabBar current={head} />}

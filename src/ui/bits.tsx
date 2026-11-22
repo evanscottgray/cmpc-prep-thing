@@ -14,14 +14,14 @@ export function TopBar({ title, backTo, right, noBack }: { title: string; backTo
   return (
     <header class={`topbar${scrolled ? ' scrolled' : ''}`}>
       <div class="side">{!noBack && <button class="icon-btn" onClick={() => back(backTo)} aria-label="Back"><IcBack /><span class="small">Back</span></button>}</div>
-      <h1>{title}</h1>
+      <h1 tabIndex={-1}>{title}</h1>
       <div class="side right">{right}</div>
     </header>
   );
 }
 
 export function Page({ title, children, backTo, right, noBack, tabs = true }: { title: string; children: ComponentChildren; backTo?: string; right?: ComponentChildren; noBack?: boolean; tabs?: boolean }) {
-  useEffect(() => { window.scrollTo(0, 0); }, [title]);
+  useEffect(() => { window.scrollTo(0, 0); document.querySelector<HTMLElement>('.topbar h1')?.focus({ preventScroll: true }); }, [title]);
   return (
     <>
       <TopBar title={title} backTo={backTo} right={right} noBack={noBack} />

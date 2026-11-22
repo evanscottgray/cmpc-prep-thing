@@ -44,7 +44,7 @@ export function Results({ session: s }: { session: Session }) {
       )}
 
       {(s.retake || (s.kind === 'mixed' && s.seenBefore > 0)) && full && (
-        <div class="banner warn mt" role="note"><IcAlert /><div><strong>Not a fresh estimate.</strong> {s.retake && s.kind !== 'mixed' ? `You had taken ${s.title} before.` : `${s.seenBefore} of ${r.total} items were ones you had already seen.`} Familiar items inflate the score.</div></div>
+        <div class="banner warn mt" role="note"><IcAlert /><div><strong>Not a fresh estimate.</strong> {`${s.seenBefore} of ${r.total} items were ones you had already seen.`} Familiar items inflate the score.</div></div>
       )}
 
       <div class="btn-row mt">

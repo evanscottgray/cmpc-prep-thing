@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Session } from '../types';
 import { ctx, useNow } from '../ctx';
 import { navigate } from '../router';
-import { choose, goTo, pause, resume, saveScroll, submit, toggleFlag, toggleStrike } from '../lib/actions';
+import { choose, goTo, hideItem, pause, resume, saveScroll, submit, toggleFlag, toggleStrike } from '../lib/actions';
 import { fmtClock } from '../lib/dates';
 import { isExpired, pacing, remainingMs } from '../lib/scoring';
 import { keepAwake } from '../lib/wakelock';
 import { OptionList, ReportDialog } from '../ui/question';
-import { Modal, alertDialog, confirmDialog } from '../ui/dialog';
+import { Modal, alertDialog, confirmDialog, toast } from '../ui/dialog';
 import { IcBack, IcChevron, IcClock, IcFlag, IcFlagFill, IcGrid, IcMenu, IcPause, IcPlay } from '../ui/icons';
 
 const WARN_AT = [15, 5, 1]; // minutes remaining
@@ -156,11 +156,12 @@ export function ExamRunner({ session: s }: { session: Session }) {
           : <button class="btn next primary" onClick={() => setNavOpen(true)}>Finish<IcChevron /></button>}
       </div>
 
-      {navOpen && <Navigator s={s} onClose={() => setNavOpen(false)} onEnd={endExam} />}
+      {navOpen && <Navigator s={s} onClose={() => setNavOpen(false)} onEnd={endExam} endLabel={isExam ? 'End exam…' : 'Submit…'} />}
       {menuOpen && (
         <Modal title="Exam menu" onClose={() => setMenuOpen(false)}>
           <div class="list">
             <button class="list-item" onClick={() => { setMenuOpen(false); setReportFor(item.id); }}>Report a problem with this question</button>
+            <button class="list-item" onClick={() => { hideItem(item.id, true); setMenuOpen(false); toast('Hidden from future sessions. It still counts in this one.'); }}>Hide this item from future sessions</button>
             <button class="list-item" onClick={leave}>Leave exam screen{s.mode === 'strict' ? ' (timer keeps running)' : ''}</button>
             <button class="list-item" onClick={endExam} style={{ color: 'var(--bad)' }}>{isExam ? 'End exam now' : 'Submit now'}</button>
           </div>
@@ -180,7 +181,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
 }
 
 type NavFilter = 'all' | 'unanswered' | 'flagged';
-function Navigator({ s, onClose, onEnd }: { s: Session; onClose: () => void; onEnd: () => void }) {
+function Navigator({ s, onClose, onEnd, endLabel }: { s: Session; onClose: () => void; onEnd: () => void; endLabel: string }) {
   const [f, setF] = useState<NavFilter>('all');
   const flags = new Set(s.flags);
   const positions = s.items.map((_, i) => i).filter((i) => f === 'all' || (f === 'flagged' ? flags.has(i) : s.responses[i] === undefined));
@@ -212,9 +213,9 @@ function Navigator({ s, onClose, onEnd }: { s: Session; onClose: () => void; onE
           })}
         </div>
       )}
-      <div class="btn-row">
+      <div class="btn-row sticky-actions">
         <button class="btn" onClick={onClose}>Back to question</button>
-        <button class="btn danger" onClick={onEnd}>End exam…</button>
+        <button class="btn danger" onClick={onEnd}>{endLabel}</button>
       </div>
     </Modal>
   );
