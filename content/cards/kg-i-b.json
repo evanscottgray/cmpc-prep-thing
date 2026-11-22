@@ -1,0 +1,172 @@
+[
+ {
+  "id": "card-i-pettlep",
+  "kg": "I",
+  "title": "Imagery and the PETTLEP model",
+  "body": "Imagery is the deliberate creation or re-creation of an experience in the mind, ideally using all relevant senses, especially kinesthetic feel. Holmes and Collins' PETTLEP model is built on functional equivalence: imagery works best when it draws on the same neural and psychological processes as actual performance, so it should resemble the real thing as closely as possible. The seven elements are Physical (posture, clothing, holding equipment), Environment (the real venue or realistic cues from it), Task (content matched to the skill and the performer's level), Timing (real-time speed, with slow motion used only selectively), Learning (content updated as the skill develops), Emotion (the feelings and arousal of real performance), and Perspective (internal or external, chosen to fit the task). In delivery, consultants assess imagery ability, start with simple familiar scenes, build controllability (rewind and replay errors), add response propositions to scripts, and schedule short, regular practice.",
+  "points": [
+   "Functional equivalence: make imagery as performance-like as possible",
+   "Physical, Environment, Task, Timing, Learning, Emotion, Perspective",
+   "Real-time speed by default; slow motion only for isolated elements",
+   "Imagery ability (vividness, controllability) is trainable"
+  ],
+  "examNote": "Vignettes describe imagery done lying down, relaxed, slowed, or in an unrealistic setting; the best answer adjusts the specific PETTLEP element that is mismatched with real performance.",
+  "refs": [
+   "holmes2001",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "card-i-imagery-functions",
+  "kg": "I",
+  "title": "Imagery functions (Paivio/Hall framework)",
+  "body": "Paivio proposed that imagery serves cognitive and motivational functions, each operating at a specific or general level. Hall and colleagues expanded this into five functions measured by the Sport Imagery Questionnaire. Cognitive-specific imagery rehearses individual skills (a serve, a turn). Cognitive-general imagery rehearses strategies, game plans, set plays, and routines. Motivational-specific imagery focuses on goals and goal-related outcomes, such as winning or achieving a target. Motivational general–arousal imagery regulates arousal, relaxation, stress, and emotion (psyching up or calming down). Motivational general–mastery imagery depicts being confident, focused, mentally tough, and in control, especially in difficult situations, and is the function most closely tied to self-confidence and self-efficacy. In practice, the consultant chooses imagery content to match the purpose: the 'what you image' should follow from 'why you are imaging,' and athletes often use several functions within one session.",
+  "points": [
+   "CS = skills; CG = strategies and routines",
+   "MS = goals and outcomes",
+   "MG-A = arousal and emotion; MG-M = confidence and coping",
+   "Match imagery content to the desired outcome"
+  ],
+  "examNote": "Items give a purpose (learn a new play, regain confidence, calm down) and ask which imagery type fits; watch the confidence-versus-goal distinction between MG-M and MS.",
+  "refs": [
+   "paivio1985",
+   "hall1998siq"
+  ]
+ },
+ {
+  "id": "card-i-self-talk",
+  "kg": "I",
+  "title": "Self-talk",
+  "body": "Self-talk is what performers say to themselves, aloud or silently, and it can direct attention, regulate effort and emotion, and shape confidence. Interventions sort self-talk by function. Instructional self-talk ('elbow high,' 'pendulum') supports precision, fine-motor, and technical tasks and is especially useful during learning. Motivational self-talk ('drive,' 'keep pushing') supports strength, power, endurance, and effort. Meta-analytic evidence shows self-talk interventions improve performance, with larger effects when self-talk is matched to the task and practiced in training before competition. Effective cues are brief, specific, meaningful to the performer, and ideally created with them. For unhelpful self-talk, consultants help the performer notice it and its triggers, then use cognitive restructuring: test the thought against evidence and replace it with a realistic, constructive statement. Thought-stopping on its own and unrealistic affirmations are weaker options, and acceptance-based approaches offer an alternative by defusing from thoughts rather than disputing them.",
+  "points": [
+   "Instructional for precision and technique; motivational for effort and endurance",
+   "Cues: brief, personal, task-linked, practiced in training first",
+   "Restructuring: identify, test against evidence, replace",
+   "Affirmations must be believable to help"
+  ],
+  "examNote": "Expect task-matching vignettes (putting, archery versus sprinting, lifting, rucking) and items where a consultant-imposed generic cue fails and the fix is a performer-created, task-specific cue.",
+  "refs": [
+   "hatzigeorgiadis2011",
+   "theodorakis2000"
+  ]
+ },
+ {
+  "id": "card-i-matching-hypothesis",
+  "kg": "I",
+  "title": "Relaxation and the matching hypothesis",
+  "body": "Anxiety has cognitive components (worry, negative expectations, catastrophic predictions) and somatic components (racing heart, muscle tension, butterflies, nausea). The matching hypothesis proposes that an anxiety-management technique works best when it matches the dominant type of anxiety: somatic techniques such as progressive muscle relaxation, breathing, and biofeedback for somatic anxiety, and cognitive techniques such as restructuring, self-talk, and mindfulness or meditation for cognitive anxiety. Because the two components interact, techniques have crossover effects, and many performers benefit from multimodal packages, so matching is a starting principle rather than a rule. Applying it requires assessment first: ask what the performer notices in body and mind, and consider whether symptoms are interpreted as facilitative or debilitative. Consultants should also remember that some performers need to raise rather than lower activation, so relaxation is not always the goal.",
+  "points": [
+   "Somatic anxiety → somatic techniques (PMR, breathing)",
+   "Cognitive anxiety → cognitive techniques (restructuring, self-talk)",
+   "Crossover effects exist; multimodal packages are common",
+   "Assess type, intensity, and interpretation before choosing"
+  ],
+  "examNote": "Vignettes describe a performer with mainly bodily or mainly worry symptoms and ask which technique fits best; read carefully for which component dominates.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "card-i-pmr-breathing",
+  "kg": "I",
+  "title": "PMR and breathing techniques",
+  "body": "Jacobson's progressive muscle relaxation teaches performers to recognize the contrast between tension and relaxation by systematically tensing and releasing muscle groups. Training typically starts with long sessions covering many muscle groups, then progresses to combined groups, release-only relaxation, cue-controlled relaxation (pairing a word with the relaxed state), and differential relaxation (relaxing muscles not needed for the task while performing). The goal is a quick relaxation response that can be used in performance settings. Breathing techniques are the most portable regulation tools. Slow diaphragmatic breathing, often with a longer exhale than inhale, lowers physiological arousal; a single centering breath can anchor a routine. Like any skill, breathing and PMR must be overlearned in calm conditions and then rehearsed under progressively realistic stress before they will hold up under pressure. Rapid, forced breathing raises arousal and can cause hyperventilation symptoms.",
+  "points": [
+   "PMR: full tense–release → shortened → release-only → cue-controlled",
+   "Differential relaxation: relax what the task doesn't need",
+   "Slow, diaphragmatic breathing with an extended exhale",
+   "Practice when calm first, then under simulated stress"
+  ],
+  "examNote": "Items often ask for the next step after full PMR has been learned (abbreviated, cue-controlled forms) or explain why an untrained technique failed under pressure.",
+  "refs": [
+   "jacobson1938",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "card-i-biofeedback-hrv",
+  "kg": "I",
+  "title": "Biofeedback and HRV",
+  "body": "Biofeedback uses instruments to display physiological signals—heart rate, heart rate variability (HRV), muscle tension (EMG), skin conductance, skin temperature, or brain activity—so performers can learn to change them. HRV reflects beat-to-beat variation in heart rate and is influenced by breathing and autonomic balance. In resonance frequency HRV biofeedback (Lehrer and colleagues), the practitioner identifies each person's breathing rate, typically around six breaths per minute and ranging roughly from 4.5 to 7, at which HRV oscillations peak, and the person then practices slow, paced breathing at that rate regularly. Biofeedback is scaffolding: the aim is self-regulation without the device, so feedback is faded and the skill is rehearsed without the display, then in practice and competition settings. Consultants need specific training to use biofeedback equipment competently and should interpret HRV data cautiously, since readings are affected by sleep, illness, training load, and measurement conditions.",
+  "points": [
+   "Displays a physiological signal so it can be self-regulated",
+   "Resonance breathing: about six breaths per minute, individually identified",
+   "Fade the feedback to promote transfer",
+   "Requires specific training to use competently"
+  ],
+  "examNote": "Look for the first phase of HRV training (find the resonance rate, practice daily) and for transfer problems, where the answer is to fade the device rather than add more feedback.",
+  "refs": [
+   "lehrer2000",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "card-i-routines",
+  "kg": "I",
+  "title": "Pre-performance and between-play routines",
+  "body": "A pre-performance routine is a systematic sequence of thoughts and actions a performer uses before executing a self-paced skill such as a serve, free throw, putt, kick, or dive. Routines help regulate arousal, focus attention on task-relevant cues, block distractions, and trigger well-learned movements. Research favors routines built around a few functional elements, such as a centering breath, a focus cue or brief image, a target, and a commitment, with consistent overall timing, rather than rigid ritualistic counts, which break down under interruptions and can drift into superstition. Routines should be developed with the performer, practiced in training, and rehearsed under realistic disruptions such as delays, timeouts, and noise. Between-play routines serve sports with short breaks, like tennis points or baseball pitches: the performer responds to and releases the last play, recovers physically, then plans and commits to the next one.",
+  "points": [
+   "Purpose: arousal regulation, attentional focus, readiness",
+   "A few functional elements; flexible, not ritualistic",
+   "Rehearse with disruptions in practice",
+   "Between-play: release, recover, refocus, commit"
+  ],
+  "examNote": "Expect a routine that collapses when interrupted; the best answer streamlines it to core elements and practices it amid simulated disruptions, not a longer routine or abandoning it.",
+  "refs": [
+   "cotterill2010",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "card-i-attention-refocusing",
+  "kg": "I",
+  "title": "Attention control, focus cues, and refocusing",
+  "body": "Attention control means directing focus to task-relevant cues, holding it as needed, and shifting it as situations change. Nideffer's model describes attention along width (broad to narrow) and direction (external to internal), producing four styles: broad-external to read the environment, broad-internal to analyze and plan, narrow-internal to rehearse or center, and narrow-external to execute on a target. Many tasks require planned shifts between styles—for example, a goalkeeper scanning broadly and narrowing as an attack develops. Focus cues, such as brief words, images, or physical triggers tied to game situations, make those shifts deliberate. Because distractions are inevitable, Orlick's work emphasizes refocusing plans: identify likely internal and external distractions in advance, prepare an if-then response for each (a breath, a cue, a return to the next task), and rehearse them in simulation so recovery becomes quick and automatic. Suppressing all stimuli or holding a narrow focus indefinitely is unrealistic.",
+  "points": [
+   "Width × direction: four attentional styles",
+   "Train planned shifts with situation-linked cues",
+   "Refocusing plans: anticipate, prepare if-then responses, rehearse",
+   "Focus on the present, controllable task"
+  ],
+  "examNote": "Items ask which attentional style or shift a situation demands, or what to do about recurring distractions; prepared and rehearsed refocusing plans usually beat 'block everything out.'",
+  "refs": [
+   "nideffer2001",
+   "orlick1988"
+  ]
+ },
+ {
+  "id": "card-i-mindfulness",
+  "kg": "I",
+  "title": "Mindfulness in performance",
+  "body": "Mindfulness is paying attention to present-moment experience, on purpose and nonjudgmentally. Rather than trying to eliminate anxiety or negative thoughts, mindfulness- and acceptance-based approaches teach performers to notice internal experiences, allow them, and redirect attention to task-relevant cues and valued action. Gardner and Moore's Mindfulness-Acceptance-Commitment (MAC) approach applies this to performance, drawing on ACT processes: acceptance, cognitive defusion, present-moment contact, self-as-context, values, and committed action. A key rationale is that effortful suppression of thoughts often backfires, making them more intrusive. In delivery, consultants use brief formal practices (breath or body scans) and informal ones (mindful warm-ups), normalize mind-wandering—noticing and returning is the repetition that trains attention—and link practice to performance situations. Values work helps performers take committed action, such as entering an audition or competition, while making room for fear rather than waiting for it to disappear.",
+  "points": [
+   "Notice and allow, rather than control or suppress",
+   "MAC applies ACT processes to performance",
+   "Mind-wandering is expected; returning is the practice",
+   "Values guide committed action despite discomfort"
+  ],
+  "examNote": "When a vignette names a mindfulness or acceptance approach, distractors are usually change-based techniques (thought-stopping, disputing, suppression); the key involves noticing, defusing, and refocusing on the task.",
+  "refs": [
+   "gardner2007",
+   "kabatzinn1990"
+  ]
+ },
+ {
+  "id": "card-i-team-building",
+  "kg": "I",
+  "title": "Team building (Carron & Spink framework)",
+  "body": "Carron and Spink's team-building framework treats cohesion as the output of a linear process. Inputs are the group environment (distinctiveness, such as a name, shirts, or shared identity, and togetherness or proximity, meaning members spending time physically together) and group structure (norms, roles and positions, and leadership). These feed group processes (sacrifice, cooperation, interaction, and communication, including group goals), which in turn build task and social cohesion. The approach is typically indirect: the consultant educates the coach or leader, who then implements strategies within regular sessions, which suits consultants with limited contact time and keeps effects sustained. Role clarity and role acceptance are central structural levers, linked to task cohesion. Direct interventions led by the consultant, such as team goal setting or structured mutual-sharing sessions, require psychological safety, voluntary participation, and careful debriefing. One-off outings rarely produce lasting cohesion without reinforcement in the team environment.",
+  "points": [
+   "Environment (distinctiveness, proximity) and structure (roles, norms)",
+   "Processes (sacrifice, communication, cooperation) → cohesion",
+   "Indirect delivery: consultant trains the coach or leader",
+   "Role clarity and acceptance support task cohesion"
+  ],
+  "examNote": "Items ask which framework component a strategy targets or how a consultant with limited contact should deliver team building; the indirect, coach-implemented approach is often best.",
+  "refs": [
+   "carron1993",
+   "brawley1997"
+  ]
+ }
+]

@@ -1,0 +1,184 @@
+[
+ {
+  "id": "card-c-multidimensional-leadership",
+  "kg": "C",
+  "title": "Chelladurai's Multidimensional Model of Leadership",
+  "body": "Chelladurai's model explains leadership effectiveness as the fit among three kinds of leader behavior. Required behavior is what the situation demands, given the sport, level, team size, and organizational constraints. Preferred behavior is what athletes want, shaped by their age, gender, skill, experience, and personality. Actual behavior is what the leader really does, shaped by the leader's own characteristics. When actual behavior matches required behavior, performance benefits; when it matches preferred behavior, satisfaction benefits; when all three align, both are best. The Leadership Scale for Sports (LSS) measures five dimensions (training and instruction, democratic behavior, autocratic behavior, social support, and positive feedback) in preferred and perceived versions, so specific gaps can be identified. For consultants, the model is a practical lens: use gaps to target one behavior rather than critiquing a coach's whole style, and remember that athletes' preferences are not the only criterion, because the situation's requirements matter too.",
+  "points": [
+   "Required (situation), preferred (athletes), and actual (leader) behavior",
+   "Actual–required congruence → performance; actual–preferred congruence → satisfaction",
+   "LSS dimensions: training and instruction, democratic, autocratic, social support, positive feedback",
+   "Target the specific gap, not the coach's entire style"
+  ],
+  "examNote": "Expect vignettes where a coach matches what athletes like but not what the situation needs, or the reverse; predict the outcome or pick the specific behavior to adjust.",
+  "refs": ["chelladurai1980", "horn2008"]
+ },
+ {
+  "id": "card-c-transformational-leadership",
+  "kg": "C",
+  "title": "Transformational Leadership",
+  "body": "Transactional leaders work through exchanges: rewards for meeting standards (contingent reward) and correcting deviations (management by exception). Transformational leaders also inspire followers to look beyond self-interest and exceed expectations. Bass's full-range model places these styles on a continuum, with laissez-faire leadership (avoiding leadership responsibilities) as least effective. Transformational leadership has four components, often called the four I's: idealized influence (role modeling that earns trust), inspirational motivation (a compelling vision and high, optimistic expectations), intellectual stimulation (inviting people to question assumptions and solve problems), and individualized consideration (attending to each person's needs and growth). Transformational behaviors add to effective transactional ones rather than replacing them. In sport, transformational coaching and athlete leadership are associated with greater effort, satisfaction, cohesion, and intrinsic motivation. Athlete-centered and servant approaches share this emphasis on developing the person and serving the group. Consultants can help coaches and captains add specific behaviors, such as one-on-one check-ins or involving athletes in problem-solving.",
+  "points": [
+   "Four I's: idealized influence, inspirational motivation, intellectual stimulation, individualized consideration",
+   "Transactional: contingent reward and management by exception",
+   "Laissez-faire is the least effective style in the full-range model",
+   "Transformational behaviors build on transactional ones"
+  ],
+  "examNote": "Items often describe a coach who relies on rewards or on correcting errors; the best answer usually adds one of the four I's, such as individualized consideration.",
+  "refs": ["bass2006", "horn2008"]
+ },
+ {
+  "id": "card-c-mastery-coach-training",
+  "kg": "C",
+  "title": "Mastery-Oriented Coach Training (CET and MAC)",
+  "body": "Coach Effectiveness Training (CET), developed by Smith, Smoll, and colleagues, and its successor, the Mastery Approach to Coaching (MAC), teach youth coaches a small set of evidence-based behavioral guidelines. Success is defined as effort, improvement, and enjoyment, not just winning. Coaches give frequent positive reinforcement for effort and progress, respond to mistakes with encouragement followed by corrective instruction delivered supportively, give technical instruction in a positive way, and cut punitive and hostile behaviors. They set team rules with athletes' input and work with parents, for example through a preseason parent meeting. Coaches also self-monitor their own behavior. Athletes of trained coaches have reported more enjoyment, more liking for coaches and teammates, gains in self-esteem among those who started low, and lower dropout; MAC also reduced athletes' performance anxiety. For consultants, CET and MAC model good train-the-trainer work: a few concrete behaviors, practiced with feedback and backed by self-monitoring.",
+  "points": [
+   "Mistake-contingent encouragement plus corrective instruction",
+   "Positive reinforcement of effort and improvement; reduce punitive behavior",
+   "Mastery definition of success; preseason parent meeting",
+   "Outcomes: more enjoyment, less anxiety (MAC), lower dropout"
+  ],
+  "examNote": "When a coach punishes errors or praises only outcomes, the best answer usually applies encouragement plus corrective instruction and a mastery definition of success.",
+  "refs": ["smith1979cet", "smith2007mac"]
+ },
+ {
+  "id": "card-c-coach-athlete-relationship",
+  "kg": "C",
+  "title": "Coach–Athlete Relationship (3+1Cs)",
+  "body": "Jowett's model describes the coach–athlete relationship in terms of the partners' linked feelings, thoughts, and behaviors. Closeness is the emotional tie: mutual trust, respect, liking, and appreciation. Commitment is each partner's intention to maintain the relationship over time. Complementarity is cooperative, corresponding behavior; for example, the coach instructs and the athlete responds, or the athlete asks and the coach provides input. Co-orientation, the '+1', is how far coach and athlete share views and perceive each other accurately, including actual similarity, assumed similarity, and empathic understanding. The CART-Q measures closeness, commitment, and complementarity. Strong relationships are associated with satisfaction, motivation, and performance, and problems often sit in one C rather than all of them. Consultants can use the model to locate the weak dimension (trust is high but sessions are uncoordinated, or each partner assumes an agreement that doesn't exist) and design facilitated conversations that target it.",
+  "points": [
+   "Closeness: trust, respect, liking",
+   "Commitment: intention to maintain the relationship",
+   "Complementarity: cooperative, corresponding behaviors",
+   "Co-orientation: shared and accurately perceived views"
+  ],
+  "examNote": "Vignettes describe a dyad strong on some Cs and weak on one; identify the weak C and choose the intervention that targets it.",
+  "refs": ["jowett2004", "weinberg2024"]
+ },
+ {
+  "id": "card-h-fitts-posner-stages",
+  "kg": "H",
+  "title": "Fitts and Posner's Stages of Learning",
+  "body": "Fitts and Posner described three stages of motor learning. In the cognitive stage, learners work out what to do; performance is inconsistent and effortful, errors are large, and the task consumes attention, so instruction should be simple, with demonstrations and one or two key cues. In the associative stage, learners refine how to do it; errors become smaller and more consistent, and learners start detecting their own mistakes. In the autonomous stage, the skill runs largely automatically, freeing attention for tactics and the environment; step-by-step attention to mechanics can disrupt it. Research on attentional focus adds that an external focus on movement effects generally aids learning and performance more than an internal focus on body parts. Rebuilding an established technique sends a performer back toward earlier stages, often with a temporary dip. Mental skills follow the same path: a new breathing technique or routine is effortful at first and should be practiced in calm settings before it is used under pressure.",
+  "points": [
+   "Cognitive → associative → autonomous",
+   "Novices: few simple cues, demonstrations, external focus",
+   "Experts: conscious control of mechanics can disrupt performance",
+   "Technique changes bring a temporary regression"
+  ],
+  "examNote": "Match the intervention to the stage: simplify for novices, avoid mechanical instructions for experts, and progress new mental skills from calm to pressured practice.",
+  "refs": ["fitts1967", "singer2001"]
+ },
+ {
+  "id": "card-h-contextual-interference",
+  "kg": "H",
+  "title": "Practice Scheduling and Contextual Interference",
+  "body": "Blocked practice repeats one task many times before moving on; random practice mixes tasks in an unpredictable order. Contextual interference is the disruption caused by switching between tasks. Shea and Morgan's classic finding is that random practice produces worse performance during acquisition but better retention and transfer than blocked practice. Proposed explanations include elaboration (comparing tasks) and reconstruction (re-planning each action). Variable practice, which changes parameters of one skill such as distance or target, similarly supports transfer. This is one example of the learning–performance distinction: practice performance can mislead, and conditions that make practice harder (desirable difficulties such as spacing, interleaving, variability, and retrieval) often produce more durable learning. Complete beginners may benefit from some blocked practice to get the basic idea of a movement first. For consultants, the principle extends to mental skills: rehearse routines on every repetition in varied, game-like contexts, and spread sessions out instead of massing them.",
+  "points": [
+   "Random practice: worse acquisition, better retention and transfer",
+   "Blocked practice inflates practice performance",
+   "Desirable difficulties: spacing, interleaving, variability, retrieval",
+   "Learning is judged by retention and transfer, not practice performance"
+  ],
+  "examNote": "Look for athletes who look great in repetitive practice but fail in competition; the answer is usually random or variable, game-like practice.",
+  "refs": ["shea1979", "bjork2011"]
+ },
+ {
+  "id": "card-h-feedback-guidance",
+  "kg": "H",
+  "title": "Feedback and the Guidance Hypothesis",
+  "body": "Augmented feedback, meaning knowledge of results (outcome) and knowledge of performance (movement pattern), supplements what learners sense for themselves. The guidance hypothesis (Salmoni, Schmidt, and Walter) explains why more is not always better. Frequent, immediate feedback guides performance during practice, but learners come to depend on it, neglect their own error detection, and overcorrect normal variability, so retention and performance without feedback suffer. Ways to reduce dependence include faded feedback (frequent early, less over time), bandwidth feedback (given only when error exceeds a set tolerance, so silence signals acceptable performance), summary feedback after several attempts, a short delay that lets the learner self-assess first, and letting learners request feedback. Beginners need more guidance than experienced performers; the key is to taper it. The same logic applies when consultants teach mental skills: biofeedback displays and comments on a routine should be faded so athletes can self-regulate in competition, where no one is giving feedback.",
+  "points": [
+   "Frequent feedback helps acquisition but creates dependence",
+   "Faded, bandwidth, and summary feedback improve retention",
+   "Let learners self-assess before giving input",
+   "Fade feedback on mental skills too"
+  ],
+  "examNote": "If a skill holds up only when the coach or consultant is present, the best answer usually reduces or fades feedback and builds self-evaluation.",
+  "refs": ["salmoni1984", "singer2001"]
+ },
+ {
+  "id": "card-h-deliberate-practice-dmsp",
+  "kg": "H",
+  "title": "Deliberate Practice and the DMSP",
+  "body": "Ericsson and colleagues defined deliberate practice as effortful, structured activity designed to improve specific aspects of performance, with clear goals, feedback, and repetition with refinement. It demands concentration, is not inherently enjoyable, and is limited by how long effort can be sustained, so quality matters more than sheer hours. Côté's Developmental Model of Sport Participation (DMSP) adds a developmental view. In the sampling years (about ages 6–12), children try several sports with plenty of deliberate play (informal, intrinsically motivating games, often modified by the children) and some structured practice. In the specializing years (about 13–15), they focus on one or two sports with more deliberate practice; in the investment years (about 16 and older), deliberate practice dominates. A recreational pathway emphasizes enjoyment and health. Early specialization may suit sports with peak performance before maturity, but for most sports it is associated with higher risk of burnout, dropout, and overuse injury.",
+  "points": [
+   "Deliberate practice: effortful, goal-directed, feedback-rich, not inherently fun",
+   "Sampling (~6–12), specializing (~13–15), investment (~16+), or recreational",
+   "Deliberate play dominates the sampling years",
+   "Early specialization carries burnout and dropout risks in most sports"
+  ],
+  "examNote": "Expect parents pushing early specialization or athletes logging hours without improvement; the answers favor sampling with deliberate play, or focused work on weaknesses with feedback.",
+  "refs": ["ericsson1993", "cote1999"]
+ },
+ {
+  "id": "card-h-development-adolescent-brain",
+  "kg": "H",
+  "title": "Cognitive and Emotional Development and the Adolescent Brain",
+  "body": "Children's thinking moves from concrete toward abstract, which shapes how mental skills should be taught. Young children learn best through concrete images, brief explanations, demonstrations, and games; abstract talk about physiology or thought patterns loses them. Children also change how they judge competence. Younger children tend to believe effort equals ability, but by about age 12 they separate the two and compare themselves with peers, so needing high effort can feel like proof of low talent. Adolescents can reason abstractly and reflect on their own thinking, making tools such as cognitive restructuring, journaling, and goal plans more usable. Brain development is uneven: reward and emotion systems become highly reactive around puberty, while the prefrontal cortex, which supports planning, impulse control, and emotion regulation, keeps maturing into the mid-20s. Teens may reason well when calm yet take risks in emotional, peer-present moments. Strategies prepared in calm states, such as if-then plans, adult structure, and self-referenced goals, help bridge the gap.",
+  "points": [
+   "Young children: concrete, brief, playful instruction",
+   "By about age 12, effort and ability are seen as separate",
+   "Prefrontal maturation continues into the mid-20s",
+   "Teens' risk-taking peaks in emotional, peer-present ('hot') situations"
+  ],
+  "examNote": "Choose age-matched delivery: games and concrete images for young children, and calm-state planning and self-regulation tools for adolescents who act impulsively around peers.",
+  "refs": ["casey2008", "nicholls1984"]
+ },
+ {
+  "id": "card-j-energy-systems-arousal",
+  "kg": "J",
+  "title": "Energy Systems and Arousal",
+  "body": "Three energy systems resynthesize ATP. The phosphagen (ATP-PCr) system powers maximal efforts of roughly 10 seconds, such as a lift, a jump, or a sprint start. Anaerobic glycolysis dominates intense efforts from roughly 10 seconds to about 2 minutes. The oxidative (aerobic) system supports longer, lower-intensity work. All three operate together, and an event's duration and intensity determine the mix. Arousal is general physiological and psychological activation, driven by the sympathetic nervous system (raised heart rate, breathing, muscle tension, adrenaline) and countered by parasympathetic activity. Tasks differ in optimal activation: brief, gross-motor power tasks tolerate or benefit from higher activation, while fine-motor precision tasks such as shooting or putting usually need lower activation and steadiness. Some events combine both, such as biathlon, where athletes shoot with an elevated heart rate after skiing. Slow-paced breathing with a comfortable breath size and a longer exhale increases parasympathetic influence. Consultants match arousal strategies to task demands and rehearse them under realistic physiological conditions.",
+  "points": [
+   "Phosphagen (~10 s), glycolytic (~10 s–2 min), oxidative (longer efforts)",
+   "Power tasks tolerate higher activation; precision tasks need lower",
+   "Slow breathing: slow rate, comfortable depth, longer exhale",
+   "Rehearse regulation under competition-like physiology"
+  ],
+  "examNote": "Items ask you to match arousal strategies to the task's demands and to practice them in realistic physiological states, not just at rest.",
+  "refs": ["kenney2019", "lehrer2000"]
+ },
+ {
+  "id": "card-j-periodization-mental-skills",
+  "kg": "J",
+  "title": "Periodization and Mental-Skills Timing",
+  "body": "Periodization organizes training into cycles: the macrocycle (often a season or year), mesocycles (blocks of several weeks with a particular emphasis), and microcycles (usually about a week). A typical annual plan moves through a preparatory phase (general, then specific preparation), a competitive phase that includes a taper of reduced training before key events, and a transition phase of rest and active recovery. Mental skills training can follow the same logic. New skills are taught in the preparatory phase, when there is time to make errors; they are refined and tested in lower-priority competitions; and during the taper and peak they are rehearsed, not changed. Tapers often bring restlessness and doubts about fitness, so preparing athletes for those sensations helps. Heavy training blocks can temporarily lower mood and concentration, which affects both session design and how monitoring data should be read. The transition phase suits evaluation, reflection, and planning. Consultants align with the coach's plan but never prescribe training loads.",
+  "points": [
+   "Macrocycle → mesocycles → microcycles",
+   "Preparatory, competitive (taper), and transition phases",
+   "Learn new skills in preparation; rehearse only during the taper",
+   "Review and plan during the transition phase"
+  ],
+  "examNote": "Timing questions favor teaching new mental skills early in preparation and avoiding anything new close to a peak competition.",
+  "refs": ["bompa2019"]
+ },
+ {
+  "id": "card-j-overtraining-reds",
+  "kg": "J",
+  "title": "Overreaching, Overtraining, and RED-S",
+  "body": "Training deliberately creates fatigue. Functional overreaching is a short-term performance drop after intense training that leads to improvement once the athlete recovers. Nonfunctional overreaching is a longer decline, lasting weeks to months, with psychological and hormonal disturbance but eventual full recovery. Overtraining syndrome is a prolonged maladaptation in which performance and wellbeing stay depressed for months despite rest; it is diagnosed by excluding other causes, so medical evaluation is required. Mood monitoring can flag worrying trends. Relative Energy Deficiency in Sport (RED-S) results from low energy availability, meaning too little energy intake relative to training demands, whether intentional or not. It extends the female athlete triad to all athletes and affects bone health, hormonal and menstrual function, metabolism, immunity, psychological health, and performance. Warning signs include stress fractures, missed periods, persistent fatigue, and restrictive eating. CMPCs recognize these patterns, share concerns, and coordinate with physicians and registered dietitians; they don't diagnose, change training, or design meal plans.",
+  "points": [
+   "Functional overreaching: short-term, recovers with rest",
+   "Overtraining syndrome: months of decline despite rest; diagnosis of exclusion",
+   "RED-S: low energy availability affecting health and performance",
+   "Recognize, share concerns, and coordinate with medical and nutrition staff"
+  ],
+  "examNote": "Distinguish expected training fatigue (reassess after recovery) from prolonged decline or energy-deficiency signs (coordinate medical care); the consultant never diagnoses or prescribes.",
+  "refs": ["meeusen2013", "mountjoy2018"]
+ },
+ {
+  "id": "card-j-sleep-recovery",
+  "kg": "J",
+  "title": "Sleep and Recovery",
+  "body": "Sleep is a primary recovery tool that supports tissue repair, consolidation of newly learned skills, mood, and attention. The National Sleep Foundation recommends about 9–11 hours for school-age children (6–13), 8–10 hours for teenagers (14–17), and 7–9 hours for adults. Many athletes fall short because of early training, travel, competition schedules, screens, and pre-competition worry. Insufficient sleep is linked to slower reactions, poorer decisions, lower mood, and higher injury and illness risk. Consultants can include sleep in initial assessment, for example with sleep logs, teach sleep-supportive habits (consistent schedules, wind-down routines, screens out of bed, relaxation for pre-sleep worry), and share sleep needs with coaches and parents who control schedules. Recommending sleep medications or supplements is outside CMPC scope. Signs of a possible sleep disorder, such as loud snoring or pauses in breathing, persistent insomnia despite adequate opportunity, or excessive daytime sleepiness, warrant referral to a physician.",
+  "points": [
+   "Teens ~8–10 h; adults ~7–9 h",
+   "Assess sleep before attributing attention problems to mental skills",
+   "Teach habits and share needs with coaches and parents",
+   "Refer for signs of a sleep disorder; no medication advice"
+  ],
+  "examNote": "Sleep often appears as the hidden cause of focus or mood problems; the best answer assesses or educates within scope rather than prescribing.",
+  "refs": ["hirshkowitz2015"]
+ }
+]

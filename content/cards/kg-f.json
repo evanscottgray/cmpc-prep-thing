@@ -1,0 +1,72 @@
+[
+ {
+  "id": "card-f-kirkpatrick",
+  "kg": "F",
+  "title": "Kirkpatrick's four levels of evaluation",
+  "body": "Kirkpatrick's model evaluates a training program at four levels. Reaction asks how participants felt about it: satisfaction, engagement, perceived relevance. Learning asks what knowledge, skills, or attitudes they gained, measured with quizzes, skill demonstrations, or confidence ratings. Behavior asks whether they actually use what they learned in the real performance setting (the field, the stage, the job), usually weeks later, through observation, logs, or coach and supervisor reports. Results asks what changed in the outcomes the organization cares about, such as performance, retention, injuries, or revenue. The levels form a chain of evidence, not substitutes: liking a program does not guarantee learning, and learning does not guarantee transfer. Behavior change also depends on the environment; if schedules, leaders, or norms do not support skill use, transfer stalls. Choose the levels and measures during planning, matched to what each stakeholder needs to know, and be cautious about crediting results-level outcomes, which have many causes.",
+  "points": [
+   "Reaction → Learning → Behavior → Results",
+   "Behavior = transfer of skills to the real performance environment",
+   "Transfer needs a supportive climate (leaders, schedules, norms)",
+   "Results are multi-causal: claim a contribution, not sole credit"
+  ],
+  "examNote": "Expect a stakeholder's question or a data pattern (e.g., high satisfaction and good quiz scores but no on-the-job use) and be asked which level it reflects, what to measure, or what to do next.",
+  "refs": ["kirkpatrick2006"]
+ },
+ {
+  "id": "card-f-consultant-evaluation",
+  "kg": "F",
+  "title": "Evaluating the consultant: methods and effective characteristics",
+  "body": "Consultants evaluate themselves as well as their programs. Common methods are structured consultant evaluation forms, such as the form Partington and Orlick developed, on which athletes and coaches rate the consultant's characteristics and the usefulness of the service; interviews with clients and coaches; and the process and outcome data gathered for the program. Anonymous completion, or collection by someone other than the consultant, reduces pressure to give socially desirable answers. Research with Olympic athletes and coaches found that effective consultants fit in with the team, were accessible and trustworthy, listened well, and gave clear, practical strategies individualized to the athlete. Consultants seen as less effective were described as poorly fitting, too theoretical, or weak in interpersonal skills or sport understanding. Consultants interviewed about their own effectiveness stress the quality of the consulting relationship. Feedback becomes growth when the consultant takes it to supervision, mentoring, or peer consultation and turns it into specific development goals.",
+  "points": [
+   "Use structured, preferably anonymous, forms plus coach and client input",
+   "Effective: fits in, trustworthy, accessible, good listener, practical and individualized",
+   "Less effective: too theoretical, poor fit, weak interpersonal skills",
+   "Turn recurring feedback into goals via supervision or peer consultation"
+  ],
+  "examNote": "Items give a feedback pattern (e.g., 'knowledgeable but hard to apply') and ask what to change, or ask how to collect candid feedback; practical, individualized help and anonymous structured forms are the usual answers.",
+  "refs": ["partington1987", "gould1991"]
+ },
+ {
+  "id": "card-f-reflective-practice",
+  "kg": "F",
+  "title": "Reflective practice: Gibbs, Kolb, and Schön",
+  "body": "Reflective practice is the structured habit of learning from one's own consulting experiences, and it is a core part of self-evaluation for applied sport psychologists. Gibbs's reflective cycle has six stages: description (what happened), feelings, evaluation (what was good and bad), analysis (why it happened, using theory and context), conclusion (what else could have been done), and action plan (what to do next time). Skipping evaluation and analysis produces vague plans like 'do better'. Kolb's experiential learning cycle runs from concrete experience to reflective observation, then abstract conceptualization (making sense of it with theory), then active experimentation (testing a revised approach), which becomes a new experience. Schön distinguished reflection-in-action, thinking and adjusting while a session is unfolding, from reflection-on-action, reviewing afterward. Practical tools include post-session notes or journals, structured reflection templates, and discussing reflections with a supervisor, mentor, or peer.",
+  "points": [
+   "Gibbs: description, feelings, evaluation, analysis, conclusion, action plan",
+   "Kolb: experience → reflective observation → abstract conceptualization → active experimentation",
+   "Schön: reflection-in-action (during) vs. reflection-on-action (after)",
+   "Structured post-session reflection plus supervision or peer consultation"
+  ],
+  "examNote": "Expect a consultant's journal entry or in-session adjustment and a question about which stage or type of reflection it shows, or which stage is missing or comes next.",
+  "refs": ["anderson2004", "gibbs1988", "kolb1984", "schon1983"]
+ },
+ {
+  "id": "card-f-measuring-progress",
+  "kg": "F",
+  "title": "Measuring progress and program evaluation designs",
+  "body": "Decide how progress will be measured while building the plan, before intervening. Match measures to the goals and include process measures of the targeted skill (routine use, communication quality, focus ratings), not only outcomes such as wins, which have many causes. Triangulate sources: client self-report, coach or stakeholder reports, observation, and performance data. When sources disagree, explore the discrepancy and add targeted measures rather than picking one source. Single-case designs fit applied work. In an A–B design, the target is measured repeatedly during a baseline until it is stable, and then after the intervention starts; an effect is inferred from a change in level, trend, or variability at the phase change. A trend already present in the baseline that simply continues is not evidence of an effect. A multiple-baseline design staggers the start across athletes, behaviors, or settings, which strengthens inference. Social validation asks clients and stakeholders whether goals were important, procedures acceptable, and results meaningful. Attribute outcomes realistically.",
+  "points": [
+   "Plan measures and collect a stable baseline before intervening",
+   "Pair outcome measures with process measures of the targeted skill",
+   "Effect = change in level/trend at the phase change; staggered starts strengthen inference",
+   "Social validation: importance, acceptability, meaningfulness"
+  ],
+  "examNote": "Common items: what to do before starting an intervention (baseline), how to read a graph whose baseline was already trending, how to handle conflicting data sources, and how to describe a team's win honestly.",
+  "refs": ["anderson2002", "tenenbaum2012"]
+ },
+ {
+  "id": "card-f-concluding-consultation",
+  "kg": "F",
+  "title": "Concluding a consultation",
+  "body": "Ending is planned, ideally discussed from the start as part of informed consent (expected length, how ending will be decided). Consultations end when goals are met, when the client is no longer benefiting or the fit is poor, or for external reasons such as a contract ending or the consultant relocating. Good endings review progress with the client, consolidate the skills that work rather than adding new ones, and plan for generalization and relapse: anticipate high-risk situations and rehearse self-directed coping so the client can work independently. Agree on any follow-up or booster contact and an open-door policy without fostering dependence. With teams and organizations, hold a closing session, build staff capacity to sustain routines, and report only what confidentiality agreements allow. When a client is not benefiting despite revision, discuss it openly and help them find a better-fitting provider. When the consultant must leave, give timely notice and arrange a consented handoff. Abrupt or unannounced endings amount to abandonment.",
+  "points": [
+   "Plan ending from the outset; review progress together at the end",
+   "Consolidate skills, plan for relapse and generalization, build independence",
+   "Teams: closing session, staff handoff, confidentiality-respecting report",
+   "Poor fit or departure: open discussion, alternatives, consented handoff"
+  ],
+  "examNote": "Expect 'which focus for the final sessions' or 'how to end' questions; the best answer builds independence and continuity and avoids both abrupt endings and open-ended dependence.",
+  "refs": ["aaspethics2024", "tod2024"]
+ }
+]

@@ -1,0 +1,138 @@
+[
+ {
+  "id": "card-i-goal-types",
+  "kg": "I",
+  "title": "Goal types and goal-setting principles",
+  "body": "Goals come in three types. Outcome goals concern results that depend partly on others, such as winning or placing. Performance goals concern the performer's own standard, judged against a personal baseline, such as a split time or a shooting percentage. Process goals concern the actions that produce performance, such as a relaxed grip or an early call-out. Outcome goals can motivate long-term effort, but on their own they are less controllable and can raise anxiety. Performance and process goals are more controllable and are linked to better focus, self-efficacy, and control of cognitive anxiety. Most plans combine all three, with process goals guiding the day-to-day work. Goal-setting research supports goals that are specific and measurable, challenging but attainable, set over short and long time frames, written down, and paired with regular feedback. Specific goals reliably beat 'do your best' goals.",
+  "points": [
+   "Outcome = result vs. others; performance = own standard; process = how you execute",
+   "Combine types; process goals drive daily practice and in-event focus",
+   "Specific, challenging-but-attainable goals with feedback beat vague 'do your best' goals",
+   "Set goals collaboratively so the performer owns them"
+  ],
+  "examNote": "Expect a vignette where an athlete has only an outcome goal and anxiety about rivals; the best plan keeps the outcome goal but adds controllable performance and process goals.",
+  "refs": [
+   "locke2002",
+   "kingston1997"
+  ]
+ },
+ {
+  "id": "card-i-goal-process",
+  "kg": "I",
+  "title": "The goal-setting process and monitoring",
+  "body": "Goal setting is a cycle, not a one-time event. It starts with assessment, such as a performance profile, interview, or baseline data, so that goals target what matters most. The consultant and performer then prioritize a small number of goals together, since trying to fix everything at once spreads practice too thin. Each goal needs a plan of action, a time frame, and an agreed way to measure progress, ideally with a baseline taken before the intervention begins. Progress is reviewed regularly. If a goal is met easily, it can be raised; if it is repeatedly missed despite real improvement, it should be revised to a challenging but attainable step rather than kept unchanged or abandoned. Monitoring also checks whether the planned practice is actually happening, because a skill that was never practiced has not been tested. Common pitfalls include too many goals, vague goals, outcome-only goals, and no follow-up.",
+  "points": [
+   "Assess first, then prioritize a few goals collaboratively",
+   "Plan measurement up front: baseline plus repeated measures of use, process, and outcome",
+   "Review regularly; adjust difficulty based on progress",
+   "Check practice adherence before judging whether a strategy works"
+  ],
+  "examNote": "Evaluation items often hinge on adjusting rather than abandoning: revise unrealistic goals, and check whether a skill was practiced before concluding it failed.",
+  "refs": [
+   "weinberg2024",
+   "locke2002"
+  ]
+ },
+ {
+  "id": "card-i-self-awareness",
+  "kg": "I",
+  "title": "Building self-awareness",
+  "body": "Self-awareness, meaning the ability to notice one's own thoughts, emotions, bodily states, and performance patterns, is the foundation for most mental skills. A performer cannot regulate arousal they do not notice or change self-talk they cannot hear. Assessment and awareness-building often overlap. Performance profiling asks the performer to name the qualities that matter and rate themselves, which builds both insight and ownership. Self-monitoring logs and journals track thoughts, feelings, and skill use across practice and competition. Video review, post-performance reflection, and structured debriefs help link internal states to outcomes. Physiological measures such as heart rate or biofeedback can reveal a gap between what a performer feels and what the body is doing. When self-report and observation disagree, the discrepancy is itself useful information and a starting point for exploration rather than a reason to choose one source.",
+  "points": [
+   "Awareness comes before regulation",
+   "Tools: performance profiling, self-monitoring logs, video review, debriefs, biofeedback",
+   "Performer-generated assessments build ownership as well as insight",
+   "Treat conflicting data sources as something to explore"
+  ],
+  "examNote": "When a performer can't describe their strengths or misreads their own stress response, look for the option that has them generate or review their own data.",
+  "refs": [
+   "butler1992",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "card-i-delivery-factors",
+  "kg": "I",
+  "title": "Delivery factors in mental performance training",
+  "body": "The same skill is delivered differently depending on context. Season timing: the off-season and preseason suit introducing and practicing new skills; in-season work should be brief, focused on priorities, and built into existing practice; the days before a major event are for refining familiar strategies, not learning new ones. Program length: a single workshop can raise awareness and introduce a tool but rarely produces durable change, so multi-session programs with practice between sessions are preferred, and expectations should match the time available. Format: virtual delivery can work well but needs structured between-session practice, recorded guidance, and a way to review practice, plus attention to privacy and identity. Level: individual work allows tailoring; team work suits shared needs and common language; organizational work needs clear agreement with sponsors on purpose, reporting, and what is realistic.",
+  "points": [
+   "Teach new skills early; refine familiar ones close to competition",
+   "One-off sessions introduce; repeated practice builds",
+   "Virtual delivery needs structured independent practice and review",
+   "Agree on team vs. individual scope and reporting with coaches and sponsors"
+  ],
+  "examNote": "Look for the option that fits the program to its time of season, contact time, and format, and that sets honest expectations about what that format can achieve.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "card-i-confidence-building",
+  "kg": "I",
+  "title": "Building confidence with self-efficacy sources",
+  "body": "Bandura's self-efficacy theory gives a practical map for building confidence in a specific task. Performance accomplishments, meaning mastery experiences, are the strongest source: a performer who repeatedly succeeds has direct evidence of capability. Plans therefore build graded tasks that start where success is likely and progress in difficulty, often in practice before competition. Vicarious experience, such as watching a similar peer succeed, helps, especially when the model resembles the performer. Verbal persuasion from coaches, teammates, or oneself (self-talk) can support efforts but is weaker and fades without real success behind it. Physiological and emotional states matter too: helping a performer interpret arousal as readiness supports confidence. Imagery of successful performance adds a further, imaginal source in sport. Vealey's work on sport confidence adds that confidence also draws on preparation, social support, and coaching.",
+  "points": [
+   "Mastery experiences are the strongest source",
+   "Vicarious experience works best with similar models",
+   "Verbal persuasion helps but is weaker alone",
+   "Reinterpreting arousal and successful imagery also contribute"
+  ],
+  "examNote": "If a coach plans to rely on praise or video of elite performers, the better answer usually builds graded mastery experiences.",
+  "refs": [
+   "bandura1997",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "card-i-pressure",
+  "kg": "I",
+  "title": "Performing under pressure and pressure training",
+  "body": "Performers often execute well in relaxed practice but struggle when evaluation, consequences, or audiences are added. Pressure can raise anxiety, narrow attention, and pull focus inward onto mechanics, which disrupts well-learned skills. Preparation works on two fronts. First, performers learn coping skills such as breathing, routines, refocusing cues, and reappraisal of arousal as readiness. Second, practice is made more competition-like in planned stages: scoring, consequences, time limits, observers, noise, or fatigue are added gradually so performers rehearse their coping skills under realistic demands. This graded exposure, sometimes called pressure training or stress inoculation, builds confidence that skills will hold up. Simply adding repetitions in relaxed conditions, or telling performers the moment does not matter, does not build this capacity. Pressure should be raised in manageable steps, with debriefs to reinforce what worked.",
+  "points": [
+   "Pressure can narrow attention and trigger inward focus on mechanics",
+   "Teach coping skills, then practice them under graded pressure",
+   "Add evaluation, consequences, audiences, or time limits step by step",
+   "Debrief pressure drills to reinforce what worked"
+  ],
+  "examNote": "For 'great in practice, poor in competition' scenarios, the best plan typically adds graded, realistic pressure to practice while performers use coping skills.",
+  "refs": [
+   "hardy1996",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "card-i-values-action",
+  "kg": "I",
+  "title": "Values and committed action in performance",
+  "body": "Acceptance-based approaches, including acceptance and commitment therapy (ACT) and the Mindfulness-Acceptance-Commitment (MAC) approach applied to sport, shift the aim from controlling or eliminating uncomfortable thoughts and feelings to acting on what matters while they are present. Values are chosen, ongoing directions, such as being a bold competitor or a reliable teammate; unlike goals, they are never finished. Committed action means taking concrete, goal-directed steps in the direction of those values, even when fear or doubt shows up. Experiential avoidance, such as avoiding risky shots to escape the fear of failing, often narrows performance and moves people away from their values. Plans therefore pair values clarification with specific behavioral commitments and practice in willingness, defusion, and present-moment focus. Strategies built on suppressing thoughts, or waiting for anxiety to disappear before acting, run against this approach.",
+  "points": [
+   "Values = chosen directions; goals = concrete steps toward them",
+   "Committed action happens with discomfort present",
+   "Experiential avoidance is a common target",
+   "Thought suppression and 'wait until the fear is gone' contradict ACT/MAC"
+  ],
+  "examNote": "When an athlete avoids actions because of fear, an acceptance-based plan sets values-linked committed actions practiced with the fear present.",
+  "refs": [
+   "gardner2007",
+   "hayes2012"
+  ]
+ },
+ {
+  "id": "card-i-facilitation-debrief",
+  "kg": "I",
+  "title": "Facilitation and debriefing (experiential learning)",
+  "body": "Kolb's experiential learning cycle describes how people learn from doing: a concrete experience, reflective observation on what happened, abstract conceptualization of what it means, and active experimentation that applies the lesson to the next experience. Good facilitation of mental skills sessions and team-building activities follows this cycle rather than ending when the activity does. Debriefing is where much of the learning happens. A simple structure asks what happened, so what it means, and now what to do next. The facilitator asks open questions, invites several voices, links observations to the mental skill or team goal, and helps participants commit to a specific application in training or competition. Psychological safety, clear ground rules, and attention to confidentiality limits in groups support honest reflection. Activities without a debrief, or debriefs where the facilitator simply lectures, tend to produce enjoyment without transfer.",
+  "points": [
+   "Kolb: experience → reflection → conceptualization → experimentation",
+   "Debrief: what? so what? now what?",
+   "Use open questions and link insights to concrete next actions",
+   "No debrief often means fun without transfer"
+  ],
+  "examNote": "After an activity or workshop, the best facilitation choice usually involves a guided reflective debrief that ends with specific application, not a lecture or moving straight on.",
+  "refs": [
+   "kolb1984",
+   "edmondson1999"
+  ]
+ }
+]

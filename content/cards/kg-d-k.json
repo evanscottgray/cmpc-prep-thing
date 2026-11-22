@@ -1,0 +1,142 @@
+[
+ {
+  "id": "card-d-cultural-humility",
+  "kg": "D",
+  "title": "Cultural humility vs. cultural competence",
+  "body": "Cultural competence is usually framed as awareness of one's own assumptions, knowledge of other worldviews, and culturally appropriate skills. Read as a destination, it can slide into the idea that learning facts about a group lets you predict an individual. Cultural humility is an ongoing, other-oriented stance: the client is the expert on which identities matter to them and what those identities mean, and the consultant stays curious, self-reflective, and open to being wrong. The two work together. Group knowledge is useful as a tentative hypothesis that you check with the person in front of you, never as a script. Humility also means owning mistakes: when a remark lands badly, listen without defending, acknowledge the impact, and repair the relationship.",
+  "points": [
+   "Competence: awareness, knowledge, skills; ongoing, never 'finished'",
+   "Humility: client as expert on their own identity; lifelong self-reflection",
+   "Treat group-level knowledge as a hypothesis to check, not a conclusion",
+   "'I treat everyone the same' is not humility; it ignores what matters to the client"
+  ],
+  "examNote": "Keys usually show the consultant asking what an identity means to this client, or examining their own assumptions, rather than applying generalizations or avoiding culture altogether.",
+  "refs": ["hook2013", "sue1992"]
+ },
+ {
+  "id": "card-d-contextual-intelligence",
+  "kg": "D",
+  "title": "Contextual intelligence",
+  "body": "Contextual intelligence is the ability to read the setting you work in (its culture, history, structure, power relationships, unwritten rules, and the goals of key stakeholders) and to adjust how you deliver services to fit. The same mental skills program can succeed in one organization and fail in another because of who holds influence, how outsiders are viewed, or what the group values. Consultants entering a new setting, such as moving from college sport to a professional club or to a fire department, build contextual intelligence by observing before intervening, learning the group's language and routines, finding mentors who know the system, asking what people need, and reflecting deliberately on what they learn. Credentials and research rarely substitute for this understanding.",
+  "points": [
+   "Read culture, structure, power, and unwritten rules before intervening",
+   "Developed through experience, observation, mentoring, and reflection",
+   "Ask stakeholders what they need rather than leading with expertise",
+   "Mandated attendance or borrowed insider jargon can undermine trust"
+  ],
+  "examNote": "In entry and new-setting scenarios, the best first step is usually learning the culture and asking about needs, not presenting credentials or a ready-made program.",
+  "refs": ["brown2005ci"]
+ },
+ {
+  "id": "card-d-cultural-praxis",
+  "kg": "D",
+  "title": "Consultant identity, bias, and cultural praxis",
+  "body": "Consultants bring their own identities (race, gender, class, nationality, religion, sexuality, ability, athletic background) into every relationship. These shape what consultants notice, what seems 'normal,' and how they interpret behavior. Cultural praxis, drawn from cultural sport psychology, asks practitioners to be self-reflexive: to examine how their own social positions and privileges influence their judgments, to listen for voices that dominant sport culture marginalizes, and to let that reflection change their practice. A warning sign is a judgment about a client, such as 'not committed' or 'low confidence,' that rests on the consultant's own experience or norms. Supervision, peer consultation, and reflective journaling are the practical tools, and the result should be adapted practice, such as flexible scheduling or re-checked interpretations.",
+  "points": [
+   "Self-reflexivity: examine how your own identities and privilege shape judgments",
+   "Praxis links reflection, theory, and action; reflection should change practice",
+   "Check frustrations and deficit labels against your own background",
+   "Use supervision and peer consultation to surface blind spots"
+  ],
+  "examNote": "When a consultant's judgment of a client seems shaped by their own background, the key is usually to reflect (often with supervision) and adapt, not to refer out or impose rules.",
+  "refs": ["schinke2012", "mio2023"]
+ },
+ {
+  "id": "card-d-microaggressions",
+  "kg": "D",
+  "title": "Microaggressions",
+  "body": "Microaggressions are brief, everyday comments or actions, often unintentional, that communicate hostile, demeaning, or invalidating messages to people based on a marginalized identity. Sue and colleagues described three forms: microassaults (explicit, usually deliberate attacks), microinsults (subtle snubs that demean a person's identity), and microinvalidations (comments that negate a person's experiences, such as 'I don't see color' or treating a U.S.-born person as a foreigner). Because intent is usually benign, the impact is easy to dismiss, yet repeated experiences add up. In a group, a consultant should address a microaggression promptly and briefly, without shaming, linking it to agreed norms and checking in with the person targeted. When the consultant is the source, the repair is to listen without defending, acknowledge the impact, apologize, and reflect.",
+  "points": [
+   "Three forms: microassaults, microinsults, microinvalidations",
+   "Impact matters more than intent",
+   "In groups: name it briefly, tie it to norms, follow up privately",
+   "Don't make the targeted person educate the group"
+  ],
+  "examNote": "Distractors include ignoring the comment, lecturing at length, explaining intent, or asking the targeted person to explain; the key is brief, non-shaming acknowledgment plus repair.",
+  "refs": ["sue2007"]
+ },
+ {
+  "id": "card-d-athletic-identity-transitions",
+  "kg": "D",
+  "title": "Athletic identity and career transitions",
+  "body": "Athletic identity is the degree to which a person identifies with the athlete role. A strong identity can support commitment, but when it is also exclusive, injuries, deselection, and retirement can threaten the person's whole sense of self. The Athletic Identity Measurement Scale (AIMS) assesses it. Wylleman and Lavallee's developmental model frames transitions across athletic, psychological, psychosocial, and academic or vocational levels that interact over the lifespan. Transitions may be normative (junior to senior, retirement) or non-normative (injury, deselection). Adjustment tends to be harder when exit is involuntary, identity is exclusive, and there is little planning or support. Pre-retirement planning, a broader identity, and social support help, and planning can begin while the athlete is still competing. Stigma about seeking help can keep struggling athletes from using support.",
+  "points": [
+   "Strong, exclusive athletic identity: risk factor for difficult transitions",
+   "Normative vs. non-normative transitions; multiple interacting life levels",
+   "Involuntary exit (deselection, injury) usually means harder adjustment",
+   "Pre-retirement planning and social support aid adjustment"
+  ],
+  "examNote": "Expect scenarios where the best action is starting transition planning early or broadening identity, not waiting until the career is over.",
+  "refs": ["brewer1993", "wylleman2004"]
+ },
+ {
+  "id": "card-d-organizational-deib",
+  "kg": "D",
+  "title": "DEIB at the organizational level",
+  "body": "Diversity, equity, inclusion, and belonging work happens at individual, team, and organizational levels. At the organizational level, culture is shaped by leadership behavior, policies, selection and scheduling practices, and everyday norms, such as praising athletes who play hurt or running programs only in one language at times families cannot attend. An ecological view reminds consultants that athletes are influenced by nested systems: family, team, institution, and community. Single workshops after an incident rarely change climate. Integrity requires being honest about what a one-off session can achieve, recommending assessment of climate and sustained, leadership-backed processes, designing programs around real access barriers with community input, and recognizing the limits of one's own competence by partnering with qualified DEI professionals when needed.",
+  "points": [
+   "Culture lives in leadership, policy, practices, and everyday norms",
+   "One-off sessions rarely change climate; sustained, leadership-backed work does",
+   "Design around access barriers (schedule, transport, language) with community input",
+   "Be transparent about competence; partner with DEI specialists when needed"
+  ],
+  "examNote": "Keys favor honest scoping, stakeholder co-design, and system-level change over quick fixes or public-relations gestures.",
+  "refs": ["mio2023", "bronfenbrenner1979"]
+ },
+ {
+  "id": "card-k-stress-injury-model",
+  "kg": "K",
+  "title": "Andersen & Williams stress–injury model",
+  "body": "Andersen and Williams proposed that psychosocial factors raise injury risk through the stress response. When an athlete faces a potentially stressful situation, the response has two linked parts: cognitive appraisal of demands, resources, and consequences, and the physiological and attentional changes that follow, such as increased muscle tension, narrowing of peripheral vision, and greater distractibility. Three sets of factors shape the size of that response: personality, history of stressors (major life events, daily hassles, previous injuries), and coping resources (including social support). History of stressors, especially negative life events, has been among the most consistent predictors. The model points prevention at two targets: the appraisal (for example, cognitive restructuring and confidence building) and the physiological and attentional response (for example, relaxation and attention training).",
+  "points": [
+   "Inputs: personality, history of stressors, coping resources",
+   "Stress response: appraisal and physiological/attentional changes, in both directions",
+   "Attentional narrowing and muscle tension are proposed injury pathways",
+   "Interventions target appraisal and physiological/attentional responses"
+  ],
+  "examNote": "This model is about predicting and preventing injury; post-injury reactions belong to the integrated model.",
+  "refs": ["andersen1988", "williams1998"]
+ },
+ {
+  "id": "card-k-integrated-model",
+  "kg": "K",
+  "title": "Integrated model of response to injury (and stage models)",
+  "body": "Wiese-Bjornstal and colleagues' integrated model explains what happens after injury. Pre-injury factors from the stress–injury model feed into a post-injury cycle in which cognitive appraisal (such as how the athlete interprets the injury, their ability to cope, and their recovery), emotional response (frustration, fear, depressed mood, hope), and behavioral response (adherence, effort, use of social support) influence one another and drive physical and psychological recovery outcomes. Personal factors (injury severity, history, identity, personality) and situational factors (sport context, social support, rehab environment) shape appraisals. Stage or grief models, which assume a fixed sequence like denial, anger, and acceptance, are poorly supported: responses vary widely between athletes and over time. In practice, the appraisal is a key place to intervene.",
+  "points": [
+   "Appraisal ↔ emotional response ↔ behavioral response, cycling toward recovery",
+   "Personal and situational factors shape appraisals",
+   "Adherence is a behavioral response driven by appraisals and emotions",
+   "Stage/grief models are poorly supported; don't wait for 'acceptance'"
+  ],
+  "examNote": "Distractors often invoke grief stages or claim physical healing alone resolves psychological responses; the key ties appraisal to emotions and behavior.",
+  "refs": ["wiesebjornstal1998", "brewer1994"]
+ },
+ {
+  "id": "card-k-psychological-readiness",
+  "kg": "K",
+  "title": "Psychological readiness and return to sport",
+  "body": "Medical clearance means that tissue healing and functional criteria are met; it does not guarantee that the athlete is psychologically ready. Return to sport is better seen as a continuum, from return to participation, to return to sport, to return to performance, with decisions shared among the athlete, medical staff, and coaches. Common return concerns include re-injury anxiety, doubts about regaining prior performance, feeling isolated from the team, and pressure to come back early. Signs of low readiness include avoidance of contact or specific movements, hesitation, and vivid worry about re-injury. CMPCs can help with graded exposure through imagery and progressive drills, confidence building, re-entry goals, and keeping the athlete connected to teammates. Consultants communicate about readiness only within the athlete's consent and do not make clearance or selection decisions.",
+  "points": [
+   "Physical clearance ≠ psychological readiness",
+   "Return continuum: participation → sport → performance",
+   "Key concerns: re-injury anxiety, performance doubts, isolation, pressure",
+   "Consultant informs and supports; the medical team clears"
+  ],
+  "examNote": "Keys typically name the gap between clearance and readiness and support a graded return, without overriding medical decisions or oversharing.",
+  "refs": ["ardern2016", "podlog2011"]
+ },
+ {
+  "id": "card-k-rehab-roles-skills",
+  "kg": "K",
+  "title": "Interdisciplinary roles and mental skills in rehabilitation",
+  "body": "Injury care is a team effort. Physicians diagnose and decide on treatment and clearance; athletic trainers handle immediate care, injury management, and day-to-day rehab; physical therapists design and progress rehabilitation; coaches manage involvement and selection; and the CMPC supports the athlete's psychological adjustment and mental skills. All sharing of information runs on the athlete's informed consent, except for safety limits. Concussion assessment and return-to-play decisions belong to the medical team, so possible symptoms go to them right away. Mental skills are adjuncts to medical care: short-term process goals tied to rehab milestones improve adherence; imagery supports skill maintenance, healing, and re-entry; relaxation and attention strategies help with expected discomfort; and self-talk addresses unhelpful appraisals. When distress looks clinical, such as persistent hopelessness or loss of interest, refer to a licensed professional.",
+  "points": [
+   "Medical team: diagnosis, treatment, clearance; CMPC: psychological adjustment and skills",
+   "Share information only within the athlete's consent (safety limits aside)",
+   "Mental skills complement, never replace, prescribed rehab",
+   "Concussion and clinical-level distress go to the right professionals"
+  ],
+  "examNote": "Watch for distractors where the consultant gives medical advice, changes rehab prescriptions, overshares with staff, or treats possible concussion with mental skills.",
+  "refs": ["podlog2011", "patricios2023"]
+ }
+]

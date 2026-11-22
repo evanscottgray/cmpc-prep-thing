@@ -1,0 +1,86 @@
+[
+ {
+  "id": "card-l-working-alliance",
+  "kg": "L",
+  "title": "The working alliance (Bordin)",
+  "body": "Bordin described the working alliance as a pantheoretical account of what makes any helping relationship work, whatever the helper's model. It has three parts: agreement between consultant and client on the goals of the work, agreement on the tasks used to pursue those goals, and an emotional bond of trust and mutual respect. The parts depend on one another: a client who trusts the consultant may still disengage from a task that feels pointless, and a well-chosen technique fails if it serves a goal the client never chose. In practice, the consultant negotiates goals before choosing tasks, checks agreement regularly, and diagnoses which part is strained when engagement drops. Strains or ruptures (withdrawal, quiet compliance, or open disagreement) are normal. Addressing them openly and nondefensively often strengthens the relationship.",
+  "points": [
+   "Three components: goals, tasks, bond",
+   "Negotiate goals first; tasks must serve agreed goals",
+   "Diagnose the strained component: task problem means renegotiate the task, not the goal",
+   "Repair ruptures with immediacy: name the shift and invite feedback"
+  ],
+  "examNote": "Expect a scenario where one component is strained (for example, homework is skipped but the goal and bond are intact) and you must pick the response that targets that component.",
+  "refs": ["bordin1979", "petitpas1999"]
+ },
+ {
+  "id": "card-l-rapport-trust",
+  "kg": "L",
+  "title": "Building rapport and trust",
+  "body": "Rapport is the foundation of the consulting sequence and comes before assessment or intervention. Rogers's core conditions (accurate empathy, unconditional positive regard, and congruence, or genuineness) describe the helper's stance. Studies of what athletes value in consultants consistently point to trustworthiness, keeping confidences, being approachable and easy to relate to, fitting in with the team's culture, and practical, sport-relevant help. Trust grows from transparency: explaining exactly what the consultant does, who receives what information, and where confidentiality ends, without overpromising. In team settings, being visible at practices and in informal moments lets athletes judge the consultant before they commit. Boundaries are part of trust, not opposed to it: consistent, warmly explained limits around contact, travel, and social media make the relationship safer and more dependable.",
+  "points": [
+   "Rogers: empathy, unconditional positive regard, congruence",
+   "Be specific and honest about confidentiality limits; never promise total secrecy",
+   "Fit in and be present before formal interventions",
+   "Clear, consistent boundaries support trust"
+  ],
+  "examNote": "\"First step\" items usually reward clarifying the role and building rapport before assessment or technique; answers that overpromise confidentiality or impose mandatory contact are distractors.",
+  "refs": ["rogers1957", "sharp2011"]
+ },
+ {
+  "id": "card-l-microskills",
+  "kg": "L",
+  "title": "Counseling microskills (Ivey)",
+  "body": "Ivey's microskills break effective helping conversations into learnable behaviors. Attending behavior, meaning culturally appropriate eye contact, body language, vocal qualities, and verbal tracking, comes first; on video it must be made visible. The basic listening sequence follows: open questions (\"what\" and \"how\" invite elaboration; \"why\" can sound accusatory) and closed questions (for specific facts), encouragers, paraphrasing (restating content), reflection of feeling (naming the emotion beneath the words), and summarizing (pulling several themes together and checking accuracy). Confrontation is a supportive challenge that lays two discrepant statements side by side without judgment. Influencing skills include immediacy, which addresses what is happening between consultant and client right now, and self-disclosure, which helps when it is brief, relevant, for the client's benefit, and followed by a return of focus to the client.",
+  "points": [
+   "Paraphrase = content; reflection of feeling = emotion",
+   "Summary = several themes integrated and checked",
+   "Confrontation = neutral \"on one hand… on the other\"",
+   "Self-disclosure: brief, relevant, client-focused, then return the focus"
+  ],
+  "examNote": "Items quote a client and ask which response best demonstrates a named skill; distractors are usually other real microskills (a paraphrase offered as a reflection of feeling, a \"why\" question offered as an open question).",
+  "refs": ["ivey2013"]
+ },
+ {
+  "id": "card-l-role-clarity",
+  "kg": "L",
+  "title": "Role clarity with multiple stakeholders",
+  "body": "Consultants often work in triangles: a parent, coach, athletic director, sports medicine team, agent, manager, or HR sponsor arranges or pays for services delivered to someone else. Before services begin, the consultant clarifies who the client is, what role the consultant will and will not play (for example, whether they will offer any input on selection), what information each party receives (often attendance and broad progress, not session content), and the exceptions, such as safety. Everyone affected, especially the athlete, hears the same arrangement before disclosing anything. With minors, parents give permission and the young athlete gives assent. Paying for services or making a referral does not entitle anyone to session content; sharing with medical staff or coaches happens with the client's consent. When a stakeholder misstates the consultant's role, the consultant corrects it promptly and respectfully.",
+  "points": [
+   "Identify the client and the consultant's role at the outset",
+   "Agree in advance what each stakeholder receives",
+   "Payment or referral does not equal access to content",
+   "Minors: parental permission plus the athlete's assent"
+  ],
+  "examNote": "Third-party scenarios almost always reward an upfront joint agreement on role and information-sharing over either full disclosure to the payer or total refusal to share.",
+  "refs": ["aaspethics2024", "andersen2005"]
+ },
+ {
+  "id": "card-l-psychological-safety",
+  "kg": "L",
+  "title": "Psychological safety",
+  "body": "Edmondson defined team psychological safety as a shared belief that the team is safe for interpersonal risk-taking: people can admit mistakes, ask questions, and raise concerns without fear of embarrassment or punishment. In her research, psychologically safe teams showed more learning behavior, such as seeking feedback and discussing errors. Psychological safety is not the same as comfort or low standards; it enables candor in demanding environments. Consultants build it in team work by being transparent about what leaves the room, co-creating group norms (including the right to pass), and modeling curiosity about mistakes. Leaders' reactions to bad news strongly shape it, so the consultant often works through the coach or commander. When a norm is broken in the room, such as a teammate ridiculing an admitted error, the consultant addresses it briefly in the moment so the group sees that candor is protected.",
+  "points": [
+   "Shared belief that interpersonal risk-taking is safe",
+   "Linked to team learning behavior (Edmondson)",
+   "Built through clear confidentiality limits, co-created norms, and modeling",
+   "Protect it in the moment when a norm is broken"
+  ],
+  "examNote": "Look for answers that set or reinforce norms transparently; distractors overpromise confidentiality, ignore the breach, or shame the offender publicly.",
+  "refs": ["edmondson1999"]
+ },
+ {
+  "id": "card-l-inclusive-practice",
+  "kg": "L",
+  "title": "Inclusive practice in the relationship",
+  "body": "Inclusive practice means treating each client's identity as part of who they are, not as the presenting problem. With names and pronouns, the consultant models sharing their own, invites (rather than requires) clients to share theirs, uses them consistently, and handles a slip by correcting it briefly, apologizing simply, and moving on. With para athletes, the consultant learns the sport's context, including classification, which groups athletes by how their impairment affects performance in that sport and can shape selection and lineups, and treats athletes as experts on their own experience. Adaptations such as imagery built around a racer's own pushing stroke, or a qualified interpreter for a Deaf client, are chosen with the client. Cultural humility means being honest about what one does not know and staying curious. A client's identity alone is not a reason to refer; consultants work within their competence and build cultural competence through education and consultation.",
+  "points": [
+   "Invite names and pronouns; correct mistakes briefly",
+   "Learn para-sport context, including classification",
+   "Ask clients what they need; don't assume",
+   "Identity is not a reason to refer; build competence"
+  ],
+  "examNote": "Identity is never the trick: the right answer is the respectful, competent process (ask, adapt, follow the client's lead), not an assumption about the person.",
+  "refs": ["hook2013", "mio2023"]
+ }
+]

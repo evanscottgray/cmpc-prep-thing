@@ -1,0 +1,467 @@
+[
+  {
+    "id": "card-e-principle-competence",
+    "kg": "E",
+    "category": "ethics-principle",
+    "title": "Principle: Competence",
+    "body": "The competence principle asks consultants to offer only the services their education, training, supervised experience and credentials actually support. It is not a one-time achievement: competence has to be kept current as research, methods and client populations change. It also means being honest with yourself about where your skills stop. A mental performance consultant may be excellent at teaching imagery or goal setting yet have no training in treating an eating disorder or depression. Working at the edge of your training calls for extra study, consultation or supervision, and working beyond it calls for referral. Competence also includes cultural competence, meaning awareness of how a client's background, identity and context shape what an effective, respectful service looks like. When a client's needs exceed what you can responsibly offer, the competent response is to say so and connect the client with someone who can help.",
+    "points": [
+      "Practice within the limits of your training, experience and credentials",
+      "Keep skills current through continuing education",
+      "Consult, seek supervision or refer when a need exceeds your competence",
+      "Cultural awareness is part of competence"
+    ],
+    "examNote": "Competence underlies many scenario answers: when a client presents something outside mental performance training (e.g., signs of a clinical disorder), the best move is usually to recognize the limit and refer, not to try a new technique.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-principle-integrity",
+    "kg": "E",
+    "category": "ethics-principle",
+    "title": "Principle: Integrity",
+    "body": "Integrity means being honest, fair and transparent in everything a consultant does: practice, teaching, research and self-promotion. Consultants describe their qualifications accurately, don't overstate what their services can achieve, and don't make promises about results such as guaranteed wins or rankings. Integrity also means being clear about roles. If you are both a team's consultant and a faculty member, or you are paid by an organization while working with its athletes, you are open about those arrangements and how they might affect the work. Consultants avoid deception, keep their commitments, and don't steal or misrepresent other people's work. When a conflict between interests arises, integrity points toward naming it openly rather than quietly managing it in a way that serves the consultant. Clients and organizations should be able to trust that what a consultant says about themselves and their services is true.",
+    "points": [
+      "Accurate representation of credentials and services",
+      "No guarantees of performance outcomes",
+      "Be transparent about roles, who pays and potential conflicts",
+      "Avoid deception and misrepresentation"
+    ],
+    "examNote": "Shows up in marketing and role-clarity scenarios: the best answer corrects or avoids misleading claims (e.g., implying CMPC is a license or promising results) and openly clarifies roles.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-principle-professional-scientific-responsibility",
+    "kg": "E",
+    "category": "ethics-principle",
+    "title": "Principle: Professional and Scientific Responsibility",
+    "body": "This principle concerns the consultant's accountability to the profession and to the science behind it. Consultants uphold professional standards of conduct, take responsibility for their own behavior, and ground their work in theory and evidence rather than fads or personal preference. They are accountable for the people they supervise and the services delivered under their name. Professional responsibility also extends to colleagues: when a consultant becomes aware that another professional may be acting unethically, they don't simply ignore it, and they address it in an appropriate way. Consulting with peers and making referrals that serve the client are expressions of this principle, as is cooperating with other professionals such as athletic trainers, physicians and licensed mental-health providers. The aim is to protect clients and the public, and to maintain trust in the field of sport and performance psychology.",
+    "points": [
+      "Base practice on theory and evidence",
+      "Take responsibility for your conduct and for those you supervise",
+      "Cooperate with other professionals in the client's interest",
+      "Address colleagues' ethical problems appropriately"
+    ],
+    "examNote": "Tends to decide questions about evidence-based practice, supervision of trainees, and what to do when a colleague behaves unethically (address it, usually informally first).",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-principle-rights-dignity",
+    "kg": "E",
+    "category": "ethics-principle",
+    "title": "Principle: Respect for People's Rights and Dignity",
+    "body": "Consultants respect the worth of every person and protect clients' rights to privacy, confidentiality and self-determination. Clients have the right to understand the services offered and to decide freely whether to take part, which is the foundation of informed consent. Respect also means recognizing and valuing differences in age, gender and gender identity, race, ethnicity, culture, national origin, religion, sexual orientation, disability, language and socioeconomic status, and working to reduce the influence of personal biases. Extra care is needed for people whose ability to make independent decisions is limited, such as minors or athletes facing pressure from coaches or organizations. Respecting dignity does not mean the consultant decides what is best for the client; it means supporting the client's own choices while being honest about risks and options.",
+    "points": [
+      "Privacy, confidentiality and self-determination",
+      "Informed, voluntary participation",
+      "Respect for individual and cultural differences; guard against bias",
+      "Extra protections for people with limited autonomy (e.g., minors)"
+    ],
+    "examNote": "Underpins consent, confidentiality and diversity scenarios; the best answer preserves the client's autonomy and privacy even when a coach or parent wants otherwise.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-principle-concern-welfare",
+    "kg": "E",
+    "category": "ethics-principle",
+    "title": "Principle: Concern for Others' Welfare",
+    "body": "Consultants try to benefit the people they work with and to avoid harming them. In practice this means putting the client's wellbeing ahead of the consultant's own interests and ahead of performance goals that would cost the client their health. Consultants stay alert to the power they hold, since athletes, students and trainees may feel unable to refuse a request, and they never use that power to exploit anyone. When conflicts arise between the interests of different parties, such as a coach who wants an injured athlete back quickly, the consultant works to resolve them in a way that minimizes harm. Concern for welfare also covers research participants, supervisees and the organization's members. Sometimes it requires uncomfortable action, such as raising a safety concern, arranging a referral, or ending a service that is no longer helping.",
+    "points": [
+      "Benefit clients and avoid harm",
+      "Client wellbeing comes before performance and before the consultant's interests",
+      "Be aware of power differences; never exploit them",
+      "Resolve competing interests in the way that minimizes harm"
+    ],
+    "examNote": "Often the tiebreaker when performance and wellbeing conflict: the best answer protects the athlete's health and safety rather than satisfying the coach or the result.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-principle-social-responsibility",
+    "kg": "E",
+    "category": "ethics-principle",
+    "title": "Principle: Social Responsibility",
+    "body": "Social responsibility reaches beyond the individual client to the communities where consultants work and to society at large. Consultants share knowledge in ways that contribute to human welfare, support policies and practices that make sport and performance settings safer and more inclusive, and avoid uses of their work that could cause social harm. This can mean contributing some services for little or no cost, educating the public accurately about what sport psychology can and cannot do, and advocating for athlete welfare, for example by supporting abuse-prevention policies in youth sport. It also means being mindful of how sport systems can disadvantage some groups and working to widen access to services. Socially responsible consultants comply with laws and regulations while working to change rules that are unjust or that harm the people the profession serves.",
+    "points": [
+      "Contribute to the welfare of communities and society",
+      "Educate the public accurately",
+      "Advocate for safe, inclusive and accessible sport and performance settings",
+      "Consider pro bono or reduced-cost services"
+    ],
+    "examNote": "Less often the deciding factor than other principles; appears in items about public education, advocacy for athlete safety (e.g., youth abuse prevention), and widening access to services.",
+    "refs": ["aaspethics2024", "safesport2026"]
+  },
+  {
+    "id": "card-e-std-applicability",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Applicability of the Ethics Code",
+    "body": "The Code applies to a consultant's professional roles and activities: consulting, teaching, supervising, research, public speaking, writing and online professional presence. It doesn't govern purely private conduct, but private behavior that spills into professional roles (for example, posting about clients) falls within its scope. The Code applies across delivery formats, whether in person, by phone or video, or through social media. When the Code conflicts with law, regulations or an employer's demands, consultants make their commitment to the Code known and take reasonable steps to resolve the conflict in a way consistent with its principles. If the conflict cannot be resolved, they may follow the law, but never in a way that justifies violating basic human rights. Ignorance or misunderstanding of a standard is not a defense, so consultants are expected to know the Code.",
+    "points": [
+      "Covers professional roles and activities, including online ones",
+      "Conflict with law or an employer: state the Code commitment and try to resolve it",
+      "Never use law or organizational demands to justify human-rights violations",
+      "Not knowing a standard is not a defense"
+    ],
+    "examNote": "Typical scenario: an employer asks for something that conflicts with ethics (e.g., sharing session notes with a coach). The deciding move is to explain the ethical obligation and seek a resolution, not to comply silently.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-boundaries-competence",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Boundaries of Competence",
+    "body": "Consultants provide services, teach and do research only within areas where they have appropriate education, training, supervised experience or professional credentials. For a CMPC who is not a licensed mental-health professional, this means teaching mental performance skills while not diagnosing or treating mental disorders. A key competence skill is recognizing warning signs, such as disordered eating, depression, substance misuse or suicidal thoughts, and referring to an appropriately licensed professional, with the client's consent and with continued support where appropriate. Working with a new population (for example, para athletes or a performing-arts company) or in an emerging area where standards are still developing calls for relevant training, consultation or supervision, plus reasonable steps to protect clients while competence is built. In an emergency where no one else is available, a consultant may give limited help until appropriate services can be arranged.",
+    "points": [
+      "Stay within training, experience and credentials",
+      "Recognize mental-health concerns and refer to licensed professionals",
+      "New populations or emerging areas: get training, consultation or supervision",
+      "Emergencies: give limited help only until proper services are available"
+    ],
+    "examNote": "Very commonly tested. The usual scenario is an athlete showing clinical warning signs during performance work; the best answer is to discuss concerns and refer (with consent), while continuing performance work if appropriate, not to treat or to ignore it.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-maintaining-expertise",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Maintaining Expertise",
+    "body": "Competence decays if it isn't maintained. Consultants have an ongoing obligation to keep their knowledge and skills current through continuing education, reading research, attending workshops and conferences, peer consultation and supervision. This matters because the evidence base in sport and performance psychology keeps changing, as do technologies, laws and the populations consultants serve. The CMPC credential itself requires recertification through continuing education, which reflects this expectation. Maintaining expertise also means updating practice when evidence shows that a commonly used method is ineffective or harmful. A consultant who learned a technique years ago and never revisited the literature may be delivering outdated or poorly supported services. Self-assessment helps here: periodically reviewing which areas of practice feel shaky and seeking targeted learning in those areas.",
+    "points": [
+      "Ongoing continuing education and engagement with research",
+      "Peer consultation and supervision support competence",
+      "Update practice when evidence changes",
+      "CMPC recertification depends on continuing education"
+    ],
+    "examNote": "Appears in items about a consultant using outdated methods or entering a new area; the best answer involves targeted training and consultation rather than either refusing all new work or proceeding untrained.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-basis-judgments",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Basis for Scientific and Professional Judgments",
+    "body": "Consultants base their work on established scientific and professional knowledge. This is often described as evidence-informed practice: combining the best available research with professional expertise and the client's characteristics, culture and preferences. It does not mean every intervention needs a randomized trial behind it, but it does mean consultants can explain the theoretical and empirical rationale for what they do. They avoid promoting techniques with no credible support, and they are cautious about claims made by commercial products such as neurofeedback devices or brain-training apps unless the evidence is sound. When evidence is limited, consultants tell clients so and monitor whether the service is helping. Conclusions in reports or public statements should go no further than the data support.",
+    "points": [
+      "Combine research, professional expertise and client context",
+      "Be able to state the rationale for interventions",
+      "Be cautious with unsupported techniques and commercial claims",
+      "Tell clients when evidence is limited; monitor effectiveness"
+    ],
+    "examNote": "Typical scenario: a coach wants a trendy, unproven intervention. The best answer explains the evidence and offers a supported alternative or monitors carefully, rather than adopting it uncritically.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-describing-services",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Describing the Nature and Results of Services",
+    "body": "Before and during services, consultants explain in language the client can understand what the services involve, how they will be delivered, what is realistically expected, and how information will be used. When a consultant works with a group or team, they explain this to everyone involved. After assessments or interventions, consultants explain findings and results in an understandable way, avoiding jargon and avoiding overstatement. If someone other than the client receives results (for example, a coach receiving a team-level summary), the arrangement should have been agreed in advance and the information shared should stay within what was consented to. When services are delivered on behalf of an organization in a way that limits explaining results to individuals, consultants say so at the outset. The goal is that clients never feel surprised by what happened or by who learned what.",
+    "points": [
+      "Explain services and expected outcomes in plain language",
+      "Explain assessment results and findings understandably",
+      "Agree in advance on who receives results",
+      "Tell clients at the outset if feedback will be limited"
+    ],
+    "examNote": "Often paired with informed consent and assessment questions: the best answer gives clear, jargon-free explanations and feedback and avoids promising specific performance outcomes.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-respect-nondiscrimination",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Respect and Nondiscrimination",
+    "body": "Consultants do not engage in unfair discrimination based on age, gender, gender identity, race, ethnicity, culture, national origin, religion, sexual orientation, disability, language, socioeconomic status or any other protected characteristic. Beyond avoiding discrimination, they treat everyone with respect and work to understand how identity and context shape a client's experience in sport, such as the pressures faced by a first-generation college athlete or an athlete who is the only one of their identity on a team. Consultants examine their own biases and assumptions and seek training or consultation when working with groups they know less about. Respect also includes using a client's chosen name and pronouns and adapting services so they are accessible. When a consultant's personal values could interfere with serving a client, they seek consultation, and refer if needed, rather than imposing those values.",
+    "points": [
+      "No unfair discrimination on any protected characteristic",
+      "Examine your own biases; seek training or consultation",
+      "Adapt services to be culturally responsive and accessible",
+      "Don't impose personal values on clients"
+    ],
+    "examNote": "Appears in scenarios where a consultant feels uncomfortable with a client's identity or values; the best answer is self-reflection and consultation, not refusing service on discriminatory grounds.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-harassment",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Sexual and Other Harassment",
+    "body": "Consultants do not engage in sexual harassment, meaning unwelcome sexual advances, requests or comments, or sexual conduct that is offensive or creates a hostile environment, whether it happens once or repeatedly. They also don't engage in other harassment or demeaning behavior based on a person's identity or characteristics. This applies to clients, students, supervisees, research participants, colleagues and organizational staff, and it applies online as well as in person. Because sport settings involve close contact, travel and significant power differences, consultants are especially careful about boundaries and avoid comments about bodies or appearance. When working within the U.S. Olympic and Paralympic movement or with minors, the SafeSport Code also prohibits sexual misconduct and other forms of abuse and harassment. Consultants also treat people who file harassment complaints fairly and don't retaliate against them.",
+    "points": [
+      "No sexual harassment of anyone in professional roles",
+      "No harassment or demeaning behavior based on identity",
+      "Applies online and during travel",
+      "Don't retaliate against people who make complaints"
+    ],
+    "examNote": "Usually tested through boundary scenarios in travel or team settings; the right answer protects the person affected and follows reporting policy (including SafeSport where it applies).",
+    "refs": ["aaspethics2024", "safesport2026"]
+  },
+  {
+    "id": "card-e-std-personal-problems",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Personal Problems and Conflicts",
+    "body": "Consultants avoid starting work when they know, or should know, that personal problems such as illness, grief, burnout, substance use or a major life crisis are likely to keep them from doing the work competently. Self-awareness and self-care are part of the job: consultants monitor their own functioning, set reasonable workloads and seek support early. When a consultant notices that personal problems are affecting their work, they take appropriate steps. These might include getting professional help or consultation, limiting their practice, temporarily stepping back, or arranging for clients to be transferred or referred with appropriate continuity of care. Personal conflicts count too. For example, a strong emotional reaction to a particular client, or a dispute with the client's coach, can cloud judgment. The duty is to protect clients from impaired service, not to be perfect.",
+    "points": [
+      "Monitor your own functioning and practice self-care",
+      "Don't start work you're too impaired to do competently",
+      "If impaired: seek help, limit or suspend work, arrange transfers",
+      "Protect continuity of care when stepping back"
+    ],
+    "examNote": "Typical scenario: a consultant is going through a personal crisis or burnout. The deciding move is to seek consultation or help and adjust or pause the caseload with proper referrals, not to keep going unchanged or to abandon clients abruptly.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-avoiding-harm",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Avoiding Harm",
+    "body": "Consultants take reasonable steps to avoid harming clients, students, supervisees, research participants, organizations and others they work with, and to minimize harm where it is foreseeable and unavoidable. Harm can be physical, psychological, social or financial. In sport settings it can come from encouraging an athlete to play through an injury, keeping them in a service that isn't helping, or disclosing information that damages their place on a team. Consultants consider how their recommendations might be used, for example whether a coach could use assessment results to cut players. They do not participate in or tolerate abusive coaching practices or emotional abuse, and they follow reporting obligations when they suspect abuse. Ending services appropriately is part of avoiding harm: when services are no longer helpful, consultants discuss termination and offer referrals rather than abandoning clients.",
+    "points": [
+      "Avoid foreseeable harm; minimize unavoidable harm",
+      "Consider how others might use your recommendations or data",
+      "Don't participate in or condone abusive practices",
+      "End services thoughtfully, with referrals as needed"
+    ],
+    "examNote": "Frequently the principle behind the best answer when a coach or organization pressures the consultant; choose the option that prevents foreseeable harm to the athlete (e.g., not handing over individual data that could be used to cut players).",
+    "refs": ["aaspethics2024", "safesport2026"]
+  },
+  {
+    "id": "card-e-std-misuse-influence",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Misuse of Influence",
+    "body": "Consultants often hold influence through their expertise, their relationship with coaches and administrators, and the trust athletes place in them. This standard asks them to be alert to personal, financial, social, organizational or political factors that could lead to that influence being misused, and to guard against it. Examples include pressuring a client to buy a product the consultant sells, steering a young athlete toward a program in which the consultant has a financial stake, or using access to an athlete's private information to gain standing with a coach. Consultants also avoid allowing their work to be used by others in misleading or harmful ways. If they learn that their findings or recommendations are being misused, they take reasonable steps to correct or limit that misuse.",
+    "points": [
+      "Be aware of the influence your role and expertise carry",
+      "Guard against personal, financial or organizational pressures",
+      "Don't use influence for self-benefit at the client's expense",
+      "Correct misuse of your work by others"
+    ],
+    "examNote": "Shows up when a consultant has a financial or organizational interest (e.g., selling products to clients, referring to their own programs); the best answer avoids or discloses the conflict and puts the client's interests first.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-multiple-relationships",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Multiple Relationships",
+    "body": "A multiple relationship exists when a consultant has a professional role with someone and also another role with them or someone close to them, such as being a team's consultant and also its assistant coach, a professor grading the athlete, or a friend of the athlete's parent. Multiple relationships aren't automatically unethical, and in sport and small communities some are unavoidable. The problem arises when the second relationship could impair objectivity or effectiveness, or risk exploitation or harm. Consultants avoid those relationships when they can. When one is unavoidable, they clarify roles, discuss confidentiality and boundaries openly, document the arrangement, consult a colleague, and monitor it. Social media counts as well: following, friending or messaging clients can blur boundaries, so consultants set a clear policy, for example a professional page only and no personal connections with current clients.",
+    "points": [
+      "Not all multiple relationships are unethical; avoid those risking impairment or exploitation",
+      "When unavoidable: clarify roles, discuss boundaries, document, consult, monitor",
+      "Social media connections are multiple-relationship issues",
+      "Have a written social media policy"
+    ],
+    "examNote": "Very common. The typical scenario is a consultant who also coaches, teaches, or knows the client socially. The deciding move is to clarify roles and boundaries and consult, or decline if the risk is high, not to assume it is automatically fine or forbidden.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-exploitative-relationships",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Exploitative Relationships and Sexual Intimacies",
+    "body": "Consultants do not exploit anyone over whom they have supervisory, evaluative or other authority, such as clients, students, supervisees or athletes. Sexual intimacy with a current client is never acceptable, and neither is sexual intimacy with a client's close relatives or significant others when it could harm the client. Consultants also don't accept as clients people with whom they have had a prior sexual relationship. For former clients, sexual intimacy is prohibited for at least two years after services end, and even after that it is permitted only in rare circumstances where it is clearly not exploitative. Relevant factors include how long and intense the work was, the client's history and vulnerability, how services ended, and whether a romantic relationship was discussed during services. The consultant carries the burden of showing there was no exploitation.",
+    "points": [
+      "Never sexual intimacy with a current client",
+      "Former clients: at least two years after services end, and only if not exploitative",
+      "No sexual relationships with students or supervisees under one's authority",
+      "Burden of showing non-exploitation is on the consultant"
+    ],
+    "examNote": "Commonly tested as a straightforward boundary item: any romantic involvement with a current client is a violation; with a former client, look for whether two years have passed and whether exploitation is possible.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-barter-gifts",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Barter and Gifts",
+    "body": "Barter means accepting goods or services instead of money as payment, for example free gym access in exchange for consulting. Because barter can create conflicts of interest, exploitation and blurred roles, consultants accept it only under strict conditions: it isn't contraindicated for the work, it isn't exploitative, and the terms are fair, clear and agreed in advance, ideally in writing. Barter that ties the consultant's payment to the client's performance or creates an ongoing business relationship is especially risky. Gifts call for similar judgment. A small token of appreciation such as a team shirt at season's end is usually fine, while expensive gifts, repeated gifts, or gifts that seem meant to change the relationship are not. Consultants consider the gift's value, the timing, the client's motives and cultural meaning, and they consult and document when unsure.",
+    "points": [
+      "Barter only if not contraindicated, not exploitative and fairly agreed in advance",
+      "Small, occasional token gifts are generally acceptable",
+      "Expensive or repeated gifts raise boundary concerns",
+      "Consider culture, value, timing and motive; consult and document"
+    ],
+    "examNote": "Typical items offer barter or a gift from an athlete or family; the best answer weighs the strict conditions, usually accepting only modest tokens and declining arrangements that blur roles or tie payment to results.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-consultation-referral",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Consultation and Referral",
+    "body": "Consultants seek consultation from colleagues, supervisors or mentors when they face difficult ethical or professional situations, and they refer clients to other professionals when the client's needs fall outside their competence or role. Good referrals are made thoughtfully: the consultant explains the reason to the client, gets their consent, provides names of appropriate providers (licensed mental-health professionals, physicians, registered dietitians and others), and where appropriate stays involved for the performance work while coordinating with the other provider. When consulting colleagues about a case, consultants protect confidentiality by sharing only what is needed and, where possible, removing identifying details unless the client has consented. Cooperating with other professionals involved with a client, such as the athletic trainer or team physician, serves the client and should happen with the client's permission.",
+    "points": [
+      "Consult colleagues or mentors on difficult situations",
+      "Refer when needs exceed competence or role",
+      "Get consent; share only what is needed; de-identify when consulting",
+      "Coordinate with other providers in the client's interest"
+    ],
+    "examNote": "Referral is the right answer when the scenario clearly signals a need outside CMPC scope; consultation is often the right first step when the consultant faces an ethical gray area.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-third-party-requests",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Third-Party Requests for Services",
+    "body": "In sport, services are often requested by someone other than the person receiving them. A coach asks you to work with a struggling player, a parent books sessions for a teenager, or a university or professional club hires you for its athletes. In these cases the consultant clarifies at the outset, with everyone involved, who the client is, what the consultant's role will be, what information will be shared and with whom, how it may be used, and where confidentiality ends. For example, it should be clear whether the coach will receive anything beyond attendance or general themes. These agreements should be settled before services start and revisited if circumstances change. Clarity protects the athlete's trust and the consultant's integrity, and it prevents later conflicts when the paying party expects information the athlete never agreed to share.",
+    "points": [
+      "Clarify at the start who the client is",
+      "Explain your role and how information will be used",
+      "Agree on limits of confidentiality with all parties",
+      "Revisit agreements if circumstances change"
+    ],
+    "examNote": "One of the most tested standards. A coach or organization refers an athlete and wants updates; the best first step is to clarify roles, the client and confidentiality limits with all parties before starting work.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-delegation-supervision",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Delegation and Supervision of Others",
+    "body": "Consultants who delegate work to employees, interns, graduate students or other supervisees remain responsible for that work. They delegate only tasks the person can be expected to perform competently given their training and experience, and they provide adequate supervision. They don't delegate to someone whose multiple relationship with the client is likely to cause exploitation or loss of objectivity. Supervisors give timely, specific feedback, evaluate supervisees on relevant performance requirements set out at the start, and ensure clients know when a trainee is involved and who is supervising. Supervisors also model ethical behavior and help supervisees develop their own ethical reasoning. In mentored experience toward certification, the supervisor and supervisee should agree on expectations, the format and frequency of meetings, how evaluation will work and how disagreements will be handled.",
+    "points": [
+      "Delegate only what the person can do competently",
+      "The supervisor remains responsible for delegated work",
+      "Clients should know when a trainee is involved",
+      "Set clear expectations and give timely, fair evaluation"
+    ],
+    "examNote": "Typical scenario: a supervisee is about to work beyond their training or without disclosing trainee status. The deciding move is to ensure appropriate supervision, competence and client awareness.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-documentation-records",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Documentation and Records",
+    "body": "Consultants create and maintain records of their work to support continuity of services, accountability, billing and legal requirements. Records should be accurate, timely and limited to what is relevant. Consultants store records securely, whether on paper (locked storage) or electronically (encryption, password protection, secure platforms), and they control who has access. They keep records for the period required by applicable law, regulation or organizational policy, and they plan for what happens to records if they leave a job, close a practice, become incapacitated or die. When records are no longer needed, they dispose of them in a way that protects confidentiality, for example by shredding or secure deletion. In team and organizational settings, consultants clarify in advance who owns records and who can see them, so that coaches or administrators can't access session notes without consent.",
+    "points": [
+      "Keep accurate, relevant and timely records",
+      "Store securely and control access",
+      "Retain per applicable law or policy; plan for practice closure",
+      "Dispose of records in ways that protect confidentiality"
+    ],
+    "examNote": "Shows up in scenarios about leaving a position, storing notes on shared drives, or a coach asking to see files; the best answer protects record security and confidentiality.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-fees-financial",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Fees and Financial Arrangements",
+    "body": "Consultants and clients (or the paying organization) agree on fees and billing arrangements as early as possible in the relationship, covering rates, cancellation policy, payment schedule and what happens if payment stops. Consultants don't misrepresent their fees, and when financial limits are foreseeable they discuss them early. If a client stops paying, the consultant follows an agreed process and gives notice before taking collection steps. A key sport-specific rule is that fees are never contingent on future achievement. A consultant should not accept a percentage of prize money, a bonus for winning, or a share of a future contract, because tying payment to results creates conflicts of interest and pressure that can harm the client and compromise the consultant's objectivity. Pro bono or reduced-fee work is acceptable when the terms are clear.",
+    "points": [
+      "Agree on fees and arrangements early, ideally in writing",
+      "Don't misrepresent fees; discuss financial limits early",
+      "Never contingent on performance outcomes (e.g., prize money, win bonuses)",
+      "Give notice before any collection action"
+    ],
+    "examNote": "Frequently tested: an athlete or agent offers a share of winnings or a bonus for a medal; the right answer declines any fee contingent on future achievement and sets a standard fee.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-public-statements",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Public Statements, Advertising and Titles",
+    "body": "Consultants don't make false, deceptive or misleading public statements about their training, credentials, services, fees, affiliations or results. This covers websites, social media, interviews, presentations and bios written by others on their behalf. If someone else, such as a team's media office, misrepresents them, they take reasonable steps to correct it. A key point is that the CMPC is a certification, not a license, so consultants never describe it as a license or imply it authorizes clinical practice. The title \"psychologist\" is regulated by law in many jurisdictions; consultants follow local law and use it only if they hold the required license. Media comments should be grounded in evidence, should avoid diagnosing public figures, and should not imply a personal professional relationship. Advertising should also avoid guarantees of performance outcomes.",
+    "points": [
+      "No false, deceptive or misleading statements",
+      "CMPC is a certification, not a license",
+      "Use \"psychologist\" only where local law permits",
+      "Correct misrepresentations made by others; no outcome guarantees"
+    ],
+    "examNote": "Commonly tested: a bio or website calls a non-licensed CMPC a \"sport psychologist\" or a \"licensed\" professional. The best answer corrects the wording to match the person's actual credentials and local law.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-testimonials",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Testimonials",
+    "body": "Testimonials are endorsements from clients used to promote a consultant's services. Consultants don't solicit testimonials from current clients, or from others who are vulnerable to undue influence because of their circumstances, such as a young athlete who depends on the consultant's good opinion or an athlete still in services. The concern is that a client who is currently receiving help may feel unable to refuse, and that public endorsement can compromise confidentiality and the working relationship. If a consultant uses testimonials from former clients, they should be freely given with informed consent, accurate, and should not imply guaranteed results. Consultants also think about confidentiality: naming a well-known athlete as a client is a disclosure that requires the athlete's explicit, informed permission. Paying for endorsements or offering discounts in exchange for them is likewise problematic.",
+    "points": [
+      "No testimonials from current clients",
+      "Avoid requests to anyone vulnerable to undue influence",
+      "Former-client testimonials: freely given, consented, accurate",
+      "Naming a client publicly is a disclosure requiring consent"
+    ],
+    "examNote": "Typical item: a consultant wants to post a quote from an athlete they are currently working with. The correct answer is not to solicit or use it while the athlete is a current client.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-informed-consent",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Informed Consent",
+    "body": "Informed consent is an ongoing process, not just a signature. Valid consent has four parts: capacity (the person can understand and decide), information (the nature and purpose of services, fees, risks and benefits, the consultant's role and credentials, confidentiality and its limits, and the right to stop at any time), voluntariness (free of coercion, which matters when a coach or team arranges services), and documentation. Consent is revisited when services, roles or circumstances change. For minors or others who cannot legally consent, the consultant obtains permission from a parent or legal guardian and also seeks the minor's assent, explaining things in age-appropriate terms and taking the young person's preferences seriously. Consent for recording sessions, sharing information with others, or participating in research must be obtained specifically.",
+    "points": [
+      "Capacity, information, voluntariness, documentation",
+      "Ongoing: revisit when services or circumstances change",
+      "Minors: guardian permission plus the minor's assent",
+      "Specific consent for recording, sharing and research"
+    ],
+    "examNote": "One of the most tested standards. For a minor, the best answer obtains guardian permission and the athlete's assent; for any client, it covers confidentiality limits and the right to withdraw before starting.",
+    "refs": ["aaspethics2024", "maapp2025"]
+  },
+  {
+    "id": "card-e-std-confidentiality-privacy",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Confidentiality and Privacy",
+    "body": "Consultants protect information obtained through their work and discuss the limits of confidentiality at the start, before sensitive information comes up. In team and organizational work these limits must be especially clear. Clients should know what, if anything, the coach or organization will receive, that group members may not keep each other's disclosures private, and how data will be stored. Consultants disclose confidential information only with the client's consent or when disclosure is required or permitted by law. Examples include imminent danger to self or others, suspected abuse of a minor (mandatory reporting, plus SafeSport where applicable), or a court order. When disclosure is necessary, consultants share only what the purpose requires. They avoid discussing clients in public spaces or on social media, and they include only necessary information in reports. Privacy also covers how and where sessions happen, such as a crowded team facility.",
+    "points": [
+      "Explain confidentiality limits up front, especially in team work",
+      "Disclose only with consent or as required or permitted by law",
+      "Exceptions include imminent danger and suspected child abuse",
+      "Share the minimum necessary"
+    ],
+    "examNote": "Extremely common. A coach asks what an athlete said; the best answer refers to the agreement made at the outset and shares nothing beyond it without consent, unless a legal or safety exception applies.",
+    "refs": ["aaspethics2024", "safesport2026"]
+  },
+  {
+    "id": "card-e-std-technology-services",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Technology-Mediated Services",
+    "body": "Consultants who work by video, phone, text, apps or online platforms apply the same ethical standards as in person, plus some specific safeguards. They verify the client's identity, especially at the start and for minors. They use secure, privacy-protecting communication platforms and explain the risks and limits of technology, such as data breaches or someone overhearing, as part of informed consent. They learn and follow the laws and regulations that apply where both the consultant and the client are located, which matters most for licensed professionals working across state or national borders. They plan for emergencies in advance: knowing the client's location for each session, having local emergency contacts and resources, and agreeing on what to do if the connection drops during a crisis. Consultants also need competence in the technology and should judge whether remote delivery suits the particular client.",
+    "points": [
+      "Verify client identity",
+      "Use secure platforms; explain technology risks in consent",
+      "Follow laws where both parties are located",
+      "Plan for emergencies: client location, local resources, backup contact"
+    ],
+    "examNote": "Typical item: starting video work with an athlete in another state or country. The best answer verifies identity, uses secure platforms, checks jurisdictional rules and sets up an emergency plan.",
+    "refs": ["aaspethics2024", "apa2013telepsych", "cremades2016"]
+  },
+  {
+    "id": "card-e-std-assessment",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Assessment",
+    "body": "Consultants use assessment tools only for purposes they are suited for and only with populations and languages for which they have evidence of reliability and validity. Using a scale validated only on adult athletes with a youth team, or with athletes in a language it hasn't been validated in, calls for caution and acknowledgment of the limits. Good assessment is multi-method, combining interviews, observation and questionnaires instead of relying on a single score. Consultants obtain informed consent for assessment, explaining its purpose and who will see the results, and they give clients understandable feedback. They store results securely and don't release raw data to people unqualified to interpret it. They use only tools they are competent to administer and interpret, and they don't use assessments to make team selection decisions unless that use is supported and agreed in advance.",
+    "points": [
+      "Use tools validated for the population and language",
+      "Multi-method assessment, not a single score",
+      "Consent, understandable feedback and secure storage",
+      "Use only tools you are competent to use"
+    ],
+    "examNote": "Typical items involve a coach wanting test scores for selection or a tool used outside its validated population; the best answer protects the athlete, uses validated multi-method assessment and keeps results confidential.",
+    "refs": ["aaspethics2024"]
+  },
+  {
+    "id": "card-e-std-resolving-ethical-issues",
+    "kg": "E",
+    "category": "ethics-standard",
+    "title": "Resolving Ethical Issues",
+    "body": "When a consultant believes a colleague may have acted unethically, the usual first step is to raise the concern with that person informally, provided this is appropriate and does not violate anyone's confidentiality. Many issues can be resolved this way, for example a colleague's misleading website. If informal resolution is not appropriate, doesn't work, or the violation is serious or has caused substantial harm, the consultant takes further action. That might mean consulting a supervisor or mentor, or referring the matter to the AASP Ethics Committee, a licensing board or the relevant organization. Consultants cooperate with ethics investigations and proceedings, and they do not file complaints that are frivolous or meant to harm someone rather than protect the public. They also don't discriminate against someone simply because a complaint has been made against them or by them. Reporting duties, such as suspected abuse, override informal approaches.",
+    "points": [
+      "Informal resolution first when appropriate and confidentiality allows",
+      "Escalate: supervisor or mentor, AASP Ethics Committee, licensing boards",
+      "Cooperate with ethics processes; no frivolous complaints",
+      "Mandatory reporting (e.g., abuse) overrides informal resolution"
+    ],
+    "examNote": "Typical scenario: you see a colleague misrepresent credentials. The best first step is usually to speak with them directly; escalate to the Ethics Committee only if that fails or the harm is serious.",
+    "refs": ["aaspethics2024"]
+  }
+]
