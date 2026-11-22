@@ -1,0 +1,152 @@
+import { test, expect } from '@playwright/test';
+import { onboard, optionLabels, shot, qnum, go } from './helpers';
+
+test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, end, results, review', async ({ page }) => {
+  await onboard(page);
+  await shot(page, '01-today');
+  await expect(page.getByRole('heading', { name: /Take Form A/ })).toBeVisible();
+  await page.getByRole('button', { name: 'Start Form A' }).click();
+  await expect(page.getByRole('heading', { name: 'Form A', level: 1 })).toBeVisible();
+  await shot(page, '02-exam-intro');
+  await page.getByRole('button', { name: 'Start Form A' }).click();
+
+  // Q1: choose the second option
+  await expect(page.locator('.qcount')).toContainText('Question 1');
+  await optionLabels(page).nth(1).click();
+  await expect(page.locator('.opt').nth(1)).toHaveClass(/selected/);
+  await shot(page, '03-exam-q1');
+  await page.getByRole('button', { name: /^Next/ }).click();
+
+  // Q2: strike option A, flag, answer option D
+  await expect(page.locator('.qcount')).toContainText('Question 2');
+  await page.getByRole('button', { name: 'Strike out option A' }).click();
+  await expect(page.locator('.opt').nth(0)).toHaveClass(/struck/);
+  await page.getByRole('button', { name: 'Flag for review' }).click();
+  await expect(page.getByRole('button', { name: 'Flagged', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await optionLabels(page).nth(3).click();
+  await page.getByRole('button', { name: /^Next/ }).click();
+  await page.getByRole('button', { name: /^Next/ }).click();
+  await expect(page.locator('.qcount')).toContainText('Question 4');
+
+  // No feedback during the exam
+  await expect(page.getByText(/Correct|Incorrect/)).toHaveCount(0);
+
+  // Navigator
+  await page.getByRole('button', { name: /Review navigator/ }).click();
+  await expect(page.getByRole('dialog', { name: 'Review navigator' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Question 1: answered' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Question 2: answered, flagged' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Question 3: unanswered' })).toBeVisible();
+  await shot(page, '04-navigator');
+  await page.getByRole('button', { name: 'Flagged', exact: true }).click();
+  await expect(page.locator('.nav-cell')).toHaveCount(1);
+  await page.locator('.nav-cell').first().click();
+  await expect(page.locator('.qcount')).toContainText('Question 2');
+
+  // Exact resume after reload
+  const timerBefore = await page.locator('.timer').innerText();
+  const stemBefore = await page.locator('#q-stem').innerText();
+  await page.waitForTimeout(1500);
+  await page.reload();
+  await expect(page.locator('.qcount')).toContainText('Question 2');
+  await expect(page.locator('#q-stem')).toHaveText(stemBefore);
+  await expect(page.locator('.opt').nth(0)).toHaveClass(/struck/);
+  await expect(page.locator('.opt').nth(3)).toHaveClass(/selected/);
+  await expect(page.getByRole('button', { name: 'Flagged', exact: true })).toBeVisible();
+  const timerAfter = await page.locator('.timer').innerText();
+  expect(timerAfter).not.toBe(timerBefore); // wall clock kept running
+
+  // Rotation keeps state
+  const vp = page.viewportSize()!;
+  await page.setViewportSize({ width: vp.height, height: vp.width });
+  await expect(page.locator('.qcount')).toContainText('Question 2');
+  await expect(page.locator('.opt').nth(3)).toHaveClass(/selected/);
+  await shot(page, '05-exam-rotated');
+  await page.setViewportSize(vp);
+
+  // Leave and resume from Today
+  await page.getByRole('button', { name: 'Exam menu' }).click();
+  await page.getByRole('button', { name: /Leave exam screen/ }).click();
+  await page.getByRole('button', { name: 'Leave' }).click();
+  await expect(page.getByRole('heading', { name: /Resume Form A/ })).toBeVisible();
+  await page.getByRole('button', { name: 'Resume exam' }).click();
+  await expect(page.locator('.qcount')).toContainText('Question 2');
+
+  // End with confirmation
+  await page.getByRole('button', { name: /Review navigator/ }).click();
+  await page.getByRole('button', { name: 'End exam…' }).click();
+  const confirm = page.getByRole('dialog', { name: 'End the exam?' });
+  await expect(confirm).toContainText('113 unanswered');
+  await shot(page, '06-end-confirm');
+  await page.getByRole('button', { name: 'Keep working' }).click();
+  await expect(confirm).toHaveCount(0);
+  await page.getByRole('button', { name: /Review navigator/ }).click();
+  await page.getByRole('button', { name: 'End exam…' }).click();
+  await page.getByRole('button', { name: 'End exam and score' }).click();
+
+  // Results
+  await expect(page.getByRole('heading', { name: 'Form A results' })).toBeVisible();
+  await expect(page.getByText('Did not pass (estimated)')).toBeVisible();
+  await expect(page.getByText('Estimated scaled score (550 passes)')).toBeVisible();
+  await expect(page.getByText(/This score is an estimate/)).toBeVisible();
+  await expect(page.getByText('Percent correct by domain')).toBeVisible();
+  await shot(page, '07-results');
+
+  // Review with filters
+  await page.getByRole('link', { name: 'Review all 115' }).click();
+  await expect(page.getByText('115 items')).toBeVisible();
+  await page.getByRole('button', { name: 'Flagged', exact: true }).click();
+  await expect(page.getByText('1 item', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Unscored' }).click();
+  await expect(page.getByText('15 items')).toBeVisible();
+  await page.getByRole('button', { name: 'All' }).click();
+  await page.getByLabel('Domain').selectOption('IV');
+  await expect(page.locator('.list .list-item').first()).toContainText('Domain IV');
+  await page.locator('.list .list-item').first().click();
+  await expect(page.getByText('Takeaway:')).toBeVisible();
+  await expect(page.getByText('Correct answer')).toBeVisible();
+  await expect(page.locator('.rationale')).toHaveCount(4);
+  await shot(page, '08-review-item');
+
+  // Retake labelled
+  await go(page, 'start/formA');
+  await expect(page.getByText(/not a fresh estimate/)).toBeVisible();
+});
+
+test('timer auto-submits at zero even after the app was closed', async ({ page, context }) => {
+  await page.clock.install();
+  await onboard(page);
+  await go(page, 'start/formB');
+  await expect(page.getByRole('heading', { name: 'Form B', level: 1 })).toBeVisible();
+  await page.getByRole('button', { name: 'Start Form B' }).click();
+  await optionLabels(page).nth(0).click();
+  await expect(page.locator('.timer')).toContainText('1:29:');
+  // "close" the app: open a blank page, advance the wall clock past 90 minutes, come back
+  await page.goto('about:blank');
+  await page.clock.fastForward('01:31:00');
+  await page.goto('./#/today');
+  await expect(page.getByRole('dialog', { name: "Time's up" })).toBeVisible();
+  await page.getByRole('button', { name: 'See results' }).click();
+  await expect(page.getByRole('heading', { name: /Form B results/ })).toBeVisible();
+  await expect(page.getByText(/Time ran out/)).toBeVisible();
+});
+
+test('timer auto-submits while open, and coached mode can pause', async ({ page }) => {
+  await page.clock.install();
+  await onboard(page);
+  await go(page, 'start/block');
+  await expect(page.getByRole('heading', { name: 'Exam-pace block', level: 1 })).toBeVisible();
+  await page.getByRole('radio', { name: 'Coached' }).check({ force: true });
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  await expect(page.locator('.exam-pace')).toContainText('47 s/item');
+  await page.getByRole('button', { name: 'Pause' }).click();
+  await expect(page.getByRole('heading', { name: 'Paused' })).toBeVisible();
+  await expect(page.locator('.paused-cover')).toContainText('18:00 remaining');
+  await page.clock.fastForward('05:00');
+  await expect(page.locator('.paused-cover')).toContainText('18:00 remaining');
+  await page.getByRole('button', { name: 'Resume' }).click();
+  await page.clock.fastForward('18:30');
+  await expect(page.getByRole('dialog', { name: "Time's up" })).toBeVisible();
+  await page.getByRole('button', { name: 'See results' }).click();
+  await expect(page.getByRole('heading', { name: /summary/ })).toBeVisible();
+});

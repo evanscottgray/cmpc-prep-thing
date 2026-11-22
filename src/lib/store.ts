@@ -21,6 +21,7 @@ export async function loadState(kv: Kv, mirror?: Storage | null): Promise<DbStat
   for (const p of PARTS) {
     const v = await kv.get(p);
     if (v !== undefined) (st as any)[p] = p === 'settings' ? { ...DEFAULT_SETTINGS, ...(v as object) } : v;
+    else if (p === 'meta') await kv.set('meta', st.meta); // first run: remember when this install began
   }
   for (const k of await kv.keys()) {
     if (!k.startsWith(SESSION_PREFIX)) continue;

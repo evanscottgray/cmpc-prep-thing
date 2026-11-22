@@ -22,7 +22,8 @@ export function Onboarding({ step: initial }: { step: number }) {
   return (
     <Page title="Welcome" noBack tabs={false}>
       <div class="onb">
-        <div class="steps-dots" aria-label={`Step ${step} of 3`}>{[1, 2, 3].map((i) => <span aria-current={i === step ? 'step' : undefined} />)}</div>
+        <p class="sr-only">Step {step} of 3</p>
+        <div class="steps-dots" aria-hidden="true">{[1, 2, 3].map((i) => <span aria-current={i === step ? 'step' : undefined} />)}</div>
         {step === 1 && (
           <section class="stack">
             <img src="./icons/icon-192.png" alt="" class="logo" width="72" height="72" />
@@ -36,6 +37,7 @@ export function Onboarding({ step: initial }: { step: number }) {
             </ul>
             <p class="small muted">{ABOUT_TEXT}</p>
             <button class="btn primary block" onClick={() => setStep(2)}>Continue</button>
+            <p class="center small"><a href="#/backup">Restore from a backup instead</a></p>
           </section>
         )}
         {step === 2 && (

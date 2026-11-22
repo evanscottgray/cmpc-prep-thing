@@ -3,7 +3,7 @@ import { ctx, useDb } from './ctx';
 import { navigate, useRoute } from './router';
 import { autoSubmitExpired } from './lib/actions';
 import { applyUpdate, onUpdateReady } from './lib/sw-register';
-import { DialogHost, ToastHost } from './ui/dialog';
+import { DialogHost, ToastHost, alertDialog } from './ui/dialog';
 import { Page, TabBar } from './ui/bits';
 import { Today } from './screens/Today';
 import { Study } from './screens/Study';
@@ -40,12 +40,18 @@ export function App() {
   }, [db.settings.theme, db.settings.textSize]);
 
   // first run → onboarding
-  useEffect(() => { if (!db.settings.onboarded && head !== 'onboarding') navigate('onboarding', true); }, [db.settings.onboarded, head]);
+  useEffect(() => { if (!db.settings.onboarded && head !== 'onboarding' && head !== 'backup') navigate('onboarding', true); }, [db.settings.onboarded, head]);
   useEffect(() => { if (!head && db.settings.onboarded) navigate('today', true); }, [head]);
   // exams whose time ran out while the app was closed are submitted on return
   useEffect(() => {
-    autoSubmitExpired();
-    const on = () => { if (document.visibilityState === 'visible') autoSubmitExpired(); };
+    const check = () => {
+      const ids = autoSubmitExpired();
+      const s = ids.map((id) => ctx.store.state.sessions[id]).find(Boolean);
+      if (s) alertDialog({ title: "Time's up", body: `${s.title} ran out of time while you were away and was submitted automatically. Unanswered items count as incorrect.`, ok: 'See results' })
+        .then(() => navigate(`results/${s.id}`));
+    };
+    check();
+    const on = () => { if (document.visibilityState === 'visible') check(); };
     document.addEventListener('visibilitychange', on);
     return () => document.removeEventListener('visibilitychange', on);
   }, []);

@@ -1,0 +1,51 @@
+import { test, expect } from '@playwright/test';
+import os from 'node:os';
+import { onboard, optionLabels, go } from './helpers';
+
+test('installable and fully offline after the first visit on localhost', async ({ page, context }) => {
+  await onboard(page);
+  expect(await page.evaluate(() => window.isSecureContext)).toBe(true);
+  const manifest = await page.evaluate(async () => (await fetch(document.querySelector<HTMLLinkElement>('link[rel=manifest]')!.href)).json());
+  expect(manifest.display).toBe('standalone');
+  expect(manifest.icons.some((i: any) => i.sizes === '512x512')).toBe(true);
+  await page.waitForFunction(async () => !!(await navigator.serviceWorker.getRegistration())?.active, null, { timeout: 30000 });
+  await page.reload();
+  await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 30000 });
+  await context.setOffline(true);
+  await page.reload();
+  await expect(page.getByRole('heading', { name: 'Today', level: 1 })).toBeVisible();
+  await go(page, 'start/formA');
+  await expect(page.getByRole('heading', { name: 'Form A', level: 1 })).toBeVisible();
+  await page.getByRole('button', { name: 'Start Form A' }).click();
+  await optionLabels(page).nth(0).click();
+  await expect(page.locator('.qcount')).toContainText('Question 1');
+  await context.setOffline(false);
+});
+
+test('fully usable at a plain-HTTP LAN address (no service worker, share, wake lock)', async ({ page }) => {
+  const ip = Object.values(os.networkInterfaces()).flat().find((n) => n && n.family === 'IPv4' && !n.internal)?.address;
+  test.skip(!ip, 'no LAN interface');
+  const port = Number(process.env.E2E_LAN_PORT || 4311);
+  const base = `http://${ip}:${port}/`;
+  await page.goto(base);
+  expect(await page.evaluate(() => window.isSecureContext)).toBe(false);
+  await expect(page.getByRole('heading', { name: /Prepare for the CMPC/ })).toBeVisible();
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await expect(page.getByText(/plain-HTTP address/)).toBeVisible();
+  await page.getByRole('button', { name: 'Start studying' }).click();
+  await go(page, 'settings');
+  await expect(page.getByText('Unavailable at this address — the app works while online.')).toBeVisible();
+  await go(page, 'start/formA');
+  await expect(page.getByRole('heading', { name: 'Form A', level: 1 })).toBeVisible();
+  await page.getByRole('button', { name: 'Start Form A' }).click();
+  await optionLabels(page).nth(1).click();
+  await page.reload();
+  await expect(page.locator('.opt').nth(1)).toHaveClass(/selected/);
+  await go(page, 'backup');
+  await expect(page.getByRole('heading', { name: 'Backup and restore', level: 1 })).toBeVisible();
+  const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: /Back up now/ }).click()]);
+  expect(dl.suggestedFilename()).toMatch(/cmpc-prep-backup-.*\.json/);
+  await go(page, 'reports');
+  expect(await page.evaluate(async () => (await navigator.serviceWorker?.getRegistration?.()) ?? null)).toBeNull();
+});
