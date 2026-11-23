@@ -22,7 +22,7 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   await page.getByRole('button', { name: 'Strike out option A' }).click();
   await expect(page.locator('.opt').nth(0)).toHaveClass(/struck/);
   await page.getByRole('button', { name: 'Flag for review' }).click();
-  await expect(page.getByRole('button', { name: 'Flagged', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByRole('button', { name: 'Flag for review' })).toHaveAttribute('aria-pressed', 'true');
   await optionLabels(page).nth(3).click();
   await page.getByRole('button', { name: /^(Next|Skip)/ }).click();
   await page.getByRole('button', { name: /^(Next|Skip)/ }).click();
@@ -52,7 +52,7 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   await expect(page.locator('#q-stem')).toHaveText(stemBefore!);
   await expect(page.locator('.opt').nth(0)).toHaveClass(/struck/);
   await expect(page.locator('.opt').nth(3)).toHaveClass(/selected/);
-  await expect(page.getByRole('button', { name: 'Flagged', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Flag for review', pressed: true })).toBeVisible();
   const timerAfter = await page.locator('.timer').innerText();
   expect(timerAfter).not.toBe(timerBefore); // wall clock kept running
 
@@ -183,6 +183,10 @@ test('keyboard: arrows stay with a focused answer, nothing moves while paused, a
   await page.getByRole('button', { name: 'Pause' }).click();
   await expect(page.locator('#resume-btn')).toBeFocused();
   await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('Shift+Tab'); // focus stays on the cover
+  await expect(page.getByRole('button', { name: 'Leave exam screen' })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.locator('#resume-btn')).toBeFocused();
   await page.getByRole('button', { name: 'Resume' }).click();
   await expect(page.locator('.qcount')).toContainText('Question 2');
   await expect(page.locator('#pause-btn')).toBeFocused();

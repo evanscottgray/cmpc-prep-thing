@@ -91,14 +91,15 @@ export function DialogHost() {
   );
 }
 
-let toastPush: ((m: string) => void) | null = null;
-export function toast(m: string) { toastPush?.(m); }
+let toastPush: ((m: string, quiet: boolean) => void) | null = null;
+/** A brief message. `quiet` keeps it visual only, for messages already announced another way. */
+export function toast(m: string, quiet = false) { toastPush?.(m, quiet); }
 export function ToastHost() {
-  const [m, setM] = useState<string | null>(null);
+  const [m, setM] = useState<{ text: string; quiet: boolean } | null>(null);
   useEffect(() => {
     let t: ReturnType<typeof setTimeout>;
-    toastPush = (x) => { setM(x); clearTimeout(t); t = setTimeout(() => setM(null), 3200); };
+    toastPush = (text, quiet) => { setM({ text, quiet }); clearTimeout(t); t = setTimeout(() => setM(null), 3200); };
     return () => { toastPush = null; clearTimeout(t); };
   }, []);
-  return <div aria-live="polite" role="status" class="sr-live">{m && <div class="toast">{m}</div>}</div>;
+  return <div aria-live="polite" role="status" class="sr-live">{m && <div class="toast" aria-hidden={m.quiet || undefined}>{m.text}</div>}</div>;
 }

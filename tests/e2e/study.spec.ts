@@ -73,6 +73,19 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
   await expect(page.getByText(/Unofficial study tool. Not affiliated with or endorsed by AASP/)).toBeVisible();
 });
 
+test('a quiz closed with an answer chosen but not checked is resumed, not restarted', async ({ page }) => {
+  await onboard(page);
+  await page.getByRole('button', { name: 'Quick quiz · 10' }).click();
+  const quiz = await page.evaluate(() => location.hash);
+  await optionLabels(page).nth(1).click();
+  await page.getByRole('button', { name: 'Close' }).click();
+  await expect(page.getByRole('heading', { name: 'Today', level: 1 })).toBeVisible(); // Close goes back to where the quiz started
+  await go(page, 'study');
+  await expect(page.getByRole('heading', { name: 'Study', level: 1 })).toBeVisible();
+  await page.getByRole('button', { name: /^Quick quiz/ }).click();
+  await expect(page).toHaveURL(new RegExp(quiz.replace(/[/#]/g, '.') + '$'));
+});
+
 test('Back returns to the same place, and a drill can be left and resumed', async ({ page }) => {
   await onboard(page);
   await go(page, 'cards');

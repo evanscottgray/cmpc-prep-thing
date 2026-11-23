@@ -114,7 +114,7 @@ export function DrillSetup({ title, src, onClose }: { title: string; src: DrillS
       </div>
       <div class="field"><span class="label">Mode</span>
         <Seg name="dm" label="Drill mode" value={mode} onChange={setMode} options={[{ v: 'tutor', label: 'Tutor' }, { v: 'timed', label: 'Timed' }]} />
-        <span class="hint">{mode === 'tutor' ? 'See the rationale after each answer.' : `Exam pace: ${ctx.bank.blueprint.exam.secondsPerItem} s per question, feedback at the end.`}</span>
+        <span class="hint">{mode === 'tutor' ? 'See the rationale after each answer.' : `About ${Math.max(1, Math.round((Math.min(Number(n), avail) * ctx.bank.blueprint.exam.secondsPerItem) / 60))} minutes at exam pace (${ctx.bank.blueprint.exam.secondsPerItem} s per question), feedback at the end.`}</span>
       </div>
       <div class="btn-row">
         <button class="btn" onClick={onClose}>Cancel</button>

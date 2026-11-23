@@ -71,7 +71,7 @@ export function AreaBar({ label, sub, acc, target, verb, href, onClick }: { labe
     <>
       <span class="bar-label">{label}</span>
       <span class="bar-val">{p === null ? '—' : few ? '' : `${p}%`}</span>
-      <span class="bar-sub">{[sub, acc?.n ? `${acc.c}/${acc.n} correct` : 'No answers yet'].filter(Boolean).join(' · ')}{!few && p !== null && p < target && <> · <strong class="below-tag keep">Below target</strong></>}</span>
+      <span class="bar-sub">{[sub, acc?.n ? `${acc.c}/${acc.n} correct` : 'No answers yet'].filter(Boolean).join(' · ')}{!few && p !== null && p < target && <span class="keep">{' · '}<strong class="below-tag">Below target</strong></span>}</span>
       {(href || onClick) && <span class="bar-verb">{verb}<IcChevron class="chev" /></span>}
       {!few && <Meter value={p} label={label} tick={target} />}
     </>

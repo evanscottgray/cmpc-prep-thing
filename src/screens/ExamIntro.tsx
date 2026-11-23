@@ -61,6 +61,12 @@ export function ExamIntro({ kind }: { kind: Kind }) {
         </div>
       ) : (
         <>
+          {taken && (
+            <div class="banner warn" role="note"><IcAlert /><div><strong>Retake.</strong> You've taken {TITLES[kind]} before, so this score is <strong>not a fresh estimate</strong> — you've seen these questions and their rationales.</div></div>
+          )}
+          {!taken && opened > 0 && (
+            <div class="banner warn" role="note"><IcAlert /><div><strong>Partly seen.</strong> You opened {opened} of these questions in an attempt you discarded, so this score is <strong>not a fresh estimate</strong>.</div></div>
+          )}
           <div class="card">
             {full ? (
               <>
@@ -92,12 +98,6 @@ export function ExamIntro({ kind }: { kind: Kind }) {
             </ul>
           </div>
           {last && <a class="btn block mt" href={`#/results/${last.id}`}>View results from {fmtShort(last.submittedAt!)} · estimated {scaledScore((100 * last.result!.raw) / last.result!.scoredCount, db.settings.rawTarget)}</a>}
-          {taken && (
-            <div class="banner warn mt" role="note"><IcAlert /><div><strong>Retake.</strong> You've taken {TITLES[kind]} before, so this score is <strong>not a fresh estimate</strong> — you've seen these questions and their rationales.</div></div>
-          )}
-          {!taken && opened > 0 && (
-            <div class="banner warn mt" role="note"><IcAlert /><div><strong>Partly seen.</strong> You opened {opened} of these questions in an attempt you discarded, so this score is <strong>not a fresh estimate</strong>.</div></div>
-          )}
           {kind === 'mixed' && <p class="small muted mt">If it includes questions you've already seen, the score report will say so.</p>}
           <p class="small muted center mt">Find a quiet place{full ? ' with 90 uninterrupted minutes' : ''}. The screen stays awake where supported.</p>
         </>

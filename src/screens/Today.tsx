@@ -21,7 +21,7 @@ export function startReview() {
   if (!s) return alertDialog({ title: 'No reviews due', body: 'Missed and uncertain questions come back here on a schedule that fits the time left before your exam.' });
   createSession(s); navigate(`s/${s.id}`);
 }
-export const openQuiz = () => Object.values(ctx.store.state.sessions).filter((x) => x.kind === 'quiz' && x.status === 'active' && x.revealed.length > 0).sort((a, b) => b.createdAt - a.createdAt)[0];
+export const openQuiz = () => Object.values(ctx.store.state.sessions).filter((x) => x.kind === 'quiz' && x.status === 'active' && (x.revealed.length > 0 || Object.keys(x.responses).length > 0)).sort((a, b) => b.createdAt - a.createdAt)[0];
 export function startQuiz() {
   const open = openQuiz();
   if (open) return navigate(`s/${open.id}`);

@@ -57,7 +57,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
       if (min <= w && min > w - 0.5 && !warned.current.has(w) && s.durationMs > w * 60000 * 2) {
         warned.current.add(w);
         setAnnounce(`${w} minute${w > 1 ? 's' : ''} remaining.`);
-        toast(`${w} minute${w > 1 ? 's' : ''} remaining`);
+        toast(`${w} minute${w > 1 ? 's' : ''} remaining`, true);
       }
     }
   }, [now]);
@@ -161,7 +161,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
 
       <div class="exam-foot">
         <button class="btn prev" onClick={() => goTo(s.id, pos - 1)} disabled={pos === 0} aria-label="Previous"><IcBack /><span class="lbl">Previous</span></button>
-        <button class="btn flag-btn" aria-pressed={flaggedHere} aria-label={flaggedHere ? 'Flagged' : 'Flag for review'} onClick={() => toggleFlag(s.id, pos)}>
+        <button class="btn flag-btn" aria-pressed={flaggedHere} aria-label="Flag for review" onClick={() => toggleFlag(s.id, pos)}>
           {flaggedHere ? <IcFlagFill /> : <IcFlag />}<span class="lbl">{flaggedHere ? 'Flagged' : 'Flag'}</span>
         </button>
         <button class="btn nav" onClick={() => setNavOpen(true)}>
@@ -187,7 +187,12 @@ export function ExamRunner({ session: s }: { session: Session }) {
       {reportFor && <ReportDialog itemId={reportFor} quiet onClose={() => setReportFor(null)} />}
     </div>
       {s.pausedAt && (
-        <div class="paused-cover" role="dialog" aria-modal="true" aria-labelledby="paused-h">
+        <div class="paused-cover" role="dialog" aria-modal="true" aria-labelledby="paused-h" onKeyDown={(e) => {
+          if (e.key !== 'Tab') return; // keep focus on the cover's two buttons
+          const b = [...(e.currentTarget as HTMLElement).querySelectorAll<HTMLButtonElement>('button')];
+          const at = b.indexOf(document.activeElement as HTMLButtonElement);
+          e.preventDefault(); b[(at + (e.shiftKey ? -1 : 1) + b.length) % b.length]?.focus();
+        }}>
           <h2 id="paused-h">Paused</h2>
           <p class="muted">Coached mode. The question is hidden while paused.<br />{fmtClock(remaining)} remaining.</p>
           <button class="btn primary" id="resume-btn" onClick={() => resume(s.id)}><IcPlay />Resume</button>
