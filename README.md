@@ -4,6 +4,8 @@ A mobile-first, offline study and exam-simulation app for one person preparing f
 
 > Unofficial study tool. Not affiliated with or endorsed by AASP. CMPC® is a registered trademark of the Association for Applied Sport Psychology. All questions are original practice items, not actual exam questions. Scores are estimates.
 
+**Live:** https://evanscottgray.github.io/cmpc-prep-thing/ (open in Safari, then Share → Add to Home Screen).
+
 ## What's inside
 
 - **Question bank** — 364 original four-option items (Form A, Form B, drill pool), each with a rationale for every option, a takeaway, and 1–2 citations from a single reference registry. Both forms match the 100-item blueprint grid exactly, plus 15 hidden unscored items.
