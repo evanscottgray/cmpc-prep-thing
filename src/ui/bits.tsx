@@ -1,5 +1,5 @@
 import type { ComponentChildren } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useLayoutEffect, useState } from 'preact/hooks';
 import { back, takeRestore } from '../router';
 import { IcBack, IcCards, IcChevron, IcMore, IcProgress, IcStudy, IcToday } from './icons';
 
@@ -21,7 +21,8 @@ export function TopBar({ title, backTo, onBack, right, noBack }: { title: string
 }
 
 export function Page({ title, children, backTo, onBack, right, noBack, tabs = true, wide }: { title: string; children: ComponentChildren; backTo?: string; onBack?: () => void; right?: ComponentChildren; noBack?: boolean; tabs?: boolean; wide?: boolean }) {
-  useEffect(() => { window.scrollTo(0, takeRestore() ?? 0); document.querySelector<HTMLElement>('.topbar h1')?.focus({ preventScroll: true }); }, [title]);
+  useLayoutEffect(() => { window.scrollTo(0, takeRestore() ?? 0); }, [title]); // before paint, so the old position never flashes
+  useEffect(() => { document.querySelector<HTMLElement>('.topbar h1')?.focus({ preventScroll: true }); }, [title]);
   return (
     <>
       <TopBar title={title} backTo={backTo} onBack={onBack} right={right} noBack={noBack} />

@@ -83,7 +83,7 @@ test('Back returns to the same place, and a drill can be left and resumed', asyn
   expect(y).toBeGreaterThan(300);
   await card.click();
   await expect(page.locator('.concept-body')).toBeVisible();
-  expect(await page.evaluate(() => window.scrollY)).toBe(0);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
   await page.getByRole('button', { name: 'Back' }).click();
   await expect(page.getByLabel('Search cards')).toHaveValue('the');
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(y - 60);
