@@ -52,8 +52,8 @@ export function ExamIntro({ kind }: { kind: Kind }) {
       {active ? (
         <div class="card hero">
           <div class="eyebrow">In progress</div>
-          <h2>Your {TITLES[kind]} attempt is still running</h2>
-          <p class="muted">The timer has kept going while you were away.</p>
+          <h2>Your {TITLES[kind]} attempt is {active.pausedAt ? 'paused' : 'still running'}</h2>
+          <p class="muted">{active.pausedAt ? 'The timer is paused.' : 'The timer has kept going while you were away.'}</p>
           <div class="btn-row">
             <a class="btn primary" href={`#/s/${active.id}`}>Resume</a>
             <button class="btn danger" onClick={discard}>Discard attempt</button>
@@ -61,6 +61,11 @@ export function ExamIntro({ kind }: { kind: Kind }) {
         </div>
       ) : (
         <>
+          <div class="section" style={{ marginTop: 0, marginBottom: '.25rem' }}>
+            <h2>Mode</h2>
+            <Seg name="mode" label="Exam mode" value={mode} onChange={setMode} options={[{ v: 'strict', label: 'Strict' }, { v: 'coached', label: 'Coached' }]} />
+            <p class="small muted mt">{mode === 'strict' ? 'Strict: no pausing — like the real exam. Recommended.' : 'Coached: you can pause, and a pacing line shows where you are against ~47 s per item.'}</p>
+          </div>
           <div class="card">
             {full ? (
               <>
@@ -91,17 +96,10 @@ export function ExamIntro({ kind }: { kind: Kind }) {
             <div class="banner warn mt" role="note"><IcAlert /><div><strong>Partly seen.</strong> You opened {opened} of these items in an attempt you discarded, so this score is <strong>not a fresh estimate</strong>.</div></div>
           )}
           {kind === 'mixed' && <p class="small muted mt">If it includes items you've already seen, the score report will say so.</p>}
-          <div class="section">
-            <h2>Mode</h2>
-            <Seg name="mode" label="Exam mode" value={mode} onChange={setMode} options={[{ v: 'strict', label: 'Strict' }, { v: 'coached', label: 'Coached' }]} />
-            <p class="small muted mt">{mode === 'strict' ? 'Strict: no pausing — like the real exam. Recommended.' : 'Coached: you can pause, and a pacing line shows where you are against ~47 s per item.'}</p>
-          </div>
-          <div class="section">
-            <button class="btn primary block" onClick={start}>Start {TITLES[kind]}</button>
-            <p class="small muted center mt">Find a quiet place{full ? ' with 90 uninterrupted minutes' : ''}. The screen stays awake where supported.</p>
-          </div>
+          <p class="small muted center mt">Find a quiet place{full ? ' with 90 uninterrupted minutes' : ''}. The screen stays awake where supported.</p>
         </>
       )}
+      {!active && <div class="actionbar"><button class="btn primary" onClick={start}>Start {TITLES[kind]}</button></div>}
     </Page>
   );
 }

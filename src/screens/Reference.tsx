@@ -107,7 +107,7 @@ export function About() {
         <img src="./icons/icon-192.png" alt="" class="logo" width="72" height="72" />
         <h2 class="mt">CMPC Prep</h2>
         <p><strong>{ABOUT_TEXT}</strong></p>
-        <p class="small muted" style={{ marginBottom: 0 }}>Version {APP_VERSION} · content {ctx.bank.version} · {ctx.bank.items.length} items · {ctx.bank.cards.length} concept cards</p>
+        <p class="small muted" style={{ marginBottom: 0 }}>Version {APP_VERSION} · question bank {ctx.bank.version} · {ctx.bank.items.length} items · {ctx.bank.cards.length} concept cards</p>
       </div>
       <div class="card">
         <h2>Privacy</h2>

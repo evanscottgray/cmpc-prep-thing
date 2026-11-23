@@ -68,14 +68,13 @@ export function ExamRunner({ session: s }: { session: Session }) {
     wasPaused.current = !!s.pausedAt;
   }, [s.pausedAt]);
 
-  // hardware-keyboard shortcuts (iPad): ←/→ to move, F to flag
+  // hardware-keyboard arrows (iPad) move between questions
   useEffect(() => {
     const on = (e: KeyboardEvent) => {
       // a focused answer owns its arrow keys; nothing moves behind a dialog or the pause cover
       if (s.pausedAt || navOpen || menuOpen || reportFor || (e.target as HTMLElement)?.closest?.('input,textarea,select,[role=dialog]') || document.querySelector('[role=dialog]')) return;
       if (e.key === 'ArrowRight') goTo(s.id, pos + 1);
       else if (e.key === 'ArrowLeft') goTo(s.id, pos - 1);
-      else if (e.key.toLowerCase() === 'f' && !e.metaKey && !e.ctrlKey) toggleFlag(s.id, pos);
     };
     document.addEventListener('keydown', on);
     return () => document.removeEventListener('keydown', on);
@@ -129,7 +128,8 @@ export function ExamRunner({ session: s }: { session: Session }) {
     <>
     <div class="exam" inert={!!s.pausedAt}>
       <div class="exam-bar">
-        <span class="qcount" aria-live="off">Question {pos + 1} <span class="muted">of {s.items.length}</span></span>
+      <div class="exam-bar-row">
+        <span class="qcount" aria-live="off"><span class="qw">Question </span>{pos + 1} <span class="muted">of {s.items.length}</span></span>
         <span class="grow" />
         <button class={`timer icon-btn${low ? ' low' : ''}${hideTimer && !low ? ' btn small' : ''}`} style={{ color: 'inherit' }}
           onClick={() => setHideTimer(!hideTimer)} aria-label={`Time remaining ${fmtClock(remaining)}. ${hideTimer ? 'Show' : 'Hide'} timer`}>
@@ -142,13 +142,13 @@ export function ExamRunner({ session: s }: { session: Session }) {
       </div>
       {pace && (
         <div class="exam-pace" aria-live="off">
-          Pace: {pace.answered} answered · target ~{pace.expected} by now ·{' '}
-          <strong>{pace.deltaSec >= 0 ? `${fmtClock(pace.deltaSec * 1000)} ahead` : `${fmtClock(-pace.deltaSec * 1000)} behind`}</strong> (47 s/item)
+          <strong>{pace.deltaSec >= 0 ? `${fmtClock(pace.deltaSec * 1000)} ahead` : `${fmtClock(-pace.deltaSec * 1000)} behind`}</strong> · {pace.answered} answered, target {pace.expected} at 47 s/item
         </div>
       )}
+      </div>
       <div class="sr-only" aria-live="assertive">{announce}</div>
 
-      <main class="exam-body" id="main">
+      <main class="exam-body" id="main" tabIndex={-1}>
         <p class="stem" id="q-stem" tabIndex={-1}>{item.stem}</p>
         <OptionList item={item} si={si} name={`q${pos}`} selected={s.responses[pos]} struck={s.strikes[pos] ?? []}
           onChoose={(o) => choose(s.id, pos, o)} onStrike={(o) => toggleStrike(s.id, pos, o)} />
@@ -161,7 +161,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
           {flaggedHere ? <IcFlagFill /> : <IcFlag />}<span class="lbl">{flaggedHere ? 'Flagged' : 'Flag'}</span>
         </button>
         <button class="btn nav" onClick={() => setNavOpen(true)}>
-          <IcGrid /><span>Review<span class="sr-only"> navigator</span></span> <span class="count">{answered}/{s.items.length}<span class="sr-only"> answered, {flagged} flagged</span></span>
+          <IcGrid /><span>Review<span class="sr-only"> navigator</span></span> <span class="count">{unanswered} left<span class="sr-only"> to answer, {flagged} flagged</span></span>
         </button>
         {pos < s.items.length - 1
           ? <button class="btn next primary" onClick={() => goTo(s.id, pos + 1)}>Next<IcChevron /></button>

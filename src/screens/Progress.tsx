@@ -4,12 +4,12 @@ import { ctx, useDb } from '../ctx';
 import { scaledScore } from '../lib/scoring';
 import type { DrillSource } from '../lib/assemble';
 import { fmtDate, ymd } from '../lib/dates';
-import { areaAccuracy, availableItems, examHistory, focusAreas, itemStats, pacingStats, readiness, weightedAccuracy } from '../lib/stats';
+import { areaAccuracy, availableItems, examHistory, focusAreas, focusLine, itemStats, pacingStats, readiness, weightedAccuracy } from '../lib/stats';
 import { AreaBar, ListLink, Page } from '../ui/bits';
 import { DrillSetup } from './Study';
 
 const scoreOf = (s: Session, target: number) => scaledScore((100 * s.result!.raw) / s.result!.scoredCount, target);
-const shortName = (s: Session) => `${s.kind === 'mixed' ? 'Mix' : s.title.replace('Form ', '')}${s.retake ? '*' : ''}`;
+const shortName = (s: Session, n: number) => `${n <= 3 ? s.title.replace(' exam', '') : s.kind === 'mixed' ? 'Mix' : s.title.replace('Form ', '')}${s.retake ? '*' : ''}`;
 
 /** Lines are drawn in a stretched SVG; labels are HTML so they follow the text-size setting. */
 function ScoreChart({ exams, target }: { exams: Session[]; target: number }) {
@@ -17,7 +17,7 @@ function ScoreChart({ exams, target }: { exams: Session[]; target: number }) {
   const lo = Math.max(200, Math.min(400, ...scores.map((v) => Math.floor((v - 40) / 50) * 50)));
   const hi = Math.min(800, Math.max(700, ...scores.map((v) => Math.ceil((v + 60) / 50) * 50)));
   const y = (v: number) => 100 * (1 - (v - lo) / (hi - lo));
-  const x = (i: number) => (exams.length === 1 ? 50 : 8 + (84 * i) / (exams.length - 1));
+  const x = (i: number) => (exams.length === 1 ? 50 : 10 + (80 * i) / (exams.length - 1));
   const desc = exams.map((s, i) => `${s.title}${s.retake ? ' (retake)' : ''}: ${scores[i]}`).join('; ');
   return (
     <figure class="chart" style={{ margin: 0 }}>
@@ -31,7 +31,7 @@ function ScoreChart({ exams, target }: { exams: Session[]; target: number }) {
           </svg>
           {scores.map((v, i) => <span class="chart-pt" style={{ left: `${x(i)}%`, top: `${y(v)}%` }}><b>{v}</b></span>)}
         </div>
-        <div class="chart-x">{exams.map((s, i) => <span style={{ left: `${x(i)}%` }}>{shortName(s)}</span>)}</div>
+        <div class="chart-x">{exams.map((s, i) => <span style={{ left: `${x(i)}%` }}>{shortName(s, exams.length)}</span>)}</div>
       </div>
       <figcaption class="small muted">Estimated scaled scores. Dashed line: 550 passes.{exams.some((s) => s.retake) ? ' * Includes items already seen.' : ''}</figcaption>
     </figure>
@@ -55,7 +55,7 @@ export function Progress() {
   const focus = focusAreas(bank, last.byKg);
   const rate = (id: string) => (last.byKg[id].n ? last.byKg[id].c / last.byKg[id].n : 2);
   const kgs = [...bank.blueprint.kgs].sort((a, b) => rate(a.id) - rate(b.id) || b.weight - a.weight);
-  const range = r.scaledLo >= 550 ? 'The whole range is at or above 550.' : r.scaledHi < 550 ? 'The whole range is below 550.' : 'The range includes 550, so it could go either way.';
+  const range = r.scaledLo >= 550 ? 'Your whole likely range is at or above 550.' : r.scaledHi < 550 ? 'Your whole likely range is below 550.' : 'Your likely range includes 550, so it could go either way.';
   return (
     <Page title="Progress" noBack wide>
       <div class="cols">
@@ -77,9 +77,10 @@ export function Progress() {
 
       {focus.length > 0 && (
         <div class="section">
-          <h2>Focus next: most points to gain</h2>
+          <h2>Focus next</h2>
+          <p class="small muted">Knowledge groups with the most points to gain: how often you miss them × their share of the exam.</p>
           <div class="list">
-            {focus.map((k) => <ListLink onClick={() => setPick({ title: `${k.id}. ${k.name}`, src: { type: 'kg', id: k.id } })} title={`${k.id}. ${k.name}`} sub={`${Math.round((100 * k.acc.c) / k.acc.n)}% correct · ${k.weight}% of the exam`} right={<span class="badge accent">Drill</span>} />)}
+            {focus.map((k) => <ListLink onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} title={k.name} sub={focusLine(k)} right={<span class="badge accent">Drill</span>} />)}
           </div>
         </div>
       )}
@@ -98,27 +99,15 @@ export function Progress() {
           </>
         ) : <div class="list"><ListLink href="#/start/formA" title="No full exams yet" sub="Start with Form A, your diagnostic" /></div>}
       </div>
-
-      {any && (
-        <div class="section">
-          <h2>Pacing and coverage</h2>
-          <div class="card stat-grid">
-            <div class="stat"><div class="v">{pace ? `${pace.avgSec} s` : '—'}</div><div class="k">Average per timed item (target {bank.blueprint.exam.secondsPerItem} s or less)</div></div>
-            <div class="stat"><div class="v">{seen}/{bank.items.length}</div><div class="k">Bank items seen{avail.length < bank.items.length ? ` (${avail.length} available now)` : ''}</div></div>
-            <div class="stat"><div class="v">{db.attempts.length}</div><div class="k">Total answers</div></div>
-            <div class="stat"><div class="v">{Object.keys(db.cardSrs).length}/{bank.cards.length}</div><div class="k">Concept cards studied</div></div>
-          </div>
-        </div>
-      )}
       </div>
 
-      <div>
+      <div class="col-tall">
       <div class="section">
         <h2>Domain mastery</h2>
         <div class="card bars">
           {any ? (
             <>
-              <p class="small muted">Your latest answer on each item; {wAcc === null ? '—' : `${Math.round(wAcc * 100)}%`} overall, blueprint-weighted. Mark on each bar: your practice target ({target}%). Tap an area to drill it.</p>
+              <p class="small muted">Tap an area to drill it. Based on your latest answer to each item: {wAcc === null ? '—' : `${Math.round(wAcc * 100)}%`} overall, blueprint-weighted. The mark on each bar is your practice target ({target}%).</p>
               {bank.blueprint.domains.map((d) => <AreaBar label={`${d.id}. ${d.name}`} sub={`${d.weight}% of exam`} acc={last.byDomain[d.id]} target={target} onClick={() => setPick({ title: `${d.id}. ${d.name}`, src: { type: 'domain', id: d.id } })} />)}
             </>
           ) : <p class="muted" style={{ margin: 0 }}>No answers yet. Your accuracy in each area appears here as you study.</p>}
@@ -129,7 +118,22 @@ export function Progress() {
         <div class="section">
           <h2>Knowledge groups, lowest first</h2>
           <div class="card bars">
-            {kgs.map((k) => <AreaBar label={`${k.id}. ${k.name}`} sub={`${k.weight}% of exam`} acc={last.byKg[k.id]} target={target} onClick={() => setPick({ title: `${k.id}. ${k.name}`, src: { type: 'kg', id: k.id } })} />)}
+            <p class="small muted">Tap a group to drill it.</p>
+            {kgs.map((k) => <AreaBar label={k.name} sub={`${k.weight}% of exam`} acc={last.byKg[k.id]} target={target} onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} />)}
+          </div>
+        </div>
+      )}
+      </div>
+
+      <div>
+      {any && (
+        <div class="section">
+          <h2>Pacing and coverage</h2>
+          <div class="card stat-grid">
+            <div class="stat"><div class="v">{pace ? `${pace.avgSec} s` : '—'}</div><div class="k">Average per timed item (target {bank.blueprint.exam.secondsPerItem} s or less)</div></div>
+            <div class="stat"><div class="v">{seen}/{bank.items.length}</div><div class="k">Bank items seen{avail.length < bank.items.length ? ` (${avail.length} available now)` : ''}</div></div>
+            <div class="stat"><div class="v">{db.attempts.length}</div><div class="k">Total answers</div></div>
+            <div class="stat"><div class="v">{Object.keys(db.cardSrs).length}/{bank.cards.length}</div><div class="k">Concept cards studied</div></div>
           </div>
         </div>
       )}

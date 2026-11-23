@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useState } from 'preact/hooks';
 import type { Card } from '../types';
 import { ctx, useDb } from '../ctx';
 import { navigate } from '../router';
@@ -8,7 +8,8 @@ import { areaAccuracy, itemStats, smooth } from '../lib/stats';
 import { ListLink, Page } from '../ui/bits';
 import { References } from '../ui/question';
 
-const CAT = (c: Card) => c.category === 'ethics-principle' ? 'Ethics principle' : c.category === 'ethics-standard' ? 'Ethics standard' : `${c.kg}. ${ctx.bank.blueprint.kgs.find((k) => k.id === c.kg)?.name}`;
+const SESSION = 12; // a card session tops up what is due with new cards to this size
+const CAT = (c: Card) => c.category === 'ethics-principle' ? 'Ethics principle' : c.category === 'ethics-standard' ? 'Ethics standard' : `${ctx.bank.blueprint.kgs.find((k) => k.id === c.kg)?.name}`;
 
 export function CardsHub({ query }: { query: URLSearchParams }) {
   const db = useDb();
@@ -17,31 +18,35 @@ export function CardsHub({ query }: { query: URLSearchParams }) {
   const bp = ctx.bank.blueprint;
   const due = dueIds(db.cardSrs, ymd(), db.settings.examDate).length;
   const fresh = ctx.bank.cards.filter((c) => !db.cardSrs[c.id]).length;
+  const size = Math.min(25, due + Math.min(fresh, Math.max(0, SESSION - due))), add = Math.max(0, size - due);
   const needle = q.trim().toLowerCase();
   const list = ctx.bank.cards.filter((c) => (!kg || c.kg === kg) && (!needle || `${c.title} ${c.body.join(' ')} ${(c.points ?? []).join(' ')}`.toLowerCase().includes(needle)));
   return (
-    <Page title="Concept cards" noBack>
+    <Page title="Concept cards" noBack wide>
       <div class="card hero">
-        <div class="row between"><div><div style={{ fontSize: '1.6rem', fontWeight: 800 }}>{due ? `${due} due today` : 'Nothing due today'}</div><div class="muted small">{fresh ? `${plural(fresh, 'card')} not yet studied` : 'You have studied every card once.'}</div></div></div>
-        {(due > 0 || fresh > 0) && <a class="btn primary block mt" href="#/cards/study">{due ? 'Review due cards' : 'Study new cards'}</a>}
+        <div class="row between"><div><div style={{ fontSize: '1.6rem', fontWeight: 800 }}>{due ? `${due} due today` : fresh ? `${plural(fresh, 'new card')} to learn` : 'All caught up'}</div><div class="muted small">{due && fresh ? `${plural(fresh, 'card')} not yet studied` : fresh ? 'Recall first, then check yourself.' : 'You have studied every card at least once.'}</div></div></div>
+        {(due > 0 || fresh > 0) && <a class="btn primary block mt" href="#/cards/study">{due > 0 && add > 0 ? `Study ${size}: ${due} due, ${add} new` : due ? `Review ${plural(size, 'due card')}` : `Study ${plural(add, 'new card')}`}</a>}
       </div>
       <div class="section">
-        <label class="field"><span class="sr-only">Search cards</span>
-          <input class="input" type="search" placeholder="Search cards" value={q} onInput={(e) => setQ((e.target as HTMLInputElement).value)} />
+        <div class="filters loose">
+        <label class="field"><span class="label">Search cards</span>
+          <input class="input" type="search" value={q} onInput={(e) => setQ((e.target as HTMLInputElement).value)} />
         </label>
-        <label class="field"><span class="sr-only">Knowledge group</span>
+        <label class="field"><span class="label">Knowledge group</span>
           <select class="input" value={kg} onChange={(e) => { const v = (e.target as HTMLSelectElement).value; navigate(v ? `cards?kg=${v}` : 'cards', true); }}>
             <option value="">All knowledge groups</option>
-            {bp.kgs.map((k) => <option value={k.id}>{k.id}. {k.name}</option>)}
+            {bp.kgs.map((k) => <option value={k.id}>{k.name}</option>)}
           </select>
         </label>
+        </div>
         <p class="small muted" aria-live="polite">{plural(list.length, 'card')}</p>
       </div>
+      <div class="groups">
       {bp.kgs.map((k) => {
         const group = list.filter((c) => c.kg === k.id);
         return group.length > 0 && (
           <div class="section">
-            <h2>{k.id}. {k.name}</h2>
+            <h2>{k.name}</h2>
             <div class="list">
               {group.map((c) => {
                 const e = db.cardSrs[c.id];
@@ -51,6 +56,7 @@ export function CardsHub({ query }: { query: URLSearchParams }) {
           </div>
         );
       })}
+      </div>
     </Page>
   );
 }
@@ -102,10 +108,11 @@ export function CardStudy() {
     const { byKg } = areaAccuracy(ctx.bank, itemStats(db.attempts), 'last');
     const w = (c: Card) => (ctx.bank.blueprint.kgs.find((k) => k.id === c.kg)?.weight ?? 1) * (1 - smooth(byKg[c.kg] ?? { c: 0, n: 0 })) * (0.75 + Math.random() * 0.5);
     const fresh = ctx.bank.cards.filter((c) => !db.cardSrs[c.id]).sort((a, b) => w(b) - w(a));
-    return [...due, ...fresh.slice(0, Math.max(0, 12 - due.length)).map((c) => c.id)].slice(0, 25);
+    return [...due, ...fresh.slice(0, Math.max(0, SESSION - due.length)).map((c) => c.id)].slice(0, 25);
   }, []);
   const [i, setI] = useState(0);
   const [show, setShow] = useState(false);
+  useEffect(() => { if (show) document.getElementById('card-title')?.focus({ preventScroll: true }); }, [show]);
   const c = ctx.bank.cards.find((x) => x.id === queue[i]);
   if (!c) return (
     <Page title="Concept cards" backTo="cards" tabs={false}>

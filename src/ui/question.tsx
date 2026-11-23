@@ -102,7 +102,7 @@ export function ItemMeta({ item }: { item: Item }) {
   return (
     <div class="q-meta">
       <strong>{item.topic}</strong>
-      <span>Domain {item.domain}: {bp.domains.find((d) => d.id === item.domain)?.name} · Group {item.kg}: {bp.kgs.find((k) => k.id === item.kg)?.name}</span>
+      <span>Domain {item.domain}: {bp.domains.find((d) => d.id === item.domain)?.name}<br />Knowledge group {item.kg}: {bp.kgs.find((k) => k.id === item.kg)?.name}</span>
     </div>
   );
 }
@@ -131,7 +131,7 @@ const KINDS = [
   { v: 'other', label: 'Something else' },
 ];
 export function ReportDialog({ itemId, onClose, quiet }: { itemId: string; onClose: () => void; quiet?: boolean }) {
-  const [kind, setKind] = useState('ambiguous');
+  const [kind, setKind] = useState('');
   const [note, setNote] = useState('');
   return (
     <Modal title="Report a problem" onClose={onClose}>
@@ -148,7 +148,7 @@ export function ReportDialog({ itemId, onClose, quiet }: { itemId: string; onClo
       </label>
       <div class="btn-row">
         <button class="btn" onClick={onClose}>Cancel</button>
-        <button class="btn primary" onClick={() => { addReport(itemId, kind, note.trim()); toast('Report saved.'); onClose(); }}>Save report</button>
+        <button class="btn primary" disabled={!kind} onClick={() => { addReport(itemId, kind, note.trim()); toast('Report saved.'); onClose(); }}>Save report</button>
       </div>
     </Modal>
   );

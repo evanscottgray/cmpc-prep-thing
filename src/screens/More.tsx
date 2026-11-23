@@ -14,12 +14,16 @@ import { IcAlert, IcCheck, IcDownload, IcShare, IcX } from '../ui/icons';
 export function More() {
   const db = useDb();
   return (
-    <Page title="More" noBack>
+    <Page title="More" noBack wide>
+      <div class="cols">
+      <div>
       <div class="list">
         <ListLink href="#/settings" title="Settings" sub="Exam date, passing target, mode, text size, theme" />
         <ListLink href="#/backup" title="Backup and restore" sub={db.settings.lastBackupAt ? `Last backup ${fmtDate(ymd(db.settings.lastBackupAt))}` : 'No backup yet'} />
         <ListLink href="#/reports" title="Problem reports" sub={`${db.reports.length} report${db.reports.length === 1 ? '' : 's'} · ${db.hidden.length} hidden item${db.hidden.length === 1 ? '' : 's'}`} />
       </div>
+      </div>
+      <div class="col-tall">
       <div class="section">
         <h2>Reference</h2>
         <div class="list">
@@ -29,12 +33,16 @@ export function More() {
           <ListLink href="#/ref/sources" title="Sources" sub="Every reference cited by items and cards" />
         </div>
       </div>
+      </div>
+      <div>
       <div class="section">
         <h2>App</h2>
         <div class="list">
           <ListLink href="#/onboarding" title="Welcome and Home Screen setup" />
-          <ListLink href="#/about" title="About" sub={`Version ${APP_VERSION} · content ${ctx.bank.version}`} />
+          <ListLink href="#/about" title="About" sub={`Version ${APP_VERSION}`} />
         </div>
+      </div>
+      </div>
       </div>
     </Page>
   );
@@ -55,8 +63,8 @@ export function Settings() {
     navigate('today', true);
   }
   const support: [string, boolean, string][] = [
-    ['Secure context (HTTPS or localhost)', caps.secure, 'Needed for offline mode and the features below.'],
-    ['Offline mode (service worker)', caps.serviceWorker && swStatus === 'active', caps.serviceWorker ? (swStatus === 'active' ? 'App files are cached for offline use.' : 'Registering…') : 'Unavailable at this address — the app works while online.'],
+    ['Secure address (HTTPS)', caps.secure, 'Needed for offline mode and the features below.'],
+    ['Offline mode', caps.serviceWorker && swStatus === 'active', caps.serviceWorker ? (swStatus === 'active' ? 'App files are cached for offline use.' : 'Registering…') : 'Unavailable at this address — the app works while online.'],
     ['Share sheet for files', caps.shareFiles, caps.shareFiles ? 'Backups open the share sheet.' : 'Backups download as a file instead.'],
     ['Keep screen awake', caps.wakeLock && caps.secure, 'Used during timed sessions.'],
     ['Clipboard', caps.clipboard && caps.secure, 'Otherwise a fallback copy method is used.'],
@@ -161,7 +169,7 @@ export function Backup() {
         <label class="btn block" for="restore-file">Choose backup file…</label>
       </div>
       <div class="banner warn" role="note"><IcAlert /><div class="small">
-        <strong>Why back up?</strong> Safari may delete data for websites that aren't added to the Home Screen and haven't been opened for about a week. Each web address (for example, your LAN preview vs. a hosted copy) also keeps separate storage — restore a backup to move progress between them. A weekly backup is a good habit.
+        <strong>Why back up?</strong> Safari may delete data for websites that aren't added to the Home Screen and haven't been opened for about a week. Each web address (for example, a home-network preview and a hosted copy) also keeps separate storage — restore a backup to move progress between them. A weekly backup is a good habit.
       </div></div>
       {pending && ps && (
         <Modal title="Restore this backup?" onClose={() => setPending(null)}>

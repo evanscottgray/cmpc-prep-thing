@@ -60,11 +60,12 @@ export function readiness(bank: Bank, db: DbState) {
   const raw = Math.round(p * 100);
   const lo = Math.max(0, Math.round((p - 1.64 * se) * 100)), hi = Math.min(100, Math.round((p + 1.64 * se) * 100));
   const target = db.settings.rawTarget;
+  const scaledLo = scaledScore(lo, target), scaledHi = scaledScore(hi, target);
   return {
-    n, raw, lo, hi,
-    scaled: scaledScore(raw, target), scaledLo: scaledScore(lo, target), scaledHi: scaledScore(hi, target),
+    n, raw, lo, hi, scaled: scaledScore(raw, target), scaledLo, scaledHi,
     enough: n >= 60,
-    level: n < 60 ? 'Not enough data yet' : raw >= target + 5 ? 'On track' : raw >= target - 3 ? 'Borderline' : 'Needs work',
+    // one rule for the label and its explanation: where the likely range sits against 550
+    level: n < 60 ? 'Not enough data yet' : scaledLo >= 550 ? 'On track' : scaledHi < 550 ? 'Needs work' : 'Borderline',
   };
 }
 
@@ -102,6 +103,8 @@ export function focusAreas(bank: Bank, byKg: Record<string, Acc>, max = 3) {
     .map((k) => ({ ...k, acc: byKg[k.id], need: k.weight * (1 - smooth(byKg[k.id])) }))
     .sort((a, b) => b.need - a.need).slice(0, max);
 }
+
+export const focusLine = (k: { acc: Acc; weight: number }) => `${k.acc.n - k.acc.c} of ${k.acc.n} missed · ${k.weight}% of exam`;
 
 export function examHistory(db: DbState) {
   return Object.values(db.sessions)

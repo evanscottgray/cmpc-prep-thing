@@ -5,10 +5,10 @@ import { examHistory, formTaken, todayCount } from './stats';
 
 export type Action =
   | { kind: 'resume'; session: Session }
-  | { kind: 'setDate' }
   | { kind: 'formA' } | { kind: 'formB' } | { kind: 'mixed' }
   | { kind: 'reviewExam'; session: Session }
   | { kind: 'weak'; count: number }
+  | { kind: 'review'; count: number }
   | { kind: 'light' }
   | { kind: 'done' }
   | { kind: 'passed' };
@@ -37,10 +37,10 @@ export function plan(db: DbState, now = Date.now()): Plan {
   const examDate = db.settings.examDate;
   const daysLeft = examDate ? daysBetween(today, examDate) : null;
   if (active) return { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'resume', session: active }, why: active.pausedAt ? 'The timer is paused.' : 'The timer has kept going while you were away.' };
-  if (daysLeft === null) return { ...base, phase: 'no-date', daysLeft, primary: { kind: 'setDate' }, why: 'Set your exam date so the plan can pace itself.' };
-  if (daysLeft < 0) return { ...base, phase: 'after', daysLeft, primary: { kind: 'passed' }, why: 'Your exam date has passed. Update it in Settings if you have a new date.' };
-  if (daysLeft === 0) return { ...base, phase: 'exam-day', daysLeft, primary: { kind: 'light' }, why: 'Exam day. Skim a few concept cards at most, eat, and arrive early with matching ID.' };
-  if (daysLeft <= 2) return { ...base, phase: 'taper', daysLeft, primary: { kind: 'light' }, why: 'Final days: light review only — concept cards and a short quiz. No full exams.' };
+  const left = daysLeft ?? Infinity; // no date yet: study as if the exam is far off
+  if (left < 0) return { ...base, phase: 'after', daysLeft, primary: { kind: 'passed' }, why: 'Your exam date has passed. Update it in Settings if you have a new date.' };
+  if (left === 0) return { ...base, phase: 'exam-day', daysLeft, primary: { kind: 'light' }, why: 'Exam day. Skim a few concept cards at most, eat, and arrive early with matching ID.' };
+  if (left <= 2) return { ...base, phase: 'taper', daysLeft, primary: { kind: 'light' }, why: 'Final days: light review only — concept cards and a short quiz. No full exams.' };
 
   const history = examHistory(db);
   const last = history[history.length - 1];
@@ -48,21 +48,23 @@ export function plan(db: DbState, now = Date.now()): Plan {
   const tookA = formTaken(db, 'formA'), tookB = formTaken(db, 'formB');
   const mixedThisWeek = history.some((s) => s.kind === 'mixed' && s.submittedAt && daysBetween(ymd(s.submittedAt), examDate!) <= 7);
   const remaining = Math.max(10, db.settings.dailyTarget - answeredToday);
-  const drill = (why: string): Plan => answeredToday >= db.settings.dailyTarget
+  const drill = (why: string): Plan => dueItems >= 10 && answeredToday < db.settings.dailyTarget
+    ? { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'review', count: Math.min(dueItems, 25) }, why: `${dueItems} items you missed or weren't sure of are due. Clear some before drilling new ones.` }
+    : answeredToday >= db.settings.dailyTarget
     ? { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'done' }, why: `Daily target reached (${answeredToday} items). Extra reviews are optional.` }
     : { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'weak', count: Math.min(remaining, 30) }, why };
 
-  if (!tookA) return { ...base, phase: 'diagnostic', daysLeft, primary: { kind: 'formA' }, why: 'Start with Form A as a diagnostic: a full timed exam shows where to focus.' };
+  if (!tookA) return { ...base, phase: daysLeft === null ? 'no-date' : 'diagnostic', daysLeft, primary: { kind: 'formA' }, why: 'Start with Form A as a diagnostic: a full timed exam shows where to focus.' };
   // After any full exam, review it the same/next day before the next big step.
   if (last && lastDay <= 1 && !reviewed(db, last)) return { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'reviewExam', session: last }, why: `Reading the rationales for what you missed is the most useful thing to do after an exam, while it's fresh.` };
   if (lastDay <= 1) return drill('Drill your weakest areas, weighted by the blueprint.');
-  if (daysLeft <= 7) {
-    if (!tookB && daysLeft >= 4) return { ...base, phase: 'final-week', daysLeft, primary: { kind: 'formB' }, why: 'Take Form B now — a fresh, full-length estimate before exam day.' };
+  if (left <= 7) {
+    if (!tookB && left >= 4) return { ...base, phase: 'final-week', daysLeft, primary: { kind: 'formB' }, why: 'Take Form B now — a fresh, full-length estimate before exam day.' };
     if (!mixedThisWeek && lastDay >= 2) return { ...base, phase: 'final-week', daysLeft, primary: { kind: 'mixed' }, why: 'Final week: a mixed exam assembled to the blueprint from your weak areas and unseen items.' };
     return drill('Final week: short weak-area drills and your due reviews.');
   }
   const sinceA = daysSince(db, 'formA', today);
-  if (!tookB && (daysLeft <= 14 || sinceA >= 10) && sinceA >= 3) return { ...base, phase: 'build', daysLeft, primary: { kind: 'formB' }, why: 'Time for Form B: measure progress since your diagnostic.' };
+  if (!tookB && (left <= 14 || sinceA >= 10) && sinceA >= 3) return { ...base, phase: 'build', daysLeft, primary: { kind: 'formB' }, why: 'Time for Form B: measure progress since your diagnostic.' };
   return drill('Drill your weakest areas, weighted by the blueprint.');
 }
 

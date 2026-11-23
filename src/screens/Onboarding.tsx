@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
 import { ctx, useDb } from '../ctx';
-import { navigate } from '../router';
+import { back, navigate } from '../router';
 import { ymd } from '../lib/dates';
 import { requestPersistence } from '../lib/persist';
 import { Page, Stepper } from '../ui/bits';
@@ -15,12 +15,13 @@ export function Onboarding({ step: initial }: { step: number }) {
   useEffect(() => { document.getElementById('onb-h')?.focus(); window.scrollTo(0, 0); }, [step]);
   const caps = ctx.caps;
   function finish() {
+    const again = db.settings.onboarded;
     ctx.store.updateSettings({ examDate: date || null, dailyTarget: target, onboarded: true });
     requestPersistence();
-    navigate('today', true);
+    if (again) back('more'); else navigate('today', true);
   }
   return (
-    <Page title="Welcome" noBack tabs={false}>
+    <Page title="Welcome" noBack={!db.settings.onboarded} backTo="more" tabs={false}>
       <div class="onb">
         <p class="sr-only">Step {step} of 3</p>
         <div class="steps-dots" aria-hidden="true">{[1, 2, 3].map((i) => <span aria-current={i === step ? 'step' : undefined} />)}</div>
@@ -62,12 +63,12 @@ export function Onboarding({ step: initial }: { step: number }) {
             <h2 id="onb-h" tabIndex={-1} style={{ fontSize: '1.5rem' }}>Add it to your Home Screen</h2>
             <p>Installed, the app opens full-screen, works offline, and Safari is far less likely to clear your data.</p>
             <ol class="howto">
-              <li>In Safari, tap <strong>Share</strong> <IcShare class="status-ic" title="Share icon" /> (bottom bar on iPhone, top bar on iPad).</li>
+              <li>In Safari, tap <strong>Share</strong> <IcShare class="status-ic" title="Share icon" /> (bottom bar on iPhone, top bar on iPad). If you don't see it, tap <strong>•••</strong> first.</li>
               <li>Scroll and tap <strong>Add to Home Screen</strong>.</li>
               <li>Tap <strong>Add</strong>, then open CMPC Prep from your Home Screen.</li>
             </ol>
             {caps.standalone && <p class="badge ok">You're running the installed app.</p>}
-            {!caps.secure && <p class="small muted">You're on a plain-HTTP address (like the LAN preview). Offline mode needs HTTPS; everything else works here.</p>}
+            {!caps.secure && <p class="small muted">You're on a plain-HTTP address (a home-network preview). Offline mode needs HTTPS; everything else works here.</p>}
             <div class="banner warn mt" role="note"><IcAlert /><div class="small">
               <strong>Protect your progress.</strong> Safari can delete data for websites that aren't on your Home Screen after about a week without a visit. Each web address also keeps separate data. Back up weekly from More → Backup and restore — the app will remind you.
             </div></div>

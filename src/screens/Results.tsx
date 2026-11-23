@@ -3,7 +3,7 @@ import { ctx, useDb } from '../ctx';
 import { fmtClock, fmtDate, fmtDuration, plural, ymd } from '../lib/dates';
 import { scaledScore } from '../lib/scoring';
 import { missedPositions } from '../lib/actions';
-import { focusAreas } from '../lib/stats';
+import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
 import type { DrillSource } from '../lib/assemble';
 import { useState } from 'preact/hooks';
@@ -65,42 +65,33 @@ export function Results({ session: s }: { session: Session }) {
         <div class="banner warn mt" role="note"><IcAlert /><div><strong>Not a fresh estimate.</strong> {`${s.seenBefore} of ${r.total} items were ones you had already seen.`} Familiar items inflate the score.</div></div>
       )}
 
-      <div class="btn-row mt">
-        {missed.length > 0 && <a class="btn primary" href={`#/review/${s.id}?f=incorrect`}>Review {plural(missed.length, 'miss', 'misses')}</a>}
-        {r.total > 0 && <a class={`btn${missed.length ? '' : ' primary'}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
-        {!full && <a class="btn" href="#/today">Done</a>}
+      <div class="btn-row stack-sm mt">
+        {!s.timed && <a class="btn primary" href="#/today">Done</a>}
+        {missed.length > 0 && <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}?f=incorrect`}>Review {plural(missed.length, 'miss', 'misses')}</a>}
+        {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
+        {s.timed && !full && <a class="btn" href="#/today">Done</a>}
       </div>
       {full && missed.length !== missedScored && <p class="small muted mt">{missedScored} of the {missed.length} misses were scored; {missed.length - missedScored} were unscored trial items.</p>}
 
       {full && focus.length > 0 && (
         <div class="section">
-          <h2>Focus next: most points to gain</h2>
+          <h2>Focus next</h2>
+          <p class="small muted">Knowledge groups with the most points to gain: how often you miss them × their share of the exam.</p>
           <div class="list">
-            {focus.map((k) => <ListLink onClick={() => setPick({ title: `${k.id}. ${k.name}`, src: { type: 'kg', id: k.id } })} title={`${k.id}. ${k.name}`} sub={`${k.acc.n - k.acc.c} of ${k.acc.n} missed · ${k.weight}% of the exam`} right={<span class="badge accent">Drill</span>} />)}
-          </div>
-        </div>
-      )}
-
-      {s.timed && (
-        <div class="section">
-          <h2>Time and pacing</h2>
-          <div class="card stat-grid">
-            <div class="stat"><div class="v">{fmtDuration(r.timeUsedMs)}</div><div class="k">Time used of {fmtDuration(r.durationMs)}</div></div>
-            <div class="stat"><div class="v">{avgSec} s</div><div class="k">Average per item (target {bp.exam.secondsPerItem} s or less)</div></div>
-            <div class="stat"><div class="v">{r.answered}/{r.total}</div><div class="k">Answered</div></div>
-            <div class="stat"><div class="v">{r.flagged.n ? `${r.flagged.c}/${r.flagged.n}` : '—'}</div><div class="k">Flagged items correct</div></div>
+            {focus.map((k) => <ListLink onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} title={k.name} sub={focusLine(k)} right={<span class="badge accent">Drill</span>} />)}
           </div>
         </div>
       )}
       </div>
 
-      <div>
+      <div class="col-tall">
       {full && (
         <div class="section">
           <h2>Percent correct by domain</h2>
           <div class="card bars">
+            <p class="small muted">Tap an area to review its questions. The mark on each bar is your practice target ({target}%).</p>
             {bp.domains.map((d) => <AreaBar label={`${d.id}. ${d.name}`} acc={r.byDomain[d.id]} target={target} href={`#/review/${s.id}?d=${d.id}`} />)}
-            <p class="small muted">Mark on each bar: your practice target ({target}%). Tap an area to review its items. The real score report shows domain percentages only to candidates who don't pass.</p>
+            <p class="small muted">The real score report shows domain percentages only to candidates who don't pass.</p>
           </div>
         </div>
       )}
@@ -109,7 +100,22 @@ export function Results({ session: s }: { session: Session }) {
         <div class="section">
           <h2>By knowledge group{full ? ', lowest first' : ''}</h2>
           <div class="card bars">
-            {kgs.map((k) => <AreaBar label={`${k.id}. ${k.name}`} acc={r.byKg[k.id]} target={target} href={`#/review/${s.id}?k=${k.id}`} />)}
+            <p class="small muted">Tap a group to review its questions.</p>
+            {kgs.map((k) => <AreaBar label={k.name} acc={r.byKg[k.id]} target={target} href={`#/review/${s.id}?k=${k.id}`} />)}
+          </div>
+        </div>
+      )}
+      </div>
+
+      <div>
+      {s.timed && (
+        <div class="section">
+          <h2>Time and pacing</h2>
+          <div class="card stat-grid">
+            <div class="stat"><div class="v">{fmtDuration(r.timeUsedMs)}</div><div class="k">Time used of {fmtDuration(r.durationMs)}</div></div>
+            <div class="stat"><div class="v">{avgSec} s</div><div class="k">Average per item (target {bp.exam.secondsPerItem} s or less)</div></div>
+            <div class="stat"><div class="v">{r.answered}/{r.total}</div><div class="k">Answered</div></div>
+            <div class="stat"><div class="v">{r.flagged.n ? `${r.flagged.c}/${r.flagged.n}` : '—'}</div><div class="k">Flagged items correct</div></div>
           </div>
         </div>
       )}

@@ -59,15 +59,16 @@ export function Meter({ value, label, tick }: { value: number | null; label: str
   );
 }
 
-/** One area of the blueprint: name, percent, count, and a bar against the practice target. */
+/** One area of the blueprint: name, percent, count, and a bar against the practice target. Under four answers it shows only the count. */
 export function AreaBar({ label, sub, acc, target, href, onClick }: { label: string; sub?: string; acc: { c: number; n: number } | undefined; target: number; href?: string; onClick?: () => void }) {
+  const few = !acc || acc.n < 4;
   const p = acc?.n ? Math.round((100 * acc.c) / acc.n) : null;
   const inner = (
     <>
       <span class="bar-label">{label}</span>
-      <span class="bar-val">{p === null ? '—' : `${p}%`}</span>
-      <span class="bar-sub">{[sub, acc?.n ? `${acc.c} of ${acc.n} correct` : 'No answers yet'].filter(Boolean).join(' · ')}{p !== null && p < target && <strong class="below-tag"> · Below target</strong>}</span>
-      <Meter value={p} label={label} tick={target} />
+      <span class="bar-val">{p === null ? '—' : few ? '' : `${p}%`}{(href || onClick) && <IcChevron class="chev" />}</span>
+      <span class="bar-sub">{[sub, acc?.n ? `${acc.c} of ${acc.n} correct` : 'No answers yet'].filter(Boolean).join(' · ')}{!few && p !== null && p < target && <strong class="below-tag"> · Below target</strong>}</span>
+      {!few && <Meter value={p} label={label} tick={target} />}
     </>
   );
   if (href) return <a class="bar-row" href={href}>{inner}</a>;

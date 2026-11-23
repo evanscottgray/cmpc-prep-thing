@@ -51,7 +51,7 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
   // concept cards with spaced review
   await go(page, 'cards');
   await shot(page, '12-cards');
-  await page.getByRole('link', { name: /Study new cards|Review due cards/ }).click();
+  await page.getByRole('link', { name: /Study \d+ new card|Study \d+:|Review \d+ due/ }).click();
   await page.getByRole('button', { name: 'Show card' }).click();
   await expect(page.getByText('On the exam:')).toBeVisible();
   await shot(page, '13-card');

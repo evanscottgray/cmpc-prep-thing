@@ -47,7 +47,7 @@ const NOW = new Date(2026, 2, 1, 12).getTime();
 const withDate = (days: number): DbState => { const db = emptyState(); db.settings.examDate = addDays(ymd(NOW), days); return db; };
 
 describe('Today cadence', () => {
-  it('asks for a date first', () => expect(plan(emptyState(), NOW).primary.kind).toBe('setDate'));
+  it('recommends studying even without a date', () => { const p = plan(emptyState(), NOW); expect(p.primary.kind).toBe('formA'); expect(p.phase).toBe('no-date'); });
   it('starts with Form A as a diagnostic', () => expect(plan(withDate(21), NOW).primary.kind).toBe('formA'));
   it('resumes a running exam above everything else', () => {
     const db = withDate(21);
@@ -66,6 +66,12 @@ describe('Today cadence', () => {
     expect(plan(db, NOW).primary.kind).toBe('weak');
     const db2 = withDate(13); db2.sessions[a.id] = a;
     expect(plan(db2, NOW).primary.kind).toBe('formB');
+  });
+  it('clears a large review queue before drilling new items', () => {
+    const db = withDate(20);
+    const a = exam('formA', NOW - 4 * DAY); db.sessions[a.id] = a;
+    for (let i = 0; i < 40; i++) db.srs[`x${i}`] = { box: 0, due: ymd(NOW), last: NOW - DAY };
+    expect(plan(db, NOW).primary).toEqual({ kind: 'review', count: 25 });
   });
   it('mixed exam in the final week', () => {
     const db = withDate(6);

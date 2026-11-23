@@ -7,7 +7,7 @@ import { inPlay } from '../lib/scoring';
 import { plural } from '../lib/dates';
 import { Page } from '../ui/bits';
 import { ItemMeta, ItemReview, Verdict } from '../ui/question';
-import { IcCheckCircle, IcChevron, IcMinusCircle, IcXCircle } from '../ui/icons';
+import { IcCheck, IcCheckCircle, IcChevron, IcMinusCircle, IcXCircle } from '../ui/icons';
 
 type F = 'all' | 'incorrect' | 'flagged' | 'unscored';
 
@@ -50,8 +50,8 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
   const filters: F[] = isExam ? ['all', 'incorrect', 'flagged', 'unscored'] : ['all', 'incorrect', 'flagged'];
   return (
     <Page title={`Review · ${s.title}`} backTo={`results/${s.id}`}>
-      <div class="chips" role="group" aria-label="Filter">
-        {filters.map((x) => <a class="chip" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }} role="button" aria-pressed={f === x} href={`#/review/${s.id}${qs(query, { f: x === 'all' ? null : x })}`}>{x[0].toUpperCase() + x.slice(1)} {filterPositions(s, query, x).length}</a>)}
+      <div class="chips wrap" role="group" aria-label="Filter">
+        {filters.map((x) => <button class="chip" aria-pressed={f === x} onClick={() => navigate(`review/${s.id}${qs(query, { f: x === 'all' ? null : x })}`, true)}>{x[0].toUpperCase() + x.slice(1)} {filterPositions(s, query, x).length}</button>)}
       </div>
       <div class="filters">
         <label><span class="sr-only">Domain</span>
@@ -62,8 +62,8 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
         </label>
         <label><span class="sr-only">Knowledge group</span>
           <select class="input" value={query.get('k') ?? ''} onChange={(e) => navigate(`review/${s.id}${qs(query, { k: (e.target as HTMLSelectElement).value })}`, true)}>
-            <option value="">All knowledge groups</option>
-            {bp.kgs.map((k) => <option value={k.id}>{k.id}. {k.name}</option>)}
+            <option value="">All groups</option>
+            {bp.kgs.map((k) => <option value={k.id}>{k.name}</option>)}
           </select>
         </label>
       </div>
@@ -74,14 +74,16 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
             const si = s.items[i]; const it = ctx.items.get(si.id)!;
             const resp = s.responses[i]; const ok = resp === it.answer; const skipped = resp === undefined;
             const status = ok ? 'Correct' : skipped ? 'Unanswered' : 'Incorrect';
+            const tags = [(f !== 'incorrect' || skipped) && status, !si.scored && isExam && f !== 'unscored' && 'Unscored', flags.has(i) && f !== 'flagged' && 'Flagged'].filter(Boolean);
             return (
               <a class="list-item" id={`rv-${i}`} href={`#/review/${s.id}/${i}${qs(query, {})}`}>
                 {ok ? <IcCheckCircle class="status-ic ok" /> : skipped ? <IcMinusCircle class="status-ic skip" /> : <IcXCircle class="status-ic bad" />}
                 <span class="li-main">
                   <span class="li-title">{i + 1}. {it.topic}</span>
                   <span class="li-sub clip">{it.stem}</span>
-                  <span class="li-sub" style={{ display: 'block' }}>{status}{!si.scored && isExam ? ' · unscored' : ''}{flags.has(i) ? ' · flagged' : ''}{opened.has(i) ? ' · reviewed' : ''}</span>
+                  {tags.length > 0 && <span class="li-sub" style={{ display: 'block' }}>{tags.join(' · ')}</span>}
                 </span>
+                {opened.has(i) && <span class="badge ok"><IcCheck class="tiny" />Reviewed</span>}
                 <IcChevron class="chev" />
               </a>
             );

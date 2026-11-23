@@ -144,6 +144,7 @@ export function autoSubmitExpired(now = Date.now()): string[] {
 }
 
 export const missedPositions = (s: Session) => s.items.map((_, i) => i).filter((i) => inPlay(s, i) && s.responses[i] !== ctx.items.get(s.items[i].id)?.answer);
+export const nextMiss = (s: Session) => { const o = new Set(s.opened); return missedPositions(s).find((i) => !o.has(i)); };
 export const openedMisses = (s: Session) => { const o = new Set(s.opened); return missedPositions(s).filter((i) => o.has(i)).length; };
 
 export function markReviewed(id: string) {

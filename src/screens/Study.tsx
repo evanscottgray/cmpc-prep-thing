@@ -82,7 +82,7 @@ export function Study() {
           <div class="list">
             {(chooser === 'domain' ? bp.domains : bp.kgs).map((x) => {
               const src: DrillSource = chooser === 'domain' ? { type: 'domain', id: x.id as any } : { type: 'kg', id: x.id as any };
-              return <ListLink onClick={() => { setChooser(null); setPick({ title: `${chooser === 'domain' ? 'Domain' : 'KG'} ${x.id}: ${x.name}`, src }); }} title={`${x.id}. ${x.name}`} sub={`${x.weight}% of the exam · ${count(src)} available`} />;
+              return <ListLink onClick={() => { setChooser(null); setPick({ title: chooser === 'domain' ? `Domain ${x.id}: ${x.name}` : x.name, src }); }} title={chooser === 'domain' ? `${x.id}. ${x.name}` : x.name} sub={`${x.weight}% of the exam · ${count(src)} available`} />;
             })}
           </div>
         </Modal>

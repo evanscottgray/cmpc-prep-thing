@@ -1,6 +1,6 @@
 import { ctx, useDb, useNow } from '../ctx';
 import { navigate } from '../router';
-import { abandon, createSession, markReviewed, missedPositions, openedMisses } from '../lib/actions';
+import { abandon, createSession, markReviewed, missedPositions, nextMiss, openedMisses } from '../lib/actions';
 import { REVIEW_MAX, buildDrill, buildQuiz, buildReview } from '../lib/assemble';
 import { fmtDate, fmtShort, plural, ymd } from '../lib/dates';
 import { plan, type Action } from '../lib/plan';
@@ -29,12 +29,12 @@ export function startQuiz() {
 function Primary({ a, why }: { a: Action; why: string }) {
   const map: Record<string, { eyebrow: string; title: string; cta: string; go: () => void; note?: string; second?: { label: string; go: () => void } }> = {
     resume: { eyebrow: 'In progress', title: a.kind === 'resume' ? `Resume ${a.session.title}` : '', cta: 'Resume', go: () => a.kind === 'resume' && navigate(`s/${a.session.id}`) },
-    setDate: { eyebrow: 'Get started', title: 'Set your exam date', cta: 'Set exam date', go: () => navigate('settings') },
     formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 items · 90 minutes · no breaks' },
     formB: { eyebrow: 'Recommended', title: 'Take Form B', cta: 'Start Form B', go: () => navigate('start/formB'), note: '115 items · 90 minutes · fresh items' },
     mixed: { eyebrow: 'Final week', title: 'Take a mixed exam', cta: 'Start mixed exam', go: () => navigate('start/mixed'), note: '115 items · 90 minutes · blueprint-matched' },
-    reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind === 'reviewExam' && openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : 'Review misses', second: a.kind === 'reviewExam' ? { label: "I'm done reviewing", go: () => markReviewed(a.session.id) } : undefined, go: () => a.kind === 'reviewExam' && navigate(`review/${a.session.id}?f=incorrect`) },
+    reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind === 'reviewExam' && openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : 'Review misses', second: a.kind === 'reviewExam' ? { label: "I'm done reviewing", go: () => markReviewed(a.session.id) } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
     weak: { eyebrow: 'Recommended', title: a.kind === 'weak' ? `Weak-area drill · ${a.count} items` : '', cta: 'Start drill', go: () => a.kind === 'weak' && startWeak(a.count), note: 'Tutor mode: rationale after every answer' },
+    review: { eyebrow: 'Recommended', title: a.kind === 'review' ? `Spaced review · ${a.count} items` : '', cta: 'Start review', go: startReview, note: 'Tutor mode: rationale after every answer' },
     light: { eyebrow: 'Light review', title: 'Concept cards and a short quiz', cta: 'Review concept cards', go: () => navigate('cards/study'), note: 'Keep it light. Rest is part of preparation.' },
     done: { eyebrow: 'Nice work', title: 'Daily target reached', cta: 'Quick quiz (10 items)', go: startQuiz },
     passed: { eyebrow: 'Exam date passed', title: 'Update your exam date', cta: 'Open settings', go: () => navigate('settings') },
@@ -86,15 +86,16 @@ export function Today() {
   const p = plan(db, useNow(60000)); // refreshes after midnight and when the app returns to the foreground
   const s = db.settings;
   const progress = Math.min(100, Math.round((100 * p.answeredToday) / Math.max(1, s.dailyTarget)));
-  const needBackup = db.attempts.length > 0 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
+  const started = db.attempts[0]?.t ?? Infinity;
+  const needBackup = Date.now() - started > 2 * 86400000 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
   const notInstalled = ctx.caps.ios && !ctx.caps.standalone;
   return (
     <Page title="Today" noBack wide>
       <div class="row between" style={{ marginBottom: '1rem' }}>
-        <div>
+        <div class="grow">
           {p.daysLeft !== null && p.daysLeft >= 0
             ? <><div style={{ fontSize: '2rem', fontWeight: 800, lineHeight: 1 }}>{p.daysLeft === 0 ? 'Exam day' : `${p.daysLeft} day${p.daysLeft === 1 ? '' : 's'}`}</div><div class="muted small">{p.daysLeft === 0 ? 'Good luck.' : `until your exam · ${fmtDate(s.examDate!)}`}</div></>
-            : <div class="muted">No exam date set</div>}
+            : <div class="row between"><span class="muted">No exam date set</span><a class="btn small" href="#/settings">Set exam date</a></div>}
         </div>
       </div>
 
@@ -106,11 +107,11 @@ export function Today() {
       </div>
       <div>
 
-      {(p.dueItems > 0 || p.dueCards > 0) && (
+      {((p.dueItems > 0 && p.primary.kind !== 'review') || p.dueCards > 0) && (
         <div class="section">
           <h2>Due reviews</h2>
           <div class="list">
-            {p.dueItems > 0 && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>Missed and uncertain items{p.dueItems > REVIEW_MAX ? `, ${REVIEW_MAX} at a time` : ''}</span></span><span class="badge accent">{p.dueItems} due</span><IcChevron class="chev" /></button>}
+            {p.dueItems > 0 && p.primary.kind !== 'review' && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>Missed and uncertain items{p.dueItems > REVIEW_MAX ? `, ${REVIEW_MAX} at a time` : ''}</span></span><span class="badge accent">{p.dueItems} due</span><IcChevron class="chev" /></button>}
             {p.dueCards > 0 && <a class="list-item" href="#/cards/study"><span class="li-main"><span class="li-title">Concept cards</span><span class="li-sub" style={{ display: 'block' }}>Cards to recall again</span></span><span class="badge accent">{p.dueCards} due</span><IcChevron class="chev" /></a>}
           </div>
         </div>
@@ -121,6 +122,7 @@ export function Today() {
         <div class="card">
           <div class="row between"><span>{p.answeredToday} of {s.dailyTarget} items</span><span class="muted small">{progress}%</span></div>
           <div class="mt" style={{ marginTop: '.5rem' }}><Meter value={progress} label="Daily target" /></div>
+          <p class="small muted" style={{ margin: '.5rem 0 0' }}>Every answer counts: exams, drills, quizzes and reviews.</p>
           <div class="btn-row mt">
             <button class="btn small" onClick={startQuiz}>Quick quiz · 10</button>
             <a class="btn small" href="#/study">More options</a>
@@ -134,10 +136,10 @@ export function Today() {
         <div class="banner warn mt" role="note">
           <IcAlert />
           <div class="grow">
-            <strong>Back up your progress.</strong> <span class="small">{s.lastBackupAt ? "It's been over a week." : "You haven't made a backup yet."} Safari can erase data for sites that aren't on your Home Screen after about a week without a visit.</span>
+            <strong>Back up your progress.</strong> <span class="small">{s.lastBackupAt ? "It's been over a week." : "You haven't made a backup yet."} {ctx.caps.standalone ? 'A backup file protects you if the app is removed or the device is lost.' : "Safari can erase data for sites that aren't on your Home Screen after about a week without a visit."}</span>
             <div class="btn-row" style={{ marginTop: '.6rem' }}>
-              <a class="btn small primary" href="#/backup">Back up now</a>
-              <button class="btn small" onClick={() => ctx.store.updateSettings({ backupSnoozeUntil: Date.now() + WEEK })}>Remind me in a week</button>
+              <a class="btn small" href="#/backup">Back up now</a>
+              <button class="btn small ghost" onClick={() => ctx.store.updateSettings({ backupSnoozeUntil: Date.now() + WEEK })}>Remind me in a week</button>
             </div>
           </div>
         </div>
