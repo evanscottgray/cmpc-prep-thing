@@ -8,7 +8,7 @@ test('installable and fully offline after the first visit on localhost', async (
   const manifest = await page.evaluate(async () => (await fetch(document.querySelector<HTMLLinkElement>('link[rel=manifest]')!.href)).json());
   expect(manifest.display).toBe('standalone');
   expect(manifest.icons.some((i: any) => i.sizes === '512x512')).toBe(true);
-  await page.waitForFunction(async () => !!(await navigator.serviceWorker.getRegistration())?.active, null, { timeout: 30000 });
+  await page.waitForFunction(async () => (await navigator.serviceWorker.getRegistration())?.active?.state === 'activated', null, { timeout: 30000 });
   await page.reload();
   await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 30000 });
   await context.setOffline(true);
@@ -56,7 +56,7 @@ test('works from a project subpath, as on GitHub Pages, including offline and up
   page.on('response', (r) => { if (r.status() >= 400) missing.push(`${r.status()} ${r.url()}`); });
   await page.goto(base.slice(0, -1)); // no trailing slash: redirected
   await expect(page.getByRole('heading', { name: /Prepare for the CMPC/ })).toBeVisible();
-  await page.waitForFunction(async () => !!(await navigator.serviceWorker.getRegistration())?.active, null, { timeout: 30000 });
+  await page.waitForFunction(async () => (await navigator.serviceWorker.getRegistration())?.active?.state === 'activated', null, { timeout: 30000 });
   expect(await page.evaluate(async () => new URL((await navigator.serviceWorker.getRegistration())!.scope).pathname)).toBe('/some-repo/');
   await page.reload();
   await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 30000 });
