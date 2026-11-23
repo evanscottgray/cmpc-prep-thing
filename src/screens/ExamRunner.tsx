@@ -169,7 +169,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
         </button>
         {pos < s.items.length - 1
           ? <button class={`btn next${s.responses[pos] === undefined ? '' : ' primary'}`} onClick={() => goTo(s.id, pos + 1)}>{s.responses[pos] === undefined ? 'Skip' : 'Next'}<IcChevron /></button>
-          : <button class="btn next primary" onClick={() => setNavOpen(true)}>Finish<IcChevron /></button>}
+          : <button class="btn next primary" onClick={endExam}>Finish<IcChevron /></button>}
       </div>
 
       {navOpen && <Navigator s={s} time={hideTimer && !low ? null : fmtClock(remaining)} low={low} onClose={() => setNavOpen(false)} onEnd={endExam} endLabel={isExam ? 'End exam…' : 'Submit…'} />}
@@ -206,6 +206,10 @@ function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; tim
   const positions = s.items.map((_, i) => i).filter((i) => f === 'all' || (f === 'flagged' ? flags.has(i) : s.responses[i] === undefined));
   const answered = Object.keys(s.responses).length;
   useEffect(() => { document.querySelector('.nav-cell.current')?.scrollIntoView({ block: 'center' }); }, []);
+  // fade the bottom edge while more questions sit below
+  const scroller = useRef<HTMLDivElement>(null);
+  const fade = () => { const el = scroller.current; el?.classList.toggle('more', el.scrollTop + el.clientHeight < el.scrollHeight - 4); };
+  useEffect(fade, [f]);
   /** The grid is one Tab stop; arrow keys, Home and End move within it. */
   function gridKeys(e: KeyboardEvent) {
     const cells = [...(e.currentTarget as HTMLElement).querySelectorAll<HTMLButtonElement>('.nav-cell')];
@@ -232,7 +236,7 @@ function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; tim
         <span><i class="swatch current" />Current</span>
       </div>
       {positions.length === 0 ? <p class="muted">Nothing here.</p> : (
-        <div class="nav-scroll"><div class="nav-grid" role="group" aria-label="Questions. Use arrow keys to move." onKeyDown={gridKeys}>
+        <div class="nav-scroll" ref={scroller} onScroll={fade}><div class="nav-grid" role="group" aria-label="Questions. Use arrow keys to move." onKeyDown={gridKeys}>
           {positions.map((i) => {
             const a = s.responses[i] !== undefined, fl = flags.has(i);
             return (

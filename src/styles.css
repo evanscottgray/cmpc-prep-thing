@@ -490,6 +490,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .banner a:not(.btn), .center a:not(.btn) { display: inline-flex; align-items: center; min-height: 44px; }
 .dialog.sheet { display: flex; flex-direction: column; overflow: hidden; }
 .dialog.sheet > * { flex: none; }
+.dialog.sheet > .nav-scroll.more { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent); }
 .dialog.sheet > .nav-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 5px; margin: 0 -5px; }
 .dialog.sheet > .btn-row { margin-top: .9rem; }
 .stem-fold .stem { margin-bottom: 0; }
@@ -514,10 +515,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 
 /* tutor: the confidence toggle sits with Check answer */
 .actionbar .unsure-row { flex: 1 0 100%; margin: 0; min-height: 44px; }
-/* phones held sideways: give the question more of the short screen */
-@media (max-height: 450px) {
-  .exam-bar { padding-top: calc(var(--safe-t) + .1rem); padding-bottom: .1rem; }
-  .exam-pace { display: none; }
-  .exam-foot { padding-top: .3rem; padding-bottom: calc(.3rem + var(--safe-b)); }
-  .exam-foot .btn { min-height: 44px; }
+@media (max-height: 500px) {
+  .actionbar .unsure-row { flex: 1 1 auto; }
+  .actionbar .unsure-row .muted { display: none; }
 }

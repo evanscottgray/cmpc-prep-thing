@@ -43,6 +43,20 @@ for (const size of ['m', 'xl'] as const) {
   });
 }
 
+test('tutor controls stay on screen with a phone held sideways', async ({ page }) => {
+  await onboard(page);
+  for (const [w, h] of [[667, 375], [568, 320]]) {
+    for (const size of ['Default', 'Larger']) {
+      await page.setViewportSize({ width: w, height: h });
+      await go(page, 'settings'); await page.getByRole('radio', { name: size }).check({ force: true });
+      await go(page, 'today');
+      await page.getByRole('button', { name: /^(Resume q|Q)uick quiz/ }).click();
+      for (const name of ['Previous', 'Check answer']) await expect(page.getByRole('button', { name, exact: true })).toBeInViewport({ ratio: 1 });
+      await expect(page.getByLabel(/I'm not sure/)).toBeInViewport();
+    }
+  }
+});
+
 test('runs from a subpath on a static host', async ({ page }) => {
   const root = path.resolve('dist');
   const types: Record<string, string> = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.svg': 'image/svg+xml', '.png': 'image/png' };

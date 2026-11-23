@@ -116,8 +116,9 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const prev = idx > 0 ? positions[idx - 1] : null, next = idx >= 0 && idx < positions.length - 1 ? positions[idx + 1] : null;
   const q = query.toString() ? `?${query}` : '';
   const isExam = ['formA', 'formB', 'mixed'].includes(s.kind);
+  const toList = () => { if (listBelow.delete(s.id)) back(); else navigate(`review/${s.id}${q}`, true); };
   return (
-    <Page title={`Question ${pos + 1}`} onBack={() => { if (listBelow.delete(s.id)) back(); else navigate(`review/${s.id}${q}`, true); }} tabs={false}>
+    <Page title={`Question ${pos + 1}`} onBack={toList} tabs={false}>
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>{idx + 1} of {positions.length} in this view</span>
         <span>{[!si.scored && isExam && 'Unscored trial question', s.flags.includes(pos) && 'Flagged'].filter(Boolean).join(' · ')}</span>
@@ -128,7 +129,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
       <ItemMeta item={it} />
       <div class="actionbar">
         <button class="btn" disabled={prev === null} onClick={() => prev !== null && navigate(`review/${s.id}/${prev}${q}`, true)}>Previous</button>
-        <button class="btn primary" onClick={() => (next === null ? back(`review/${s.id}${q}`) : navigate(`review/${s.id}/${next}${q}`, true))}>{next === null ? 'Done' : 'Next'}</button>
+        <button class="btn primary" onClick={() => (next === null ? toList() : navigate(`review/${s.id}/${next}${q}`, true))}>{next === null ? 'Back to list' : 'Next'}</button>
       </div>
     </Page>
   );
