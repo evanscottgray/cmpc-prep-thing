@@ -3,7 +3,7 @@ import { useEffect, useLayoutEffect, useState } from 'preact/hooks';
 import { back, takeRestore } from '../router';
 import { IcBack, IcCards, IcChevron, IcMore, IcProgress, IcStudy, IcToday } from './icons';
 
-export function TopBar({ title, backTo, onBack, right, noBack }: { title: string; backTo?: string; onBack?: () => void; right?: ComponentChildren; noBack?: boolean }) {
+export function TopBar({ title, backTo, onBack, right, noBack, narrow }: { title: string; backTo?: string; onBack?: () => void; right?: ComponentChildren; noBack?: boolean; narrow?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 4);
@@ -12,7 +12,7 @@ export function TopBar({ title, backTo, onBack, right, noBack }: { title: string
   }, []);
   useEffect(() => { document.title = `${title} · CMPC Prep`; }, [title]);
   return (
-    <header class={`topbar${scrolled ? ' scrolled' : ''}`}>
+    <header class={`topbar${scrolled ? ' scrolled' : ''}${narrow ? ' narrow' : ''}`}>
       <div class="side">{!noBack && <button class="icon-btn" onClick={() => (onBack ? onBack() : back(backTo))} aria-label="Back"><IcBack /><span class="small">Back</span></button>}</div>
       <h1 tabIndex={-1}>{title}</h1>
       <div class="side right">{right}</div>
@@ -25,7 +25,7 @@ export function Page({ title, children, backTo, onBack, right, noBack, tabs = tr
   useEffect(() => { document.querySelector<HTMLElement>('.topbar h1')?.focus({ preventScroll: true }); }, [title]);
   return (
     <>
-      <TopBar title={title} backTo={backTo} onBack={onBack} right={right} noBack={noBack} />
+      <TopBar title={title} backTo={backTo} onBack={onBack} right={right} noBack={noBack} narrow={!tabs && !wide} />
       <main class={`page${tabs ? '' : ' notabs'}${wide ? ' wide' : ''}`} id="main" tabIndex={-1}>{children}</main>
     </>
   );

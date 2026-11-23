@@ -61,11 +61,6 @@ export function ExamIntro({ kind }: { kind: Kind }) {
         </div>
       ) : (
         <>
-          <div class="section" style={{ marginTop: 0, marginBottom: '.25rem' }}>
-            <h2>Mode</h2>
-            <Seg name="mode" label="Exam mode" value={mode} onChange={setMode} options={[{ v: 'strict', label: 'Strict' }, { v: 'coached', label: 'Coached' }]} />
-            <p class="small muted mt">{mode === 'strict' ? 'Strict: no pausing — like the real exam. Recommended.' : 'Coached: you can pause, and a pacing line shows where you are against ~47 s per question.'}</p>
-          </div>
           <div class="card">
             {full ? (
               <>
@@ -96,6 +91,11 @@ export function ExamIntro({ kind }: { kind: Kind }) {
             <div class="banner warn mt" role="note"><IcAlert /><div><strong>Partly seen.</strong> You opened {opened} of these questions in an attempt you discarded, so this score is <strong>not a fresh estimate</strong>.</div></div>
           )}
           {kind === 'mixed' && <p class="small muted mt">If it includes questions you've already seen, the score report will say so.</p>}
+          <div class="section" >
+            <h2>Mode</h2>
+            <Seg name="mode" label="Exam mode" value={mode} onChange={setMode} options={[{ v: 'strict', label: 'Strict' }, { v: 'coached', label: 'Coached' }]} />
+            <p class="small muted mt">{mode === 'strict' ? 'Strict: no pausing — like the real exam. Recommended.' : 'Coached: you can pause, and a pacing line shows where you are against ~47 s per question.'}</p>
+          </div>
           <p class="small muted center mt">Find a quiet place{full ? ' with 90 uninterrupted minutes' : ''}. The screen stays awake where supported.</p>
         </>
       )}

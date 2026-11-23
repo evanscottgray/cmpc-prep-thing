@@ -75,8 +75,9 @@ test('two tabs do not overwrite each other', async ({ page, context }) => {
   const b = await context.newPage();
   await b.goto('./#/reports'); await expect(b.getByRole('heading', { name: 'Problem reports' })).toBeVisible();
   for (const tab of [page, b]) {
-    await go(tab, 'today'); await tab.getByRole('button', { name: /Quick quiz · 10|Resume quick quiz/ }).click();
-    if (tab === b) await tab.getByRole('button', { name: 'Next question' }).click(); // the second tab resumes the first tab's quiz
+    await go(tab, 'today');
+    if (tab === page) await tab.getByRole('button', { name: 'Quick quiz · 10' }).click();
+    else { await tab.getByRole('link', { name: /Quick quiz.*Resume/ }).click(); await tab.getByRole('button', { name: 'Next question' }).click(); } // the second tab resumes the first tab's quiz
     await optionLabels(tab).nth(0).click(); await tab.getByRole('button', { name: 'Check answer' }).click();
     await expect(tab.locator('#verdict')).toBeVisible(); await tab.waitForTimeout(600);
   }

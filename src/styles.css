@@ -348,7 +348,7 @@ main.page.notabs:has(> .actionbar) > :nth-last-child(2) { margin-bottom: 1.25rem
 .exam-foot .count { font-size: .78rem; }
   .exam-foot { gap: .4rem; }
 }
-@media (max-width: 430px) { :root[data-size="xl"] .exam-foot .next svg, :root[data-size="xl"] .exam-foot .nav svg { display: none; } :root[data-size="xl"] .exam-foot .prev { flex-basis: 44px; } :root[data-size="xl"] .exam-foot .flag-btn { flex-basis: 2.9rem; } :root[data-size="xl"] .exam-foot .next { flex: 0 0 4.3rem; } :root[data-size="xl"] .exam-foot .nav .two { font-size: .72rem; } :root[data-size="xl"] .exam-foot .count { font-size: .64rem; } :root[data-size="xl"] .exam-bar .qw { display: none; } }
+@media (max-width: 430px) { :root[data-size="xl"] .exam-foot .next svg, :root[data-size="xl"] .exam-foot .nav svg { display: none; } :root[data-size="xl"] .exam-foot .prev { flex-basis: 44px; } :root[data-size="xl"] .exam-foot .flag-btn { flex-basis: 2.9rem; } :root[data-size="xl"] .exam-foot .next { flex: 0 0 4.3rem; } :root[data-size="xl"] .exam-foot .nav .two { font-size: .72rem; } :root[data-size="xl"] .exam-foot .count { font-size: .72rem; } :root[data-size="xl"] .exam-bar .qw { display: none; } }
 @media (max-height: 480px) {
   .exam-bar { padding-top: 0; padding-bottom: 0; }
   .exam-foot { padding-top: .25rem; padding-bottom: calc(.25rem + var(--safe-b)); }
@@ -448,6 +448,9 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 
 @media (min-width: 700px) {
   .btn.cap { max-width: 380px; }
+  .cards-hero { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .cards-hero .btn.cap { margin-top: 0; width: auto; }
+  .topbar.narrow { padding-left: max(calc(1rem + var(--safe-l)), calc((100% - 760px) / 2 + 1rem)); padding-right: max(calc(1rem + var(--safe-r)), calc((100% - 760px) / 2 + 1rem)); }
   .exam-body { padding-top: 1.75rem; }
   .stem { font-size: 1.2rem; }
   .opts { font-size: 1.05rem; }

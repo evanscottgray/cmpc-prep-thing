@@ -123,7 +123,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
     if (ok) navigate('today');
   }
 
-  const firstTime = pos === 0 && strikeHint();
+  const firstTime = pos === 0 && strikeHint(true);
 
   return (
     <>

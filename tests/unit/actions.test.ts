@@ -5,7 +5,7 @@ import { Store, emptyState } from '../../src/lib/store';
 import { abandon, autoSubmitExpired, choose, createSession, pause, resume, startSession, submit, toggleFlag, toggleStrike, goTo } from '../../src/lib/actions';
 import { buildForm, buildMixed } from '../../src/lib/assemble';
 import { dueIds } from '../../src/lib/srs';
-import { availableItems } from '../../src/lib/stats';
+import { availableItems, todayCount } from '../../src/lib/stats';
 import { loadBank } from './helpers';
 
 const bank = loadBank();
@@ -21,6 +21,13 @@ const S = (id: string) => ctx.store.state.sessions[id];
 const key = (id: string, pos: number) => ctx.items.get(S(id).items[pos].id)!.answer;
 
 describe('exam lifecycle', () => {
+  it('counts only answered questions toward the daily goal', () => {
+    const id = start(); const now = Date.now();
+    for (let p = 0; p < 10; p++) choose(id, p, key(id, p));
+    submit(id, false, now);
+    expect(ctx.store.state.attempts).toHaveLength(115);
+    expect(todayCount(ctx.store.state, now)).toBe(10);
+  });
   it('scores a perfect paper as 100/100 and records all 115 attempts once', () => {
     const id = start();
     for (let p = 0; p < 115; p++) choose(id, p, key(id, p));

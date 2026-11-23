@@ -61,7 +61,7 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
   // progress
   await go(page, 'progress');
   await expect(page.getByText('Readiness estimate', { exact: true })).toBeVisible();
-  await expect(page.getByText('Domain mastery')).toBeVisible();
+  await expect(page.getByText('Domain accuracy (latest answers)')).toBeVisible();
   await shot(page, '14-progress');
 
   // reference screens carry the verify label
@@ -93,7 +93,7 @@ test('Back returns to the same place, and a drill can be left and resumed', asyn
   await optionLabels(page).nth(1).click();
   await page.getByRole('button', { name: 'Check answer' }).click();
   await page.getByRole('button', { name: 'Back' }).click();
-  await page.getByRole('button', { name: 'Resume quick quiz' }).click();
+  await page.getByRole('link', { name: /Quick quiz.*Resume/ }).click();
   await expect(page.locator('#verdict')).toBeVisible();
 });
 

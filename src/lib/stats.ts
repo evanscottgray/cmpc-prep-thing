@@ -85,7 +85,7 @@ export function cellWeakness(bank: Bank, stats: Map<string, ItemStat>): Map<stri
 export function todayCount(db: DbState, now = Date.now()): number {
   const start = new Date(now); start.setHours(0, 0, 0, 0);
   const t0 = start.getTime();
-  let n = 0; for (let i = db.attempts.length - 1; i >= 0; i--) { if (db.attempts[i].t < t0) break; n++; }
+  let n = 0; for (let i = db.attempts.length - 1; i >= 0; i--) { if (db.attempts[i].t < t0) break; if (!db.attempts[i].na) n++; }
   return n;
 }
 

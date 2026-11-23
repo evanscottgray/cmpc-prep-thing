@@ -19,7 +19,13 @@ export function TutorRunner({ session: s }: { session: Session }) {
   const correct = s.revealed.filter((p) => s.responses[p] === ctx.items.get(s.items[p].id)?.answer).length;
 
   useEffect(() => { window.scrollTo(0, 0); document.querySelector<HTMLElement>('#q-stem')?.focus({ preventScroll: true }); }, [pos]);
-  useEffect(() => { if (revealed) { window.scrollTo(0, 0); document.querySelector<HTMLElement>('#verdict')?.focus({ preventScroll: true }); } }, [revealed]);
+  useEffect(() => { if (revealed) {
+    window.scrollTo(0, 0);
+    const v = document.querySelector<HTMLElement>('#verdict'); if (!v) return;
+    v.focus({ preventScroll: true });
+    const bar = document.querySelector('.actionbar')?.getBoundingClientRect().top ?? innerHeight;
+    if (v.getBoundingClientRect().bottom > bar - 8) v.scrollIntoView({ block: 'center' }); // keep the result visible above the action bar
+  } }, [revealed]);
 
   function finish() {
     finishTutor(s.id);
@@ -51,7 +57,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
         <>
           <OptionList item={item} si={si} name={`t${s.id}-${pos}`} selected={resp} struck={s.strikes[pos] ?? []}
             onChoose={(o) => choose(s.id, pos, o)} onStrike={(o) => toggleStrike(s.id, pos, o)} />
-          {pos === 0 && strikeHint() && <StrikeHint />}
+          {pos === 0 && strikeHint(false) && <StrikeHint />}
           <ItemActions item={item} />
         </>
       ) : (

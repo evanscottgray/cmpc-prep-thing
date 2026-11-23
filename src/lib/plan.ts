@@ -43,7 +43,7 @@ export function plan(db: DbState, now = Date.now()): Plan {
   const left = daysLeft ?? Infinity; // no date yet: study as if the exam is far off
   if (left < 0) return { ...base, phase: 'after', daysLeft, primary: { kind: 'passed' }, why: 'Your exam date has passed. Update it in Settings if you have a new date.' };
   if (left === 0) return { ...base, phase: 'exam-day', daysLeft, primary: { kind: 'light' }, why: 'Exam day. Skim a few concept cards at most, eat, and arrive early with matching ID.' };
-  if (left <= 2) return { ...base, phase: 'taper', daysLeft, primary: { kind: 'light' }, why: 'Final days: light review only — concept cards and a short quiz. No full exams.' };
+  if (left <= 2) return { ...base, phase: 'taper', daysLeft, primary: { kind: 'light' }, why: 'No full exams now. Rest is part of preparation.' };
 
   const history = examHistory(db);
   const last = history[history.length - 1];
@@ -57,7 +57,7 @@ export function plan(db: DbState, now = Date.now()): Plan {
     ? { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'done' }, why: `Daily target reached (${answeredToday} questions). Extra reviews are optional.` }
     : { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'weak', count: Math.min(remaining, 30) }, why };
 
-  if (!tookA) return { ...base, phase: daysLeft === null ? 'no-date' : 'diagnostic', daysLeft, primary: { kind: 'formA' }, why: 'Start with Form A as a diagnostic: a full timed exam shows where to focus.' };
+  if (!tookA) return { ...base, phase: daysLeft === null ? 'no-date' : 'diagnostic', daysLeft, primary: { kind: 'formA' }, why: 'A full timed run shows where you stand and which areas to drill first.' };
   // After any full exam, review it the same/next day before the next big step.
   if (last && lastDay <= 1 && !reviewed(db, last)) return { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'reviewExam', session: last }, why: `Reading the rationales for what you missed is the most useful thing to do after an exam, while it's fresh.` };
   if (lastDay <= 1) return drill('Drill your weakest areas, weighted by the blueprint.');

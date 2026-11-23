@@ -51,6 +51,7 @@ export interface Attempt {
   ms?: number;          // time spent on item
   unsure?: boolean;
   s?: string;           // session id
+  na?: boolean;         // left unanswered in a timed session (scored wrong, not counted as studied)
 }
 
 export type SessionKind = 'formA' | 'formB' | 'mixed' | 'block' | 'timed' | 'drill' | 'quiz' | 'review';

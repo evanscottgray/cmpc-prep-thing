@@ -38,7 +38,7 @@ function Primary({ a, why }: { a: Action; why: string }) {
     reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind !== 'reviewExam' ? '' : openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : `Review ${plural(missedPositions(a.session).length, 'miss', 'misses')}`, second: a.kind === 'reviewExam' ? { label: openedMisses(a.session) ? "I'm done reviewing" : 'Skip this review', go: () => markReviewed(a.session.id) } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
     weak: { eyebrow: 'Recommended', title: a.kind === 'weak' ? `Weak-area drill · ${a.count} questions` : '', cta: 'Start drill', go: () => a.kind === 'weak' && startWeak(a.count), note: 'Tutor mode: rationale after every answer' },
     review: { eyebrow: 'Recommended', title: a.kind === 'review' ? `Spaced review · ${a.count} questions` : '', cta: 'Start review', go: startReview, note: 'Tutor mode: rationale after every answer' },
-    light: { eyebrow: 'Light review', title: 'Concept cards and a short quiz', cta: Object.keys(ctx.store.state.cardSrs).length ? 'Review cards you know' : 'Skim concept cards', go: () => navigate('cards/study'), note: 'Keep it light. Rest is part of preparation.', second: { label: 'Exam-day notes', go: () => navigate('ref/examday') } },
+    light: { eyebrow: 'Final days', title: 'Light review', cta: Object.keys(ctx.store.state.cardSrs).length ? 'Review cards you know' : 'Skim concept cards', go: () => navigate(Object.keys(ctx.store.state.cardSrs).length ? 'cards/study' : 'cards'), second: { label: 'Exam-day notes', go: () => navigate('ref/examday') } },
     done: { eyebrow: 'Nice work', title: 'Daily target reached', cta: 'Quick quiz (10 questions)', go: startQuiz },
     passed: { eyebrow: 'Exam date passed', title: 'Update your exam date', cta: 'Open settings', go: () => navigate('settings') },
   };
@@ -141,7 +141,7 @@ export function Today() {
           <div class="mt" style={{ marginTop: '.5rem' }}><Meter value={progress} label="Daily target" /></div>
           <p class="small muted" style={{ margin: '.5rem 0 0' }}>Counts every question you answer, including spaced review.</p>
           <div class="btn-row mt">
-            <button class="btn small" onClick={startQuiz}>{openQuiz() ? 'Resume quick quiz' : 'Quick quiz · 10'}</button>
+            {openQuiz() ? <button class="btn small" onClick={() => startWeak(10)}>Short drill · 10</button> : <button class="btn small" onClick={startQuiz}>Quick quiz · 10</button>}
             <a class="btn small" href="#/study">More options</a>
           </div>
         </div>

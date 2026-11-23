@@ -26,7 +26,7 @@ export function OptionList({ item, si, name, selected, struck, onChoose, onStrik
               <span class="otext"><span class="sr-only">{LET[d]}. {st ? '(struck out) ' : ''}</span>{item.options[orig]}</span>
             </label>
             {allowStrike && onStrike && (
-              <button type="button" class="strike" aria-pressed={st} aria-label={`${st ? 'Restore' : 'Strike out'} option ${LET[d]}`} onClick={() => onStrike(orig)} disabled={disabled}>
+              <button type="button" class="strike" aria-pressed={st} aria-label={`${st ? 'Restore' : 'Strike out'} option ${LET[d]}`} onClick={() => { if (sel && !st) toast('Answer cleared.'); onStrike(orig); }} disabled={disabled}>
                 <IcStrike />
               </button>
             )}
@@ -110,8 +110,9 @@ export function ItemReview({ item, si, response, showActions = true }: { item: I
 }
 
 /** Explain the strike-out button until it has been used once. */
-export const strikeHint = () => !Object.values(ctx.store.state.sessions).some((s) => Object.keys(s.strikes).length > 0);
-export const StrikeHint = () => <p class="strike-hint"><IcStrike /> crosses out an option. Tap it again to restore it.</p>;
+/** Shown until strike-out has been used once in this kind of session (timed or tutor). */
+export const strikeHint = (timed: boolean) => !Object.values(ctx.store.state.sessions).some((s) => s.timed === timed && Object.keys(s.strikes).length > 0);
+export const StrikeHint = () => <p class="strike-hint"><IcStrike /> crosses out an option. Tap it again to restore it. Crossing out your chosen answer clears it.</p>;
 
 export function References({ ids }: { ids: string[] }) {
   return (

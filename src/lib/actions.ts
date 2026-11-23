@@ -125,7 +125,7 @@ export function submit(id: string, auto = false, now = Date.now()) {
     const item = ctx.items.get(si.id); if (!item) return;
     const resp = s.responses[pos];
     const ok = resp !== undefined && resp === item.answer;
-    attempts.push({ i: si.id, t: end, ok, src: SRC[s.kind], ms: timeOnItem[pos] || 0, unsure: flags.has(pos) || undefined, s: s.id });
+    attempts.push({ i: si.id, t: end, ok, src: SRC[s.kind], ms: timeOnItem[pos] || 0, unsure: flags.has(pos) || undefined, s: s.id, na: resp === undefined || undefined });
     if (!ok) grades.push({ id: si.id, grade: 'wrong' });
     else if (flags.has(pos)) grades.push({ id: si.id, grade: 'unsure' });
     else if (ctx.store.state.srs[si.id]) grades.push({ id: si.id, grade: 'right' });

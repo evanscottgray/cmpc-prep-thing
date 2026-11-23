@@ -24,14 +24,14 @@ export function CardsHub({ query }: { query: URLSearchParams }) {
   const list = ctx.bank.cards.filter((c) => (!kg || c.kg === kg) && (!needle || `${c.title} ${c.body.join(' ')} ${(c.points ?? []).join(' ')}`.toLowerCase().includes(needle)));
   return (
     <Page title="Concept cards" noBack wide>
-      <div class="card hero">
+      <div class="card hero cards-hero">
         <div class="row between"><div><div style={{ fontSize: '1.6rem', fontWeight: 800 }}>{due ? `${due} due today` : fresh ? `${plural(fresh, 'new card')} to learn` : 'All caught up'}</div><div class="muted small">{due && fresh ? `${plural(fresh, 'card')} not yet studied` : fresh ? `${SESSION} at a time. Recall first, then check yourself.` : 'You have studied every card at least once.'}</div></div></div>
         {(due > 0 || fresh > 0) && <a class="btn primary block mt cap" href="#/cards/study">{due > 0 && add > 0 ? `Study ${size}: ${due} due, ${add} new` : due ? `Review ${plural(size, 'due card')}` : `Study ${plural(add, 'new card')}`}</a>}
       </div>
       <div class="section">
         <div class="filters loose">
         <label class="field"><span class="label">Search cards</span>
-          <input class="input" type="search" value={q} onInput={(e) => set({ q: (e.target as HTMLInputElement).value })} />
+          <input class="input" type="search" placeholder={`Search ${ctx.bank.cards.length} cards`} value={q} onInput={(e) => set({ q: (e.target as HTMLInputElement).value })} />
         </label>
         <label class="field"><span class="label">Knowledge group</span>
           <select class="input" value={kg} onChange={(e) => set({ kg: (e.target as HTMLSelectElement).value })}>

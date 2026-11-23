@@ -48,14 +48,14 @@ export function Results({ session: s }: { session: Session }) {
             {pass ? <IcCheckCircle /> : <IcXCircle />}<span>{pass ? 'Pass (estimated)' : 'Did not pass (estimated)'}</span>
           </div>
           <p class="small muted" style={{ margin: '.25rem 0 0' }}>
-            {gap === 0 ? 'Exactly at' : `${Math.abs(gap)} ${gap > 0 ? 'above' : 'below'}`} your practice target of {target}{Math.abs(gap) <= 3 ? ': close enough to go either way' : ''}, which the app maps to 550. {s.submittedAt ? `Taken ${fmtDate(ymd(s.submittedAt))}.` : ''}
+            {r.raw}/100 is {gap === 0 ? 'exactly your practice target' : `${Math.abs(gap)} ${gap > 0 ? 'above' : 'below'} your practice target of ${target}`}, which the app places at 550.{Math.abs(gap) <= 3 ? ' Close enough to go either way.' : ''} {s.submittedAt ? `Taken ${fmtDate(ymd(s.submittedAt))}.` : ''}
           </p>
           {missed.length !== missedScored && <p class="small muted" style={{ margin: '.5rem 0 0' }}>{missedScored} of your {missed.length} misses were scored; {missed.length - missedScored} were unscored trial questions.</p>}
           {s.autoSubmitted && <p class="small mt" style={{ marginBottom: 0 }}><strong>Time ran out</strong> — submitted automatically.</p>}
         </div>
       ) : (
         <div class="card hero">
-          <div class="eyebrow">{s.label ?? s.title}</div>
+          <div class="eyebrow">{s.title}{s.label ? ` · ${s.label}` : ''}</div>
           <div class="score-line first">
             <div><div class="v">{r.correctAll}<span class="of">/{r.total}</span></div><div class="k">correct{r.total ? ` · ${Math.round((100 * r.correctAll) / r.total)}%` : ''}</div></div>
             {s.timed && <div><div class="v">{fmtClock(r.timeUsedMs)}</div><div class="k">of {fmtClock(r.durationMs)} used</div></div>}
@@ -117,7 +117,7 @@ export function Results({ session: s }: { session: Session }) {
             <div class="stat"><div class="v">{fmtDuration(r.timeUsedMs)}</div><div class="k">Time used of {fmtDuration(r.durationMs)}</div></div>
             <div class="stat"><div class="v">{avgSec === null ? '—' : `${avgSec} s`}</div><div class="k">Average per question opened (target {bp.exam.secondsPerItem} s or less)</div></div>
             <div class="stat"><div class="v">{r.answered}/{r.total}</div><div class="k">Answered</div></div>
-            <div class="stat"><div class="v">{r.flagged.n ? `${r.flagged.c}/${r.flagged.n}` : '—'}</div><div class="k">Flagged questions correct</div></div>
+            <div class="stat"><div class="v">{r.flagged.n ? `${r.flagged.c}/${r.flagged.n}` : '—'}</div><div class="k">Correct among questions you flagged</div></div>
           </div>
         </div>
       )}

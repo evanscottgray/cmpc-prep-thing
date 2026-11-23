@@ -67,12 +67,12 @@ export function Progress() {
             <p class="ready"><span class={`badge big ${r.level === 'On track' ? 'ok' : r.level === 'Borderline' ? 'warn' : 'bad'}`}>{r.level}</span></p>
             <div class="score-line first">
               <div><div class="v">{r.scaled}</div><div class="k">Estimated scaled score, <span class="keep">likely {r.scaledLo}–{r.scaledHi}</span></div></div>
-              <div><div class="v">{r.raw}%</div><div class="k">First-try accuracy, blueprint-weighted</div></div>
+              <div><div class="v">{r.raw}%</div><div class="k">Accuracy on first tries, weighted by the exam blueprint</div></div>
             </div>
             <p class="small" style={{ margin: '.6rem 0' }}>{range}</p>
           </>
         ) : <p>Answer at least 60 questions (a full exam is ideal) to get an estimate. So far: {r.n}.</p>}
-        <p class="small muted" style={{ marginBottom: 0 }}>An estimate, not a prediction. It maps your practice target ({target}/100) to 550; the real exam's cut score isn't published.</p>
+        <p class="small muted" style={{ marginBottom: 0 }}>An estimate, not a prediction. It maps your practice target ({target}/100) to 550; AASP doesn't publish the raw passing score.</p>
       </div>
 
       {focus.length > 0 && (
@@ -93,7 +93,7 @@ export function Progress() {
             <div class="list mt">
               {exams.slice().reverse().map((s) => {
                 const v = scoreOf(s, target);
-                return <ListLink href={`#/results/${s.id}`} title={s.title} sub={`${fmtShort(s.submittedAt!)} · ${s.result!.raw}/${s.result!.scoredCount}${s.retake ? ' · retake' : ''}`} right={<span class={`badge ${v >= 550 ? 'ok' : 'bad'}`}>{v >= 550 ? 'Pass' : 'Not passing'} · est. {v}</span>} />;
+                return <ListLink href={`#/results/${s.id}`} title={s.title} sub={`${fmtShort(s.submittedAt!)} · ${s.result!.raw}/${s.result!.scoredCount}${s.retake ? ' · retake' : ''}`} right={<span class={`badge ${v >= 550 ? 'ok' : 'bad'}`}>{v >= 550 ? 'Pass' : 'Did not pass'} (est.) · {v}</span>} />;
               })}
             </div>
           </>
@@ -103,11 +103,11 @@ export function Progress() {
 
       <div class="col-tall">
       <div class="section">
-        <h2>Domain mastery (latest answers)</h2>
+        <h2>Domain accuracy (latest answers)</h2>
         <div class="card bars">
           {any ? (
             <>
-              <p class="small muted">Can run ahead of the first-try readiness estimate. The mark on each bar is your practice target ({target}%).</p>
+              <p class="small muted">Based on your latest answer to each question, so usually higher than the first-try accuracy behind the estimate above. The mark on each bar is your practice target ({target}%).</p>
               {bank.blueprint.domains.map((d) => <AreaBar label={`${d.id}. ${d.name}`} sub={`${d.weight}% of exam`} acc={last.byDomain[d.id]} target={target} verb="Drill" onClick={() => setPick({ title: `${d.id}. ${d.name}`, src: { type: 'domain', id: d.id } })} />)}
             </>
           ) : <p class="muted" style={{ margin: 0 }}>No answers yet. Your accuracy in each area appears here as you study.</p>}
