@@ -232,7 +232,7 @@ function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; tim
       <div class="nav-legend" aria-hidden="true">
         <span><i class="swatch answered" />Answered</span>
         <span><i class="swatch" />Unanswered</span>
-        <span><IcFlagFill class="status-ic warn" />Flagged</span>
+        <span><i class="swatch flagged"><IcFlagFill /></i>Flagged</span>
         <span><i class="swatch current" />Current</span>
       </div>
       {positions.length === 0 ? <p class="muted">Nothing here.</p> : (

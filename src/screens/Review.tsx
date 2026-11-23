@@ -7,7 +7,7 @@ import { inPlay } from '../lib/scoring';
 import { plural } from '../lib/dates';
 import { Page } from '../ui/bits';
 import { ItemMeta, ItemReview, StemFold, Verdict } from '../ui/question';
-import { IcCheck, IcCheckCircle, IcChevron, IcMinusCircle, IcXCircle } from '../ui/icons';
+import { IcCheckCircle, IcChevron, IcMinusCircle, IcXCircle } from '../ui/icons';
 
 type F = 'all' | 'incorrect' | 'flagged' | 'unscored';
 
@@ -94,7 +94,7 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
                 <span class="li-main">
                   <span class="li-title">{i + 1}. {it.topic}</span>
                   <span class="li-sub clip">{it.stem}</span>
-                  <span class="li-sub" style={{ display: 'block' }}>{group}{tags.map((t) => <>{'\u00a0· '}<span class="keep">{t}</span></>)}{opened.has(i) && <span class="opened"> <IcCheck class="tiny" />Opened</span>}</span>
+                  <span class="li-sub" style={{ display: 'block' }}>{group}{tags.map((t) => <>{'\u00a0· '}<span class="keep">{t}</span></>)}{opened.has(i) && <span class="opened">{'\u00a0· Opened'}</span>}</span>
                 </span>
                 <IcChevron class="chev" />
               </a>
