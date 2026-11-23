@@ -72,13 +72,13 @@ export function Results({ session: s }: { session: Session }) {
         {!s.timed && <a class="btn primary" href="#/today">Done</a>}
         {missed.length > 0 && <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}?f=incorrect`}>Review {plural(missed.length, 'miss', 'misses')}</a>}
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
-        {s.timed && !full && <a class="btn" href="#/today">Done</a>}
+        {s.timed && <a class="btn" href="#/today">{full ? 'Back to Today' : 'Done'}</a>}
       </div>
 
       {full && focus.length > 0 && (
         <div class="section">
           <h2>Focus next</h2>
-          <p class="small muted">Knowledge groups with the most points to gain: how often you miss them × their share of the exam.</p>
+          <p class="small muted">From this exam. Points to gain: the group's share of 100 exam points × your miss rate, steadied when you've answered only a few.</p>
           <div class="list">
             {focus.map((k) => <ListLink onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} title={k.name} sub={focusLine(k)} right={<span class="badge accent">Drill</span>} />)}
           </div>

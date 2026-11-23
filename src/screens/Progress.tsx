@@ -33,7 +33,7 @@ function ScoreChart({ exams, target }: { exams: Session[]; target: number }) {
         </div>
         <div class="chart-x">{exams.map((s, i) => <span style={{ left: `${x(i)}%` }}>{shortName(s)}</span>)}</div>
       </div>
-      <figcaption class="small muted">Estimated scaled scores{exams.length === 6 ? ', last six exams' : ''}. Dashed line: 550, where your practice target of {target} is placed.{exams.some((s) => s.retake) ? ' * Includes questions already seen.' : ''}</figcaption>
+      <figcaption class="small muted">Estimated scaled scores{exams.length === 6 ? ', last six exams' : ''}. Dashed line: 550.{exams.some((s) => s.retake) ? ' * Includes questions already seen.' : ''}</figcaption>
     </figure>
   );
 }
@@ -78,7 +78,7 @@ export function Progress() {
       {focus.length > 0 && (
         <div class="section">
           <h2>Focus next</h2>
-          <p class="small muted">Knowledge groups with the most points to gain: how often you miss them × their share of the exam.</p>
+          <p class="small muted">From your latest answer to each question. Points to gain: the group's share of 100 exam points × your miss rate, steadied when you've answered only a few.</p>
           <div class="list">
             {focus.map((k) => <ListLink onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} title={k.name} sub={focusLine(k)} right={<span class="badge accent">Drill</span>} />)}
           </div>

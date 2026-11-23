@@ -87,7 +87,7 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
                 <span class="li-main">
                   <span class="li-title">{i + 1}. {it.topic}</span>
                   <span class="li-sub clip">{it.stem}</span>
-                  <span class="li-sub" style={{ display: 'block' }}>{tags.join(' · ')}{opened.has(i) && <span class="opened"> <IcCheck class="tiny" />Opened</span>}</span>
+                  <span class="li-sub" style={{ display: 'block' }}>{tags.map((t, k) => <>{k > 0 && ' · '}<span class="keep">{t}</span></>)}{opened.has(i) && <span class="opened"> <IcCheck class="tiny" />Opened</span>}</span>
                 </span>
                 <IcChevron class="chev" />
               </a>
@@ -110,7 +110,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const q = query.toString() ? `?${query}` : '';
   const isExam = ['formA', 'formB', 'mixed'].includes(s.kind);
   return (
-    <Page title={`Question ${pos + 1}`} backTo={`review/${s.id}${q}`} tabs={false}>
+    <Page title={`Question ${pos + 1}`} onBack={() => navigate(`review/${s.id}${q}`, true)} tabs={false}>
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>{idx + 1} of {positions.length} in this view</span>
         <span>{[!si.scored && isExam && 'Unscored trial question', s.flags.includes(pos) && 'Flagged'].filter(Boolean).join(' · ')}</span>

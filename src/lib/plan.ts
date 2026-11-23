@@ -54,7 +54,7 @@ export function plan(db: DbState, now = Date.now()): Plan {
   const drill = (why: string): Plan => dueItems >= 10 && answeredToday < db.settings.dailyTarget
     ? { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'review', count: Math.min(dueItems, 25) }, why: `${dueItems} questions you missed or weren't sure of are due. Clear some before drilling new ones.` }
     : answeredToday >= db.settings.dailyTarget
-    ? { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'done' }, why: `Daily target reached (${answeredToday} questions). Extra reviews are optional.` }
+    ? { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'done' }, why: `${answeredToday} questions answered today. That's enough; anything more is optional.` }
     : { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'weak', count: Math.min(remaining, 30) }, why };
 
   if (!tookA) return { ...base, phase: daysLeft === null ? 'no-date' : 'diagnostic', daysLeft, primary: { kind: 'formA' }, why: 'A full timed run shows where you stand and which areas to drill first.' };

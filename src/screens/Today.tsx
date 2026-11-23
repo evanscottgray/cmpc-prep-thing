@@ -39,7 +39,7 @@ function Primary({ a, why }: { a: Action; why: string }) {
     weak: { eyebrow: 'Recommended', title: a.kind === 'weak' ? `Weak-area drill · ${a.count} questions` : '', cta: 'Start drill', go: () => a.kind === 'weak' && startWeak(a.count), note: 'Tutor mode: rationale after every answer' },
     review: { eyebrow: 'Recommended', title: a.kind === 'review' ? `Spaced review · ${a.count} questions` : '', cta: 'Start review', go: startReview, note: 'Tutor mode: rationale after every answer' },
     light: { eyebrow: 'Final days', title: 'Light review', cta: Object.keys(ctx.store.state.cardSrs).length ? 'Review cards you know' : 'Skim concept cards', go: () => navigate(Object.keys(ctx.store.state.cardSrs).length ? 'cards/study' : 'cards'), second: { label: 'Exam-day notes', go: () => navigate('ref/examday') } },
-    done: { eyebrow: 'Nice work', title: 'Daily target reached', cta: 'Quick quiz (10 questions)', go: startQuiz },
+    done: { eyebrow: 'Nice work', title: 'Daily target reached', cta: '', go: () => {} },
     passed: { eyebrow: 'Exam date passed', title: 'Update your exam date', cta: 'Open settings', go: () => navigate('settings') },
   };
   const m = map[a.kind];
@@ -49,7 +49,7 @@ function Primary({ a, why }: { a: Action; why: string }) {
       <h2 id="today-primary" style={{ fontSize: '1.35rem' }}>{m.title}</h2>
       <p class="muted">{why}</p>
       {m.note && <p class="small muted">{m.note}</p>}
-      <button class="btn primary block" onClick={m.go}>{m.cta}<IcChevron /></button>
+      {m.cta && <button class="btn primary block" onClick={m.go}>{m.cta}<IcChevron /></button>}
       {m.second && <button class="btn ghost block" onClick={m.second.go}>{m.second.label}</button>}
     </section>
   );

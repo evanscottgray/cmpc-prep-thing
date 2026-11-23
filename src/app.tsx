@@ -96,7 +96,7 @@ export function App() {
   return (
     <>
       <div id="app-root" class="app">
-        <a href="#main" class="skip" onClick={(e) => { e.preventDefault(); document.getElementById('main')?.focus(); }}>Skip to content</a>
+        <a href="#main" class="skiplink" onClick={(e) => { e.preventDefault(); document.getElementById('main')?.focus(); }}>Skip to content</a>
         {update && !inExam && !timedRunning && (
           <div class="banner info" style={{ margin: 'calc(var(--safe-t) + .5rem) 1rem 0', borderRadius: 12 }} role="status">
             <div class="grow small"><strong>Update ready.</strong> A new version is downloaded.</div>

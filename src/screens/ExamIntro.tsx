@@ -99,7 +99,7 @@ export function ExamIntro({ kind }: { kind: Kind }) {
           <p class="small muted center mt">Find a quiet place{full ? ' with 90 uninterrupted minutes' : ''}. The screen stays awake where supported.</p>
         </>
       )}
-      {!active && <div class="actionbar"><button class="btn primary" onClick={start}>Start {TITLES[kind]}</button></div>}
+      {!active && <div class="actionbar"><button class="btn primary" onClick={start}>Start {TITLES[kind]} · {mode === 'strict' ? 'Strict' : 'Coached'}</button></div>}
     </Page>
   );
 }

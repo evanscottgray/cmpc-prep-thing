@@ -349,10 +349,16 @@ main.page.notabs:has(> .actionbar) > :nth-last-child(2) { margin-bottom: 1.25rem
   .exam-foot { gap: .4rem; }
 }
 @media (max-width: 430px) { :root[data-size="xl"] .exam-foot .next svg, :root[data-size="xl"] .exam-foot .nav svg { display: none; } :root[data-size="xl"] .exam-foot .prev { flex-basis: 44px; } :root[data-size="xl"] .exam-foot .flag-btn { flex-basis: 2.9rem; } :root[data-size="xl"] .exam-foot .next { flex: 0 0 4.3rem; } :root[data-size="xl"] .exam-foot .nav .two { font-size: .72rem; } :root[data-size="xl"] .exam-foot .count { font-size: .72rem; } :root[data-size="xl"] .exam-bar .qw { display: none; } }
-@media (max-height: 480px) {
+@media (max-width: 359px) {
+  .exam-foot .flag-btn .lbl { display: none; }
+  .exam-foot .flag-btn { flex-basis: 48px; }
+  .exam-foot .two { white-space: normal; text-align: center; }
+}
+@media (max-height: 500px) {
   .exam-bar { padding-top: 0; padding-bottom: 0; }
   .exam-foot { padding-top: .25rem; padding-bottom: calc(.25rem + var(--safe-b)); }
-  .exam-foot .btn { min-height: 44px; }
+  .exam-foot .btn { min-height: 44px; flex-direction: row; gap: .3rem; }
+  .exam-foot .nav .two { flex-direction: row; gap: .35rem; }
   .exam-body { padding-top: .6rem; }
   .topbar { min-height: 48px; padding-top: 0; padding-bottom: 0; }
   .actionbar { flex-wrap: nowrap; align-items: center; padding-top: .3rem; padding-bottom: calc(.3rem + var(--safe-b)); }
@@ -378,6 +384,7 @@ main.page.notabs:has(> .actionbar) > :nth-last-child(2) { margin-bottom: 1.25rem
 .nav-cell .flag-mark { position: absolute; top: 2px; right: 3px; width: 14px; height: 14px; color: var(--warn); }
 .nav-cell .flag-mark svg { width: 14px; height: 14px; fill: currentColor; }
 .swatch { width: 18px; height: 18px; border-radius: 4px; border: 2px dashed var(--control); display: inline-block; }
+.swatch.current { border: 3px solid var(--focus); border-radius: 5px; }
 .swatch.answered { border-style: solid; border-color: var(--exam-sel-border); background: var(--exam-opt-sel); }
 
 /* ---------- dialogs & sheets ---------- */
@@ -465,8 +472,8 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .list > .list-item + .list-item { border-top: 1px solid var(--border); }
 .tabbar { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
 .actionbar { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
-.skip { position: absolute; left: -999px; top: 0; z-index: 200; background: var(--surface); padding: .75rem 1rem; }
-.skip:focus { left: .5rem; top: calc(var(--safe-t) + .5rem); }
+.skiplink { position: absolute; left: -999px; top: 0; z-index: 200; background: var(--surface); padding: .75rem 1rem; }
+.skiplink:focus { left: .5rem; top: calc(var(--safe-t) + .5rem); }
 /* touch targets: at least 44 CSS px */
 .chip, .seg span, .check, .input { min-height: 44px; }
 .exam-bar .timer { min-height: 44px; }
