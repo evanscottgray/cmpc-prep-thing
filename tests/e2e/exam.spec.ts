@@ -94,11 +94,11 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
 
   // Review with filters
   await page.getByRole('link', { name: 'Review all 115' }).click();
-  await expect(page.getByText('115 items')).toBeVisible();
+  await expect(page.getByText('115 questions')).toBeVisible();
   await page.getByRole('button', { name: 'Flagged 1', exact: true }).click();
-  await expect(page.getByText('1 item', { exact: true })).toBeVisible();
+  await expect(page.getByText('1 question', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Unscored' }).click();
-  await expect(page.getByText('15 items')).toBeVisible();
+  await expect(page.getByText('15 questions')).toBeVisible();
   await page.getByRole('button', { name: 'All' }).click();
   await page.getByLabel('Domain').selectOption('IV');
   const row = page.locator('.list .list-item').nth(8);
@@ -170,6 +170,25 @@ test('keyboard: arrows stay with a focused answer, nothing moves while paused, a
   await expect(page.getByRole('heading', { name: 'Resume Exam-pace block' })).toBeVisible();
 });
 
+test('time running out replaces an open confirmation, and the navigator keeps its controls in view', async ({ page }) => {
+  await page.clock.install();
+  await onboard(page);
+  await go(page, 'start/mixed');
+  await page.getByRole('button', { name: 'Start Mixed exam' }).click();
+  await page.getByRole('button', { name: /Review navigator/ }).click();
+  await page.locator('.nav-cell').nth(112).click();
+  await page.getByRole('button', { name: /Review navigator/ }).click();
+  await expect(page.locator('.nav-cell.current')).toBeInViewport();
+  await expect(page.getByRole('button', { name: 'Unanswered 115' })).toBeInViewport();
+  await expect(page.getByRole('button', { name: 'Close' })).toBeInViewport();
+  await page.getByRole('button', { name: 'End exam…' }).click();
+  await expect(page.getByRole('dialog', { name: 'End the exam?' })).toBeVisible();
+  await page.clock.fastForward('01:31:00');
+  await expect(page.getByRole('dialog', { name: "Time's up" })).toBeVisible();
+  await expect(page.getByRole('dialog')).toHaveCount(1);
+  await expect(page.getByRole('button', { name: 'See results' })).toBeFocused();
+});
+
 test('timer auto-submits while open, and coached mode can pause', async ({ page }) => {
   await page.clock.install();
   await onboard(page);
@@ -177,7 +196,7 @@ test('timer auto-submits while open, and coached mode can pause', async ({ page 
   await expect(page.getByRole('heading', { name: 'Exam-pace block', level: 1 })).toBeVisible();
   await page.getByRole('radio', { name: 'Coached' }).check({ force: true });
   await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
-  await expect(page.locator('.exam-pace')).toContainText('47 s/item');
+  await expect(page.locator('.exam-pace')).toContainText('47 s per question');
   await page.getByRole('button', { name: 'Pause' }).click();
   await expect(page.getByRole('heading', { name: 'Paused' })).toBeVisible();
   await expect(page.locator('.paused-cover')).toContainText('18:00 remaining');

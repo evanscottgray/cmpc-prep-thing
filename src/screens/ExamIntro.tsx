@@ -29,7 +29,7 @@ export function ExamIntro({ kind }: { kind: Kind }) {
 
   async function start() {
     if (otherActive && full) {
-      const ok = await confirmDialog({ title: `${otherActive.title} is still running`, body: 'Starting a new exam will discard the unfinished one. Its answers are not scored, and items you opened count as already seen.', ok: 'Discard and start', danger: true });
+      const ok = await confirmDialog({ title: `${otherActive.title} is still running`, body: 'Starting a new exam will discard the unfinished one. Its answers are not scored, and questions you opened count as already seen.', ok: 'Discard and start', danger: true });
       if (!ok) return;
       abandon(otherActive.id);
     }
@@ -64,25 +64,25 @@ export function ExamIntro({ kind }: { kind: Kind }) {
           <div class="section" style={{ marginTop: 0, marginBottom: '.25rem' }}>
             <h2>Mode</h2>
             <Seg name="mode" label="Exam mode" value={mode} onChange={setMode} options={[{ v: 'strict', label: 'Strict' }, { v: 'coached', label: 'Coached' }]} />
-            <p class="small muted mt">{mode === 'strict' ? 'Strict: no pausing — like the real exam. Recommended.' : 'Coached: you can pause, and a pacing line shows where you are against ~47 s per item.'}</p>
+            <p class="small muted mt">{mode === 'strict' ? 'Strict: no pausing — like the real exam. Recommended.' : 'Coached: you can pause, and a pacing line shows where you are against ~47 s per question.'}</p>
           </div>
           <div class="card">
             {full ? (
               <>
                 <h2>{kind === 'mixed' ? 'A full exam assembled to the blueprint' : `Full-length practice form`}</h2>
                 <ul>
-                  <li><strong>{ex.items} items in {ex.minutes} minutes</strong>, one sitting, no breaks (about {ex.secondsPerItem} seconds per item).</li>
-                  <li>{ex.unscored} items are unscored trial items you can't identify, as on the real exam. Your score comes from the other {ex.scored}.</li>
-                  <li>No feedback until you submit. You can flag items, strike out options with <span class="inline-ic"><IcStrike title="the strike-out button" /></span>, and use the navigator.</li>
+                  <li><strong>{ex.items} questions in {ex.minutes} minutes</strong>, one sitting, no breaks (about {ex.secondsPerItem} seconds per question).</li>
+                  <li>{ex.unscored} questions are unscored trial questions you can't identify, as on the real exam. Your score comes from the other {ex.scored}.</li>
+                  <li>No feedback until you submit. You can flag questions, strike out options with <span class="inline-ic"><IcStrike title="the strike-out button" /></span>, and use the navigator.</li>
                   <li>The timer runs on the clock: it keeps going if you switch apps or close the app, and the exam submits itself at zero.</li>
-                  {kind === 'mixed' && <li>Drawn from the drill pool and any forms you've taken, favoring unseen items and your weak areas.</li>}
+                  {kind === 'mixed' && <li>Drawn from the drill pool and any forms you've taken, favoring unseen questions and your weak areas.</li>}
                 </ul>
               </>
             ) : (
               <>
                 <h2>A fifth of an exam at real pace</h2>
                 <ul>
-                  <li><strong>23 items in 18 minutes</strong>, sampled in proportion to the blueprint.</li>
+                  <li><strong>23 questions in 18 minutes</strong>, sampled in proportion to the blueprint.</li>
                   <li>No feedback until the end; full review afterwards.</li>
                 </ul>
               </>
@@ -90,12 +90,12 @@ export function ExamIntro({ kind }: { kind: Kind }) {
           </div>
           {last && <a class="btn block mt" href={`#/results/${last.id}`}>View results from {fmtShort(last.submittedAt!)} · estimated {scaledScore((100 * last.result!.raw) / last.result!.scoredCount, db.settings.rawTarget)}</a>}
           {taken && (
-            <div class="banner warn mt" role="note"><IcAlert /><div><strong>Retake.</strong> You've taken {TITLES[kind]} before, so this score is <strong>not a fresh estimate</strong> — you've seen these items and their rationales.</div></div>
+            <div class="banner warn mt" role="note"><IcAlert /><div><strong>Retake.</strong> You've taken {TITLES[kind]} before, so this score is <strong>not a fresh estimate</strong> — you've seen these questions and their rationales.</div></div>
           )}
           {!taken && opened > 0 && (
-            <div class="banner warn mt" role="note"><IcAlert /><div><strong>Partly seen.</strong> You opened {opened} of these items in an attempt you discarded, so this score is <strong>not a fresh estimate</strong>.</div></div>
+            <div class="banner warn mt" role="note"><IcAlert /><div><strong>Partly seen.</strong> You opened {opened} of these questions in an attempt you discarded, so this score is <strong>not a fresh estimate</strong>.</div></div>
           )}
-          {kind === 'mixed' && <p class="small muted mt">If it includes items you've already seen, the score report will say so.</p>}
+          {kind === 'mixed' && <p class="small muted mt">If it includes questions you've already seen, the score report will say so.</p>}
           <p class="small muted center mt">Find a quiet place{full ? ' with 90 uninterrupted minutes' : ''}. The screen stays awake where supported.</p>
         </>
       )}

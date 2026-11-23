@@ -13,8 +13,8 @@ const CAT = (c: Card) => c.category === 'ethics-principle' ? 'Ethics principle' 
 
 export function CardsHub({ query }: { query: URLSearchParams }) {
   const db = useDb();
-  const [q, setQ] = useState('');
-  const kg = query.get('kg') ?? '';
+  const q = query.get('q') ?? '', kg = query.get('kg') ?? '';
+  const set = (patch: Record<string, string>) => { const n = new URLSearchParams(query); for (const [k, v] of Object.entries(patch)) { if (v) n.set(k, v); else n.delete(k); } const t = n.toString(); navigate(`cards${t ? `?${t}` : ''}`, true); };
   const bp = ctx.bank.blueprint;
   const due = dueIds(db.cardSrs, ymd(), db.settings.examDate).length;
   const fresh = ctx.bank.cards.filter((c) => !db.cardSrs[c.id]).length;
@@ -24,16 +24,16 @@ export function CardsHub({ query }: { query: URLSearchParams }) {
   return (
     <Page title="Concept cards" noBack wide>
       <div class="card hero">
-        <div class="row between"><div><div style={{ fontSize: '1.6rem', fontWeight: 800 }}>{due ? `${due} due today` : fresh ? `${plural(fresh, 'new card')} to learn` : 'All caught up'}</div><div class="muted small">{due && fresh ? `${plural(fresh, 'card')} not yet studied` : fresh ? 'Recall first, then check yourself.' : 'You have studied every card at least once.'}</div></div></div>
+        <div class="row between"><div><div style={{ fontSize: '1.6rem', fontWeight: 800 }}>{due ? `${due} due today` : fresh ? `${plural(fresh, 'new card')} to learn` : 'All caught up'}</div><div class="muted small">{due && fresh ? `${plural(fresh, 'card')} not yet studied` : fresh ? `${SESSION} at a time. Recall first, then check yourself.` : 'You have studied every card at least once.'}</div></div></div>
         {(due > 0 || fresh > 0) && <a class="btn primary block mt" href="#/cards/study">{due > 0 && add > 0 ? `Study ${size}: ${due} due, ${add} new` : due ? `Review ${plural(size, 'due card')}` : `Study ${plural(add, 'new card')}`}</a>}
       </div>
       <div class="section">
         <div class="filters loose">
         <label class="field"><span class="label">Search cards</span>
-          <input class="input" type="search" value={q} onInput={(e) => setQ((e.target as HTMLInputElement).value)} />
+          <input class="input" type="search" value={q} onInput={(e) => set({ q: (e.target as HTMLInputElement).value })} />
         </label>
         <label class="field"><span class="label">Knowledge group</span>
-          <select class="input" value={kg} onChange={(e) => { const v = (e.target as HTMLSelectElement).value; navigate(v ? `cards?kg=${v}` : 'cards', true); }}>
+          <select class="input" value={kg} onChange={(e) => set({ kg: (e.target as HTMLSelectElement).value })}>
             <option value="">All knowledge groups</option>
             {bp.kgs.map((k) => <option value={k.id}>{k.name}</option>)}
           </select>
@@ -129,7 +129,7 @@ export function CardStudy() {
       <h2 style={{ fontSize: '1.35rem' }} tabIndex={-1} id="card-title">{c.title}</h2>
       {!show ? (
         <>
-          <p class="muted">Recall what you can about this topic — the key idea, how it applies, and how it might appear in a scenario — then reveal the card.</p>
+          <p class="muted">Before you look, say it in your own words: the definition, an example with a client, and how a scenario might test it.</p>
           <div class="actionbar"><button class="btn primary" onClick={() => setShow(true)}>Show card</button></div>
         </>
       ) : (

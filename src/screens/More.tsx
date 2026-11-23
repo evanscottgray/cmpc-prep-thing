@@ -20,7 +20,7 @@ export function More() {
       <div class="list">
         <ListLink href="#/settings" title="Settings" sub="Exam date, passing target, mode, text size, theme" />
         <ListLink href="#/backup" title="Backup and restore" sub={db.settings.lastBackupAt ? `Last backup ${fmtDate(ymd(db.settings.lastBackupAt))}` : 'No backup yet'} />
-        <ListLink href="#/reports" title="Problem reports" sub={`${db.reports.length} report${db.reports.length === 1 ? '' : 's'} · ${db.hidden.length} hidden item${db.hidden.length === 1 ? '' : 's'}`} />
+        <ListLink href="#/reports" title="Problem reports" sub={`${db.reports.length} report${db.reports.length === 1 ? '' : 's'} · ${db.hidden.length} hidden question${db.hidden.length === 1 ? '' : 's'}`} />
       </div>
       </div>
       <div class="col-tall">
@@ -30,7 +30,7 @@ export function More() {
           <ListLink href="#/ref/facts" title="Exam facts" sub="Format, scoring, results, retakes" />
           <ListLink href="#/ref/blueprint" title="Blueprint" sub="Domains, knowledge groups, and the 100-item grid" />
           <ListLink href="#/ref/examday" title="Exam-day notes" />
-          <ListLink href="#/ref/sources" title="Sources" sub="Every reference cited by items and cards" />
+          <ListLink href="#/ref/sources" title="Sources" sub="Every reference cited by questions and cards" />
         </div>
       </div>
       </div>
@@ -89,7 +89,7 @@ export function Settings() {
       </div>
       <div class="field">
         <span class="label">Daily study target</span>
-        <Stepper label="daily study target" value={s.dailyTarget} min={10} max={150} step={10} onChange={(v) => up({ dailyTarget: v })} suffix=" items" />
+        <Stepper label="daily study target" value={s.dailyTarget} min={10} max={150} step={10} onChange={(v) => up({ dailyTarget: v })} suffix=" questions" />
       </div>
       <div class="field">
         <span class="label">Text size</span>
@@ -219,7 +219,7 @@ export function Reports() {
   }
   return (
     <Page title="Problem reports" backTo="more">
-      <p>Use <strong>Report a problem</strong> on any question to flag a wrong key, ambiguity, or typo. Export the reports as a Markdown file you can hand to someone (or an AI agent) to fix the items.</p>
+      <p>Use <strong>Report a problem</strong> on any question to flag a wrong key, ambiguity, or typo. Export the reports as a Markdown file you can hand to someone (or an AI agent) to fix the questions.</p>
       <div class="btn-row">
         <button class="btn primary" onClick={exportReports} disabled={!db.reports.length && !db.hidden.length}><IcShare />Export</button>
         <button class="btn" onClick={copy} disabled={!db.reports.length && !db.hidden.length}>Copy</button>
@@ -237,13 +237,13 @@ export function Reports() {
         {db.reports.length > 0 && <button class="btn danger small mt" onClick={clear}>Delete all reports</button>}
       </div>
       <div class="section">
-        <h2>Hidden items</h2>
+        <h2>Hidden questions</h2>
         {db.hidden.length ? (
           <div class="list">{db.hidden.map((id) => (
             <div class="list-item" style={{ cursor: 'default' }}><span class="li-main"><span class="li-title">{id}</span><span class="li-sub" style={{ display: 'block' }}>{ctx.items.get(id)?.topic}</span></span>
               <button class="btn small" onClick={() => ctx.store.set('hidden', ctx.store.state.hidden.filter((x) => x !== id))}>Unhide</button></div>
           ))}</div>
-        ) : <p class="muted">None. Hidden items are left out of drills and mixed exams; on a form they're swapped for a matching drill item.</p>}
+        ) : <p class="muted">None. Hidden questions are left out of drills and mixed exams; on a form they're swapped for a matching drill question.</p>}
       </div>
     </Page>
   );

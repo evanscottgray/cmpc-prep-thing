@@ -6,8 +6,8 @@ import { createPortal } from 'preact/compat';
 let openCount = 0;
 import { IcX } from './icons';
 
-export function Modal({ title, onClose, children, wide, labelledBy, closeLabel = 'Close', dismissable = true }: {
-  title: string; onClose: () => void; children: ComponentChildren; wide?: boolean; labelledBy?: string; closeLabel?: string; dismissable?: boolean;
+export function Modal({ title, onClose, children, wide, sheet, labelledBy, closeLabel = 'Close', dismissable = true }: {
+  title: string; onClose: () => void; children: ComponentChildren; wide?: boolean; sheet?: boolean; labelledBy?: string; closeLabel?: string; dismissable?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const id = labelledBy ?? `dlg-${title.replace(/\W+/g, '-').toLowerCase()}`;
@@ -43,7 +43,7 @@ export function Modal({ title, onClose, children, wide, labelledBy, closeLabel =
   }, []);
   return createPortal(
     <div class="overlay" onClick={(e) => { if (dismissable && e.target === e.currentTarget) onClose(); }}>
-      <div class={`dialog${wide ? ' wide' : ''}`} role="dialog" aria-modal="true" aria-labelledby={id} ref={ref}>
+      <div class={`dialog${wide ? ' wide' : ''}${sheet ? ' sheet' : ''}`} role="dialog" aria-modal="true" aria-labelledby={id} ref={ref}>
         <div class="dialog-head">
           <h2 id={id} tabIndex={-1}>{title}</h2>
           {dismissable && <button class="icon-btn" onClick={onClose} aria-label={closeLabel}><IcX /></button>}
@@ -58,6 +58,9 @@ export function Modal({ title, onClose, children, wide, labelledBy, closeLabel =
 type Req = { kind: 'confirm' | 'alert'; title: string; body?: ComponentChildren; ok?: string; cancel?: string; danger?: boolean; resolve: (v: boolean) => void };
 let push: ((r: Req) => void) | null = null;
 
+let clear: (() => void) | null = null;
+/** Dismisses any open in-app dialog (as Cancel), e.g. when time runs out behind it. */
+export function clearDialogs() { clear?.(); }
 export function confirmDialog(o: { title: string; body?: ComponentChildren; ok?: string; cancel?: string; danger?: boolean }): Promise<boolean> {
   return new Promise((resolve) => push ? push({ kind: 'confirm', ...o, resolve }) : resolve(false));
 }
@@ -68,11 +71,13 @@ export function alertDialog(o: { title: string; body?: ComponentChildren; ok?: s
 export function DialogHost() {
   const [q, setQ] = useState<Req[]>([]);
   useEffect(() => { push = (r) => setQ((x) => [...x, r]); return () => { push = null; }; }, []);
+  const all = useRef(q); all.current = q;
+  useEffect(() => { clear = () => { for (const r of all.current) r.resolve(false); setQ([]); }; return () => { clear = null; }; }, []);
   const cur = q[0];
   if (!cur) return null;
   const done = (v: boolean) => { cur.resolve(v); setQ((x) => x.slice(1)); };
   return (
-    <Modal title={cur.title} onClose={() => done(false)} dismissable={cur.kind === 'confirm'}>
+    <Modal key={cur.title} title={cur.title} onClose={() => done(false)} dismissable={cur.kind === 'confirm'}>
       {typeof cur.body === 'string' ? <p>{cur.body}</p> : cur.body}
       <div class="btn-row">
         {cur.kind === 'confirm' && <button class="btn" data-autofocus={cur.danger || undefined} onClick={() => done(false)}>{cur.cancel ?? 'Cancel'}</button>}

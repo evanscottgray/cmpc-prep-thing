@@ -9,7 +9,7 @@ test('backup downloads and restores exactly into a fresh profile', async ({ page
   for (let i = 0; i < 3; i++) {
     await optionLabels(page).nth(i % 4).click();
     await page.getByRole('button', { name: 'Check answer' }).click();
-    await page.getByRole('button', { name: 'Next item' }).click();
+    await page.getByRole('button', { name: 'Next question' }).click();
   }
   await go(page, 'backup');
   const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: /Back up now/ }).click()]);

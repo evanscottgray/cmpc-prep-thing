@@ -6,9 +6,9 @@ import { choose, goTo, hideItem, pause, resume, saveScroll, submit, toggleFlag, 
 import { fmtClock } from '../lib/dates';
 import { isExpired, pacing, remainingMs } from '../lib/scoring';
 import { keepAwake } from '../lib/wakelock';
-import { OptionList, ReportDialog } from '../ui/question';
-import { Modal, alertDialog, confirmDialog, toast } from '../ui/dialog';
-import { IcBack, IcChevron, IcClock, IcFlag, IcFlagFill, IcGrid, IcMenu, IcPause, IcPlay, IcStrike } from '../ui/icons';
+import { OptionList, ReportDialog, StrikeHint, strikeHint } from '../ui/question';
+import { Modal, alertDialog, clearDialogs, confirmDialog, toast } from '../ui/dialog';
+import { IcBack, IcChevron, IcClock, IcFlag, IcFlagFill, IcGrid, IcMenu, IcPause, IcPlay } from '../ui/icons';
 
 const WARN_AT = [15, 5, 1]; // minutes remaining
 
@@ -46,8 +46,9 @@ export function ExamRunner({ session: s }: { session: Session }) {
     if (s.status !== 'active') return;
     if (isExpired(s, now) && !submitting.current) {
       submitting.current = true;
+      clearDialogs(); setNavOpen(false); setMenuOpen(false); setReportFor(null);
       submit(s.id, true, now);
-      alertDialog({ title: "Time's up", body: 'Your exam was submitted automatically. Unanswered items count as incorrect.', ok: 'See results' })
+      alertDialog({ title: "Time's up", body: 'Your exam was submitted automatically. Unanswered questions count as incorrect.', ok: 'See results' })
         .then(() => navigate(`results/${s.id}`, true));
       return;
     }
@@ -98,7 +99,6 @@ export function ExamRunner({ session: s }: { session: Session }) {
             <li>{answered} of {s.items.length} answered</li>
             {unanswered > 0 && <li><strong>{unanswered} unanswered</strong> (they count as incorrect)</li>}
             {flagged > 0 && <li>{flagged} flagged for review</li>}
-            <li>{fmtClock(remaining)} remaining</li>
           </ul>
         </div>
       ),
@@ -122,7 +122,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
     if (ok) navigate('today');
   }
 
-  const firstTime = pos === 0 && !Object.keys(s.strikes).length && !Object.values(ctx.store.state.sessions).some((x) => x.timed && x.status === 'submitted');
+  const firstTime = pos === 0 && strikeHint();
 
   return (
     <>
@@ -142,7 +142,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
       </div>
       {pace && (
         <div class="exam-pace" aria-live="off">
-          <strong>{pace.deltaSec >= 0 ? `${fmtClock(pace.deltaSec * 1000)} ahead` : `${fmtClock(-pace.deltaSec * 1000)} behind`}</strong> · {pace.answered} answered, target {pace.expected} at 47 s/item
+          <strong>{pace.deltaSec >= 0 ? `${fmtClock(pace.deltaSec * 1000)} ahead of pace` : `${fmtClock(-pace.deltaSec * 1000)} behind pace`}</strong> · about 47 s per question
         </div>
       )}
       </div>
@@ -152,7 +152,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
         <p class="stem" id="q-stem" tabIndex={-1}>{item.stem}</p>
         <OptionList item={item} si={si} name={`q${pos}`} selected={s.responses[pos]} struck={s.strikes[pos] ?? []}
           onChoose={(o) => choose(s.id, pos, o)} onStrike={(o) => toggleStrike(s.id, pos, o)} />
-        {firstTime && <p class="strike-hint"><IcStrike /> crosses out an option. Tap it again to restore it.</p>}
+        {firstTime && <StrikeHint />}
       </main>
 
       <div class="exam-foot">
@@ -161,7 +161,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
           {flaggedHere ? <IcFlagFill /> : <IcFlag />}<span class="lbl">{flaggedHere ? 'Flagged' : 'Flag'}</span>
         </button>
         <button class="btn nav" onClick={() => setNavOpen(true)}>
-          <IcGrid /><span>Review<span class="sr-only"> navigator</span></span> <span class="count">{unanswered} left<span class="sr-only"> to answer, {flagged} flagged</span></span>
+          <IcGrid /><span class="two"><span>Review<span class="sr-only"> navigator</span></span> <span class="count">{unanswered} left<span class="sr-only"> to answer, {flagged} flagged</span></span></span>
         </button>
         {pos < s.items.length - 1
           ? <button class="btn next primary" onClick={() => goTo(s.id, pos + 1)}>Next<IcChevron /></button>
@@ -173,7 +173,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
         <Modal title="Exam menu" onClose={() => setMenuOpen(false)}>
           <div class="list">
             <button class="list-item" onClick={() => { setMenuOpen(false); setReportFor(item.id); }}>Report a problem with this question</button>
-            <button class="list-item" onClick={() => { hideItem(item.id, true); setMenuOpen(false); toast('Hidden from future sessions. It still counts in this one.'); }}>Hide this item from future sessions</button>
+            <button class="list-item" onClick={() => { hideItem(item.id, true); setMenuOpen(false); toast('Hidden from future sessions. It still counts in this one.'); }}>Hide this question from future sessions</button>
             <button class="list-item" onClick={leave}>Leave exam screen{s.mode === 'strict' ? ' (timer keeps running)' : ''}</button>
             <button class="list-item" onClick={endExam} style={{ color: 'var(--bad)' }}>{isExam ? 'End exam now' : 'Submit now'}</button>
           </div>
@@ -201,8 +201,8 @@ function Navigator({ s, onClose, onEnd, endLabel }: { s: Session; onClose: () =>
   const answered = Object.keys(s.responses).length;
   useEffect(() => { document.querySelector('.nav-cell.current')?.scrollIntoView({ block: 'center' }); }, []);
   return (
-    <Modal title="Review navigator" onClose={onClose} wide>
-      <div class="chips" role="group" aria-label="Show">
+    <Modal title="Review navigator" onClose={onClose} wide sheet>
+      <div class="chips wrap" role="group" aria-label="Show">
         {(['all', 'unanswered', 'flagged'] as NavFilter[]).map((x) => (
           <button class="chip" aria-pressed={f === x} onClick={() => setF(x)}>{x === 'all' ? `All ${s.items.length}` : x === 'unanswered' ? `Unanswered ${s.items.length - answered}` : `Flagged ${s.flags.length}`}</button>
         ))}
@@ -210,10 +210,10 @@ function Navigator({ s, onClose, onEnd, endLabel }: { s: Session; onClose: () =>
       <div class="nav-legend" aria-hidden="true">
         <span><i class="swatch answered" />Answered</span>
         <span><i class="swatch" />Unanswered</span>
-        <span><IcFlagFill class="status-ic" />Flagged</span>
+        <span><IcFlagFill class="status-ic warn" />Flagged</span>
       </div>
       {positions.length === 0 ? <p class="muted">Nothing here.</p> : (
-        <div class="nav-grid">
+        <div class="nav-scroll"><div class="nav-grid">
           {positions.map((i) => {
             const a = s.responses[i] !== undefined, fl = flags.has(i);
             return (
@@ -224,9 +224,9 @@ function Navigator({ s, onClose, onEnd, endLabel }: { s: Session; onClose: () =>
               </button>
             );
           })}
-        </div>
+        </div></div>
       )}
-      <div class="btn-row sticky-actions">
+      <div class="btn-row">
         <button class="btn" onClick={onClose}>Back to question</button>
         <button class="btn danger" onClick={onEnd}>{endLabel}</button>
       </div>

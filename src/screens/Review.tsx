@@ -7,7 +7,7 @@ import { inPlay } from '../lib/scoring';
 import { plural } from '../lib/dates';
 import { Page } from '../ui/bits';
 import { ItemMeta, ItemReview, Verdict } from '../ui/question';
-import { IcCheck, IcCheckCircle, IcChevron, IcMinusCircle, IcXCircle } from '../ui/icons';
+import { IcCheckCircle, IcChevron, IcMinusCircle, IcXCircle } from '../ui/icons';
 
 type F = 'all' | 'incorrect' | 'flagged' | 'unscored';
 
@@ -67,14 +67,14 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
           </select>
         </label>
       </div>
-      <p class="small muted" aria-live="polite">{plural(positions.length, 'item')}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
+      <p class="small muted" aria-live="polite">{plural(positions.length, 'question')}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
       {positions.length > 0 && (
         <div class="list">
           {positions.map((i) => {
             const si = s.items[i]; const it = ctx.items.get(si.id)!;
             const resp = s.responses[i]; const ok = resp === it.answer; const skipped = resp === undefined;
             const status = ok ? 'Correct' : skipped ? 'Unanswered' : 'Incorrect';
-            const tags = [(f !== 'incorrect' || skipped) && status, !si.scored && isExam && f !== 'unscored' && 'Unscored', flags.has(i) && f !== 'flagged' && 'Flagged'].filter(Boolean);
+            const tags = [(f !== 'incorrect' || skipped) && status, !si.scored && isExam && f !== 'unscored' && 'Unscored', flags.has(i) && f !== 'flagged' && 'Flagged', opened.has(i) && 'Opened'].filter(Boolean);
             return (
               <a class="list-item" id={`rv-${i}`} href={`#/review/${s.id}/${i}${qs(query, {})}`}>
                 {ok ? <IcCheckCircle class="status-ic ok" /> : skipped ? <IcMinusCircle class="status-ic skip" /> : <IcXCircle class="status-ic bad" />}
@@ -83,7 +83,6 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
                   <span class="li-sub clip">{it.stem}</span>
                   {tags.length > 0 && <span class="li-sub" style={{ display: 'block' }}>{tags.join(' · ')}</span>}
                 </span>
-                {opened.has(i) && <span class="badge ok"><IcCheck class="tiny" />Reviewed</span>}
                 <IcChevron class="chev" />
               </a>
             );
@@ -99,7 +98,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const idx = positions.indexOf(pos);
   const si = s.items[pos]; const it = si && ctx.items.get(si.id);
   useEffect(() => { lastOpened.set(s.id, pos); markOpened(s.id, pos); window.scrollTo(0, 0); document.getElementById('rv-stem')?.focus({ preventScroll: true }); }, [pos]);
-  if (!it) return <Page title="Review" backTo={`review/${s.id}`}><p>This item is no longer in the bank.</p></Page>;
+  if (!it) return <Page title="Review" backTo={`review/${s.id}`}><p>This question is no longer in the bank.</p></Page>;
   const resp = s.responses[pos];
   const prev = idx > 0 ? positions[idx - 1] : null, next = idx >= 0 && idx < positions.length - 1 ? positions[idx + 1] : null;
   const q = query.toString() ? `?${query}` : '';
@@ -108,7 +107,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
     <Page title={`Question ${pos + 1}`} backTo={`review/${s.id}${q}`} tabs={false}>
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>{idx + 1} of {positions.length} in this view</span>
-        <span>{!si.scored && isExam ? 'Unscored trial item · ' : ''}{s.flags.includes(pos) ? 'Flagged' : ''}</span>
+        <span>{[!si.scored && isExam && 'Unscored trial question', s.flags.includes(pos) && 'Flagged'].filter(Boolean).join(' · ')}</span>
       </div>
       <p class="stem" id="rv-stem" tabIndex={-1}>{it.stem}</p>
       <Verdict item={it} si={si} response={resp} />

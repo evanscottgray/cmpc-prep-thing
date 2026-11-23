@@ -49,9 +49,9 @@ export function plan(db: DbState, now = Date.now()): Plan {
   const mixedThisWeek = history.some((s) => s.kind === 'mixed' && s.submittedAt && daysBetween(ymd(s.submittedAt), examDate!) <= 7);
   const remaining = Math.max(10, db.settings.dailyTarget - answeredToday);
   const drill = (why: string): Plan => dueItems >= 10 && answeredToday < db.settings.dailyTarget
-    ? { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'review', count: Math.min(dueItems, 25) }, why: `${dueItems} items you missed or weren't sure of are due. Clear some before drilling new ones.` }
+    ? { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'review', count: Math.min(dueItems, 25) }, why: `${dueItems} questions you missed or weren't sure of are due. Clear some before drilling new ones.` }
     : answeredToday >= db.settings.dailyTarget
-    ? { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'done' }, why: `Daily target reached (${answeredToday} items). Extra reviews are optional.` }
+    ? { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'done' }, why: `Daily target reached (${answeredToday} questions). Extra reviews are optional.` }
     : { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'weak', count: Math.min(remaining, 30) }, why };
 
   if (!tookA) return { ...base, phase: daysLeft === null ? 'no-date' : 'diagnostic', daysLeft, primary: { kind: 'formA' }, why: 'Start with Form A as a diagnostic: a full timed exam shows where to focus.' };
@@ -60,7 +60,7 @@ export function plan(db: DbState, now = Date.now()): Plan {
   if (lastDay <= 1) return drill('Drill your weakest areas, weighted by the blueprint.');
   if (left <= 7) {
     if (!tookB && left >= 4) return { ...base, phase: 'final-week', daysLeft, primary: { kind: 'formB' }, why: 'Take Form B now — a fresh, full-length estimate before exam day.' };
-    if (!mixedThisWeek && lastDay >= 2) return { ...base, phase: 'final-week', daysLeft, primary: { kind: 'mixed' }, why: 'Final week: a mixed exam assembled to the blueprint from your weak areas and unseen items.' };
+    if (!mixedThisWeek && lastDay >= 2) return { ...base, phase: 'final-week', daysLeft, primary: { kind: 'mixed' }, why: 'Final week: a mixed exam assembled to the blueprint from your weak areas and unseen questions.' };
     return drill('Final week: short weak-area drills and your due reviews.');
   }
   const sinceA = daysSince(db, 'formA', today);

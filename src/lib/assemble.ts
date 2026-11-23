@@ -156,10 +156,10 @@ export function sourceLabel(bank: Bank, src: DrillSource): string {
     case 'weak': return 'Weakest areas';
     case 'domain': return `Domain ${src.id}: ${bank.blueprint.domains.find((d) => d.id === src.id)?.name}`;
     case 'kg': return `Knowledge group ${src.id}: ${bank.blueprint.kgs.find((k) => k.id === src.id)?.name}`;
-    case 'missed': return 'Missed items';
-    case 'flagged': return 'Flagged items';
-    case 'unseen': return 'Unseen items';
-    default: return 'All available items';
+    case 'missed': return 'Missed questions';
+    case 'flagged': return 'Flagged questions';
+    case 'unseen': return 'Unseen questions';
+    default: return 'All available questions';
   }
 }
 
@@ -193,7 +193,7 @@ export function buildBlock(bank: Bank, db: DbState, mode: ExamMode, now = Date.n
   const pr = new Map(pool.map((i) => [i.id, priority(i, stats.get(i.id), weak, maxWeak, now, rand)]));
   const picked = sampleProportional(bank, pool, 23, (i) => pr.get(i.id)!, rand);
   return newSession('block', 'Exam-pace block', toSessionItems(picked.map((i) => ({ id: i.id, scored: true })), rand), {
-    timed: true, durationMs: 18 * 60000, mode, label: '23 items · 18 minutes · blueprint-weighted', seenBefore: picked.filter((i) => stats.has(i.id)).length,
+    timed: true, durationMs: 18 * 60000, mode, label: '23 questions · 18 minutes · blueprint-weighted', seenBefore: picked.filter((i) => stats.has(i.id)).length,
   }, now);
 }
 
@@ -207,7 +207,7 @@ export function buildQuiz(bank: Bank, db: DbState, now = Date.now(), seed = now)
   const pr = new Map(pool.map((i) => [i.id, priority(i, stats.get(i.id), weak, maxWeak, now, rand)]));
   const picked = sampleProportional(bank, pool, 10, (i) => pr.get(i.id)!, rand, weak);
   return newSession('quiz', 'Quick quiz', toSessionItems(picked.map((i) => ({ id: i.id, scored: true })), rand), {
-    timed: false, durationMs: 0, mode: 'coached', label: '10 items · weak-area weighted',
+    timed: false, durationMs: 0, mode: 'coached', label: '10 questions · weak-area weighted',
   }, now);
 }
 
@@ -219,6 +219,6 @@ export function buildReview(bank: Bank, db: DbState, dueIds: string[], max = REV
   const ids = dueIds.filter((id) => !hidden.has(id) && bank.items.some((i) => i.id === id)).slice(0, max);
   if (!ids.length) return null;
   return newSession('review', 'Spaced review', toSessionItems(shuffle(ids, rand).map((id) => ({ id, scored: true })), rand), {
-    timed: false, durationMs: 0, mode: 'coached', label: 'Missed and uncertain items due today',
+    timed: false, durationMs: 0, mode: 'coached', label: 'Missed and uncertain questions due today',
   }, now);
 }

@@ -31,8 +31,8 @@ export function Onboarding({ step: initial }: { step: number }) {
             <h2 id="onb-h" tabIndex={-1} style={{ fontSize: '1.5rem' }}>Prepare for the CMPC® exam</h2>
             <p>CMPC Prep is a focused study and exam-simulation app:</p>
             <ul>
-              <li><strong>Two full practice forms</strong> (115 items, 90 minutes) built to the published exam blueprint, plus mixed exams.</li>
-              <li><strong>Rationales for every option</strong>, so each item teaches.</li>
+              <li><strong>Two full practice forms</strong> (115 questions, 90 minutes) built to the published exam blueprint, plus mixed exams.</li>
+              <li><strong>Rationales for every option</strong>, so each question teaches.</li>
               <li><strong>Drills, spaced review and concept cards</strong> that focus on your weakest, most heavily weighted areas.</li>
               <li>Works offline. Your progress stays on this device.</li>
             </ul>
@@ -52,8 +52,8 @@ export function Onboarding({ step: initial }: { step: number }) {
             </label>
             <div class="field">
               <span class="label">Daily study target</span>
-              <Stepper label="daily study target" value={target} min={10} max={150} step={10} onChange={setTarget} suffix=" items" />
-              <span class="hint">About 40 items a day is a solid pace for a few weeks out.</span>
+              <Stepper label="daily study target" value={target} min={10} max={150} step={10} onChange={setTarget} suffix=" questions" />
+              <span class="hint">About 40 questions a day is a solid pace for a few weeks out.</span>
             </div>
             <div class="btn-row"><button class="btn" onClick={() => setStep(1)}>Back</button><button class="btn primary" onClick={() => setStep(3)}>Continue</button></div>
           </section>

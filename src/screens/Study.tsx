@@ -9,7 +9,7 @@ import { dueIds } from '../lib/srs';
 import { availableItems, examHistory, formTaken, itemStats } from '../lib/stats';
 import { ListLink, Page, Seg } from '../ui/bits';
 import { Modal, alertDialog } from '../ui/dialog';
-import { startQuiz, startReview } from './Today';
+import { openQuiz, startQuiz, startReview } from './Today';
 
 type Pick = { title: string; src: DrillSource } | null;
 
@@ -22,10 +22,11 @@ export function Study() {
   const avail = availableItems(ctx.bank, db);
   const count = (src: DrillSource) => drillPool(ctx.bank, db, src).length;
   const due = dueIds(db.srs, ymd(), db.settings.examDate).filter((id) => !db.hidden.includes(id)).length;
+  const open = openQuiz();
   const tookA = formTaken(db, 'formA'), tookB = formTaken(db, 'formB');
   const lastScore = (kind: string) => {
     const s = examHistory(db).filter((x) => x.kind === kind).at(-1);
-    return s ? `Estimated ${scaledScore((100 * s.result!.raw) / s.result!.scoredCount, db.settings.rawTarget)} · ${fmtShort(s.submittedAt!)}` : undefined;
+    return s ? `Taken ${fmtShort(s.submittedAt!)} · estimated ${scaledScore((100 * s.result!.raw) / s.result!.scoredCount, db.settings.rawTarget)}` : undefined;
   };
   const drill = (title: string, sub: string, src: DrillSource) => {
     const n = count(src);
@@ -41,9 +42,9 @@ export function Study() {
       <div class="section" style={{ marginTop: 0 }}>
         <h2>Full exams</h2>
         <div class="list">
-          <ListLink href="#/start/formA" title="Form A" sub={lastScore('formA') ?? 'Best first: your diagnostic'} right={tookA ? <span class="badge ok">Taken</span> : <span class="badge accent">Start here</span>} />
-          <ListLink href="#/start/formB" title="Form B" sub={lastScore('formB') ?? 'A second, separate form'} right={tookB ? <span class="badge ok">Taken</span> : undefined} />
-          <ListLink href="#/start/mixed" title="Mixed exam" sub={lastScore('mixed') ?? 'Assembled to the blueprint from unseen and weak-area items'} />
+          <ListLink href="#/start/formA" title="Form A" sub={lastScore('formA') ?? 'Best first: your diagnostic'} right={tookA ? undefined : <span class="badge accent">Start here</span>} />
+          <ListLink href="#/start/formB" title="Form B" sub={lastScore('formB') ?? 'A second, separate form'} />
+          <ListLink href="#/start/mixed" title="Mixed exam" sub={lastScore('mixed') ?? 'Assembled to the blueprint from unseen and weak-area questions'} />
         </div>
       </div>
       </div>
@@ -54,9 +55,9 @@ export function Study() {
           <ListLink onClick={() => setPick({ title: 'Weakest areas', src: { type: 'weak' } })} title="Weakest areas" sub="Weighted by the blueprint and your current accuracy" right={tookA ? <span class="badge accent">Recommended</span> : undefined} />
           <ListLink onClick={() => setChooser('domain')} title="By domain" sub="Six exam domains" />
           <ListLink onClick={() => setChooser('kg')} title="By knowledge group" sub="Thirteen knowledge groups" />
-          {drill('Missed items', 'Last answered wrong', { type: 'missed' })}
-          {drill('Flagged items', 'Flagged in timed sessions', { type: 'flagged' })}
-          {drill('Unseen items', "Available items you haven't tried", { type: 'unseen' })}
+          {drill('Missed questions', 'Last answered wrong', { type: 'missed' })}
+          {drill('Flagged questions', 'Flagged in timed sessions', { type: 'flagged' })}
+          {drill('Unseen questions', "Available questions you haven't tried", { type: 'unseen' })}
         </div>
       </div>
       </div>
@@ -64,9 +65,10 @@ export function Study() {
       <div class="section">
         <h2>Short sessions</h2>
         <div class="list">
-          <ListLink href="#/start/block" title="Exam-pace block" sub="23 items in 18 minutes — a fifth of an exam" />
-          <ListLink onClick={startQuiz} title="Quick quiz" sub="10 items for a short phone session" />
-          <ListLink onClick={startReview} title="Spaced review" sub="Missed and uncertain items, timed to your exam date" right={due ? <span class="badge accent">{due} due</span> : undefined} />
+          <ListLink href="#/start/block" title="Exam-pace block" sub="23 questions in 18 minutes — a fifth of an exam" />
+          <ListLink onClick={startQuiz} title="Quick quiz" sub={open ? `Resume: ${open.revealed.length} of ${open.items.length} answered` : '10 questions, about 8 minutes'} />
+          {due ? <ListLink onClick={startReview} title="Spaced review" sub="Missed and uncertain questions, timed to your exam date" right={<span class="badge accent">{due} due</span>} />
+            : <div class="list-item off"><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>Missed and uncertain questions come back here</span></span><span class="badge">None due</span></div>}
           <ListLink href="#/cards" title="Concept cards" sub={`${ctx.bank.cards.length} cards with spaced review`} />
         </div>
       </div>
@@ -74,7 +76,7 @@ export function Study() {
       </div>
 
       <p class="small muted mt">
-        {seen} of {avail.length} available items seen. {!tookA || !tookB ? `Items on ${[!tookA && 'Form A', !tookB && 'Form B'].filter(Boolean).join(' and ')} stay unseen until you take ${!tookA && !tookB ? 'them' : 'it'}.` : 'Both forms are now part of your drill pool.'}
+        {seen} of {avail.length} available questions seen. {!tookA || !tookB ? `Questions on ${[!tookA && 'Form A', !tookB && 'Form B'].filter(Boolean).join(' and ')} stay unseen until you take ${!tookA && !tookB ? 'them' : 'it'}.` : 'Both forms are now part of your drill pool.'}
       </p>
 
       {chooser && (
@@ -99,7 +101,7 @@ export function DrillSetup({ title, src, onClose }: { title: string; src: DrillS
   const [n, setN] = useState(sizes.includes('20') ? '20' : '10');
   async function go() {
     const s = buildDrill(ctx.bank, ctx.store.state, src, Number(n), mode === 'timed');
-    if (!s) { onClose(); await alertDialog({ title: 'Nothing to drill', body: 'No available items match this choice yet.' }); return; }
+    if (!s) { onClose(); await alertDialog({ title: 'Nothing to drill', body: 'No available questions match this choice yet.' }); return; }
     createSession(s);
     if (mode === 'timed') { const st = Date.now(); ctx.store.putSession({ ...s, startedAt: st, visitAt: st }); }
     onClose(); navigate(`s/${s.id}`);
@@ -107,12 +109,12 @@ export function DrillSetup({ title, src, onClose }: { title: string; src: DrillS
   return (
     <Modal title={title} onClose={onClose}>
       <p class="small muted">{avail} item{avail === 1 ? '' : 's'} available.</p>
-      <div class="field"><span class="label" id="dl-n">Items</span>
-        <Seg name="n" label="Number of items" value={n} onChange={setN} options={sizes.map((v) => ({ v, label: Number(v) > avail ? `All ${avail}` : v }))} />
+      <div class="field"><span class="label" id="dl-n">Questions</span>
+        <Seg name="n" label="Number of questions" value={n} onChange={setN} options={sizes.map((v) => ({ v, label: Number(v) > avail ? `All ${avail}` : v }))} />
       </div>
       <div class="field"><span class="label">Mode</span>
         <Seg name="dm" label="Drill mode" value={mode} onChange={setMode} options={[{ v: 'tutor', label: 'Tutor' }, { v: 'timed', label: 'Timed' }]} />
-        <span class="hint">{mode === 'tutor' ? 'See the rationale after each answer.' : `Exam pace: ${ctx.bank.blueprint.exam.secondsPerItem} s per item, feedback at the end.`}</span>
+        <span class="hint">{mode === 'tutor' ? 'See the rationale after each answer.' : `Exam pace: ${ctx.bank.blueprint.exam.secondsPerItem} s per question, feedback at the end.`}</span>
       </div>
       <div class="btn-row">
         <button class="btn" onClick={onClose}>Cancel</button>

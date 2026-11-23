@@ -3,13 +3,13 @@ import type { Session } from '../types';
 import { ctx, useDb } from '../ctx';
 import { scaledScore } from '../lib/scoring';
 import type { DrillSource } from '../lib/assemble';
-import { fmtDate, ymd } from '../lib/dates';
-import { areaAccuracy, availableItems, examHistory, focusAreas, focusLine, itemStats, pacingStats, readiness, weightedAccuracy } from '../lib/stats';
+import { fmtShort } from '../lib/dates';
+import { areaAccuracy, availableItems, examHistory, focusAreas, focusLine, itemStats, pacingStats, readiness } from '../lib/stats';
 import { AreaBar, ListLink, Page } from '../ui/bits';
 import { DrillSetup } from './Study';
 
 const scoreOf = (s: Session, target: number) => scaledScore((100 * s.result!.raw) / s.result!.scoredCount, target);
-const shortName = (s: Session, n: number) => `${n <= 3 ? s.title.replace(' exam', '') : s.kind === 'mixed' ? 'Mix' : s.title.replace('Form ', '')}${s.retake ? '*' : ''}`;
+const shortName = (s: Session) => `${s.kind === 'mixed' ? 'Mix' : s.title.replace('Form ', '')}${s.retake ? '*' : ''}`;
 
 /** Lines are drawn in a stretched SVG; labels are HTML so they follow the text-size setting. */
 function ScoreChart({ exams, target }: { exams: Session[]; target: number }) {
@@ -31,9 +31,9 @@ function ScoreChart({ exams, target }: { exams: Session[]; target: number }) {
           </svg>
           {scores.map((v, i) => <span class="chart-pt" style={{ left: `${x(i)}%`, top: `${y(v)}%` }}><b>{v}</b></span>)}
         </div>
-        <div class="chart-x">{exams.map((s, i) => <span style={{ left: `${x(i)}%` }}>{shortName(s, exams.length)}</span>)}</div>
+        <div class="chart-x">{exams.map((s, i) => <span style={{ left: `${x(i)}%` }}>{shortName(s)}</span>)}</div>
       </div>
-      <figcaption class="small muted">Estimated scaled scores. Dashed line: 550 passes.{exams.some((s) => s.retake) ? ' * Includes items already seen.' : ''}</figcaption>
+      <figcaption class="small muted">Estimated scaled scores{exams.length === 6 ? ', last six exams' : ''}. Dashed line: 550 passes.{exams.some((s) => s.retake) ? ' * Includes questions already seen.' : ''}</figcaption>
     </figure>
   );
 }
@@ -42,10 +42,10 @@ export function Progress() {
   const db = useDb();
   const bank = ctx.bank;
   const [pick, setPick] = useState<{ title: string; src: DrillSource } | null>(null);
+  const [all, setAll] = useState(false);
   const stats = itemStats(db.attempts);
   const last = areaAccuracy(bank, stats, 'last');
   const r = readiness(bank, db);
-  const wAcc = weightedAccuracy(bank, last.byDomain);
   const exams = examHistory(db);
   const pace = pacingStats(db);
   const avail = availableItems(bank, db);
@@ -71,7 +71,7 @@ export function Progress() {
             </div>
             <p class="small" style={{ margin: '.6rem 0' }}>{range}</p>
           </>
-        ) : <p>Answer at least 60 items (a full exam is ideal) to get an estimate. So far: {r.n}.</p>}
+        ) : <p>Answer at least 60 questions (a full exam is ideal) to get an estimate. So far: {r.n}.</p>}
         <p class="small muted" style={{ marginBottom: 0 }}>An estimate, not a prediction. It maps your practice target ({target}/100) to 550; the real exam's cut score isn't published.</p>
       </div>
 
@@ -89,11 +89,11 @@ export function Progress() {
         <h2>Exam scores</h2>
         {exams.length ? (
           <>
-            <div class="card"><ScoreChart exams={exams} target={target} /></div>
+            <div class="card"><ScoreChart exams={exams.slice(-6)} target={target} /></div>
             <div class="list mt">
               {exams.slice().reverse().map((s) => {
                 const v = scoreOf(s, target);
-                return <ListLink href={`#/results/${s.id}`} title={s.title} sub={`${fmtDate(ymd(s.submittedAt!))}${s.retake ? ' · retake' : ''} · ${s.result!.raw}/${s.result!.scoredCount}`} right={<span class={`badge ${v >= 550 ? 'ok' : 'bad'}`}>{v >= 550 ? 'Pass' : 'Below'} · est. {v}</span>} />;
+                return <ListLink href={`#/results/${s.id}`} title={s.title} sub={`${fmtShort(s.submittedAt!)} · ${s.result!.raw}/${s.result!.scoredCount}${s.retake ? ' · retake' : ''}`} right={<span class={`badge ${v >= 550 ? 'ok' : 'bad'}`}>{v >= 550 ? 'Pass' : 'Not passing'} · est. {v}</span>} />;
               })}
             </div>
           </>
@@ -103,12 +103,12 @@ export function Progress() {
 
       <div class="col-tall">
       <div class="section">
-        <h2>Domain mastery</h2>
+        <h2>Domain mastery, latest tries</h2>
         <div class="card bars">
           {any ? (
             <>
-              <p class="small muted">Tap an area to drill it. Based on your latest answer to each item: {wAcc === null ? '—' : `${Math.round(wAcc * 100)}%`} overall, blueprint-weighted. The mark on each bar is your practice target ({target}%).</p>
-              {bank.blueprint.domains.map((d) => <AreaBar label={`${d.id}. ${d.name}`} sub={`${d.weight}% of exam`} acc={last.byDomain[d.id]} target={target} onClick={() => setPick({ title: `${d.id}. ${d.name}`, src: { type: 'domain', id: d.id } })} />)}
+              <p class="small muted">Uses your latest answer to each question, so it can run ahead of the readiness estimate, which uses first tries. The mark on each bar is your practice target ({target}%).</p>
+              {bank.blueprint.domains.map((d) => <AreaBar label={`${d.id}. ${d.name}`} sub={`${d.weight}% of exam`} acc={last.byDomain[d.id]} target={target} verb="Drill" onClick={() => setPick({ title: `${d.id}. ${d.name}`, src: { type: 'domain', id: d.id } })} />)}
             </>
           ) : <p class="muted" style={{ margin: 0 }}>No answers yet. Your accuracy in each area appears here as you study.</p>}
         </div>
@@ -118,8 +118,8 @@ export function Progress() {
         <div class="section">
           <h2>Knowledge groups, lowest first</h2>
           <div class="card bars">
-            <p class="small muted">Tap a group to drill it.</p>
-            {kgs.map((k) => <AreaBar label={k.name} sub={`${k.weight}% of exam`} acc={last.byKg[k.id]} target={target} onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} />)}
+            {(all ? kgs : kgs.slice(0, 5)).map((k) => <AreaBar label={k.name} sub={`${k.weight}% of exam`} acc={last.byKg[k.id]} target={target} verb="Drill" onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} />)}
+            <button class="btn small block mt" onClick={() => setAll(!all)}>{all ? 'Show lowest five' : `Show all ${kgs.length}`}</button>
           </div>
         </div>
       )}
@@ -130,8 +130,8 @@ export function Progress() {
         <div class="section">
           <h2>Pacing and coverage</h2>
           <div class="card stat-grid">
-            <div class="stat"><div class="v">{pace ? `${pace.avgSec} s` : '—'}</div><div class="k">Average per timed item (target {bank.blueprint.exam.secondsPerItem} s or less)</div></div>
-            <div class="stat"><div class="v">{seen}/{bank.items.length}</div><div class="k">Bank items seen{avail.length < bank.items.length ? ` (${avail.length} available now)` : ''}</div></div>
+            <div class="stat"><div class="v">{pace ? `${pace.avgSec} s` : '—'}</div><div class="k">Average per timed question (target {bank.blueprint.exam.secondsPerItem} s or less)</div></div>
+            <div class="stat"><div class="v">{seen}/{bank.items.length}</div><div class="k">Bank questions seen{avail.length < bank.items.length ? ` (${avail.length} available now)` : ''}</div></div>
             <div class="stat"><div class="v">{db.attempts.length}</div><div class="k">Total answers</div></div>
             <div class="stat"><div class="v">{Object.keys(db.cardSrs).length}/{bank.cards.length}</div><div class="k">Concept cards studied</div></div>
           </div>

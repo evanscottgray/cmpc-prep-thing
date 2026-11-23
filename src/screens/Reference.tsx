@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks';
 import { APP_VERSION, ctx } from '../ctx';
-import { Page, Verify } from '../ui/bits';
+import { Page, Seg, Verify } from '../ui/bits';
 
 export const ABOUT_TEXT = 'Unofficial study tool. Not affiliated with or endorsed by AASP. CMPC® is a registered trademark of the Association for Applied Sport Psychology. All questions are original practice items, not actual exam questions. Scores are estimates.';
 
@@ -40,13 +40,10 @@ export function BlueprintRef() {
   return (
     <Page title="Blueprint" backTo="more">
       <Verify />
-      <div class="chips" role="group" aria-label="View">
-        <button class="chip" aria-pressed={view === 'weights'} onClick={() => setView('weights')}>Weights</button>
-        <button class="chip" aria-pressed={view === 'grid'} onClick={() => setView('grid')}>100-item grid</button>
-      </div>
+      <Seg name="bpv" label="View" value={view} onChange={setView} options={[{ v: 'weights', label: 'Weights' }, { v: 'grid', label: '100-item grid' }]} />
       {view === 'weights' ? (
         <>
-          <div class="section" style={{ marginTop: '.5rem' }}><h2>Domains (scored items per 100)</h2>
+          <div class="section" style={{ marginTop: '1rem' }}><h2>Domains (scored items per 100)</h2>
             <div class="list">{bp.domains.map((d) => <div class="list-item" style={{ cursor: 'default' }}><span class="li-main"><span class="li-title">{d.id}. {d.name}</span></span><span class="badge accent">{d.weight}</span></div>)}</div>
           </div>
           <div class="section"><h2>Knowledge groups (scored items per 100)</h2>

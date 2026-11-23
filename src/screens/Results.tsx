@@ -22,9 +22,11 @@ export function Results({ session: s }: { session: Session }) {
   const pct = r.scoredCount ? (100 * r.raw) / r.scoredCount : 0;
   const scaled = scaledScore(pct, target);
   const pass = pct >= target;
-  const avgSec = r.answered ? Math.round(r.timeUsedMs / 1000 / Math.max(1, r.total)) : 0;
+  const times = Object.values(s.timeOnItem).filter((t) => t > 0); // questions actually opened
+  const avgSec = times.length ? Math.round(times.reduce((a, b) => a + b, 0) / times.length / 1000) : null;
 
   const [pick, setPick] = useState<{ title: string; src: DrillSource } | null>(null);
+  const [all, setAll] = useState(false);
   const missed = missedPositions(s);
   const missedScored = missed.filter((i) => s.items[i].scored).length;
   const gap = Math.round(r.raw - target);
@@ -39,7 +41,7 @@ export function Results({ session: s }: { session: Session }) {
         <div class="card hero">
           <div class="eyebrow">Tentative result{s.retake ? ' · retake' : ''}</div>
           <div class="score-line first">
-            <div><div class="v">{r.raw}<span class="of">/{r.scoredCount}</span></div><div class="k">Raw score (scored items)</div></div>
+            <div><div class="v">{r.raw}<span class="of">/{r.scoredCount}</span></div><div class="k">Raw score (scored questions)</div></div>
             <div><div class="v">{scaled}</div><div class="k">Estimated scaled score (550 passes)</div></div>
           </div>
           <div class={`verdict-big ${pass ? 'pass' : 'fail'}`} role="status">
@@ -57,12 +59,12 @@ export function Results({ session: s }: { session: Session }) {
             <div><div class="v">{r.correctAll}<span class="of">/{r.total}</span></div><div class="k">correct{r.total ? ` · ${Math.round((100 * r.correctAll) / r.total)}%` : ''}</div></div>
             {s.timed && <div><div class="v">{fmtClock(r.timeUsedMs)}</div><div class="k">of {fmtClock(r.durationMs)} used</div></div>}
           </div>
-          {r.total < s.items.length && <p class="small muted mt" style={{ marginBottom: 0 }}>Ended early. {plural(s.items.length - r.total, 'item')} not answered, and not counted.</p>}
+          {r.total < s.items.length && <p class="small muted mt" style={{ marginBottom: 0 }}>Ended early. {plural(s.items.length - r.total, 'question')} not answered, and not counted.</p>}
         </div>
       )}
 
       {(s.retake || (s.kind === 'mixed' && s.seenBefore > 0)) && full && (
-        <div class="banner warn mt" role="note"><IcAlert /><div><strong>Not a fresh estimate.</strong> {`${s.seenBefore} of ${r.total} items were ones you had already seen.`} Familiar items inflate the score.</div></div>
+        <div class="banner warn mt" role="note"><IcAlert /><div><strong>Not a fresh estimate.</strong> {`${s.seenBefore} of ${r.total} questions were ones you had already seen.`} Familiar questions inflate the score.</div></div>
       )}
 
       <div class="btn-row stack-sm mt">
@@ -71,7 +73,7 @@ export function Results({ session: s }: { session: Session }) {
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
         {s.timed && !full && <a class="btn" href="#/today">Done</a>}
       </div>
-      {full && missed.length !== missedScored && <p class="small muted mt">{missedScored} of the {missed.length} misses were scored; {missed.length - missedScored} were unscored trial items.</p>}
+      {full && missed.length !== missedScored && <p class="small muted mt">{missedScored} of the {missed.length} misses were scored; {missed.length - missedScored} were unscored trial questions.</p>}
 
       {full && focus.length > 0 && (
         <div class="section">
@@ -89,8 +91,8 @@ export function Results({ session: s }: { session: Session }) {
         <div class="section">
           <h2>Percent correct by domain</h2>
           <div class="card bars">
-            <p class="small muted">Tap an area to review its questions. The mark on each bar is your practice target ({target}%).</p>
-            {bp.domains.map((d) => <AreaBar label={`${d.id}. ${d.name}`} acc={r.byDomain[d.id]} target={target} href={`#/review/${s.id}?d=${d.id}`} />)}
+            <p class="small muted">The mark on each bar is your practice target ({target}%).</p>
+            {bp.domains.map((d) => <AreaBar label={`${d.id}. ${d.name}`} acc={r.byDomain[d.id]} target={target} verb="Review" href={`#/review/${s.id}?d=${d.id}`} />)}
             <p class="small muted">The real score report shows domain percentages only to candidates who don't pass.</p>
           </div>
         </div>
@@ -98,10 +100,10 @@ export function Results({ session: s }: { session: Session }) {
 
       {kgs.length > 0 && (
         <div class="section">
-          <h2>By knowledge group{full ? ', lowest first' : ''}</h2>
+          <h2>By knowledge group{kgs.length > 5 ? ', lowest first' : ''}</h2>
           <div class="card bars">
-            <p class="small muted">Tap a group to review its questions.</p>
-            {kgs.map((k) => <AreaBar label={k.name} acc={r.byKg[k.id]} target={target} href={`#/review/${s.id}?k=${k.id}`} />)}
+            {(all ? kgs : kgs.slice(0, 5)).map((k) => <AreaBar label={k.name} acc={r.byKg[k.id]} target={target} verb="Review" href={`#/review/${s.id}?k=${k.id}`} />)}
+          {kgs.length > 5 && <button class="btn small block mt" onClick={() => setAll(!all)}>{all ? 'Show lowest five' : `Show all ${kgs.length}`}</button>}
           </div>
         </div>
       )}
@@ -113,9 +115,9 @@ export function Results({ session: s }: { session: Session }) {
           <h2>Time and pacing</h2>
           <div class="card stat-grid">
             <div class="stat"><div class="v">{fmtDuration(r.timeUsedMs)}</div><div class="k">Time used of {fmtDuration(r.durationMs)}</div></div>
-            <div class="stat"><div class="v">{avgSec} s</div><div class="k">Average per item (target {bp.exam.secondsPerItem} s or less)</div></div>
+            <div class="stat"><div class="v">{avgSec === null ? '—' : `${avgSec} s`}</div><div class="k">Average per question opened (target {bp.exam.secondsPerItem} s or less)</div></div>
             <div class="stat"><div class="v">{r.answered}/{r.total}</div><div class="k">Answered</div></div>
-            <div class="stat"><div class="v">{r.flagged.n ? `${r.flagged.c}/${r.flagged.n}` : '—'}</div><div class="k">Flagged items correct</div></div>
+            <div class="stat"><div class="v">{r.flagged.n ? `${r.flagged.c}/${r.flagged.n}` : '—'}</div><div class="k">Flagged questions correct</div></div>
           </div>
         </div>
       )}
@@ -126,7 +128,7 @@ export function Results({ session: s }: { session: Session }) {
         <div class="banner info mt" role="note">
           <IcInfo />
           <div class="small">
-            <strong>This score is an estimate.</strong> AASP doesn't publish the raw passing score, so the app maps your raw score to the 200–800 scale using your raw passing target ({target}/100 → 550; change it in Settings). These practice items aren't calibrated to the real exam, so treat the result as a rough guide, not a prediction.
+            <strong>This score is an estimate.</strong> AASP doesn't publish the raw passing score, so the app maps your raw score to the 200–800 scale using your raw passing target ({target}/100 → 550; change it in Settings). These practice questions aren't calibrated to the real exam, so treat the result as a rough guide, not a prediction.
           </div>
         </div>
       )}

@@ -88,6 +88,10 @@ export function ItemReview({ item, si, response, showActions = true }: { item: I
   );
 }
 
+/** Explain the strike-out button until it has been used once. */
+export const strikeHint = () => !Object.values(ctx.store.state.sessions).some((s) => Object.keys(s.strikes).length > 0);
+export const StrikeHint = () => <p class="strike-hint"><IcStrike /> crosses out an option. Tap it again to restore it.</p>;
+
 export function References({ ids }: { ids: string[] }) {
   return (
     <div class="refs">
@@ -114,8 +118,8 @@ export function ItemActions({ item }: { item: Item }) {
   return (
     <div class="q-actions">
       <button class="btn small" onClick={() => setOpen(true)}><IcBug />Report a problem</button>
-      <button class="btn small" onClick={() => { hideItem(item.id, !hidden); toast(hidden ? 'Item restored to your study pool.' : 'Item hidden from future sessions.'); }}>
-        {hidden ? <><IcEye />Unhide item</> : <><IcEyeOff />Hide this item</>}
+      <button class="btn small" onClick={() => { hideItem(item.id, !hidden); toast(hidden ? 'Question restored to your study pool.' : 'Question hidden from future sessions.'); }}>
+        {hidden ? <><IcEye />Unhide question</> : <><IcEyeOff />Hide this question</>}
       </button>
       {open && <ReportDialog itemId={item.id} onClose={() => setOpen(false)} />}
     </div>
@@ -135,7 +139,7 @@ export function ReportDialog({ itemId, onClose, quiet }: { itemId: string; onClo
   const [note, setNote] = useState('');
   return (
     <Modal title="Report a problem" onClose={onClose}>
-      <p class="muted small">Item {itemId}. {quiet ? 'Saved for later — nothing about the answer is shown during an exam.' : 'Reports stay on this device until you export them from More → Problem reports.'}</p>
+      <p class="muted small">Question {itemId}. {quiet ? 'Saved for later — nothing about the answer is shown during an exam.' : 'Reports stay on this device until you export them from More → Problem reports.'}</p>
       <fieldset class="opts" style={{ gap: '.35rem' }}>
         <legend class="label" style={{ fontWeight: 600, marginBottom: '.35rem' }}>What's wrong?</legend>
         {KINDS.map((k) => (
@@ -144,7 +148,7 @@ export function ReportDialog({ itemId, onClose, quiet }: { itemId: string; onClo
       </fieldset>
       <label class="field mt">
         <span class="label">Details (optional)</span>
-        <textarea class="input" value={note} onInput={(e) => setNote((e.target as HTMLTextAreaElement).value)} placeholder="What would make this item right?" />
+        <textarea class="input" value={note} onInput={(e) => setNote((e.target as HTMLTextAreaElement).value)} placeholder="What would make this question right?" />
       </label>
       <div class="btn-row">
         <button class="btn" onClick={onClose}>Cancel</button>

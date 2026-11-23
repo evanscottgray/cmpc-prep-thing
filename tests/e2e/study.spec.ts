@@ -8,7 +8,7 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
   await page.getByRole('button', { name: /Weakest areas/ }).click();
   await page.getByRole('radio', { name: '10' }).check({ force: true });
   await page.getByRole('button', { name: 'Start', exact: true }).click();
-  await expect(page.getByText('Item 1 of 10')).toBeVisible();
+  await expect(page.getByText('Question 1 of 10')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Check answer' })).toBeDisabled();
   await optionLabels(page).nth(0).click();
   await page.getByLabel(/I'm not sure/).check();
@@ -24,29 +24,29 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
   await page.getByLabel('Typo or wording').check();
   await page.getByRole('button', { name: 'Save report' }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await page.getByRole('button', { name: 'Hide this item' }).click();
-  await expect(page.getByRole('button', { name: 'Unhide item' })).toBeVisible();
-  await page.getByRole('button', { name: 'Next item' }).click();
-  await expect(page.getByText('Item 2 of 10')).toBeVisible();
+  await page.getByRole('button', { name: 'Hide this question' }).click();
+  await expect(page.getByRole('button', { name: 'Unhide question' })).toBeVisible();
+  await page.getByRole('button', { name: 'Next question' }).click();
+  await expect(page.getByText('Question 2 of 10')).toBeVisible();
   // leave without ending: Today offers to resume
   await go(page, 'today');
-  await page.getByRole('link', { name: /Weakest areas.*1 of 10 items answered|drill.*1 of 10/i }).click();
-  await expect(page.getByText('Item 2 of 10')).toBeVisible();
+  await page.getByRole('link', { name: /Weakest areas.*1 of 10 questions answered|drill.*1 of 10/i }).click();
+  await expect(page.getByText('Question 2 of 10')).toBeVisible();
   await page.getByRole('button', { name: 'End' }).click();
   await page.getByRole('button', { name: 'End and see summary' }).click();
   await expect(page.getByRole('heading', { name: /summary/ })).toBeVisible();
-  await expect(page.getByText('Ended early. 9 items not answered, and not counted.')).toBeVisible();
+  await expect(page.getByText('Ended early. 9 questions not answered, and not counted.')).toBeVisible();
   await expect(page.locator('.score-line .v').first()).toContainText('/1');
 
   // spaced review now has the unsure/missed item queued for tomorrow; reports exportable
   await go(page, 'reports');
   await expect(page.getByText(/1 report/)).toBeVisible();
-  await expect(page.getByText('1 hidden item').or(page.locator('text=Unhide'))).toBeVisible();
+  await expect(page.getByText('1 hidden question').or(page.locator('text=Unhide'))).toBeVisible();
 
   // quick quiz
   await go(page, 'today');
   await page.getByRole('button', { name: 'Quick quiz · 10' }).click();
-  await expect(page.getByText('Item 1 of 10')).toBeVisible();
+  await expect(page.getByText('Question 1 of 10')).toBeVisible();
 
   // concept cards with spaced review
   await go(page, 'cards');
@@ -71,6 +71,30 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
   }
   await go(page, 'about');
   await expect(page.getByText(/Unofficial study tool. Not affiliated with or endorsed by AASP/)).toBeVisible();
+});
+
+test('Back returns to the same place, and a drill can be left and resumed', async ({ page }) => {
+  await onboard(page);
+  await go(page, 'cards');
+  await page.getByLabel('Search cards').fill('the');
+  const card = page.locator('.list .list-item').nth(30);
+  await card.scrollIntoViewIfNeeded();
+  const y = await page.evaluate(() => window.scrollY);
+  expect(y).toBeGreaterThan(300);
+  await card.click();
+  await expect(page.locator('.concept-body')).toBeVisible();
+  expect(await page.evaluate(() => window.scrollY)).toBe(0);
+  await page.getByRole('button', { name: 'Back' }).click();
+  await expect(page.getByLabel('Search cards')).toHaveValue('the');
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(y - 60);
+  await go(page, 'today');
+  await page.getByRole('button', { name: 'Quick quiz · 10' }).click();
+  await expect(page.locator('.strike-hint')).toBeVisible();
+  await optionLabels(page).nth(1).click();
+  await page.getByRole('button', { name: 'Check answer' }).click();
+  await page.getByRole('button', { name: 'Back' }).click();
+  await page.getByRole('button', { name: 'Resume quick quiz' }).click();
+  await expect(page.locator('#verdict')).toBeVisible();
 });
 
 test('settings: text size and theme apply; exam-pace block runs', async ({ page }) => {

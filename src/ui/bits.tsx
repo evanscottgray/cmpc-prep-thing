@@ -1,9 +1,9 @@
 import type { ComponentChildren } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { back } from '../router';
+import { back, takeRestore } from '../router';
 import { IcBack, IcCards, IcChevron, IcMore, IcProgress, IcStudy, IcToday } from './icons';
 
-export function TopBar({ title, backTo, right, noBack }: { title: string; backTo?: string; right?: ComponentChildren; noBack?: boolean }) {
+export function TopBar({ title, backTo, onBack, right, noBack }: { title: string; backTo?: string; onBack?: () => void; right?: ComponentChildren; noBack?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 4);
@@ -13,18 +13,18 @@ export function TopBar({ title, backTo, right, noBack }: { title: string; backTo
   useEffect(() => { document.title = `${title} · CMPC Prep`; }, [title]);
   return (
     <header class={`topbar${scrolled ? ' scrolled' : ''}`}>
-      <div class="side">{!noBack && <button class="icon-btn" onClick={() => back(backTo)} aria-label="Back"><IcBack /><span class="small">Back</span></button>}</div>
+      <div class="side">{!noBack && <button class="icon-btn" onClick={() => (onBack ? onBack() : back(backTo))} aria-label="Back"><IcBack /><span class="small">Back</span></button>}</div>
       <h1 tabIndex={-1}>{title}</h1>
       <div class="side right">{right}</div>
     </header>
   );
 }
 
-export function Page({ title, children, backTo, right, noBack, tabs = true, wide }: { title: string; children: ComponentChildren; backTo?: string; right?: ComponentChildren; noBack?: boolean; tabs?: boolean; wide?: boolean }) {
-  useEffect(() => { window.scrollTo(0, 0); document.querySelector<HTMLElement>('.topbar h1')?.focus({ preventScroll: true }); }, [title]);
+export function Page({ title, children, backTo, onBack, right, noBack, tabs = true, wide }: { title: string; children: ComponentChildren; backTo?: string; onBack?: () => void; right?: ComponentChildren; noBack?: boolean; tabs?: boolean; wide?: boolean }) {
+  useEffect(() => { window.scrollTo(0, takeRestore() ?? 0); document.querySelector<HTMLElement>('.topbar h1')?.focus({ preventScroll: true }); }, [title]);
   return (
     <>
-      <TopBar title={title} backTo={backTo} right={right} noBack={noBack} />
+      <TopBar title={title} backTo={backTo} onBack={onBack} right={right} noBack={noBack} />
       <main class={`page${tabs ? '' : ' notabs'}${wide ? ' wide' : ''}`} id="main" tabIndex={-1}>{children}</main>
     </>
   );
@@ -60,14 +60,15 @@ export function Meter({ value, label, tick }: { value: number | null; label: str
 }
 
 /** One area of the blueprint: name, percent, count, and a bar against the practice target. Under four answers it shows only the count. */
-export function AreaBar({ label, sub, acc, target, href, onClick }: { label: string; sub?: string; acc: { c: number; n: number } | undefined; target: number; href?: string; onClick?: () => void }) {
+export function AreaBar({ label, sub, acc, target, verb, href, onClick }: { label: string; sub?: string; verb?: string; acc: { c: number; n: number } | undefined; target: number; href?: string; onClick?: () => void }) {
   const few = !acc || acc.n < 4;
   const p = acc?.n ? Math.round((100 * acc.c) / acc.n) : null;
   const inner = (
     <>
       <span class="bar-label">{label}</span>
-      <span class="bar-val">{p === null ? '—' : few ? '' : `${p}%`}{(href || onClick) && <IcChevron class="chev" />}</span>
-      <span class="bar-sub">{[sub, acc?.n ? `${acc.c} of ${acc.n} correct` : 'No answers yet'].filter(Boolean).join(' · ')}{!few && p !== null && p < target && <strong class="below-tag"> · Below target</strong>}</span>
+      <span class="bar-val">{p === null ? '—' : few ? '' : `${p}%`}</span>
+      <span class="bar-sub">{[sub, acc?.n ? `${acc.c}/${acc.n} correct` : 'No answers yet'].filter(Boolean).join(' · ')}{!few && p !== null && p < target && <> · <strong class="below-tag keep">Below target</strong></>}</span>
+      {(href || onClick) && <span class="bar-verb">{verb}<IcChevron class="chev" /></span>}
       {!few && <Meter value={p} label={label} tick={target} />}
     </>
   );
