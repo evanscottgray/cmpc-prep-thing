@@ -9,7 +9,7 @@ export interface Item {
   stem: string; options: string[]; answer: number; rationales: string[]; takeaway: string; refs: string[];
 }
 export interface Card {
-  id: string; kg: KgId; title: string; body: string; points?: string[]; examNote: string; refs: string[];
+  id: string; kg: KgId; title: string; body: string[]; points?: string[]; examNote: string; refs: string[];
   category?: 'ethics-principle' | 'ethics-standard';
 }
 export interface Blueprint {

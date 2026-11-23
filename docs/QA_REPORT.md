@@ -29,7 +29,7 @@ No human expert has reviewed this bank. Every check below was done by AI models,
 
 The brief's bar is 95%. Sonnet's number is the more independent one and clears it narrowly.
 
-After that run, 22 items were edited for disagreement, low confidence, or factual/safety notes, and two that drew doubt twice (H-III-004, H-III-008) were replaced. Rechecks: Opus 32/32 and 4/4; Sonnet 30/32 and 3/4. Asking the same model again is weak evidence, so it doesn't change the headline. The last miss (D-II-001) came from an ambiguous quote, since reworded and not re-run. Ten items Sonnet missed were left unedited because the stem decides them: G-II-001, I-I-005, C-I-001, L-I-019, L-I-017, I-IV-032, I-II-003, G-III-015, E-VI-012 (and D-II-001 before its edit). **Treat these, and L-I-014, as the first ones to question.**
+After that run, 22 items were edited for disagreement, low confidence, or factual/safety notes, and two that drew doubt twice (H-III-004, H-III-008) were replaced. Rechecks: Opus 32/32 and 4/4; Sonnet 30/32 and 3/4. Asking the same model again is weak evidence, so it doesn't change the headline. The last miss (D-II-001) came from an ambiguous quote, since reworded and not re-run. Eight items Sonnet missed were left unedited because the stem decides them: G-II-001, I-I-005, C-I-001, L-I-019, L-I-017, I-IV-032, I-II-003, G-III-015. E-VI-012 was answered correctly but with low confidence. **Treat these, and L-I-014, as the first ones to question.**
 
 Reviewer transcripts were searched for access to keys, the repository, or other packets. None was found (four matches were false positives). Reviewers were kept away by instruction, not by a sandbox.
 

@@ -20,6 +20,22 @@ cards.sort((a, b) => KG_ORDER.indexOf(a.kg) - KG_ORDER.indexOf(b.kg) || (a.categ
 const usedRefs = new Set([...items.flatMap((i) => i.refs), ...cards.flatMap((c) => c.refs || [])]);
 const refOut = Object.fromEntries(Object.entries(refs).filter(([k]) => usedRefs.has(k)).map(([k, v]) => [k, { s: v.short, c: v.citation }]));
 
+// Card bodies are written as one block; split them into short paragraphs so they read well on a phone.
+const ABBR = /(?:\b(?:e\.g|i\.e|vs|etc|al|Dr|Mr|Ms|Mrs|St|No|approx)\.|\b[A-Z]\.)$/;
+function paragraphs(text) {
+  const sentences = [];
+  for (const part of text.split(/(?<=[.!?]["”’)]?)\s+(?=["“(]?[A-Z0-9])/)) {
+    if (sentences.length && ABBR.test(sentences.at(-1))) sentences[sentences.length - 1] += ` ${part}`; else sentences.push(part);
+  }
+  const out = [];
+  for (const s of sentences) {
+    const max = out.length <= 1 ? 30 : 48; // words: a short lead, then longer paragraphs
+    const n = out.length ? out.at(-1).split(' ').length : Infinity;
+    if (n + s.split(' ').length <= max) out[out.length - 1] += ` ${s}`; else out.push(s);
+  }
+  return out;
+}
+
 const body = {
   blueprint: { domains: bp.domains, kgs: bp.kgs, grid: bp.grid, unscoredPerForm: bp.unscoredPerForm, exam: bp.exam },
   items: items.map((i) => ({
@@ -27,7 +43,7 @@ const body = {
     cog: i.cognitive, diff: i.difficulty, fmt: i.format, ctx: i.context,
     stem: i.stem, options: i.options, answer: i.answer, rationales: i.rationales, takeaway: i.takeaway, refs: i.refs,
   })),
-  cards: cards.map(({ _file, ...c }) => c),
+  cards: cards.map(({ _file, body, ...c }) => ({ ...c, body: paragraphs(body) })),
   refs: refOut,
 };
 const json = JSON.stringify(body);

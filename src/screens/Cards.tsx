@@ -8,7 +8,7 @@ import { areaAccuracy, itemStats, smooth } from '../lib/stats';
 import { ListLink, Page } from '../ui/bits';
 import { References } from '../ui/question';
 
-const CAT = (c: Card) => c.category === 'ethics-principle' ? 'Ethics principle' : c.category === 'ethics-standard' ? 'Ethics standard' : `KG ${c.kg}`;
+const CAT = (c: Card) => c.category === 'ethics-principle' ? 'Ethics principle' : c.category === 'ethics-standard' ? 'Ethics standard' : `${c.kg}. ${ctx.bank.blueprint.kgs.find((k) => k.id === c.kg)?.name}`;
 
 export function CardsHub({ query }: { query: URLSearchParams }) {
   const db = useDb();
@@ -18,7 +18,7 @@ export function CardsHub({ query }: { query: URLSearchParams }) {
   const due = dueIds(db.cardSrs, ymd(), db.settings.examDate).length;
   const fresh = ctx.bank.cards.filter((c) => !db.cardSrs[c.id]).length;
   const needle = q.trim().toLowerCase();
-  const list = ctx.bank.cards.filter((c) => (!kg || c.kg === kg) && (!needle || `${c.title} ${c.body}`.toLowerCase().includes(needle)));
+  const list = ctx.bank.cards.filter((c) => (!kg || c.kg === kg) && (!needle || `${c.title} ${c.body.join(' ')} ${(c.points ?? []).join(' ')}`.toLowerCase().includes(needle)));
   return (
     <Page title="Concept cards" noBack>
       <div class="card hero">
@@ -29,11 +29,12 @@ export function CardsHub({ query }: { query: URLSearchParams }) {
         <label class="field"><span class="sr-only">Search cards</span>
           <input class="input" type="search" placeholder="Search cards" value={q} onInput={(e) => setQ((e.target as HTMLInputElement).value)} />
         </label>
-        <div class="chips" role="group" aria-label="Knowledge group">
-          <a class="chip" role="button" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }} aria-pressed={!kg} href="#/cards">All</a>
-          {bp.kgs.map((k) => <a class="chip" role="button" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }} aria-pressed={kg === k.id} href={`#/cards?kg=${k.id}`} aria-label={`KG ${k.id}: ${k.name}`}>{k.id}</a>)}
-        </div>
-        {kg && <p class="small muted">KG {kg}: {bp.kgs.find((k) => k.id === kg)?.name}</p>}
+        <label class="field"><span class="sr-only">Knowledge group</span>
+          <select class="input" value={kg} onChange={(e) => { const v = (e.target as HTMLSelectElement).value; navigate(v ? `cards?kg=${v}` : 'cards', true); }}>
+            <option value="">All knowledge groups</option>
+            {bp.kgs.map((k) => <option value={k.id}>{k.id}. {k.name}</option>)}
+          </select>
+        </label>
         <p class="small muted" aria-live="polite">{list.length} cards</p>
         <div class="list">
           {list.map((c) => {
@@ -49,7 +50,7 @@ export function CardsHub({ query }: { query: URLSearchParams }) {
 function CardBody({ c }: { c: Card }) {
   return (
     <div class="concept-body">
-      <p>{c.body}</p>
+      {c.body.map((p) => <p>{p}</p>)}
       {c.points && c.points.length > 0 && <ul>{c.points.map((p) => <li>{p}</li>)}</ul>}
       <div class="exam-note"><strong>On the exam: </strong>{c.examNote}</div>
       <References ids={c.refs} />
@@ -61,7 +62,8 @@ export function CardDetail({ id }: { id: string }) {
   const c = ctx.bank.cards.find((x) => x.id === id);
   if (!c) return <Page title="Card" backTo="cards"><p>Card not found.</p></Page>;
   return (
-    <Page title={CAT(c)} backTo="cards">
+    <Page title="Concept card" backTo="cards">
+      <div class="eyebrow">{CAT(c)}</div>
       <h2 style={{ fontSize: '1.35rem' }}>{c.title}</h2>
       <CardBody c={c} />
       <RateRow id={c.id} />

@@ -84,9 +84,9 @@ export function References({ ids }: { ids: string[] }) {
 export function ItemMeta({ item, showTopic = true }: { item: Item; showTopic?: boolean }) {
   return (
     <div class="q-meta">
-      <span class="badge">Domain {item.domain}</span>
-      <span class="badge">KG {item.kg}</span>
-      {showTopic && <span class="badge">{item.topic}</span>}
+      {showTopic && <span class="badge accent">{item.topic}</span>}
+      <span class="badge">Domain {item.domain}: {ctx.bank.blueprint.domains.find((d) => d.id === item.domain)?.name}</span>
+      <span class="badge">KG {item.kg}: {ctx.bank.blueprint.kgs.find((k) => k.id === item.kg)?.name}</span>
     </div>
   );
 }

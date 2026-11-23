@@ -1,7 +1,7 @@
 import { ctx, useDb, useNow } from '../ctx';
 import { navigate } from '../router';
 import { createSession } from '../lib/actions';
-import { buildDrill, buildQuiz, buildReview } from '../lib/assemble';
+import { REVIEW_MAX, buildDrill, buildQuiz, buildReview } from '../lib/assemble';
 import { fmtDate, ymd } from '../lib/dates';
 import { plan, type Action } from '../lib/plan';
 import { dueIds } from '../lib/srs';
@@ -74,7 +74,7 @@ export function Today() {
         <div class="section">
           <h2>Due reviews</h2>
           <div class="list">
-            {p.dueItems > 0 && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>{p.dueItems} missed or uncertain item{p.dueItems === 1 ? '' : 's'} due</span></span><span class="badge accent">{p.dueItems}</span><IcChevron class="chev" /></button>}
+            {p.dueItems > 0 && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>{p.dueItems > REVIEW_MAX ? `${p.dueItems} due · do ${REVIEW_MAX} at a time` : `${p.dueItems} missed or uncertain ${p.dueItems === 1 ? 'item' : 'items'} due`}</span></span><span class="badge accent">{p.dueItems}</span><IcChevron class="chev" /></button>}
             {p.dueCards > 0 && <a class="list-item" href="#/cards/study"><span class="li-main"><span class="li-title">Concept cards</span><span class="li-sub" style={{ display: 'block' }}>{p.dueCards} card{p.dueCards === 1 ? '' : 's'} due</span></span><span class="badge accent">{p.dueCards}</span><IcChevron class="chev" /></a>}
           </div>
         </div>
@@ -87,7 +87,7 @@ export function Today() {
           <div class="mt" style={{ marginTop: '.5rem' }}><Meter value={progress} label="Daily target" /></div>
           <div class="btn-row mt">
             <button class="btn small" onClick={startQuiz}>Quick quiz · 10</button>
-            <a class="btn small" href="#/study">More study options</a>
+            <a class="btn small" href="#/study">More options</a>
           </div>
         </div>
       </div>
@@ -105,7 +105,7 @@ export function Today() {
         </div>
       )}
       {notInstalled && (
-        <div class="banner info mt" role="note"><IcPhone /><div class="small"><strong>Add to Home Screen</strong> for full-screen use, offline access, and safer storage. In Safari: Share → Add to Home Screen. <a href="#/onboarding/3">How</a></div></div>
+        <div class="banner info mt" role="note"><IcPhone /><div class="small"><strong>Add to Home Screen</strong> for full-screen use, offline access, and safer storage. In Safari: Share → Add to Home Screen.<div><a href="#/onboarding/3">Show me how</a></div></div></div>
       )}
       {ctx.store.kv.kind !== 'indexeddb' && (
         <div class="banner warn mt" role="alert"><IcInfo /><div class="small">{ctx.store.kv.kind === 'memory' ? 'Storage is unavailable (private browsing?). Progress will be lost when you close this tab — back up often.' : 'Using fallback storage. Back up regularly.'}</div></div>

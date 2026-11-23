@@ -2,7 +2,7 @@
 // Zero-dependency static server for the production build in dist/.
 //   npm run preview       → http://127.0.0.1:4173  (localhost is a secure context: offline mode works)
 //   npm run preview:lan   → http://<this-computer's-LAN-IP>:4173 for iPhone/iPad on the same Wi-Fi
-// Options: --host <addr> --port <n> --dir <path>   (or PORT env var)
+// Options: --host <addr> --port <n> --dir <path> --base </subpath/>   (or PORT env var)
 import http from 'node:http';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -11,6 +11,7 @@ import path from 'node:path';
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > -1 ? process.argv[i + 1] : d; };
 const host = arg('--host', '127.0.0.1');
 const port = Number(arg('--port', process.env.PORT || 4173));
+const base = arg('--base', '/'); // serve under a subpath (as GitHub Pages does), e.g. --base /my-repo/
 const root = path.resolve(arg('--dir', 'dist'));
 if (!fs.existsSync(path.join(root, 'index.html'))) { console.error(`No build found in ${root}. Run "npm run build" first.`); process.exit(1); }
 
@@ -23,6 +24,9 @@ const TYPES = {
 const server = http.createServer((req, res) => {
   let p;
   try { p = decodeURIComponent(new URL(req.url, 'http://x').pathname); } catch { res.writeHead(400).end(); return; }
+  if (p + '/' === base) { res.writeHead(301, { location: base }).end(); return; }
+  if (!p.startsWith(base)) { res.writeHead(404, { 'content-type': 'text/plain' }).end('Not found'); return; }
+  p = `/${p.slice(base.length)}`;
   if (p.endsWith('/')) p += 'index.html';
   const file = path.join(root, path.normalize(p).replace(/^([/\\])+/, ''));
   if (p.includes('\0') || (file !== root && !file.startsWith(root + path.sep))) { res.writeHead(403).end(); return; }

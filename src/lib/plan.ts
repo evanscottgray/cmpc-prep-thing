@@ -56,7 +56,7 @@ export function plan(db: DbState, now = Date.now()): Plan {
 
   if (!tookA) return { ...base, phase: 'diagnostic', daysLeft, primary: { kind: 'formA' }, why: 'Start with Form A as a diagnostic: a full timed exam shows where to focus.' };
   // After any full exam, review it the same/next day before the next big step.
-  if (last && lastDay <= 1 && !reviewed(db, last)) return { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'reviewExam', session: last }, why: `Review your ${last.title} misses while they're fresh.` };
+  if (last && lastDay <= 1 && !reviewed(db, last)) return { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'reviewExam', session: last }, why: `Reading the rationales for what you missed is the most useful thing to do after an exam, while it's fresh.` };
   if (lastDay <= 1) return drill('Drill your weakest areas, weighted by the blueprint.');
   if (daysLeft <= 7) {
     if (!tookB && daysLeft >= 4) return { ...base, phase: 'final-week', daysLeft, primary: { kind: 'formB' }, why: 'Take Form B now — a fresh, full-length estimate before exam day.' };

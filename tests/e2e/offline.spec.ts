@@ -49,3 +49,21 @@ test('fully usable at a plain-HTTP LAN address (no service worker, share, wake l
   await go(page, 'reports');
   expect(await page.evaluate(async () => (await navigator.serviceWorker?.getRegistration?.()) ?? null)).toBeNull();
 });
+
+test('works from a project subpath, as on GitHub Pages, including offline and update checks', async ({ page, context }) => {
+  const base = `http://localhost:${Number(process.env.E2E_PAGES_PORT || 4312)}/some-repo/`;
+  const missing: string[] = [];
+  page.on('response', (r) => { if (r.status() >= 400) missing.push(`${r.status()} ${r.url()}`); });
+  await page.goto(base.slice(0, -1)); // no trailing slash: redirected
+  await expect(page.getByRole('heading', { name: /Prepare for the CMPC/ })).toBeVisible();
+  await page.waitForFunction(async () => !!(await navigator.serviceWorker.getRegistration())?.active, null, { timeout: 30000 });
+  expect(await page.evaluate(async () => new URL((await navigator.serviceWorker.getRegistration())!.scope).pathname)).toBe('/some-repo/');
+  await page.reload();
+  await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 30000 });
+  await expect(page.getByText('Update ready.')).toHaveCount(0);
+  await context.setOffline(true);
+  await page.reload();
+  await expect(page.getByRole('heading', { name: /Prepare for the CMPC/ })).toBeVisible();
+  await context.setOffline(false);
+  expect(missing).toEqual([]);
+});

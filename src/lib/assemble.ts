@@ -212,7 +212,8 @@ export function buildQuiz(bank: Bank, db: DbState, now = Date.now(), seed = now)
 }
 
 /** Spaced review of due items (tutor mode). */
-export function buildReview(bank: Bank, db: DbState, dueIds: string[], max = 25, now = Date.now(), seed = now): Session | null {
+export const REVIEW_MAX = 25;
+export function buildReview(bank: Bank, db: DbState, dueIds: string[], max = REVIEW_MAX, now = Date.now(), seed = now): Session | null {
   const rand = rng(seed);
   const hidden = new Set(db.hidden);
   const ids = dueIds.filter((id) => !hidden.has(id) && bank.items.some((i) => i.id === id)).slice(0, max);

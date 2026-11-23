@@ -1,4 +1,5 @@
 // Local-calendar date helpers (YYYY-MM-DD strings, local time).
+export const plural = (n: number, one: string, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
 export function ymd(d: Date | number = Date.now()): string {
   const x = typeof d === 'number' ? new Date(d) : d;
   const m = String(x.getMonth() + 1).padStart(2, '0');

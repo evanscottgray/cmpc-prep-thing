@@ -3,7 +3,7 @@ import type { TextSize, Theme } from '../types';
 import { APP_VERSION, ctx, useDb } from '../ctx';
 import { navigate } from '../router';
 import { backupFilename, makeBackup, parseBackup, summarize, type BackupFile } from '../lib/backup';
-import { fmtDate, ymd } from '../lib/dates';
+import { fmtDate, plural, ymd } from '../lib/dates';
 import { copyText, shareOrDownload } from '../lib/share';
 import { emptyState } from '../lib/store';
 import { swStatus } from '../lib/sw-register';
@@ -116,6 +116,8 @@ export function Settings() {
   );
 }
 
+const backupLine = (s: ReturnType<typeof summarize>) => [plural(s.attempts, 'answer'), plural(s.exams, 'full exam'), plural(s.reviews, 'review entry', 'review entries'), plural(s.reports, 'report')].join(' · ');
+
 export function Backup() {
   const db = useDb();
   const fileRef = useRef<HTMLInputElement>(null);
@@ -148,7 +150,7 @@ export function Backup() {
       <div class="card">
         <h2>Back up</h2>
         <p>Saves everything — answers, exams in progress, review schedules, reports and settings — to one file. {ctx.caps.shareFiles ? 'The share sheet opens: choose Save to Files, AirDrop, or Mail.' : 'The file downloads to your device.'}</p>
-        <p class="small muted">{sum.attempts} answers · {sum.exams} full exams · {sum.reviews} review entries · {sum.reports} reports</p>
+        <p class="small muted">{backupLine(sum)}</p>
         <button class="btn primary block" onClick={doBackup}>{ctx.caps.shareFiles ? <IcShare /> : <IcDownload />}Back up now</button>
         <p class="small muted mt" style={{ marginBottom: 0 }}>Last backup: {db.settings.lastBackupAt ? new Date(db.settings.lastBackupAt).toLocaleString() : 'never'}.</p>
       </div>
@@ -164,7 +166,7 @@ export function Backup() {
       {pending && ps && (
         <Modal title="Restore this backup?" onClose={() => setPending(null)}>
           <p>Made {new Date(pending.exportedAt).toLocaleString()} (app {pending.appVersion}).</p>
-          <p class="small">{ps.attempts} answers · {ps.exams} full exams · {ps.reviews} review entries · {ps.reports} reports</p>
+          <p class="small">{backupLine(ps)}</p>
           <p><strong>Everything currently on this device will be replaced.</strong></p>
           <div class="btn-row">
             <button class="btn" onClick={() => setPending(null)}>Cancel</button>
