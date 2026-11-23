@@ -66,11 +66,8 @@ export function ExamIntro({ kind }: { kind: Kind }) {
               <>
                 <h2>{kind === 'mixed' ? 'A full exam assembled to the blueprint' : `Full-length practice form`}</h2>
                 <ul>
-                  <li><strong>{ex.items} questions in {ex.minutes} minutes</strong>, one sitting, no breaks (about {ex.secondsPerItem} seconds per question).</li>
+                  <li><strong>{ex.items} questions in {ex.minutes} minutes</strong>, one sitting (the real exam has no breaks), about {ex.secondsPerItem} seconds per question.</li>
                   <li>{ex.unscored} questions are unscored trial questions you can't identify, as on the real exam. Your score comes from the other {ex.scored}.</li>
-                  <li>No feedback until you submit. You can flag questions, strike out options with <span class="inline-ic"><IcStrike title="the strike-out button" /></span>, and use the navigator.</li>
-                  <li>The <span class="inline-ic"><IcMenu title="menu" /></span> menu on every question has Report a problem and Hide this question. Tap the timer to hide it.</li>
-                  <li>The timer runs on the clock: it keeps going if you switch apps or close the app, and the exam submits itself at zero.</li>
                   {kind === 'mixed' && <li>Drawn from the drill pool and any forms you've taken, favoring unseen questions and your weak areas.</li>}
                 </ul>
               </>
@@ -79,10 +76,20 @@ export function ExamIntro({ kind }: { kind: Kind }) {
                 <h2>A fifth of an exam at real pace</h2>
                 <ul>
                   <li><strong>23 questions in 18 minutes</strong>, sampled in proportion to the blueprint.</li>
-                  <li>No feedback until the end; full review afterwards.</li>
                 </ul>
               </>
             )}
+            <h2 class="mt">Mode</h2>
+            <Seg name="mode" label="Exam mode" value={mode} onChange={setMode} options={[{ v: 'strict', label: 'Strict' }, { v: 'coached', label: 'Coached' }]} />
+            <p class="small muted mt" style={{ marginBottom: 0 }}>{mode === 'strict' ? 'Strict: no pausing — like the real exam. Recommended.' : 'Coached: you can pause, and a pacing line shows where you are against ~47 s per question.'}</p>
+          </div>
+          <div class="card">
+            <h2>During the exam</h2>
+            <ul>
+              <li>No feedback until you submit{full ? '' : '; full review afterwards'}. You can flag questions, strike out options with <span class="inline-ic"><IcStrike title="the strike-out button" /></span>, and use the navigator.</li>
+              <li>The <span class="inline-ic"><IcMenu title="menu" /></span> menu on every question has Report a problem and Hide this question. Tap the timer to hide it.</li>
+              <li>The timer runs on the clock: it keeps going if you switch apps or close the app, and the exam submits itself at zero.</li>
+            </ul>
           </div>
           {last && <a class="btn block mt" href={`#/results/${last.id}`}>View results from {fmtShort(last.submittedAt!)} · estimated {scaledScore((100 * last.result!.raw) / last.result!.scoredCount, db.settings.rawTarget)}</a>}
           {taken && (
@@ -92,11 +99,6 @@ export function ExamIntro({ kind }: { kind: Kind }) {
             <div class="banner warn mt" role="note"><IcAlert /><div><strong>Partly seen.</strong> You opened {opened} of these questions in an attempt you discarded, so this score is <strong>not a fresh estimate</strong>.</div></div>
           )}
           {kind === 'mixed' && <p class="small muted mt">If it includes questions you've already seen, the score report will say so.</p>}
-          <div class="section" >
-            <h2>Mode</h2>
-            <Seg name="mode" label="Exam mode" value={mode} onChange={setMode} options={[{ v: 'strict', label: 'Strict' }, { v: 'coached', label: 'Coached' }]} />
-            <p class="small muted mt">{mode === 'strict' ? 'Strict: no pausing — like the real exam. Recommended.' : 'Coached: you can pause, and a pacing line shows where you are against ~47 s per question.'}</p>
-          </div>
           <p class="small muted center mt">Find a quiet place{full ? ' with 90 uninterrupted minutes' : ''}. The screen stays awake where supported.</p>
         </>
       )}

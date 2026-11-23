@@ -74,7 +74,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
             I'm not sure<span class="muted small"> (adds to spaced review)</span>
           </label>
         )}
-        <button class="btn" disabled={pos === 0} onClick={() => goTo(s.id, pos - 1)}>Previous</button>
+        {pos > 0 && <button class="btn" onClick={() => goTo(s.id, pos - 1)}>Previous</button>}
         {!revealed
           ? <button class="btn primary" disabled={resp === undefined} onClick={() => check(s.id, pos)}>Check answer</button>
           : last

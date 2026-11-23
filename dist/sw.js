@@ -1,7 +1,7 @@
 /* CMPC Prep service worker. Generated precache list; cache-first; updates wait for the app's go-ahead. */
-const VERSION = '1.1.0-e485589c11';
+const VERSION = '1.1.0-495823ca23';
 const CACHE = `cmpc-prep-${VERSION}`;
-const PRECACHE = ["./","./assets/index-lpG4xjPG.css","./assets/index-nu9a98pG.js","./data/bank.json","./icons/apple-touch-icon.png","./icons/icon-192.png","./icons/icon-512.png","./icons/icon-maskable-512.png","./icons/icon.svg","./manifest.webmanifest"];
+const PRECACHE = ["./","./assets/index-B5KPYM4e.css","./assets/index-BLonsOSO.js","./data/bank.json","./icons/apple-touch-icon.png","./icons/icon-192.png","./icons/icon-512.png","./icons/icon-maskable-512.png","./icons/icon.svg","./manifest.webmanifest"];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE.map((u) => new Request(u, { cache: 'reload' })))));

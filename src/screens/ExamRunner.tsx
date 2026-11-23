@@ -133,12 +133,12 @@ export function ExamRunner({ session: s }: { session: Session }) {
       <div class="exam-bar-row">
         <span class="qcount" aria-live="off"><span class="qw">Question </span>{pos + 1} <span class="muted">of {s.items.length}</span></span>
         <span class="grow" />
-        {low
-          ? <span class="timer low" role="timer" aria-label={`Time remaining ${fmtClock(remaining)}`}><IcClock />{fmtClock(remaining)}</span>
-          : <button class={`timer icon-btn${hideTimer ? ' btn small' : ''}`} style={{ color: 'inherit' }}
-            onClick={() => setHideTimer(!hideTimer)} aria-label={`Time remaining ${fmtClock(remaining)}. ${hideTimer ? 'Show' : 'Hide'} timer`}>
-            <IcClock />{hideTimer ? 'Show time' : fmtClock(remaining)}
-          </button>}
+        {/* one element in every state, so keyboard focus survives the switch to low time */}
+        <button class={`timer icon-btn${low ? ' low' : hideTimer ? ' btn small' : ''}`} style={low ? undefined : { color: 'inherit' }}
+          aria-disabled={low || undefined} onClick={() => { if (!low) setHideTimer(!hideTimer); }}
+          aria-label={low ? `Time remaining ${fmtClock(remaining)}. Shown while time is low` : `Time remaining ${fmtClock(remaining)}. ${hideTimer ? 'Show' : 'Hide'} timer`}>
+          <IcClock />{hideTimer && !low ? 'Show time' : fmtClock(remaining)}
+        </button>
         {s.mode === 'coached' && (
           <button class="icon-btn framed" id="pause-btn" onClick={() => pause(s.id)} aria-label="Pause"><IcPause /></button>
         )}

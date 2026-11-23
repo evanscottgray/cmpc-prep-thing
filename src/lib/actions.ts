@@ -144,19 +144,27 @@ export function autoSubmitExpired(now = Date.now()): string[] {
 }
 
 export const missedPositions = (s: Session) => s.items.map((_, i) => i).filter((i) => inPlay(s, i) && s.responses[i] !== ctx.items.get(s.items[i].id)?.answer);
-export const nextMiss = (s: Session) => { const o = new Set(s.opened); return missedPositions(s).find((i) => !o.has(i)); };
+/** Where a review resumes: the miss last visited, else the first one not yet opened. */
+export const nextMiss = (s: Session) => {
+  const m = missedPositions(s);
+  if (s.reviewPos !== undefined && m.includes(s.reviewPos)) return s.reviewPos;
+  const o = new Set(s.opened); return m.find((i) => !o.has(i));
+};
 export const openedMisses = (s: Session) => { const o = new Set(s.opened); return missedPositions(s).filter((i) => o.has(i)).length; };
 
 export function markReviewed(id: string) {
   const s = get(id); if (!s || s.reviewedAt) return;
   put({ ...s, reviewedAt: Date.now() });
 }
-/** Records that an item was opened in review; the review is done once every miss has been opened. */
+/** Records that an item was opened in review, and where to resume. */
 export function markOpened(id: string, pos: number) {
-  const s = get(id); if (!s || s.opened?.includes(pos)) return;
-  const next = { ...s, opened: [...(s.opened ?? []), pos] };
-  put(next);
-  if (openedMisses(next) === missedPositions(next).length) markReviewed(id);
+  const s = get(id); if (!s || (s.opened?.includes(pos) && s.reviewPos === pos)) return;
+  put({ ...s, opened: s.opened?.includes(pos) ? s.opened : [...(s.opened ?? []), pos], reviewPos: pos });
+}
+/** Called when the learner moves on from an item: the review is done once every miss has been opened and left. */
+export function leftReviewItem(id: string) {
+  const s = get(id); if (!s) return;
+  if (openedMisses(s) === missedPositions(s).length) markReviewed(id);
 }
 
 /** Discard an unfinished session. Items already opened are remembered so a later sitting isn't called fresh. */

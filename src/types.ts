@@ -92,8 +92,9 @@ export interface Session {
   seenBefore: number;                     // how many items were already seen when assembled
   result: ExamResult | null;
   label?: string;                         // filter description for drills
-  reviewedAt?: number;                    // every miss was opened in review, or the learner marked the review done
+  reviewedAt?: number;                    // every miss was read through in review, or the learner marked the review done
   opened?: number[];                      // positions opened in review
+  reviewPos?: number;                     // last position visited in review, where Today resumes
   updatedAt?: number;
 }
 

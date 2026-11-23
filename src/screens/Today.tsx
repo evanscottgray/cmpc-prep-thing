@@ -122,7 +122,7 @@ export function Today() {
         <div class="section">
           <h2>Due reviews</h2>
           <div class="list">
-            {p.dueItems > 0 && p.primary.kind !== 'review' && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>Missed and uncertain questions{p.dueItems > REVIEW_MAX ? `, ${REVIEW_MAX} at a time` : ''}</span></span><span class="badge accent">{p.dueItems} due</span><IcChevron class="chev" /></button>}
+            {p.dueItems > 0 && p.primary.kind !== 'review' && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>Missed and uncertain questions{p.dueItems > REVIEW_MAX ? ` · ${p.dueItems} due in all` : ''}</span></span><span class="badge accent">{p.dueItems > REVIEW_MAX ? `${REVIEW_MAX} now` : `${p.dueItems} due`}</span><IcChevron class="chev" /></button>}
             {p.dueCards > 0 && <a class="list-item" href="#/cards/study"><span class="li-main"><span class="li-title">Concept cards</span><span class="li-sub" style={{ display: 'block' }}>{p.dueCards < 12 ? `${p.dueCards} due, then new cards` : 'Cards to recall again'}</span></span><span class="badge accent">{p.dueCards} due</span><IcChevron class="chev" /></a>}
           </div>
         </div>

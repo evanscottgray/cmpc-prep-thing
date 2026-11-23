@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { ctx } from '../../src/ctx';
 import { memoryKv } from '../../src/lib/db';
 import { Store, emptyState } from '../../src/lib/store';
-import { abandon, autoSubmitExpired, choose, createSession, pause, resume, startSession, submit, toggleFlag, toggleStrike, goTo } from '../../src/lib/actions';
+import { abandon, autoSubmitExpired, choose, createSession, leftReviewItem, markOpened, missedPositions, nextMiss, pause, resume, startSession, submit, toggleFlag, toggleStrike, goTo } from '../../src/lib/actions';
 import { buildForm, buildMixed } from '../../src/lib/assemble';
 import { dueIds } from '../../src/lib/srs';
 import { availableItems, itemStats, todayCount } from '../../src/lib/stats';
@@ -72,6 +72,21 @@ describe('exam lifecycle', () => {
     toggleFlag(id, 2);
     submit(id, false, 60000);
     expect(Object.keys(ctx.store.state.srs).sort()).toEqual([S(id).items[1].id, S(id).items[2].id].sort());
+  });
+  it('review resumes on the miss last visited and is done only after the last miss is left', () => {
+    const id = start();
+    for (let p = 0; p < 115; p++) if (p > 2) choose(id, p, key(id, p)); // only 0-2 missed (scored or not)
+    submit(id, false, 60000);
+    const m = missedPositions(S(id));
+    expect(m.slice(0, 3)).toEqual([0, 1, 2]);
+    expect(nextMiss(S(id))).toBe(0);
+    markOpened(id, 0); leftReviewItem(id);
+    markOpened(id, 1); // left mid-read
+    expect(nextMiss(S(id))).toBe(1);
+    for (const p of m.slice(2)) markOpened(id, p);
+    expect(S(id).reviewedAt).toBeUndefined(); // opening the last miss isn't finishing it
+    leftReviewItem(id);
+    expect(S(id).reviewedAt).toBeDefined();
   });
   it('striking the chosen option clears it; choosing a struck option restores it', () => {
     const id = start();

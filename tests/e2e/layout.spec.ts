@@ -45,12 +45,17 @@ for (const size of ['m', 'xl'] as const) {
 
 test('tutor controls stay on screen with a phone held sideways', async ({ page }) => {
   await onboard(page);
+  await page.getByRole('button', { name: 'Quick quiz · 10' }).click();
+  await expect(page.getByText('Question 1 of 10')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Previous', exact: true })).toHaveCount(0); // nothing to go back to
+  await optionLabels(page).nth(0).click(); await page.getByRole('button', { name: 'Check answer' }).click();
+  await page.getByRole('button', { name: 'Next question' }).click();
+  const quiz = await page.evaluate(() => location.hash);
   for (const [w, h] of [[667, 375], [568, 320]]) {
     for (const size of ['Default', 'Larger']) {
       await page.setViewportSize({ width: w, height: h });
       await go(page, 'settings'); await page.getByRole('radio', { name: size }).check({ force: true });
-      await go(page, 'today');
-      await page.getByRole('button', { name: /^(Resume q|Q)uick quiz/ }).click();
+      await go(page, quiz);
       for (const name of ['Previous', 'Check answer']) await expect(page.getByRole('button', { name, exact: true })).toBeInViewport({ ratio: 1 });
       await expect(page.getByLabel(/I'm not sure/)).toBeInViewport();
     }

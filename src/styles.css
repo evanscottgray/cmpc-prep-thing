@@ -389,6 +389,7 @@ main.page.notabs:has(> .actionbar) > :nth-last-child(2) { margin-bottom: 1.25rem
 }
 .nav-cell.answered { border-style: solid; border-color: var(--exam-sel-border); background: var(--exam-opt-sel); }
 .nav-cell.current { outline: 3px solid var(--focus); outline-offset: 1px; }
+.nav-cell:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; }
 .nav-cell .flag-mark { position: absolute; top: 1px; right: 2px; width: 18px; height: 18px; color: var(--warn); }
 .nav-cell .flag-mark svg { width: 18px; height: 18px; fill: currentColor; }
 .nav-cell.flagged { box-shadow: inset 0 -4px 0 var(--warn); }
@@ -510,8 +511,17 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .device summary { min-height: 44px; display: flex; align-items: center; font-weight: 600; cursor: pointer; }
 .device[open] summary { margin-bottom: .5rem; }
 .focus-note { margin: -.1rem 0 .6rem .25rem; }
-.focus-note .how summary { display: inline-flex; min-height: 44px; align-items: center; color: var(--accent); font-weight: 600; cursor: pointer; }
+.how summary { display: inline-flex; min-height: 44px; align-items: center; color: var(--accent); font-weight: 600; cursor: pointer; }
 .focus-note .how[open] { color: var(--text); }
+.hero .how { margin-top: -.25rem; }
+.hero .how p { margin: .25rem 0 0; }
+/* phones: tighter answer rows so the whole set is easier to compare */
+@media (max-width: 430px), (max-height: 500px) {
+  .opts { gap: .45rem; }
+  .opt .opt-main { padding: .55rem .65rem; gap: .6rem; min-height: 48px; }
+  .opt .letter { width: 1.75rem; height: 1.75rem; }
+  .opt .otext { padding-top: .1rem; }
+}
 /* answers scroll clear of the sticky exam bars when focused */
 .opt, .opt input[type="radio"], .opt .strike { scroll-margin: 110px 0 110px; }
 

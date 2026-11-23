@@ -2,7 +2,7 @@ import { useEffect } from 'preact/hooks';
 import type { Session } from '../types';
 import { ctx } from '../ctx';
 import { back, navigate } from '../router';
-import { markOpened } from '../lib/actions';
+import { leftReviewItem, markOpened } from '../lib/actions';
 import { inPlay } from '../lib/scoring';
 import { plural } from '../lib/dates';
 import { Page } from '../ui/bits';
@@ -116,7 +116,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const prev = idx > 0 ? positions[idx - 1] : null, next = idx >= 0 && idx < positions.length - 1 ? positions[idx + 1] : null;
   const q = query.toString() ? `?${query}` : '';
   const isExam = ['formA', 'formB', 'mixed'].includes(s.kind);
-  const toList = () => { if (listBelow.delete(s.id)) back(); else navigate(`review/${s.id}${q}`, true); };
+  const toList = () => { leftReviewItem(s.id); if (listBelow.delete(s.id)) back(); else navigate(`review/${s.id}${q}`, true); };
   return (
     <Page title={`Question ${pos + 1}`} onBack={toList} tabs={false}>
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
@@ -128,8 +128,8 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
       <ItemReview item={it} si={si} response={resp} />
       <ItemMeta item={it} />
       <div class="actionbar">
-        <button class="btn" disabled={prev === null} onClick={() => prev !== null && navigate(`review/${s.id}/${prev}${q}`, true)}>Previous</button>
-        <button class="btn primary" onClick={() => (next === null ? toList() : navigate(`review/${s.id}/${next}${q}`, true))}>{next === null ? 'Back to list' : 'Next'}</button>
+        {prev !== null && <button class="btn" onClick={() => navigate(`review/${s.id}/${prev}${q}`, true)}>Previous</button>}
+        <button class="btn primary" onClick={() => { if (next === null) toList(); else { leftReviewItem(s.id); navigate(`review/${s.id}/${next}${q}`, true); } }}>{next === null ? 'Back to list' : 'Next'}</button>
       </div>
     </Page>
   );
