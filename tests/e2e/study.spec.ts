@@ -76,7 +76,9 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
 test('Back returns to the same place, and a drill can be left and resumed', async ({ page }) => {
   await onboard(page);
   await go(page, 'cards');
+  await expect(page.locator('.list .list-item')).toHaveCount(121);
   await page.getByLabel('Search cards').fill('the');
+  await expect(page).toHaveURL(/q=the/);
   const card = page.locator('.list .list-item').nth(30);
   await card.scrollIntoViewIfNeeded();
   const y = await page.evaluate(() => window.scrollY);

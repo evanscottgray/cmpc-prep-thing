@@ -94,7 +94,7 @@ export function Progress() {
             <div class="list mt">
               {exams.slice().reverse().map((s) => {
                 const v = scoreOf(s, target);
-                return <ListLink href={`#/results/${s.id}`} title={s.title} sub={`${fmtShort(s.submittedAt!)} · ${s.result!.raw}/${s.result!.scoredCount}${s.retake ? ' · retake' : ''}`} right={<span class={`badge ${v >= 550 ? 'ok' : 'bad'}`}>{v >= 550 ? 'Pass' : 'Did not pass'} (estimated) · {v}</span>} />;
+                return <ListLink href={`#/results/${s.id}`} title={s.title} sub={<>{`${fmtShort(s.submittedAt!)} · ${s.result!.raw}/${s.result!.scoredCount}${s.retake ? ' · retake' : ''}`}<span class={`badge li-badge ${v >= 550 ? 'ok' : 'bad'}`}>{v >= 550 ? 'Pass' : 'Did not pass'} (estimated) · {v}</span></>} />;
               })}
             </div>
           </>

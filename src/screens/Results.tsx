@@ -92,7 +92,7 @@ export function Results({ session: s }: { session: Session }) {
           <h2>Percent correct by domain</h2>
           <div class="card bars">
             <p class="small muted">The mark on each bar is your practice target ({target}%).</p>
-            {bp.domains.map((d) => <AreaBar label={`${d.id}. ${d.name}`} acc={r.byDomain[d.id]} target={target} verb="Review" href={`#/review/${s.id}?d=${d.id}`} />)}
+            {bp.domains.map((d) => <AreaBar label={`${d.id}. ${d.name}`} acc={r.byDomain[d.id]} target={target} verb="Review" href={`#/review/${s.id}?d=${d.id}&s=1`} />)}
             <p class="small muted">The real score report shows domain percentages only to candidates who don't pass.</p>
           </div>
         </div>
@@ -102,7 +102,7 @@ export function Results({ session: s }: { session: Session }) {
         <div class="section">
           <h2>By knowledge group{kgs.length > 5 ? ', lowest first' : ''}</h2>
           <div class="card bars">
-            {(all ? kgs : kgs.slice(0, 5)).map((k) => <AreaBar label={k.name} acc={r.byKg[k.id]} target={target} verb="Review" href={`#/review/${s.id}?k=${k.id}`} />)}
+            {(all ? kgs : kgs.slice(0, 5)).map((k) => <AreaBar label={k.name} acc={r.byKg[k.id]} target={target} verb="Review" href={`#/review/${s.id}?k=${k.id}&s=1`} />)}
           {kgs.length > 5 && <button class="btn small block mt" onClick={() => setAll(!all)}>{all ? 'Show lowest five' : `Show all ${kgs.length}`}</button>}
           </div>
         </div>

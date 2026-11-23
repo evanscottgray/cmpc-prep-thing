@@ -256,6 +256,11 @@ table.grid th { background: var(--surface-2); }
 .q-meta { font-size: .86rem; color: var(--muted); margin-top: 1rem; }
 .q-meta strong { display: block; }
 .stem { font-size: 1.06rem; line-height: 1.55; margin-bottom: 1rem; white-space: pre-line; }
+.stem > p { margin: 0; }
+.stem > p + p { margin-top: .7rem; }
+.stem-q { font-weight: 600; }
+.li-badge { display: table; margin-top: .3rem; }
+.scored-note { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem .6rem; }
 .opts { display: grid; gap: .6rem; margin: 0; padding: 0; border: 0; }
 .opts.plain { gap: .45rem; }
 .opt {

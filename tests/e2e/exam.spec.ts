@@ -45,11 +45,11 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
 
   // Exact resume after reload
   const timerBefore = await page.locator('.timer').innerText();
-  const stemBefore = await page.locator('#q-stem').innerText();
+  const stemBefore = await page.locator('#q-stem').textContent();
   await page.waitForTimeout(1500);
   await page.reload();
   await expect(page.locator('.qcount')).toContainText('Question 2');
-  await expect(page.locator('#q-stem')).toHaveText(stemBefore);
+  await expect(page.locator('#q-stem')).toHaveText(stemBefore!);
   await expect(page.locator('.opt').nth(0)).toHaveClass(/struck/);
   await expect(page.locator('.opt').nth(3)).toHaveClass(/selected/);
   await expect(page.getByRole('button', { name: 'Flagged', exact: true })).toBeVisible();
@@ -91,6 +91,16 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   await expect(page.getByText(/This score is an estimate/)).toBeVisible();
   await expect(page.getByText('Percent correct by domain')).toBeVisible();
   await shot(page, '07-results');
+  // a score bar opens only the scored questions behind it, and trial items can be added back
+  await page.locator('a.bar-row').first().click();
+  await expect(page.getByText('Scored questions only')).toBeVisible();
+  const scoredOnly = await page.locator('.list .list-item').count();
+  await expect(page.locator('.list .list-item', { hasText: 'Unscored' })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Include trial questions' }).click();
+  await expect(page.getByText('Scored questions only')).toHaveCount(0);
+  expect(await page.locator('.list .list-item').count()).toBeGreaterThanOrEqual(scoredOnly);
+  await page.getByRole('button', { name: 'Back' }).click();
+  await expect(page.getByRole('heading', { name: 'Form A results' })).toBeVisible();
 
   // Review with filters
   await page.getByRole('link', { name: 'Review all 115' }).click();
@@ -222,6 +232,12 @@ test('timer auto-submits while open, and coached mode can pause', async ({ page 
   await expect(page.getByRole('heading', { name: 'Paused' })).toBeVisible();
   await expect(page.locator('.paused-cover')).toContainText('18:00 remaining');
   await page.clock.fastForward('05:00');
+  await expect(page.locator('.paused-cover')).toContainText('18:00 remaining');
+  // leaving from the pause cover keeps the exam paused
+  await page.getByRole('button', { name: 'Leave exam screen' }).click();
+  await expect(page.getByRole('heading', { name: /Resume Exam-pace block/ })).toBeVisible();
+  await page.clock.fastForward('05:00');
+  await page.getByRole('button', { name: 'Resume', exact: true }).click();
   await expect(page.locator('.paused-cover')).toContainText('18:00 remaining');
   await page.getByRole('button', { name: 'Resume' }).click();
   await page.clock.fastForward('18:30');

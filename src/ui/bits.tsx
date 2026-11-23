@@ -22,7 +22,10 @@ export function TopBar({ title, backTo, onBack, right, noBack, narrow, closeLabe
 
 export function Page({ title, children, closeLabel, backTo, onBack, right, noBack, tabs = true, wide }: { title: string; children: ComponentChildren; closeLabel?: string; backTo?: string; onBack?: () => void; right?: ComponentChildren; noBack?: boolean; tabs?: boolean; wide?: boolean }) {
   useLayoutEffect(() => { window.scrollTo(0, takeRestore() ?? 0); }, [title]); // before paint, so the old position never flashes
-  useEffect(() => { document.querySelector<HTMLElement>('.topbar h1')?.focus({ preventScroll: true }); }, [title]);
+  useEffect(() => {
+    if (document.activeElement?.matches('input, select, textarea')) return; // someone is already typing on this page
+    document.querySelector<HTMLElement>('.topbar h1')?.focus({ preventScroll: true });
+  }, [title]);
   return (
     <>
       <TopBar title={title} closeLabel={closeLabel} backTo={backTo} onBack={onBack} right={right} noBack={noBack} narrow={!tabs && !wide} />
