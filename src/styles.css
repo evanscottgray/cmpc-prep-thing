@@ -212,6 +212,9 @@ select.input {
   background-size: 6px 6px; background-position: calc(100% - 20px) 55%, calc(100% - 14px) 55%; background-repeat: no-repeat;
 }
 textarea.input { min-height: 110px; resize: vertical; }
+/* iOS gives date inputs an intrinsic min-width that ignores width:100% (overflows when empty) */
+input.input[type="date"] { -webkit-appearance: none; appearance: none; display: block; min-width: 0; max-width: 100%; }
+input.input[type="date"]::-webkit-date-and-time-value { text-align: left; min-height: 1.5em; }
 .stepper { display: flex; align-items: center; gap: .5rem; }
 .stepper output { min-width: 3.5rem; text-align: center; font-weight: 700; font-size: 1.1rem; }
 .check { display: flex; gap: .6rem; align-items: center; min-height: 44px; cursor: pointer; }

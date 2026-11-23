@@ -43,6 +43,25 @@ for (const size of ['m', 'xl'] as const) {
   });
 }
 
+test('an empty exam date field stays inside its column (iOS gives date inputs a minimum width)', async ({ page }) => {
+  const fits = async () => {
+    const date = page.getByLabel('Exam date');
+    await expect(date).toHaveValue('');
+    const [d, f] = await Promise.all([date.boundingBox(), date.locator('xpath=ancestor::*[contains(@class,"field")][1]').boundingBox()]);
+    expect(d!.x + d!.width).toBeLessThanOrEqual(f!.x + f!.width + 0.5);
+    expect(await date.evaluate((e) => getComputedStyle(e).appearance)).toBe('none');
+    expect(await page.evaluate(overflow)).toBeLessThanOrEqual(0);
+  };
+  await page.goto('./');
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.getByRole('button', { name: 'Continue in Safari' }).click();
+  await fits();
+  await page.getByRole('button', { name: 'Start studying' }).click();
+  await go(page, 'settings');
+  await expect(page.getByRole('heading', { name: 'Settings', level: 1 })).toBeVisible();
+  await fits();
+});
+
 test('the navigator shows whole rows of questions with a phone held sideways', async ({ page }) => {
   await onboard(page);
   await page.setViewportSize({ width: 568, height: 320 });
