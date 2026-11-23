@@ -1,6 +1,16 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import os from 'node:os';
 import { onboard, optionLabels, go } from './helpers';
+
+/** WebKit can serve a reload issued within milliseconds of activation without the worker; the next load has it. */
+async function controlledReload(page: Page) {
+  for (let i = 0; i < 2; i++) {
+    await page.reload();
+    const ok = await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 4000 }).then(() => true, () => false);
+    if (ok) return;
+  }
+  throw new Error('no service worker in control after two reloads');
+}
 
 test('installable and fully offline after the first visit on localhost', async ({ page, context }) => {
   await onboard(page);
@@ -9,8 +19,7 @@ test('installable and fully offline after the first visit on localhost', async (
   expect(manifest.display).toBe('standalone');
   expect(manifest.icons.some((i: any) => i.sizes === '512x512')).toBe(true);
   await page.waitForFunction(async () => (await navigator.serviceWorker.getRegistration())?.active?.state === 'activated', null, { timeout: 30000 });
-  await page.reload();
-  await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 30000 });
+  await controlledReload(page);
   await context.setOffline(true);
   await page.reload();
   await expect(page.getByRole('heading', { name: 'Today', level: 1 })).toBeVisible();
@@ -58,8 +67,7 @@ test('works from a project subpath, as on GitHub Pages, including offline and up
   await expect(page.getByRole('heading', { name: /Prepare for the CMPC/ })).toBeVisible();
   await page.waitForFunction(async () => (await navigator.serviceWorker.getRegistration())?.active?.state === 'activated', null, { timeout: 30000 });
   expect(await page.evaluate(async () => new URL((await navigator.serviceWorker.getRegistration())!.scope).pathname)).toBe('/some-repo/');
-  await page.reload();
-  await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 30000 });
+  await controlledReload(page);
   await expect(page.getByText('Update ready.')).toHaveCount(0);
   await context.setOffline(true);
   await page.reload();
