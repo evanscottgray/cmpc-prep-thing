@@ -29,11 +29,11 @@ function ScoreChart({ exams, target }: { exams: Session[]; target: number }) {
             <line class="cut" x1="0" x2="100" y1={y(550)} y2={y(550)} />
             {exams.length > 1 && <polyline class="line" points={scores.map((v, i) => `${x(i)},${y(v)}`).join(' ')} />}
           </svg>
-          {scores.map((v, i) => <span class="chart-pt" style={{ left: `${x(i)}%`, top: `${y(v)}%` }}><b>{v}</b></span>)}
+          {scores.map((v, i) => <span class={`chart-pt${v < 550 ? ' low' : ''}`} style={{ left: `${x(i)}%`, top: `${y(v)}%` }}><b>{v}</b></span>)}
         </div>
         <div class="chart-x">{exams.map((s, i) => <span style={{ left: `${x(i)}%` }}>{shortName(s)}</span>)}</div>
       </div>
-      <figcaption class="small muted">Estimated scaled scores{exams.length === 6 ? ', last six exams' : ''}. Dashed line: 550 passes.{exams.some((s) => s.retake) ? ' * Includes questions already seen.' : ''}</figcaption>
+      <figcaption class="small muted">Estimated scaled scores{exams.length === 6 ? ', last six exams' : ''}. Dashed line: 550, where your practice target of {target} is placed.{exams.some((s) => s.retake) ? ' * Includes questions already seen.' : ''}</figcaption>
     </figure>
   );
 }
@@ -103,11 +103,11 @@ export function Progress() {
 
       <div class="col-tall">
       <div class="section">
-        <h2>Domain mastery, latest tries</h2>
+        <h2>Domain mastery (latest answers)</h2>
         <div class="card bars">
           {any ? (
             <>
-              <p class="small muted">Uses your latest answer to each question, so it can run ahead of the readiness estimate, which uses first tries. The mark on each bar is your practice target ({target}%).</p>
+              <p class="small muted">Can run ahead of the first-try readiness estimate. The mark on each bar is your practice target ({target}%).</p>
               {bank.blueprint.domains.map((d) => <AreaBar label={`${d.id}. ${d.name}`} sub={`${d.weight}% of exam`} acc={last.byDomain[d.id]} target={target} verb="Drill" onClick={() => setPick({ title: `${d.id}. ${d.name}`, src: { type: 'domain', id: d.id } })} />)}
             </>
           ) : <p class="muted" style={{ margin: 0 }}>No answers yet. Your accuracy in each area appears here as you study.</p>}
@@ -116,7 +116,7 @@ export function Progress() {
 
       {any && (
         <div class="section">
-          <h2>Knowledge groups, lowest first</h2>
+          <h2>Knowledge groups (latest answers), lowest first</h2>
           <div class="card bars">
             {(all ? kgs : kgs.slice(0, 5)).map((k) => <AreaBar label={k.name} sub={`${k.weight}% of exam`} acc={last.byKg[k.id]} target={target} verb="Drill" onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} />)}
             <button class="btn small block mt" onClick={() => setAll(!all)}>{all ? 'Show lowest five' : `Show all ${kgs.length}`}</button>

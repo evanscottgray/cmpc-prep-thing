@@ -13,6 +13,9 @@ export type Action =
   | { kind: 'done' }
   | { kind: 'passed' };
 
+/** The last two days and exam day: nothing on screen should push for volume. */
+export const isLight = (p: Plan['phase']) => p === 'taper' || p === 'exam-day';
+
 export interface Plan {
   phase: 'no-date' | 'diagnostic' | 'build' | 'final-week' | 'taper' | 'exam-day' | 'after';
   daysLeft: number | null;

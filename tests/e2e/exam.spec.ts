@@ -32,8 +32,8 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   await expect(page.getByText(/Correct|Incorrect/)).toHaveCount(0);
 
   // Navigator
-  await page.getByRole('button', { name: /Review navigator/ }).click();
-  await expect(page.getByRole('dialog', { name: 'Review navigator' })).toBeVisible();
+  await page.getByRole('button', { name: /^Navigator/ }).click();
+  await expect(page.getByRole('dialog', { name: 'Navigator' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Question 1: answered' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Question 2: answered, flagged' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Question 3: unanswered' })).toBeVisible();
@@ -73,14 +73,14 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   await expect(page.locator('.qcount')).toContainText('Question 2');
 
   // End with confirmation
-  await page.getByRole('button', { name: /Review navigator/ }).click();
+  await page.getByRole('button', { name: /^Navigator/ }).click();
   await page.getByRole('button', { name: 'End exam…' }).click();
   const confirm = page.getByRole('dialog', { name: 'End the exam?' });
   await expect(confirm).toContainText('113 unanswered');
   await shot(page, '06-end-confirm');
   await page.getByRole('button', { name: 'Keep working' }).click();
   await expect(confirm).toHaveCount(0);
-  await page.getByRole('button', { name: /Review navigator/ }).click();
+  await page.getByRole('button', { name: /^Navigator/ }).click();
   await page.getByRole('button', { name: 'End exam…' }).click();
   await page.getByRole('button', { name: 'End exam and score' }).click();
 
@@ -100,6 +100,7 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   await page.getByRole('button', { name: 'Unscored' }).click();
   await expect(page.getByText('15 questions')).toBeVisible();
   await page.getByRole('button', { name: 'All' }).click();
+  await page.getByText('Filter by domain or group').click();
   await page.getByLabel('Domain').selectOption('IV');
   const row = page.locator('.list .list-item').nth(8);
   const rowId = await row.getAttribute('id');
@@ -175,9 +176,9 @@ test('time running out replaces an open confirmation, and the navigator keeps it
   await onboard(page);
   await go(page, 'start/mixed');
   await page.getByRole('button', { name: 'Start Mixed exam' }).click();
-  await page.getByRole('button', { name: /Review navigator/ }).click();
+  await page.getByRole('button', { name: /^Navigator/ }).click();
   await page.locator('.nav-cell').nth(112).click();
-  await page.getByRole('button', { name: /Review navigator/ }).click();
+  await page.getByRole('button', { name: /^Navigator/ }).click();
   await expect(page.locator('.nav-cell.current')).toBeInViewport();
   await expect(page.getByRole('button', { name: 'Unanswered 115' })).toBeInViewport();
   await expect(page.getByRole('button', { name: 'Close' })).toBeInViewport();

@@ -4,6 +4,7 @@ import { ctx, useDb } from '../ctx';
 import { navigate } from '../router';
 import { fmtShort, plural, ymd } from '../lib/dates';
 import { dueIds, scheduleCard, type Grade } from '../lib/srs';
+import { isLight, plan } from '../lib/plan';
 import { areaAccuracy, itemStats, smooth } from '../lib/stats';
 import { ListLink, Page } from '../ui/bits';
 import { References } from '../ui/question';
@@ -25,7 +26,7 @@ export function CardsHub({ query }: { query: URLSearchParams }) {
     <Page title="Concept cards" noBack wide>
       <div class="card hero">
         <div class="row between"><div><div style={{ fontSize: '1.6rem', fontWeight: 800 }}>{due ? `${due} due today` : fresh ? `${plural(fresh, 'new card')} to learn` : 'All caught up'}</div><div class="muted small">{due && fresh ? `${plural(fresh, 'card')} not yet studied` : fresh ? `${SESSION} at a time. Recall first, then check yourself.` : 'You have studied every card at least once.'}</div></div></div>
-        {(due > 0 || fresh > 0) && <a class="btn primary block mt" href="#/cards/study">{due > 0 && add > 0 ? `Study ${size}: ${due} due, ${add} new` : due ? `Review ${plural(size, 'due card')}` : `Study ${plural(add, 'new card')}`}</a>}
+        {(due > 0 || fresh > 0) && <a class="btn primary block mt cap" href="#/cards/study">{due > 0 && add > 0 ? `Study ${size}: ${due} due, ${add} new` : due ? `Review ${plural(size, 'due card')}` : `Study ${plural(add, 'new card')}`}</a>}
       </div>
       <div class="section">
         <div class="filters loose">
@@ -108,6 +109,8 @@ export function CardStudy() {
     const { byKg } = areaAccuracy(ctx.bank, itemStats(db.attempts), 'last');
     const w = (c: Card) => (ctx.bank.blueprint.kgs.find((k) => k.id === c.kg)?.weight ?? 1) * (1 - smooth(byKg[c.kg] ?? { c: 0, n: 0 })) * (0.75 + Math.random() * 0.5);
     const fresh = ctx.bank.cards.filter((c) => !db.cardSrs[c.id]).sort((a, b) => w(b) - w(a));
+    const known = ctx.bank.cards.filter((c) => db.cardSrs[c.id]).sort((a, b) => w(b) - w(a)).map((c) => c.id);
+    if (isLight(plan(db).phase) && known.length) return [...new Set([...due, ...known])].slice(0, SESSION); // final days: nothing new
     return [...due, ...fresh.slice(0, Math.max(0, SESSION - due.length)).map((c) => c.id)].slice(0, 25);
   }, []);
   const [i, setI] = useState(0);
@@ -118,7 +121,7 @@ export function CardStudy() {
     <Page title="Concept cards" backTo="cards" tabs={false}>
       <div class="card hero center">
         <h2>{queue.length ? 'Session complete' : 'Nothing due'}</h2>
-        <p class="muted">{queue.length ? `You reviewed ${plural(queue.length, 'card')}. They'll come back on a schedule that fits your exam date.` : 'All cards are scheduled for later.'}</p>
+        <p class="muted">{queue.length ? 'Cards you rated come back on a schedule that fits your exam date.' : 'All cards are scheduled for later.'}</p>
         <button class="btn primary" onClick={() => navigate('cards', true)}>Done</button>
       </div>
     </Page>
@@ -130,7 +133,7 @@ export function CardStudy() {
       {!show ? (
         <>
           <p class="muted">Before you look, say it in your own words: the definition, an example with a client, and how a scenario might test it.</p>
-          <div class="actionbar"><button class="btn primary" onClick={() => setShow(true)}>Show card</button></div>
+          <div class="actionbar"><button class="btn" onClick={() => { setI(i + 1); window.scrollTo(0, 0); }}>Skip for now</button><button class="btn primary" onClick={() => setShow(true)}>Show card</button></div>
         </>
       ) : (
         <>

@@ -47,7 +47,7 @@ export function App() {
     const check = () => {
       const ids = autoSubmitExpired();
       const s = ids.map((id) => ctx.store.state.sessions[id]).find(Boolean);
-      if (s) alertDialog({ title: "Time's up", body: `${s.title} ran out of time while you were away and was submitted automatically. Unanswered items count as incorrect.`, ok: 'See results' })
+      if (s) alertDialog({ title: "Time's up", body: `${s.title} ran out of time while you were away and was submitted automatically. Unanswered questions count as incorrect.`, ok: 'See results' })
         .then(() => navigate(`results/${s.id}`));
     };
     check();
@@ -71,7 +71,7 @@ export function App() {
     case 'reports': screen = <Reports />; break;
     case 'about': screen = <About />; break;
     case 'ref': screen = rest[0] === 'blueprint' ? <BlueprintRef /> : rest[0] === 'examday' ? <ExamDay /> : rest[0] === 'sources' ? <Sources /> : <ExamFacts />; break;
-    case 'onboarding': screen = <Onboarding step={Number(rest[0]) || 1} />; break;
+    case 'onboarding': screen = <Onboarding step={rest[0]} />; break;
     case 'start': screen = ['formA', 'formB', 'mixed', 'block'].includes(rest[0]) ? <ExamIntro kind={rest[0] as any} /> : <NotFound />; break;
     case 's': {
       const s = db.sessions[rest[0]];

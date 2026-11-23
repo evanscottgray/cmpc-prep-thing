@@ -39,7 +39,7 @@ export function Results({ session: s }: { session: Session }) {
       <div>
       {full ? (
         <div class="card hero">
-          <div class="eyebrow">Tentative result{s.retake ? ' · retake' : ''}</div>
+          <div class="eyebrow">Practice result, estimated{s.retake ? ' · retake' : ''}</div>
           <div class="score-line first">
             <div><div class="v">{r.raw}<span class="of">/{r.scoredCount}</span></div><div class="k">Raw score (scored questions)</div></div>
             <div><div class="v">{scaled}</div><div class="k">Estimated scaled score (550 passes)</div></div>
@@ -48,8 +48,9 @@ export function Results({ session: s }: { session: Session }) {
             {pass ? <IcCheckCircle /> : <IcXCircle />}<span>{pass ? 'Pass (estimated)' : 'Did not pass (estimated)'}</span>
           </div>
           <p class="small muted" style={{ margin: '.25rem 0 0' }}>
-            {gap === 0 ? 'Exactly at' : `${Math.abs(gap)} ${gap > 0 ? 'above' : 'below'}`} your practice target of {target}{Math.abs(gap) <= 3 ? ': close enough to go either way' : ''}. {s.submittedAt ? `Taken ${fmtDate(ymd(s.submittedAt))}.` : ''}
+            {gap === 0 ? 'Exactly at' : `${Math.abs(gap)} ${gap > 0 ? 'above' : 'below'}`} your practice target of {target}{Math.abs(gap) <= 3 ? ': close enough to go either way' : ''}, which the app maps to 550. {s.submittedAt ? `Taken ${fmtDate(ymd(s.submittedAt))}.` : ''}
           </p>
+          {missed.length !== missedScored && <p class="small muted" style={{ margin: '.5rem 0 0' }}>{missedScored} of your {missed.length} misses were scored; {missed.length - missedScored} were unscored trial questions.</p>}
           {s.autoSubmitted && <p class="small mt" style={{ marginBottom: 0 }}><strong>Time ran out</strong> — submitted automatically.</p>}
         </div>
       ) : (
@@ -73,7 +74,6 @@ export function Results({ session: s }: { session: Session }) {
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
         {s.timed && !full && <a class="btn" href="#/today">Done</a>}
       </div>
-      {full && missed.length !== missedScored && <p class="small muted mt">{missedScored} of the {missed.length} misses were scored; {missed.length - missedScored} were unscored trial questions.</p>}
 
       {full && focus.length > 0 && (
         <div class="section">

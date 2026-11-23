@@ -3,9 +3,9 @@ import { navigate } from '../router';
 import { abandon, createSession, markReviewed, missedPositions, nextMiss, openedMisses } from '../lib/actions';
 import { REVIEW_MAX, buildDrill, buildQuiz, buildReview } from '../lib/assemble';
 import { fmtDate, fmtShort, plural, ymd } from '../lib/dates';
-import { plan, type Action } from '../lib/plan';
+import { isLight, plan, type Action } from '../lib/plan';
 import { dueIds } from '../lib/srs';
-import { Meter, Page } from '../ui/bits';
+import { ListLink, Meter, Page } from '../ui/bits';
 import { alertDialog, confirmDialog } from '../ui/dialog';
 import { IcAlert, IcChevron, IcInfo, IcPhone, IcX } from '../ui/icons';
 
@@ -35,10 +35,10 @@ function Primary({ a, why }: { a: Action; why: string }) {
     formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 questions · 90 minutes · no breaks' },
     formB: { eyebrow: 'Recommended', title: 'Take Form B', cta: 'Start Form B', go: () => navigate('start/formB'), note: '115 questions · 90 minutes · fresh questions' },
     mixed: { eyebrow: 'Final week', title: 'Take a mixed exam', cta: 'Start mixed exam', go: () => navigate('start/mixed'), note: '115 questions · 90 minutes · blueprint-matched' },
-    reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind === 'reviewExam' && openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : 'Review misses', second: a.kind === 'reviewExam' ? { label: "I'm done reviewing", go: () => markReviewed(a.session.id) } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
+    reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind !== 'reviewExam' ? '' : openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : `Review ${plural(missedPositions(a.session).length, 'miss', 'misses')}`, second: a.kind === 'reviewExam' ? { label: openedMisses(a.session) ? "I'm done reviewing" : 'Skip this review', go: () => markReviewed(a.session.id) } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
     weak: { eyebrow: 'Recommended', title: a.kind === 'weak' ? `Weak-area drill · ${a.count} questions` : '', cta: 'Start drill', go: () => a.kind === 'weak' && startWeak(a.count), note: 'Tutor mode: rationale after every answer' },
     review: { eyebrow: 'Recommended', title: a.kind === 'review' ? `Spaced review · ${a.count} questions` : '', cta: 'Start review', go: startReview, note: 'Tutor mode: rationale after every answer' },
-    light: { eyebrow: 'Light review', title: 'Concept cards and a short quiz', cta: 'Review concept cards', go: () => navigate('cards/study'), note: 'Keep it light. Rest is part of preparation.' },
+    light: { eyebrow: 'Light review', title: 'Concept cards and a short quiz', cta: Object.keys(ctx.store.state.cardSrs).length ? 'Review cards you know' : 'Skim concept cards', go: () => navigate('cards/study'), note: 'Keep it light. Rest is part of preparation.', second: { label: 'Exam-day notes', go: () => navigate('ref/examday') } },
     done: { eyebrow: 'Nice work', title: 'Daily target reached', cta: 'Quick quiz (10 questions)', go: startQuiz },
     passed: { eyebrow: 'Exam date passed', title: 'Update your exam date', cta: 'Open settings', go: () => navigate('settings') },
   };
@@ -58,10 +58,11 @@ function Primary({ a, why }: { a: Action; why: string }) {
 /** Unfinished sessions other than the one already offered above. */
 function InProgress({ skip }: { skip?: string }) {
   const db = useDb();
+  const reviews = Object.values(db.sessions).filter((x) => x.id !== skip && x.status === 'submitted' && ['formA', 'formB', 'mixed'].includes(x.kind) && !x.reviewedAt && openedMisses(x) > 0 && Date.now() - (x.submittedAt ?? 0) < WEEK);
   const open = Object.values(db.sessions)
     .filter((x) => x.status === 'active' && x.id !== skip && (x.timed ? x.startedAt : x.revealed.length > 0 || Object.keys(x.responses).length > 0))
     .sort((a, b) => b.createdAt - a.createdAt).slice(0, 3);
-  if (!open.length) return null;
+  if (!open.length && !reviews.length) return null;
   async function discard(id: string, title: string, timed: boolean) {
     const ok = await confirmDialog({ title: `Discard ${title}?`, body: timed ? 'It will not be scored. Items you opened count as already seen.' : 'Answers you already checked stay in your progress.', ok: 'Discard', danger: true });
     if (ok) abandon(id);
@@ -70,6 +71,12 @@ function InProgress({ skip }: { skip?: string }) {
     <div class="section">
       <h2>In progress</h2>
       <div class="list">
+        {reviews.map((x) => (
+          <div class="list-pair">
+            <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses opened</span></span><span class="badge accent">Resume</span></a>
+            <button class="icon-btn" onClick={() => markReviewed(x.id)} aria-label={`Mark ${x.title} review done`}><IcX /></button>
+          </div>
+        ))}
         {open.map((x) => {
           const n = x.timed ? Object.keys(x.responses).length : x.revealed.length;
           return (
@@ -88,6 +95,7 @@ export function Today() {
   const db = useDb();
   const p = plan(db, useNow(60000)); // refreshes after midnight and when the app returns to the foreground
   const s = db.settings;
+  const light = isLight(p.phase);
   const progress = Math.min(100, Math.round((100 * p.answeredToday) / Math.max(1, s.dailyTarget)));
   const started = db.attempts[0]?.t ?? Infinity;
   const needBackup = Date.now() - started > 2 * 86400000 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
@@ -106,11 +114,11 @@ export function Today() {
       <div>
       <Primary a={p.primary} why={p.why} />
 
-      <InProgress skip={p.primary.kind === 'resume' ? p.primary.session.id : undefined} />
+      <InProgress skip={p.primary.kind === 'resume' || p.primary.kind === 'reviewExam' ? p.primary.session.id : undefined} />
       </div>
       <div>
 
-      {((p.dueItems > 0 && p.primary.kind !== 'review') || p.dueCards > 0) && (
+      {!light && ((p.dueItems > 0 && p.primary.kind !== 'review') || p.dueCards > 0) && (
         <div class="section">
           <h2>Due reviews</h2>
           <div class="list">
@@ -121,16 +129,23 @@ export function Today() {
       )}
 
       <div class="section">
-        <h2>Today's study</h2>
+        <h2>{light ? 'Optional' : "Today's study"}</h2>
+        {light ? (
+          <div class="list">
+            <ListLink onClick={startQuiz} title={openQuiz() ? 'Resume quick quiz' : 'Quick quiz'} sub="10 questions" />
+            {p.dueItems > 0 && <ListLink onClick={startReview} title="Spaced review" sub="A short set of questions you missed before" />}
+          </div>
+        ) : (
         <div class="card">
           <div class="row between"><span>{p.answeredToday} of {s.dailyTarget} questions</span><span class="muted small">{progress}%</span></div>
           <div class="mt" style={{ marginTop: '.5rem' }}><Meter value={progress} label="Daily target" /></div>
-          <p class="small muted" style={{ margin: '.5rem 0 0' }}>Every answer counts: exams, drills, quizzes and reviews.</p>
+          <p class="small muted" style={{ margin: '.5rem 0 0' }}>Counts every question you answer, including spaced review.</p>
           <div class="btn-row mt">
             <button class="btn small" onClick={startQuiz}>{openQuiz() ? 'Resume quick quiz' : 'Quick quiz · 10'}</button>
             <a class="btn small" href="#/study">More options</a>
           </div>
         </div>
+        )}
       </div>
       </div>
       </div>
@@ -147,9 +162,12 @@ export function Today() {
           </div>
         </div>
       )}
-      {notInstalled && !needBackup && !s.installDismissed && (
-        <div class="banner info mt" role="note"><IcPhone /><div class="small grow"><strong>Add to Home Screen</strong> for full-screen use, offline access, and safer storage. In Safari: Share → Add to Home Screen.
-          <div class="btn-row" style={{ marginTop: '.5rem' }}><a class="btn small" href="#/onboarding/3">Show me how</a><button class="btn small ghost" onClick={() => ctx.store.updateSettings({ installDismissed: true })}>Don't show again</button></div></div></div>
+      {notInstalled && !needBackup && !light && !s.installDismissed && (
+        <div class="banner info mt" role="note"><IcPhone /><div class="small grow">
+          {db.attempts.length > 0
+            ? <><strong>Moving to the Home Screen app?</strong> It keeps its own data and starts empty. Back up here first, then restore the file there.</>
+            : <><strong>Add to Home Screen before you start.</strong> The Home Screen app works offline, full-screen, and keeps its own data.</>}
+          <div class="btn-row" style={{ marginTop: '.5rem' }}>{db.attempts.length > 0 && <a class="btn small" href="#/backup">Go to backup</a>}<a class="btn small" href="#/onboarding/install">Show me how</a><button class="btn small ghost" onClick={() => ctx.store.updateSettings({ installDismissed: true })}>Don't show again</button></div></div></div>
       )}
       {ctx.store.kv.kind !== 'indexeddb' && (
         <div class="banner warn mt" role="alert"><IcInfo /><div class="small">{ctx.store.kv.kind === 'memory' ? 'Storage is unavailable (private browsing?). Progress will be lost when you close this tab — back up often.' : 'Using fallback storage. Back up regularly.'}</div></div>

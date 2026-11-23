@@ -30,7 +30,7 @@ for (const size of ['m', 'xl'] as const) {
     await page.getByRole('radio', { name: 'Coached' }).check({ force: true });
     await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
     await expect(page.locator('.qcount')).toContainText('Question 1'); await visit('exam');
-    await page.getByRole('button', { name: /Review navigator/ }).click(); await visit('navigator');
+    await page.getByRole('button', { name: /^Navigator/ }).click(); await visit('navigator');
     const end = page.getByRole('button', { name: 'Submit…' });
     await expect(end).toBeInViewport(); // reachable without scrolling past every question
     await page.getByRole('button', { name: 'Back to question' }).click();

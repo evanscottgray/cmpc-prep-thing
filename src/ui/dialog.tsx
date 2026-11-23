@@ -6,8 +6,8 @@ import { createPortal } from 'preact/compat';
 let openCount = 0;
 import { IcX } from './icons';
 
-export function Modal({ title, onClose, children, wide, sheet, labelledBy, closeLabel = 'Close', dismissable = true }: {
-  title: string; onClose: () => void; children: ComponentChildren; wide?: boolean; sheet?: boolean; labelledBy?: string; closeLabel?: string; dismissable?: boolean;
+export function Modal({ title, onClose, children, wide, sheet, aside, labelledBy, closeLabel = 'Close', dismissable = true }: {
+  title: string; onClose: () => void; children: ComponentChildren; wide?: boolean; sheet?: boolean; aside?: ComponentChildren; labelledBy?: string; closeLabel?: string; dismissable?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const id = labelledBy ?? `dlg-${title.replace(/\W+/g, '-').toLowerCase()}`;
@@ -38,7 +38,9 @@ export function Modal({ title, onClose, children, wide, sheet, labelledBy, close
         if (app) { app.removeAttribute('aria-hidden'); app.inert = false; }
         document.body.style.overflow = '';
       }
-      prev?.focus?.();
+      // the opener may be gone (a menu that closed as this opened): fall back to the exam menu button or the page title
+      if (prev?.isConnected && prev !== document.body) prev.focus();
+      else (document.getElementById('exam-menu') ?? document.querySelector<HTMLElement>('.topbar h1'))?.focus({ preventScroll: true });
     };
   }, []);
   return createPortal(
@@ -46,6 +48,7 @@ export function Modal({ title, onClose, children, wide, sheet, labelledBy, close
       <div class={`dialog${wide ? ' wide' : ''}${sheet ? ' sheet' : ''}`} role="dialog" aria-modal="true" aria-labelledby={id} ref={ref}>
         <div class="dialog-head">
           <h2 id={id} tabIndex={-1}>{title}</h2>
+          {aside}
           {dismissable && <button class="icon-btn" onClick={onClose} aria-label={closeLabel}><IcX /></button>}
         </div>
         {children}

@@ -40,8 +40,8 @@ test('fully usable at a plain-HTTP LAN address (no service worker, share, wake l
   expect(await page.evaluate(() => window.isSecureContext)).toBe(false);
   await expect(page.getByRole('heading', { name: /Prepare for the CMPC/ })).toBeVisible();
   await page.getByRole('button', { name: 'Continue' }).click();
-  await page.getByRole('button', { name: 'Continue' }).click();
   await expect(page.getByText(/plain-HTTP address/)).toBeVisible();
+  await page.getByRole('button', { name: 'Continue in Safari' }).click();
   await page.getByRole('button', { name: 'Start studying' }).click();
   await go(page, 'settings');
   await expect(page.getByText('Unavailable at this address — the app works while online.')).toBeVisible();

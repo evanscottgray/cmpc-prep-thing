@@ -26,7 +26,7 @@ for (const scheme of ['light', 'dark'] as const) {
     await page.getByRole('button', { name: 'Strike out option A' }).click();
     await axe(page, `${scheme} exam`);
     await shot(page, `a11y-${scheme}-exam`);
-    await page.getByRole('button', { name: /Review navigator/ }).click();
+    await page.getByRole('button', { name: /^Navigator/ }).click();
     await axe(page, `${scheme} navigator`);
     await shot(page, `a11y-${scheme}-navigator`);
     await page.getByRole('button', { name: 'End exam…' }).click();

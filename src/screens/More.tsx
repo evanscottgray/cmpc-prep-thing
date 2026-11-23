@@ -169,7 +169,7 @@ export function Backup() {
         <label class="btn block" for="restore-file">Choose backup file…</label>
       </div>
       <div class="banner warn" role="note"><IcAlert /><div class="small">
-        <strong>Why back up?</strong> Safari may delete data for websites that aren't added to the Home Screen and haven't been opened for about a week. Each web address (for example, a home-network preview and a hosted copy) also keeps separate storage — restore a backup to move progress between them. A weekly backup is a good habit.
+        <strong>Why back up?</strong> Safari may delete data for websites that aren't on the Home Screen and haven't been opened for about a week. The Home Screen app, Safari, and each web address all keep separate data — restore a backup to move progress between them. A weekly backup is a good habit.
       </div></div>
       {pending && ps && (
         <Modal title="Restore this backup?" onClose={() => setPending(null)}>

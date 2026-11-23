@@ -108,7 +108,7 @@ export function DrillSetup({ title, src, onClose }: { title: string; src: DrillS
   }
   return (
     <Modal title={title} onClose={onClose}>
-      <p class="small muted">{avail} item{avail === 1 ? '' : 's'} available.</p>
+      <p class="small muted">{avail} question{avail === 1 ? '' : 's'} available.</p>
       <div class="field"><span class="label" id="dl-n">Questions</span>
         <Seg name="n" label="Number of questions" value={n} onChange={setN} options={sizes.map((v) => ({ v, label: Number(v) > avail ? `All ${avail}` : v }))} />
       </div>

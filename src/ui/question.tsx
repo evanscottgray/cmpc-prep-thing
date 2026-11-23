@@ -37,6 +37,25 @@ export function OptionList({ item, si, name, selected, struck, onChoose, onStrik
   );
 }
 
+/** The stem above feedback. The question itself always shows; the scenario folds on phones and the choice carries over. */
+let foldChoice: boolean | null = null;
+export function StemFold({ text, id, open }: { text: string; id: string; open?: boolean }) {
+  const cut = splitQuestion(text);
+  const roomy = window.innerWidth >= 700 && window.innerHeight >= 700;
+  const [shown, setShown] = useState(foldChoice ?? (open || roomy));
+  if (!cut.lead) return <p class="stem" id={id} tabIndex={-1}>{text}</p>;
+  return (
+    <div class="stem-fold">
+      <p class="stem" id={id} tabIndex={-1}>{shown ? text : cut.question}</p>
+      <button class="icon-btn" aria-expanded={shown} onClick={() => { foldChoice = !shown; setShown(!shown); }}>{shown ? 'Hide scenario' : 'Show scenario'}</button>
+    </div>
+  );
+}
+export function splitQuestion(text: string) {
+  const m = /^([\s\S]*[.!?]["\u201d]?)\s+([^.!?]*(?:[^.!?]|\.(?=\S))*\?)$/.exec(text.trim());
+  return m ? { lead: m[1], question: m[2] } : { lead: '', question: text };
+}
+
 /** The result in words: what was chosen and what the answer is, by the letters shown on screen. */
 export function Verdict({ item, si, response, unsure, id }: { item: Item; si: SessionItem; response: number | undefined; unsure?: boolean; id?: string }) {
   const ok = response === item.answer;
@@ -60,6 +79,7 @@ export function ItemReview({ item, si, response, showActions = true }: { item: I
     return (
       <li class={`opt${key ? ' is-correct' : mine ? ' is-wrong' : ' is-other'}`} key={orig}>
         <div class="opt-main">
+          <div class="opt-head">
           <span class="letter" aria-hidden="true">{LET[d]}</span>
           <div class="otext"><span class="sr-only">Option {LET[d]}. </span>{item.options[orig]}
             {(key || mine) && (
@@ -69,8 +89,9 @@ export function ItemReview({ item, si, response, showActions = true }: { item: I
                 {mine && key && <span class="opt-tag you">Your answer</span>}
               </span>
             )}
-            <p class="rationale">{item.rationales[orig]}</p>
           </div>
+          </div>
+          <p class="rationale">{item.rationales[orig]}</p>
         </div>
       </li>
     );

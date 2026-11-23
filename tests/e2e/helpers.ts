@@ -11,11 +11,11 @@ export async function onboard(page: Page, daysOut = 21) {
   await page.goto('./');
   await expect(page.getByRole('heading', { name: /Prepare for the CMPC/ })).toBeVisible();
   await page.getByRole('button', { name: 'Continue' }).click();
+  await expect(page.getByRole('heading', { name: 'Add it to your Home Screen' })).toBeVisible();
+  await page.getByRole('button', { name: 'Continue in Safari' }).click();
   const d = new Date(); d.setDate(d.getDate() + daysOut);
   const v = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   await page.getByLabel('Exam date').fill(v);
-  await page.getByRole('button', { name: 'Continue' }).click();
-  await expect(page.getByRole('heading', { name: 'Add it to your Home Screen' })).toBeVisible();
   await page.getByRole('button', { name: 'Start studying' }).click();
   await expect(page.getByRole('heading', { name: 'Today', level: 1 })).toBeVisible();
 }

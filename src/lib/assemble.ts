@@ -177,7 +177,8 @@ export function buildDrill(bank: Bank, db: DbState, src: DrillSource, count: num
   if (src.type === 'weak') picked = sampleProportional(bank, pool, Math.min(count, pool.length), prOf, rand, weak);
   else picked = shuffle(pool.slice().sort((a, b) => prOf(b) - prOf(a)).slice(0, count), rand);
   const n = picked.length;
-  return newSession(kind, title ?? (timed ? 'Timed drill' : 'Tutor drill'), toSessionItems(picked.map((i) => ({ id: i.id, scored: true })), rand), {
+  const name = src.type === 'domain' ? bank.blueprint.domains.find((d) => d.id === src.id)?.name : src.type === 'kg' ? bank.blueprint.kgs.find((k) => k.id === src.id)?.name : sourceLabel(bank, src);
+  return newSession(kind, title ?? `${name}${timed ? ' (timed)' : ''}`, toSessionItems(picked.map((i) => ({ id: i.id, scored: true })), rand), {
     timed, durationMs: timed ? n * bank.blueprint.exam.secondsPerItem * 1000 : 0, mode: 'strict', label: sourceLabel(bank, src),
     seenBefore: picked.filter((i) => stats.has(i.id)).length,
   }, now);

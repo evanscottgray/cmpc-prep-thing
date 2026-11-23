@@ -3,7 +3,7 @@ import type { Session } from '../types';
 import { ctx, useNow } from '../ctx';
 import { navigate } from '../router';
 import { choose, goTo, hideItem, pause, resume, saveScroll, submit, toggleFlag, toggleStrike } from '../lib/actions';
-import { fmtClock } from '../lib/dates';
+import { fmtClock, fmtMinSec } from '../lib/dates';
 import { isExpired, pacing, remainingMs } from '../lib/scoring';
 import { keepAwake } from '../lib/wakelock';
 import { OptionList, ReportDialog, StrikeHint, strikeHint } from '../ui/question';
@@ -81,6 +81,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
     return () => document.removeEventListener('keydown', on);
   }, [pos, navOpen, menuOpen, reportFor, s.pausedAt]);
 
+  const isHidden = ctx.store.state.hidden.includes(item.id);
   const answered = Object.keys(s.responses).length;
   const unanswered = s.items.length - answered;
   const flagged = s.flags.length;
@@ -138,11 +139,11 @@ export function ExamRunner({ session: s }: { session: Session }) {
         {s.mode === 'coached' && (
           <button class="icon-btn" id="pause-btn" onClick={() => pause(s.id)} aria-label="Pause"><IcPause /></button>
         )}
-        <button class="icon-btn" onClick={() => setMenuOpen(true)} aria-label="Exam menu"><IcMenu /></button>
+        <button class="icon-btn" onClick={() => setMenuOpen(true)} id="exam-menu" aria-label="Exam menu"><IcMenu /></button>
       </div>
       {pace && (
         <div class="exam-pace" aria-live="off">
-          <strong>{pace.deltaSec >= 0 ? `${fmtClock(pace.deltaSec * 1000)} ahead of pace` : `${fmtClock(-pace.deltaSec * 1000)} behind pace`}</strong> · about 47 s per question
+          <strong>{`${fmtMinSec(Math.abs(pace.deltaSec))} ${pace.deltaSec >= 0 ? 'ahead of' : 'behind'} pace`}</strong> · about 47 s per question
         </div>
       )}
       </div>
@@ -161,19 +162,19 @@ export function ExamRunner({ session: s }: { session: Session }) {
           {flaggedHere ? <IcFlagFill /> : <IcFlag />}<span class="lbl">{flaggedHere ? 'Flagged' : 'Flag'}</span>
         </button>
         <button class="btn nav" onClick={() => setNavOpen(true)}>
-          <IcGrid /><span class="two"><span>Review<span class="sr-only"> navigator</span></span> <span class="count">{unanswered} left<span class="sr-only"> to answer, {flagged} flagged</span></span></span>
+          <IcGrid /><span class="two"><span>Navigator</span> <span class="count">{unanswered} to answer<span class="sr-only">, {flagged} flagged</span></span></span>
         </button>
         {pos < s.items.length - 1
           ? <button class="btn next primary" onClick={() => goTo(s.id, pos + 1)}>Next<IcChevron /></button>
           : <button class="btn next primary" onClick={() => setNavOpen(true)}>Finish<IcChevron /></button>}
       </div>
 
-      {navOpen && <Navigator s={s} onClose={() => setNavOpen(false)} onEnd={endExam} endLabel={isExam ? 'End exam…' : 'Submit…'} />}
+      {navOpen && <Navigator s={s} time={hideTimer && !low ? null : fmtClock(remaining)} low={low} onClose={() => setNavOpen(false)} onEnd={endExam} endLabel={isExam ? 'End exam…' : 'Submit…'} />}
       {menuOpen && (
         <Modal title="Exam menu" onClose={() => setMenuOpen(false)}>
           <div class="list">
             <button class="list-item" onClick={() => { setMenuOpen(false); setReportFor(item.id); }}>Report a problem with this question</button>
-            <button class="list-item" onClick={() => { hideItem(item.id, true); setMenuOpen(false); toast('Hidden from future sessions. It still counts in this one.'); }}>Hide this question from future sessions</button>
+            <button class="list-item" onClick={() => { hideItem(item.id, !isHidden); setMenuOpen(false); toast(isHidden ? 'Restored to your study pool.' : 'Hidden from future sessions. It still counts in this one.'); }}>{isHidden ? 'Unhide this question' : 'Hide this question from future sessions'}</button>
             <button class="list-item" onClick={leave}>Leave exam screen{s.mode === 'strict' ? ' (timer keeps running)' : ''}</button>
             <button class="list-item" onClick={endExam} style={{ color: 'var(--bad)' }}>{isExam ? 'End exam now' : 'Submit now'}</button>
           </div>
@@ -194,14 +195,14 @@ export function ExamRunner({ session: s }: { session: Session }) {
 }
 
 type NavFilter = 'all' | 'unanswered' | 'flagged';
-function Navigator({ s, onClose, onEnd, endLabel }: { s: Session; onClose: () => void; onEnd: () => void; endLabel: string }) {
+function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; time: string | null; low: boolean; onClose: () => void; onEnd: () => void; endLabel: string }) {
   const [f, setF] = useState<NavFilter>('all');
   const flags = new Set(s.flags);
   const positions = s.items.map((_, i) => i).filter((i) => f === 'all' || (f === 'flagged' ? flags.has(i) : s.responses[i] === undefined));
   const answered = Object.keys(s.responses).length;
   useEffect(() => { document.querySelector('.nav-cell.current')?.scrollIntoView({ block: 'center' }); }, []);
   return (
-    <Modal title="Review navigator" onClose={onClose} wide sheet>
+    <Modal title="Navigator" aside={time && <span class={`nav-time${low ? ' low' : ''}`}><IcClock />{time}</span>} onClose={onClose} wide sheet>
       <div class="chips wrap" role="group" aria-label="Show">
         {(['all', 'unanswered', 'flagged'] as NavFilter[]).map((x) => (
           <button class="chip" aria-pressed={f === x} onClick={() => setF(x)}>{x === 'all' ? `All ${s.items.length}` : x === 'unanswered' ? `Unanswered ${s.items.length - answered}` : `Flagged ${s.flags.length}`}</button>

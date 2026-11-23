@@ -6,8 +6,8 @@ import { markOpened } from '../lib/actions';
 import { inPlay } from '../lib/scoring';
 import { plural } from '../lib/dates';
 import { Page } from '../ui/bits';
-import { ItemMeta, ItemReview, Verdict } from '../ui/question';
-import { IcCheckCircle, IcChevron, IcMinusCircle, IcXCircle } from '../ui/icons';
+import { ItemMeta, ItemReview, StemFold, Verdict } from '../ui/question';
+import { IcCheck, IcCheckCircle, IcChevron, IcMinusCircle, IcXCircle } from '../ui/icons';
 
 type F = 'all' | 'incorrect' | 'flagged' | 'unscored';
 
@@ -53,6 +53,8 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
       <div class="chips wrap" role="group" aria-label="Filter">
         {filters.map((x) => <button class="chip" aria-pressed={f === x} onClick={() => navigate(`review/${s.id}${qs(query, { f: x === 'all' ? null : x })}`, true)}>{x[0].toUpperCase() + x.slice(1)} {filterPositions(s, query, x).length}</button>)}
       </div>
+      <details class="filter-fold" open={!!(query.get('d') || query.get('k'))}>
+      <summary>Filter by domain or group{query.get('d') || query.get('k') ? ' · on' : ''}</summary>
       <div class="filters">
         <label><span class="sr-only">Domain</span>
           <select class="input" value={query.get('d') ?? ''} onChange={(e) => navigate(`review/${s.id}${qs(query, { d: (e.target as HTMLSelectElement).value })}`, true)}>
@@ -67,21 +69,25 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
           </select>
         </label>
       </div>
+      </details>
       <p class="small muted" aria-live="polite">{plural(positions.length, 'question')}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
+      {positions.length === 0 && (
+        <div class="card"><p>No questions match these filters.</p><button class="btn small" onClick={() => navigate(`review/${s.id}`, true)}>Clear filters</button></div>
+      )}
       {positions.length > 0 && (
         <div class="list">
           {positions.map((i) => {
             const si = s.items[i]; const it = ctx.items.get(si.id)!;
             const resp = s.responses[i]; const ok = resp === it.answer; const skipped = resp === undefined;
             const status = ok ? 'Correct' : skipped ? 'Unanswered' : 'Incorrect';
-            const tags = [(f !== 'incorrect' || skipped) && status, !si.scored && isExam && f !== 'unscored' && 'Unscored', flags.has(i) && f !== 'flagged' && 'Flagged', opened.has(i) && 'Opened'].filter(Boolean);
+            const tags = [bp.kgs.find((x) => x.id === it.kg)?.name, (f !== 'incorrect' || skipped) && status, !si.scored && isExam && f !== 'unscored' && 'Unscored', flags.has(i) && f !== 'flagged' && 'Flagged'].filter(Boolean);
             return (
               <a class="list-item" id={`rv-${i}`} href={`#/review/${s.id}/${i}${qs(query, {})}`}>
                 {ok ? <IcCheckCircle class="status-ic ok" /> : skipped ? <IcMinusCircle class="status-ic skip" /> : <IcXCircle class="status-ic bad" />}
                 <span class="li-main">
                   <span class="li-title">{i + 1}. {it.topic}</span>
                   <span class="li-sub clip">{it.stem}</span>
-                  {tags.length > 0 && <span class="li-sub" style={{ display: 'block' }}>{tags.join(' · ')}</span>}
+                  <span class="li-sub" style={{ display: 'block' }}>{tags.join(' · ')}{opened.has(i) && <span class="opened"> <IcCheck class="tiny" />Opened</span>}</span>
                 </span>
                 <IcChevron class="chev" />
               </a>
@@ -109,7 +115,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
         <span>{idx + 1} of {positions.length} in this view</span>
         <span>{[!si.scored && isExam && 'Unscored trial question', s.flags.includes(pos) && 'Flagged'].filter(Boolean).join(' · ')}</span>
       </div>
-      <p class="stem" id="rv-stem" tabIndex={-1}>{it.stem}</p>
+      <StemFold key={pos} id="rv-stem" text={it.stem} open />
       <Verdict item={it} si={si} response={resp} />
       <ItemReview item={it} si={si} response={resp} />
       <ItemMeta item={it} />

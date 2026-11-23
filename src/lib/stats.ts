@@ -104,7 +104,7 @@ export function focusAreas(bank: Bank, byKg: Record<string, Acc>, max = 3) {
     .sort((a, b) => b.need - a.need).slice(0, max);
 }
 
-export const focusLine = (k: { acc: Acc; weight: number }) => `${k.acc.n - k.acc.c} of ${k.acc.n} missed · ${k.weight}% of exam`;
+export const focusLine = (k: { acc: Acc; weight: number }) => `${k.acc.n - k.acc.c} of ${k.acc.n} missed (${100 - pct(k.acc)!}%) · ${k.weight}% of exam`;
 
 export function examHistory(db: DbState) {
   return Object.values(db.sessions)

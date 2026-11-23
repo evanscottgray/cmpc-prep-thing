@@ -3,7 +3,7 @@ import type { Session } from '../types';
 import { ctx } from '../ctx';
 import { back, navigate } from '../router';
 import { abandon, check, choose, finishTutor, goTo, setUnsure, toggleStrike } from '../lib/actions';
-import { ItemActions, ItemMeta, ItemReview, OptionList, StrikeHint, Verdict, strikeHint } from '../ui/question';
+import { ItemActions, ItemMeta, ItemReview, OptionList, StemFold, StrikeHint, Verdict, strikeHint } from '../ui/question';
 import { Page } from '../ui/bits';
 import { confirmDialog, toast } from '../ui/dialog';
 
@@ -45,7 +45,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
         {done > 0 && <span>{correct} of {done} correct</span>}
       </div>
       {revealed
-        ? <details class="stem-fold" open={window.innerHeight >= 1000}><summary>Question</summary><p class="stem" id="q-stem" tabIndex={-1}>{item.stem}</p></details>
+        ? <StemFold key={pos} id="q-stem" text={item.stem} />
         : <p class="stem" id="q-stem" tabIndex={-1}>{item.stem}</p>}
       {!revealed ? (
         <>
