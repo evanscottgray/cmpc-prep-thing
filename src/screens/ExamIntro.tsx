@@ -9,7 +9,7 @@ import { scaledScore } from '../lib/scoring';
 import { examHistory, formTaken } from '../lib/stats';
 import { Page, Seg } from '../ui/bits';
 import { confirmDialog } from '../ui/dialog';
-import { IcAlert, IcStrike } from '../ui/icons';
+import { IcAlert, IcMenu, IcStrike } from '../ui/icons';
 
 type Kind = 'formA' | 'formB' | 'mixed' | 'block';
 const TITLES: Record<Kind, string> = { formA: 'Form A', formB: 'Form B', mixed: 'Mixed exam', block: 'Exam-pace block' };
@@ -69,6 +69,7 @@ export function ExamIntro({ kind }: { kind: Kind }) {
                   <li><strong>{ex.items} questions in {ex.minutes} minutes</strong>, one sitting, no breaks (about {ex.secondsPerItem} seconds per question).</li>
                   <li>{ex.unscored} questions are unscored trial questions you can't identify, as on the real exam. Your score comes from the other {ex.scored}.</li>
                   <li>No feedback until you submit. You can flag questions, strike out options with <span class="inline-ic"><IcStrike title="the strike-out button" /></span>, and use the navigator.</li>
+                  <li>The <span class="inline-ic"><IcMenu title="menu" /></span> menu on every question has Report a problem and Hide this question. Tap the timer to hide it.</li>
                   <li>The timer runs on the clock: it keeps going if you switch apps or close the app, and the exam submits itself at zero.</li>
                   {kind === 'mixed' && <li>Drawn from the drill pool and any forms you've taken, favoring unseen questions and your weak areas.</li>}
                 </ul>

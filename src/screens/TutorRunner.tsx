@@ -3,7 +3,7 @@ import type { Session } from '../types';
 import { ctx } from '../ctx';
 import { back, navigate } from '../router';
 import { abandon, check, choose, finishTutor, goTo, setUnsure, toggleStrike } from '../lib/actions';
-import { ItemActions, ItemMeta, ItemReview, OptionList, StemFold, StrikeHint, Verdict, strikeHint } from '../ui/question';
+import { ItemActions, ItemMeta, ItemReview, OptionList, QStem, StemFold, StrikeHint, Verdict, strikeHint } from '../ui/question';
 import { Page } from '../ui/bits';
 import { confirmDialog, toast } from '../ui/dialog';
 
@@ -52,15 +52,11 @@ export function TutorRunner({ session: s }: { session: Session }) {
       </div>
       {revealed
         ? <StemFold key={pos} id="q-stem" text={item.stem} />
-        : <p class="stem" id="q-stem" tabIndex={-1}>{item.stem}</p>}
+        : <QStem id="q-stem" text={item.stem} />}
       {!revealed ? (
         <>
           <OptionList item={item} si={si} name={`t${s.id}-${pos}`} selected={resp} struck={s.strikes[pos] ?? []}
             onChoose={(o) => choose(s.id, pos, o)} onStrike={(o) => toggleStrike(s.id, pos, o)} />
-          <label class="check mt">
-            <input type="checkbox" checked={s.unsure.includes(pos)} onChange={(e) => setUnsure(s.id, pos, (e.target as HTMLInputElement).checked)} />
-            I'm not sure<span class="muted small"> (adds to spaced review)</span>
-          </label>
           {pos === 0 && strikeHint(false) && <StrikeHint />}
           <ItemActions item={item} />
         </>
@@ -72,6 +68,12 @@ export function TutorRunner({ session: s }: { session: Session }) {
         </>
       )}
       <div class="actionbar">
+        {!revealed && (
+          <label class="check unsure-row">
+            <input type="checkbox" checked={s.unsure.includes(pos)} onChange={(e) => setUnsure(s.id, pos, (e.target as HTMLInputElement).checked)} />
+            I'm not sure<span class="muted small"> (adds to spaced review)</span>
+          </label>
+        )}
         <button class="btn" disabled={pos === 0} onClick={() => goTo(s.id, pos - 1)}>Previous</button>
         {!revealed
           ? <button class="btn primary" disabled={resp === undefined} onClick={() => check(s.id, pos)}>Check answer</button>

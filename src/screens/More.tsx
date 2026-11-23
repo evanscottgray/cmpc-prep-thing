@@ -80,7 +80,7 @@ export function Settings() {
       <div class="field">
         <span class="label">Raw passing target</span>
         <Stepper label="raw passing target" value={s.rawTarget} min={50} max={90} onChange={(v) => up({ rawTarget: v })} suffix="/100" />
-        <span class="hint">AASP doesn't publish the raw cut. The app maps this raw score to 550 for estimated scaled scores (default 70).</span>
+        <span class="hint">AASP doesn't publish the raw cut. The app maps this raw score to 550 for estimated scaled scores (default 70). Changing it also updates the estimates for exams you've already taken.</span>
       </div>
       <div class="field">
         <span class="label">Default exam mode</span>

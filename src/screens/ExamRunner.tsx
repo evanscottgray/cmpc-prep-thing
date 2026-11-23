@@ -6,7 +6,7 @@ import { choose, goTo, hideItem, pause, resume, saveScroll, submit, toggleFlag, 
 import { fmtClock, fmtMinSec } from '../lib/dates';
 import { isExpired, pacing, remainingMs } from '../lib/scoring';
 import { keepAwake } from '../lib/wakelock';
-import { OptionList, ReportDialog, StrikeHint, splitQuestion, strikeHint } from '../ui/question';
+import { OptionList, QStem, ReportDialog, StrikeHint, strikeHint } from '../ui/question';
 import { Modal, alertDialog, clearDialogs, confirmDialog, toast } from '../ui/dialog';
 import { IcBack, IcChevron, IcClock, IcFlag, IcFlagFill, IcGrid, IcMenu, IcPause, IcPlay } from '../ui/icons';
 
@@ -121,7 +121,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
         : 'The timer keeps running unless you pause first. Resume from Today at any time.',
       ok: 'Leave', cancel: 'Stay',
     });
-    if (ok) navigate('today');
+    if (ok) { saveScroll(s.id, Math.round(window.scrollY)); navigate('today'); }
   }
 
   const firstTime = pos === 0 && strikeHint(true);
@@ -153,7 +153,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
       <div class="sr-only" aria-live="assertive">{announce}</div>
 
       <main class="exam-body" id="main" tabIndex={-1}>
-        <ExamStem text={item.stem} />
+        <QStem text={item.stem} id="q-stem" />
         <OptionList item={item} si={si} name={`q${pos}`} selected={s.responses[pos]} struck={s.strikes[pos] ?? []}
           onChoose={(o) => choose(s.id, pos, o)} onStrike={(o) => toggleStrike(s.id, pos, o)} />
         {firstTime && <StrikeHint />}
@@ -191,7 +191,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
           <h2 id="paused-h">Paused</h2>
           <p class="muted">Coached mode. The question is hidden while paused.<br />{fmtClock(remaining)} remaining.</p>
           <button class="btn primary" id="resume-btn" onClick={() => resume(s.id)}><IcPlay />Resume</button>
-          <button class="btn" onClick={() => { navigate('today'); toast('Still paused. Resume it from Today.'); }}>Leave exam screen</button>
+          <button class="btn" onClick={() => { saveScroll(s.id, Math.round(window.scrollY)); navigate('today'); toast('Still paused. Resume it from Today.'); }}>Leave exam screen</button>
         </div>
       )}
     </>
@@ -236,7 +236,7 @@ function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; tim
           {positions.map((i) => {
             const a = s.responses[i] !== undefined, fl = flags.has(i);
             return (
-              <button key={i} data-pos={i} tabIndex={i === (positions.includes(stop) ? stop : positions[0]) ? 0 : -1} class={`nav-cell${a ? ' answered' : ''}${i === s.current ? ' current' : ''}`}
+              <button key={i} data-pos={i} tabIndex={i === (positions.includes(stop) ? stop : positions[0]) ? 0 : -1} class={`nav-cell${a ? ' answered' : ''}${fl ? ' flagged' : ''}${i === s.current ? ' current' : ''}`}
                 aria-label={`Question ${i + 1}: ${a ? 'answered' : 'unanswered'}${fl ? ', flagged' : ''}${i === s.current ? ', current' : ''}`}
                 onClick={() => { goTo(s.id, i); onClose(); }}>
                 {i + 1}{fl && <span class="flag-mark" aria-hidden="true"><IcFlagFill /></span>}
@@ -253,14 +253,3 @@ function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; tim
   );
 }
 
-/** The scenario, then the question sentence in its own paragraph so it is easy to find. */
-function ExamStem({ text }: { text: string }) {
-  const cut = splitQuestion(text);
-  if (!cut.lead) return <p class="stem" id="q-stem" tabIndex={-1}>{text}</p>;
-  return (
-    <div class="stem" id="q-stem" tabIndex={-1}>
-      <p>{cut.lead}</p>
-      <p class="stem-q">{cut.question}</p>
-    </div>
-  );
-}

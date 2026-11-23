@@ -46,8 +46,19 @@ export function StemFold({ text, id, open }: { text: string; id: string; open?: 
   if (!cut.lead) return <p class="stem" id={id} tabIndex={-1}>{text}</p>;
   return (
     <div class="stem-fold">
-      <p class="stem" id={id} tabIndex={-1}>{shown ? text : cut.question}</p>
+      {shown ? <QStem text={text} id={id} /> : <div class="stem" id={id} tabIndex={-1}><p class="stem-q">{cut.question}</p></div>}
       <button class="icon-btn" aria-expanded={shown} onClick={() => { foldChoice = !shown; setShown(!shown); }}>{shown ? 'Hide scenario' : 'Show scenario'}</button>
+    </div>
+  );
+}
+/** The scenario, then the question sentence in its own bold paragraph so it is easy to find. */
+export function QStem({ text, id }: { text: string; id: string }) {
+  const cut = splitQuestion(text);
+  if (!cut.lead) return <p class="stem" id={id} tabIndex={-1}>{text}</p>;
+  return (
+    <div class="stem" id={id} tabIndex={-1}>
+      <p>{cut.lead}</p>
+      <p class="stem-q">{cut.question}</p>
     </div>
   );
 }
