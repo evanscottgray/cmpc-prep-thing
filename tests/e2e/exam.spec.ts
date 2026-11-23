@@ -125,6 +125,20 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   await expect(page.locator(`#${rowId}`)).toBeInViewport();
   await page.getByRole('button', { name: 'Back' }).click(); // one Back from the list returns to results, not the list again
   await expect(page.getByRole('heading', { name: 'Form A results' })).toBeVisible();
+  // a question opened from the list, left with the browser's Back, then reopened from elsewhere: Back goes to the list
+  await page.getByRole('link', { name: 'Review all 115' }).click();
+  const listHash = await page.evaluate(() => location.hash);
+  await page.locator('.list .list-item').nth(2).click();
+  await expect(page.locator('.q-meta')).toBeVisible();
+  const itemHash = await page.evaluate(() => location.hash);
+  await page.goBack();
+  await expect(page.getByRole('heading', { name: /^Review/ })).toBeVisible();
+  await go(page, 'today');
+  await go(page, itemHash);
+  await expect(page.locator('.q-meta')).toBeVisible();
+  await page.getByRole('button', { name: 'Back' }).click();
+  await expect(page.getByRole('heading', { name: /^Review · / })).toBeVisible(); // the list, not Today
+  await go(page, 'results/' + listHash.split('/')[2]);
 
   // past exams stay reachable from Progress
   await go(page, 'progress');

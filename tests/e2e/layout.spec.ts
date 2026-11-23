@@ -43,6 +43,19 @@ for (const size of ['m', 'xl'] as const) {
   });
 }
 
+test('the navigator shows whole rows of questions with a phone held sideways', async ({ page }) => {
+  await onboard(page);
+  await page.setViewportSize({ width: 568, height: 320 });
+  await go(page, 'settings'); await page.getByRole('radio', { name: 'Larger' }).check({ force: true });
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: /^Start Exam-pace block/ }).click();
+  await page.getByRole('button', { name: /^Navigator/ }).click();
+  const box = await page.locator('.nav-scroll').evaluate((el) => el.clientHeight);
+  expect(box).toBeGreaterThanOrEqual(2 * 48 + 8); // room for two full rows of question buttons
+  await expect(page.locator('.nav-cell').first()).toBeInViewport({ ratio: 1 });
+  for (const name of ['Back to question', 'Submit…']) await expect(page.getByRole('button', { name })).toBeInViewport({ ratio: 1 });
+});
+
 test('tutor controls stay on screen with a phone held sideways', async ({ page }) => {
   await onboard(page);
   await page.getByRole('button', { name: 'Quick quiz · 10' }).click();

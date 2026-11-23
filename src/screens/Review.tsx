@@ -1,7 +1,7 @@
 import { useEffect } from 'preact/hooks';
 import type { Session } from '../types';
 import { ctx } from '../ctx';
-import { back, navigate } from '../router';
+import { back, historyIndex, navigate } from '../router';
 import { leftReviewItem, markOpened } from '../lib/actions';
 import { inPlay } from '../lib/scoring';
 import { plural } from '../lib/dates';
@@ -13,8 +13,8 @@ type F = 'all' | 'incorrect' | 'flagged' | 'unscored';
 
 /** Last item opened per session, so returning to the list lands where you left it. */
 const lastOpened = new Map<string, number>();
-/** Sessions whose review list sits directly below the open question in history. */
-const listBelow = new Set<string>();
+/** History position of the review list a question was opened from, per session. Back returns there only if it is directly below. */
+const listAt = new Map<string, number>();
 
 function filterPositions(s: Session, q: URLSearchParams, f: F = (q.get('f') as F) || 'all'): number[] {
   const d = q.get('d'), k = q.get('k');
@@ -89,7 +89,7 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
             const group = bp.kgs.find((x) => x.id === it.kg)?.name;
             const tags = [(f !== 'incorrect' || skipped) && status, !si.scored && isExam && f !== 'unscored' && 'Unscored', flags.has(i) && f !== 'flagged' && 'Flagged'].filter(Boolean);
             return (
-              <a class="list-item" id={`rv-${i}`} href={`#/review/${s.id}/${i}${qs(query, {})}`} onClick={() => listBelow.add(s.id)}>
+              <a class="list-item" id={`rv-${i}`} href={`#/review/${s.id}/${i}${qs(query, {})}`} onClick={() => listAt.set(s.id, historyIndex())}>
                 {ok ? <IcCheckCircle class="status-ic ok" /> : skipped ? <IcMinusCircle class="status-ic skip" /> : <IcXCircle class="status-ic bad" />}
                 <span class="li-main">
                   <span class="li-title">{i + 1}. {it.topic}</span>
@@ -116,7 +116,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const prev = idx > 0 ? positions[idx - 1] : null, next = idx >= 0 && idx < positions.length - 1 ? positions[idx + 1] : null;
   const q = query.toString() ? `?${query}` : '';
   const isExam = ['formA', 'formB', 'mixed'].includes(s.kind);
-  const toList = () => { leftReviewItem(s.id); if (listBelow.delete(s.id)) back(); else navigate(`review/${s.id}${q}`, true); };
+  const toList = () => { leftReviewItem(s.id); if (listAt.get(s.id) === historyIndex() - 1) back(); else navigate(`review/${s.id}${q}`, true); };
   return (
     <Page title={`Question ${pos + 1}`} onBack={toList} tabs={false}>
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>

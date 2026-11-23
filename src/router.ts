@@ -10,6 +10,8 @@ export function parseHash(h = location.hash): Route {
 let idx = 0;
 const scrolls = new Map<number, number>();
 let restore: number | null = null;
+/** Position of the current history entry. */
+export const historyIndex = () => idx;
 /** Scroll position to restore after going back; null after forward navigation. Read once by the next page. */
 export function takeRestore() { const r = restore; restore = null; return r; }
 

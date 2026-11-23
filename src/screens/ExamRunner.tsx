@@ -135,7 +135,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
         <span class="grow" />
         {/* one element in every state, so keyboard focus survives the switch to low time */}
         <button class={`timer icon-btn${low ? ' low' : hideTimer ? ' btn small' : ''}`} style={low ? undefined : { color: 'inherit' }}
-          aria-disabled={low || undefined} onClick={() => { if (!low) setHideTimer(!hideTimer); }}
+          aria-disabled={low || undefined} tabIndex={low ? -1 : undefined} onClick={() => { if (!low) setHideTimer(!hideTimer); }}
           aria-label={low ? `Time remaining ${fmtClock(remaining)}. Shown while time is low` : `Time remaining ${fmtClock(remaining)}. ${hideTimer ? 'Show' : 'Hide'} timer`}>
           <IcClock />{hideTimer && !low ? 'Show time' : fmtClock(remaining)}
         </button>
@@ -229,14 +229,15 @@ function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; tim
           <button class="chip" aria-pressed={f === x} onClick={() => setF(x)}>{x === 'all' ? `All ${s.items.length}` : x === 'unanswered' ? `Unanswered ${s.items.length - answered}` : `Flagged ${s.flags.length}`}</button>
         ))}
       </div>
+      <div class="nav-scroll" ref={scroller} onScroll={fade}>
       <div class="nav-legend" aria-hidden="true">
         <span><i class="swatch answered" />Answered</span>
         <span><i class="swatch" />Unanswered</span>
-        <span><i class="swatch flagged"><IcFlagFill /></i>Flagged</span>
+        <span><i class="swatch flagged" />Flagged</span>
         <span><i class="swatch current" />Current</span>
       </div>
-      {positions.length === 0 ? <p class="muted">Nothing here.</p> : (
-        <div class="nav-scroll" ref={scroller} onScroll={fade}><div class="nav-grid" role="group" aria-label="Questions. Use arrow keys to move." onKeyDown={gridKeys}>
+      {positions.length === 0 ? <p class="muted">{f === 'flagged' ? 'No flagged questions.' : 'Every question has an answer.'}</p> : (
+        <div class="nav-grid" role="group" aria-label="Questions. Use arrow keys to move." onKeyDown={gridKeys}>
           {positions.map((i) => {
             const a = s.responses[i] !== undefined, fl = flags.has(i);
             return (
@@ -247,8 +248,9 @@ function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; tim
               </button>
             );
           })}
-        </div></div>
+        </div>
       )}
+      </div>
       <div class="btn-row">
         <button class="btn" onClick={onClose}>Back to question</button>
         <button class="btn danger" onClick={onEnd}>{endLabel}</button>

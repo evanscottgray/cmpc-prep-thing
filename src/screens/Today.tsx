@@ -6,7 +6,7 @@ import { fmtDate, fmtShort, plural, ymd } from '../lib/dates';
 import { isLight, plan, type Action } from '../lib/plan';
 import { dueIds } from '../lib/srs';
 import { ListLink, Meter, Page } from '../ui/bits';
-import { alertDialog, confirmDialog } from '../ui/dialog';
+import { alertDialog, confirmDialog, toast } from '../ui/dialog';
 import { IcAlert, IcChevron, IcInfo, IcPhone, IcX } from '../ui/icons';
 
 const WEEK = 7 * 86400000;
@@ -35,7 +35,7 @@ function Primary({ a, why }: { a: Action; why: string }) {
     formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 questions · 90 minutes · no breaks' },
     formB: { eyebrow: 'Recommended', title: 'Take Form B', cta: 'Start Form B', go: () => navigate('start/formB'), note: '115 questions · 90 minutes · fresh questions' },
     mixed: { eyebrow: 'Final week', title: 'Take a mixed exam', cta: 'Start mixed exam', go: () => navigate('start/mixed'), note: '115 questions · 90 minutes · blueprint-matched' },
-    reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind !== 'reviewExam' ? '' : openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : `Review ${plural(missedPositions(a.session).length, 'miss', 'misses')}`, second: a.kind === 'reviewExam' ? { label: openedMisses(a.session) ? "I'm done reviewing" : 'Skip this review', go: () => markReviewed(a.session.id) } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
+    reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind !== 'reviewExam' ? '' : openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : `Review ${plural(missedPositions(a.session).length, 'miss', 'misses')}`, second: a.kind === 'reviewExam' ? { label: openedMisses(a.session) ? "I'm done reviewing" : 'Skip this review', go: () => { markReviewed(a.session.id); toast(`Done. ${a.session.title} stays under Progress if you want it later.`); } } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
     weak: { eyebrow: 'Recommended', title: a.kind === 'weak' ? `Weak-area drill · ${a.count} questions` : '', cta: 'Start drill', go: () => a.kind === 'weak' && startWeak(a.count), note: 'Tutor mode: rationale after every answer' },
     review: { eyebrow: 'Recommended', title: a.kind === 'review' ? `Spaced review · ${a.count} questions` : '', cta: 'Start review', go: startReview, note: 'Tutor mode: rationale after every answer' },
     light: { eyebrow: 'Final days', title: 'Light review', cta: Object.keys(ctx.store.state.cardSrs).length ? 'Review cards you know' : 'Skim concept cards', go: () => navigate(Object.keys(ctx.store.state.cardSrs).length ? 'cards/study' : 'cards'), second: { label: 'Exam-day notes', go: () => navigate('ref/examday') } },
@@ -74,7 +74,7 @@ function InProgress({ skip }: { skip?: string }) {
         {reviews.map((x) => (
           <div class="list-pair">
             <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses opened</span></span><span class="badge accent">Resume</span></a>
-            <button class="icon-btn" onClick={() => markReviewed(x.id)} aria-label={`Mark ${x.title} review done`}><IcX /></button>
+            <button class="btn small ghost" onClick={() => { markReviewed(x.id); toast(`Marked done. ${x.title} stays under Progress.`); }}>Mark done<span class="sr-only"> for the {x.title} review</span></button>
           </div>
         ))}
         {open.map((x) => {
@@ -122,7 +122,7 @@ export function Today() {
         <div class="section">
           <h2>Due reviews</h2>
           <div class="list">
-            {p.dueItems > 0 && p.primary.kind !== 'review' && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>Missed and uncertain questions{p.dueItems > REVIEW_MAX ? ` · ${p.dueItems} due in all` : ''}</span></span><span class="badge accent">{p.dueItems > REVIEW_MAX ? `${REVIEW_MAX} now` : `${p.dueItems} due`}</span><IcChevron class="chev" /></button>}
+            {p.dueItems > 0 && p.primary.kind !== 'review' && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>Missed and uncertain questions{p.dueItems > REVIEW_MAX ? ` · ${REVIEW_MAX} per session` : ''}</span></span><span class="badge accent">{p.dueItems} due</span><IcChevron class="chev" /></button>}
             {p.dueCards > 0 && <a class="list-item" href="#/cards/study"><span class="li-main"><span class="li-title">Concept cards</span><span class="li-sub" style={{ display: 'block' }}>{p.dueCards < 12 ? `${p.dueCards} due, then new cards` : 'Cards to recall again'}</span></span><span class="badge accent">{p.dueCards} due</span><IcChevron class="chev" /></a>}
           </div>
         </div>

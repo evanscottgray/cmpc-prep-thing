@@ -395,8 +395,7 @@ main.page.notabs:has(> .actionbar) > :nth-last-child(2) { margin-bottom: 1.25rem
 .nav-cell.flagged { box-shadow: inset 0 -4px 0 var(--warn); }
 .swatch { width: 18px; height: 18px; border-radius: 4px; border: 2px dashed var(--control); display: inline-block; }
 .swatch.current { border: 2px solid var(--exam-sel-border); border-radius: 5px; outline: 2px solid var(--focus); outline-offset: 1px; }
-.swatch.flagged { position: relative; box-shadow: inset 0 -3px 0 var(--warn); }
-.swatch.flagged svg { position: absolute; top: -1px; right: -1px; width: 9px; height: 9px; color: var(--warn); fill: currentColor; }
+.swatch.flagged { box-shadow: inset 0 -4px 0 var(--warn); }
 .swatch.answered { border-style: solid; border-color: var(--exam-sel-border); background: var(--exam-opt-sel); }
 
 /* ---------- dialogs & sheets ---------- */
@@ -496,6 +495,16 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .dialog.sheet > .nav-scroll.more { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent); }
 .dialog.sheet > .nav-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 5px; margin: 0 -5px; }
 .dialog.sheet > .btn-row { margin-top: .9rem; }
+/* short screens (phone sideways): the sheet takes the full height so at least two rows of questions show */
+@media (max-height: 500px) {
+  .overlay:has(> .dialog.sheet) { align-items: stretch; }
+  .dialog.sheet { max-height: 100dvh; border-radius: 0; padding-top: calc(.5rem + var(--safe-t)); padding-bottom: calc(.5rem + var(--safe-b)); }
+  .dialog.sheet .dialog-head { margin-bottom: .2rem; }
+  .dialog.sheet > .chips { margin-bottom: .3rem; }
+  .dialog.sheet > .btn-row { margin-top: .4rem; }
+  .dialog.sheet > .btn-row .btn { min-height: 44px; }
+  .dialog.sheet > .nav-scroll.more { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 16px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 16px), transparent); }
+}
 .stem-fold .stem { margin-bottom: 0; }
 .stem-fold .icon-btn { padding: 0; font-size: .92rem; }
 .stem-fold + .verdict { margin-top: .25rem; }
