@@ -68,7 +68,7 @@ export function Results({ session: s }: { session: Session }) {
         <div class="banner warn mt" role="note"><IcAlert /><div><strong>Not a fresh estimate.</strong> {`${s.seenBefore} of ${r.total} questions were ones you had already seen.`} Familiar questions inflate the score.</div></div>
       )}
 
-      <div class="btn-row stack-sm mt">
+      <div class="btn-row result-actions mt">
         {!s.timed && <a class="btn primary" href="#/today">Done</a>}
         {missed.length > 0 && <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}?f=incorrect`}>Review {plural(missed.length, 'miss', 'misses')}</a>}
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
@@ -78,7 +78,7 @@ export function Results({ session: s }: { session: Session }) {
       {full && focus.length > 0 && (
         <div class="section">
           <h2>Focus next</h2>
-          <p class="small muted">From this exam. Points lost: about how many of 100 exam points a group costs you now (its share of the exam × your miss rate). Groups with only a few answers count cautiously.</p>
+          <div class="small muted focus-note">From this exam. Ranked by exam points lost: share of the exam × your miss rate. <details class="how"><summary>How this is ranked</summary>Points lost is about how many of 100 exam points a group costs you now. Groups with only a few answers count cautiously, so one miss doesn't put a group at the top.</details></div>
           <div class="list">
             {focus.map((k) => <ListLink onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} title={k.name} sub={focusLine(k)} right={<span class="badge accent">Drill</span>} />)}
           </div>

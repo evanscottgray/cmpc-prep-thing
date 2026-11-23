@@ -57,6 +57,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
       if (min <= w && min > w - 0.5 && !warned.current.has(w) && s.durationMs > w * 60000 * 2) {
         warned.current.add(w);
         setAnnounce(`${w} minute${w > 1 ? 's' : ''} remaining.`);
+        toast(`${w} minute${w > 1 ? 's' : ''} remaining`);
       }
     }
   }, [now]);
@@ -132,10 +133,12 @@ export function ExamRunner({ session: s }: { session: Session }) {
       <div class="exam-bar-row">
         <span class="qcount" aria-live="off"><span class="qw">Question </span>{pos + 1} <span class="muted">of {s.items.length}</span></span>
         <span class="grow" />
-        <button class={`timer icon-btn${low ? ' low' : ''}${hideTimer && !low ? ' btn small' : ''}`} style={{ color: 'inherit' }}
-          onClick={() => setHideTimer(!hideTimer)} aria-label={`Time remaining ${fmtClock(remaining)}. ${hideTimer ? 'Show' : 'Hide'} timer`}>
-          <IcClock />{hideTimer && !low ? 'Show time' : fmtClock(remaining)}
-        </button>
+        {low
+          ? <span class="timer low" role="timer" aria-label={`Time remaining ${fmtClock(remaining)}`}><IcClock />{fmtClock(remaining)}</span>
+          : <button class={`timer icon-btn${hideTimer ? ' btn small' : ''}`} style={{ color: 'inherit' }}
+            onClick={() => setHideTimer(!hideTimer)} aria-label={`Time remaining ${fmtClock(remaining)}. ${hideTimer ? 'Show' : 'Hide'} timer`}>
+            <IcClock />{hideTimer ? 'Show time' : fmtClock(remaining)}
+          </button>}
         {s.mode === 'coached' && (
           <button class="icon-btn framed" id="pause-btn" onClick={() => pause(s.id)} aria-label="Pause"><IcPause /></button>
         )}
@@ -165,7 +168,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
           <IcGrid /><span class="two"><span>Navigator</span> <span class="count">{unanswered} to answer<span class="sr-only">, {flagged} flagged</span></span></span>
         </button>
         {pos < s.items.length - 1
-          ? <button class="btn next primary" onClick={() => goTo(s.id, pos + 1)}>Next<IcChevron /></button>
+          ? <button class="btn next primary" onClick={() => goTo(s.id, pos + 1)}>{s.responses[pos] === undefined ? 'Skip' : 'Next'}<IcChevron /></button>
           : <button class="btn next primary" onClick={() => setNavOpen(true)}>Finish<IcChevron /></button>}
       </div>
 

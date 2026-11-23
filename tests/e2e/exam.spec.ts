@@ -15,7 +15,7 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   await optionLabels(page).nth(1).click();
   await expect(page.locator('.opt').nth(1)).toHaveClass(/selected/);
   await shot(page, '03-exam-q1');
-  await page.getByRole('button', { name: /^Next/ }).click();
+  await page.getByRole('button', { name: /^(Next|Skip)/ }).click();
 
   // Q2: strike option A, flag, answer option D
   await expect(page.locator('.qcount')).toContainText('Question 2');
@@ -24,8 +24,8 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   await page.getByRole('button', { name: 'Flag for review' }).click();
   await expect(page.getByRole('button', { name: 'Flagged', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await optionLabels(page).nth(3).click();
-  await page.getByRole('button', { name: /^Next/ }).click();
-  await page.getByRole('button', { name: /^Next/ }).click();
+  await page.getByRole('button', { name: /^(Next|Skip)/ }).click();
+  await page.getByRole('button', { name: /^(Next|Skip)/ }).click();
   await expect(page.locator('.qcount')).toContainText('Question 4');
 
   // No feedback during the exam

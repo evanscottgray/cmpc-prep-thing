@@ -4,7 +4,7 @@
   --bg: #f5f6f8; --surface: #ffffff; --surface-2: #eceff3; --surface-3: #e1e6ec;
   --text: #16202a; --muted: #4f5d6b; --border: #cfd6de; --border-strong: #9aa6b2; --control: #75818d;
   --accent: #0a6b7c; --accent-ink: #ffffff; --accent-soft: #e0f0f3;
-  --ok: #13612f; --ok-soft: #e3f3e8; --bad: #9f1f18; --bad-soft: #fbe9e7; --warn: #8a5a00; --warn-bar: #b9770a; --warn-soft: #fdf3dc;
+  --ok: #13612f; --ok-soft: #e3f3e8; --bad: #9f1f18; --bad-soft: #fbe9e7; --warn: #8a5a00; --warn-bar: #a66a00; --warn-soft: #fdf3dc;
   --focus: #1b62d6; --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .08);
   --exam-bg: #ffffff; --exam-bar: #eef1f4; --exam-opt: #ffffff; --exam-opt-sel: #e7eef8; --exam-sel-border: #2a5aa8;
   --sel-ink: #ffffff; --danger-ink: #ffffff; --radius: 12px; --tab-h: 56px;
@@ -257,6 +257,7 @@ table.grid th { background: var(--surface-2); }
 .q-meta strong { display: block; }
 .stem { font-size: 1.06rem; line-height: 1.55; margin-bottom: 1rem; white-space: pre-line; }
 .opts { display: grid; gap: .6rem; margin: 0; padding: 0; border: 0; }
+.opts.plain { gap: .45rem; }
 .opt {
   position: relative; display: flex; align-items: stretch; border: 2px solid var(--control); border-radius: 12px; background: var(--surface);
   transition: border-color .12s ease;
@@ -367,14 +368,14 @@ main.page.notabs:has(> .actionbar) > :nth-last-child(2) { margin-bottom: 1.25rem
   .actionbar .check.full { flex: 1 1 auto; }
   .actionbar .btn { min-height: 44px; }
 }
-.strike-hint { display: flex; align-items: center; gap: .4rem; font-size: .88rem; color: var(--muted); margin: .9rem 0 0; }
+.strike-hint { display: block; font-size: .88rem; color: var(--muted); margin: .9rem 0 0; }
 .strike-hint svg, .inline-ic svg { width: 1.15em; height: 1.15em; vertical-align: -.2em; }
 .flag-btn[aria-pressed="true"] { color: var(--warn); }
 .flag-btn[aria-pressed="true"] svg { fill: currentColor; }
 .paused-cover { position: fixed; inset: 0; z-index: 60; background: var(--exam-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2rem; text-align: center; }
 
 /* navigator grid */
-.nav-legend { display: flex; gap: .9rem; flex-wrap: wrap; font-size: .85rem; color: var(--muted); margin-bottom: .75rem; }
+.nav-legend { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: .4rem .9rem; font-size: .85rem; color: var(--muted); margin-bottom: .75rem; }
 .nav-legend span { display: inline-flex; align-items: center; gap: .35rem; }
 .nav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: .45rem; }
 .nav-cell {
@@ -418,7 +419,7 @@ main.page.notabs:has(> .actionbar) > :nth-last-child(2) { margin-bottom: 1.25rem
 .chips { display: flex; gap: .5rem; overflow-x: auto; padding: .1rem .1rem .5rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .chips::-webkit-scrollbar { display: none; }
 .chip { flex: none; min-height: 40px; padding: 0 .9rem; border-radius: 999px; border: 1px solid var(--control); background: var(--surface); font-weight: 600; font-size: .9rem; cursor: pointer; color: var(--text); }
-.chip[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+.chip[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 .status-ic { width: 22px; height: 22px; flex: none; }
 .status-ic.warn { color: var(--warn); }
 .status-ic.ok { color: var(--ok); } .status-ic.bad { color: var(--bad); } .status-ic.skip { color: var(--muted); }
@@ -492,3 +493,12 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .nav-time.low { color: var(--warn); }
 .chip, .btn.small, .banner a, .center a { min-width: 44px; }
 .chip { justify-content: center; text-align: center; }
+
+@media (max-width: 430px) { .nav-legend { grid-template-columns: auto auto; } }
+/* results: the main action spans the row, the others share one */
+.result-actions > .btn:first-child { flex-basis: 100%; }
+.focus-note { margin: -.1rem 0 .6rem .25rem; }
+.focus-note .how summary { display: inline-flex; min-height: 44px; align-items: center; color: var(--accent); font-weight: 600; cursor: pointer; }
+.focus-note .how[open] { color: var(--text); }
+/* answers scroll clear of the sticky exam bars when focused */
+.opt, .opt input[type="radio"] { scroll-margin: 90px 0 110px; }

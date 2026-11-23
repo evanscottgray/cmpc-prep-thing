@@ -18,6 +18,7 @@ function ScoreChart({ exams, target }: { exams: Session[]; target: number }) {
   const hi = Math.min(800, Math.max(700, ...scores.map((v) => Math.ceil((v + 60) / 50) * 50)));
   const y = (v: number) => 100 * (1 - (v - lo) / (hi - lo));
   const x = (i: number) => (exams.length === 1 ? 50 : 10 + (80 * i) / (exams.length - 1));
+  // with more than three exams only the latest score is printed; the list below has every value
   const desc = exams.map((s, i) => `${s.title}${s.retake ? ' (retake)' : ''}: ${scores[i]}`).join('; ');
   return (
     <figure class="chart" style={{ margin: 0 }}>
@@ -29,7 +30,7 @@ function ScoreChart({ exams, target }: { exams: Session[]; target: number }) {
             <line class="cut" x1="0" x2="100" y1={y(550)} y2={y(550)} />
             {exams.length > 1 && <polyline class="line" points={scores.map((v, i) => `${x(i)},${y(v)}`).join(' ')} />}
           </svg>
-          {scores.map((v, i) => <span class={`chart-pt${v < 550 ? ' low' : ''}`} style={{ left: `${x(i)}%`, top: `${y(v)}%` }}><b>{v}</b></span>)}
+          {scores.map((v, i) => <span class={`chart-pt${v < 550 ? ' low' : ''}`} style={{ left: `${x(i)}%`, top: `${y(v)}%` }}>{(scores.length <= 3 || i === scores.length - 1) && <b>{v}</b>}</span>)}
         </div>
         <div class="chart-x">{exams.map((s, i) => <span style={{ left: `${x(i)}%` }}>{shortName(s)}</span>)}</div>
       </div>
@@ -78,7 +79,7 @@ export function Progress() {
       {focus.length > 0 && (
         <div class="section">
           <h2>Focus next</h2>
-          <p class="small muted">From your latest answer to each question. Points lost: about how many of 100 exam points a group costs you now (its share of the exam × your miss rate). Groups with only a few answers count cautiously.</p>
+          <div class="small muted focus-note">From your latest answer to each question. Ranked by exam points lost: share of the exam × your miss rate. <details class="how"><summary>How this is ranked</summary>Points lost is about how many of 100 exam points a group costs you now. Groups with only a few answers count cautiously, so one miss doesn't put a group at the top.</details></div>
           <div class="list">
             {focus.map((k) => <ListLink onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} title={k.name} sub={focusLine(k)} right={<span class="badge accent">Drill</span>} />)}
           </div>
@@ -93,7 +94,7 @@ export function Progress() {
             <div class="list mt">
               {exams.slice().reverse().map((s) => {
                 const v = scoreOf(s, target);
-                return <ListLink href={`#/results/${s.id}`} title={s.title} sub={`${fmtShort(s.submittedAt!)} · ${s.result!.raw}/${s.result!.scoredCount}${s.retake ? ' · retake' : ''}`} right={<span class={`badge ${v >= 550 ? 'ok' : 'bad'}`}>{v >= 550 ? 'Pass' : 'Did not pass'} (est.) · {v}</span>} />;
+                return <ListLink href={`#/results/${s.id}`} title={s.title} sub={`${fmtShort(s.submittedAt!)} · ${s.result!.raw}/${s.result!.scoredCount}${s.retake ? ' · retake' : ''}`} right={<span class={`badge ${v >= 550 ? 'ok' : 'bad'}`}>{v >= 550 ? 'Pass' : 'Did not pass'} (estimated) · {v}</span>} />;
               })}
             </div>
           </>
@@ -107,7 +108,7 @@ export function Progress() {
         <div class="card bars">
           {any ? (
             <>
-              <p class="small muted">Based on your latest answer to each question, so usually higher than the first-try accuracy behind the estimate above. The mark on each bar is your practice target ({target}%).</p>
+              <p class="small muted">Latest answers, so usually higher than the first-try estimate. Mark: your {target}% target.</p>
               {bank.blueprint.domains.map((d) => <AreaBar label={`${d.id}. ${d.name}`} sub={`${d.weight}% of exam`} acc={last.byDomain[d.id]} target={target} verb="Drill" onClick={() => setPick({ title: `${d.id}. ${d.name}`, src: { type: 'domain', id: d.id } })} />)}
             </>
           ) : <p class="muted" style={{ margin: 0 }}>No answers yet. Your accuracy in each area appears here as you study.</p>}

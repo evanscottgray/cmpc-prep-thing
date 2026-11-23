@@ -51,7 +51,7 @@ export function CardsHub({ query }: { query: URLSearchParams }) {
             <div class="list">
               {group.map((c) => {
                 const e = db.cardSrs[c.id];
-                return <ListLink href={`#/card/${c.id}`} title={c.title} sub={!e ? undefined : e.due <= ymd() ? 'Due today' : `Next review ${fmtShort(e.due)}`} right={e ? undefined : <span class="badge">New</span>} />;
+                return <ListLink href={`#/card/${c.id}`} title={c.title} sub={!e || e.due <= ymd() ? undefined : `Next review ${fmtShort(e.due)}`} right={e && e.due <= ymd() ? <span class="badge accent">Due</span> : undefined} />;
               })}
             </div>
           </div>

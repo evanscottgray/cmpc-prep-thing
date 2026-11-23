@@ -112,7 +112,7 @@ export function ItemReview({ item, si, response, showActions = true }: { item: I
 /** Explain the strike-out button until it has been used once. */
 /** Shown until strike-out has been used once in this kind of session (timed or tutor). */
 export const strikeHint = (timed: boolean) => !Object.values(ctx.store.state.sessions).some((s) => s.timed === timed && Object.keys(s.strikes).length > 0);
-export const StrikeHint = () => <p class="strike-hint"><IcStrike /> crosses out an option. Tap it again to restore it. Crossing out your chosen answer clears it.</p>;
+export const StrikeHint = () => <p class="strike-hint">Tap <IcStrike /> to cross out an option, and again to restore it. Crossing out your chosen answer clears it.</p>;
 
 export function References({ ids }: { ids: string[] }) {
   return (
