@@ -20,12 +20,12 @@ export function TopBar({ title, backTo, right, noBack }: { title: string; backTo
   );
 }
 
-export function Page({ title, children, backTo, right, noBack, tabs = true }: { title: string; children: ComponentChildren; backTo?: string; right?: ComponentChildren; noBack?: boolean; tabs?: boolean }) {
+export function Page({ title, children, backTo, right, noBack, tabs = true, wide }: { title: string; children: ComponentChildren; backTo?: string; right?: ComponentChildren; noBack?: boolean; tabs?: boolean; wide?: boolean }) {
   useEffect(() => { window.scrollTo(0, 0); document.querySelector<HTMLElement>('.topbar h1')?.focus({ preventScroll: true }); }, [title]);
   return (
     <>
       <TopBar title={title} backTo={backTo} right={right} noBack={noBack} />
-      <main class={`page${tabs ? '' : ' notabs'}`} id="main" tabIndex={-1}>{children}</main>
+      <main class={`page${tabs ? '' : ' notabs'}${wide ? ' wide' : ''}`} id="main" tabIndex={-1}>{children}</main>
     </>
   );
 }
@@ -53,10 +53,25 @@ export function Meter({ value, label, tick }: { value: number | null; label: str
   const v = value === null ? 0 : Math.max(0, Math.min(100, value));
   return (
     <div class="meter" role="img" aria-label={`${label}: ${value === null ? 'no data' : `${Math.round(v)}%`}`}>
-      <span style={{ width: `${v}%` }} />
+      <span class={tick !== undefined && value !== null && value < tick ? 'below' : undefined} style={{ width: `${v}%` }} />
       {tick !== undefined && <i class="tick" style={{ left: `${tick}%` }} aria-hidden="true" />}
     </div>
   );
+}
+
+/** One area of the blueprint: name, percent, count, and a bar against the practice target. */
+export function AreaBar({ label, sub, acc, target, href, onClick }: { label: string; sub?: string; acc: { c: number; n: number } | undefined; target: number; href?: string; onClick?: () => void }) {
+  const p = acc?.n ? Math.round((100 * acc.c) / acc.n) : null;
+  const inner = (
+    <>
+      <span class="bar-label">{label}</span>
+      <span class="bar-val">{p === null ? '—' : `${p}%`}</span>
+      <span class="bar-sub">{[sub, acc?.n ? `${acc.c} of ${acc.n} correct` : 'No answers yet'].filter(Boolean).join(' · ')}{p !== null && p < target && <strong class="below-tag"> · Below target</strong>}</span>
+      <Meter value={p} label={label} tick={target} />
+    </>
+  );
+  if (href) return <a class="bar-row" href={href}>{inner}</a>;
+  return onClick ? <button class="bar-row" onClick={onClick}>{inner}</button> : <div class="bar-row">{inner}</div>;
 }
 
 export function Seg<T extends string>({ name, value, options, onChange, label }: { name: string; value: T; options: { v: T; label: string }[]; onChange: (v: T) => void; label: string }) {

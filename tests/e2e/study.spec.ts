@@ -13,7 +13,9 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
   await optionLabels(page).nth(0).click();
   await page.getByLabel(/I'm not sure/).check();
   await page.getByRole('button', { name: 'Check answer' }).click();
-  await expect(page.locator('#verdict')).toContainText(/Correct|Incorrect/);
+  await expect(page.locator('#verdict')).toContainText(/Correct\.? ?The answer is|Incorrect\.? ?You chose A; the answer is/);
+  await expect(page.locator('#verdict')).toBeInViewport();
+  await expect(page.locator('.opt').first()).toContainText('Correct answer');
   await expect(page.locator('.rationale')).toHaveCount(4);
   await expect(page.getByText('Takeaway:')).toBeVisible();
   await shot(page, '11-tutor-feedback');
@@ -26,9 +28,15 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
   await expect(page.getByRole('button', { name: 'Unhide item' })).toBeVisible();
   await page.getByRole('button', { name: 'Next item' }).click();
   await expect(page.getByText('Item 2 of 10')).toBeVisible();
+  // leave without ending: Today offers to resume
+  await go(page, 'today');
+  await page.getByRole('link', { name: /Weakest areas.*1 of 10 items answered|drill.*1 of 10/i }).click();
+  await expect(page.getByText('Item 2 of 10')).toBeVisible();
   await page.getByRole('button', { name: 'End' }).click();
   await page.getByRole('button', { name: 'End and see summary' }).click();
   await expect(page.getByRole('heading', { name: /summary/ })).toBeVisible();
+  await expect(page.getByText('Ended early. 9 items not answered, and not counted.')).toBeVisible();
+  await expect(page.locator('.score-line .v').first()).toContainText('/1');
 
   // spaced review now has the unsure/missed item queued for tomorrow; reports exportable
   await go(page, 'reports');

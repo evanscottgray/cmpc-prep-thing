@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { ctx, useDb } from '../ctx';
 import { navigate } from '../router';
-import { addDays, ymd } from '../lib/dates';
+import { ymd } from '../lib/dates';
 import { requestPersistence } from '../lib/persist';
 import { Page, Stepper } from '../ui/bits';
 import { IcAlert, IcShare } from '../ui/icons';
@@ -10,7 +10,7 @@ import { ABOUT_TEXT } from './Reference';
 export function Onboarding({ step: initial }: { step: number }) {
   const db = useDb();
   const [step, setStep] = useState(Math.min(3, Math.max(1, initial || 1)));
-  const [date, setDate] = useState(db.settings.examDate ?? addDays(ymd(), 21));
+  const [date, setDate] = useState(db.settings.examDate ?? '');
   const [target, setTarget] = useState(db.settings.dailyTarget);
   useEffect(() => { document.getElementById('onb-h')?.focus(); window.scrollTo(0, 0); }, [step]);
   const caps = ctx.caps;
@@ -47,7 +47,7 @@ export function Onboarding({ step: initial }: { step: number }) {
             <label class="field">
               <span class="label">Exam date</span>
               <input class="input" type="date" value={date} min={ymd()} onInput={(e) => setDate((e.target as HTMLInputElement).value)} />
-              <span class="hint">You can change it any time in Settings.</span>
+              <span class="hint">No date yet? Leave it blank and set it later in Settings.</span>
             </label>
             <div class="field">
               <span class="label">Daily study target</span>

@@ -1,13 +1,13 @@
 import { ctx, useDb, useNow } from '../ctx';
 import { navigate } from '../router';
-import { createSession } from '../lib/actions';
+import { abandon, createSession, markReviewed, missedPositions, openedMisses } from '../lib/actions';
 import { REVIEW_MAX, buildDrill, buildQuiz, buildReview } from '../lib/assemble';
-import { fmtDate, ymd } from '../lib/dates';
+import { fmtDate, fmtShort, plural, ymd } from '../lib/dates';
 import { plan, type Action } from '../lib/plan';
 import { dueIds } from '../lib/srs';
 import { Meter, Page } from '../ui/bits';
-import { alertDialog } from '../ui/dialog';
-import { IcAlert, IcChevron, IcInfo, IcPhone } from '../ui/icons';
+import { alertDialog, confirmDialog } from '../ui/dialog';
+import { IcAlert, IcChevron, IcInfo, IcPhone, IcX } from '../ui/icons';
 
 const WEEK = 7 * 86400000;
 
@@ -27,13 +27,13 @@ export function startQuiz() {
 }
 
 function Primary({ a, why }: { a: Action; why: string }) {
-  const map: Record<string, { eyebrow: string; title: string; cta: string; go: () => void; note?: string }> = {
-    resume: { eyebrow: 'In progress', title: a.kind === 'resume' ? `Resume ${a.session.title}` : '', cta: 'Resume exam', go: () => a.kind === 'resume' && navigate(`s/${a.session.id}`) },
+  const map: Record<string, { eyebrow: string; title: string; cta: string; go: () => void; note?: string; second?: { label: string; go: () => void } }> = {
+    resume: { eyebrow: 'In progress', title: a.kind === 'resume' ? `Resume ${a.session.title}` : '', cta: 'Resume', go: () => a.kind === 'resume' && navigate(`s/${a.session.id}`) },
     setDate: { eyebrow: 'Get started', title: 'Set your exam date', cta: 'Set exam date', go: () => navigate('settings') },
     formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 items · 90 minutes · no breaks' },
     formB: { eyebrow: 'Recommended', title: 'Take Form B', cta: 'Start Form B', go: () => navigate('start/formB'), note: '115 items · 90 minutes · fresh items' },
     mixed: { eyebrow: 'Final week', title: 'Take a mixed exam', cta: 'Start mixed exam', go: () => navigate('start/mixed'), note: '115 items · 90 minutes · blueprint-matched' },
-    reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: 'Review misses', go: () => a.kind === 'reviewExam' && navigate(`review/${a.session.id}?f=incorrect`) },
+    reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind === 'reviewExam' && openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : 'Review misses', second: a.kind === 'reviewExam' ? { label: "I'm done reviewing", go: () => markReviewed(a.session.id) } : undefined, go: () => a.kind === 'reviewExam' && navigate(`review/${a.session.id}?f=incorrect`) },
     weak: { eyebrow: 'Recommended', title: a.kind === 'weak' ? `Weak-area drill · ${a.count} items` : '', cta: 'Start drill', go: () => a.kind === 'weak' && startWeak(a.count), note: 'Tutor mode: rationale after every answer' },
     light: { eyebrow: 'Light review', title: 'Concept cards and a short quiz', cta: 'Review concept cards', go: () => navigate('cards/study'), note: 'Keep it light. Rest is part of preparation.' },
     done: { eyebrow: 'Nice work', title: 'Daily target reached', cta: 'Quick quiz (10 items)', go: startQuiz },
@@ -47,7 +47,37 @@ function Primary({ a, why }: { a: Action; why: string }) {
       <p class="muted">{why}</p>
       {m.note && <p class="small muted">{m.note}</p>}
       <button class="btn primary block" onClick={m.go}>{m.cta}<IcChevron /></button>
+      {m.second && <button class="btn ghost block" onClick={m.second.go}>{m.second.label}</button>}
     </section>
+  );
+}
+
+/** Unfinished sessions other than the one already offered above. */
+function InProgress({ skip }: { skip?: string }) {
+  const db = useDb();
+  const open = Object.values(db.sessions)
+    .filter((x) => x.status === 'active' && x.id !== skip && (x.timed ? x.startedAt : x.revealed.length > 0 || Object.keys(x.responses).length > 0))
+    .sort((a, b) => b.createdAt - a.createdAt).slice(0, 3);
+  if (!open.length) return null;
+  async function discard(id: string, title: string, timed: boolean) {
+    const ok = await confirmDialog({ title: `Discard ${title}?`, body: timed ? 'It will not be scored. Items you opened count as already seen.' : 'Answers you already checked stay in your progress.', ok: 'Discard', danger: true });
+    if (ok) abandon(id);
+  }
+  return (
+    <div class="section">
+      <h2>In progress</h2>
+      <div class="list">
+        {open.map((x) => {
+          const n = x.timed ? Object.keys(x.responses).length : x.revealed.length;
+          return (
+            <div class="list-pair">
+              <a class="list-item" href={`#/s/${x.id}`}><span class="li-main"><span class="li-title">{x.title}</span><span class="li-sub" style={{ display: 'block' }}>{n} of {plural(x.items.length, 'item')} answered · started {fmtShort(x.createdAt)}</span></span><span class="badge accent">Resume</span></a>
+              <button class="icon-btn" onClick={() => discard(x.id, x.title, x.timed)} aria-label={`Discard ${x.title}`}><IcX /></button>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
@@ -59,7 +89,7 @@ export function Today() {
   const needBackup = db.attempts.length > 0 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
   const notInstalled = ctx.caps.ios && !ctx.caps.standalone;
   return (
-    <Page title="Today" noBack>
+    <Page title="Today" noBack wide>
       <div class="row between" style={{ marginBottom: '1rem' }}>
         <div>
           {p.daysLeft !== null && p.daysLeft >= 0
@@ -68,14 +98,20 @@ export function Today() {
         </div>
       </div>
 
+      <div class="cols">
+      <div>
       <Primary a={p.primary} why={p.why} />
+
+      <InProgress skip={p.primary.kind === 'resume' ? p.primary.session.id : undefined} />
+      </div>
+      <div>
 
       {(p.dueItems > 0 || p.dueCards > 0) && (
         <div class="section">
           <h2>Due reviews</h2>
           <div class="list">
-            {p.dueItems > 0 && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>{p.dueItems > REVIEW_MAX ? `${p.dueItems} due · do ${REVIEW_MAX} at a time` : `${p.dueItems} missed or uncertain ${p.dueItems === 1 ? 'item' : 'items'} due`}</span></span><span class="badge accent">{p.dueItems}</span><IcChevron class="chev" /></button>}
-            {p.dueCards > 0 && <a class="list-item" href="#/cards/study"><span class="li-main"><span class="li-title">Concept cards</span><span class="li-sub" style={{ display: 'block' }}>{p.dueCards} card{p.dueCards === 1 ? '' : 's'} due</span></span><span class="badge accent">{p.dueCards}</span><IcChevron class="chev" /></a>}
+            {p.dueItems > 0 && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>Missed and uncertain items{p.dueItems > REVIEW_MAX ? `, ${REVIEW_MAX} at a time` : ''}</span></span><span class="badge accent">{p.dueItems} due</span><IcChevron class="chev" /></button>}
+            {p.dueCards > 0 && <a class="list-item" href="#/cards/study"><span class="li-main"><span class="li-title">Concept cards</span><span class="li-sub" style={{ display: 'block' }}>Cards to recall again</span></span><span class="badge accent">{p.dueCards} due</span><IcChevron class="chev" /></a>}
           </div>
         </div>
       )}
@@ -91,6 +127,8 @@ export function Today() {
           </div>
         </div>
       </div>
+      </div>
+      </div>
 
       {needBackup && (
         <div class="banner warn mt" role="note">
@@ -99,13 +137,14 @@ export function Today() {
             <strong>Back up your progress.</strong> <span class="small">{s.lastBackupAt ? "It's been over a week." : "You haven't made a backup yet."} Safari can erase data for sites that aren't on your Home Screen after about a week without a visit.</span>
             <div class="btn-row" style={{ marginTop: '.6rem' }}>
               <a class="btn small primary" href="#/backup">Back up now</a>
-              <button class="btn small" onClick={() => ctx.store.updateSettings({ backupSnoozeUntil: Date.now() + 2 * 86400000 })}>Remind me later</button>
+              <button class="btn small" onClick={() => ctx.store.updateSettings({ backupSnoozeUntil: Date.now() + WEEK })}>Remind me in a week</button>
             </div>
           </div>
         </div>
       )}
-      {notInstalled && (
-        <div class="banner info mt" role="note"><IcPhone /><div class="small"><strong>Add to Home Screen</strong> for full-screen use, offline access, and safer storage. In Safari: Share → Add to Home Screen.<div><a href="#/onboarding/3">Show me how</a></div></div></div>
+      {notInstalled && !needBackup && !s.installDismissed && (
+        <div class="banner info mt" role="note"><IcPhone /><div class="small grow"><strong>Add to Home Screen</strong> for full-screen use, offline access, and safer storage. In Safari: Share → Add to Home Screen.
+          <div class="btn-row" style={{ marginTop: '.5rem' }}><a class="btn small" href="#/onboarding/3">Show me how</a><button class="btn small ghost" onClick={() => ctx.store.updateSettings({ installDismissed: true })}>Don't show again</button></div></div></div>
       )}
       {ctx.store.kv.kind !== 'indexeddb' && (
         <div class="banner warn mt" role="alert"><IcInfo /><div class="small">{ctx.store.kv.kind === 'memory' ? 'Storage is unavailable (private browsing?). Progress will be lost when you close this tab — back up often.' : 'Using fallback storage. Back up regularly.'}</div></div>

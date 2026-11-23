@@ -4,7 +4,7 @@ import type { Kv } from './db';
 export const SCHEMA = 1;
 export const DEFAULT_SETTINGS: Settings = {
   examDate: null, rawTarget: 70, mode: 'strict', dailyTarget: 40, textSize: 'm', theme: 'system',
-  onboarded: false, lastBackupAt: null, backupSnoozeUntil: null, persisted: null,
+  onboarded: false, lastBackupAt: null, backupSnoozeUntil: null, installDismissed: false, persisted: null,
 };
 export function emptyState(now = Date.now()): DbState {
   return { settings: { ...DEFAULT_SETTINGS }, attempts: [], sessions: {}, srs: {}, cardSrs: {}, reports: [], hidden: [], meta: { createdAt: now, schema: SCHEMA } };

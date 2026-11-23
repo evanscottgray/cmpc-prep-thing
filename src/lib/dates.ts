@@ -23,6 +23,9 @@ export function daysBetween(a: string, b: string): number {
 export function fmtDate(s: string): string {
   return parseYmd(s).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
 }
+export function fmtShort(d: number | string): string {
+  return (typeof d === 'string' ? parseYmd(d) : new Date(d)).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+}
 export function fmtClock(ms: number): string {
   const total = Math.max(0, Math.ceil(ms / 1000));
   const h = Math.floor(total / 3600), m = Math.floor((total % 3600) / 60), s = total % 60;

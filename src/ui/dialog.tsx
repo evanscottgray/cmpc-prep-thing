@@ -75,8 +75,8 @@ export function DialogHost() {
     <Modal title={cur.title} onClose={() => done(false)} dismissable={cur.kind === 'confirm'}>
       {typeof cur.body === 'string' ? <p>{cur.body}</p> : cur.body}
       <div class="btn-row">
-        {cur.kind === 'confirm' && <button class="btn" onClick={() => done(false)}>{cur.cancel ?? 'Cancel'}</button>}
-        <button class={`btn ${cur.danger ? 'danger solid' : 'primary'}`} data-autofocus onClick={() => done(true)}>{cur.ok ?? 'OK'}</button>
+        {cur.kind === 'confirm' && <button class="btn" data-autofocus={cur.danger || undefined} onClick={() => done(false)}>{cur.cancel ?? 'Cancel'}</button>}
+        <button class={`btn ${cur.danger ? 'danger solid' : 'primary'}`} data-autofocus={!cur.danger || undefined} onClick={() => done(true)}>{cur.ok ?? 'OK'}</button>
       </div>
     </Modal>
   );

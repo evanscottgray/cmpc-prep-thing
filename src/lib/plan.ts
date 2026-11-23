@@ -23,8 +23,6 @@ export interface Plan {
   answeredToday: number;
 }
 
-const FULL = new Set(['formA', 'formB', 'mixed']);
-
 /**
  * Cadence: Form A early as a diagnostic → weak-area drills → Form B in the build phase →
  * mixed exam in the final week → light review only in the last two days.
@@ -35,10 +33,10 @@ export function plan(db: DbState, now = Date.now()): Plan {
   const dueCards = dueIds(db.cardSrs, today, db.settings.examDate).length;
   const answeredToday = todayCount(db, now);
   const base = { dueItems, dueCards, answeredToday };
-  const active = Object.values(db.sessions).filter((s) => s.status === 'active' && s.startedAt && s.timed && FULL.has(s.kind)).sort((a, b) => b.createdAt - a.createdAt)[0];
+  const active = Object.values(db.sessions).filter((s) => s.status === 'active' && s.startedAt && s.timed).sort((a, b) => b.createdAt - a.createdAt)[0];
   const examDate = db.settings.examDate;
   const daysLeft = examDate ? daysBetween(today, examDate) : null;
-  if (active) return { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'resume', session: active }, why: active.pausedAt ? 'Your exam is paused.' : 'Your exam is still running — the timer has kept going.' };
+  if (active) return { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'resume', session: active }, why: active.pausedAt ? 'The timer is paused.' : 'The timer has kept going while you were away.' };
   if (daysLeft === null) return { ...base, phase: 'no-date', daysLeft, primary: { kind: 'setDate' }, why: 'Set your exam date so the plan can pace itself.' };
   if (daysLeft < 0) return { ...base, phase: 'after', daysLeft, primary: { kind: 'passed' }, why: 'Your exam date has passed. Update it in Settings if you have a new date.' };
   if (daysLeft === 0) return { ...base, phase: 'exam-day', daysLeft, primary: { kind: 'light' }, why: 'Exam day. Skim a few concept cards at most, eat, and arrive early with matching ID.' };
@@ -80,7 +78,7 @@ function daysSince(db: DbState, kind: string, today: string): number {
   const s = Object.values(db.sessions).filter((x) => x.kind === kind && x.submittedAt).sort((a, b) => (b.submittedAt || 0) - (a.submittedAt || 0))[0];
   return s?.submittedAt ? daysBetween(ymd(s.submittedAt), today) : Infinity;
 }
-/** An exam counts as reviewed once the learner opened its review. */
+/** An exam counts as reviewed once every miss was opened, or the learner marked the review done. */
 function reviewed(db: DbState, s: Session): boolean {
   return !!db.sessions[s.id]?.reviewedAt;
 }

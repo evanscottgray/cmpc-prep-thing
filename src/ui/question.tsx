@@ -3,7 +3,7 @@ import type { Item, SessionItem } from '../types';
 import { ctx, useDb } from '../ctx';
 import { addReport, hideItem } from '../lib/actions';
 import { Modal, toast } from './dialog';
-import { IcBug, IcCheck, IcEye, IcEyeOff, IcStrike, IcX } from './icons';
+import { IcBug, IcCheck, IcCheckCircle, IcEye, IcEyeOff, IcMinusCircle, IcStrike, IcX, IcXCircle } from './icons';
 
 const LET = ['A', 'B', 'C', 'D'];
 
@@ -37,35 +37,51 @@ export function OptionList({ item, si, name, selected, struck, onChoose, onStrik
   );
 }
 
-/** Full review of an item: every option with its rationale, the key, the learner's answer, takeaway and references. */
+/** The result in words: what was chosen and what the answer is, by the letters shown on screen. */
+export function Verdict({ item, si, response, unsure, id }: { item: Item; si: SessionItem; response: number | undefined; unsure?: boolean; id?: string }) {
+  const ok = response === item.answer;
+  const key = LET[si.order.indexOf(item.answer)];
+  const [head, detail] = ok ? ['Correct', `The answer is ${key}.`]
+    : response === undefined ? ['Not answered', `The answer is ${key}.`]
+    : ['Incorrect', `You chose ${LET[si.order.indexOf(response)]}; the answer is ${key}.`];
+  return (
+    <div id={id} tabIndex={-1} class={`verdict ${ok ? 'ok' : 'bad'}`} role={id ? 'status' : undefined}>
+      {ok ? <IcCheckCircle /> : response === undefined ? <IcMinusCircle /> : <IcXCircle />}
+      <span>{head}<span class="sr-only">. </span><span class="verdict-sub">{detail}{unsure ? ' Marked unsure.' : ''}</span></span>
+    </div>
+  );
+}
+
+/** Full review of an item: the answer first, then the learner's choice, the takeaway, and the other options. */
 export function ItemReview({ item, si, response, showActions = true }: { item: Item; si: SessionItem; response: number | undefined; showActions?: boolean }) {
+  const option = (orig: number) => {
+    const d = si.order.indexOf(orig);
+    const key = orig === item.answer, mine = response === orig;
+    return (
+      <li class={`opt${key ? ' is-correct' : mine ? ' is-wrong' : ' is-other'}`} key={orig}>
+        <div class="opt-main">
+          <span class="letter" aria-hidden="true">{LET[d]}</span>
+          <div class="otext"><span class="sr-only">Option {LET[d]}. </span>{item.options[orig]}
+            {(key || mine) && (
+              <span class="opt-tags">
+                {key && <span class="opt-tag ok"><IcCheck />Correct answer</span>}
+                {mine && !key && <span class="opt-tag bad"><IcX />Your answer</span>}
+                {mine && key && <span class="opt-tag you">Your answer</span>}
+              </span>
+            )}
+            <p class="rationale">{item.rationales[orig]}</p>
+          </div>
+        </div>
+      </li>
+    );
+  };
+  const main = [item.answer, ...(response !== undefined && response !== item.answer ? [response] : [])];
   return (
     <div>
-      <ol class="opts" style={{ listStyle: 'none' }} aria-label="Options with explanations">
-        {si.order.map((orig, d) => {
-          const key = orig === item.answer, mine = response === orig;
-          return (
-            <li class={`opt${key ? ' is-correct' : mine ? ' is-wrong' : ''}`} key={orig}>
-              <div class="opt-main" style={{ cursor: 'default', flexDirection: 'column', gap: 0 }}>
-                <div class="row nowrap" style={{ alignItems: 'flex-start', gap: '.75rem' }}>
-                  <span class="letter" aria-hidden="true">{LET[d]}</span>
-                  <span class="otext"><span class="sr-only">Option {LET[d]}. </span>{item.options[orig]}
-                    {(key || mine) && (
-                      <span class="opt-tags">
-                        {key && <span class="opt-tag ok"><IcCheck />Correct answer</span>}
-                        {mine && !key && <span class="opt-tag bad"><IcX />Your answer</span>}
-                        {mine && key && <span class="opt-tag you">Your answer</span>}
-                      </span>
-                    )}
-                  </span>
-                </div>
-                <p class="rationale">{item.rationales[orig]}</p>
-              </div>
-            </li>
-          );
-        })}
-      </ol>
+      <ul class="opts plain" aria-label="The answer">{main.map(option)}</ul>
       <div class="takeaway"><strong>Takeaway: </strong>{item.takeaway}</div>
+      <h2 class="sub-h">Why not the others</h2>
+      <ul class="opts plain" aria-label="The other options">{si.order.filter((o) => !main.includes(o)).map(option)}</ul>
       <References ids={item.refs} />
       {showActions && <ItemActions item={item} />}
     </div>
@@ -81,12 +97,12 @@ export function References({ ids }: { ids: string[] }) {
   );
 }
 
-export function ItemMeta({ item, showTopic = true }: { item: Item; showTopic?: boolean }) {
+export function ItemMeta({ item }: { item: Item }) {
+  const bp = ctx.bank.blueprint;
   return (
     <div class="q-meta">
-      {showTopic && <span class="badge accent">{item.topic}</span>}
-      <span class="badge">Domain {item.domain}: {ctx.bank.blueprint.domains.find((d) => d.id === item.domain)?.name}</span>
-      <span class="badge">KG {item.kg}: {ctx.bank.blueprint.kgs.find((k) => k.id === item.kg)?.name}</span>
+      <strong>{item.topic}</strong>
+      <span>Domain {item.domain}: {bp.domains.find((d) => d.id === item.domain)?.name} · Group {item.kg}: {bp.kgs.find((k) => k.id === item.kg)?.name}</span>
     </div>
   );
 }

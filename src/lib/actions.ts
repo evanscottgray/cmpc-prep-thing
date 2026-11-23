@@ -3,7 +3,7 @@ import type { Attempt, AttemptSource, Session } from '../types';
 import { ctx, APP_VERSION } from '../ctx';
 import { ymd } from './dates';
 import { schedule, type Grade } from './srs';
-import { isExpired, scoreSession } from './scoring';
+import { inPlay, isExpired, scoreSession } from './scoring';
 import { uid } from './rng';
 
 const SRC: Record<Session['kind'], AttemptSource> = { formA: 'exam', formB: 'exam', mixed: 'exam', block: 'block', timed: 'timed', drill: 'drill', quiz: 'quiz', review: 'review' };
@@ -143,9 +143,19 @@ export function autoSubmitExpired(now = Date.now()): string[] {
   return out;
 }
 
+export const missedPositions = (s: Session) => s.items.map((_, i) => i).filter((i) => inPlay(s, i) && s.responses[i] !== ctx.items.get(s.items[i].id)?.answer);
+export const openedMisses = (s: Session) => { const o = new Set(s.opened); return missedPositions(s).filter((i) => o.has(i)).length; };
+
 export function markReviewed(id: string) {
   const s = get(id); if (!s || s.reviewedAt) return;
   put({ ...s, reviewedAt: Date.now() });
+}
+/** Records that an item was opened in review; the review is done once every miss has been opened. */
+export function markOpened(id: string, pos: number) {
+  const s = get(id); if (!s || s.opened?.includes(pos)) return;
+  const next = { ...s, opened: [...(s.opened ?? []), pos] };
+  put(next);
+  if (openedMisses(next) === missedPositions(next).length) markReviewed(id);
 }
 
 /** Discard an unfinished session. Items already opened are remembered so a later sitting isn't called fresh. */

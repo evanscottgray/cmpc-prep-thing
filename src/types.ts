@@ -38,6 +38,7 @@ export interface Settings {
   onboarded: boolean;
   lastBackupAt: number | null;
   backupSnoozeUntil: number | null;
+  installDismissed: boolean;     // hide the Add to Home Screen note on Today
   persisted: boolean | null;     // result of navigator.storage.persist()
 }
 
@@ -90,7 +91,8 @@ export interface Session {
   seenBefore: number;                     // how many items were already seen when assembled
   result: ExamResult | null;
   label?: string;                         // filter description for drills
-  reviewedAt?: number;                    // first time the results review was opened
+  reviewedAt?: number;                    // every miss was opened in review, or the learner marked the review done
+  opened?: number[];                      // positions opened in review
   updatedAt?: number;
 }
 

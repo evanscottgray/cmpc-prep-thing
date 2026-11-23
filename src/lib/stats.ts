@@ -95,6 +95,14 @@ export function pacingStats(db: DbState) {
   return { avgSec: Math.round(avg), n: timed.length };
 }
 
+/** Knowledge groups to study next: blueprint weight × smoothed error rate, among groups with answers and below 85%. */
+export function focusAreas(bank: Bank, byKg: Record<string, Acc>, max = 3) {
+  return bank.blueprint.kgs
+    .filter((k) => byKg[k.id]?.n && byKg[k.id].c / byKg[k.id].n < 0.85)
+    .map((k) => ({ ...k, acc: byKg[k.id], need: k.weight * (1 - smooth(byKg[k.id])) }))
+    .sort((a, b) => b.need - a.need).slice(0, max);
+}
+
 export function examHistory(db: DbState) {
   return Object.values(db.sessions)
     .filter((s) => s.status === 'submitted' && s.result && (s.kind === 'formA' || s.kind === 'formB' || s.kind === 'mixed'))

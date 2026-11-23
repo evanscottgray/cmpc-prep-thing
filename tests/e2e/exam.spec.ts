@@ -38,7 +38,7 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   await expect(page.getByRole('button', { name: 'Question 2: answered, flagged' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Question 3: unanswered' })).toBeVisible();
   await shot(page, '04-navigator');
-  await page.getByRole('button', { name: 'Flagged', exact: true }).click();
+  await page.getByRole('button', { name: 'Flagged 1', exact: true }).click();
   await expect(page.locator('.nav-cell')).toHaveCount(1);
   await page.locator('.nav-cell').first().click();
   await expect(page.locator('.qcount')).toContainText('Question 2');
@@ -69,7 +69,7 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   await page.getByRole('button', { name: /Leave exam screen/ }).click();
   await page.getByRole('button', { name: 'Leave' }).click();
   await expect(page.getByRole('heading', { name: /Resume Form A/ })).toBeVisible();
-  await page.getByRole('button', { name: 'Resume exam' }).click();
+  await page.getByRole('button', { name: 'Resume', exact: true }).click();
   await expect(page.locator('.qcount')).toContainText('Question 2');
 
   // End with confirmation
@@ -95,18 +95,28 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   // Review with filters
   await page.getByRole('link', { name: 'Review all 115' }).click();
   await expect(page.getByText('115 items')).toBeVisible();
-  await page.getByRole('button', { name: 'Flagged', exact: true }).click();
+  await page.getByRole('button', { name: 'Flagged 1', exact: true }).click();
   await expect(page.getByText('1 item', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Unscored' }).click();
   await expect(page.getByText('15 items')).toBeVisible();
   await page.getByRole('button', { name: 'All' }).click();
   await page.getByLabel('Domain').selectOption('IV');
-  await expect(page.locator('.list .list-item').first()).toContainText('Domain IV');
-  await page.locator('.list .list-item').first().click();
+  const row = page.locator('.list .list-item').nth(8);
+  const rowId = await row.getAttribute('id');
+  await row.click();
+  await expect(page.locator('.q-meta')).toContainText('Domain IV');
   await expect(page.getByText('Takeaway:')).toBeVisible();
   await expect(page.getByText('Correct answer')).toBeVisible();
   await expect(page.locator('.rationale')).toHaveCount(4);
   await shot(page, '08-review-item');
+  // back to the list: same filter, same place
+  await page.getByRole('button', { name: 'Back' }).click();
+  await expect(page.locator(`#${rowId}`)).toBeInViewport();
+
+  // past exams stay reachable from Progress
+  await go(page, 'progress');
+  await page.getByRole('link', { name: /Form A/ }).click();
+  await expect(page.getByRole('heading', { name: 'Form A results' })).toBeVisible();
 
   // Retake labelled
   await go(page, 'start/formA');
@@ -129,6 +139,35 @@ test('timer auto-submits at zero even after the app was closed', async ({ page, 
   await page.getByRole('button', { name: 'See results' }).click();
   await expect(page.getByRole('heading', { name: /Form B results/ })).toBeVisible();
   await expect(page.getByText(/Time ran out/)).toBeVisible();
+});
+
+test('keyboard: arrows stay with a focused answer, nothing moves while paused, and the safe choice is focused', async ({ page }) => {
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('radio', { name: 'Coached' }).check({ force: true });
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  await optionLabels(page).nth(0).click();
+  await page.locator('.opt input').first().focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('.qcount')).toContainText('Question 1');
+  await page.locator('#q-stem').focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('.qcount')).toContainText('Question 2');
+  await page.getByRole('button', { name: 'Pause' }).click();
+  await expect(page.locator('#resume-btn')).toBeFocused();
+  await page.keyboard.press('ArrowRight');
+  await page.getByRole('button', { name: 'Resume' }).click();
+  await expect(page.locator('.qcount')).toContainText('Question 2');
+  await expect(page.locator('#pause-btn')).toBeFocused();
+  await page.getByRole('button', { name: 'Exam menu' }).click();
+  await page.getByRole('button', { name: 'Submit now' }).click();
+  await expect(page.getByRole('button', { name: 'Keep working' })).toBeFocused();
+  await page.getByRole('button', { name: 'Keep working' }).click();
+  // leaving a short timed session: Today offers to resume it
+  await page.getByRole('button', { name: 'Exam menu' }).click();
+  await page.getByRole('button', { name: /Leave exam screen/ }).click();
+  await page.getByRole('button', { name: 'Leave' }).click();
+  await expect(page.getByRole('heading', { name: 'Resume Exam-pace block' })).toBeVisible();
 });
 
 test('timer auto-submits while open, and coached mode can pause', async ({ page }) => {

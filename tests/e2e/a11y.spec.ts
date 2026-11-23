@@ -34,7 +34,7 @@ for (const scheme of ['light', 'dark'] as const) {
     await expect(page.getByRole('heading', { name: /results/ })).toBeVisible();
     await axe(page, `${scheme} results`);
     await shot(page, `a11y-${scheme}-results`);
-    await page.getByRole('link', { name: 'Review incorrect' }).click();
+    await page.getByRole('link', { name: /Review \d+ miss/ }).click();
     await axe(page, `${scheme} review list`);
     await page.locator('.list .list-item').first().click();
     await axe(page, `${scheme} review item`);

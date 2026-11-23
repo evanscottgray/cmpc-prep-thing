@@ -8,7 +8,7 @@ import { isExpired, pacing, remainingMs } from '../lib/scoring';
 import { keepAwake } from '../lib/wakelock';
 import { OptionList, ReportDialog } from '../ui/question';
 import { Modal, alertDialog, confirmDialog, toast } from '../ui/dialog';
-import { IcBack, IcChevron, IcClock, IcFlag, IcFlagFill, IcGrid, IcMenu, IcPause, IcPlay } from '../ui/icons';
+import { IcBack, IcChevron, IcClock, IcFlag, IcFlagFill, IcGrid, IcMenu, IcPause, IcPlay, IcStrike } from '../ui/icons';
 
 const WARN_AT = [15, 5, 1]; // minutes remaining
 
@@ -60,17 +60,26 @@ export function ExamRunner({ session: s }: { session: Session }) {
     }
   }, [now]);
 
+  // focus follows the pause cover in and out
+  const wasPaused = useRef(!!s.pausedAt);
+  useEffect(() => {
+    if (s.pausedAt) document.getElementById('resume-btn')?.focus();
+    else if (wasPaused.current) document.getElementById('pause-btn')?.focus();
+    wasPaused.current = !!s.pausedAt;
+  }, [s.pausedAt]);
+
   // hardware-keyboard shortcuts (iPad): ←/→ to move, F to flag
   useEffect(() => {
     const on = (e: KeyboardEvent) => {
-      if (navOpen || menuOpen || reportFor || (e.target as HTMLElement)?.closest('input[type=text],textarea')) return;
+      // a focused answer owns its arrow keys; nothing moves behind a dialog or the pause cover
+      if (s.pausedAt || navOpen || menuOpen || reportFor || (e.target as HTMLElement)?.closest?.('input,textarea,select,[role=dialog]') || document.querySelector('[role=dialog]')) return;
       if (e.key === 'ArrowRight') goTo(s.id, pos + 1);
       else if (e.key === 'ArrowLeft') goTo(s.id, pos - 1);
       else if (e.key.toLowerCase() === 'f' && !e.metaKey && !e.ctrlKey) toggleFlag(s.id, pos);
     };
     document.addEventListener('keydown', on);
     return () => document.removeEventListener('keydown', on);
-  }, [pos, navOpen, menuOpen, reportFor]);
+  }, [pos, navOpen, menuOpen, reportFor, s.pausedAt]);
 
   const answered = Object.keys(s.responses).length;
   const unanswered = s.items.length - answered;
@@ -114,17 +123,20 @@ export function ExamRunner({ session: s }: { session: Session }) {
     if (ok) navigate('today');
   }
 
+  const firstTime = pos === 0 && !Object.keys(s.strikes).length && !Object.values(ctx.store.state.sessions).some((x) => x.timed && x.status === 'submitted');
+
   return (
-    <div class="exam">
+    <>
+    <div class="exam" inert={!!s.pausedAt}>
       <div class="exam-bar">
         <span class="qcount" aria-live="off">Question {pos + 1} <span class="muted">of {s.items.length}</span></span>
         <span class="grow" />
-        <button class={`timer icon-btn${low ? ' low' : ''}${hideTimer && !low ? ' hidden-t' : ''}`} style={{ color: 'inherit' }}
+        <button class={`timer icon-btn${low ? ' low' : ''}${hideTimer && !low ? ' btn small' : ''}`} style={{ color: 'inherit' }}
           onClick={() => setHideTimer(!hideTimer)} aria-label={`Time remaining ${fmtClock(remaining)}. ${hideTimer ? 'Show' : 'Hide'} timer`}>
           <IcClock />{hideTimer && !low ? 'Show time' : fmtClock(remaining)}
         </button>
         {s.mode === 'coached' && (
-          <button class="icon-btn" onClick={() => pause(s.id)} aria-label="Pause"><IcPause /></button>
+          <button class="icon-btn" id="pause-btn" onClick={() => pause(s.id)} aria-label="Pause"><IcPause /></button>
         )}
         <button class="icon-btn" onClick={() => setMenuOpen(true)} aria-label="Exam menu"><IcMenu /></button>
       </div>
@@ -137,20 +149,20 @@ export function ExamRunner({ session: s }: { session: Session }) {
       <div class="sr-only" aria-live="assertive">{announce}</div>
 
       <main class="exam-body" id="main">
-        <div class="row between" style={{ marginBottom: '.6rem' }}>
-          <span class="muted small">{s.title}{s.retake ? ' · retake' : ''}</span>
-          <button class="btn small flag-btn" aria-pressed={flaggedHere} onClick={() => toggleFlag(s.id, pos)}>
-            {flaggedHere ? <IcFlagFill /> : <IcFlag />}{flaggedHere ? 'Flagged' : 'Flag for review'}
-          </button>
-        </div>
         <p class="stem" id="q-stem" tabIndex={-1}>{item.stem}</p>
         <OptionList item={item} si={si} name={`q${pos}`} selected={s.responses[pos]} struck={s.strikes[pos] ?? []}
           onChoose={(o) => choose(s.id, pos, o)} onStrike={(o) => toggleStrike(s.id, pos, o)} />
+        {firstTime && <p class="strike-hint"><IcStrike /> crosses out an option. Tap it again to restore it.</p>}
       </main>
 
       <div class="exam-foot">
-        <button class="btn prev" onClick={() => goTo(s.id, pos - 1)} disabled={pos === 0}><IcBack />Previous</button>
-        <button class="btn" onClick={() => setNavOpen(true)} aria-label={`Review navigator: ${answered} answered, ${unanswered} unanswered, ${flagged} flagged`}><IcGrid />Review</button>
+        <button class="btn prev" onClick={() => goTo(s.id, pos - 1)} disabled={pos === 0} aria-label="Previous"><IcBack /><span class="lbl">Previous</span></button>
+        <button class="btn flag-btn" aria-pressed={flaggedHere} aria-label={flaggedHere ? 'Flagged' : 'Flag for review'} onClick={() => toggleFlag(s.id, pos)}>
+          {flaggedHere ? <IcFlagFill /> : <IcFlag />}<span class="lbl">{flaggedHere ? 'Flagged' : 'Flag'}</span>
+        </button>
+        <button class="btn nav" onClick={() => setNavOpen(true)}>
+          <IcGrid /><span>Review<span class="sr-only"> navigator</span></span> <span class="count">{answered}/{s.items.length}<span class="sr-only"> answered, {flagged} flagged</span></span>
+        </button>
         {pos < s.items.length - 1
           ? <button class="btn next primary" onClick={() => goTo(s.id, pos + 1)}>Next<IcChevron /></button>
           : <button class="btn next primary" onClick={() => setNavOpen(true)}>Finish<IcChevron /></button>}
@@ -165,18 +177,19 @@ export function ExamRunner({ session: s }: { session: Session }) {
             <button class="list-item" onClick={leave}>Leave exam screen{s.mode === 'strict' ? ' (timer keeps running)' : ''}</button>
             <button class="list-item" onClick={endExam} style={{ color: 'var(--bad)' }}>{isExam ? 'End exam now' : 'Submit now'}</button>
           </div>
-          <p class="small muted mt">Mode: {s.mode === 'strict' ? 'Strict — no pausing, like the real exam.' : 'Coached — pausing allowed, pacing shown.'}</p>
+          <p class="small muted mt">{s.title}{s.retake ? ' (retake)' : ''}. Mode: {s.mode === 'strict' ? 'Strict — no pausing, like the real exam.' : 'Coached — pausing allowed, pacing shown.'}</p>
         </Modal>
       )}
       {reportFor && <ReportDialog itemId={reportFor} quiet onClose={() => setReportFor(null)} />}
+    </div>
       {s.pausedAt && (
         <div class="paused-cover" role="dialog" aria-modal="true" aria-labelledby="paused-h">
           <h2 id="paused-h">Paused</h2>
           <p class="muted">Coached mode. The question is hidden while paused.<br />{fmtClock(remaining)} remaining.</p>
-          <button class="btn primary" onClick={() => resume(s.id)} autoFocus><IcPlay />Resume</button>
+          <button class="btn primary" id="resume-btn" onClick={() => resume(s.id)}><IcPlay />Resume</button>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
@@ -186,17 +199,17 @@ function Navigator({ s, onClose, onEnd, endLabel }: { s: Session; onClose: () =>
   const flags = new Set(s.flags);
   const positions = s.items.map((_, i) => i).filter((i) => f === 'all' || (f === 'flagged' ? flags.has(i) : s.responses[i] === undefined));
   const answered = Object.keys(s.responses).length;
+  useEffect(() => { document.querySelector('.nav-cell.current')?.scrollIntoView({ block: 'center' }); }, []);
   return (
     <Modal title="Review navigator" onClose={onClose} wide>
-      <p class="small muted">{answered} answered · {s.items.length - answered} unanswered · {s.flags.length} flagged</p>
       <div class="chips" role="group" aria-label="Show">
         {(['all', 'unanswered', 'flagged'] as NavFilter[]).map((x) => (
-          <button class="chip" aria-pressed={f === x} onClick={() => setF(x)}>{x === 'all' ? 'All' : x === 'unanswered' ? 'Unanswered' : 'Flagged'}</button>
+          <button class="chip" aria-pressed={f === x} onClick={() => setF(x)}>{x === 'all' ? `All ${s.items.length}` : x === 'unanswered' ? `Unanswered ${s.items.length - answered}` : `Flagged ${s.flags.length}`}</button>
         ))}
       </div>
       <div class="nav-legend" aria-hidden="true">
         <span><i class="swatch answered" />Answered</span>
-        <span><i class="swatch" />Unanswered (dashed)</span>
+        <span><i class="swatch" />Unanswered</span>
         <span><IcFlagFill class="status-ic" />Flagged</span>
       </div>
       {positions.length === 0 ? <p class="muted">Nothing here.</p> : (

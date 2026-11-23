@@ -4,10 +4,12 @@ import { ctx, useDb } from '../ctx';
 import { navigate } from '../router';
 import { abandon, createSession, startSession } from '../lib/actions';
 import { buildBlock, buildForm, buildMixed } from '../lib/assemble';
-import { formTaken } from '../lib/stats';
+import { fmtShort } from '../lib/dates';
+import { scaledScore } from '../lib/scoring';
+import { examHistory, formTaken } from '../lib/stats';
 import { Page, Seg } from '../ui/bits';
 import { confirmDialog } from '../ui/dialog';
-import { IcAlert } from '../ui/icons';
+import { IcAlert, IcStrike } from '../ui/icons';
 
 type Kind = 'formA' | 'formB' | 'mixed' | 'block';
 const TITLES: Record<Kind, string> = { formA: 'Form A', formB: 'Form B', mixed: 'Mixed exam', block: 'Exam-pace block' };
@@ -20,6 +22,7 @@ export function ExamIntro({ kind }: { kind: Kind }) {
   const formPool = kind === 'formA' ? 'A' : kind === 'formB' ? 'B' : null;
   const opened = formPool ? ctx.bank.items.filter((i) => i.pool === formPool && exposed.has(i.id)).length : 0;
   const taken = full && kind !== 'mixed' && formTaken(db, kind);
+  const last = full ? examHistory(db).filter((s) => s.kind === kind).at(-1) : undefined;
   const active = Object.values(db.sessions).find((s) => s.kind === kind && s.status === 'active' && s.startedAt) as Session | undefined;
   const otherActive = Object.values(db.sessions).find((s) => s.kind !== kind && s.status === 'active' && s.startedAt && s.timed && ['formA', 'formB', 'mixed'].includes(s.kind));
   const ex = ctx.bank.blueprint.exam;
@@ -65,7 +68,7 @@ export function ExamIntro({ kind }: { kind: Kind }) {
                 <ul>
                   <li><strong>{ex.items} items in {ex.minutes} minutes</strong>, one sitting, no breaks (about {ex.secondsPerItem} seconds per item).</li>
                   <li>{ex.unscored} items are unscored trial items you can't identify, as on the real exam. Your score comes from the other {ex.scored}.</li>
-                  <li>No feedback until you submit. You can flag items, strike out options, and use the navigator.</li>
+                  <li>No feedback until you submit. You can flag items, strike out options with <span class="inline-ic"><IcStrike title="the strike-out button" /></span>, and use the navigator.</li>
                   <li>The timer runs on the clock: it keeps going if you switch apps or close the app, and the exam submits itself at zero.</li>
                   {kind === 'mixed' && <li>Drawn from the drill pool and any forms you've taken, favoring unseen items and your weak areas.</li>}
                 </ul>
@@ -80,6 +83,7 @@ export function ExamIntro({ kind }: { kind: Kind }) {
               </>
             )}
           </div>
+          {last && <a class="btn block mt" href={`#/results/${last.id}`}>View results from {fmtShort(last.submittedAt!)} · estimated {scaledScore((100 * last.result!.raw) / last.result!.scoredCount, db.settings.rawTarget)}</a>}
           {taken && (
             <div class="banner warn mt" role="note"><IcAlert /><div><strong>Retake.</strong> You've taken {TITLES[kind]} before, so this score is <strong>not a fresh estimate</strong> — you've seen these items and their rationales.</div></div>
           )}

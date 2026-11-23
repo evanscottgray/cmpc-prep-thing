@@ -2,11 +2,10 @@ import { useEffect } from 'preact/hooks';
 import type { Session } from '../types';
 import { ctx } from '../ctx';
 import { navigate } from '../router';
-import { check, choose, finishTutor, goTo, setUnsure, toggleStrike } from '../lib/actions';
-import { ItemActions, ItemMeta, ItemReview, OptionList } from '../ui/question';
+import { abandon, check, choose, finishTutor, goTo, setUnsure, toggleStrike } from '../lib/actions';
+import { ItemActions, ItemMeta, ItemReview, OptionList, Verdict } from '../ui/question';
 import { Page } from '../ui/bits';
 import { confirmDialog } from '../ui/dialog';
-import { IcCheckCircle, IcXCircle } from '../ui/icons';
 
 /** Tutor mode: answer, then see the verdict and every rationale before moving on. */
 export function TutorRunner({ session: s }: { session: Session }) {
@@ -15,20 +14,19 @@ export function TutorRunner({ session: s }: { session: Session }) {
   const item = ctx.items.get(si.id)!;
   const revealed = s.revealed.includes(pos);
   const resp = s.responses[pos];
-  const ok = revealed && resp === item.answer;
   const last = pos === s.items.length - 1;
   const done = s.revealed.length;
   const correct = s.revealed.filter((p) => s.responses[p] === ctx.items.get(s.items[p].id)?.answer).length;
 
   useEffect(() => { window.scrollTo(0, 0); document.querySelector<HTMLElement>('#q-stem')?.focus({ preventScroll: true }); }, [pos]);
-  useEffect(() => { if (revealed) document.querySelector<HTMLElement>('#verdict')?.focus(); }, [revealed]);
+  useEffect(() => { if (revealed) { const v = document.querySelector<HTMLElement>('#verdict'); v?.focus({ preventScroll: true }); v?.scrollIntoView({ block: 'start' }); } }, [revealed]);
 
   function finish() {
     finishTutor(s.id);
     navigate(`results/${s.id}`, true);
   }
   async function quit() {
-    if (done === 0) { navigate('study'); return; }
+    if (done === 0) { abandon(s.id); navigate('study', true); return; }
     const yes = await confirmDialog({ title: 'End this session?', body: `You've answered ${done} of ${s.items.length}. Your answers so far are saved to your progress.`, ok: 'End and see summary', cancel: 'Keep going' });
     if (yes) finish();
   }
@@ -37,9 +35,8 @@ export function TutorRunner({ session: s }: { session: Session }) {
     <Page title={s.title} tabs={false} noBack right={<button class="icon-btn" onClick={quit}>End</button>}>
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>Item {pos + 1} of {s.items.length}</span>
-        <span aria-label={`${correct} correct out of ${done} checked`}>{correct}/{done} correct</span>
+        {done > 0 && <span>{correct} of {done} correct</span>}
       </div>
-      <ItemMeta item={item} showTopic={revealed} />
       <p class="stem" id="q-stem" tabIndex={-1}>{item.stem}</p>
       {!revealed ? (
         <>
@@ -53,15 +50,13 @@ export function TutorRunner({ session: s }: { session: Session }) {
         </>
       ) : (
         <>
-          <div id="verdict" tabIndex={-1} class={`verdict ${ok ? 'ok' : 'bad'}`} role="status">
-            {ok ? <IcCheckCircle /> : <IcXCircle />}
-            {ok ? 'Correct' : 'Incorrect'}{s.unsure.includes(pos) ? ' · marked unsure' : ''}
-          </div>
+          <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} />
           <ItemReview item={item} si={si} response={resp} />
+          <ItemMeta item={item} />
         </>
       )}
       <div class="actionbar">
-        {pos > 0 && <button class="btn" onClick={() => goTo(s.id, pos - 1)}>Previous</button>}
+        <button class="btn" disabled={pos === 0} onClick={() => goTo(s.id, pos - 1)}>Previous</button>
         {!revealed
           ? <button class="btn primary" disabled={resp === undefined} onClick={() => check(s.id, pos)}>Check answer</button>
           : last

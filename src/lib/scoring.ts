@@ -12,15 +12,20 @@ export function isCorrect(item: Item, response: number | undefined): boolean {
   return response !== undefined && response === item.answer;
 }
 
+/** Timed sessions count every item (unanswered = wrong); an untimed session ended early counts only checked items. */
+export const inPlay = (s: Session, pos: number) => s.timed || s.revealed.includes(pos);
+
 export function scoreSession(s: Session, items: Map<string, Item>, rawTarget: number, now: number): ExamResult {
   const byDomain: ExamResult['byDomain'] = {};
   const byKg: ExamResult['byKg'] = {};
   let raw = 0, scoredCount = 0, answered = 0, correctAll = 0;
   const flagged = { c: 0, n: 0 };
   const flags = new Set(s.flags);
+  let total = 0;
   s.items.forEach((si, pos) => {
     const it = items.get(si.id);
-    if (!it) return;
+    if (!it || !inPlay(s, pos)) return;
+    total++;
     const resp = s.responses[pos];
     const ok = isCorrect(it, resp);
     if (resp !== undefined) answered++;
@@ -38,7 +43,7 @@ export function scoreSession(s: Session, items: Map<string, Item>, rawTarget: nu
   const scaled = scaledScore(pct, rawTarget, 100);
   return {
     raw, scoredCount, scaled, pass: pct >= rawTarget, rawTarget, byDomain, byKg, flagged,
-    answered, total: s.items.length, correctAll, timeUsedMs: Number.isFinite(timeUsedMs) ? timeUsedMs : 0, durationMs: s.durationMs,
+    answered, total, correctAll, timeUsedMs: Number.isFinite(timeUsedMs) ? timeUsedMs : 0, durationMs: s.durationMs,
   };
 }
 
