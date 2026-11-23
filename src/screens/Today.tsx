@@ -141,7 +141,7 @@ export function Today() {
           <div class="mt" style={{ marginTop: '.5rem' }}><Meter value={progress} label="Daily target" /></div>
           <p class="small muted" style={{ margin: '.5rem 0 0' }}>Counts every question you answer, including spaced review.</p>
           <div class="btn-row mt">
-            {openQuiz() ? <button class="btn small" onClick={() => startWeak(10)}>Short drill · 10</button> : <button class="btn small" onClick={startQuiz}>Quick quiz · 10</button>}
+            {openQuiz() ? <button class="btn small" onClick={() => startWeak(10)}>Weak-area drill · 10</button> : <button class="btn small" onClick={startQuiz}>Quick quiz · 10</button>}
             <a class="btn small" href="#/study">More options</a>
           </div>
         </div>

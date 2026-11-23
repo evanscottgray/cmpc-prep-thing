@@ -78,7 +78,7 @@ export function Progress() {
       {focus.length > 0 && (
         <div class="section">
           <h2>Focus next</h2>
-          <p class="small muted">From your latest answer to each question. Points to gain: the group's share of 100 exam points × your miss rate, steadied when you've answered only a few.</p>
+          <p class="small muted">From your latest answer to each question. Points lost: about how many of 100 exam points a group costs you now (its share of the exam × your miss rate). Groups with only a few answers count cautiously.</p>
           <div class="list">
             {focus.map((k) => <ListLink onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} title={k.name} sub={focusLine(k)} right={<span class="badge accent">Drill</span>} />)}
           </div>

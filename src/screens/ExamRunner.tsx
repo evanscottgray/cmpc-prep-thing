@@ -137,7 +137,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
           <IcClock />{hideTimer && !low ? 'Show time' : fmtClock(remaining)}
         </button>
         {s.mode === 'coached' && (
-          <button class="icon-btn" id="pause-btn" onClick={() => pause(s.id)} aria-label="Pause"><IcPause /></button>
+          <button class="icon-btn framed" id="pause-btn" onClick={() => pause(s.id)} aria-label="Pause"><IcPause /></button>
         )}
         <button class="icon-btn" onClick={() => setMenuOpen(true)} id="exam-menu" aria-label="Exam menu"><IcMenu /></button>
       </div>
@@ -201,6 +201,18 @@ function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; tim
   const positions = s.items.map((_, i) => i).filter((i) => f === 'all' || (f === 'flagged' ? flags.has(i) : s.responses[i] === undefined));
   const answered = Object.keys(s.responses).length;
   useEffect(() => { document.querySelector('.nav-cell.current')?.scrollIntoView({ block: 'center' }); }, []);
+  /** The grid is one Tab stop; arrow keys, Home and End move within it. */
+  function gridKeys(e: KeyboardEvent) {
+    const cells = [...(e.currentTarget as HTMLElement).querySelectorAll<HTMLButtonElement>('.nav-cell')];
+    const at = cells.indexOf(document.activeElement as HTMLButtonElement); if (at < 0) return;
+    const cols = cells.filter((c) => c.offsetTop === cells[0].offsetTop).length;
+    const to = ({ ArrowRight: at + 1, ArrowLeft: at - 1, ArrowDown: at + cols, ArrowUp: at - cols, Home: 0, End: cells.length - 1 } as Record<string, number>)[e.key];
+    if (to === undefined) return;
+    e.preventDefault();
+    const t = cells[Math.max(0, Math.min(cells.length - 1, to))];
+    for (const c of cells) c.tabIndex = c === t ? 0 : -1;
+    t.focus();
+  }
   return (
     <Modal title="Navigator" aside={time && <span class={`nav-time${low ? ' low' : ''}`}><IcClock />{time}</span>} onClose={onClose} wide sheet>
       <div class="chips wrap" role="group" aria-label="Show">
@@ -215,11 +227,11 @@ function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; tim
         <span><i class="swatch current" />Current</span>
       </div>
       {positions.length === 0 ? <p class="muted">Nothing here.</p> : (
-        <div class="nav-scroll"><div class="nav-grid">
+        <div class="nav-scroll"><div class="nav-grid" role="group" aria-label="Questions. Use arrow keys to move." onKeyDown={gridKeys}>
           {positions.map((i) => {
             const a = s.responses[i] !== undefined, fl = flags.has(i);
             return (
-              <button class={`nav-cell${a ? ' answered' : ''}${i === s.current ? ' current' : ''}`}
+              <button tabIndex={i === (positions.includes(s.current) ? s.current : positions[0]) ? 0 : -1} class={`nav-cell${a ? ' answered' : ''}${i === s.current ? ' current' : ''}`}
                 aria-label={`Question ${i + 1}: ${a ? 'answered' : 'unanswered'}${fl ? ', flagged' : ''}${i === s.current ? ', current' : ''}`}
                 onClick={() => { goTo(s.id, i); onClose(); }}>
                 {i + 1}{fl && <span class="flag-mark" aria-hidden="true"><IcFlagFill /></span>}

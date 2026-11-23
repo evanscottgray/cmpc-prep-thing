@@ -113,6 +113,8 @@ test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, e
   // back to the list: same filter, same place
   await page.getByRole('button', { name: 'Back' }).click();
   await expect(page.locator(`#${rowId}`)).toBeInViewport();
+  await page.getByRole('button', { name: 'Back' }).click(); // one Back from the list returns to results, not the list again
+  await expect(page.getByRole('heading', { name: 'Form A results' })).toBeVisible();
 
   // past exams stay reachable from Progress
   await go(page, 'progress');
@@ -180,6 +182,10 @@ test('time running out replaces an open confirmation, and the navigator keeps it
   await page.locator('.nav-cell').nth(112).click();
   await page.getByRole('button', { name: /^Navigator/ }).click();
   await expect(page.locator('.nav-cell.current')).toBeInViewport();
+  await page.locator('.nav-cell.current').focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.getByRole('button', { name: /^Question 114:/ })).toBeFocused();
+  expect(await page.locator('.nav-cell[tabindex="0"]').count()).toBe(1);
   await expect(page.getByRole('button', { name: 'Unanswered 115' })).toBeInViewport();
   await expect(page.getByRole('button', { name: 'Close' })).toBeInViewport();
   await page.getByRole('button', { name: 'End exam…' }).click();

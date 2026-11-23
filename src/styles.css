@@ -132,6 +132,8 @@ main.page.notabs:has(> .actionbar) { padding-bottom: 0; }
 .list-pair + .list-pair { border-top: 1px solid var(--border); }
 .list-pair .icon-btn { color: var(--muted); margin-right: .35rem; }
 .list-item .clip { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+@media (max-width: 599px) { .list-item .clip { -webkit-line-clamp: 1; } }
+.icon-btn.framed { border: 1px solid var(--control); background: var(--surface); }
 .filters.loose { gap: .75rem; margin: 0; }
 .filters .field { margin-bottom: .5rem; }
 @media (max-width: 599px) { .filters.loose { grid-template-columns: 1fr; } }
@@ -384,7 +386,7 @@ main.page.notabs:has(> .actionbar) > :nth-last-child(2) { margin-bottom: 1.25rem
 .nav-cell .flag-mark { position: absolute; top: 2px; right: 3px; width: 14px; height: 14px; color: var(--warn); }
 .nav-cell .flag-mark svg { width: 14px; height: 14px; fill: currentColor; }
 .swatch { width: 18px; height: 18px; border-radius: 4px; border: 2px dashed var(--control); display: inline-block; }
-.swatch.current { border: 3px solid var(--focus); border-radius: 5px; }
+.swatch.current { border: 2px solid var(--exam-sel-border); border-radius: 5px; outline: 2px solid var(--focus); outline-offset: 1px; }
 .swatch.answered { border-style: solid; border-color: var(--exam-sel-border); background: var(--exam-opt-sel); }
 
 /* ---------- dialogs & sheets ---------- */
@@ -477,7 +479,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 /* touch targets: at least 44 CSS px */
 .chip, .seg span, .check, .input { min-height: 44px; }
 .exam-bar .timer { min-height: 44px; }
-.banner a:not(.btn), .center a:not(.btn) { display: inline-block; padding: .65rem 0; }
+.banner a:not(.btn), .center a:not(.btn) { display: inline-flex; align-items: center; min-height: 44px; }
 .dialog.sheet { display: flex; flex-direction: column; overflow: hidden; }
 .dialog.sheet > * { flex: none; }
 .dialog.sheet > .nav-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 5px; margin: 0 -5px; }

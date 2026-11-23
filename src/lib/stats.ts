@@ -105,7 +105,7 @@ export function focusAreas(bank: Bank, byKg: Record<string, Acc>, max = 3) {
 }
 
 /** The ranking quantity itself, so the order can be checked: about how many of 100 exam points this group is costing. */
-export const focusLine = (k: { acc: Acc; weight: number; need: number }) => `About ${Math.max(1, Math.round(k.need))} ${Math.round(k.need) === 1 ? 'point' : 'points'} to gain · ${k.acc.n - k.acc.c} of ${k.acc.n} missed · ${k.weight}% of exam`;
+export const focusLine = (k: { acc: Acc; weight: number; need: number }) => `About ${Math.max(1, Math.round(k.need))} ${Math.round(k.need) <= 1 ? 'point' : 'points'} lost · ${k.acc.n - k.acc.c} of ${k.acc.n} missed · ${k.weight}% of exam`;
 
 export function examHistory(db: DbState) {
   return Object.values(db.sessions)

@@ -13,6 +13,8 @@ type F = 'all' | 'incorrect' | 'flagged' | 'unscored';
 
 /** Last item opened per session, so returning to the list lands where you left it. */
 const lastOpened = new Map<string, number>();
+/** Sessions whose review list sits directly below the open question in history. */
+const listBelow = new Set<string>();
 
 function filterPositions(s: Session, q: URLSearchParams, f: F = (q.get('f') as F) || 'all'): number[] {
   const d = q.get('d'), k = q.get('k');
@@ -80,14 +82,15 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
             const si = s.items[i]; const it = ctx.items.get(si.id)!;
             const resp = s.responses[i]; const ok = resp === it.answer; const skipped = resp === undefined;
             const status = ok ? 'Correct' : skipped ? 'Unanswered' : 'Incorrect';
-            const tags = [bp.kgs.find((x) => x.id === it.kg)?.name, (f !== 'incorrect' || skipped) && status, !si.scored && isExam && f !== 'unscored' && 'Unscored', flags.has(i) && f !== 'flagged' && 'Flagged'].filter(Boolean);
+            const group = bp.kgs.find((x) => x.id === it.kg)?.name;
+            const tags = [(f !== 'incorrect' || skipped) && status, !si.scored && isExam && f !== 'unscored' && 'Unscored', flags.has(i) && f !== 'flagged' && 'Flagged'].filter(Boolean);
             return (
-              <a class="list-item" id={`rv-${i}`} href={`#/review/${s.id}/${i}${qs(query, {})}`}>
+              <a class="list-item" id={`rv-${i}`} href={`#/review/${s.id}/${i}${qs(query, {})}`} onClick={() => listBelow.add(s.id)}>
                 {ok ? <IcCheckCircle class="status-ic ok" /> : skipped ? <IcMinusCircle class="status-ic skip" /> : <IcXCircle class="status-ic bad" />}
                 <span class="li-main">
                   <span class="li-title">{i + 1}. {it.topic}</span>
                   <span class="li-sub clip">{it.stem}</span>
-                  <span class="li-sub" style={{ display: 'block' }}>{tags.map((t, k) => <>{k > 0 && ' · '}<span class="keep">{t}</span></>)}{opened.has(i) && <span class="opened"> <IcCheck class="tiny" />Opened</span>}</span>
+                  <span class="li-sub" style={{ display: 'block' }}>{group}{tags.map((t) => <> · <span class="keep">{t}</span></>)}{opened.has(i) && <span class="opened"> <IcCheck class="tiny" />Opened</span>}</span>
                 </span>
                 <IcChevron class="chev" />
               </a>
@@ -110,7 +113,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const q = query.toString() ? `?${query}` : '';
   const isExam = ['formA', 'formB', 'mixed'].includes(s.kind);
   return (
-    <Page title={`Question ${pos + 1}`} onBack={() => navigate(`review/${s.id}${q}`, true)} tabs={false}>
+    <Page title={`Question ${pos + 1}`} onBack={() => { if (listBelow.delete(s.id)) back(); else navigate(`review/${s.id}${q}`, true); }} tabs={false}>
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>{idx + 1} of {positions.length} in this view</span>
         <span>{[!si.scored && isExam && 'Unscored trial question', s.flags.includes(pos) && 'Flagged'].filter(Boolean).join(' · ')}</span>

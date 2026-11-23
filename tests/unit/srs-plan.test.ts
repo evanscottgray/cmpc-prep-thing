@@ -73,6 +73,11 @@ describe('Today cadence', () => {
     for (let i = 0; i < 40; i++) db.srs[`x${i}`] = { box: 0, due: ymd(NOW), last: NOW - DAY };
     expect(plan(db, NOW).primary).toEqual({ kind: 'review', count: 25 });
   });
+  it('copes with a mixed exam taken without an exam date', () => {
+    const db = emptyState();
+    const a = exam('formA', NOW - 9 * DAY), m = exam('mixed', NOW - 4 * DAY); db.sessions[a.id] = a; db.sessions[m.id] = m;
+    expect(() => plan(db, NOW)).not.toThrow();
+  });
   it('mixed exam in the final week', () => {
     const db = withDate(6);
     const a = exam('formA', NOW - 14 * DAY), b = exam('formB', NOW - 5 * DAY);

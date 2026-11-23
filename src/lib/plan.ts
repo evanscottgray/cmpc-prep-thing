@@ -49,7 +49,7 @@ export function plan(db: DbState, now = Date.now()): Plan {
   const last = history[history.length - 1];
   const lastDay = last?.submittedAt ? daysBetween(ymd(last.submittedAt), today) : Infinity;
   const tookA = formTaken(db, 'formA'), tookB = formTaken(db, 'formB');
-  const mixedThisWeek = history.some((s) => s.kind === 'mixed' && s.submittedAt && daysBetween(ymd(s.submittedAt), examDate!) <= 7);
+  const mixedThisWeek = history.some((s) => s.kind === 'mixed' && s.submittedAt && examDate && daysBetween(ymd(s.submittedAt), examDate) <= 7);
   const remaining = Math.max(10, db.settings.dailyTarget - answeredToday);
   const drill = (why: string): Plan => dueItems >= 10 && answeredToday < db.settings.dailyTarget
     ? { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'review', count: Math.min(dueItems, 25) }, why: `${dueItems} questions you missed or weren't sure of are due. Clear some before drilling new ones.` }
