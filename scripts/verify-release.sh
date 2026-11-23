@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Verifies that a clean build from a git ref reproduces the committed dist/ byte-for-byte.
-# Usage: scripts/verify-release.sh [ref]   (default: v1.0.0)
+# Usage: scripts/verify-release.sh [ref]   (default: the tag for package.json's version)
 set -euo pipefail
-REF="${1:-v1.0.0}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+REF="${1:-v$(cd "$ROOT" && node -p "require('./package.json').version")}"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 git clone -q --no-local "$ROOT" "$TMP/src"

@@ -77,7 +77,7 @@ export function Onboarding({ step: initial }: { step?: string }) {
               <div class="banner warn mt" role="note"><IcAlert /><div class="small"><strong>You already have progress here.</strong> <a href="#/backup">Back it up</a> first, then restore the file in the Home Screen app.</div></div>
             )}
             <p class="small muted mt">Staying in Safari works too, but Safari can delete data for websites after about a week without a visit. Back up weekly; the app will remind you.</p>
-            <div class="btn-row mt"><button class="btn" onClick={() => go(-1)}>Back</button><button class="btn primary" onClick={() => go(1)}>Continue in {caps.ios ? 'Safari' : 'the browser'}</button></div>
+            <div class="btn-row mt"><button class="btn" onClick={() => go(-1)}>Back</button><button class="btn primary" onClick={() => { ctx.store.updateSettings({ installDismissed: true }); go(1); }}>Continue in {caps.ios ? 'Safari' : 'the browser'}</button></div>
           </section>
         )}
       </div>

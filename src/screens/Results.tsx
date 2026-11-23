@@ -50,7 +50,7 @@ export function Results({ session: s }: { session: Session }) {
           <p class="small muted" style={{ margin: '.25rem 0 0' }}>
             {r.raw}/100 is {gap === 0 ? 'exactly your practice target' : `${Math.abs(gap)} ${gap > 0 ? 'above' : 'below'} your practice target of ${target}`}, which the app places at 550.{Math.abs(gap) <= 3 ? ' Close enough to go either way.' : ''} {s.submittedAt ? `Taken ${fmtDate(ymd(s.submittedAt))}.` : ''}
           </p>
-          {missed.length !== missedScored && <p class="small muted" style={{ margin: '.5rem 0 0' }}>{missedScored} of your {missed.length} misses were scored; {missed.length - missedScored} were unscored trial questions.</p>}
+          {missed.length !== missedScored && <p class="small muted" style={{ margin: '.5rem 0 0' }}>{missedScored} of your {missed.length} misses were scored; {missed.length - missedScored === 1 ? '1 was an unscored trial question.' : `${missed.length - missedScored} were unscored trial questions.`}</p>}
           {s.autoSubmitted && <p class="small mt" style={{ marginBottom: 0 }}><strong>Time ran out</strong> — submitted automatically.</p>}
         </div>
       ) : (

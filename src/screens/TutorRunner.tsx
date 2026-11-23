@@ -45,7 +45,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
   }
 
   return (
-    <Page title={`Question ${pos + 1} of ${s.items.length}`} tabs={false} closeLabel="Close" onBack={leave} right={<button class="icon-btn" onClick={quit}>End</button>}>
+    <Page title={`Question ${pos + 1} of ${s.items.length}`} tabs={false} closeLabel="Close" onBack={leave} right={<button class="icon-btn" onClick={quit}>Finish</button>}>
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>{s.title}</span>
         {done > 0 && <span>{correct} of {done} correct</span>}

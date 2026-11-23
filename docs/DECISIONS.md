@@ -42,6 +42,14 @@ Decisions made where the brief left room, plus enough state for a fresh session 
 - **Icons**: original SVG (ring + rising line), rendered to PNG via Playwright Chromium (`npm run icons`, inside Docker on this host).
 - **dist/ is committed** so the tag carries the exact build; `npm run build` from the tag reproduces it byte-for-byte. The zip goes to `release/` (git-ignored).
 
+## v1.1.0 (UX)
+
+- **GitHub Pages:** `.github/workflows/pages.yml` builds, tests and publishes `dist/`; it fails if the committed `dist/` differs from a clean build. Subpath hosting is covered by an E2E test with the service worker.
+- **Update banner:** reported only when a new worker installs beside an active one (a first visit could show a dead "Update ready").
+- **Install before setup:** on iOS the Home Screen app has its own storage, so onboarding asks for installation before the exam date.
+- **Unanswered exam questions** are still scored wrong but are flagged `na` and excluded from "seen", answer counts, mastery and readiness.
+- **Scroll restoration:** history entries carry an index, so Back restores the previous scroll position and forward navigation starts at the top.
+
 ## Resuming work
 
 - Run `npm ci`, `npm run validate`, `npm test`, `npm run build`, `npm run e2e`.

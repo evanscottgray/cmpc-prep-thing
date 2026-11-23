@@ -27,7 +27,7 @@ npm run dev            # dev server at http://127.0.0.1:5173 (no service worker 
 npm run validate       # bank validation: structure, grid, overlap, drill depth, near-dupes, cueing, refs
 npm test               # unit tests (Vitest)
 npm run typecheck      # TypeScript
-npm run build          # validate → compile content → vite build → dist/ + release/cmpc-prep-v1.0.0-dist.zip
+npm run build          # validate → compile content → vite build → dist/ + release/cmpc-prep-v<version>-dist.zip
 npm run e2e            # build, then WebKit end-to-end tests at 4 device sizes (Docker)
 ```
 
@@ -71,7 +71,7 @@ dist/               committed production build (reproducible from the tag)
 
 ## Docs
 
-- [docs/HOSTING.md](docs/HOSTING.md) — local preview, static HTTPS hosting options, Home Screen install, moving progress between addresses.
+- [docs/HOSTING.md](docs/HOSTING.md) — local preview, GitHub Pages (workflow included), other static HTTPS hosts, Home Screen install, moving progress between addresses.
 - [docs/ITEM_WRITING_GUIDE.md](docs/ITEM_WRITING_GUIDE.md) — how to write items that match the bank.
 - [docs/QA_REPORT.md](docs/QA_REPORT.md) — content stats, validation, blind-check results, device/accessibility checks, known limitations.
 - [docs/DECISIONS.md](docs/DECISIONS.md) — decisions made where the brief was ambiguous, and notes for resuming work.

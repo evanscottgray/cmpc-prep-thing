@@ -274,7 +274,7 @@ table.grid th { background: var(--surface-2); }
 .opt:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 2px; }
 .opt.struck .otext { text-decoration: line-through; color: var(--muted); }
 .opt .strike { flex: none; width: 48px; border: 0; border-left: 1px solid var(--border); background: none; color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 0 10px 10px 0; }
-.opt .strike[aria-pressed="true"] { color: var(--bad); background: var(--surface-2); }
+.opt .strike[aria-pressed="true"] { color: var(--text); background: var(--surface-3); }
 .opt .strike svg { width: 20px; height: 20px; }
 .opt.is-correct { border-color: var(--ok); background: var(--ok-soft); }
 .opt.is-wrong { border-color: var(--bad); background: var(--bad-soft); }
@@ -465,6 +465,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
   .stem { font-size: 1.2rem; }
   .opts { font-size: 1.05rem; }
   .banner .btn-row > .btn { max-width: 260px; }
+  .banner .btn-row > .btn.ghost { flex: none; }
 }
 @media (max-width: 599px) { .btn-row.stack-sm > .btn { flex-basis: 100%; } }
 @media (prefers-reduced-motion: reduce) {

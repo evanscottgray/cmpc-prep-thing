@@ -200,6 +200,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
 type NavFilter = 'all' | 'unanswered' | 'flagged';
 function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; time: string | null; low: boolean; onClose: () => void; onEnd: () => void; endLabel: string }) {
   const [f, setF] = useState<NavFilter>('all');
+  const [stop, setStop] = useState(s.current); // the grid's single Tab stop
   const flags = new Set(s.flags);
   const positions = s.items.map((_, i) => i).filter((i) => f === 'all' || (f === 'flagged' ? flags.has(i) : s.responses[i] === undefined));
   const answered = Object.keys(s.responses).length;
@@ -213,7 +214,7 @@ function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; tim
     if (to === undefined) return;
     e.preventDefault();
     const t = cells[Math.max(0, Math.min(cells.length - 1, to))];
-    for (const c of cells) c.tabIndex = c === t ? 0 : -1;
+    setStop(Number(t.dataset.pos));
     t.focus();
   }
   return (
@@ -234,7 +235,7 @@ function Navigator({ s, time, low, onClose, onEnd, endLabel }: { s: Session; tim
           {positions.map((i) => {
             const a = s.responses[i] !== undefined, fl = flags.has(i);
             return (
-              <button tabIndex={i === (positions.includes(s.current) ? s.current : positions[0]) ? 0 : -1} class={`nav-cell${a ? ' answered' : ''}${i === s.current ? ' current' : ''}`}
+              <button key={i} data-pos={i} tabIndex={i === (positions.includes(stop) ? stop : positions[0]) ? 0 : -1} class={`nav-cell${a ? ' answered' : ''}${i === s.current ? ' current' : ''}`}
                 aria-label={`Question ${i + 1}: ${a ? 'answered' : 'unanswered'}${fl ? ', flagged' : ''}${i === s.current ? ', current' : ''}`}
                 onClick={() => { goTo(s.id, i); onClose(); }}>
                 {i + 1}{fl && <span class="flag-mark" aria-hidden="true"><IcFlagFill /></span>}
