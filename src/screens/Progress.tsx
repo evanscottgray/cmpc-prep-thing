@@ -79,7 +79,7 @@ export function Progress() {
       {focus.length > 0 && (
         <div class="section">
           <h2>Focus next</h2>
-          <div class="small muted focus-note">From your latest answer to each question. Ranked by exam points lost: share of the exam × your miss rate. <details class="how"><summary>How this is ranked</summary>Points lost is about how many of 100 exam points a group costs you now. Groups with only a few answers count cautiously, so one miss doesn't put a group at the top.</details></div>
+          <div class="small muted focus-note">From your latest answer to each question. Ranked by how many exam points each group is likely costing you. <details class="how"><summary>How this is ranked</summary>A group's share of the exam times your miss rate in it. Groups with only a few answers are treated cautiously, so a single miss doesn't put a small group at the top.</details></div>
           <div class="list">
             {focus.map((k) => <ListLink onClick={() => setPick({ title: k.name, src: { type: 'kg', id: k.id } })} title={k.name} sub={focusLine(k)} right={<span class="badge accent">Drill</span>} />)}
           </div>
@@ -133,7 +133,7 @@ export function Progress() {
           <div class="card stat-grid">
             <div class="stat"><div class="v">{pace ? `${pace.avgSec} s` : '—'}</div><div class="k">Average per timed question (target {bank.blueprint.exam.secondsPerItem} s or less)</div></div>
             <div class="stat"><div class="v">{seen}/{bank.items.length}</div><div class="k">Bank questions seen{avail.length < bank.items.length ? ` (${avail.length} available now)` : ''}</div></div>
-            <div class="stat"><div class="v">{db.attempts.length}</div><div class="k">Total answers</div></div>
+            <div class="stat"><div class="v">{db.attempts.filter((a) => !a.na).length}</div><div class="k">Total answers</div></div>
             <div class="stat"><div class="v">{Object.keys(db.cardSrs).length}/{bank.cards.length}</div><div class="k">Concept cards studied</div></div>
           </div>
         </div>

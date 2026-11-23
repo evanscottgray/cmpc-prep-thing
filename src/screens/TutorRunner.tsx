@@ -45,7 +45,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
   }
 
   return (
-    <Page title={`Question ${pos + 1} of ${s.items.length}`} tabs={false} onBack={leave} right={<button class="icon-btn" onClick={quit}>End</button>}>
+    <Page title={`Question ${pos + 1} of ${s.items.length}`} tabs={false} closeLabel="Close" onBack={leave} right={<button class="icon-btn" onClick={quit}>End</button>}>
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>{s.title}</span>
         {done > 0 && <span>{correct} of {done} correct</span>}
@@ -57,6 +57,10 @@ export function TutorRunner({ session: s }: { session: Session }) {
         <>
           <OptionList item={item} si={si} name={`t${s.id}-${pos}`} selected={resp} struck={s.strikes[pos] ?? []}
             onChoose={(o) => choose(s.id, pos, o)} onStrike={(o) => toggleStrike(s.id, pos, o)} />
+          <label class="check mt">
+            <input type="checkbox" checked={s.unsure.includes(pos)} onChange={(e) => setUnsure(s.id, pos, (e.target as HTMLInputElement).checked)} />
+            I'm not sure<span class="muted small"> (adds to spaced review)</span>
+          </label>
           {pos === 0 && strikeHint(false) && <StrikeHint />}
           <ItemActions item={item} />
         </>
@@ -68,12 +72,6 @@ export function TutorRunner({ session: s }: { session: Session }) {
         </>
       )}
       <div class="actionbar">
-        {!revealed && (
-          <label class="check full">
-            <input type="checkbox" checked={s.unsure.includes(pos)} onChange={(e) => setUnsure(s.id, pos, (e.target as HTMLInputElement).checked)} />
-            I'm not sure<span class="muted small"> (adds to spaced review)</span>
-          </label>
-        )}
         <button class="btn" disabled={pos === 0} onClick={() => goTo(s.id, pos - 1)}>Previous</button>
         {!revealed
           ? <button class="btn primary" disabled={resp === undefined} onClick={() => check(s.id, pos)}>Check answer</button>

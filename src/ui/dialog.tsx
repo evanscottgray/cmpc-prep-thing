@@ -19,10 +19,11 @@ export function Modal({ title, onClose, children, wide, sheet, aside, labelledBy
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && dismissable) { e.preventDefault(); onClose(); }
       if (e.key === 'Tab') {
-        const f = [...el.querySelectorAll<HTMLElement>('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')].filter((x) => !x.hasAttribute('disabled'));
+        const f = [...el.querySelectorAll<HTMLElement>('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')].filter((x) => !x.hasAttribute('disabled') && x.tabIndex >= 0);
         if (!f.length) return;
         const a = f[0], z = f[f.length - 1];
-        if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+        if (!f.includes(document.activeElement as HTMLElement)) { e.preventDefault(); (e.shiftKey ? z : a).focus(); } // e.g. from the heading
+        else if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
         else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
       }
     };

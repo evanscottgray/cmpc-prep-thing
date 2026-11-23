@@ -72,7 +72,7 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
         </label>
       </div>
       </details>
-      <p class="small muted" aria-live="polite">{plural(positions.length, 'question')}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
+      <p class="small muted" aria-live="polite">{plural(positions.length, 'question')}{opened.size ? ` · ${positions.filter((i) => opened.has(i)).length} opened` : ''}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
       {positions.length === 0 && (
         <div class="card"><p>No questions match these filters.</p><button class="btn small" onClick={() => navigate(`review/${s.id}`, true)}>Clear filters</button></div>
       )}

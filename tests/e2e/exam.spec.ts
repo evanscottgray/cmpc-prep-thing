@@ -196,6 +196,20 @@ test('time running out replaces an open confirmation, and the navigator keeps it
   await expect(page.getByRole('button', { name: 'See results' })).toBeFocused();
 });
 
+test('an exam left running expires while Today stays open', async ({ page }) => {
+  await page.clock.install();
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  await optionLabels(page).nth(0).click();
+  await go(page, 'today');
+  await expect(page.getByRole('heading', { name: 'Resume Exam-pace block' })).toBeVisible();
+  await page.clock.fastForward('18:30');
+  await expect(page.getByRole('dialog', { name: "Time's up" })).toBeVisible();
+  await page.getByRole('button', { name: 'See results' }).click();
+  await expect(page.getByRole('heading', { name: /summary/ })).toBeVisible();
+});
+
 test('timer auto-submits while open, and coached mode can pause', async ({ page }) => {
   await page.clock.install();
   await onboard(page);

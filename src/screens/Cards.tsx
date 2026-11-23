@@ -132,7 +132,7 @@ export function CardStudy() {
       <h2 style={{ fontSize: '1.35rem' }} tabIndex={-1} id="card-title">{c.title}</h2>
       {!show ? (
         <>
-          <p class="muted">Before you look, say it in your own words: the definition, an example with a client, and how a scenario might test it.</p>
+          <p>Before you look, say it in your own words: the definition, an example with a client, and how a scenario might test it.</p>
           <div class="actionbar"><button class="btn" onClick={() => { setI(i + 1); window.scrollTo(0, 0); }}>Skip for now</button><button class="btn primary" onClick={() => setShow(true)}>Show card</button></div>
         </>
       ) : (

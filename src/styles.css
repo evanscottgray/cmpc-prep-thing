@@ -132,7 +132,7 @@ main.page.notabs:has(> .actionbar) { padding-bottom: 0; }
 .list-pair + .list-pair { border-top: 1px solid var(--border); }
 .list-pair .icon-btn { color: var(--muted); margin-right: .35rem; }
 .list-item .clip { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
-@media (max-width: 599px) { .list-item .clip { -webkit-line-clamp: 1; } }
+@media (max-width: 599px) { .list-item .clip { display: none; } }
 .icon-btn.framed { border: 1px solid var(--control); background: var(--surface); }
 .filters.loose { gap: .75rem; margin: 0; }
 .filters .field { margin-bottom: .5rem; }
@@ -497,6 +497,8 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 @media (max-width: 430px) { .nav-legend { grid-template-columns: auto auto; } }
 /* results: the main action spans the row, the others share one */
 .result-actions > .btn:first-child { flex-basis: 100%; }
+.device summary { min-height: 44px; display: flex; align-items: center; font-weight: 600; cursor: pointer; }
+.device[open] summary { margin-bottom: .5rem; }
 .focus-note { margin: -.1rem 0 .6rem .25rem; }
 .focus-note .how summary { display: inline-flex; min-height: 44px; align-items: center; color: var(--accent); font-weight: 600; cursor: pointer; }
 .focus-note .how[open] { color: var(--text); }

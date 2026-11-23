@@ -92,7 +92,7 @@ test('Back returns to the same place, and a drill can be left and resumed', asyn
   await expect(page.locator('.strike-hint')).toBeVisible();
   await optionLabels(page).nth(1).click();
   await page.getByRole('button', { name: 'Check answer' }).click();
-  await page.getByRole('button', { name: 'Back' }).click();
+  await page.getByRole('button', { name: 'Close' }).click();
   await page.getByRole('link', { name: /Quick quiz.*Resume/ }).click();
   await expect(page.locator('#verdict')).toBeVisible();
 });

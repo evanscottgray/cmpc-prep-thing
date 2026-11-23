@@ -53,7 +53,8 @@ export function App() {
     check();
     const on = () => { if (document.visibilityState === 'visible') check(); };
     document.addEventListener('visibilitychange', on);
-    return () => document.removeEventListener('visibilitychange', on);
+    const tick = setInterval(() => { if (!location.hash.startsWith('#/s/')) check(); }, 15000); // an exam left running expires while Today is open
+    return () => { document.removeEventListener('visibilitychange', on); clearInterval(tick); };
   }, []);
   useEffect(() => onUpdateReady(setUpdate), []);
 

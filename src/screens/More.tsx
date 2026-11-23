@@ -107,8 +107,7 @@ export function Settings() {
         </div>
       </div>
       <div class="section">
-        <h2>This device</h2>
-        <div class="card">
+        <details class="card device"><summary>Technical details for this device</summary>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }} class="stack">
             {support.map(([name, ok, note]) => (
               <li class="row nowrap" style={{ alignItems: 'flex-start' }}>
@@ -118,7 +117,7 @@ export function Settings() {
             ))}
           </ul>
           <p class="small muted mt" style={{ marginBottom: 0 }}>Storage: {ctx.store.kv.kind}. Each web address keeps its own separate storage — use backup and restore to move progress between addresses.</p>
-        </div>
+        </details>
       </div>
     </Page>
   );

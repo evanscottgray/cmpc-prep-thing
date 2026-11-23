@@ -1,9 +1,9 @@
 import type { ComponentChildren } from 'preact';
 import { useEffect, useLayoutEffect, useState } from 'preact/hooks';
 import { back, takeRestore } from '../router';
-import { IcBack, IcCards, IcChevron, IcMore, IcProgress, IcStudy, IcToday } from './icons';
+import { IcBack, IcX, IcCards, IcChevron, IcMore, IcProgress, IcStudy, IcToday } from './icons';
 
-export function TopBar({ title, backTo, onBack, right, noBack, narrow }: { title: string; backTo?: string; onBack?: () => void; right?: ComponentChildren; noBack?: boolean; narrow?: boolean }) {
+export function TopBar({ title, backTo, onBack, right, noBack, narrow, closeLabel }: { title: string; backTo?: string; onBack?: () => void; right?: ComponentChildren; noBack?: boolean; narrow?: boolean; closeLabel?: string }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 4);
@@ -13,19 +13,19 @@ export function TopBar({ title, backTo, onBack, right, noBack, narrow }: { title
   useEffect(() => { document.title = `${title} · CMPC Prep`; }, [title]);
   return (
     <header class={`topbar${scrolled ? ' scrolled' : ''}${narrow ? ' narrow' : ''}`}>
-      <div class="side">{!noBack && <button class="icon-btn" onClick={() => (onBack ? onBack() : back(backTo))} aria-label="Back"><IcBack /><span class="small">Back</span></button>}</div>
+      <div class="side">{!noBack && <button class="icon-btn" onClick={() => (onBack ? onBack() : back(backTo))} aria-label={closeLabel ?? 'Back'}>{closeLabel ? <IcX /> : <IcBack />}<span class="small">{closeLabel ?? 'Back'}</span></button>}</div>
       <h1 tabIndex={-1}>{title}</h1>
       <div class="side right">{right}</div>
     </header>
   );
 }
 
-export function Page({ title, children, backTo, onBack, right, noBack, tabs = true, wide }: { title: string; children: ComponentChildren; backTo?: string; onBack?: () => void; right?: ComponentChildren; noBack?: boolean; tabs?: boolean; wide?: boolean }) {
+export function Page({ title, children, closeLabel, backTo, onBack, right, noBack, tabs = true, wide }: { title: string; children: ComponentChildren; closeLabel?: string; backTo?: string; onBack?: () => void; right?: ComponentChildren; noBack?: boolean; tabs?: boolean; wide?: boolean }) {
   useLayoutEffect(() => { window.scrollTo(0, takeRestore() ?? 0); }, [title]); // before paint, so the old position never flashes
   useEffect(() => { document.querySelector<HTMLElement>('.topbar h1')?.focus({ preventScroll: true }); }, [title]);
   return (
     <>
-      <TopBar title={title} backTo={backTo} onBack={onBack} right={right} noBack={noBack} narrow={!tabs && !wide} />
+      <TopBar title={title} closeLabel={closeLabel} backTo={backTo} onBack={onBack} right={right} noBack={noBack} narrow={!tabs && !wide} />
       <main class={`page${tabs ? '' : ' notabs'}${wide ? ' wide' : ''}`} id="main" tabIndex={-1}>{children}</main>
     </>
   );

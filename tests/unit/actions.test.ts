@@ -5,7 +5,7 @@ import { Store, emptyState } from '../../src/lib/store';
 import { abandon, autoSubmitExpired, choose, createSession, pause, resume, startSession, submit, toggleFlag, toggleStrike, goTo } from '../../src/lib/actions';
 import { buildForm, buildMixed } from '../../src/lib/assemble';
 import { dueIds } from '../../src/lib/srs';
-import { availableItems, todayCount } from '../../src/lib/stats';
+import { availableItems, itemStats, todayCount } from '../../src/lib/stats';
 import { loadBank } from './helpers';
 
 const bank = loadBank();
@@ -27,6 +27,8 @@ describe('exam lifecycle', () => {
     submit(id, false, now);
     expect(ctx.store.state.attempts).toHaveLength(115);
     expect(todayCount(ctx.store.state, now)).toBe(10);
+    expect(itemStats(ctx.store.state.attempts).size).toBe(10); // blanks are not seen
+    expect(S(id).result!.answered).toBe(10);
   });
   it('scores a perfect paper as 100/100 and records all 115 attempts once', () => {
     const id = start();
