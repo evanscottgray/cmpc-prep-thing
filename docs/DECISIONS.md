@@ -50,6 +50,14 @@ Decisions made where the brief left room, plus enough state for a fresh session 
 - **Unanswered exam questions** are still scored wrong but are flagged `na` and excluded from "seen", answer counts, mastery and readiness.
 - **Scroll restoration:** history entries carry an index, so Back restores the previous scroll position and forward navigation starts at the top.
 
+## v1.2.0 (UX)
+
+- **Review progress:** opening a miss records it and where to resume; the review counts as done when the learner moves on from the last miss (or taps "I'm done reviewing"), not when it opens.
+- **Review Back:** a question returns to its list with history Back only when the list is the entry directly below it (tracked by history index); otherwise it replaces itself with the list. A module-level flag could go stale.
+- **Exam timer:** one button in every state, so keyboard focus survives the switch to the low-time display; once low it can't be hidden and leaves the tab order.
+- **Short screens:** below 500 px tall the navigator is a full-height sheet with the legend scrolling with the grid, and tutor's "I'm not sure" shares the action row.
+- **Question sentence:** split from the scenario and set bold in the exam, tutor and review (`QStem`).
+
 ## Resuming work
 
 - Run `npm ci`, `npm run validate`, `npm test`, `npm run build`, `npm run e2e`.

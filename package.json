@@ -1,6 +1,6 @@
 {
   "name": "cmpc-prep",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Offline study and exam-simulation app for the CMPC exam (unofficial).",
   "scripts": {
     "content": "node scripts/build-content.mjs",
