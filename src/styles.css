@@ -543,3 +543,52 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
   .actionbar .unsure-row { flex: 1 1 auto; }
   .actionbar .unsure-row .muted { display: none; }
 }
+
+/* celebrations: confetti, streaks, cheers (motion only when the device allows it and Celebrations is on) */
+.confetti { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 1000; }
+.streak-chip { display: inline-flex; align-items: center; gap: .2rem; padding: .05rem .55rem; border-radius: 999px; background: var(--warn-soft); color: var(--warn); font-weight: 700; white-space: nowrap; }
+.cheer { display: flex; gap: .75rem; align-items: center; margin: .35rem 0 .6rem; }
+.cheer-emoji { font-size: 2.1rem; line-height: 1; }
+.cheer-emoji.big { font-size: 3rem; margin-bottom: .35rem; }
+.cheer-head { font-size: 1.3rem; font-weight: 800; line-height: 1.2; }
+.tally { display: flex; justify-content: center; gap: 1.1rem; flex-wrap: wrap; margin: .25rem 0 .75rem; }
+.tally strong { font-size: 1.25rem; }
+.card.streak { margin-bottom: 1rem; padding: .85rem 1rem; }
+.streak-head { display: flex; gap: .75rem; align-items: center; }
+.flame { font-size: 1.9rem; line-height: 1; }
+.flame.off { filter: grayscale(1); opacity: .45; }
+.streak-title { font-weight: 800; font-size: 1.1rem; }
+.week { list-style: none; display: flex; justify-content: space-between; gap: .25rem; margin: .8rem 0 0; padding: 0; max-width: 420px; }
+.week li { display: flex; flex-direction: column; align-items: center; gap: .25rem; flex: 1; }
+.week .dot { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--border-strong); display: grid; place-items: center; font-size: .8rem; font-weight: 800; color: var(--accent-ink); }
+.week li.on .dot { background: var(--accent); border-color: var(--accent); }
+.week li.today .dot { box-shadow: 0 0 0 3px var(--accent-soft); }
+.week .wd { font-size: .75rem; color: var(--muted); }
+.week li.today .wd { color: var(--text); font-weight: 700; }
+.card.daily.reached { border-color: var(--ok); background: var(--ok-soft); }
+.goal-done { color: var(--ok); }
+.card.daily.reached .meter span { background: var(--ok); }
+
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-calm]) .btn { transition: transform .08s ease, background-color .15s ease, border-color .15s ease; }
+  :root:not([data-calm]) .btn:active:not(:disabled) { transform: scale(.97); }
+  :root:not([data-calm]) .opt { transition: border-color .12s ease, background-color .12s ease; }
+  :root:not([data-calm]) .verdict.ok { animation: cel-pop .42s cubic-bezier(.2, 1.4, .4, 1) both; }
+  :root:not([data-calm]) .verdict.ok svg path { stroke-dasharray: 20; stroke-dashoffset: 20; animation: cel-draw .4s .18s ease-out forwards; }
+  :root:not([data-calm]) .verdict.bad { animation: cel-rise .28s ease-out both; }
+  :root:not([data-calm]) .streak-chip { animation: cel-bump .5s cubic-bezier(.2, 1.6, .4, 1) both; }
+  :root:not([data-calm]) .cheer-emoji { animation: cel-pop .6s cubic-bezier(.2, 1.5, .4, 1) both; }
+  :root:not([data-calm]) .card.daily .meter span { animation: cel-fill .9s cubic-bezier(.2, .8, .2, 1) both; transform-origin: left; }
+  :root:not([data-calm]) .week li.on .dot { animation: cel-pop .35s ease-out both; }
+  :root:not([data-calm]) .week li:nth-child(2) .dot { animation-delay: .04s; }
+  :root:not([data-calm]) .week li:nth-child(3) .dot { animation-delay: .08s; }
+  :root:not([data-calm]) .week li:nth-child(4) .dot { animation-delay: .12s; }
+  :root:not([data-calm]) .week li:nth-child(5) .dot { animation-delay: .16s; }
+  :root:not([data-calm]) .week li:nth-child(6) .dot { animation-delay: .2s; }
+  :root:not([data-calm]) .week li:nth-child(7) .dot { animation-delay: .24s; }
+}
+@keyframes cel-pop { from { transform: scale(.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes cel-draw { to { stroke-dashoffset: 0; } }
+@keyframes cel-rise { from { transform: translateY(6px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes cel-bump { 0% { transform: scale(.6); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
+@keyframes cel-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }

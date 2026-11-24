@@ -8,6 +8,7 @@ import { detectCaps } from './lib/caps';
 import { registerSW } from './lib/sw-register';
 import { requestPersistence } from './lib/persist';
 import { App } from './app';
+import { watchDailyGoal } from './ui/celebrate';
 
 async function boot() {
   const root = document.getElementById('root')!;
@@ -25,6 +26,7 @@ async function boot() {
     ctx.store = new Store(kv, state, mirror);
     root.textContent = '';
     render(<App />, root);
+    watchDailyGoal();
     window.addEventListener('storage', (e) => { if (e.key === PING_KEY) ctx.store.reload(); });
     // flush pending writes when the app is backgrounded
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') ctx.store.flush(); });

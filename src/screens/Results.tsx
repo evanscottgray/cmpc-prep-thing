@@ -6,7 +6,9 @@ import { missedPositions } from '../lib/actions';
 import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
 import type { DrillSource } from '../lib/assemble';
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
+import { bigCelebration, fresh } from '../ui/celebrate';
+import { CountUp } from '../ui/bits';
 import { AreaBar, ListLink, Page } from '../ui/bits';
 import { IcAlert, IcCheckCircle, IcInfo, IcXCircle } from '../ui/icons';
 
@@ -31,6 +33,16 @@ export function Results({ session: s }: { session: Session }) {
   const missedScored = missed.filter((i) => s.items[i].scored).length;
   const gap = Math.round(r.raw - target);
   const focus = focusAreas(ctx.bank, r.byKg);
+  const pctAll = r.total ? Math.round((100 * r.correctAll) / r.total) : 0;
+  const cheer = full ? null : r.total === 0 ? null
+    : pctAll === 100 ? { head: 'Perfect round!', sub: 'Every answer right.', emoji: '🎯' }
+    : pctAll >= 80 ? { head: 'Excellent work!', sub: "You're getting these.", emoji: '🌟' }
+    : pctAll >= 60 ? { head: 'Solid session', sub: 'Read the misses below and they stick.', emoji: '💪' }
+    : { head: 'Good practice', sub: "Misses now are points on exam day. They'll come back in spaced review.", emoji: '🌱' };
+  useEffect(() => {
+    if (!fresh(s.submittedAt)) return;
+    if (full ? pass : pctAll >= 70 && r.total >= 5) setTimeout(bigCelebration, 250);
+  }, []);
   const kgs = bp.kgs.filter((k) => r.byKg[k.id]?.n).sort((a, b) => r.byKg[a.id].c / r.byKg[a.id].n - r.byKg[b.id].c / r.byKg[b.id].n || b.weight - a.weight);
 
   return (
@@ -41,7 +53,7 @@ export function Results({ session: s }: { session: Session }) {
         <div class="card hero">
           <div class="eyebrow">Practice result, estimated{s.retake ? ' · retake' : ''}</div>
           <div class="score-line first">
-            <div><div class="v">{r.raw}<span class="of">/{r.scoredCount}</span></div><div class="k">Raw score (scored questions)</div></div>
+            <div><div class="v"><CountUp to={r.raw} run={fresh(s.submittedAt)} /><span class="of">/{r.scoredCount}</span></div><div class="k">Raw score (scored questions)</div></div>
             <div><div class="v">{scaled}</div><div class="k">Estimated scaled score (550 passes)</div></div>
           </div>
           <div class={`verdict-big ${pass ? 'pass' : 'fail'}`} role="status">
@@ -56,8 +68,9 @@ export function Results({ session: s }: { session: Session }) {
       ) : (
         <div class="card hero">
           <div class="eyebrow">{s.title}{s.label ? ` · ${s.label}` : ''}</div>
+          {cheer && <div class="cheer"><span class="cheer-emoji" aria-hidden="true">{cheer.emoji}</span><div><div class="cheer-head">{cheer.head}</div><div class="small muted">{cheer.sub}</div></div></div>}
           <div class="score-line first">
-            <div><div class="v">{r.correctAll}<span class="of">/{r.total}</span></div><div class="k">correct{r.total ? ` · ${Math.round((100 * r.correctAll) / r.total)}%` : ''}</div></div>
+            <div><div class="v"><CountUp to={r.correctAll} run={fresh(s.submittedAt)} /><span class="of">/{r.total}</span></div><div class="k">correct{r.total ? ` · ${pctAll}%` : ''}</div></div>
             {s.timed && <div><div class="v">{fmtClock(r.timeUsedMs)}</div><div class="k">of {fmtClock(r.durationMs)} used</div></div>}
           </div>
           {r.total < s.items.length && <p class="small muted mt" style={{ marginBottom: 0 }}>Ended early. {plural(s.items.length - r.total, 'question')} not answered, and not counted.</p>}

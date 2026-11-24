@@ -40,6 +40,7 @@ export interface Settings {
   backupSnoozeUntil: number | null;
   installDismissed: boolean;     // hide the Add to Home Screen note on Today
   persisted: boolean | null;     // result of navigator.storage.persist()
+  celebrations: boolean;         // confetti and motion on success (off = calm)
 }
 
 export type AttemptSource = 'exam' | 'block' | 'drill' | 'timed' | 'quiz' | 'review';

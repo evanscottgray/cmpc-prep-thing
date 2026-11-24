@@ -1,4 +1,4 @@
-import { useEffect } from 'preact/hooks';
+import { useEffect, useRef } from 'preact/hooks';
 import type { Session } from '../types';
 import { ctx } from '../ctx';
 import { back, navigate } from '../router';
@@ -6,6 +6,8 @@ import { abandon, check, choose, finishTutor, goTo, setUnsure, toggleStrike } fr
 import { ItemActions, ItemMeta, ItemReview, OptionList, QStem, StemFold, StrikeHint, Verdict, strikeHint } from '../ui/question';
 import { Page } from '../ui/bits';
 import { confirmDialog, toast } from '../ui/dialog';
+import { burstFrom } from '../ui/celebrate';
+import { runOfCorrect } from '../lib/streak';
 
 /** Tutor mode: answer, then see the verdict and every rationale before moving on. */
 export function TutorRunner({ session: s }: { session: Session }) {
@@ -16,7 +18,10 @@ export function TutorRunner({ session: s }: { session: Session }) {
   const resp = s.responses[pos];
   const last = pos === s.items.length - 1;
   const done = s.revealed.length;
-  const correct = s.revealed.filter((p) => s.responses[p] === ctx.items.get(s.items[p].id)?.answer).length;
+  const isRight = (p: number) => s.responses[p] === ctx.items.get(s.items[p].id)?.answer;
+  const correct = s.revealed.filter(isRight).length;
+  const run = runOfCorrect(s.revealed, isRight);
+  const justChecked = useRef(false); // celebrate a fresh check, not a revisit with Previous
 
   useEffect(() => { window.scrollTo(0, 0); document.querySelector<HTMLElement>('#q-stem')?.focus({ preventScroll: true }); }, [pos]);
   useEffect(() => { if (revealed) {
@@ -25,6 +30,8 @@ export function TutorRunner({ session: s }: { session: Session }) {
     v.focus({ preventScroll: true });
     const bar = document.querySelector('.actionbar')?.getBoundingClientRect().top ?? innerHeight;
     if (v.getBoundingClientRect().bottom > bar - 8) v.scrollIntoView({ block: 'center' }); // keep the result visible above the action bar
+    if (justChecked.current && isRight(pos)) burstFrom(v, run === 3 || run === 5 || (run >= 10 && run % 5 === 0) ? 90 : 34);
+    justChecked.current = false;
   } }, [revealed]);
 
   function finish() {
@@ -48,7 +55,10 @@ export function TutorRunner({ session: s }: { session: Session }) {
     <Page title={`Question ${pos + 1} of ${s.items.length}`} tabs={false} closeLabel="Close" onBack={leave} right={done > 0 ? <button class="icon-btn" onClick={quit}>Finish</button> : undefined}>
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>{s.title}</span>
-        {done > 0 && <span>{correct} of {done} correct</span>}
+        <span class="row" style={{ gap: '.5rem' }}>
+          {run >= 3 && <span key={run} class="streak-chip" aria-label={`${run} correct in a row`}>🔥 {run} in a row</span>}
+          {done > 0 && <span>{correct} of {done} correct</span>}
+        </span>
       </div>
       {revealed
         ? <StemFold key={pos} id="q-stem" text={item.stem} />
@@ -76,7 +86,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
         )}
         {pos > 0 && <button class="btn" onClick={() => goTo(s.id, pos - 1)}>Previous</button>}
         {!revealed
-          ? <button class="btn primary" disabled={resp === undefined} onClick={() => check(s.id, pos)}>Check answer</button>
+          ? <button class="btn primary" disabled={resp === undefined} onClick={() => { justChecked.current = true; check(s.id, pos); }}>Check answer</button>
           : last
             ? <button class="btn primary" onClick={finish}>See summary</button>
             : <button class="btn primary" onClick={() => goTo(s.id, pos + 1)}>Next question</button>}

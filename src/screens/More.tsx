@@ -99,6 +99,11 @@ export function Settings() {
         <span class="label">Theme</span>
         <Seg<Theme> name="th" label="Theme" value={s.theme} onChange={(v) => up({ theme: v })} options={[{ v: 'system', label: 'System' }, { v: 'light', label: 'Light' }, { v: 'dark', label: 'Dark' }]} />
       </div>
+      <div class="field">
+        <span class="label">Celebrations</span>
+        <Seg<'on' | 'calm'> name="cel" label="Celebrations" value={s.celebrations === false ? 'calm' : 'on'} onChange={(v) => up({ celebrations: v === 'on' })} options={[{ v: 'on', label: 'Confetti' }, { v: 'calm', label: 'Calm' }]} />
+        <span class="hint">Confetti and small animations when you get things right, finish a session, or reach your daily goal. Calm keeps the encouragement without the motion. Never during a timed exam; your device's Reduce Motion setting always wins.</span>
+      </div>
       <div class="section">
         <h2>Data</h2>
         <div class="list">

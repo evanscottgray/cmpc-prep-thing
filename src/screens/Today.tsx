@@ -5,6 +5,7 @@ import { REVIEW_MAX, buildDrill, buildQuiz, buildReview } from '../lib/assemble'
 import { fmtDate, fmtShort, plural, ymd } from '../lib/dates';
 import { isLight, plan, type Action } from '../lib/plan';
 import { dueIds } from '../lib/srs';
+import { lastWeek, streak, studyDays } from '../lib/streak';
 import { ListLink, Meter, Page } from '../ui/bits';
 import { alertDialog, confirmDialog, toast } from '../ui/dialog';
 import { IcAlert, IcChevron, IcInfo, IcPhone, IcX } from '../ui/icons';
@@ -55,6 +56,30 @@ function Primary({ a, why }: { a: Action; why: string }) {
   );
 }
 
+/** Days in a row with study, and the last seven days as dots. Gentle: a missed day just starts a new run. */
+function StreakStrip({ now }: { now: number }) {
+  const db = useDb();
+  const days = studyDays(db);
+  if (!days.size) return null;
+  const st = streak(days, now);
+  const week = lastWeek(days, now);
+  const studiedWeek = week.filter((d) => d.studied).length;
+  return (
+    <section class="card streak" aria-label="Study streak">
+      <div class="streak-head">
+        <span class={`flame${st.count ? '' : ' off'}`} aria-hidden="true">🔥</span>
+        <div class="grow">
+          <div class="streak-title">{st.count ? `${st.count}-day streak` : 'Start a new streak'}</div>
+          <div class="small muted">{st.today ? 'You studied today.' : st.count ? 'Answer a question today to keep it going.' : `${studiedWeek} of the last 7 days studied.`}</div>
+        </div>
+      </div>
+      <ol class="week" aria-label={`${studiedWeek} of the last 7 days studied`}>
+        {week.map((d) => <li class={`${d.studied ? 'on' : ''}${d.today ? ' today' : ''}`} aria-hidden="true"><span class="dot">{d.studied ? '✓' : ''}</span><span class="wd">{d.label}</span></li>)}
+      </ol>
+    </section>
+  );
+}
+
 /** Unfinished sessions other than the one already offered above. */
 function InProgress({ skip }: { skip?: string }) {
   const db = useDb();
@@ -93,7 +118,8 @@ function InProgress({ skip }: { skip?: string }) {
 
 export function Today() {
   const db = useDb();
-  const p = plan(db, useNow(60000)); // refreshes after midnight and when the app returns to the foreground
+  const now = useNow(60000);
+  const p = plan(db, now); // refreshes after midnight and when the app returns to the foreground
   const s = db.settings;
   const light = isLight(p.phase);
   const progress = Math.min(100, Math.round((100 * p.answeredToday) / Math.max(1, s.dailyTarget)));
@@ -109,6 +135,8 @@ export function Today() {
             : <div class="row between"><span class="muted">{p.daysLeft === null ? 'No exam date set' : `Exam date passed · ${fmtDate(s.examDate!)}`}</span><a class="btn small" href="#/settings">{p.daysLeft === null ? 'Set exam date' : 'Change date'}</a></div>}
         </div>
       </div>
+
+      <StreakStrip now={now} />
 
       <div class="cols">
       <div>
@@ -136,8 +164,10 @@ export function Today() {
             {p.dueItems > 0 && <ListLink onClick={startReview} title="Spaced review" sub="A short set of questions you missed before" />}
           </div>
         ) : (
-        <div class="card">
-          <div class="row between"><span>{p.answeredToday} of {s.dailyTarget} questions</span><span class="muted small">{progress}%</span></div>
+        <div class={`card daily${progress >= 100 ? ' reached' : ''}`}>
+          {progress >= 100
+            ? <div class="row between"><strong class="goal-done">🎉 Daily goal reached</strong><span class="muted small">{p.answeredToday} of {s.dailyTarget}</span></div>
+            : <div class="row between"><span>{p.answeredToday} of {s.dailyTarget} questions</span><span class="muted small">{progress}%</span></div>}
           <div class="mt" style={{ marginTop: '.5rem' }}><Meter value={progress} label="Daily target" /></div>
           <p class="small muted" style={{ margin: '.5rem 0 0' }}>Counts every question you answer, including spaced review.</p>
           <div class="btn-row mt">

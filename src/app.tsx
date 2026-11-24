@@ -35,9 +35,10 @@ export function App() {
     const el = document.documentElement;
     if (db.settings.theme === 'system') el.removeAttribute('data-theme'); else el.setAttribute('data-theme', db.settings.theme);
     el.setAttribute('data-size', db.settings.textSize);
+    if (db.settings.celebrations === false) el.setAttribute('data-calm', ''); else el.removeAttribute('data-calm');
     const dark = db.settings.theme === 'dark' || (db.settings.theme === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0e1318' : '#f5f6f8');
-  }, [db.settings.theme, db.settings.textSize]);
+  }, [db.settings.theme, db.settings.textSize, db.settings.celebrations]);
 
   // first run → onboarding
   useEffect(() => { if (!db.settings.onboarded && head !== 'onboarding' && head !== 'backup') navigate('onboarding', true); }, [db.settings.onboarded, head]);

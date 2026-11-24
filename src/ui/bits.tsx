@@ -1,6 +1,7 @@
 import type { ComponentChildren } from 'preact';
 import { useEffect, useLayoutEffect, useState } from 'preact/hooks';
 import { back, takeRestore } from '../router';
+import { motionOn } from './celebrate';
 import { IcBack, IcX, IcCards, IcChevron, IcMore, IcProgress, IcStudy, IcToday } from './icons';
 
 export function TopBar({ title, backTo, onBack, right, noBack, narrow, closeLabel }: { title: string; backTo?: string; onBack?: () => void; right?: ComponentChildren; noBack?: boolean; narrow?: boolean; closeLabel?: string }) {
@@ -116,3 +117,18 @@ export function ListLink({ href, onClick, title, sub, right, icon }: { href?: st
 }
 
 export const Verify = () => <p class="verify"><strong>Verify against AASP's current candidate handbook.</strong> These notes summarize publicly described exam facts and may change.</p>;
+
+/** A number that counts up from zero when a result first opens (and just shows the number otherwise). */
+export function CountUp({ to, run }: { to: number; run: boolean }) {
+  const animate = run && to > 1 && motionOn();
+  const [n, setN] = useState(animate ? 0 : to);
+  useEffect(() => {
+    if (!animate) { setN(to); return; }
+    const t0 = performance.now(), dur = 700;
+    let id = 0;
+    const tick = (t: number) => { const k = Math.min(1, (t - t0) / dur); setN(Math.round(to * (1 - Math.pow(1 - k, 3)))); if (k < 1) id = requestAnimationFrame(tick); };
+    id = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(id);
+  }, [to]);
+  return <>{n}</>;
+}

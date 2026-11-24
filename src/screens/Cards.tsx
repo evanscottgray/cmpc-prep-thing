@@ -8,6 +8,7 @@ import { isLight, plan } from '../lib/plan';
 import { areaAccuracy, itemStats, smooth } from '../lib/stats';
 import { ListLink, Page } from '../ui/bits';
 import { References } from '../ui/question';
+import { bigCelebration, burstFrom } from '../ui/celebrate';
 
 const SESSION = 12; // a card session tops up what is due with new cards to this size
 const CAT = (c: Card) => c.category === 'ethics-principle' ? 'Ethics principle' : c.category === 'ethics-standard' ? 'Ethics standard' : `${ctx.bank.blueprint.kgs.find((k) => k.id === c.kg)?.name}`;
@@ -91,12 +92,12 @@ function rate(id: string, g: Grade) {
   const st = ctx.store.state;
   ctx.store.set('cardSrs', { ...st.cardSrs, [id]: scheduleCard(st.cardSrs[id], g, ymd(), st.settings.examDate) });
 }
-function RateRow({ id, onRated }: { id: string; onRated: () => void }) {
+function RateRow({ id, onRated }: { id: string; onRated: (g: Grade) => void }) {
   return (
     <div class="actionbar" role="group" aria-label="How well did you know this?">
-      <button class="btn" onClick={() => { rate(id, 'wrong'); onRated(); }}>Missed it</button>
-      <button class="btn" onClick={() => { rate(id, 'unsure'); onRated(); }}>Unsure</button>
-      <button class="btn" onClick={() => { rate(id, 'right'); onRated(); }}>Knew it</button>
+      <button class="btn" onClick={() => { rate(id, 'wrong'); onRated('wrong'); }}>Missed it</button>
+      <button class="btn" onClick={() => { rate(id, 'unsure'); onRated('unsure'); }}>Unsure</button>
+      <button class="btn" onClick={(e) => { rate(id, 'right'); burstFrom(e.currentTarget as Element, 14); onRated('right'); }}>Knew it</button>
     </div>
   );
 }
@@ -115,12 +116,17 @@ export function CardStudy() {
   }, []);
   const [i, setI] = useState(0);
   const [show, setShow] = useState(false);
+  const [tally, setTally] = useState({ right: 0, unsure: 0, wrong: 0 });
   useEffect(() => { if (show) document.getElementById('card-title')?.focus({ preventScroll: true }); }, [show]);
   const c = ctx.bank.cards.find((x) => x.id === queue[i]);
+  const rated = tally.right + tally.unsure + tally.wrong;
+  useEffect(() => { if (!c && rated > 0) setTimeout(bigCelebration, 200); }, [!c]);
   if (!c) return (
     <Page title="Concept cards" backTo="cards" tabs={false}>
       <div class="card hero center">
-        <h2>{queue.length ? 'Session complete' : 'Nothing due'}</h2>
+        {rated > 0 && <div class="cheer-emoji big" aria-hidden="true">🎉</div>}
+        <h2>{queue.length ? (rated ? 'Session complete!' : 'Session complete') : 'Nothing due'}</h2>
+        {rated > 0 && <p class="tally"><span><strong>{tally.right}</strong> knew it</span><span><strong>{tally.unsure}</strong> unsure</span><span><strong>{tally.wrong}</strong> missed</span></p>}
         <p class="muted">{queue.length ? 'Cards you rated come back on a schedule that fits your exam date.' : 'All cards are scheduled for later.'}</p>
         <button class="btn primary" onClick={() => navigate('cards', true)}>Done</button>
       </div>
@@ -138,7 +144,7 @@ export function CardStudy() {
       ) : (
         <>
           <CardBody c={c} />
-          <RateRow id={c.id} onRated={() => { setShow(false); setI(i + 1); window.scrollTo(0, 0); }} />
+          <RateRow id={c.id} onRated={(g) => { setTally((t) => ({ ...t, [g]: t[g] + 1 })); setShow(false); setI(i + 1); window.scrollTo(0, 0); }} />
         </>
       )}
     </Page>
