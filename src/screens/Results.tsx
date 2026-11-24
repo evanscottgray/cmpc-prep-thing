@@ -32,7 +32,6 @@ export function Results({ session: s }: { session: Session }) {
 
   const [pick, setPick] = useState<{ title: string; src: DrillSource } | null>(null);
   const [all, setAll] = useState(false);
-  const [glow, setGlow] = useState(false);
   const missed = missedPositions(s);
   const missedScored = missed.filter((i) => s.items[i].scored).length;
   const gap = Math.round(r.raw - target);
@@ -48,12 +47,13 @@ export function Results({ session: s }: { session: Session }) {
   // Familiar questions inflate a score, so a retake's pass is reported, not celebrated; a full run means every question answered.
   const freshForm = !s.retake && s.seenBefore === 0;
   const fullRun = r.answered === r.total;
+  // Decided once, on the first render, so the layout (the callout's reserved strip) is right from the first frame.
+  // The session's own moment was kept inside its verdict card, so a strong summary still gets its finish.
+  const [celebrating] = useState(() => fresh(s.submittedAt) && (full ? pass && freshForm && fullRun : pctAll >= 80 && r.total >= 5) && firstTime(s.id));
   useEffect(() => {
-    if (!fresh(s.submittedAt)) return;
-    // The session's own moment was kept inside its verdict card, so a strong summary still gets its finish.
-    const earned = full ? pass && freshForm && fullRun : pctAll >= 80 && r.total >= 5;
-    if (earned && firstTime(s.id)) { setGlow(true); return cardBurst(document.querySelector<HTMLElement>(full ? '.exam-pass' : '.card.hero'), !full, 300); } // the compact pass callout gets the lighter fountain // inside the card that holds the result
+    if (celebrating) return cardBurst(document.querySelector<HTMLElement>(full ? '.exam-pass' : '.card.hero'), true, 300); // inside the card that holds the result
   }, []);
+  const glow = celebrating;
   const today = todayCount(db);
   const T = db.settings.dailyTarget;
   const todayPct = Math.min(100, (100 * today) / Math.max(1, T));
@@ -88,7 +88,7 @@ export function Results({ session: s }: { session: Session }) {
             </>
           )}
           <p class="small muted" style={{ margin: '.25rem 0 0' }}>
-            {r.raw}/100 is {gap === 0 ? 'exactly your practice target' : `${Math.abs(gap)} ${gap > 0 ? 'above' : 'below'} your practice target of ${target}`}, which the app places at 550.{Math.abs(gap) <= 3 ? ' Close enough to go either way.' : ''} {s.submittedAt ? `Taken ${fmtDate(ymd(s.submittedAt))}.` : ''}
+            {r.raw}/100 is {gap === 0 ? 'exactly your practice target' : `${Math.abs(gap)} ${gap > 0 ? 'above' : 'below'} your practice target of ${target}`}, which the app places at 550 on its estimated scale. {s.submittedAt ? `Taken ${fmtDate(ymd(s.submittedAt))}.` : ''}
           </p>
           {missed.length !== missedScored && <p class="small muted" style={{ margin: '.5rem 0 0' }}>{missedScored} of your {missed.length} misses were scored; {missed.length - missedScored === 1 ? '1 was an unscored trial question.' : `${missed.length - missedScored} were unscored trial questions.`}</p>}
           {s.autoSubmitted && <p class="small mt" style={{ marginBottom: 0 }}><strong>Time ran out</strong> — submitted automatically.</p>}
@@ -123,6 +123,7 @@ export function Results({ session: s }: { session: Session }) {
       <div class="btn-row result-actions mt">
         {!s.timed && <a class="btn primary" href="#/today">Done</a>}
         {missed.length > 0 && <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}?f=incorrect`}>Review {plural(missed.length, 'miss', 'misses')}</a>}
+        {missed.length > 5 && full && <p class="small muted review-hint">Start with a few. You can pick up where you left off.</p>}
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
         {s.timed && <a class="btn" href="#/today">Done</a>}
         {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{(() => { const q = openQuiz(); return q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'; })()}</button>}

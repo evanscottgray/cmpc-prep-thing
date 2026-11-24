@@ -520,6 +520,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 @media (max-width: 430px) { .nav-legend { grid-template-columns: auto auto; } }
 /* results: the main action spans the row, the others share one */
 .result-actions > .btn:first-child { flex-basis: 100%; }
+.result-actions > .review-hint { flex-basis: 100%; margin: -.25rem 0 .25rem; text-align: center; }
 .result-actions > .btn.ghost { flex-basis: 100%; background: var(--bg); } /* opaque, so summary confetti passes behind its words */
 .device summary { min-height: 44px; display: flex; align-items: center; font-weight: 600; cursor: pointer; }
 .device[open] summary { margin-bottom: .5rem; }
@@ -584,7 +585,8 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .today-row.reached .meter span { background: var(--ok); }
 .progress-gain { margin: .5rem 0 0; font-weight: 600; color: var(--ok); }
 .week li.before .dot { border-color: transparent; } /* before you started: no ring, just a small mark */
-.week li.before .dot::after { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--border-strong); }
+.week li.today:not(.on) .dot { border-color: transparent; box-shadow: none; } /* today, not yet: a quiet mark, not a hole to fill */
+.week li.today:not(.on) .dot::after, .week li.before .dot::after { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--border-strong); }
 .streak-chip.best { background: var(--surface-2); color: var(--muted); font-weight: 600; }
 .verdict-extra { display: block; margin-top: .2rem; font-weight: 700; }
 .verdict.bad .verdict-extra { color: var(--text); font-weight: 500; }

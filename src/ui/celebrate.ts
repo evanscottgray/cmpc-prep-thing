@@ -167,10 +167,10 @@ export function cardBurst(card: HTMLElement | null | undefined, big: boolean, de
     if (!clip) return;
     const layer = new Layer(card, clip); layers.add(layer);
     const cx = clip.x + clip.w * 0.62, base = clip.y + clip.h - 6; // toward the outer side, and a little above the bottom
-    const power = Math.sqrt(2 * 0.32 * clip.h) * (big ? 0.85 : 0.8); // the fastest pieces peak just inside the pocket
-    const dense = Math.min(1.4, Math.max(1, 110 / clip.w)); // a narrow pocket (larger text) gets a tighter cluster, not specks
-    layer.add({ count: Math.round((big ? 46 : 22) * dense), x: cx, y: base, angle: -90, spread: big ? 70 : 50, power, life: big ? 1500 : 1100, size: 0.85 });
-    if (big) later(() => { if (card.isConnected && layers.has(layer)) layer.add({ count: 24, x: cx, y: base, angle: -90, spread: 90, power: power * 0.9, life: 1200, size: 0.85 }); }, 260);
+    const power = Math.sqrt(2 * 0.32 * clip.h) * (big ? 0.95 : 0.9); // peaks near the top; the edge fade softens any that go further
+    const size = clip.w < 90 ? 0.7 : 0.85; // a narrow pocket (larger text) gets smaller pieces, not a heap
+    layer.add({ count: big ? 46 : 22, x: cx, y: base, angle: -90, spread: big ? 70 : 50, power, life: big ? 1500 : 1100, size });
+    if (big) later(() => { if (card.isConnected && layers.has(layer)) layer.add({ count: 24, x: cx, y: base, angle: -90, spread: 90, power: power * 0.9, life: 1200, size }); }, 260);
   }, delay);
 }
 /** The verdict in a session. */

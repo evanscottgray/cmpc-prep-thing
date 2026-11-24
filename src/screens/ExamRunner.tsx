@@ -17,7 +17,9 @@ export function ExamRunner({ session: s }: { session: Session }) {
   const [navOpen, setNavOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [reportFor, setReportFor] = useState<string | null>(null);
-  const [hideTimer, setHideTimer] = useState(false);
+  // hiding the clock is remembered for the whole sitting (leaving and resuming keeps it hidden)
+  const hideTimer = !!s.timerHidden;
+  const setHideTimer = (v: boolean) => ctx.store.putSession({ ...ctx.store.state.sessions[s.id], timerHidden: v });
   const [announce, setAnnounce] = useState('');
   const warned = useRef<Set<number>>(new Set());
   const submitting = useRef(false);
@@ -194,7 +196,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
           e.preventDefault(); b[(at + (e.shiftKey ? -1 : 1) + b.length) % b.length]?.focus();
         }}>
           <h2 id="paused-h">Paused</h2>
-          <p class="muted">Coached mode. The question is hidden while paused.<br />{fmtClock(remaining)} remaining.</p>
+          <p class="muted">Coached mode. The question is hidden while paused.{!hideTimer || low ? <><br />{fmtClock(remaining)} remaining.</> : null}</p>
           <button class="btn primary" id="resume-btn" onClick={() => resume(s.id)}><IcPlay />Resume</button>
           <button class="btn" onClick={() => { saveScroll(s.id, Math.round(window.scrollY)); navigate('today'); toast('Still paused. Resume it from Today.'); }}>Leave exam screen</button>
         </div>

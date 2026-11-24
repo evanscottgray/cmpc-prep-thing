@@ -150,7 +150,7 @@ function DailyCard({ answered, now, reachedNote }: { answered: number; now: numb
         <StudyDays now={now} newToday={shown.newToday} />
         {reached && <p class="small muted more-label">If you want more:</p>}
         <div class={`btn-row${reached ? '' : ' mt'}`} style={reached ? { marginTop: '.4rem' } : undefined}>
-          {(() => { const q = openQuiz(); return <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>{q ? `Resume · ${q.items.length - q.revealed.length} left` : 'Quick quiz · 10'}</button>; })()}
+          {(() => { const q = openQuiz(); return <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>{q ? `Resume quiz · ${q.items.length - q.revealed.length} left` : 'Quick quiz · 10'}</button>; })()}
           <a class={`btn small${reached ? ' ghost' : ''}`} href="#/study">More options</a>
         </div>
       </div>
@@ -202,6 +202,7 @@ export function Today() {
   const light = isLight(p.phase);
   const goalMet = !light && p.answeredToday >= s.dailyTarget;
   const firstVisit = !db.attempts.length && !Object.keys(db.cardSrs).length;
+  const hasRight = light || (p.dueItems > 0 && p.primary.kind !== 'review') || p.dueCards > 0;
   const urgent = p.primary.kind === 'resume' || p.primary.kind === 'reviewExam'; // a running timer or a fresh review comes first
   // Only say the exam covered the goal when today's answers from that sitting alone reach it.
   const examToday = p.primary.kind === 'reviewExam' ? db.attempts.filter((a) => a.s === (p.primary as { session: { id: string } }).session.id && ymd(a.t) === ymd(now) && !a.na).length : 0;
@@ -212,7 +213,7 @@ export function Today() {
   const needBackup = Date.now() - started > 2 * 86400000 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
   const notInstalled = ctx.caps.ios && !ctx.caps.standalone;
   return (
-    <Page title="Today" noBack wide>
+    <Page title="Today" noBack wide={hasRight}>
       <div class="row between" style={{ marginBottom: '1rem' }}>
         <div class="grow">
           {p.daysLeft !== null && p.daysLeft >= 0
@@ -221,7 +222,7 @@ export function Today() {
         </div>
       </div>
 
-      <div class="cols">
+      <div class={hasRight ? 'cols' : undefined}>{/* one centred column when there's nothing for a second one */}
       <div>
       {light ? <Primary a={p.primary} why={p.why} />
         : goalMet && !urgent ? <>{/* goal reached: the day's win leads; an exam can wait for a fresh day */}
