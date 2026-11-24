@@ -185,6 +185,23 @@ export function finishReview(id: string) {
   if (openedMisses(s) < missedPositions(s).length) return;
   put({ ...s, reviewLeft: true, reviewedAt: Date.now(), reviewedRead: Date.now() });
 }
+/** The one next step for an exam's review, shared by Today and Results so they always agree. */
+export type ReviewStep =
+  | { kind: 'finish' }                                   // every miss read: one tap finishes it
+  | { kind: 'resumeLast'; pos: number }                  // every miss opened, the last one interrupted mid-read
+  | { kind: 'continue'; pos?: number; opened: number; total: number }
+  | { kind: 'start'; pos?: number; total: number };
+export function reviewStep(s: Session): ReviewStep {
+  const m = missedPositions(s), opened = openedMisses(s);
+  if (m.length && opened === m.length) return !s.reviewLeft && s.reviewPos !== undefined ? { kind: 'resumeLast', pos: s.reviewPos } : { kind: 'finish' };
+  if (opened > 0) return { kind: 'continue', pos: nextMiss(s), opened, total: m.length };
+  return { kind: 'start', pos: m.length > 12 ? m[0] : undefined, total: m.length };
+}
+/** "I'm done": finishes the review (with its reward) when every miss was read, otherwise just sets the rest aside. */
+export function doneReviewing(id: string) {
+  const s = get(id); if (!s) return;
+  if (openedMisses(s) === missedPositions(s).length) finishReview(id); else markReviewed(id);
+}
 export function markReadCelebrated(id: string) {
   const s = get(id); if (s && !s.readCelebrated) put({ ...s, readCelebrated: true });
 }

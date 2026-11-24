@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'preact/hooks';
 import { ctx, useDb, useNow } from '../ctx';
 import { navigate } from '../router';
-import { abandon, createSession, markReviewed, missedPositions, nextMiss, openedMisses } from '../lib/actions';
+import { abandon, createSession, doneReviewing, finishReview, markReviewed, missedPositions, nextMiss, openedMisses, reviewStep } from '../lib/actions';
 import { REVIEW_MAX, buildDrill, buildQuiz, buildReview } from '../lib/assemble';
 import { fmtDate, fmtShort, plural, ymd } from '../lib/dates';
 import { isLight, plan, type Action } from '../lib/plan';
+import type { Session } from '../types';
 import { dueIds } from '../lib/srs';
 import { lastWeek, streak, studyDays } from '../lib/streak';
 import { ListLink, Meter, Page } from '../ui/bits';
@@ -29,6 +30,19 @@ export function startQuiz() {
   if (open) return navigate(`s/${open.id}`);
   const s = buildQuiz(ctx.bank, ctx.store.state);
   createSession(s); navigate(`s/${s.id}`);
+}
+
+/** The recommended exam review: one next step, the same one Results shows. */
+function reviewCard(x: Session) {
+  const st = reviewStep(x);
+  const open = (pos?: number) => navigate(`review/${x.id}${pos === undefined ? '' : `/${pos}`}?f=incorrect`);
+  const finish = () => { finishReview(x.id); navigate(`results/${x.id}`); }; // its moment plays on the result
+  const skip = { label: st.kind === 'start' ? 'Skip this review' : 'Skip remaining misses', go: () => { markReviewed(x.id); toast(`Done. ${x.title} stays under Progress if you want it later.`); } };
+  const base = { ctaFirst: true, eyebrow: 'Recommended', title: `Review your ${x.title} misses` };
+  if (st.kind === 'finish') return { ...base, cta: 'Finish review', go: finish, note: 'Every miss is read. One tap finishes it.' };
+  if (st.kind === 'resumeLast') return { ...base, cta: 'Resume last miss', go: () => open(st.pos), second: { label: 'Finish review', go: finish } };
+  if (st.kind === 'continue') return { ...base, cta: `Continue review · ${st.opened} of ${st.total}`, go: () => open(st.pos), second: skip };
+  return { ...base, cta: st.total > 12 ? 'Start with one miss' : `Review ${plural(st.total, 'miss', 'misses')}`, go: () => open(st.pos), note: st.total > 12 ? 'Read one explanation now. You can pick up where you left off.' : undefined, second: skip };
 }
 
 const SHORT = { get label() { const q = openQuiz(); return q ? `Or resume your quick quiz · ${q.items.length - q.revealed.length} left` : 'Or warm up with 10 untimed questions'; }, go: () => startQuiz() };
@@ -60,7 +74,7 @@ function Primary({ a, why, later, firstVisit }: { a: Action; why: string; later?
     formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 questions · 90 minutes · no breaks', second: SHORT },
     formB: { eyebrow: 'Recommended', title: 'Take Form B', cta: 'Start Form B', go: () => navigate('start/formB'), note: '115 questions · 90 minutes · fresh questions', second: SHORT },
     mixed: { eyebrow: 'Final week', title: 'Take a mixed exam', cta: 'Start mixed exam', go: () => navigate('start/mixed'), note: '115 questions · 90 minutes · blueprint-matched', second: SHORT },
-    reviewExam: { ctaFirst: true, eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind !== 'reviewExam' ? '' : openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : (missedPositions(a.session).length > 12 ? 'Start with one miss' : `Review ${plural(missedPositions(a.session).length, 'miss', 'misses')}`), note: a.kind === 'reviewExam' && !openedMisses(a.session) && missedPositions(a.session).length > 12 ? 'Read one explanation now. You can pick up where you left off.' : undefined, second: a.kind === 'reviewExam' ? { label: openedMisses(a.session) ? "I'm done reviewing" : 'Skip this review', go: () => { markReviewed(a.session.id); toast(`Done. ${a.session.title} stays under Progress if you want it later.`); } } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : missedPositions(a.session).length > 12 ? missedPositions(a.session)[0] : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
+    reviewExam: a.kind !== 'reviewExam' ? { eyebrow: '', title: '', cta: '', go: () => {} } : reviewCard(a.session),
     weak: { eyebrow: 'Recommended', title: a.kind === 'weak' ? `Weak-area drill · ${a.count} questions` : '', cta: 'Start drill', go: () => a.kind === 'weak' && startWeak(a.count), note: 'Tutor mode: rationale after every answer' },
     review: { eyebrow: 'Recommended', title: a.kind === 'review' ? `Spaced review · ${a.count} questions` : '', cta: 'Start review', go: startReview, note: 'Tutor mode: rationale after every answer' },
     light: { eyebrow: 'Final days', title: 'Light review', cta: Object.keys(ctx.store.state.cardSrs).length ? 'Review cards you know' : 'Skim concept cards', go: () => navigate(Object.keys(ctx.store.state.cardSrs).length ? 'cards/study' : 'cards'), second: { label: 'Exam-day notes', go: () => navigate('ref/examday') } },
@@ -182,8 +196,10 @@ function InProgress({ skip }: { skip?: string }) {
       <div class="list">
         {reviews.map((x) => (
           <div class="list-pair">
-            <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read</span></span><span class="badge accent">Resume</span></a>
-            <button class="btn small ghost" onClick={() => { markReviewed(x.id); toast(`Marked done. ${x.title} stays under Progress.`); }}>Mark done<span class="sr-only"> for the {x.title} review</span></button>
+            {(() => { const st = reviewStep(x); const all = st.kind === 'finish' || st.kind === 'resumeLast'; return <>
+              <a class="list-item" href={st.kind === 'finish' ? `#/results/${x.id}` : `#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`} onClick={st.kind === 'finish' ? () => finishReview(x.id) : undefined}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read</span></span><span class="badge accent">{st.kind === 'finish' ? 'Finish' : 'Resume'}</span></a>
+              <button class="btn small ghost" onClick={() => { doneReviewing(x.id); toast(all ? `Review finished. Nice work.` : `Marked done. ${x.title} stays under Progress.`); }}>{all ? 'Finish' : 'Mark done'}<span class="sr-only"> for the {x.title} review</span></button>
+            </>; })()}
           </div>
         ))}
         {open.map((x) => {

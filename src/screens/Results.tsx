@@ -2,7 +2,7 @@ import type { Session } from '../types';
 import { ctx, useDb } from '../ctx';
 import { fmtClock, fmtDate, fmtDuration, plural, ymd } from '../lib/dates';
 import { scaledScore } from '../lib/scoring';
-import { markReadCelebrated, missedPositions, nextMiss, openedMisses } from '../lib/actions';
+import { finishReview, markReadCelebrated, missedPositions, openedMisses, reviewStep } from '../lib/actions';
 import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
 import type { DrillSource } from '../lib/assemble';
@@ -56,9 +56,12 @@ export function Results({ session: s }: { session: Session }) {
   const glow = celebrating;
   // every miss read through, just now: the hardest work after an exam gets its own moment (once)
   // shown the first time the result opens after the review was finished (however long that takes), once
-  const [readAll] = useState(() => s.timed && !!s.reviewedRead && !s.readCelebrated && firstTime(`${s.id}:read`));
-  useEffect(() => { if (!readAll) return; markReadCelebrated(s.id); return cardBurst(document.querySelector<HTMLElement>('.review-done'), true, 300); }, []);
-  const readDone = s.timed && !!s.reviewedRead; // after a finished review, Done leads and reading again is optional
+  const [readAll, setReadAll] = useState(() => s.timed && !!s.reviewedRead && !s.readCelebrated && firstTime(`${s.id}:read`));
+  useEffect(() => { if (!readAll) return; markReadCelebrated(s.id); return cardBurst(document.querySelector<HTMLElement>('.review-done'), true, 300); }, [readAll]);
+  // after a finished review (or one set aside with every miss read), Done leads and reading again is optional
+  const readDone = s.timed && (!!s.reviewedRead || (!!s.reviewedAt && openedMisses(s) === missed.length && missed.length > 0));
+  const step = s.timed && !s.reviewedAt && missed.length ? reviewStep(s) : null;
+  const finishHere = () => { finishReview(s.id); firstTime(`${s.id}:read`); setReadAll(true); }; // one tap: the moment plays right here
   const today = todayCount(db);
   const T = db.settings.dailyTarget;
   const todayPct = Math.min(100, (100 * today) / Math.max(1, T));
@@ -122,27 +125,27 @@ export function Results({ session: s }: { session: Session }) {
       )}
 
       {readAll && (
-        <div class={`verdict ok review-done fresh big mt${motionOn() ? ' room' : ''}`} role="status"><IcCheckCircle /><span><span class="pass-head">{missed.length === 1 ? 'Your miss is read' : `All ${missed.length} misses read`}</span><span class="verdict-sub">{full ? "That's the most useful thing to do after an exam." : "That's the most useful thing to do after timed practice."} Nice work.</span></span></div>
+        <div class={`verdict ok review-done fresh big mt${motionOn() ? ' room' : ''}`} role="status"><IcCheckCircle /><span><span class="pass-head">{missed.length === 1 ? 'You read your miss' : missed.length === 2 ? 'Both misses read' : `All ${missed.length} misses read`}</span><span class="verdict-sub">{full ? "That's the most useful thing to do after an exam." : "That's the most useful thing to do after timed practice."} Nice work.</span></span></div>
       )}
       {(s.retake || (s.kind === 'mixed' && s.seenBefore > 0)) && full && (
         <div class="banner warn mt" role="note"><IcAlert /><div><strong>Not a fresh estimate.</strong> {`${s.seenBefore} of ${r.total} questions were ones you had already seen.`} Familiar questions inflate the score.</div></div>
       )}
 
       <div class="btn-row result-actions mt">
-        {!s.timed && <a class="btn primary" href="#/today">Done</a>}
-        {missed.length > 0 && (() => {
-          // a long list is started, not assigned; once begun, it continues where it left off
-          const opened = openedMisses(s);
-          const reviewing = opened > 0 && opened < missed.length && !s.reviewedAt;
-          const toFinish = s.timed && opened === missed.length && !s.reviewedAt; // all opened, not yet finished: one step left
-          const startOne = full && missed.length > 12 && !opened; // the first step is one rationale, not a list of 40
-          const next = reviewing ? nextMiss(s) : toFinish ? nextMiss(s) ?? missed[missed.length - 1] : startOne ? missed[0] : undefined;
-          const label = reviewing ? `Continue review · ${opened} of ${missed.length}` : toFinish ? 'Finish review' : startOne ? 'Start with one miss' : readDone ? (missed.length === 1 ? 'Read the miss again' : 'Read the misses again') : `Review ${plural(missed.length, 'miss', 'misses')}`;
-          return <a class={`btn${s.timed && !readDone ? ' primary' : ''}`} href={`#/review/${s.id}${next === undefined ? '' : `/${next}`}?f=incorrect`}>{label}</a>;
+        {(!s.timed || readDone) && <a class="btn primary" href="#/today">Done</a>}
+        {missed.length > 0 && !readDone && (() => {
+          // one next step, the same one Today shows: start with one, continue, resume the last, or finish in one tap
+          if (step?.kind === 'finish') return <button class={`btn${s.timed ? ' primary' : ''}`} onClick={finishHere}>Finish review</button>;
+          const href = (pos?: number) => `#/review/${s.id}${pos === undefined ? '' : `/${pos}`}?f=incorrect`;
+          if (step?.kind === 'resumeLast') return <a class="btn primary" href={href(step.pos)}>Resume last miss</a>;
+          if (step?.kind === 'continue') return <a class="btn primary" href={href(step.pos)}>Continue review · {step.opened} of {step.total}</a>;
+          if (step?.kind === 'start' && full && step.total > 12) return <a class="btn primary" href={href(step.pos)}>Start with one miss</a>;
+          return <a class={`btn${s.timed ? ' primary' : ''}`} href={href()}>Review {plural(missed.length, 'miss', 'misses')}</a>;
         })()}
         {missed.length > 12 && full && !openedMisses(s) && <p class="small muted review-hint">{missed.length} misses to read, one at a time. You can pick up where you left off.</p>}
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
-        {s.timed && <a class={`btn${readDone ? ' primary' : ''}`} href="#/today">Done</a>}
+        {s.timed && !readDone && <a class="btn" href="#/today">Done</a>}
+        {readDone && missed.length > 0 && <a class="btn ghost" href={`#/review/${s.id}?f=incorrect`}>{missed.length === 1 ? 'If you want: read the miss again' : 'If you want: read the misses again'}</a>}
         {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{(() => { const q = openQuiz(); return q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'; })()}</button>}
       </div>
 

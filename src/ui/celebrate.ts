@@ -3,7 +3,7 @@ import { ctx } from '../ctx';
 /** Confetti and motion run only when Celebrations is on and the device doesn't ask for reduced motion. */
 export function motionOn(): boolean {
   if (ctx.store?.state.settings.celebrations === false) return false;
-  try { return !matchMedia('(prefers-reduced-motion: reduce)').matches; } catch { return true; }
+  try { return !matchMedia('(prefers-reduced-motion: reduce)').matches; } catch { return false; } // unknown: stay still
 }
 
 interface P { x: number; y: number; vx: number; vy: number; r: number; vr: number; w: number; h: number; c: string; round: boolean; end: number }
@@ -156,7 +156,8 @@ export function cardBurst(card: HTMLElement | null | undefined, big: boolean, de
     if (!clip) return;
     const layer = new Layer(card, clip); layers.add(layer);
     const narrow = clip.w < 90;
-    const cx = clip.x + clip.w * (narrow ? 0.5 : 0.62), base = clip.y + clip.h - 6; // toward the outer side (centred when narrow), a little above the bottom
+    const cx = clip.x + clip.w * (narrow ? 0.5 : 0.62);
+    const base = clip.y + (clip.h > 110 ? clip.h * 0.78 : clip.h - 6); // a tall pocket launches higher, beside the words it celebrates
     const room = Math.max(14, Math.min(46, Math.round((clip.w * clip.h) / 350))); // as many pieces as the space can show as a fountain, not a heap
     const power = Math.sqrt(2 * 0.32 * clip.h) * (big ? 0.95 : 0.9); // peaks near the top; the edge fade softens any that go further
     const size = clip.w < 90 ? 0.8 : 0.85; // a narrow pocket (larger text): slightly smaller pieces, not a heap

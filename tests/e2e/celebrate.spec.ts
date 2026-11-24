@@ -172,8 +172,29 @@ test('reading every miss of a timed set, in any order, ends with "Finish review"
   await page.locator('.list .list-item').first().click();
   await expect(page.getByText('2 of 2 read')).toBeVisible();
   await page.getByRole('button', { name: 'Finish review' }).click(); // offered on whichever miss completes the set
-  await expect(page.getByText('All 2 misses read')).toBeVisible();
+  await expect(page.getByText('Both misses read')).toBeVisible();
   await expect(confetti(page)).toHaveCount(1);
-  await expect(page.getByRole('link', { name: 'Read the misses again' })).not.toHaveClass(/primary/); // Done leads now
-  await expect(page.getByRole('link', { name: 'Done' })).toHaveClass(/primary/);
+  await expect(page.locator('.result-actions > :first-child')).toHaveText('Done'); // Done leads now
+  await expect(page.getByRole('link', { name: 'If you want: read the misses again' })).toBeVisible();
+});
+
+test('with every miss opened but not finished, Results finishes the review in one tap', async ({ page }) => {
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  for (let q = 1; q <= 23; q++) {
+    const k = await keyIndex(page);
+    await optionLabels(page).nth(q <= 2 ? (k + 1) % 4 : k).click();
+    await page.getByRole('button', { name: q < 23 ? 'Next' : 'Finish' }).click();
+  }
+  await page.getByRole('button', { name: 'Submit', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Session summary' })).toBeVisible();
+  const results = new URL(page.url()).hash;
+  await page.getByRole('link', { name: 'Review 2 misses' }).click();
+  for (const i of [0, 1]) { await page.locator('.list .list-item').nth(i).click(); await page.getByRole('button', { name: 'Back', exact: true }).click(); } // both opened, then left
+  await expect(page).toHaveURL(/#\/review\/[^/?]+\?f=incorrect$/); // back on the list before moving on
+  await go(page, results);
+  await page.getByRole('button', { name: 'Finish review' }).click(); // no detour back into a question
+  await expect(page.getByText('Both misses read')).toBeVisible();
+  await expect(confetti(page)).toHaveCount(1);
 });

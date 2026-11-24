@@ -117,7 +117,8 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const q = query.toString() ? `?${query}` : '';
   const isExam = ['formA', 'formB', 'mixed'].includes(s.kind);
   const toList = () => { leftReviewItem(s.id); if (listAt.get(s.id) === historyIndex() - 1) back(); else navigate(`review/${s.id}${q}`, true); };
-  const misses = query.get('f') === 'incorrect' ? missedPositions(s).length : 0;
+  // the reading count and "Finish review" belong to the whole set of misses, not a filtered slice of it
+  const misses = query.get('f') === 'incorrect' && !query.get('d') && !query.get('k') && !query.get('s') ? missedPositions(s).length : 0;
   const read = misses ? openedMisses(s) : 0;
   // every miss is open now (in whatever order): name the step, and finish on the result it belongs to (exams only)
   const finishing = s.timed && misses > 0 && !s.reviewedAt && read === misses; // timed sessions (tutor modes already showed every rationale)
