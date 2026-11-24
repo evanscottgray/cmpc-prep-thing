@@ -8,7 +8,7 @@ import { isLight, plan } from '../lib/plan';
 import { areaAccuracy, itemStats, smooth } from '../lib/stats';
 import { ListLink, Meter, Page } from '../ui/bits';
 import { References } from '../ui/question';
-import { celebrateSoon } from '../ui/celebrate';
+import { cardBurst } from '../ui/celebrate';
 import { markStudied } from '../lib/actions';
 
 const SESSION = 12; // a card session tops up what is due with new cards to this size
@@ -123,11 +123,11 @@ export function CardStudy() {
   const c = ctx.bank.cards.find((x) => x.id === queue[i]);
   const rated = tally.right + tally.unsure + tally.wrong;
   const skipped = Math.min(i, queue.length) - rated;
-  const good = rated > 0 && tally.right * 2 >= queue.length; // celebrate a set where at least half of it was known
-  useEffect(() => { if (!c && good) return celebrateSoon(200, () => document.querySelector('.card.hero')); }, [!c]); // from just under the card it celebrates
+  const good = rated > 0 && tally.right * 3 >= queue.length * 2; // celebrate a set where about two-thirds of it was known
+  useEffect(() => { if (!c && good) return cardBurst(document.querySelector<HTMLElement>('.card.hero'), true, 250); }, [!c]); // in the card's own empty corner
   if (!c) return (
     <Page title="Concept cards" backTo="cards" tabs={false}>
-      <div class="card hero center">
+      <div class={`card hero center${good ? ' celebrate' : ''}`}>
         {rated > 0 && <div class="cheer-emoji" aria-hidden="true" style={{ marginBottom: '.35rem' }}>{good ? '🎉' : '🌱'}</div>}
         <h2>{queue.length ? (rated ? 'Session complete!' : 'Session complete') : 'Nothing due'}</h2>
         {skipped > 0 && <p class="small muted" style={{ margin: '0 0 .25rem' }}>{rated} of {queue.length} rated · {skipped} skipped</p>}

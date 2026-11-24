@@ -12,7 +12,7 @@ interface Rect { x: number; y: number; w: number; h: number }
 function palette(): string[] {
   const cs = getComputedStyle(document.documentElement);
   const v = (n: string) => cs.getPropertyValue(n).trim();
-  return [v('--accent'), v('--ok'), v('--warn-bar'), '#f06292', '#9575cd', '#4fc3f7', '#ffd54f'].filter(Boolean);
+  return [v('--accent'), v('--ok'), v('--warn-bar'), '#f06292', '#ffd54f'].filter(Boolean); // the app's colours plus two warm accents
 }
 
 /**
@@ -26,7 +26,12 @@ class Layer {
   parts: P[] = [];
   raf = 0;
   last = 0;
+  hostSize: { w: number; h: number } | null = null;
   constructor(public host: HTMLElement | null, public clip: Rect | null) {
+    if (host) {
+      this.hostSize = { w: host.clientWidth, h: host.clientHeight };
+      if (getComputedStyle(host).position === 'static') host.style.position = 'relative'; // the canvas fills the card it celebrates
+    }
     this.canvas = document.createElement('canvas');
     this.canvas.className = host ? 'confetti card-layer' : 'confetti';
     this.canvas.setAttribute('aria-hidden', 'true');
@@ -46,6 +51,7 @@ class Layer {
   frame(t: number) {
     if (this.host && !this.host.isConnected) return this.stop();
     const { w, h } = this.size();
+    if (this.hostSize && (w !== this.hostSize.w || h !== this.hostSize.h)) return this.stop(); // the card reflowed (rotation): its empty corner may have moved
     const dpr = Math.min(2, devicePixelRatio || 1);
     if (this.canvas.width !== Math.round(w * dpr) || this.canvas.height !== Math.round(h * dpr)) { this.canvas.width = Math.round(w * dpr); this.canvas.height = Math.round(h * dpr); } // also after a rotation
     const g = this.canvas.getContext('2d')!;
@@ -107,46 +113,63 @@ export function confetti({ count = 40, x = innerWidth / 2, y = innerHeight / 3, 
 }
 
 /**
- * The empty corner of the verdict card to the right of "Correct" and "The answer is …", in the card's
- * own coordinates. The milestone and goal lines below are left out: they can be as wide as the card.
- * Null when the words leave too little room.
+ * The largest empty area along a card's right edge, in the card's own coordinates, found from the
+ * line boxes of its words (and icons). Confetti drawn there is fully visible and can't touch any text
+ * or control. Null when the words leave too little room.
  */
-function verdictPocket(verdict: HTMLElement): Rect | null {
-  const box = verdict.getBoundingClientRect();
-  let right = 0, bottom = 0;
-  const walk = document.createTreeWalker(verdict, NodeFilter.SHOW_TEXT);
+function cardPocket(card: HTMLElement): Rect | null {
+  const box = card.getBoundingClientRect();
+  const lines: { top: number; bottom: number; right: number }[] = [];
+  const walk = document.createTreeWalker(card, NodeFilter.SHOW_TEXT);
   const range = document.createRange();
   for (let n = walk.nextNode(); n; n = walk.nextNode()) {
-    const el = n.parentElement;
-    if (!n.textContent?.trim() || el?.closest('.sr-only, .verdict-extra')) continue;
+    if (!n.textContent?.trim() || n.parentElement?.closest('.sr-only, canvas')) continue;
     range.selectNodeContents(n);
-    for (const r of range.getClientRects()) { right = Math.max(right, r.right); bottom = Math.max(bottom, r.bottom); }
+    for (const r of range.getClientRects()) if (r.width && r.height) lines.push({ top: r.top - box.top, bottom: r.bottom - box.top, right: r.right - box.left });
   }
-  const icon = verdict.querySelector('svg')?.getBoundingClientRect();
-  if (icon) right = Math.max(right, icon.right);
-  const hasExtra = !!verdict.querySelector('.verdict-extra');
-  const x = right + 12 - box.left, y = 3;
-  const w = box.width - 4 - x, h = (hasExtra ? bottom + 4 - box.top : box.height - 3) - y;
-  return w >= 56 && h >= 36 ? { x, y, w, h } : null;
+  for (const el of card.querySelectorAll('svg, .meter, .btn, img')) {
+    const r = el.getBoundingClientRect();
+    if (r.width && r.height) lines.push({ top: r.top - box.top, bottom: r.bottom - box.top, right: r.right - box.left });
+  }
+  lines.sort((a, b) => a.top - b.top);
+  const W = box.width - 4, H = box.height - 3, gap = 12;
+  let best: Rect | null = null;
+  // bands of consecutive lines: the free width is set by the widest line in the band
+  for (let i = 0; i <= lines.length; i++) {
+    const top = i === 0 ? 3 : lines[i - 1].bottom + 4; // just below the line above the band (or the card's top)
+    let right = 0;
+    for (let j = i; j <= lines.length; j++) {
+      const bottom = j === lines.length ? H : lines[j].top - 4; // just above the first line that doesn't fit
+      const r = { x: right + gap, y: top, w: W - right - gap, h: bottom - top };
+      if (r.w >= 56 && r.h >= 36 && (!best || r.w * r.h > best.w * best.h)) best = r;
+      if (j === lines.length) break;
+      right = Math.max(right, lines[j].right);
+      if (W - right - gap < 56) break;
+    }
+  }
+  return best;
 }
 
 /**
- * The verdict's celebration: a fountain in its empty corner, bigger (and twice) for a run of 3/5/10 or
- * the daily goal. With no room in the card, nothing is thrown: the glow and the words carry it.
+ * A card's celebration: a fountain in its empty corner, bigger (and twice) for a bigger moment
+ * (a run of 3/5/10, the daily goal, a strong summary). With no room in the card, nothing is thrown:
+ * the glow and the words carry it.
  */
-export function verdictBurst(verdict: HTMLElement | null | undefined, big: boolean) {
-  if (!verdict || !motionOn()) return;
-  later(() => { // after the verdict's 0.42 s pop has settled, so the card is measured at its real size
-    if (!verdict.isConnected) return;
-    const clip = verdictPocket(verdict);
+export function cardBurst(card: HTMLElement | null | undefined, big: boolean, delay = 450) {
+  if (!card || !motionOn()) return () => {};
+  return later(() => { // after the card's pop has settled, so it is measured at its real size
+    if (!card.isConnected) return;
+    const clip = cardPocket(card);
     if (!clip) return;
-    const layer = new Layer(verdict, clip); layers.add(layer);
-    const cx = clip.x + clip.w / 2, base = clip.y + clip.h;
-    const power = Math.sqrt(2 * 0.32 * clip.h) * (big ? 1.15 : 0.95); // apex near the top of the pocket
+    const layer = new Layer(card, clip); layers.add(layer);
+    const cx = clip.x + clip.w / 2, base = clip.y + clip.h - 6; // a little above the bottom, so it doesn't sit on the next line
+    const power = Math.sqrt(2 * 0.32 * clip.h) * (big ? 1.1 : 0.9); // apex near the top of the pocket
     layer.add({ count: big ? 46 : 22, x: cx, y: base, angle: -90, spread: big ? 70 : 50, power, life: big ? 1500 : 1100, size: 0.85 });
-    if (big) later(() => { if (verdict.isConnected && layers.has(layer)) layer.add({ count: 24, x: cx, y: base, angle: -90, spread: 90, power: power * 0.9, life: 1200, size: 0.85 }); }, 260);
-  }, 450);
+    if (big) later(() => { if (card.isConnected && layers.has(layer)) layer.add({ count: 24, x: cx, y: base, angle: -90, spread: 90, power: power * 0.9, life: 1200, size: 0.85 }); }, 260);
+  }, delay);
 }
+/** The verdict in a session. */
+export const verdictBurst = (verdict: HTMLElement | null | undefined, big: boolean) => { cardBurst(verdict, big); };
 
 /** Celebrates a card that just opened: arcs out of its lower corners into the open space beneath it, behind the content. */
 export function bigCelebration(below?: Element | null) {

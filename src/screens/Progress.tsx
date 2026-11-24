@@ -66,7 +66,7 @@ export function Progress() {
   const week = lastWeek(studyDays(db));
   const weekQs = db.attempts.filter((a) => !a.na && ymd(a.t) >= week[0].date).length;
   const weekDays = week.filter((d) => d.studied).length;
-  const effort = weekDays === 0 ? '' : weekQs > 0 ? `This week: ${plural(weekQs, 'question')} answered, study on ${plural(weekDays, 'day')}.` : `This week: study on ${plural(weekDays, 'day')}.`;
+  const effort = weekDays === 0 ? '' : weekQs > 0 ? `This week: ${plural(weekQs, 'question')} on ${plural(weekDays, 'study day')}.` : `This week: ${plural(weekDays, 'study day')}.`;
   const range = r.scaledLo >= 550 ? 'Your whole likely range is at or above 550.' : r.scaledHi < 550 ? 'Your whole likely range is below 550.' : 'Your likely range includes 550, so it could go either way.';
   return (
     <Page title="Progress" noBack wide>

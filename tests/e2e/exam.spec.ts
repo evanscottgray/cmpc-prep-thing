@@ -4,8 +4,8 @@ import { onboard, optionLabels, shot, qnum, go } from './helpers';
 test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, end, results, review', async ({ page }) => {
   await onboard(page);
   await shot(page, '01-today');
-  await expect(page.getByRole('heading', { name: /Take Form A/ })).toBeVisible();
-  await page.getByRole('button', { name: 'Start Form A' }).click();
+  await expect(page.getByRole('heading', { name: 'Warm up with 10 untimed questions' })).toBeVisible(); // first visit: an untimed warm-up leads
+  await page.getByRole('button', { name: 'Or take Form A now · 90 minutes' }).click();
   await expect(page.getByRole('heading', { name: 'Form A', level: 1 })).toBeVisible();
   await shot(page, '02-exam-intro');
   await page.getByRole('button', { name: 'Start Form A' }).click();

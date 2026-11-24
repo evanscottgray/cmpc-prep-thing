@@ -92,7 +92,7 @@ test('reaching the daily goal is celebrated once, and a timed session shows no c
   await expect(page.locator('.goal-done')).toContainText('Daily goal reached'); // the day's win leads Today
   await expect(page.getByText('Day 1', { exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Next, when you have 90 minutes' })).toBeVisible(); // the exam can wait for a fresh day
-  await expect(page.locator('.week li.today .sr-only')).toContainText('today: studied');
+  await expect(page.locator('.week')).toHaveCount(0); // Day 1: the line says it; no strip with a lone dot
 
   // reopening the app the same day doesn't celebrate again
   await page.reload();

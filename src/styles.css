@@ -550,6 +550,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .confetti.card-layer { position: absolute; inset: 0; z-index: 0; } /* inside one card, clipped to its empty corner: scrolls and leaves with it */
 .verdict { position: relative; overflow: hidden; }
 .verdict > :not(canvas) { position: relative; z-index: 1; }
+.verdict.room > span { padding-right: 76px; } /* a correct answer keeps an empty corner for its confetti, even at larger text */
 .streak-chip { display: inline-flex; align-items: center; gap: .2rem; padding: .05rem .55rem; border-radius: 999px; background: var(--warn-soft); color: var(--warn); font-weight: 700; white-space: nowrap; }
 .cheer { display: flex; gap: .75rem; align-items: center; margin: .35rem 0 .6rem; }
 .cheer-emoji { font-size: 2.1rem; line-height: 1; }
@@ -601,6 +602,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
   :root:not([data-calm]) .opt { transition: border-color .12s ease, background-color .12s ease; }
   :root:not([data-calm]) .verdict.fresh.ok { animation: cel-pop .42s cubic-bezier(.2, 1.4, .4, 1) both; }
   :root:not([data-calm]) .verdict.fresh.ok svg path { stroke-dasharray: 14; stroke-dashoffset: 14; animation: cel-draw .35s .15s ease-out forwards; }
+  :root:not([data-calm]) .card.hero.celebrate { animation: cel-glow 1.3s .25s ease-out 1; }
   :root:not([data-calm]) .verdict.fresh.big { animation: cel-pop .42s cubic-bezier(.2, 1.4, .4, 1) both, cel-glow 1.2s .25s ease-out 1; }
   :root:not([data-calm]) .verdict.fresh.bad { animation: cel-rise .28s ease-out both; }
   :root:not([data-calm]) .verdict.ok .verdict-extra, :root:not([data-calm]) .goal-note { animation: cel-nudge .45s .1s cubic-bezier(.2, 1.6, .4, 1) both; transform-origin: left center; }

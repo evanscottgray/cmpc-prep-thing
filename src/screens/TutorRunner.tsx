@@ -23,7 +23,6 @@ export function TutorRunner({ session: s }: { session: Session }) {
   const last = pos === s.items.length - 1;
   const done = s.revealed.length;
   const isRight = (p: number) => s.responses[p] === ctx.items.get(s.items[p].id)?.answer;
-  const correct = s.revealed.filter(isRight).length;
   // The run as of this question (revisiting an earlier one with Previous shows the run it had then).
   const at = s.revealed.indexOf(pos);
   const run = runOfCorrect(at < 0 ? s.revealed : s.revealed.slice(0, at + 1), isRight);
@@ -80,6 +79,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
 
   /** Back keeps the session; Today offers to resume it. An untouched session is dropped. */
   function leave() {
+    if (done === s.items.length) { finishTutor(s.id); back('study'); return; } // every answer checked: it's finished, not paused
     if (done === 0 && !Object.keys(s.responses).length) abandon(s.id);
     else toast('Saved. Resume it from Today.');
     back('study');
@@ -91,7 +91,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
         <span>{s.title}</span>
         <span class="row" style={{ gap: '.5rem' }}>
           {fresh && cheer.lines.some((l) => l.text.includes('in a row')) ? null /* the verdict says it this time */ : run >= 3 ? <span class="streak-chip"><span aria-hidden="true">🔥 </span>{run} in a row</span> : best >= 3 && <span class="streak-chip best">Best run: {best}</span>}
-          {done > 0 && <span>{correct} of {done} correct</span>}
+          <span>{done} of {s.items.length} answered</span>{/* effort here; accuracy waits for the summary */}
         </span>
       </div>
       <div class="session-progress"><Meter value={(100 * done) / s.items.length} label={`${done} of ${s.items.length} answered`} /></div>
@@ -107,7 +107,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
         </>
       ) : (
         <>
-          <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} fresh={fresh} big={cheer?.kind === 'edges'} extra={fresh ? cheer.lines : undefined} />
+          <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} fresh={fresh} room big={cheer?.kind === 'edges'} extra={fresh ? cheer.lines : undefined} />
           {fresh && cheer.goal && !isRight(pos) && <p class="goal-note" role="status"><span aria-hidden="true">🎉 </span>Daily goal reached: {todayCount(ctx.store.state)} today. Every answer counts, right or wrong.</p>}
           <ItemReview item={item} si={si} response={resp} />
           <ItemMeta item={item} />

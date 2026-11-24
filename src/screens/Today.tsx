@@ -23,7 +23,7 @@ export function startReview() {
   if (!s) return alertDialog({ title: 'No reviews due', body: 'Missed and uncertain questions come back here on a schedule that fits the time left before your exam.' });
   createSession(s); navigate(`s/${s.id}`);
 }
-export const openQuiz = () => Object.values(ctx.store.state.sessions).filter((x) => x.kind === 'quiz' && x.status === 'active' && (x.revealed.length > 0 || Object.keys(x.responses).length > 0)).sort((a, b) => b.createdAt - a.createdAt)[0];
+export const openQuiz = () => Object.values(ctx.store.state.sessions).filter((x) => x.kind === 'quiz' && x.status === 'active' && x.revealed.length < x.items.length && (x.revealed.length > 0 || Object.keys(x.responses).length > 0)).sort((a, b) => b.createdAt - a.createdAt)[0];
 export function startQuiz() {
   const open = openQuiz();
   if (open) return navigate(`s/${open.id}`);
@@ -33,7 +33,17 @@ export function startQuiz() {
 
 const SHORT = { get label() { const q = openQuiz(); return q ? `Or resume your quick quiz · ${q.items.length - q.revealed.length} left` : 'Or warm up with 10 untimed questions'; }, go: () => startQuiz() };
 
-function Primary({ a, why, later }: { a: Action; why: string; later?: boolean }) {
+function Primary({ a, why, later, firstVisit }: { a: Action; why: string; later?: boolean; firstVisit?: boolean }) {
+  // The very first session: an untimed warm-up builds momentum; the 90-minute diagnostic is one tap away.
+  if (firstVisit && a.kind === 'formA') return (
+    <section class="card hero" aria-labelledby="today-primary">
+      <div class="eyebrow">Start here</div>
+      <h2 id="today-primary" style={{ fontSize: '1.35rem' }}>Warm up with 10 untimed questions</h2>
+      <p class="muted">The reasoning comes after every answer. Then take Form A, your 90-minute diagnostic, whenever you're ready.</p>
+      <button class="btn primary block" onClick={() => startQuiz()}>Start the warm-up<IcChevron /></button>
+      <button class="btn ghost block" onClick={() => navigate('start/formA')}>Or take Form A now · 90 minutes</button>
+    </section>
+  );
   const map: Record<string, { eyebrow: string; title: string; cta: string; go: () => void; note?: string; second?: { label: string; go: () => void } }> = {
     resume: { eyebrow: 'In progress', title: a.kind === 'resume' ? `Resume ${a.session.title}` : '', cta: 'Resume', go: () => a.kind === 'resume' && navigate(`s/${a.session.id}`) },
     formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 questions · 90 minutes · no breaks', second: SHORT },
@@ -84,7 +94,7 @@ function StudyDays({ now, newToday }: { now: number; newToday: boolean }) {
         <span class="flame" aria-hidden="true">{st.count >= 2 ? '🔥' : '🌱'}</span>
         <div class="grow"><div class="streak-title">{title}</div><div class="small muted">{sub}</div></div>
       </div>
-      <ol class={`week${span < 7 ? ' partial' : ''}`} aria-label={span < 7 ? 'The days since you started' : 'The last seven days'}>
+      {span > 1 && <ol class={`week${span < 7 ? ' partial' : ''}`} aria-label={span < 7 ? 'The days since you started' : 'The last seven days'}>
         {week.filter((d) => span === 7 || d.date >= first).map((d) => { // first week: only the days since you started
           const long = new Date(`${d.date}T12:00`).toLocaleDateString(undefined, { weekday: 'long' });
           return (
@@ -94,7 +104,7 @@ function StudyDays({ now, newToday }: { now: number; newToday: boolean }) {
             </li>
           );
         })}
-      </ol>
+      </ol>}
     </div>
   );
 }
@@ -180,6 +190,7 @@ export function Today() {
   const s = db.settings;
   const light = isLight(p.phase);
   const goalMet = !light && p.answeredToday >= s.dailyTarget;
+  const firstVisit = !db.attempts.length && !Object.keys(db.cardSrs).length;
   const urgent = p.primary.kind === 'resume' || p.primary.kind === 'reviewExam'; // a running timer or a fresh review comes first
   // Only say the exam covered the goal when today's answers from that sitting alone reach it.
   const examToday = p.primary.kind === 'reviewExam' ? db.attempts.filter((a) => a.s === (p.primary as { session: { id: string } }).session.id && ymd(a.t) === ymd(now) && !a.na).length : 0;
@@ -206,7 +217,7 @@ export function Today() {
           <DailyCard answered={p.answeredToday} now={now} />
           {p.primary.kind !== 'done' && <Primary a={p.primary} why={p.why} later={examNext} />}
         </>
-        : <><Primary a={p.primary} why={p.why} /><DailyCard answered={p.answeredToday} now={now} reachedNote={reachedNote} /></>}
+        : <><Primary a={p.primary} why={p.why} firstVisit={firstVisit} /><DailyCard answered={p.answeredToday} now={now} reachedNote={reachedNote} /></>}
 
       <InProgress skip={p.primary.kind === 'resume' || p.primary.kind === 'reviewExam' ? p.primary.session.id : undefined} />
       </div>
@@ -226,7 +237,7 @@ export function Today() {
         <div class="section">
           <h2>Optional</h2>
           <div class="list">
-            <ListLink onClick={startQuiz} title={openQuiz() ? 'Resume quick quiz' : 'Quick quiz'} sub="10 questions" />
+            <ListLink onClick={startQuiz} title={openQuiz() ? 'Resume quick quiz' : 'Quick quiz'} sub={(() => { const q = openQuiz(); return q ? `${q.revealed.length} of ${q.items.length} answered` : '10 questions'; })()} />
             {p.dueItems > 0 && <ListLink onClick={startReview} title="Spaced review" sub="A short set of questions you missed before" />}
           </div>
         </div>

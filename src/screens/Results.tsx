@@ -7,7 +7,7 @@ import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
 import type { DrillSource } from '../lib/assemble';
 import { useEffect, useState } from 'preact/hooks';
-import { celebrateSoon, firstTime, fresh } from '../ui/celebrate';
+import { cardBurst, firstTime, fresh } from '../ui/celebrate';
 import { todayCount } from '../lib/stats';
 import { openQuiz, startQuiz } from './Today';
 import { Meter } from '../ui/bits';
@@ -32,6 +32,7 @@ export function Results({ session: s }: { session: Session }) {
 
   const [pick, setPick] = useState<{ title: string; src: DrillSource } | null>(null);
   const [all, setAll] = useState(false);
+  const [glow, setGlow] = useState(false);
   const missed = missedPositions(s);
   const missedScored = missed.filter((i) => s.items[i].scored).length;
   const gap = Math.round(r.raw - target);
@@ -51,7 +52,7 @@ export function Results({ session: s }: { session: Session }) {
     if (!fresh(s.submittedAt)) return;
     // The session's own moment was kept inside its verdict card, so a strong summary still gets its finish.
     const earned = full ? pass && freshForm && fullRun : pctAll >= 80 && r.total >= 5;
-    if (earned && firstTime(s.id)) return celebrateSoon(250, () => document.querySelector('.result-actions'));
+    if (earned && firstTime(s.id)) { setGlow(true); return cardBurst(document.querySelector<HTMLElement>('.card.hero'), true, 300); } // in the result card's own empty corner
   }, []);
   const today = todayCount(db);
   const T = db.settings.dailyTarget;
@@ -66,7 +67,7 @@ export function Results({ session: s }: { session: Session }) {
       <div class={full ? 'cols' : undefined}>
       <div>
       {full ? (
-        <div class="card hero">
+        <div class={`card hero${glow ? ' celebrate' : ''}`}>
           <div class="eyebrow">Practice result, estimated{s.retake ? ' · retake' : ''}</div>
           <div class="score-line first">
             <div><div class="v">{r.raw}<span class="of">/{r.scoredCount}</span></div><div class="k">Raw score (scored questions)</div></div>
@@ -75,7 +76,7 @@ export function Results({ session: s }: { session: Session }) {
           <div class={`verdict-big ${pass ? 'pass' : 'fail'}`} role="status">
             {pass ? <IcCheckCircle /> : <IcXCircle />}<span>{pass ? 'Pass (estimated)' : 'Did not pass (estimated)'}</span>
           </div>
-          <p class="exam-cheer">{pass ? (!freshForm ? 'Above target on questions you had seen. A fresh form is the real check.' : fullRun ? 'Well done. You reached your practice target on a full 90-minute run.' : 'You reached your practice target on this form.') : s.kind === 'formA' && !s.retake ? 'A good baseline. Focus next shows where the points are.' : 'Now you know where the points are. Focus next shows the way.'}</p>
+          <p class="exam-cheer">{pass ? (!freshForm ? 'Above target on questions you had seen. A fresh form is the real check.' : fullRun ? 'Well done. You reached your practice target on a full-length form.' : 'You reached your practice target on this form.') : s.kind === 'formA' && !s.retake ? 'A good baseline. Focus next shows where the points are.' : 'Now you know where the points are. Focus next shows the way.'}</p>
           <p class="small muted" style={{ margin: '.25rem 0 0' }}>
             {r.raw}/100 is {gap === 0 ? 'exactly your practice target' : `${Math.abs(gap)} ${gap > 0 ? 'above' : 'below'} your practice target of ${target}`}, which the app places at 550.{Math.abs(gap) <= 3 ? ' Close enough to go either way.' : ''} {s.submittedAt ? `Taken ${fmtDate(ymd(s.submittedAt))}.` : ''}
           </p>
@@ -83,7 +84,7 @@ export function Results({ session: s }: { session: Session }) {
           {s.autoSubmitted && <p class="small mt" style={{ marginBottom: 0 }}><strong>Time ran out</strong> — submitted automatically.</p>}
         </div>
       ) : (
-        <div class="card hero">
+        <div class={`card hero${glow ? ' celebrate' : ''}`}>
           <div class="eyebrow">{s.title}{s.label ? ` · ${s.label}` : ''}</div>
           {cheer && <div class="cheer">{cheer.emoji && <span class="cheer-emoji" aria-hidden="true">{cheer.emoji}</span>}<div><div class="cheer-head">{cheer.head}</div><div class="small muted">{cheer.sub}</div></div></div>}
           <div class="score-line first">
