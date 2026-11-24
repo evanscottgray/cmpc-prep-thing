@@ -93,7 +93,7 @@ export function ExamIntro({ kind }: { kind: Kind }) {
             <h2>During the exam</h2>
             <ul>
               <li>No feedback until you submit{full ? '' : '; full review afterwards'}. You can flag questions, strike out options with <span class="inline-ic"><IcStrike title="the strike-out button" /></span>, and use the navigator.</li>
-              <li>The <span class="inline-ic"><IcMenu title="menu" /></span> menu on every question has Report a problem and Hide this question. Tap the timer to hide it.</li>
+              <li>The <span class="inline-ic"><IcMenu title="menu" /></span> menu on every question has Report a problem and Hide this question. Tap the timer to hide it: time warnings at 15, 5 and 1 minutes still appear, and the clock comes back for the last 5 minutes.</li>
               <li>The timer runs on the clock: it keeps going if you switch apps or close the app, and the exam submits itself at zero.</li>
             </ul>
           </div>

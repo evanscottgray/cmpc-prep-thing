@@ -136,7 +136,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
         {/* one element in every state, so keyboard focus survives the switch to low time */}
         <button class={`timer icon-btn${low ? ' low' : hideTimer ? ' btn small' : ''}`} style={low ? undefined : { color: 'inherit' }}
           aria-disabled={low || undefined} tabIndex={low ? -1 : undefined} onClick={() => { if (!low) setHideTimer(!hideTimer); }}
-          aria-label={low ? `Time remaining ${fmtClock(remaining)}. Shown while time is low` : `Time remaining ${fmtClock(remaining)}. ${hideTimer ? 'Show' : 'Hide'} timer`}>
+          aria-label={low ? `Time remaining ${fmtClock(remaining)}. Shown while time is low` : hideTimer ? 'Show time' /* hidden means hidden, for VoiceOver too */ : `Time remaining ${fmtClock(remaining)}. Hide timer`}>
           <IcClock />{hideTimer && !low ? 'Show time' : fmtClock(remaining)}
         </button>
         {s.mode === 'coached' && (

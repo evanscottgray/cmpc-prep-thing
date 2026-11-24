@@ -9,6 +9,7 @@ import { confirmDialog, toast } from '../ui/dialog';
 import { clearConfetti, motionOn, verdictBurst } from '../ui/celebrate';
 import { bestRun, runOfCorrect } from '../lib/streak';
 import { todayCount } from '../lib/stats';
+import { ymd } from '../lib/dates';
 import { isLight, plan } from '../lib/plan';
 
 const MILESTONE = (n: number) => n === 3 || n === 5 || (n >= 10 && n % 5 === 0);
@@ -62,7 +63,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
       ? goal && MILESTONE(n) ? [{ icon: '🎉', text: `Daily goal reached, and that's ${n} in a row!` }] // one line for one moment
         : MILESTONE(n) ? [{ icon: '🔥', text: `That's ${n} in a row!` }] : goal ? [{ icon: '🎉', text: `Daily goal reached: ${after} today.` }] : []
       : [{ icon: '↻', text: 'This one comes back in spaced review.' }];
-    if (goal) ctx.store.putSession({ ...ctx.store.state.sessions[s.id], goalHit: { pos, cheered: ok } });
+    if (goal) ctx.store.putSession({ ...ctx.store.state.sessions[s.id], goalHit: { pos, cheered: ok, day: ymd() } });
     // A miss never gets confetti, even when it happens to reach the goal (that shows in its own green note).
     setCheer({ pos, lines, goal, kind: ok && (goal || MILESTONE(n)) ? 'edges' : ok ? 'pop' : null });
   }

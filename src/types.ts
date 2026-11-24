@@ -96,7 +96,7 @@ export interface Session {
   reviewedAt?: number;                    // every miss was read through in review, or the learner marked the review done
   opened?: number[];                      // positions opened in review
   reviewPos?: number;                     // last position visited in review, where Today resumes
-  goalHit?: { pos: number; cheered: boolean }; // tutor: the answer that reached the daily goal, and whether it got confetti
+  goalHit?: { pos: number; cheered: boolean; day?: string }; // tutor: the answer that reached the daily goal (on which local day), and whether it got confetti
   updatedAt?: number;
 }
 

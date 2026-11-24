@@ -264,3 +264,14 @@ test('timer auto-submits while open, and coached mode can pause', async ({ page 
   await page.getByRole('button', { name: 'See results' }).click();
   await expect(page.getByRole('heading', { name: /summary/ })).toBeVisible();
 });
+
+test('a hidden timer stays hidden, for VoiceOver too', async ({ page }) => {
+  await onboard(page);
+  await go(page, 'start/block');
+  await expect(page.getByText(/time warnings at 15, 5 and 1 minutes still appear/)).toBeVisible();
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  await page.getByRole('button', { name: /Time remaining .* Hide timer/ }).click();
+  await expect(page.getByRole('button', { name: 'Show time', exact: true })).toBeVisible(); // no remaining time in its name
+  await page.getByRole('button', { name: 'Show time', exact: true }).click();
+  await expect(page.getByRole('button', { name: /Time remaining .* Hide timer/ })).toBeVisible();
+});

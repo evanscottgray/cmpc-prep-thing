@@ -68,7 +68,8 @@ class Layer {
       p.vy += 0.32 * k; p.vx *= drag; p.vy *= drag;
       p.x += p.vx * k; p.y += p.vy * k; p.r += p.vr * k;
       g.save();
-      const edge = this.clip ? Math.max(0, Math.min(1, (this.clip.y + this.clip.h - p.y) / 16)) : 1; // fade out before the pocket's edge, so nothing looks sliced
+      // fade out near every edge of the pocket, so nothing ever looks sliced
+      const edge = this.clip ? Math.max(0, Math.min(1, Math.min(p.x - this.clip.x, this.clip.x + this.clip.w - p.x, p.y - this.clip.y) / 14, (this.clip.y + this.clip.h - p.y) / 16)) : 1;
       g.globalAlpha = Math.min(1, (p.end - now) / 400) * edge;
       g.translate(p.x, p.y); g.rotate(p.r); g.fillStyle = p.c;
       if (p.round) { g.beginPath(); g.arc(0, 0, p.w / 2, 0, Math.PI * 2); g.fill(); }
@@ -133,7 +134,7 @@ function cardPocket(card: HTMLElement): Rect | null {
   // dividers (a rule above a row) are full-width obstacles at their top edge
   for (const el of card.querySelectorAll('.today-row, hr')) { const r = el.getBoundingClientRect(); lines.push({ top: r.top - box.top - 1, bottom: r.top - box.top + 1, right: box.width }); }
   lines.sort((a, b) => a.top - b.top);
-  const W = box.width - 6, H = box.height - 8, gap = 10, MIN_W = 48, MIN_H = 52;
+  const W = box.width - 16, H = box.height - 8, gap = 20, MIN_W = 48, MIN_H = 52; // clear of the border, and far enough from the words not to read as punctuation
   let best: Rect | null = null;
   // bands of consecutive lines: the free width is set by the widest line reaching into the band
   for (let i = 0; i <= lines.length; i++) {
@@ -165,9 +166,10 @@ export function cardBurst(card: HTMLElement | null | undefined, big: boolean, de
     const clip = cardPocket(card);
     if (!clip) return;
     const layer = new Layer(card, clip); layers.add(layer);
-    const cx = clip.x + clip.w / 2, base = clip.y + clip.h - 6; // a little above the bottom, so it doesn't sit on the next line
-    const power = Math.sqrt(2 * 0.32 * clip.h) * (big ? 1.1 : 0.9); // apex near the top of the pocket
-    layer.add({ count: big ? 46 : 22, x: cx, y: base, angle: -90, spread: big ? 70 : 50, power, life: big ? 1500 : 1100, size: 0.85 });
+    const cx = clip.x + clip.w * 0.62, base = clip.y + clip.h - 6; // toward the outer side, and a little above the bottom
+    const power = Math.sqrt(2 * 0.32 * clip.h) * (big ? 0.85 : 0.8); // the fastest pieces peak just inside the pocket
+    const dense = Math.min(1.4, Math.max(1, 110 / clip.w)); // a narrow pocket (larger text) gets a tighter cluster, not specks
+    layer.add({ count: Math.round((big ? 46 : 22) * dense), x: cx, y: base, angle: -90, spread: big ? 70 : 50, power, life: big ? 1500 : 1100, size: 0.85 });
     if (big) later(() => { if (card.isConnected && layers.has(layer)) layer.add({ count: 24, x: cx, y: base, angle: -90, spread: 90, power: power * 0.9, life: 1200, size: 0.85 }); }, 260);
   }, delay);
 }

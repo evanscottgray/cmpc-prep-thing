@@ -7,7 +7,7 @@ import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
 import type { DrillSource } from '../lib/assemble';
 import { useEffect, useState } from 'preact/hooks';
-import { cardBurst, firstTime, fresh } from '../ui/celebrate';
+import { cardBurst, firstTime, fresh, motionOn } from '../ui/celebrate';
 import { todayCount } from '../lib/stats';
 import { openQuiz, startQuiz } from './Today';
 import { Meter } from '../ui/bits';
@@ -52,7 +52,7 @@ export function Results({ session: s }: { session: Session }) {
     if (!fresh(s.submittedAt)) return;
     // The session's own moment was kept inside its verdict card, so a strong summary still gets its finish.
     const earned = full ? pass && freshForm && fullRun : pctAll >= 80 && r.total >= 5;
-    if (earned && firstTime(s.id)) { setGlow(true); return cardBurst(document.querySelector<HTMLElement>(full ? '.exam-pass' : '.card.hero'), true, 300); } // inside the card that holds the result
+    if (earned && firstTime(s.id)) { setGlow(true); return cardBurst(document.querySelector<HTMLElement>(full ? '.exam-pass' : '.card.hero'), !full, 300); } // the compact pass callout gets the lighter fountain // inside the card that holds the result
   }, []);
   const today = todayCount(db);
   const T = db.settings.dailyTarget;
@@ -76,7 +76,7 @@ export function Results({ session: s }: { session: Session }) {
           {pass ? (
             // a pass gets its own green callout, with room kept for its confetti
             <>
-              <div class={`verdict ok exam-pass${freshForm && fullRun ? ' room' : ''}`} role="status">
+              <div class={`verdict ok exam-pass${glow && motionOn() ? ' room' : ''}`} role="status">
                 <IcCheckCircle /><span><span class="pass-head">Pass (estimated)</span>{freshForm && <span class="verdict-sub">Well done.</span>}</span>
               </div>
               <p class="exam-cheer">{!freshForm ? 'Above target on questions you had seen. A fresh form is the real check.' : fullRun ? 'You reached your practice target on a full-length form.' : 'You reached your practice target on this form.'}</p>
@@ -105,7 +105,7 @@ export function Results({ session: s }: { session: Session }) {
             <div class={`today-row${reachedToday ? ' reached' : ''}`}>
               <div class="row between small">
                 {reachedToday
-                  ? <strong class="goal-done"><span aria-hidden="true">🎉 </span>{s.goalHit ? 'This session reached your goal' : 'Daily goal reached'}</strong>
+                  ? <strong class="goal-done"><span aria-hidden="true">🎉 </span>{s.goalHit?.day === ymd() ? 'This session reached your goal' : 'Daily goal reached'}</strong>
                   : <span>Today: {today} of {T} questions</span>}
                 <span class="muted">{reachedToday ? `${today} of ${T}` : `+${addedToday} this session`}</span>
               </div>
