@@ -56,7 +56,11 @@ export function Results({ session: s }: { session: Session }) {
     if (earned && firstTime(s.id)) return celebrateSoon();
   }, []);
   const today = todayCount(db);
-  const todayPct = Math.min(100, (100 * today) / Math.max(1, db.settings.dailyTarget));
+  const T = db.settings.dailyTarget;
+  const todayPct = Math.min(100, (100 * today) / Math.max(1, T));
+  const sameDay = !!s.submittedAt && ymd(s.submittedAt) === ymd();
+  const addedToday = db.attempts.filter((a) => a.s === s.id && !a.na && ymd(a.t) === ymd()).length; // only this session's answers from today
+  const reachedToday = today >= T;
   const kgs = bp.kgs.filter((k) => r.byKg[k.id]?.n).sort((a, b) => r.byKg[a.id].c / r.byKg[a.id].n - r.byKg[b.id].c / r.byKg[b.id].n || b.weight - a.weight);
 
   return (
@@ -88,15 +92,15 @@ export function Results({ session: s }: { session: Session }) {
             <div><div class="v">{r.correctAll}<span class="of">/{r.total}</span></div><div class="k">correct{r.total ? ` · ${pctAll}%` : ''}</div></div>
             {s.timed && <div><div class="v">{fmtClock(r.timeUsedMs)}</div><div class="k">of {fmtClock(r.durationMs)} used</div></div>}
           </div>
-          {!s.timed && !light && (
-            <div class="today-row">
+          {!s.timed && !light && sameDay && (
+            <div class={`today-row${reachedToday ? ' reached' : ''}`}>
               <div class="row between small">
-                {today >= db.settings.dailyTarget
-                  ? <strong class="goal-done"><span aria-hidden="true">🎉 </span>{s.goalHit ? 'This session reached your daily goal' : 'Daily goal reached'}</strong>
-                  : <span>Today: {today} of {db.settings.dailyTarget} questions</span>}
-                <span class="muted">{today >= db.settings.dailyTarget ? `${today} today` : `+${r.total} this session`}</span>
+                {reachedToday
+                  ? <strong class="goal-done"><span aria-hidden="true">🎉 </span>{s.goalHit ? 'This session reached your goal' : 'Daily goal reached'}</strong>
+                  : <span>Today: {today} of {T} questions</span>}
+                <span class="muted">{reachedToday ? `${today} of ${T}` : `+${addedToday} this session`}</span>
               </div>
-              <Meter value={todayPct} label={`Today: ${today} of ${db.settings.dailyTarget} questions`} />
+              <Meter value={todayPct} label={`Today: ${today} of ${T} questions`} />
             </div>
           )}
           {r.total < s.items.length && <p class="small muted mt" style={{ marginBottom: 0 }}>Ended early. {plural(s.items.length - r.total, 'question')} not answered, and not counted.</p>}
@@ -112,7 +116,7 @@ export function Results({ session: s }: { session: Session }) {
         {missed.length > 0 && <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}?f=incorrect`}>Review {plural(missed.length, 'miss', 'misses')}</a>}
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
         {s.timed && <a class="btn" href="#/today">Done</a>}
-        {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>Another quick quiz · 10</button>}
+        {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'}</button>}
       </div>
 
       {full && focus.length > 0 && (

@@ -547,6 +547,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 
 /* celebrations: confetti, streaks, cheers (motion only when the device allows it and Celebrations is on) */
 .confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; } /* behind cards, text and bars: it never covers what you read */
+.confetti.pocket { z-index: 15; } /* in front, but clipped to an empty part of one card; under the sticky bars */
 .streak-chip { display: inline-flex; align-items: center; gap: .2rem; padding: .05rem .55rem; border-radius: 999px; background: var(--warn-soft); color: var(--warn); font-weight: 700; white-space: nowrap; }
 .cheer { display: flex; gap: .75rem; align-items: center; margin: .35rem 0 .6rem; }
 .cheer-emoji { font-size: 2.1rem; line-height: 1; }
@@ -574,8 +575,10 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .today-row { margin-top: .75rem; padding-top: .65rem; border-top: 1px solid var(--border); }
 .today-row .row { margin-bottom: .35rem; }
 .today-row .meter { height: 6px; }
+.today-row.reached .meter span { background: var(--ok); }
 .progress-gain { margin: .5rem 0 0; font-weight: 600; color: var(--ok); }
-.week li.before .dot { border-style: dashed; border-color: var(--border); }
+.week li.before .dot { border-color: transparent; } /* before you started: no ring, just a small mark */
+.week li.before .dot::after { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--border-strong); }
 .streak-chip.best { background: var(--surface-2); color: var(--muted); font-weight: 600; }
 .verdict-extra { display: block; margin-top: .2rem; font-weight: 700; }
 .verdict.bad .verdict-extra { color: var(--text); font-weight: 500; }
@@ -592,7 +595,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
   :root:not([data-calm]) .opt { transition: border-color .12s ease, background-color .12s ease; }
   :root:not([data-calm]) .verdict.fresh.ok { animation: cel-pop .42s cubic-bezier(.2, 1.4, .4, 1) both; }
   :root:not([data-calm]) .verdict.fresh.ok svg path { stroke-dasharray: 14; stroke-dashoffset: 14; animation: cel-draw .35s .15s ease-out forwards; }
-  :root:not([data-calm]) .verdict.fresh.big { animation: cel-pop .42s cubic-bezier(.2, 1.4, .4, 1) both, cel-glow 1.4s .2s ease-out 2; }
+  :root:not([data-calm]) .verdict.fresh.big { animation: cel-pop .42s cubic-bezier(.2, 1.4, .4, 1) both, cel-glow 1.2s .25s ease-out 1; }
   :root:not([data-calm]) .verdict.fresh.bad { animation: cel-rise .28s ease-out both; }
   :root:not([data-calm]) .verdict.ok .verdict-extra, :root:not([data-calm]) .goal-note { animation: cel-nudge .45s .1s cubic-bezier(.2, 1.6, .4, 1) both; transform-origin: left center; }
   :root:not([data-calm]) .reveal { animation: cel-rise .25s ease-out both; }
@@ -602,7 +605,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
   :root:not([data-calm]) .week li.on.new .dot { animation: cel-pop .45s ease-out both; }
 }
 @keyframes cel-pop { from { transform: scale(.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-@keyframes cel-glow { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 55%, transparent); } 100% { box-shadow: 0 0 0 14px color-mix(in srgb, var(--ok) 0%, transparent); } }
+@keyframes cel-glow { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, #4cd07d 60%, transparent); } 100% { box-shadow: 0 0 0 10px color-mix(in srgb, #4cd07d 0%, transparent); } }
 @keyframes cel-draw { to { stroke-dashoffset: 0; } }
 @keyframes cel-rise { from { transform: translateY(6px); opacity: 0; } to { transform: none; opacity: 1; } }
 @keyframes cel-bump { 0% { transform: scale(.6); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }

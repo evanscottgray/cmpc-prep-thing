@@ -3,7 +3,7 @@ import type { Session } from '../types';
 import { ctx, useDb } from '../ctx';
 import { scaledScore } from '../lib/scoring';
 import type { DrillSource } from '../lib/assemble';
-import { fmtShort } from '../lib/dates';
+import { fmtShort, plural, ymd } from '../lib/dates';
 import { areaAccuracy, availableItems, examHistory, focusAreas, focusLine, itemStats, pacingStats, readiness } from '../lib/stats';
 import { AreaBar, ListLink, Page } from '../ui/bits';
 import { lastWeek, studyDays } from '../lib/streak';
@@ -58,11 +58,15 @@ export function Progress() {
   const rate = (id: string) => (last.byKg[id].n ? last.byKg[id].c / last.byKg[id].n : 2);
   const kgs = [...bank.blueprint.kgs].sort((a, b) => rate(a.id) - rate(b.id) || b.weight - a.weight);
   // Progress you can feel, stated only when it's true: score gained since the first exam, and this week's effort.
-  const up = exams.length >= 2 ? exams[exams.length - 1].result!.raw - exams[0].result!.raw : 0;
-  const weekAgo = Date.now() - 7 * 86400000;
-  const weekQs = db.attempts.filter((a) => a.t >= weekAgo && !a.na).length;
-  const weekDays = lastWeek(studyDays(db)).filter((d) => d.studied).length;
-  const gains = [up > 0 && `Up ${up} points since your first exam.`, weekQs > 0 && `${weekQs} questions on ${weekDays} ${weekDays === 1 ? 'day' : 'days'} this week.`].filter(Boolean).join(' ');
+  // Score: only fresh, fully answered sittings count (familiar questions inflate a score), named by form and raw score.
+  const freshExams = exams.filter((e) => !e.retake && e.seenBefore === 0 && e.result!.answered === e.result!.total);
+  const [e0, e1] = [freshExams[0], freshExams[freshExams.length - 1]];
+  const scoreGain = freshExams.length >= 2 && e1.result!.raw > e0.result!.raw ? `${e0.title} ${e0.result!.raw}/${e0.result!.scoredCount} → ${e1.title} ${e1.result!.raw}/${e1.result!.scoredCount} (raw scores).` : '';
+  // Effort: questions answered and days studied over the same seven local dates.
+  const week = lastWeek(studyDays(db));
+  const weekQs = db.attempts.filter((a) => !a.na && ymd(a.t) >= week[0].date).length;
+  const weekDays = week.filter((d) => d.studied).length;
+  const effort = weekDays > 0 ? `This week: ${plural(weekQs, 'question')} answered, study on ${plural(weekDays, 'day')}.` : '';
   const range = r.scaledLo >= 550 ? 'Your whole likely range is at or above 550.' : r.scaledHi < 550 ? 'Your whole likely range is below 550.' : 'Your likely range includes 550, so it could go either way.';
   return (
     <Page title="Progress" noBack wide>
@@ -78,7 +82,8 @@ export function Progress() {
               <div><div class="v">{r.raw}%</div><div class="k">Accuracy on first tries, weighted by the exam blueprint</div></div>
             </div>
             <p class="small" style={{ margin: '.6rem 0' }}>{range} An estimate, not a prediction.</p>
-            {gains && <p class="small progress-gain"><span aria-hidden="true">↗ </span>{gains}</p>}
+            {scoreGain && <p class="small progress-gain"><span aria-hidden="true">↗ </span>{scoreGain}</p>}
+            {effort && <p class="small muted" style={{ margin: '.35rem 0 0' }}>{effort}</p>}
             <details class="how small muted">
               <summary>Why this number</summary>
               <p>It counts your first try at every practice question, from exams and drills, so it can differ from any single exam{exams.length ? ` (your latest: ${scoreOf(exams[exams.length - 1], target)})` : ''}. It maps your practice target ({target}/100) to 550; AASP doesn't publish the raw passing score.</p>

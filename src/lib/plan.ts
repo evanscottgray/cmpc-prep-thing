@@ -85,5 +85,6 @@ function daysSince(db: DbState, kind: string, today: string): number {
 }
 /** An exam counts as reviewed once every miss was opened, or the learner marked the review done. */
 function reviewed(db: DbState, s: Session): boolean {
+  if (s.result && s.result.correctAll >= s.result.total) return true; // nothing missed: nothing to review
   return !!db.sessions[s.id]?.reviewedAt;
 }

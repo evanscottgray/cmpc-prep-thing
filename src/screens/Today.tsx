@@ -31,7 +31,7 @@ export function startQuiz() {
   createSession(s); navigate(`s/${s.id}`);
 }
 
-const SHORT = { label: 'Short on time? Quick quiz · 10', go: () => startQuiz() };
+const SHORT = { get label() { const q = openQuiz(); return q ? `Short on time? Resume quick quiz · ${q.items.length - q.revealed.length} left` : 'Short on time? Quick quiz · 10'; }, go: () => startQuiz() };
 
 function Primary({ a, why, later }: { a: Action; why: string; later?: boolean }) {
   const map: Record<string, { eyebrow: string; title: string; cta: string; go: () => void; note?: string; second?: { label: string; go: () => void } }> = {
@@ -129,7 +129,7 @@ function DailyCard({ answered, now, reachedNote }: { answered: number; now: numb
         <StudyDays now={now} newToday={shown.newToday} />
         {reached && <p class="small muted more-label">If you want more:</p>}
         <div class={`btn-row${reached ? '' : ' mt'}`} style={reached ? { marginTop: '.4rem' } : undefined}>
-          {openQuiz() ? <button class={`btn small${reached ? ' ghost' : ''}`} onClick={() => startWeak(10)}>Weak areas&nbsp;·&nbsp;10</button> : <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>Quick quiz · 10</button>}
+          {(() => { const q = openQuiz(); return <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>{q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : 'Quick quiz · 10'}</button>; })()}
           <a class={`btn small${reached ? ' ghost' : ''}`} href="#/study">More options</a>
         </div>
       </div>
@@ -181,6 +181,10 @@ export function Today() {
   const light = isLight(p.phase);
   const goalMet = !light && p.answeredToday >= s.dailyTarget;
   const urgent = p.primary.kind === 'resume' || p.primary.kind === 'reviewExam'; // a running timer or a fresh review comes first
+  // Only say the exam covered the goal when today's answers from that sitting alone reach it.
+  const examToday = p.primary.kind === 'reviewExam' ? db.attempts.filter((a) => a.s === (p.primary as { session: { id: string } }).session.id && ymd(a.t) === ymd(now) && !a.na).length : 0;
+  const reachedNote = p.primary.kind === 'resume' ? 'Your daily goal is already met.'
+    : p.primary.kind === 'reviewExam' && examToday >= s.dailyTarget ? "Your exam covered today's goal. The review above is the one thing worth doing next." : undefined;
   const examNext = p.primary.kind === 'formA' || p.primary.kind === 'formB' || p.primary.kind === 'mixed';
   const started = db.attempts[0]?.t ?? Infinity;
   const needBackup = Date.now() - started > 2 * 86400000 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
@@ -202,7 +206,7 @@ export function Today() {
           <DailyCard answered={p.answeredToday} now={now} />
           {p.primary.kind !== 'done' && <Primary a={p.primary} why={p.why} later={examNext} />}
         </>
-        : <><Primary a={p.primary} why={p.why} /><DailyCard answered={p.answeredToday} now={now} reachedNote={p.primary.kind === 'reviewExam' ? 'Your exam covered today\'s goal. The review above is the one thing worth doing next.' : undefined} /></>}
+        : <><Primary a={p.primary} why={p.why} /><DailyCard answered={p.answeredToday} now={now} reachedNote={reachedNote} /></>}
 
       <InProgress skip={p.primary.kind === 'resume' || p.primary.kind === 'reviewExam' ? p.primary.session.id : undefined} />
       </div>

@@ -86,8 +86,8 @@ test('reaching the daily goal is celebrated once, and a timed session shows no c
   await expect(confetti(page)).toHaveCount(0);
   await page.getByRole('button', { name: 'See summary' }).click();
   await expect(page.getByText('Good practice')).toBeVisible(); // 5 of 10: encouragement, no confetti needed
-  await expect(page.getByText('This session reached your daily goal')).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Another quick quiz · 10' })).toBeVisible(); // a quiet next step after the summary
+  await expect(page.getByText('This session reached your goal')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'If you want more: another quick quiz' })).toBeVisible(); // optional once the goal is met
   await page.getByRole('link', { name: 'Done' }).click();
   await expect(page.locator('.goal-done')).toContainText('Daily goal reached'); // the day's win leads Today
   await expect(page.getByText('Day 1', { exact: true })).toBeVisible();

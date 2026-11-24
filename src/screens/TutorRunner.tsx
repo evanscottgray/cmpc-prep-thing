@@ -6,7 +6,7 @@ import { abandon, check, choose, finishTutor, goTo, setUnsure, toggleStrike } fr
 import { ItemActions, ItemMeta, ItemReview, OptionList, QStem, StemFold, StrikeHint, Verdict, strikeHint } from '../ui/question';
 import { Meter, Page } from '../ui/bits';
 import { confirmDialog, toast } from '../ui/dialog';
-import { clearConfetti, correctPop, edgeBursts } from '../ui/celebrate';
+import { clearConfetti, verdictBurst } from '../ui/celebrate';
 import { bestRun, runOfCorrect } from '../lib/streak';
 import { todayCount } from '../lib/stats';
 import { isLight, plan } from '../lib/plan';
@@ -46,8 +46,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
     const v = document.querySelector('#verdict');
     if (!cheer || !fresh || !revealed || !v || fired.current === cheer) return;
     fired.current = cheer;
-    if (cheer.kind === 'pop') correctPop(v);
-    if (cheer.kind === 'edges') { const r = v.getBoundingClientRect(); edgeBursts(r.top + r.height / 2); }
+    if (cheer.kind) verdictBurst(v, cheer.kind === 'edges');
   }, [cheer, revealed]);
 
   /** One celebration per check, biggest moment wins: the daily goal, then a run of 3/5/10…, then a plain correct answer. */
@@ -61,7 +60,8 @@ export function TutorRunner({ session: s }: { session: Session }) {
     const ok = isRight(pos);
     const n = ok ? runOfCorrect([...s.revealed, pos], isRight) : 0;
     const lines = ok
-      ? [...(MILESTONE(n) ? [{ icon: '🔥', text: `That's ${n} in a row!` }] : []), ...(goal ? [{ icon: '🎉', text: `Daily goal reached: ${after} today.` }] : [])]
+      ? goal && MILESTONE(n) ? [{ icon: '🎉', text: `Daily goal reached, and that's ${n} in a row!` }] // one line for one moment
+        : MILESTONE(n) ? [{ icon: '🔥', text: `That's ${n} in a row!` }] : goal ? [{ icon: '🎉', text: `Daily goal reached: ${after} today.` }] : []
       : [{ icon: '↻', text: 'This one comes back in spaced review.' }];
     if (goal) ctx.store.putSession({ ...ctx.store.state.sessions[s.id], goalHit: { pos, cheered: ok } });
     // A miss never gets confetti, even when it happens to reach the goal (that shows in its own green note).
@@ -90,7 +90,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>{s.title}</span>
         <span class="row" style={{ gap: '.5rem' }}>
-          {fresh && cheer.lines.some((l) => l.icon === '🔥') ? null /* the verdict says it this time */ : run >= 3 ? <span class="streak-chip"><span aria-hidden="true">🔥 </span>{run} in a row</span> : best >= 3 && <span class="streak-chip best">Best run: {best}</span>}
+          {fresh && cheer.lines.some((l) => l.text.includes('in a row')) ? null /* the verdict says it this time */ : run >= 3 ? <span class="streak-chip"><span aria-hidden="true">🔥 </span>{run} in a row</span> : best >= 3 && <span class="streak-chip best">Best run: {best}</span>}
           {done > 0 && <span>{correct} of {done} correct</span>}
         </span>
       </div>

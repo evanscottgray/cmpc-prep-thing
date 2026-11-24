@@ -124,11 +124,11 @@ export function CardStudy() {
   const rated = tally.right + tally.unsure + tally.wrong;
   const skipped = Math.min(i, queue.length) - rated;
   const good = rated > 0 && tally.right * 2 >= queue.length; // celebrate a set where at least half of it was known
-  useEffect(() => { if (!c && good) return celebrateSoon(200); }, [!c]);
+  useEffect(() => { if (!c && good) return celebrateSoon(200, () => document.querySelector('.card.hero')); }, [!c]); // from just under the card it celebrates
   if (!c) return (
     <Page title="Concept cards" backTo="cards" tabs={false}>
       <div class="card hero center">
-        {rated > 0 && <div class="cheer-emoji big" aria-hidden="true">{good ? '🎉' : '🌱'}</div>}
+        {rated > 0 && <div class="cheer-emoji" aria-hidden="true" style={{ marginBottom: '.35rem' }}>{good ? '🎉' : '🌱'}</div>}
         <h2>{queue.length ? (rated ? 'Session complete!' : 'Session complete') : 'Nothing due'}</h2>
         {skipped > 0 && <p class="small muted" style={{ margin: '0 0 .25rem' }}>{rated} of {queue.length} rated · {skipped} skipped</p>}
         {rated > 0 && <p class="tally"><span><strong>{tally.right}</strong> knew it</span><span><strong>{tally.unsure}</strong> unsure</span><span><strong>{tally.wrong}</strong> missed</span></p>}
