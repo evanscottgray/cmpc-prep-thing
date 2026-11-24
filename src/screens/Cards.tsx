@@ -148,6 +148,7 @@ export function CardStudy() {
   return (
     <Page title={`Card ${i + 1} of ${queue.length}`} backTo="cards" tabs={false}>
       <div class="session-progress"><Meter value={(100 * i) / queue.length} label={`${i} of ${queue.length} cards done`} /></div>
+      <div class="small muted card-count" aria-hidden="true">{i} of {queue.length} done</div>{/* the meter says it to VoiceOver */}
       {!show ? (
         <>
           <div class="card recall">{/* the card's face: the term to recall */}

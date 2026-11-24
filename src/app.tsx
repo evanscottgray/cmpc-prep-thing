@@ -82,12 +82,12 @@ export function App() {
     case 's': {
       const s = db.sessions[rest[0]];
       if (!s) screen = <Page title="Session" backTo="today"><p>This session no longer exists.</p></Page>;
-      else if (s.status === 'submitted') { screen = <Results session={s} />; }
+      else if (s.status === 'submitted') { screen = <Results key={s.id} session={s} />; }
       else if (s.timed) { inExam = true; screen = <ExamRunner session={s} />; }
       else screen = <TutorRunner session={s} />;
       break;
     }
-    case 'results': { const s = db.sessions[rest[0]]; screen = s?.result ? <Results session={s} /> : <NotFound />; break; }
+    case 'results': { const s = db.sessions[rest[0]]; screen = s?.result ? <Results key={s.id} session={s} /> : <NotFound />; break; }
     case 'review': {
       const s = db.sessions[rest[0]];
       if (!s?.result) screen = <NotFound />;

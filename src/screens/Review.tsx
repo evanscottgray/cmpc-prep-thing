@@ -122,7 +122,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   useEffect(() => {
     lastOpened.set(s.id, pos); markOpened(s.id, pos); window.scrollTo(0, 0); document.getElementById('rv-stem')?.focus({ preventScroll: true });
     return () => leftReviewItem(s.id); // left however it was left (in-app Back, Next, or Safari's back swipe); an app closed mid-read never gets here, so it still reopens
-  }, [pos]);
+  }, [s.id, pos]);
   if (!it) return <Page title="Review" backTo={`review/${s.id}`}><p>This question is no longer in the bank.</p></Page>;
   const resp = s.responses[pos];
   const prev = idx > 0 ? positions[idx - 1] : null, next = idx >= 0 && idx < positions.length - 1 ? positions[idx + 1] : null;

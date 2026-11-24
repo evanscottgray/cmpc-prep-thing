@@ -178,7 +178,6 @@ function DailyCard({ answered, now, reachedNote }: { answered: number; now: numb
   );
 }
 
-/** Unfinished sessions other than the one already offered above. */
 /** Started reviews (kept until finished or set aside) and open sessions, other than the one already offered above. */
 function inProgressOf(db: DbState, skip?: string) {
   const reviews = Object.values(db.sessions).filter((x) => x.id !== skip && x.status === 'submitted' && x.timed && !x.reviewedAt && openedMisses(x) > 0)
@@ -206,8 +205,8 @@ function InProgress({ skip }: { skip?: string }) {
           <div class="list-pair">
             {(() => { const st = reviewStep(x); const all = st.kind === 'finish' || st.kind === 'resumeLast'; return <>
               {st.kind === 'finish'
-                ? <button class="list-item" data-first-more={i === 3 || undefined} onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <>{' '}<span class="keep">· {fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
-                : <a class="list-item" data-first-more={i === 3 || undefined} href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <>{' '}<span class="keep">· {fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Resume</span></a>}
+                ? <button class="list-item" data-first-more={i === 3 || undefined} onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <span class="li-date"><span class="li-dot"> · </span>{fmtShort(x.submittedAt)}</span>}</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
+                : <a class="list-item" data-first-more={i === 3 || undefined} href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <span class="li-date"><span class="li-dot"> · </span>{fmtShort(x.submittedAt)}</span>}</span></span><span class="badge accent">Resume</span></a>}
               {st.kind !== 'finish' && <button class="btn small ghost" onClick={() => { if (all) { finishReview(x.id); navigate(`results/${x.id}`); } else { markReviewed(x.id); toast(['formA', 'formB', 'mixed'].includes(x.kind) ? `Set aside. ${x.title} stays under Progress.` : 'Set aside. Its missed questions still come back in spaced review.'); } }}>{all ? 'Finish' : 'Set aside'}<span class="sr-only"> for the {x.title} review</span></button>}
             </>; })()}
           </div>
@@ -217,7 +216,7 @@ function InProgress({ skip }: { skip?: string }) {
           const n = x.timed ? Object.keys(x.responses).length : x.revealed.length;
           return (
             <div class="list-pair">
-              <a class="list-item" href={`#/s/${x.id}`}><span class="li-main"><span class="li-title">{x.title}</span><span class="li-sub" style={{ display: 'block' }}>{n} of {plural(x.items.length, 'question')} answered <span class="keep">· started {fmtShort(x.createdAt)}</span></span></span><span class="badge accent">Resume</span></a>
+              <a class="list-item" href={`#/s/${x.id}`}><span class="li-main"><span class="li-title">{x.title}</span><span class="li-sub" style={{ display: 'block' }}>{n} of {plural(x.items.length, 'question')} answered<span class="li-date"><span class="li-dot"> · </span>started {fmtShort(x.createdAt)}</span></span></span><span class="badge accent">Resume</span></a>
               <button class="icon-btn" onClick={() => discard(x.id, x.title, x.timed)} aria-label={`Discard ${x.title}`}><IcX /></button>
             </div>
           );

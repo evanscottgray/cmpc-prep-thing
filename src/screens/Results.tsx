@@ -92,7 +92,7 @@ export function Results({ session: s }: { session: Session }) {
         {r.total > 0 && !readDone && <a class="btn" href={`#/review/${s.id}`}>Review all {r.total}</a>}{/* after finishing: one quiet way back in */}
         {!doneFirst && <a class="btn" href="#/today">Done</a>}
         {readDone && missed.length > 0 && <a class="btn ghost" href={`#/review/${s.id}?f=incorrect`}>{missed.length === 1 ? 'If you want: read the miss again' : `If you want: read the ${missed.length} misses again`}</a>}
-        {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{(() => { const q = openQuiz(); return q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'; })()}</button>}
+        {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{(() => { const q = openQuiz(); const a = s.kind === 'quiz' ? 'another' : 'a'; return q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : reachedToday ? `If you want more: ${a} quick quiz` : `${a === 'a' ? 'A' : 'Another'} quick quiz · 10`; })()}</button>}
       </div>
   );
 
@@ -131,7 +131,7 @@ export function Results({ session: s }: { session: Session }) {
       ) : (
         <div class={`card hero${glow ? ' celebrate' : ''}`}>
           <div class="eyebrow">{s.title}{s.label ? ` · ${s.label}` : ''}</div>
-          {cheer && !readAll && <div class="cheer">{cheer.emoji && <span class="cheer-emoji" aria-hidden="true">{cheer.emoji}</span>}<div><div class="cheer-head">{cheer.head}</div><div class="small muted">{cheer.sub}</div></div></div>}
+          {cheer && !readAll && <div class="cheer">{cheer.emoji && <span class="cheer-emoji" aria-hidden="true">{cheer.emoji}</span>}<div><h2 class="cheer-head">{cheer.head}</h2><div class="small muted">{cheer.sub}</div></div></div>}
           <div class="score-line first">
             <div><div class="v">{r.correctAll}<span class="of">/{r.total}</span></div><div class="k">correct{r.total ? ` · ${pctAll}%` : ''}</div></div>
             {s.timed && <div><div class="v">{fmtClock(r.timeUsedMs)}</div><div class="k">of {fmtClock(r.durationMs)} used</div></div>}

@@ -68,7 +68,7 @@ export function splitQuestion(text: string) {
 }
 
 /** The result in words: what was chosen and what the answer is, by the letters shown on screen. */
-export function Verdict({ item, si, response, unsure, id, fresh, big, room, extra }: { item: Item; si: SessionItem; response: number | undefined; unsure?: boolean; id?: string; fresh?: boolean; big?: boolean; room?: boolean; extra?: { icon: string; text: string }[] }) {
+export function Verdict({ item, si, response, unsure, id, fresh, big, room, extra, srExtra }: { item: Item; si: SessionItem; response: number | undefined; unsure?: boolean; id?: string; fresh?: boolean; big?: boolean; room?: boolean; extra?: { icon: string; text: string }[]; srExtra?: string }) {
   const ok = response === item.answer;
   const key = LET[si.order.indexOf(item.answer)];
   const [head, detail] = ok ? ['Correct', `The answer is\u00a0${key}.`]
@@ -77,7 +77,7 @@ export function Verdict({ item, si, response, unsure, id, fresh, big, room, extr
   return (
     <div id={id} tabIndex={-1} class={`verdict ${ok ? 'ok' : 'bad'}${fresh ? ' fresh' : ''}${fresh && big ? ' big' : ''}${room && ok ? ' room' : ''}`} role={id ? 'status' : undefined}>
       {ok ? <IcCheckCircle /> : response === undefined ? <IcMinusCircle /> : <IcXCircle />}
-      <span>{head}<span class="sr-only">. </span><span class="verdict-sub">{detail}{unsure ? ' Marked unsure.' : ''}</span>{extra?.map((x) => <span class="verdict-extra"><span aria-hidden="true">{x.icon} </span>{x.text}</span>)}</span>
+      <span>{head}<span class="sr-only">. </span><span class="verdict-sub">{detail}{unsure ? ' Marked unsure.' : ''}</span>{extra?.map((x) => <span class="verdict-extra"><span aria-hidden="true">{x.icon} </span>{x.text}</span>)}{srExtra && <span class="sr-only"> {srExtra}</span>}</span>
     </div>
   );
 }

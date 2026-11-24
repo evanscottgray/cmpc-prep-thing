@@ -82,6 +82,7 @@ test('reaching the daily goal is celebrated once, and a timed session shows no c
   }
   // The 10th answer is wrong but reaches the goal: a green note of its own, never confetti over a miss.
   await expect(page.locator('.goal-note')).toContainText('Daily goal reached: 10 today.');
+  await expect(page.locator('#verdict')).toContainText('Daily goal reached. Every answer counts'); // one announcement carries both
   await page.waitForTimeout(700);
   await expect(confetti(page)).toHaveCount(0);
   await page.getByRole('button', { name: 'See summary' }).click();
@@ -269,4 +270,21 @@ test("Safari's back swipe counts as leaving a miss: Continue goes on to the next
   await go(page, results);
   await page.getByRole('link', { name: /Continue review · 1 of 2/ }).click();
   await expect(page.getByText('2 of 2 read')).toBeVisible(); // the second miss, not the first again
+});
+
+test('a finished block can be found again from its start screen', async ({ page }) => {
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  for (let q = 1; q <= 23; q++) {
+    const k = await keyIndex(page);
+    await optionLabels(page).nth(q === 1 ? (k + 1) % 4 : k).click();
+    await page.getByRole('button', { name: q < 23 ? 'Next' : 'Finish' }).click();
+  }
+  await page.getByRole('button', { name: 'Submit', exact: true }).click();
+  await page.getByRole('link', { name: 'Done', exact: true }).click(); // left without opening a miss
+  await go(page, 'start/block');
+  await page.getByRole('link', { name: /View last block results · .* · 22\/23/ }).click();
+  await expect(page.getByRole('heading', { name: 'Session summary' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Review 1 miss' })).toBeVisible();
 });

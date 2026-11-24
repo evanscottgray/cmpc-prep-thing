@@ -22,7 +22,8 @@ export function ExamIntro({ kind }: { kind: Kind }) {
   const formPool = kind === 'formA' ? 'A' : kind === 'formB' ? 'B' : null;
   const opened = formPool ? ctx.bank.items.filter((i) => i.pool === formPool && exposed.has(i.id)).length : 0;
   const taken = full && kind !== 'mixed' && formTaken(db, kind);
-  const last = full ? examHistory(db).filter((s) => s.kind === kind).at(-1) : undefined;
+  const last = full ? examHistory(db).filter((s) => s.kind === kind).at(-1)
+    : Object.values(db.sessions).filter((s) => s.kind === 'block' && s.status === 'submitted' && s.result).sort((a, b) => (a.submittedAt ?? 0) - (b.submittedAt ?? 0)).at(-1); // a block's way back to its result and review
   const active = Object.values(db.sessions).find((s) => s.kind === kind && s.status === 'active' && s.startedAt) as Session | undefined;
   const otherActive = Object.values(db.sessions).find((s) => s.kind !== kind && s.status === 'active' && s.startedAt && s.timed && ['formA', 'formB', 'mixed'].includes(s.kind));
   const ex = ctx.bank.blueprint.exam;
@@ -97,7 +98,9 @@ export function ExamIntro({ kind }: { kind: Kind }) {
               <li>The timer runs on the clock: it keeps going if you switch apps or close the app, and the exam submits itself at zero. Tap it to hide it for this sitting: warnings at {full ? '15, 5 and 1 minutes' : '5 and 1 minutes'} still appear, and the clock comes back for the last 5 minutes.</li>
             </ul>
           </div>
-          {last && <a class="btn block mt" href={`#/results/${last.id}`}>View results from {fmtShort(last.submittedAt!)} · estimated {scaledScore((100 * last.result!.raw) / last.result!.scoredCount, db.settings.rawTarget)}</a>}
+          {last && (full
+            ? <a class="btn block mt" href={`#/results/${last.id}`}>View results from {fmtShort(last.submittedAt!)} · estimated {scaledScore((100 * last.result!.raw) / last.result!.scoredCount, db.settings.rawTarget)}</a>
+            : <a class="btn block mt" href={`#/results/${last.id}`}>View last block results · {fmtShort(last.submittedAt!)} · {last.result!.correctAll}/{last.result!.total}</a>)}
           {kind === 'mixed' && <p class="small muted mt">If it includes questions you've already seen, the score report will say so.</p>}
           <p class="small muted center mt">Find a quiet place{full ? ' with 90 uninterrupted minutes' : ''}. The screen stays awake where supported.</p>
         </>

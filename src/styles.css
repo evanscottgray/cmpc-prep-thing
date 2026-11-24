@@ -133,6 +133,9 @@ main.page.notabs:has(> .actionbar) { padding-bottom: 0; }
 .list-pair .icon-btn { color: var(--muted); margin-right: .35rem; }
 .list-pair > .list-item { flex: 1; width: auto; min-width: 0; }
 .list-pair > .btn { flex: none; white-space: nowrap; margin-right: .5rem; }
+.li-date { white-space: nowrap; }
+.card-count { text-align: right; margin: -.35rem 0 .5rem; }
+@media (max-width: 599px) { .li-date { display: block; } .li-dot { display: none; } } /* on phones the date gets its own line: no separator left dangling */
 .list-item .clip { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 @media (max-width: 599px) { .list-item .clip { display: none; } }
 .icon-btn.framed { border: 1px solid var(--control); background: var(--surface); }
@@ -271,7 +274,6 @@ table.grid th { background: var(--surface-2); }
 .opts.plain { gap: .45rem; }
 .opt {
   position: relative; display: flex; align-items: stretch; border: 2px solid var(--control); border-radius: 12px; background: var(--surface);
-  transition: border-color .12s ease;
 }
 .opt .opt-main { display: flex; gap: .75rem; align-items: flex-start; padding: .75rem .8rem; flex: 1; min-height: 52px; cursor: pointer; min-width: 0; }
 .opt input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
@@ -556,12 +558,12 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .verdict.room > span { padding-right: 76px; }
 :root[data-size="xl"] .verdict.room > span, :root[data-size="l"] .verdict.room > span { padding-right: 88px; } /* larger text keeps a real pocket */
 @media (prefers-reduced-motion: no-preference) { :root:not([data-calm]) .card.hero.celebrate .cheer > div { padding-right: 72px; } } /* a celebrated summary keeps room beside its cheer, only when confetti can play */
-.week-caption { margin: .35rem 0 0; } /* a correct answer keeps an empty corner for its confetti, even at larger text */
+.week-caption { margin: .35rem 0 0; }
 .streak-chip { display: inline-flex; align-items: center; gap: .2rem; padding: .05rem .55rem; border-radius: 999px; background: var(--warn-soft); color: var(--warn); font-weight: 700; white-space: nowrap; }
 .cheer { display: flex; gap: .75rem; align-items: center; margin: .35rem 0 .6rem; }
 .cheer-emoji { font-size: 2.1rem; line-height: 1; }
 .cheer-emoji.big { font-size: 3rem; margin-bottom: .35rem; }
-.cheer-head { font-size: 1.3rem; font-weight: 800; line-height: 1.2; }
+.cheer-head { font-size: 1.3rem; font-weight: 800; line-height: 1.2; margin: 0; }
 .tally { display: flex; justify-content: center; gap: .85rem; flex-wrap: wrap; margin: .25rem 0 .75rem; }
 .tally strong { font-size: 1.25rem; }
 .tally.left { justify-content: flex-start; }
@@ -632,6 +634,5 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 @keyframes cel-glow { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, #4cd07d 60%, transparent); } 100% { box-shadow: 0 0 0 10px color-mix(in srgb, #4cd07d 0%, transparent); } }
 @keyframes cel-draw { to { stroke-dashoffset: 0; } }
 @keyframes cel-rise { from { transform: translateY(6px); opacity: 0; } to { transform: none; opacity: 1; } }
-@keyframes cel-bump { 0% { transform: scale(.6); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
 @keyframes cel-fill { from { transform: scaleX(var(--from, 0)); } to { transform: scaleX(1); } }
 @keyframes cel-nudge { 0% { transform: scale(.94); opacity: 0; } 60% { transform: scale(1.04); opacity: 1; } 100% { transform: none; } }
