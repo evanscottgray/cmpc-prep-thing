@@ -7,7 +7,7 @@ import { inPlay } from '../lib/scoring';
 import { plural } from '../lib/dates';
 import { Meter, Page } from '../ui/bits';
 import { ItemMeta, ItemReview, StemFold, Verdict } from '../ui/question';
-import { IcCheckCircle, IcChevron, IcMinusCircle, IcXCircle } from '../ui/icons';
+import { IcCheckCircle, IcChevron, IcCircle, IcMinusCircle, IcXCircle } from '../ui/icons';
 
 type F = 'all' | 'incorrect' | 'flagged' | 'unscored';
 
@@ -50,6 +50,7 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
   const bp = ctx.bank.blueprint;
   const flags = new Set(s.flags);
   const opened = new Set(s.opened);
+  const checklist = f === 'incorrect'; // every row is a miss here, so the icon shows read or not yet
   const filters: F[] = isExam ? ['all', 'incorrect', 'flagged', 'unscored'] : ['all', 'incorrect', 'flagged'];
   return (
     <Page title={`Review · ${s.title}`} backTo={`results/${s.id}`}>
@@ -90,7 +91,8 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
             const tags = [(f !== 'incorrect' || skipped) && status, !si.scored && isExam && f !== 'unscored' && 'Unscored', flags.has(i) && f !== 'flagged' && 'Flagged'].filter(Boolean);
             return (
               <a class="list-item" id={`rv-${i}`} href={`#/review/${s.id}/${i}${qs(query, {})}`} onClick={() => listAt.set(s.id, historyIndex())}>
-                {ok ? <IcCheckCircle class="status-ic ok" /> : skipped ? <IcMinusCircle class="status-ic skip" /> : <IcXCircle class="status-ic bad" />}
+                {checklist ? (opened.has(i) ? <IcCheckCircle class="status-ic ok" /> : <IcCircle class="status-ic skip" />) /* the misses fill in like a checklist as they're read */
+                  : ok ? <IcCheckCircle class="status-ic ok" /> : skipped ? <IcMinusCircle class="status-ic skip" /> : <IcXCircle class="status-ic bad" />}
                 <span class="li-main">
                   <span class="li-title">{i + 1}. {it.topic}</span>
                   <span class="li-sub clip">{it.stem}</span>
@@ -123,6 +125,8 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   // every miss is open now (in whatever order): name the step, and finish on the result it belongs to (exams only)
   const finishing = s.timed && misses > 0 && !s.reviewedRead && read === misses; // timed sessions (tutor modes already showed every rationale)
   const finish = () => { finishReview(s.id); navigate(`results/${s.id}`, true); };
+  // at the end of the list with misses still unread (read out of order): go on to the first unread one, not back to the list
+  const unread = misses && !finishing && next === null ? missedPositions(s).find((i) => i !== pos && !s.opened?.includes(i)) : undefined;
   return (
     <Page title={`Question ${pos + 1}`} onBack={toList} tabs={false}>
       {misses > 0 && <div class="session-progress"><Meter value={(100 * read) / misses} label={`${read} of ${misses} misses read`} /></div>}
@@ -136,7 +140,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
       <ItemMeta item={it} />
       <div class="actionbar">
         {prev !== null && <button class="btn" onClick={() => navigate(`review/${s.id}/${prev}${q}`, true)}>Previous</button>}
-        <button class="btn primary" onClick={() => { if (finishing) finish(); else if (next === null) toList(); else { leftReviewItem(s.id); navigate(`review/${s.id}/${next}${q}`, true); } }}>{finishing ? 'Finish review' : next === null ? 'Back to list' : 'Next'}</button>
+        <button class="btn primary" onClick={() => { if (finishing) finish(); else if (unread !== undefined) { leftReviewItem(s.id); navigate(`review/${s.id}/${unread}${q}`, true); } else if (next === null) toList(); else { leftReviewItem(s.id); navigate(`review/${s.id}/${next}${q}`, true); } }}>{finishing ? 'Finish review' : unread !== undefined ? 'Next unread miss' : next === null ? 'Back to list' : 'Next'}</button>
       </div>
     </Page>
   );

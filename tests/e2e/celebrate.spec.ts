@@ -168,8 +168,13 @@ test('reading every miss of a timed set, in any order, ends with "Finish review"
   // out of order: the second miss first, back to the list, then the first
   await page.locator('.list .list-item').nth(1).click();
   await expect(page.getByText('1 of 2 read')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Next unread miss' })).toBeVisible(); // the last row, with one still unread: on to it, not back to the list
   await page.getByRole('button', { name: 'Back', exact: true }).click();
-  await page.locator('.list .list-item').first().click();
+  await expect(page.locator('.list .list-item').nth(1).locator('.status-ic.ok')).toHaveCount(1); // read: checked off
+  await expect(page.locator('.list .list-item').first().locator('.status-ic.skip')).toHaveCount(1); // not yet
+  // an interrupted block review waits on Today, and picks up at the unread miss
+  await go(page, 'today');
+  await page.getByRole('link', { name: /Exam-pace block review/ }).click();
   await expect(page.getByText('2 of 2 read')).toBeVisible();
   await page.getByRole('button', { name: 'Finish review' }).click(); // offered on whichever miss completes the set
   await expect(page.getByText('Both misses read')).toBeVisible();

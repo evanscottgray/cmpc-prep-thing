@@ -83,7 +83,7 @@ function daysSince(db: DbState, kind: string, today: string): number {
   const s = Object.values(db.sessions).filter((x) => x.kind === kind && x.submittedAt).sort((a, b) => (b.submittedAt || 0) - (a.submittedAt || 0))[0];
   return s?.submittedAt ? daysBetween(ymd(s.submittedAt), today) : Infinity;
 }
-/** An exam counts as reviewed once every miss was opened, or the learner marked the review done. */
+/** An exam counts as reviewed once the learner finished its review (every miss read) or set it aside. */
 function reviewed(db: DbState, s: Session): boolean {
   if (s.result && s.result.correctAll >= s.result.total) return true; // nothing missed: nothing to review
   return !!db.sessions[s.id]?.reviewedAt;

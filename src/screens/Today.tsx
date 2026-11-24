@@ -39,7 +39,7 @@ function reviewCard(x: Session) {
   const finish = () => { finishReview(x.id); navigate(`results/${x.id}`); }; // its moment plays on the result
   const skip = { label: st.kind === 'start' ? 'Skip this review' : 'Skip remaining misses', go: () => { markReviewed(x.id); toast(`Done. ${x.title} stays under Progress if you want it later.`); } };
   const base = { ctaFirst: true, eyebrow: 'Recommended', title: `Review your ${x.title} misses` };
-  if (st.kind === 'finish') return { ...base, cta: 'Finish review', go: finish, note: 'Every miss is read. One tap finishes it.' };
+  if (st.kind === 'finish') return { ...base, cta: 'Finish review', go: finish, note: 'Every miss is read. Finish to wrap it up.' };
   if (st.kind === 'resumeLast') return { ...base, cta: 'Resume last miss', go: () => open(st.pos), second: { label: 'Finish review', go: finish } };
   if (st.kind === 'continue') return { ...base, cta: `Continue review · ${st.opened} of ${st.total}`, go: () => open(st.pos), second: skip };
   return { ...base, cta: st.total > 12 ? 'Start with one miss' : `Review ${plural(st.total, 'miss', 'misses')}`, go: () => open(st.pos), note: st.total > 12 ? 'Read one explanation now. You can pick up where you left off.' : undefined, second: skip };
@@ -181,7 +181,7 @@ function DailyCard({ answered, now, reachedNote }: { answered: number; now: numb
 /** Unfinished sessions other than the one already offered above. */
 function InProgress({ skip }: { skip?: string }) {
   const db = useDb();
-  const reviews = Object.values(db.sessions).filter((x) => x.id !== skip && x.status === 'submitted' && ['formA', 'formB', 'mixed'].includes(x.kind) && !x.reviewedAt && openedMisses(x) > 0 && Date.now() - (x.submittedAt ?? 0) < WEEK);
+  const reviews = Object.values(db.sessions).filter((x) => x.id !== skip && x.status === 'submitted' && x.timed && !x.reviewedAt && openedMisses(x) > 0 && Date.now() - (x.submittedAt ?? 0) < WEEK);
   const open = Object.values(db.sessions)
     .filter((x) => x.status === 'active' && x.id !== skip && (x.timed ? x.startedAt : x.revealed.length > 0 || Object.keys(x.responses).length > 0))
     .sort((a, b) => b.createdAt - a.createdAt).slice(0, 3);
@@ -197,8 +197,10 @@ function InProgress({ skip }: { skip?: string }) {
         {reviews.map((x) => (
           <div class="list-pair">
             {(() => { const st = reviewStep(x); const all = st.kind === 'finish' || st.kind === 'resumeLast'; return <>
-              <a class="list-item" href={st.kind === 'finish' ? `#/results/${x.id}` : `#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`} onClick={st.kind === 'finish' ? () => finishReview(x.id) : undefined}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read</span></span><span class="badge accent">{st.kind === 'finish' ? 'Finish' : 'Resume'}</span></a>
-              {st.kind !== 'finish' && <button class="btn small ghost" onClick={() => { if (all) { finishReview(x.id); navigate(`results/${x.id}`); } else { markReviewed(x.id); toast(`Marked done. ${x.title} stays under Progress.`); } }}>{all ? 'Finish' : 'Mark done'}<span class="sr-only"> for the {x.title} review</span></button>}{/* finishing opens the result, where its moment plays */}
+              {st.kind === 'finish'
+                ? <button class="list-item" onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
+                : <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read</span></span><span class="badge accent">Resume</span></a>}
+              {st.kind !== 'finish' && <button class="btn small ghost" onClick={() => { if (all) { finishReview(x.id); navigate(`results/${x.id}`); } else { markReviewed(x.id); toast(`Marked done. ${x.title} stays under Progress.`); } }}>{all ? 'Finish' : 'Mark done'}<span class="sr-only"> for the {x.title} review</span></button>}
             </>; })()}
           </div>
         ))}

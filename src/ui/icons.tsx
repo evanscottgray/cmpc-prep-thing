@@ -20,6 +20,7 @@ export const IcCheck = (p: P) => S(<path d="M5 12.5l4.5 4.5L19 7" />, p);
 export const IcX = (p: P) => S(<><path d="M6 6l12 12" /><path d="M18 6L6 18" /></>, p);
 export const IcCheckCircle = (p: P) => S(<><circle cx="12" cy="12" r="9.5" /><path d="M7.5 12.5l3 3 6-6.5" /></>, p);
 export const IcXCircle = (p: P) => S(<><circle cx="12" cy="12" r="9.5" /><path d="M9 9l6 6" /><path d="M15 9l-6 6" /></>, p);
+export const IcCircle = (p: P) => S(<circle cx="12" cy="12" r="9.5" />, p);
 export const IcMinusCircle = (p: P) => S(<><circle cx="12" cy="12" r="9.5" /><path d="M8 12h8" /></>, p);
 export const IcClock = (p: P) => S(<><circle cx="12" cy="13" r="8" /><path d="M12 9v4l2.5 2" /><path d="M9 2h6" /></>, p);
 export const IcGrid = (p: P) => S(<><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></>, p);
