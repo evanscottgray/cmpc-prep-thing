@@ -9,7 +9,7 @@ import type { DrillSource } from '../lib/assemble';
 import { useEffect, useState } from 'preact/hooks';
 import { celebrateSoon, firstTime, fresh } from '../ui/celebrate';
 import { todayCount } from '../lib/stats';
-import { startQuiz } from './Today';
+import { openQuiz, startQuiz } from './Today';
 import { Meter } from '../ui/bits';
 import { isLight, plan } from '../lib/plan';
 import { AreaBar, ListLink, Page } from '../ui/bits';
@@ -47,13 +47,11 @@ export function Results({ session: s }: { session: Session }) {
   // Familiar questions inflate a score, so a retake's pass is reported, not celebrated; a full run means every question answered.
   const freshForm = !s.retake && s.seenBefore === 0;
   const fullRun = r.answered === r.total;
-  // The session's last answer already got the goal's confetti: the summary doesn't fire again.
-  const lastPos = s.revealed[s.revealed.length - 1];
-  const goalJustCheered = !!s.goalHit?.cheered && s.goalHit.pos === lastPos;
   useEffect(() => {
     if (!fresh(s.submittedAt)) return;
-    const earned = full ? pass && freshForm && fullRun : pctAll >= 80 && r.total >= 5 && !goalJustCheered;
-    if (earned && firstTime(s.id)) return celebrateSoon();
+    // The session's own moment was kept inside its verdict card, so a strong summary still gets its finish.
+    const earned = full ? pass && freshForm && fullRun : pctAll >= 80 && r.total >= 5;
+    if (earned && firstTime(s.id)) return celebrateSoon(250, () => document.querySelector('.result-actions'));
   }, []);
   const today = todayCount(db);
   const T = db.settings.dailyTarget;
@@ -116,7 +114,7 @@ export function Results({ session: s }: { session: Session }) {
         {missed.length > 0 && <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}?f=incorrect`}>Review {plural(missed.length, 'miss', 'misses')}</a>}
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
         {s.timed && <a class="btn" href="#/today">Done</a>}
-        {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'}</button>}
+        {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{(() => { const q = openQuiz(); return q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'; })()}</button>}
       </div>
 
       {full && focus.length > 0 && (

@@ -46,7 +46,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
     const v = document.querySelector('#verdict');
     if (!cheer || !fresh || !revealed || !v || fired.current === cheer) return;
     fired.current = cheer;
-    if (cheer.kind) verdictBurst(v, cheer.kind === 'edges');
+    if (cheer.kind) verdictBurst(v as HTMLElement, cheer.kind === 'edges');
   }, [cheer, revealed]);
 
   /** One celebration per check, biggest moment wins: the daily goal, then a run of 3/5/10…, then a plain correct answer. */

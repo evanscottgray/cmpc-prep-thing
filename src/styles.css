@@ -301,10 +301,10 @@ table.grid th { background: var(--surface-2); }
 .opt.is-correct .otext, .opt.is-wrong .otext { font-weight: 600; }
 .opt .rationale { font-weight: 400; }
 .sub-h { font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 1.5rem 0 .5rem .25rem; font-weight: 650; }
-.verdict { display: flex; align-items: center; gap: .6rem; padding: .75rem 1rem; border-radius: 12px; font-weight: 700; margin: 1rem 0; scroll-margin-top: calc(66px + var(--safe-t)); }
+.verdict { display: flex; align-items: flex-start; gap: .6rem; padding: .75rem 1rem; border-radius: 12px; font-weight: 700; margin: 1rem 0; scroll-margin-top: calc(66px + var(--safe-t)); }
 .verdict-sub { display: block; font-weight: 500; color: var(--text); }
 .keep { white-space: nowrap; }
-.verdict svg { width: 26px; height: 26px; flex: none; }
+.verdict svg { width: 26px; height: 26px; flex: none; margin-top: .05rem; } /* beside the heading, not the middle of a tall verdict */
 .verdict.ok { background: var(--ok-soft); color: var(--ok); border: 1px solid color-mix(in srgb, var(--ok) 40%, transparent); }
 .verdict.bad { background: var(--bad-soft); color: var(--bad); border: 1px solid color-mix(in srgb, var(--bad) 40%, transparent); }
 .takeaway { background: var(--accent-soft); border-radius: 12px; padding: .85rem 1rem; margin-top: 1rem; }
@@ -520,7 +520,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 @media (max-width: 430px) { .nav-legend { grid-template-columns: auto auto; } }
 /* results: the main action spans the row, the others share one */
 .result-actions > .btn:first-child { flex-basis: 100%; }
-.result-actions > .btn.ghost { flex-basis: 100%; }
+.result-actions > .btn.ghost { flex-basis: 100%; background: var(--bg); } /* opaque, so summary confetti passes behind its words */
 .device summary { min-height: 44px; display: flex; align-items: center; font-weight: 600; cursor: pointer; }
 .device[open] summary { margin-bottom: .5rem; }
 .focus-note { margin: -.1rem 0 .6rem .25rem; }
@@ -547,7 +547,9 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 
 /* celebrations: confetti, streaks, cheers (motion only when the device allows it and Celebrations is on) */
 .confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; } /* behind cards, text and bars: it never covers what you read */
-.confetti.pocket { z-index: 15; } /* in front, but clipped to an empty part of one card; under the sticky bars */
+.confetti.card-layer { position: absolute; inset: 0; z-index: 0; } /* inside one card, clipped to its empty corner: scrolls and leaves with it */
+.verdict { position: relative; overflow: hidden; }
+.verdict > :not(canvas) { position: relative; z-index: 1; }
 .streak-chip { display: inline-flex; align-items: center; gap: .2rem; padding: .05rem .55rem; border-radius: 999px; background: var(--warn-soft); color: var(--warn); font-weight: 700; white-space: nowrap; }
 .cheer { display: flex; gap: .75rem; align-items: center; margin: .35rem 0 .6rem; }
 .cheer-emoji { font-size: 2.1rem; line-height: 1; }
@@ -560,6 +562,8 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .flame { font-size: 1.9rem; line-height: 1; }
 .streak-title { font-weight: 800; font-size: 1.1rem; }
 .week { list-style: none; display: flex; justify-content: space-between; gap: .25rem; margin: .8rem 0 0; padding: 0; }
+.week.partial { justify-content: flex-start; }
+.week.partial li { flex: 0 0 calc(100% / 7); }
 .week li { display: flex; flex-direction: column; align-items: center; gap: .25rem; flex: 1; }
 .week .dot { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--border-strong); display: grid; place-items: center; font-size: .8rem; font-weight: 800; color: var(--accent-ink); }
 .week li.on .dot { background: var(--accent); border-color: var(--accent); }
@@ -585,6 +589,8 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .goal-note { margin: -.35rem 0 1rem; padding: .6rem .85rem; border-radius: var(--radius); background: var(--ok-soft); color: var(--ok); font-weight: 700; border: 1px solid var(--ok); }
 .session-progress { margin: -.25rem 0 .75rem; }
 .session-progress .meter { height: 5px; }
+.card.recall { padding: 1.25rem 1.1rem; }
+.card.recall h2 { margin: .1rem 0 .6rem; }
 .card.recall p { margin: 0; }
 .goal-line { margin: .5rem 0 0; font-weight: 700; color: var(--ok); }
 .exam-cheer { margin: .35rem 0 0; font-weight: 600; }

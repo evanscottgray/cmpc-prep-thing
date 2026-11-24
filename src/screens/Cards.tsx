@@ -144,15 +144,19 @@ export function CardStudy() {
   return (
     <Page title={`Card ${i + 1} of ${queue.length}`} backTo="cards" tabs={false}>
       <div class="session-progress"><Meter value={(100 * i) / queue.length} label={`${i} of ${queue.length} cards done`} /></div>
-      <div class="eyebrow">{CAT(c)}</div>
-      <h2 style={{ fontSize: '1.35rem' }} tabIndex={-1} id="card-title">{c.title}</h2>
       {!show ? (
         <>
-          <div class="card recall"><p>Before you look, say it in your own words: the definition, an example with a client, and how a scenario might test it.</p></div>
+          <div class="card recall">{/* the card's face: the term to recall */}
+            <div class="eyebrow">{CAT(c)}</div>
+            <h2 style={{ fontSize: '1.35rem' }} tabIndex={-1} id="card-title">{c.title}</h2>
+            <p class="muted small">Before you look, say it in your own words: the definition, an example with a client, and how a scenario might test it.</p>
+          </div>
           <div class="actionbar"><button class="btn" onClick={() => { setI(i + 1); window.scrollTo(0, 0); }}>Skip for now</button><button class="btn primary" onClick={() => setShow(true)}>Show card</button></div>
         </>
       ) : (
         <>
+          <div class="eyebrow">{CAT(c)}</div>
+          <h2 style={{ fontSize: '1.35rem' }} tabIndex={-1} id="card-title">{c.title}</h2>
           <div class="reveal"><CardBody c={c} /></div>
           <RateRow id={c.id} onRated={(g) => { setTally((t) => ({ ...t, [g]: t[g] + 1 })); setShow(false); setI(i + 1); window.scrollTo(0, 0); }} />
         </>

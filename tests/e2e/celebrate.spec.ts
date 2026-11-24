@@ -115,3 +115,31 @@ test('reaching the daily goal is celebrated once, and a timed session shows no c
   const [r, d] = [await resume.boundingBox(), await page.locator('.card.daily').boundingBox()];
   expect(r!.y).toBeLessThan(d!.y);
 });
+
+test('moving on straight away cancels a celebration that has not started yet', async ({ page }) => {
+  await onboard(page);
+  await startQuiz(page);
+  await answer(page, true);
+  await page.getByRole('button', { name: 'Next question' }).click(); // before the verdict's burst (it waits for the pop to settle)
+  await expect(page.getByText('Question 2 of 10')).toBeVisible();
+  await page.waitForTimeout(1000);
+  await expect(confetti(page)).toHaveCount(0);
+});
+
+test('a strong session ends with confetti on its summary (once)', async ({ page }) => {
+  await onboard(page);
+  await startQuiz(page);
+  for (let q = 1; q <= 10; q++) {
+    if (q > 1) { await page.getByRole('button', { name: 'Next question' }).click(); await expect(page.getByText(`Question ${q} of 10`)).toBeVisible(); }
+    await answer(page, q !== 4); // 9 of 10
+  }
+  await page.getByRole('button', { name: 'See summary' }).click();
+  await expect(page.getByText('Excellent work!')).toBeVisible();
+  await expect(confetti(page)).toHaveCount(1);
+  await expect(confetti(page)).toHaveCount(0, { timeout: 6000 });
+  await page.getByRole('link', { name: 'Review all 10' }).click();
+  await page.goBack();
+  await expect(page.getByText('Excellent work!')).toBeVisible();
+  await page.waitForTimeout(800);
+  await expect(confetti(page)).toHaveCount(0); // not replayed on the way back
+});

@@ -31,7 +31,7 @@ export function startQuiz() {
   createSession(s); navigate(`s/${s.id}`);
 }
 
-const SHORT = { get label() { const q = openQuiz(); return q ? `Short on time? Resume quick quiz · ${q.items.length - q.revealed.length} left` : 'Short on time? Quick quiz · 10'; }, go: () => startQuiz() };
+const SHORT = { get label() { const q = openQuiz(); return q ? `Or resume your quick quiz · ${q.items.length - q.revealed.length} left` : 'Or warm up with 10 untimed questions'; }, go: () => startQuiz() };
 
 function Primary({ a, why, later }: { a: Action; why: string; later?: boolean }) {
   const map: Record<string, { eyebrow: string; title: string; cta: string; go: () => void; note?: string; second?: { label: string; go: () => void } }> = {
@@ -84,8 +84,8 @@ function StudyDays({ now, newToday }: { now: number; newToday: boolean }) {
         <span class="flame" aria-hidden="true">{st.count >= 2 ? '🔥' : '🌱'}</span>
         <div class="grow"><div class="streak-title">{title}</div><div class="small muted">{sub}</div></div>
       </div>
-      <ol class="week" aria-label="The last seven days">
-        {week.map((d) => {
+      <ol class={`week${span < 7 ? ' partial' : ''}`} aria-label={span < 7 ? 'The days since you started' : 'The last seven days'}>
+        {week.filter((d) => span === 7 || d.date >= first).map((d) => { // first week: only the days since you started
           const long = new Date(`${d.date}T12:00`).toLocaleDateString(undefined, { weekday: 'long' });
           return (
             <li class={`${d.studied ? 'on' : ''}${d.today ? ' today' : ''}${d.today && d.studied && newToday ? ' new' : ''}${d.date < first ? ' before' : ''}`}>
@@ -129,7 +129,7 @@ function DailyCard({ answered, now, reachedNote }: { answered: number; now: numb
         <StudyDays now={now} newToday={shown.newToday} />
         {reached && <p class="small muted more-label">If you want more:</p>}
         <div class={`btn-row${reached ? '' : ' mt'}`} style={reached ? { marginTop: '.4rem' } : undefined}>
-          {(() => { const q = openQuiz(); return <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>{q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : 'Quick quiz · 10'}</button>; })()}
+          {(() => { const q = openQuiz(); return <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>{q ? `Resume · ${q.items.length - q.revealed.length} left` : 'Quick quiz · 10'}</button>; })()}
           <a class={`btn small${reached ? ' ghost' : ''}`} href="#/study">More options</a>
         </div>
       </div>

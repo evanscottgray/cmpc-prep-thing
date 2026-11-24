@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useLayoutEffect, useState } from 'preact/hooks';
 import { ctx, useDb } from './ctx';
 import { navigate, useRoute } from './router';
 import { autoSubmitExpired } from './lib/actions';
@@ -31,7 +31,8 @@ export function App() {
   const [update, setUpdate] = useState(false);
   const [head, ...rest] = route.path;
 
-  useEffect(() => clearConfetti(), [route.path.join('/')]); // a new screen isn't read through old confetti
+  // A new screen isn't read through old confetti. A layout effect, so it runs before the new screen schedules its own celebration.
+  useLayoutEffect(() => clearConfetti(), [route.path.join('/')]);
 
   // apply theme + text size
   useEffect(() => {
