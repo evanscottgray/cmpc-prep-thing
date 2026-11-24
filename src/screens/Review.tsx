@@ -50,7 +50,9 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
   const bp = ctx.bank.blueprint;
   const flags = new Set(s.flags);
   const opened = new Set(s.opened);
-  const checklist = f === 'incorrect'; // every row is a miss here, so the icon shows read or not yet
+  const checklist = s.timed && f === 'incorrect'; // every row is a miss here, so the icon shows read or not yet
+  // every miss read, but the review not finished yet (e.g. Back from the last one): finish it from here too
+  const canFinish = checklist && !query.get('d') && !query.get('k') && !query.get('s') && !s.reviewedRead && missedPositions(s).length > 0 && openedMisses(s) === missedPositions(s).length;
   const filters: F[] = isExam ? ['all', 'incorrect', 'flagged', 'unscored'] : ['all', 'incorrect', 'flagged'];
   return (
     <Page title={`Review · ${s.title}`} backTo={`results/${s.id}`}>
@@ -78,6 +80,7 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
       </div>
       </details>
       <p class="small muted" aria-live="polite">{plural(positions.length, 'question')}{opened.size ? ` · ${positions.filter((i) => opened.has(i)).length} read` : ''}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
+      {canFinish && <button class="btn primary block" onClick={() => { finishReview(s.id); navigate(`results/${s.id}`, true); }}>Finish review</button>}
       {positions.length === 0 && (
         <div class="card"><p>No questions match these filters.</p><button class="btn small" onClick={() => navigate(`review/${s.id}`, true)}>Clear filters</button></div>
       )}
@@ -96,7 +99,7 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
                 <span class="li-main">
                   <span class="li-title">{i + 1}. {it.topic}</span>
                   <span class="li-sub clip">{it.stem}</span>
-                  <span class="li-sub" style={{ display: 'block' }}>{group}{tags.map((t) => <>{'\u00a0· '}<span class="keep">{t}</span></>)}{opened.has(i) && <span class="opened read">{'\u00a0· ✓ Read'}</span>}</span>
+                  <span class="li-sub" style={{ display: 'block' }}>{group}{tags.map((t) => <>{'\u00a0· '}<span class="keep">{t}</span></>)}{opened.has(i) ? <span class="opened read">{'\u00a0· Read'}</span> : checklist && <span class="sr-only">, not read yet</span>}</span>
                 </span>
                 <IcChevron class="chev" />
               </a>
@@ -120,13 +123,14 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const isExam = ['formA', 'formB', 'mixed'].includes(s.kind);
   const toList = () => { leftReviewItem(s.id); if (listAt.get(s.id) === historyIndex() - 1) back(); else navigate(`review/${s.id}${q}`, true); };
   // the reading count and "Finish review" belong to the whole set of misses, not a filtered slice of it
-  const misses = query.get('f') === 'incorrect' && !query.get('d') && !query.get('k') && !query.get('s') ? missedPositions(s).length : 0;
+  const misses = s.timed && query.get('f') === 'incorrect' && !query.get('d') && !query.get('k') && !query.get('s') ? missedPositions(s).length : 0;
   const read = misses ? openedMisses(s) : 0;
   // every miss is open now (in whatever order): name the step, and finish on the result it belongs to (exams only)
   const finishing = s.timed && misses > 0 && !s.reviewedRead && read === misses; // timed sessions (tutor modes already showed every rationale)
   const finish = () => { finishReview(s.id); navigate(`results/${s.id}`, true); };
-  // at the end of the list with misses still unread (read out of order): go on to the first unread one, not back to the list
-  const unread = misses && !finishing && next === null ? missedPositions(s).find((i) => i !== pos && !s.opened?.includes(i)) : undefined;
+  // while misses are still unread, the main button goes on to the next unread one (wrapping), not through ones already read
+  const left = misses && !finishing ? missedPositions(s).filter((i) => i !== pos && !s.opened?.includes(i)) : [];
+  const unread = left.find((i) => i > pos) ?? left[0];
   return (
     <Page title={`Question ${pos + 1}`} onBack={toList} tabs={false}>
       {misses > 0 && <div class="session-progress"><Meter value={(100 * read) / misses} label={`${read} of ${misses} misses read`} /></div>}
@@ -140,7 +144,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
       <ItemMeta item={it} />
       <div class="actionbar">
         {prev !== null && <button class="btn" onClick={() => navigate(`review/${s.id}/${prev}${q}`, true)}>Previous</button>}
-        <button class="btn primary" onClick={() => { if (finishing) finish(); else if (unread !== undefined) { leftReviewItem(s.id); navigate(`review/${s.id}/${unread}${q}`, true); } else if (next === null) toList(); else { leftReviewItem(s.id); navigate(`review/${s.id}/${next}${q}`, true); } }}>{finishing ? 'Finish review' : unread !== undefined ? 'Next unread miss' : next === null ? 'Back to list' : 'Next'}</button>
+        <button class="btn primary" onClick={() => { if (finishing) finish(); else if (unread !== undefined) { leftReviewItem(s.id); navigate(`review/${s.id}/${unread}${q}`, true); } else if (next === null) toList(); else { leftReviewItem(s.id); navigate(`review/${s.id}/${next}${q}`, true); } }}>{finishing ? 'Finish review' : unread !== undefined ? (unread === next ? 'Next' : 'Next unread miss') : next === null ? 'Back to list' : 'Next'}</button>
       </div>
     </Page>
   );

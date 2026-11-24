@@ -181,7 +181,8 @@ function DailyCard({ answered, now, reachedNote }: { answered: number; now: numb
 /** Unfinished sessions other than the one already offered above. */
 function InProgress({ skip }: { skip?: string }) {
   const db = useDb();
-  const reviews = Object.values(db.sessions).filter((x) => x.id !== skip && x.status === 'submitted' && x.timed && !x.reviewedAt && openedMisses(x) > 0 && Date.now() - (x.submittedAt ?? 0) < WEEK);
+  const reviews = Object.values(db.sessions).filter((x) => x.id !== skip && x.status === 'submitted' && x.timed && !x.reviewedAt && openedMisses(x) > 0)
+    .sort((a, b) => (b.submittedAt ?? 0) - (a.submittedAt ?? 0)).slice(0, 3); // kept until finished or set aside; the latest few, dated
   const open = Object.values(db.sessions)
     .filter((x) => x.status === 'active' && x.id !== skip && (x.timed ? x.startedAt : x.revealed.length > 0 || Object.keys(x.responses).length > 0))
     .sort((a, b) => b.createdAt - a.createdAt).slice(0, 3);
@@ -198,9 +199,9 @@ function InProgress({ skip }: { skip?: string }) {
           <div class="list-pair">
             {(() => { const st = reviewStep(x); const all = st.kind === 'finish' || st.kind === 'resumeLast'; return <>
               {st.kind === 'finish'
-                ? <button class="list-item" onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
-                : <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read</span></span><span class="badge accent">Resume</span></a>}
-              {st.kind !== 'finish' && <button class="btn small ghost" onClick={() => { if (all) { finishReview(x.id); navigate(`results/${x.id}`); } else { markReviewed(x.id); toast(`Marked done. ${x.title} stays under Progress.`); } }}>{all ? 'Finish' : 'Mark done'}<span class="sr-only"> for the {x.title} review</span></button>}
+                ? <button class="list-item" onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read{x.submittedAt ? ` · ${fmtShort(x.submittedAt)}` : ''}</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
+                : <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read{x.submittedAt ? ` · ${fmtShort(x.submittedAt)}` : ''}</span></span><span class="badge accent">Resume</span></a>}
+              {st.kind !== 'finish' && <button class="btn small ghost" onClick={() => { if (all) { finishReview(x.id); navigate(`results/${x.id}`); } else { markReviewed(x.id); toast(['formA', 'formB', 'mixed'].includes(x.kind) ? `Set aside. ${x.title} stays under Progress.` : 'Set aside. Its missed questions still come back in spaced review.'); } }}>{all ? 'Finish' : 'Set aside'}<span class="sr-only"> for the {x.title} review</span></button>}
             </>; })()}
           </div>
         ))}

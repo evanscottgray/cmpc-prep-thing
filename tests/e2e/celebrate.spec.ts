@@ -180,7 +180,7 @@ test('reading every miss of a timed set, in any order, ends with "Finish review"
   await expect(page.getByText('Both misses read')).toBeVisible();
   await expect(confetti(page)).toHaveCount(1);
   await expect(page.locator('.result-actions > :first-child')).toHaveText('Done'); // Done leads now
-  await expect(page.getByRole('link', { name: 'If you want: read the misses again' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'If you want: read the 2 misses again' })).toBeVisible();
 });
 
 test('with every miss opened but not finished, Results finishes the review in one tap', async ({ page }) => {
@@ -198,6 +198,7 @@ test('with every miss opened but not finished, Results finishes the review in on
   await page.getByRole('link', { name: 'Review 2 misses' }).click();
   for (const i of [0, 1]) { await page.locator('.list .list-item').nth(i).click(); await page.getByRole('button', { name: 'Back', exact: true }).click(); } // both opened, then left
   await expect(page).toHaveURL(/#\/review\/[^/?]+\?f=incorrect$/); // back on the list before moving on
+  await expect(page.getByRole('button', { name: 'Finish review' })).toBeVisible(); // the list can finish it too
   await go(page, results);
   await page.getByRole('button', { name: 'Finish review' }).click(); // no detour back into a question
   await expect(page.getByText('Both misses read')).toBeVisible();

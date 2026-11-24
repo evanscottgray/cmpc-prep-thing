@@ -89,9 +89,9 @@ export function Results({ session: s }: { session: Session }) {
           return <a class={`btn${s.timed ? P : ''}`} href={href()}>Review {plural(missed.length, 'miss', 'misses')}</a>;
         })()}
         {step?.kind === 'start' && full && step.total > 12 && <p class="small muted review-hint">{missed.length} misses to read, one at a time. You can pick up where you left off.</p>}
-        {r.total > 0 && <a class={`btn${readDone ? ' ghost' : s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
+        {r.total > 0 && !readDone && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}{/* after finishing: one quiet way back in */}
         {!doneFirst && <a class="btn" href="#/today">Done</a>}
-        {readDone && missed.length > 0 && <a class="btn ghost" href={`#/review/${s.id}?f=incorrect`}>{missed.length === 1 ? 'If you want: read the miss again' : 'If you want: read the misses again'}</a>}
+        {readDone && missed.length > 0 && <a class="btn ghost" href={`#/review/${s.id}?f=incorrect`}>{missed.length === 1 ? 'If you want: read the miss again' : `If you want: read the ${missed.length} misses again`}</a>}
         {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{(() => { const q = openQuiz(); return q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'; })()}</button>}
       </div>
   );
