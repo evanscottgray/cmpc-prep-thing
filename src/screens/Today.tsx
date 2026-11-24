@@ -30,7 +30,7 @@ export function startQuiz() {
   createSession(s); navigate(`s/${s.id}`);
 }
 
-function Primary({ a, why, goalMet }: { a: Action; why: string; goalMet: boolean }) {
+function Primary({ a, why, later }: { a: Action; why: string; later?: boolean }) {
   const map: Record<string, { eyebrow: string; title: string; cta: string; go: () => void; note?: string; second?: { label: string; go: () => void } }> = {
     resume: { eyebrow: 'In progress', title: a.kind === 'resume' ? `Resume ${a.session.title}` : '', cta: 'Resume', go: () => a.kind === 'resume' && navigate(`s/${a.session.id}`) },
     formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 questions · 90 minutes · no breaks' },
@@ -44,9 +44,13 @@ function Primary({ a, why, goalMet }: { a: Action; why: string; goalMet: boolean
     passed: { eyebrow: 'Exam date passed', title: 'Update your exam date', cta: 'Open settings', go: () => navigate('settings') },
   };
   const m = map[a.kind];
-  // Today's goal is done: a 90-minute exam can wait for a fresh day, so say so instead of pushing it.
-  const later = goalMet && (a.kind === 'formA' || a.kind === 'formB' || a.kind === 'mixed');
-  if (later) { m.eyebrow = 'Next, when you have 90 minutes'; why = "You've reached today's goal, so this can wait for a fresh day. " + why; }
+  // Today's goal is done: a 90-minute exam can wait for a fresh day, so it becomes a quiet link, not the headline.
+  if (later) return (
+    <div class="section">
+      <h2>Next, when you have 90 minutes</h2>
+      <div class="list"><ListLink onClick={m.go} title={m.title} sub={m.note} /></div>
+    </div>
+  );
   return (
     <section class="card hero" aria-labelledby="today-primary">
       <div class="eyebrow">{m.eyebrow}</div>
@@ -59,31 +63,60 @@ function Primary({ a, why, goalMet }: { a: Action; why: string; goalMet: boolean
   );
 }
 
-/** Days in a row with study, and the last seven days as dots. Gentle: a missed day just starts a new run. */
-function StreakStrip({ now }: { now: number }) {
+/** Study days inside the daily card: a gain-only line and the last seven days. A missed day just starts a new run. */
+function StudyDays({ now }: { now: number }) {
   const db = useDb();
   const days = studyDays(db);
   if (!days.size) return null;
   const st = streak(days, now);
   const first = [...days].sort()[0];
   const week = lastWeek(days, now);
-  const studiedWeek = week.filter((d) => d.studied).length;
-  // Always a gain, never a loss: a run of 2+ days is the headline; otherwise the week's count is.
-  const title = st.count >= 2 ? `${st.count} days in a row` : `${studiedWeek} of the last 7 days`;
-  const sub = st.today ? 'You studied today. Nice.' : st.count >= 2 ? 'Any question, card or review today adds a day.' : 'Any question, card or review today counts.';
+  const span = week.filter((d) => d.date >= first).length; // days since you started, up to a week
+  const studied = week.filter((d) => d.studied).length;
+  const title = st.count >= 2 ? `${st.count} days in a row` : span === 1 ? 'Day 1' : `${studied} of the last ${span} days`;
+  const sub = span === 1 ? 'You started today. Nice.' : st.today ? 'You studied today. Nice.' : st.count >= 2 ? 'Any question, card or review today adds a day.' : 'Any question, card or review today counts.';
   return (
-    <section class="card streak" aria-label="Study days">
+    <div class="study-days">
       <div class="streak-head">
         <span class="flame" aria-hidden="true">{st.count >= 2 ? '🔥' : '🌱'}</span>
-        <div class="grow">
-          <div class="streak-title">{title}</div>
-          <div class="small muted">{sub}</div>
+        <div class="grow"><div class="streak-title">{title}</div><div class="small muted">{sub}</div></div>
+      </div>
+      <ol class="week" aria-label="The last seven days">
+        {week.map((d) => {
+          const long = new Date(`${d.date}T12:00`).toLocaleDateString(undefined, { weekday: 'long' });
+          return (
+            <li class={`${d.studied ? 'on' : ''}${d.today ? ' today' : ''}${d.date < first ? ' before' : ''}`}>
+              <span class="dot" aria-hidden="true">{d.studied ? '✓' : ''}</span><span class="wd" aria-hidden="true">{d.label}</span>
+              <span class="sr-only">{long}{d.today ? ', today' : ''}: {d.studied ? 'studied' : d.date < first ? 'before you started' : 'no study'}</span>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
+}
+
+/** Today's questions toward the daily target, study days, and quick ways to practise. */
+function DailyCard({ answered, now }: { answered: number; now: number }) {
+  const s = useDb().settings;
+  const progress = Math.min(100, Math.round((100 * answered) / Math.max(1, s.dailyTarget)));
+  const reached = progress >= 100;
+  return (
+    <div class="section">
+      <h2>Today's study</h2>
+      <div class={`card daily${reached ? ' reached' : ''}`}>
+        {reached
+          ? <div class="row between"><strong class="goal-done"><span aria-hidden="true">🎉 </span>Daily goal reached</strong><span class="muted small">{answered} of {s.dailyTarget}</span></div>
+          : <div class="row between"><span>{answered} of {s.dailyTarget} questions</span><span class="muted small">{progress >= 80 ? `${s.dailyTarget - answered} to go` : progress >= 50 ? 'Halfway there' : `${progress}%`}</span></div>}
+        <div style={{ marginTop: '.5rem' }}><Meter value={progress} label="Daily target" /></div>
+        <p class="small muted" style={{ margin: '.5rem 0 0' }}>{reached ? "That's enough for today. Anything more is optional." : 'Counts every question you answer, including spaced review.'}</p>
+        <StudyDays now={now} />
+        <div class="btn-row mt">
+          {openQuiz() ? <button class="btn small" onClick={() => startWeak(10)}>Weak-area drill · 10</button> : <button class="btn small" onClick={startQuiz}>Quick quiz · 10</button>}
+          <a class="btn small" href="#/study">More options</a>
         </div>
       </div>
-      <ol class="week" aria-label={`${studiedWeek} of the last 7 days studied`}>
-        {week.map((d) => <li class={`${d.studied ? 'on' : ''}${d.today ? ' today' : ''}${d.date < first ? ' before' : ''}`} aria-hidden="true"><span class="dot">{d.studied ? '✓' : ''}</span><span class="wd">{d.label}</span></li>)}
-      </ol>
-    </section>
+    </div>
   );
 }
 
@@ -129,7 +162,8 @@ export function Today() {
   const p = plan(db, now); // refreshes after midnight and when the app returns to the foreground
   const s = db.settings;
   const light = isLight(p.phase);
-  const progress = Math.min(100, Math.round((100 * p.answeredToday) / Math.max(1, s.dailyTarget)));
+  const goalMet = !light && p.answeredToday >= s.dailyTarget;
+  const examNext = p.primary.kind === 'formA' || p.primary.kind === 'formB' || p.primary.kind === 'mixed';
   const started = db.attempts[0]?.t ?? Infinity;
   const needBackup = Date.now() - started > 2 * 86400000 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
   const notInstalled = ctx.caps.ios && !ctx.caps.standalone;
@@ -145,7 +179,12 @@ export function Today() {
 
       <div class="cols">
       <div>
-      <Primary a={p.primary} why={p.why} goalMet={!light && p.answeredToday >= s.dailyTarget} />
+      {light ? <Primary a={p.primary} why={p.why} />
+        : goalMet ? <>{/* goal reached: the day's win leads; an exam can wait for a fresh day */}
+          <DailyCard answered={p.answeredToday} now={now} />
+          {p.primary.kind !== 'done' && <Primary a={p.primary} why={p.why} later={examNext} />}
+        </>
+        : <><Primary a={p.primary} why={p.why} /><DailyCard answered={p.answeredToday} now={now} /></>}
 
       <InProgress skip={p.primary.kind === 'resume' || p.primary.kind === 'reviewExam' ? p.primary.session.id : undefined} />
       </div>
@@ -161,29 +200,15 @@ export function Today() {
         </div>
       )}
 
-      {!light && <StreakStrip now={now} />}
-
-      <div class="section">
-        <h2>{light ? 'Optional' : "Today's study"}</h2>
-        {light ? (
+      {light && (
+        <div class="section">
+          <h2>Optional</h2>
           <div class="list">
             <ListLink onClick={startQuiz} title={openQuiz() ? 'Resume quick quiz' : 'Quick quiz'} sub="10 questions" />
             {p.dueItems > 0 && <ListLink onClick={startReview} title="Spaced review" sub="A short set of questions you missed before" />}
           </div>
-        ) : (
-        <div class={`card daily${progress >= 100 ? ' reached' : ''}`}>
-          {progress >= 100
-            ? <div class="row between"><strong class="goal-done">🎉 Daily goal reached</strong><span class="muted small">{p.answeredToday} of {s.dailyTarget}</span></div>
-            : <div class="row between"><span>{p.answeredToday} of {s.dailyTarget} questions</span><span class="muted small">{progress >= 50 ? 'Halfway there' : `${progress}%`}</span></div>}
-          <div class="mt" style={{ marginTop: '.5rem' }}><Meter value={progress} label="Daily target" /></div>
-          <p class="small muted" style={{ margin: '.5rem 0 0' }}>Counts every question you answer, including spaced review.</p>
-          <div class="btn-row mt">
-            {openQuiz() ? <button class="btn small" onClick={() => startWeak(10)}>Weak-area drill · 10</button> : <button class="btn small" onClick={startQuiz}>Quick quiz · 10</button>}
-            <a class="btn small" href="#/study">More options</a>
-          </div>
         </div>
-        )}
-      </div>
+      )}
       </div>
       </div>
 

@@ -29,7 +29,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
   const run = runOfCorrect(at < 0 ? s.revealed : s.revealed.slice(0, at + 1), isRight);
   const best = bestRun(s.revealed, isRight);
   /** The check just made on this screen: drives the one celebration for that tap and the extra line in the verdict. */
-  const [cheer, setCheer] = useState<{ pos: number; extra?: string; kind: 'pop' | 'edges' | null } | null>(null);
+  const [cheer, setCheer] = useState<{ pos: number; lines: { icon: string; text: string }[]; goal: boolean; kind: 'pop' | 'edges' | null } | null>(null);
   const fresh = cheer?.pos === pos;
 
   useEffect(() => { clearConfetti(); window.scrollTo(0, 0); document.querySelector<HTMLElement>('#q-stem')?.focus({ preventScroll: true }); }, [pos]);
@@ -60,11 +60,12 @@ export function TutorRunner({ session: s }: { session: Session }) {
     const goal = before < target && after >= target && !isLight(plan(ctx.store.state).phase);
     const ok = isRight(pos);
     const n = ok ? runOfCorrect([...s.revealed, pos], isRight) : 0;
-    setCheer({
-      pos,
-      extra: goal ? `🎉 Daily goal reached: ${after} today.` : ok && MILESTONE(n) ? `🔥 That's ${n} in a row!` : undefined,
-      kind: goal || (ok && MILESTONE(n)) ? 'edges' : ok ? 'pop' : null,
-    });
+    const lines = ok
+      ? [...(MILESTONE(n) ? [{ icon: '🔥', text: `That's ${n} in a row!` }] : []), ...(goal ? [{ icon: '🎉', text: `Daily goal reached: ${after} today.` }] : [])]
+      : [{ icon: '↻', text: 'This one comes back in spaced review.' }];
+    if (goal) ctx.store.putSession({ ...ctx.store.state.sessions[s.id], goalHit: true });
+    // A miss never gets confetti, even when it happens to reach the goal (that shows in its own green note).
+    setCheer({ pos, lines, goal, kind: ok && (goal || MILESTONE(n)) ? 'edges' : ok ? 'pop' : null });
   }
 
   function finish() {
@@ -89,7 +90,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>{s.title}</span>
         <span class="row" style={{ gap: '.5rem' }}>
-          {run >= 3 ? <span key={run} class="streak-chip">🔥 {run} in a row</span> : best >= 3 && <span class="streak-chip best">Best run: {best}</span>}
+          {run >= 3 ? <span class="streak-chip"><span aria-hidden="true">🔥 </span>{run} in a row</span> : best >= 3 && <span class="streak-chip best">Best run: {best}</span>}
           {done > 0 && <span>{correct} of {done} correct</span>}
         </span>
       </div>
@@ -106,7 +107,8 @@ export function TutorRunner({ session: s }: { session: Session }) {
         </>
       ) : (
         <>
-          <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} fresh={fresh} extra={fresh ? cheer.extra : undefined} />
+          <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} fresh={fresh} extra={fresh ? cheer.lines : undefined} />
+          {fresh && cheer.goal && !isRight(pos) && <p class="goal-note" role="status"><span aria-hidden="true">🎉 </span>Daily goal reached: {todayCount(ctx.store.state)} today. Every answer counts, right or wrong.</p>}
           <ItemReview item={item} si={si} response={resp} />
           <ItemMeta item={item} />
         </>

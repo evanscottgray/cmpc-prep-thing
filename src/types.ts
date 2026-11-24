@@ -96,6 +96,7 @@ export interface Session {
   reviewedAt?: number;                    // every miss was read through in review, or the learner marked the review done
   opened?: number[];                      // positions opened in review
   reviewPos?: number;                     // last position visited in review, where Today resumes
+  goalHit?: boolean;                      // tutor: an answer in this session reached the daily goal
   updatedAt?: number;
 }
 

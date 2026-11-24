@@ -81,7 +81,7 @@ export function correctPop(verdict: Element | null | undefined) {
   const icon = verdict?.querySelector('svg') ?? verdict;
   const r = icon?.getBoundingClientRect();
   if (!r) return;
-  confetti({ count: 20, x: r.left + r.width / 2, y: r.top + r.height / 2, angle: -70, spread: 120, power: 7, life: 1300 });
+  confetti({ count: 16, x: r.left + r.width / 2, y: r.top + r.height / 2, angle: -100, spread: 70, power: 7, life: 900 });
 }
 
 /** A bigger moment inside a session (a run of 3, 5, 10…, or the daily goal): bursts from both screen edges, not over the text. */
@@ -91,11 +91,16 @@ export function edgeBursts(y: number) {
   confetti({ count: 26, x: innerWidth, y, angle: -125, spread: 40, power: p, life: 1500 });
 }
 
-/** Two cannons from the lower corners, strong enough to frame the top of the screen on any height. */
+/** Two cannons from the lower corners that peak around the middle of the screen, so the headline and buttons above stay clear. */
 export function bigCelebration() {
-  const p = Math.sqrt(innerHeight) * 0.75;
-  confetti({ count: 70, x: 0, y: innerHeight * 0.9, angle: -62, spread: 36, power: p });
-  confetti({ count: 70, x: innerWidth, y: innerHeight * 0.9, angle: -118, spread: 36, power: p });
+  const p = Math.sqrt(innerHeight) * 0.55;
+  confetti({ count: 40, x: 0, y: innerHeight * 0.95, angle: -68, spread: 30, power: p, life: 1600 });
+  confetti({ count: 40, x: innerWidth, y: innerHeight * 0.95, angle: -112, spread: 30, power: p, life: 1600 });
+}
+/** Schedules the cannons for a screen that just opened; returns the cleanup so leaving the screen cancels them. */
+export function celebrateSoon(ms = 250) {
+  const t = setTimeout(bigCelebration, ms);
+  return () => clearTimeout(t);
 }
 
 /** Results and summaries celebrate once, when they first open, not when revisited later. */

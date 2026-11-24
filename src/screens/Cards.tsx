@@ -8,7 +8,7 @@ import { isLight, plan } from '../lib/plan';
 import { areaAccuracy, itemStats, smooth } from '../lib/stats';
 import { ListLink, Meter, Page } from '../ui/bits';
 import { References } from '../ui/question';
-import { bigCelebration } from '../ui/celebrate';
+import { celebrateSoon } from '../ui/celebrate';
 import { markStudied } from '../lib/actions';
 
 const SESSION = 12; // a card session tops up what is due with new cards to this size
@@ -122,16 +122,17 @@ export function CardStudy() {
   useEffect(() => { if (show) document.getElementById('card-title')?.focus({ preventScroll: true }); }, [show]);
   const c = ctx.bank.cards.find((x) => x.id === queue[i]);
   const rated = tally.right + tally.unsure + tally.wrong;
-  useEffect(() => { if (!c && tally.right > 0) setTimeout(bigCelebration, 200); }, [!c]); // celebrate a set with something known
+  const good = rated > 0 && tally.right * 2 >= rated; // celebrate a set where at least half were known
+  useEffect(() => { if (!c && good) return celebrateSoon(200); }, [!c]);
   if (!c) return (
     <Page title="Concept cards" backTo="cards" tabs={false}>
       <div class="card hero center">
-        {rated > 0 && <div class="cheer-emoji big" aria-hidden="true">{tally.right ? '🎉' : '🌱'}</div>}
+        {rated > 0 && <div class="cheer-emoji big" aria-hidden="true">{good ? '🎉' : '🌱'}</div>}
         <h2>{queue.length ? (rated ? 'Session complete!' : 'Session complete') : 'Nothing due'}</h2>
         {rated > 0 && <p class="tally"><span><strong>{tally.right}</strong> knew it</span><span><strong>{tally.unsure}</strong> unsure</span><span><strong>{tally.wrong}</strong> missed</span></p>}
         <p class="muted">{!queue.length ? 'All cards are scheduled for later.'
           : !rated ? 'Cards you rate come back on a schedule that fits your exam date.'
-          : tally.right * 2 >= rated ? 'Nice work. The ones you knew come back later; the rest come back sooner.'
+          : good ? 'Nice work. The ones you knew come back later; the rest come back sooner.'
           : 'Done. The ones you missed come back sooner, which is how they stick.'}</p>
         <button class="btn primary block" onClick={() => navigate('cards', true)}>Done</button>
       </div>

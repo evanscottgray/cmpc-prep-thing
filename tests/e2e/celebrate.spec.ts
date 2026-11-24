@@ -40,10 +40,11 @@ test('a right answer throws confetti; a wrong one, Calm, and Reduce Motion do no
     await answer(page, true);
   }
   await expect(page.locator('#verdict')).toContainText("That's 3 in a row!"); // announced with the verdict, so Calm and VoiceOver get it too
-  await expect(page.getByText('🔥 3 in a row')).toBeVisible();
+  await expect(page.locator('.streak-chip')).toContainText('3 in a row');
   await page.getByRole('button', { name: 'Next question' }).click();
   await expect(confetti(page)).toHaveCount(0); // a new question isn't read through old confetti
   await answer(page, false);
+  await expect(page.locator('#verdict')).toContainText('This one comes back in spaced review.');
   await expect(page.getByText('Best run: 3')).toBeVisible(); // a miss keeps the run you had
 
   // Calm: same feedback, no confetti
@@ -76,17 +77,20 @@ test('reaching the daily goal is celebrated once, and a timed session shows no c
   await startQuiz(page);
   for (let q = 1; q <= 10; q++) {
     if (q > 1) { await page.getByRole('button', { name: 'Next question' }).click(); await expect(page.getByText(`Question ${q} of 10`)).toBeVisible(); }
-    await answer(page, q % 2 === 0);
+    await answer(page, q % 2 === 1);
   }
-  await expect(page.locator('#verdict')).toContainText('Daily goal reached: 10 today.'); // inline, not a toast over the question
-  await expect(confetti(page)).toHaveCount(1);
+  // The 10th answer is wrong but reaches the goal: a green note of its own, never confetti over a miss.
+  await expect(page.locator('.goal-note')).toContainText('Daily goal reached: 10 today.');
+  await page.waitForTimeout(700);
+  await expect(confetti(page)).toHaveCount(0);
   await page.getByRole('button', { name: 'See summary' }).click();
   await expect(page.getByText('Good practice')).toBeVisible(); // 5 of 10: encouragement, no confetti needed
-  await expect(page.getByText('Daily goal reached: 10 today.')).toBeVisible();
+  await expect(page.getByText('This session reached your daily goal.')).toBeVisible();
   await page.getByRole('link', { name: 'Done' }).click();
-  await expect(page.getByText('🎉 Daily goal reached')).toBeVisible();
-  await expect(page.getByText('1 of the last 7 days')).toBeVisible();
-  await expect(page.getByText('Next, when you have 90 minutes')).toBeVisible(); // the exam can wait for a fresh day
+  await expect(page.locator('.goal-done')).toContainText('Daily goal reached'); // the day's win leads Today
+  await expect(page.getByText('Day 1', { exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Next, when you have 90 minutes' })).toBeVisible(); // the exam can wait for a fresh day
+  await expect(page.locator('.week li.today .sr-only')).toContainText('today: studied');
 
   // reopening the app the same day doesn't celebrate again
   await page.reload();

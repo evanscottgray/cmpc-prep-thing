@@ -7,8 +7,8 @@ import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
 import type { DrillSource } from '../lib/assemble';
 import { useEffect, useState } from 'preact/hooks';
-import { bigCelebration, fresh } from '../ui/celebrate';
-import { todayCount } from '../lib/stats';
+import { celebrateSoon, fresh } from '../ui/celebrate';
+import { isLight, plan } from '../lib/plan';
 import { AreaBar, ListLink, Page } from '../ui/bits';
 import { IcAlert, IcCheckCircle, IcInfo, IcXCircle } from '../ui/icons';
 
@@ -40,10 +40,13 @@ export function Results({ session: s }: { session: Session }) {
     : pctAll >= 80 ? { head: 'Excellent work!', sub: "You're getting these.", emoji: '🌟' }
     : pctAll >= 60 ? { head: 'Solid session', sub: 'Read the misses below and they stick.', emoji: '💪' }
     : { head: 'Good practice', sub: 'The ones you missed come back in spaced review, so they stick.', emoji: '🌱' };
-  const goalToday = !full && fresh(s.submittedAt) && todayCount(db) >= db.settings.dailyTarget;
+  // The goal line belongs to the session whose answer reached the goal (and not to the final rest days).
+  const goalToday = !!s.goalHit && !isLight(plan(db).phase);
+  // Familiar questions inflate a score, so a retake's pass is reported, not celebrated.
+  const freshForm = !s.retake && !(s.kind === 'mixed' && s.seenBefore > 0);
   useEffect(() => {
     if (!fresh(s.submittedAt)) return;
-    if (full ? pass : pctAll >= 70 && r.total >= 5) setTimeout(bigCelebration, 250);
+    if (full ? pass && freshForm : pctAll >= 70 && r.total >= 5 && !s.goalHit) return celebrateSoon(); // the goal was already cheered in the session
   }, []);
   const kgs = bp.kgs.filter((k) => r.byKg[k.id]?.n).sort((a, b) => r.byKg[a.id].c / r.byKg[a.id].n - r.byKg[b.id].c / r.byKg[b.id].n || b.weight - a.weight);
 
@@ -61,7 +64,7 @@ export function Results({ session: s }: { session: Session }) {
           <div class={`verdict-big ${pass ? 'pass' : 'fail'}`} role="status">
             {pass ? <IcCheckCircle /> : <IcXCircle />}<span>{pass ? 'Pass (estimated)' : 'Did not pass (estimated)'}</span>
           </div>
-          <p class="exam-cheer">{pass ? 'Well done. That full 90-minute run is above your practice target.' : s.kind === 'formA' && !s.retake ? 'A good baseline. Focus next shows where the points are.' : 'Now you know where the points are. Focus next shows the way.'}</p>
+          <p class="exam-cheer">{pass ? (freshForm ? 'Well done. You reached your practice target on a full 90-minute run.' : 'Above target on questions you had seen. A fresh form is the real check.') : s.kind === 'formA' && !s.retake ? 'A good baseline. Focus next shows where the points are.' : 'Now you know where the points are. Focus next shows the way.'}</p>
           <p class="small muted" style={{ margin: '.25rem 0 0' }}>
             {r.raw}/100 is {gap === 0 ? 'exactly your practice target' : `${Math.abs(gap)} ${gap > 0 ? 'above' : 'below'} your practice target of ${target}`}, which the app places at 550.{Math.abs(gap) <= 3 ? ' Close enough to go either way.' : ''} {s.submittedAt ? `Taken ${fmtDate(ymd(s.submittedAt))}.` : ''}
           </p>
@@ -76,7 +79,7 @@ export function Results({ session: s }: { session: Session }) {
             <div><div class="v">{r.correctAll}<span class="of">/{r.total}</span></div><div class="k">correct{r.total ? ` · ${pctAll}%` : ''}</div></div>
             {s.timed && <div><div class="v">{fmtClock(r.timeUsedMs)}</div><div class="k">of {fmtClock(r.durationMs)} used</div></div>}
           </div>
-          {goalToday && <p class="goal-line">🎉 Daily goal reached: {todayCount(db)} today.</p>}
+          {goalToday && <p class="goal-line"><span aria-hidden="true">🎉 </span>This session reached your daily goal.</p>}
           {r.total < s.items.length && <p class="small muted mt" style={{ marginBottom: 0 }}>Ended early. {plural(s.items.length - r.total, 'question')} not answered, and not counted.</p>}
         </div>
       )}
@@ -115,7 +118,7 @@ export function Results({ session: s }: { session: Session }) {
         </div>
       )}
 
-      {kgs.length > 0 && (
+      {kgs.length > 0 && (full || missed.length > 0) && (
         <div class="section">
           <h2>By knowledge group{kgs.length > 5 ? ', lowest first' : ''}</h2>
           <div class="card bars">
