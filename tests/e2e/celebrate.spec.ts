@@ -170,7 +170,7 @@ test('reading every miss of a timed set, in any order, ends with "Finish review"
   await expect(page.getByText('1 of 2 read')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Next unread miss' })).toBeVisible(); // the last row, with one still unread: on to it, not back to the list
   await page.getByRole('button', { name: 'Back', exact: true }).click();
-  await expect(page.locator('.list .list-item').nth(1).locator('.status-ic.ok')).toHaveCount(1); // read: checked off
+  await expect(page.locator('.list .list-item').nth(1).locator('.status-ic.read')).toHaveCount(1); // read: checked off
   await expect(page.locator('.list .list-item').first().locator('.status-ic.skip')).toHaveCount(1); // not yet
   // an interrupted block review waits on Today, and picks up at the unread miss
   await go(page, 'today');
@@ -198,7 +198,7 @@ test('with every miss opened but not finished, Results finishes the review in on
   await page.getByRole('link', { name: 'Review 2 misses' }).click();
   for (const i of [0, 1]) { await page.locator('.list .list-item').nth(i).click(); await page.getByRole('button', { name: 'Back', exact: true }).click(); } // both opened, then left
   await expect(page).toHaveURL(/#\/review\/[^/?]+\?f=incorrect$/); // back on the list before moving on
-  await expect(page.getByRole('button', { name: 'Finish review' })).toBeVisible(); // the list can finish it too
+  await expect(page.getByRole('button', { name: 'Finish review' })).toBeFocused(); // the list can finish it too, and that's where you land
   await go(page, results);
   await page.getByRole('button', { name: 'Finish review' }).click(); // no detour back into a question
   await expect(page.getByText('Both misses read')).toBeVisible();
@@ -207,4 +207,27 @@ test('with every miss opened but not finished, Results finishes the review in on
   expect(done!.y).toBeLessThan(hero!.y); // the moment leads, with Done right under it
   await expect(page.locator('.cheer')).toHaveCount(0); // one celebration on the screen
   await expect(confetti(page)).toHaveCount(1);
+});
+
+test('started block reviews stay on Today: the latest three, then "Show 1 more review"', async ({ page }) => {
+  test.setTimeout(180000);
+  await onboard(page);
+  for (let b = 0; b < 4; b++) {
+    await go(page, 'start/block');
+    await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+    for (let q = 1; q <= 23; q++) {
+      const k = await keyIndex(page);
+      await optionLabels(page).nth(q === 1 ? (k + 1) % 4 : k).click();
+      await page.getByRole('button', { name: q < 23 ? 'Next' : 'Finish' }).click();
+    }
+    await page.getByRole('button', { name: 'Submit', exact: true }).click();
+    await page.getByRole('link', { name: 'Review 1 miss' }).click();
+    await page.locator('.list .list-item').first().click(); // started, not finished
+    await expect(page.getByText('1 of 1 read')).toBeVisible();
+  }
+  await go(page, 'today');
+  const rows = page.locator('.list-pair .li-title', { hasText: 'Exam-pace block review' });
+  await expect(rows).toHaveCount(3);
+  await page.getByRole('button', { name: 'Show 1 more review' }).click();
+  await expect(rows).toHaveCount(4);
 });

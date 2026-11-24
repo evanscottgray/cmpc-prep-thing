@@ -181,12 +181,14 @@ function DailyCard({ answered, now, reachedNote }: { answered: number; now: numb
 /** Unfinished sessions other than the one already offered above. */
 function InProgress({ skip }: { skip?: string }) {
   const db = useDb();
-  const reviews = Object.values(db.sessions).filter((x) => x.id !== skip && x.status === 'submitted' && x.timed && !x.reviewedAt && openedMisses(x) > 0)
-    .sort((a, b) => (b.submittedAt ?? 0) - (a.submittedAt ?? 0)).slice(0, 3); // kept until finished or set aside; the latest few, dated
+  const allReviews = Object.values(db.sessions).filter((x) => x.id !== skip && x.status === 'submitted' && x.timed && !x.reviewedAt && openedMisses(x) > 0)
+    .sort((a, b) => (b.submittedAt ?? 0) - (a.submittedAt ?? 0)); // kept until finished or set aside; dated
+  const [more, setMore] = useState(false);
+  const shown = more ? allReviews : allReviews.slice(0, 3); // the latest three; older ones one tap away
   const open = Object.values(db.sessions)
     .filter((x) => x.status === 'active' && x.id !== skip && (x.timed ? x.startedAt : x.revealed.length > 0 || Object.keys(x.responses).length > 0))
     .sort((a, b) => b.createdAt - a.createdAt).slice(0, 3);
-  if (!open.length && !reviews.length) return null;
+  if (!open.length && !allReviews.length) return null;
   async function discard(id: string, title: string, timed: boolean) {
     const ok = await confirmDialog({ title: `Discard ${title}?`, body: timed ? 'It will not be scored. Items you opened count as already seen.' : 'Answers you already checked stay in your progress.', ok: 'Discard', danger: true });
     if (ok) abandon(id);
@@ -195,16 +197,17 @@ function InProgress({ skip }: { skip?: string }) {
     <div class="section">
       <h2>In progress</h2>
       <div class="list">
-        {reviews.map((x) => (
+        {shown.map((x) => (
           <div class="list-pair">
             {(() => { const st = reviewStep(x); const all = st.kind === 'finish' || st.kind === 'resumeLast'; return <>
               {st.kind === 'finish'
-                ? <button class="list-item" onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read{x.submittedAt ? ` · ${fmtShort(x.submittedAt)}` : ''}</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
-                : <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read{x.submittedAt ? ` · ${fmtShort(x.submittedAt)}` : ''}</span></span><span class="badge accent">Resume</span></a>}
+                ? <button class="list-item" onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read{x.submittedAt && <>{' · '}<span class="keep">{fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
+                : <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read{x.submittedAt && <>{' · '}<span class="keep">{fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Resume</span></a>}
               {st.kind !== 'finish' && <button class="btn small ghost" onClick={() => { if (all) { finishReview(x.id); navigate(`results/${x.id}`); } else { markReviewed(x.id); toast(['formA', 'formB', 'mixed'].includes(x.kind) ? `Set aside. ${x.title} stays under Progress.` : 'Set aside. Its missed questions still come back in spaced review.'); } }}>{all ? 'Finish' : 'Set aside'}<span class="sr-only"> for the {x.title} review</span></button>}
             </>; })()}
           </div>
         ))}
+        {allReviews.length > 3 && !more && <div class="list-pair"><button class="list-item" onClick={() => setMore(true)}><span class="li-main"><span class="li-title">Show {allReviews.length - 3} more {allReviews.length - 3 === 1 ? 'review' : 'reviews'}</span></span></button></div>}
         {open.map((x) => {
           const n = x.timed ? Object.keys(x.responses).length : x.revealed.length;
           return (

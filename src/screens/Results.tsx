@@ -185,6 +185,7 @@ export function Results({ session: s }: { session: Session }) {
           <h2>By knowledge group{kgs.length > 5 ? ', lowest first' : ''}</h2>
           <div class="card bars">
             {(all ? kgs : kgs.slice(0, 5)).map((k) => <AreaBar label={k.name} acc={r.byKg[k.id]} target={target} verb="Review" href={`#/review/${s.id}?k=${k.id}&s=1`} />)}
+          {!full && <p class="small muted" style={{ margin: '.5rem 0 0' }}>The mark on each bar is your practice target ({target}%).</p>}
           {kgs.length > 5 && <button class="btn small block mt" onClick={() => setAll(!all)}>{all ? 'Show lowest five' : `Show all ${kgs.length}`}</button>}
           </div>
         </div>

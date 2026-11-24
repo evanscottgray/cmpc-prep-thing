@@ -42,7 +42,11 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
     const pos = lastOpened.get(s.id);
     if (pos === undefined) return;
     lastOpened.delete(s.id);
-    requestAnimationFrame(() => { const row = document.getElementById(`rv-${pos}`); row?.scrollIntoView({ block: 'center' }); row?.focus({ preventScroll: true }); });
+    requestAnimationFrame(() => {
+      const fin = document.getElementById('rv-finish'); // every miss read: the step left is finishing, so that's where you land
+      if (fin) { fin.scrollIntoView({ block: 'center' }); fin.focus({ preventScroll: true }); return; }
+      const row = document.getElementById(`rv-${pos}`); row?.scrollIntoView({ block: 'center' }); row?.focus({ preventScroll: true });
+    });
   }, [s.id]);
   const positions = filterPositions(s, query);
   const f = (query.get('f') as F) || 'all';
@@ -79,8 +83,8 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
         </label>
       </div>
       </details>
-      <p class="small muted" aria-live="polite">{plural(positions.length, 'question')}{opened.size ? ` · ${positions.filter((i) => opened.has(i)).length} read` : ''}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
-      {canFinish && <button class="btn primary block" onClick={() => { finishReview(s.id); navigate(`results/${s.id}`, true); }}>Finish review</button>}
+      <p class="small muted" aria-live="polite">{checklist ? plural(positions.length, 'miss', 'misses') : plural(positions.length, 'question')}{opened.size ? ` · ${positions.filter((i) => opened.has(i)).length} read` : ''}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
+      {canFinish && <button id="rv-finish" class="btn primary block mb" onClick={() => { finishReview(s.id); navigate(`results/${s.id}`, true); }}>Finish review</button>}
       {positions.length === 0 && (
         <div class="card"><p>No questions match these filters.</p><button class="btn small" onClick={() => navigate(`review/${s.id}`, true)}>Clear filters</button></div>
       )}
@@ -94,7 +98,7 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
             const tags = [(f !== 'incorrect' || skipped) && status, !si.scored && isExam && f !== 'unscored' && 'Unscored', flags.has(i) && f !== 'flagged' && 'Flagged'].filter(Boolean);
             return (
               <a class="list-item" id={`rv-${i}`} href={`#/review/${s.id}/${i}${qs(query, {})}`} onClick={() => listAt.set(s.id, historyIndex())}>
-                {checklist ? (opened.has(i) ? <IcCheckCircle class="status-ic ok" /> : <IcCircle class="status-ic skip" />) /* the misses fill in like a checklist as they're read */
+                {checklist ? (opened.has(i) ? <IcCheckCircle class="status-ic read" /> : <IcCircle class="status-ic skip" />) /* the misses fill in like a checklist as they're read */
                   : ok ? <IcCheckCircle class="status-ic ok" /> : skipped ? <IcMinusCircle class="status-ic skip" /> : <IcXCircle class="status-ic bad" />}
                 <span class="li-main">
                   <span class="li-title">{i + 1}. {it.topic}</span>
