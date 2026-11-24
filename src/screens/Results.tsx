@@ -39,7 +39,7 @@ export function Results({ session: s }: { session: Session }) {
   const pctAll = r.total ? Math.round((100 * r.correctAll) / r.total) : 0;
   // A cheer needs enough answers to mean something; a very short session just says it's saved.
   const given = s.timed ? r.answered : r.total;
-  const cheer = full ? null : given < 5 ? { head: 'Session saved', sub: s.timed ? `${r.answered} of ${r.total} answered.` : `${plural(r.total, 'answer')} added to your progress.`, emoji: '' }
+  const cheer = full ? null : given < 5 ? { head: 'Session saved', sub: s.timed ? `${r.answered} of ${r.total} answered; the rest were left blank.` : `${plural(r.total, 'answer')} added to your progress.`, emoji: '' }
     : pctAll === 100 ? { head: 'Perfect round!', sub: 'Every answer right.', emoji: '🎯' }
     : pctAll >= 80 ? { head: 'Excellent work!', sub: "You're getting these.", emoji: '🌟' }
     : pctAll >= 60 ? { head: 'Solid session', sub: 'Reading the misses below helps them stick.', emoji: '💪' }
@@ -72,7 +72,7 @@ export function Results({ session: s }: { session: Session }) {
   const kgs = bp.kgs.filter((k) => r.byKg[k.id]?.n).sort((a, b) => r.byKg[a.id].c / r.byKg[a.id].n - r.byKg[b.id].c / r.byKg[b.id].n || b.weight - a.weight);
 
   // Done leads when there's nothing left to do here: an untimed session, a finished review, or one set aside
-  const doneFirst = !s.timed || readDone || !missed.length || (!!s.reviewedAt && step?.kind !== 'finish' && step?.kind !== 'resumeLast'); // nothing missed: nothing to correct
+  const doneFirst = !s.timed || readDone || !missed.length || (!full && given < 5) /* barely started: no backlog of blanks */ || (!!s.reviewedAt && step?.kind !== 'finish' && step?.kind !== 'resumeLast'); // nothing missed: nothing to correct
   const P = doneFirst ? '' : ' primary'; // after Skip, the review's step is still there, but quieter
   const doneCallout = (
     <div id="review-done" tabIndex={-1} class={`verdict ok review-done fresh big${motionOn() ? ' room' : ''}`} role="status"><IcCheckCircle /><span><span class="pass-head">{missed.length === 1 ? 'You read your miss' : missed.length === 2 ? 'Both misses read' : `All ${missed.length} misses read`}</span><span class="verdict-sub">{full ? "That's the most useful thing to do after an exam." : "That's the most useful thing to do after timed practice."} Nice work.</span></span></div>

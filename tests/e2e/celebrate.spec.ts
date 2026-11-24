@@ -329,5 +329,24 @@ test('a timed set with only a couple of answers just says it was saved', async (
   }
   await page.getByRole('button', { name: 'Submit', exact: true }).click();
   await expect(page.getByText('Session saved')).toBeVisible();
-  await expect(page.getByText('2 of 23 answered.')).toBeVisible();
+  await expect(page.getByText('2 of 23 answered; the rest were left blank.')).toBeVisible();
+  await expect(page.locator('.result-actions > :first-child')).toHaveText('Done'); // no backlog of blanks
+});
+
+test("a strong timed set that runs out while you're away still gets its moment, however long \"Time's up\" stays up", async ({ page }) => {
+  await page.clock.install();
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  for (let q = 1; q <= 23; q++) {
+    await optionLabels(page).nth(await keyIndex(page)).click();
+    if (q < 23) await page.getByRole('button', { name: 'Next' }).click();
+  }
+  await go(page, 'today'); // away from the exam
+  await page.clock.fastForward('18:30');
+  await expect(page.getByRole('dialog', { name: "Time's up" })).toBeVisible();
+  await page.clock.fastForward('00:30'); // the dialog stays up a while
+  await page.getByRole('button', { name: 'See results' }).click();
+  await expect(page.getByRole('heading', { name: 'Session summary' })).toBeVisible();
+  await expect(confetti(page)).toHaveCount(1);
 });

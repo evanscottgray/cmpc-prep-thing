@@ -16,7 +16,7 @@ import { ExamIntro } from './screens/ExamIntro';
 import { ExamRunner } from './screens/ExamRunner';
 import { TutorRunner } from './screens/TutorRunner';
 import { Results } from './screens/Results';
-import { clearConfetti } from './ui/celebrate';
+import { clearConfetti, holdCelebrations } from './ui/celebrate';
 import { ReviewItem, ReviewList } from './screens/Review';
 
 const TAB_ROOTS = new Set(['today', 'study', 'cards', 'progress', 'more']);
@@ -53,7 +53,7 @@ export function App() {
       const ids = autoSubmitExpired();
       const s = ids.map((id) => ctx.store.state.sessions[id]).find(Boolean);
       if (s) alertDialog({ title: "Time's up", body: `${s.title} ran out of time while you were away and was submitted automatically. Unanswered questions count as incorrect.`, ok: 'See results' })
-        .then(() => navigate(`results/${s.id}`));
+        .then(() => { holdCelebrations(false); navigate(`results/${s.id}`); }); // its moment plays when opened, however long the dialog stayed up
     };
     check();
     const on = () => { if (document.visibilityState === 'visible') check(); };
