@@ -248,3 +248,25 @@ test('a timed set with nothing missed: Done leads', async ({ page }) => {
   await expect(page.locator('.result-actions > :first-child')).toHaveClass(/primary/);
   await expect(page.getByRole('link', { name: 'Review all 23' })).not.toHaveClass(/primary/);
 });
+
+test("Safari's back swipe counts as leaving a miss: Continue goes on to the next unread one", async ({ page }) => {
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  for (let q = 1; q <= 23; q++) {
+    const k = await keyIndex(page);
+    await optionLabels(page).nth(q <= 2 ? (k + 1) % 4 : k).click();
+    await page.getByRole('button', { name: q < 23 ? 'Next' : 'Finish' }).click();
+  }
+  await page.getByRole('button', { name: 'Submit', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Session summary' })).toBeVisible();
+  const results = new URL(page.url()).hash;
+  await page.getByRole('link', { name: 'Review 2 misses' }).click();
+  await page.locator('.list .list-item').first().click();
+  await expect(page.getByText('1 of 2 read')).toBeVisible();
+  await page.goBack(); // the browser's back, not the app's
+  await expect(page).toHaveURL(/#\/review\/[^/?]+\?f=incorrect$/);
+  await go(page, results);
+  await page.getByRole('link', { name: /Continue review · 1 of 2/ }).click();
+  await expect(page.getByText('2 of 2 read')).toBeVisible(); // the second miss, not the first again
+});

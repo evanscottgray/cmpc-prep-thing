@@ -109,7 +109,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
       ) : (
         <>
           <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} fresh={fresh} room={fresh && cheer.kind === 'pop' && motionOn()} big={cheer?.kind === 'edges'} extra={fresh ? cheer.lines : undefined} />
-          {fresh && cheer.goal && !isRight(pos) && <p class="goal-note" role="status"><span aria-hidden="true">🎉 </span>Daily goal reached: {todayCount(ctx.store.state)} today. Every answer counts, right or wrong.</p>}
+          {fresh && cheer.goal && !isRight(pos) && <p class="goal-note">{/* read after the verdict (itself a status), not as a second announcement */}<span aria-hidden="true">🎉 </span>Daily goal reached: {todayCount(ctx.store.state)} today. Every answer counts, right or wrong.</p>}
           <ItemReview item={item} si={si} response={resp} />
           <ItemMeta item={item} />
         </>

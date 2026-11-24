@@ -5,7 +5,7 @@ import { abandon, createSession, finishReview, markReviewed, missedPositions, ne
 import { REVIEW_MAX, buildDrill, buildQuiz, buildReview } from '../lib/assemble';
 import { fmtDate, fmtShort, plural, ymd } from '../lib/dates';
 import { isLight, plan, type Action } from '../lib/plan';
-import type { Session } from '../types';
+import type { DbState, Session } from '../types';
 import { dueIds } from '../lib/srs';
 import { lastWeek, streak, studyDays } from '../lib/streak';
 import { ListLink, Meter, Page } from '../ui/bits';
@@ -179,15 +179,20 @@ function DailyCard({ answered, now, reachedNote }: { answered: number; now: numb
 }
 
 /** Unfinished sessions other than the one already offered above. */
-function InProgress({ skip }: { skip?: string }) {
-  const db = useDb();
-  const allReviews = Object.values(db.sessions).filter((x) => x.id !== skip && x.status === 'submitted' && x.timed && !x.reviewedAt && openedMisses(x) > 0)
-    .sort((a, b) => (b.submittedAt ?? 0) - (a.submittedAt ?? 0)); // kept until finished or set aside; dated
-  const [more, setMore] = useState(false);
-  const shown = more ? allReviews : allReviews.slice(0, 3); // the latest three; older ones one tap away
+/** Started reviews (kept until finished or set aside) and open sessions, other than the one already offered above. */
+function inProgressOf(db: DbState, skip?: string) {
+  const reviews = Object.values(db.sessions).filter((x) => x.id !== skip && x.status === 'submitted' && x.timed && !x.reviewedAt && openedMisses(x) > 0)
+    .sort((a, b) => (b.submittedAt ?? 0) - (a.submittedAt ?? 0));
   const open = Object.values(db.sessions)
     .filter((x) => x.status === 'active' && x.id !== skip && (x.timed ? x.startedAt : x.revealed.length > 0 || Object.keys(x.responses).length > 0))
     .sort((a, b) => b.createdAt - a.createdAt).slice(0, 3);
+  return { reviews, open };
+}
+function InProgress({ skip }: { skip?: string }) {
+  const db = useDb();
+  const { reviews: allReviews, open } = inProgressOf(db, skip);
+  const [more, setMore] = useState(false);
+  const shown = more ? allReviews : allReviews.slice(0, 3); // the latest three; older ones one tap away
   if (!open.length && !allReviews.length) return null;
   async function discard(id: string, title: string, timed: boolean) {
     const ok = await confirmDialog({ title: `Discard ${title}?`, body: timed ? 'It will not be scored. Items you opened count as already seen.' : 'Answers you already checked stay in your progress.', ok: 'Discard', danger: true });
@@ -197,22 +202,22 @@ function InProgress({ skip }: { skip?: string }) {
     <div class="section in-progress">
       <h2>In progress</h2>
       <div class="list">
-        {shown.map((x) => (
+        {shown.map((x, i) => (
           <div class="list-pair">
             {(() => { const st = reviewStep(x); const all = st.kind === 'finish' || st.kind === 'resumeLast'; return <>
               {st.kind === 'finish'
-                ? <button class="list-item" onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <>{' · '}<span class="keep">{fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
-                : <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <>{' · '}<span class="keep">{fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Resume</span></a>}
+                ? <button class="list-item" data-first-more={i === 3 || undefined} onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <>{' '}<span class="keep">· {fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
+                : <a class="list-item" data-first-more={i === 3 || undefined} href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <>{' '}<span class="keep">· {fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Resume</span></a>}
               {st.kind !== 'finish' && <button class="btn small ghost" onClick={() => { if (all) { finishReview(x.id); navigate(`results/${x.id}`); } else { markReviewed(x.id); toast(['formA', 'formB', 'mixed'].includes(x.kind) ? `Set aside. ${x.title} stays under Progress.` : 'Set aside. Its missed questions still come back in spaced review.'); } }}>{all ? 'Finish' : 'Set aside'}<span class="sr-only"> for the {x.title} review</span></button>}
             </>; })()}
           </div>
         ))}
-        {allReviews.length > 3 && !more && <div class="list-pair"><button class="list-item" onClick={() => { setMore(true); requestAnimationFrame(() => document.querySelectorAll<HTMLElement>('.in-progress .list-pair > .list-item')[3]?.focus()); }}><span class="li-main"><span class="li-title">Show {allReviews.length - 3} more {allReviews.length - 3 === 1 ? 'review' : 'reviews'}</span></span></button></div>}
+        {allReviews.length > 3 && !more && <div class="list-pair"><button class="list-item" onClick={() => { setMore(true); requestAnimationFrame(() => document.querySelector<HTMLElement>('.in-progress [data-first-more]')?.focus()); }}><span class="li-main"><span class="li-title">Show {allReviews.length - 3} more {allReviews.length - 3 === 1 ? 'review' : 'reviews'}</span></span></button></div>}
         {open.map((x) => {
           const n = x.timed ? Object.keys(x.responses).length : x.revealed.length;
           return (
             <div class="list-pair">
-              <a class="list-item" href={`#/s/${x.id}`}><span class="li-main"><span class="li-title">{x.title}</span><span class="li-sub" style={{ display: 'block' }}>{n} of {plural(x.items.length, 'question')} answered · started {fmtShort(x.createdAt)}</span></span><span class="badge accent">Resume</span></a>
+              <a class="list-item" href={`#/s/${x.id}`}><span class="li-main"><span class="li-title">{x.title}</span><span class="li-sub" style={{ display: 'block' }}>{n} of {plural(x.items.length, 'question')} answered <span class="keep">· started {fmtShort(x.createdAt)}</span></span></span><span class="badge accent">Resume</span></a>
               <button class="icon-btn" onClick={() => discard(x.id, x.title, x.timed)} aria-label={`Discard ${x.title}`}><IcX /></button>
             </div>
           );
@@ -230,17 +235,19 @@ export function Today() {
   const light = isLight(p.phase);
   const goalMet = !light && p.answeredToday >= s.dailyTarget;
   const firstVisit = !db.attempts.length && !Object.keys(db.cardSrs).length;
-  const hasRight = light || (p.dueItems > 0 && p.primary.kind !== 'review') || p.dueCards > 0;
+  const skipId = p.primary.kind === 'resume' || p.primary.kind === 'reviewExam' ? p.primary.session.id : undefined;
+  const ip = inProgressOf(db, skipId);
+  const hasRight = light || (p.dueItems > 0 && p.primary.kind !== 'review') || p.dueCards > 0 || ip.reviews.length + ip.open.length > 0;
   const urgent = p.primary.kind === 'resume' || p.primary.kind === 'reviewExam'; // a running timer or a fresh review comes first
   // Only say the exam covered the goal when today's answers from that sitting alone reach it.
   const examToday = p.primary.kind === 'reviewExam' ? db.attempts.filter((a) => a.s === (p.primary as { session: { id: string } }).session.id && ymd(a.t) === ymd(now) && !a.na).length : 0;
   const reachedNote = p.primary.kind === 'resume' ? 'Your daily goal is already met.'
-    : p.primary.kind === 'reviewExam' && examToday >= s.dailyTarget ? "Your exam covered today's goal. If you'd like, start the review above with a few." : undefined;
+    : p.primary.kind === 'reviewExam' && examToday >= s.dailyTarget ? "Your exam covered today's goal." : undefined;
   const examNext = p.primary.kind === 'formA' || p.primary.kind === 'formB' || p.primary.kind === 'mixed';
   const started = db.attempts[0]?.t ?? Infinity;
   const needBackup = Date.now() - started > 2 * 86400000 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
   const notInstalled = ctx.caps.ios && !ctx.caps.standalone;
-  const inProgress = <InProgress skip={p.primary.kind === 'resume' || p.primary.kind === 'reviewExam' ? p.primary.session.id : undefined} />;
+  const inProgress = <InProgress skip={skipId} />;
   return (
     <Page title="Today" noBack wide={hasRight}>
       <div class="row between" style={{ marginBottom: '1rem' }}>
