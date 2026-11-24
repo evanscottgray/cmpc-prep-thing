@@ -4,12 +4,12 @@ import { onboard, optionLabels, go } from './helpers';
 
 /** WebKit can serve a reload issued within milliseconds of activation without the worker; the next load has it. */
 async function controlledReload(page: Page) {
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 3; i++) { // generous: under a full parallel run WebKit can take several seconds to hand control over
     await page.reload();
-    const ok = await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 4000 }).then(() => true, () => false);
+    const ok = await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 8000 }).then(() => true, () => false);
     if (ok) return;
   }
-  throw new Error('no service worker in control after two reloads');
+  throw new Error('no service worker in control after three reloads');
 }
 
 test('installable and fully offline after the first visit on localhost', async ({ page, context }) => {

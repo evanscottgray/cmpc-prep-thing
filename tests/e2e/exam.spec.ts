@@ -211,6 +211,7 @@ test('time running out replaces an open confirmation, and the navigator keeps it
   await page.getByRole('button', { name: /^Navigator/ }).click();
   await expect(page.locator('.nav-cell.current')).toBeInViewport();
   await page.locator('.nav-cell.current').focus();
+  await expect(page.locator('.nav-cell.current')).toBeFocused(); // the key goes to the grid only once it has focus
   await page.keyboard.press('ArrowRight');
   await expect(page.getByRole('button', { name: /^Question 114:/ })).toBeFocused();
   expect(await page.locator('.nav-cell[tabindex="0"]').count()).toBe(1);
