@@ -124,5 +124,8 @@ describe('blocks, drills, quiz', () => {
   });
   it('quick quiz has 10 items', () => {
     expect(buildQuiz(bank, emptyState(), 1, 1).items).toHaveLength(10);
+    expect(buildQuiz(bank, emptyState(), 1, 1).label).toBe('Untimed warm-up'); // the very first quiz has nothing to weight yet
+    const db = emptyState(); db.attempts = [{ i: bank.items[0].id, t: 1, ok: true, src: 'quiz' }];
+    expect(buildQuiz(bank, db, 2, 2).label).toBe('Weighted to weak areas');
   });
 });

@@ -6,7 +6,7 @@ import { abandon, check, choose, finishTutor, goTo, setUnsure, toggleStrike } fr
 import { ItemActions, ItemMeta, ItemReview, OptionList, QStem, StemFold, StrikeHint, Verdict, strikeHint } from '../ui/question';
 import { Meter, Page } from '../ui/bits';
 import { confirmDialog, toast } from '../ui/dialog';
-import { clearConfetti, verdictBurst } from '../ui/celebrate';
+import { clearConfetti, motionOn, verdictBurst } from '../ui/celebrate';
 import { bestRun, runOfCorrect } from '../lib/streak';
 import { todayCount } from '../lib/stats';
 import { isLight, plan } from '../lib/plan';
@@ -86,7 +86,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
   }
 
   return (
-    <Page title={`Question ${pos + 1} of ${s.items.length}`} tabs={false} closeLabel="Close" onBack={leave} right={done > 0 ? <button class="icon-btn" onClick={quit}>Finish</button> : undefined}>
+    <Page title={ctx.store.state.settings.textSize === 'xl' ? `${pos + 1} of ${s.items.length}` : `Question ${pos + 1} of ${s.items.length}`} tabs={false} closeLabel="Close" onBack={leave} right={done > 0 && done < s.items.length ? <button class="icon-btn" onClick={quit}>Finish</button> : undefined}>
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>{s.title}</span>
         <span class="row" style={{ gap: '.5rem' }}>
@@ -107,7 +107,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
         </>
       ) : (
         <>
-          <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} fresh={fresh} room big={cheer?.kind === 'edges'} extra={fresh ? cheer.lines : undefined} />
+          <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} fresh={fresh} room={fresh && cheer.kind === 'pop' && motionOn()} big={cheer?.kind === 'edges'} extra={fresh ? cheer.lines : undefined} />
           {fresh && cheer.goal && !isRight(pos) && <p class="goal-note" role="status"><span aria-hidden="true">🎉 </span>Daily goal reached: {todayCount(ctx.store.state)} today. Every answer counts, right or wrong.</p>}
           <ItemReview item={item} si={si} response={resp} />
           <ItemMeta item={item} />

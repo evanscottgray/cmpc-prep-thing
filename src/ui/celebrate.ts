@@ -68,7 +68,8 @@ class Layer {
       p.vy += 0.32 * k; p.vx *= drag; p.vy *= drag;
       p.x += p.vx * k; p.y += p.vy * k; p.r += p.vr * k;
       g.save();
-      g.globalAlpha = Math.min(1, (p.end - now) / 400);
+      const edge = this.clip ? Math.max(0, Math.min(1, (this.clip.y + this.clip.h - p.y) / 16)) : 1; // fade out before the pocket's edge, so nothing looks sliced
+      g.globalAlpha = Math.min(1, (p.end - now) / 400) * edge;
       g.translate(p.x, p.y); g.rotate(p.r); g.fillStyle = p.c;
       if (p.round) { g.beginPath(); g.arc(0, 0, p.w / 2, 0, Math.PI * 2); g.fill(); }
       else g.fillRect(-p.w / 2, -p.h / 2, p.w, p.h * Math.abs(Math.cos(p.r * 2)) + 1); // flutter
@@ -120,31 +121,33 @@ export function confetti({ count = 40, x = innerWidth / 2, y = innerHeight / 3, 
 function cardPocket(card: HTMLElement): Rect | null {
   const box = card.getBoundingClientRect();
   const lines: { top: number; bottom: number; right: number }[] = [];
+  const add = (r: DOMRect, right = r.right) => { if (r.width && r.height) lines.push({ top: r.top - box.top, bottom: r.bottom - box.top, right: right - box.left }); };
   const walk = document.createTreeWalker(card, NodeFilter.SHOW_TEXT);
   const range = document.createRange();
   for (let n = walk.nextNode(); n; n = walk.nextNode()) {
     if (!n.textContent?.trim() || n.parentElement?.closest('.sr-only, canvas')) continue;
     range.selectNodeContents(n);
-    for (const r of range.getClientRects()) if (r.width && r.height) lines.push({ top: r.top - box.top, bottom: r.bottom - box.top, right: r.right - box.left });
+    for (const r of range.getClientRects()) add(r);
   }
-  for (const el of card.querySelectorAll('svg, .meter, .btn, img')) {
-    const r = el.getBoundingClientRect();
-    if (r.width && r.height) lines.push({ top: r.top - box.top, bottom: r.bottom - box.top, right: r.right - box.left });
-  }
+  for (const el of card.querySelectorAll('svg, .meter, .btn, img')) add(el.getBoundingClientRect());
+  // dividers (a rule above a row) are full-width obstacles at their top edge
+  for (const el of card.querySelectorAll('.today-row, hr')) { const r = el.getBoundingClientRect(); lines.push({ top: r.top - box.top - 1, bottom: r.top - box.top + 1, right: box.width }); }
   lines.sort((a, b) => a.top - b.top);
-  const W = box.width - 4, H = box.height - 3, gap = 12;
+  const W = box.width - 6, H = box.height - 8, gap = 10, MIN_W = 48, MIN_H = 52;
   let best: Rect | null = null;
-  // bands of consecutive lines: the free width is set by the widest line in the band
+  // bands of consecutive lines: the free width is set by the widest line reaching into the band
   for (let i = 0; i <= lines.length; i++) {
-    const top = i === 0 ? 3 : lines[i - 1].bottom + 4; // just below the line above the band (or the card's top)
+    const top = i === 0 ? 10 : lines[i - 1].bottom + 4; // clear of the card's top edge, or just below the line above
     let right = 0;
+    for (let k = 0; k < i; k++) if (lines[k].bottom + 4 > top) right = Math.max(right, lines[k].right); // taller things that started earlier
+    if (W - right - gap < MIN_W) continue;
     for (let j = i; j <= lines.length; j++) {
       const bottom = j === lines.length ? H : lines[j].top - 4; // just above the first line that doesn't fit
       const r = { x: right + gap, y: top, w: W - right - gap, h: bottom - top };
-      if (r.w >= 56 && r.h >= 36 && (!best || r.w * r.h > best.w * best.h)) best = r;
+      if (r.w >= MIN_W && r.h >= MIN_H && (!best || r.w * r.h > best.w * best.h)) best = r;
       if (j === lines.length) break;
       right = Math.max(right, lines[j].right);
-      if (W - right - gap < 56) break;
+      if (W - right - gap < MIN_W) break;
     }
   }
   return best;

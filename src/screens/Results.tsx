@@ -52,7 +52,7 @@ export function Results({ session: s }: { session: Session }) {
     if (!fresh(s.submittedAt)) return;
     // The session's own moment was kept inside its verdict card, so a strong summary still gets its finish.
     const earned = full ? pass && freshForm && fullRun : pctAll >= 80 && r.total >= 5;
-    if (earned && firstTime(s.id)) { setGlow(true); return cardBurst(document.querySelector<HTMLElement>('.card.hero'), true, 300); } // in the result card's own empty corner
+    if (earned && firstTime(s.id)) { setGlow(true); return cardBurst(document.querySelector<HTMLElement>(full ? '.exam-pass' : '.card.hero'), true, 300); } // inside the card that holds the result
   }, []);
   const today = todayCount(db);
   const T = db.settings.dailyTarget;
@@ -73,10 +73,20 @@ export function Results({ session: s }: { session: Session }) {
             <div><div class="v">{r.raw}<span class="of">/{r.scoredCount}</span></div><div class="k">Raw score (scored questions)</div></div>
             <div><div class="v">{scaled}</div><div class="k">Estimated scaled score (550 passes)</div></div>
           </div>
-          <div class={`verdict-big ${pass ? 'pass' : 'fail'}`} role="status">
-            {pass ? <IcCheckCircle /> : <IcXCircle />}<span>{pass ? 'Pass (estimated)' : 'Did not pass (estimated)'}</span>
-          </div>
-          <p class="exam-cheer">{pass ? (!freshForm ? 'Above target on questions you had seen. A fresh form is the real check.' : fullRun ? 'Well done. You reached your practice target on a full-length form.' : 'You reached your practice target on this form.') : s.kind === 'formA' && !s.retake ? 'A good baseline. Focus next shows where the points are.' : 'Now you know where the points are. Focus next shows the way.'}</p>
+          {pass ? (
+            // a pass gets its own green callout, with room kept for its confetti
+            <>
+              <div class={`verdict ok exam-pass${freshForm && fullRun ? ' room' : ''}`} role="status">
+                <IcCheckCircle /><span><span class="pass-head">Pass (estimated)</span>{freshForm && <span class="verdict-sub">Well done.</span>}</span>
+              </div>
+              <p class="exam-cheer">{!freshForm ? 'Above target on questions you had seen. A fresh form is the real check.' : fullRun ? 'You reached your practice target on a full-length form.' : 'You reached your practice target on this form.'}</p>
+            </>
+          ) : (
+            <>
+              <div class="verdict-big fail" role="status"><IcXCircle /><span>Did not pass (estimated)</span></div>
+              <p class="exam-cheer">{s.kind === 'formA' && !s.retake ? 'A good baseline. Focus next shows where the points are.' : 'Now you know where the points are. Focus next shows the way.'}</p>
+            </>
+          )}
           <p class="small muted" style={{ margin: '.25rem 0 0' }}>
             {r.raw}/100 is {gap === 0 ? 'exactly your practice target' : `${Math.abs(gap)} ${gap > 0 ? 'above' : 'below'} your practice target of ${target}`}, which the app places at 550.{Math.abs(gap) <= 3 ? ' Close enough to go either way.' : ''} {s.submittedAt ? `Taken ${fmtDate(ymd(s.submittedAt))}.` : ''}
           </p>

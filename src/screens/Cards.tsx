@@ -127,11 +127,15 @@ export function CardStudy() {
   useEffect(() => { if (!c && good) return cardBurst(document.querySelector<HTMLElement>('.card.hero'), true, 250); }, [!c]); // in the card's own empty corner
   if (!c) return (
     <Page title="Concept cards" backTo="cards" tabs={false}>
-      <div class={`card hero center${good ? ' celebrate' : ''}`}>
-        {rated > 0 && <div class="cheer-emoji" aria-hidden="true" style={{ marginBottom: '.35rem' }}>{good ? '🎉' : '🌱'}</div>}
-        <h2>{queue.length ? (rated ? 'Session complete!' : 'Session complete') : 'Nothing due'}</h2>
-        {skipped > 0 && <p class="small muted" style={{ margin: '0 0 .25rem' }}>{rated} of {queue.length} rated · {skipped} skipped</p>}
-        {rated > 0 && <p class="tally"><span><strong>{tally.right}</strong> knew it</span><span><strong>{tally.unsure}</strong> unsure</span><span><strong>{tally.wrong}</strong> missed</span></p>}
+      <div class={`card hero${good ? ' celebrate' : ''}`}>{/* the same layout as a quiz summary: the cheer on the left, room on the right */}
+        <div class="cheer">
+          {rated > 0 && <span class="cheer-emoji" aria-hidden="true">{good ? '🎉' : '🌱'}</span>}
+          <div>
+            <h2 class="cheer-head" style={{ margin: 0 }}>{queue.length ? (rated ? 'Session complete!' : 'Session complete') : 'Nothing due'}</h2>
+            {queue.length > 0 && <div class="small muted">{skipped > 0 ? `${rated} of ${queue.length} rated · ${skipped} skipped` : `${plural(rated, 'card')} rated`}</div>}
+          </div>
+        </div>
+        {rated > 0 && <p class="tally left"><span><strong>{tally.right}</strong> knew it</span><span><strong>{tally.unsure}</strong> unsure</span><span><strong>{tally.wrong}</strong> missed</span></p>}
         <p class="muted">{!queue.length ? 'All cards are scheduled for later.'
           : !rated ? 'Cards you rate come back on a schedule that fits your exam date.'
           : good ? 'Nice work. The ones you knew come back later; the rest come back sooner.'

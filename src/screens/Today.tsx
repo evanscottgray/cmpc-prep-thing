@@ -35,6 +35,17 @@ const SHORT = { get label() { const q = openQuiz(); return q ? `Or resume your q
 
 function Primary({ a, why, later, firstVisit }: { a: Action; why: string; later?: boolean; firstVisit?: boolean }) {
   // The very first session: an untimed warm-up builds momentum; the 90-minute diagnostic is one tap away.
+  // Left partway, the warm-up stays the main way back until it's finished.
+  const warm = a.kind === 'formA' ? openQuiz() : undefined;
+  if (warm?.label === 'Untimed warm-up') return (
+    <section class="card hero" aria-labelledby="today-primary">
+      <div class="eyebrow">In progress</div>
+      <h2 id="today-primary" style={{ fontSize: '1.35rem' }}>Your warm-up</h2>
+      <p class="muted">{warm.revealed.length} of {warm.items.length} answered, untimed. Form A, your 90-minute diagnostic, is there whenever you're ready.</p>
+      <button class="btn primary block" onClick={() => startQuiz()}>Resume your warm-up · {warm.items.length - warm.revealed.length} left<IcChevron /></button>
+      <button class="btn ghost block" onClick={() => navigate('start/formA')}>Or take Form A now · 90 minutes</button>
+    </section>
+  );
   if (firstVisit && a.kind === 'formA') return (
     <section class="card hero" aria-labelledby="today-primary">
       <div class="eyebrow">Start here</div>

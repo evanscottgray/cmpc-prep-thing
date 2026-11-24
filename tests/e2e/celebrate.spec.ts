@@ -143,3 +143,13 @@ test('a strong session ends with confetti on its summary (once)', async ({ page 
   await page.waitForTimeout(800);
   await expect(confetti(page)).toHaveCount(0); // not replayed on the way back
 });
+
+test('a warm-up left partway stays the main way back on Today', async ({ page }) => {
+  await onboard(page);
+  await page.getByRole('button', { name: 'Start the warm-up' }).click();
+  await answer(page, true);
+  await page.getByRole('button', { name: 'Close' }).click();
+  await expect(page.getByRole('heading', { name: 'Your warm-up' })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Resume your warm-up · 9 left/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Or take Form A now · 90 minutes' })).toBeVisible();
+});

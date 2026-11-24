@@ -89,7 +89,7 @@ export function Progress() {
               <p>It counts your first try at every practice question, from exams and drills, so it can differ from any single exam{exams.length ? ` (your latest: ${scoreOf(exams[exams.length - 1], target)})` : ''}. It maps your practice target ({target}/100) to 550; AASP doesn't publish the raw passing score.</p>
             </details>
           </>
-        ) : <><p>Answer at least 60 questions (a full exam is ideal) to get an estimate. So far: {r.n}.</p><p class="small muted" style={{ marginBottom: 0 }}>An estimate, not a prediction. It maps your practice target ({target}/100) to 550; AASP doesn't publish the raw passing score.</p></>}
+        ) : <><p>Answer at least 60 questions (a full exam is ideal) to get an estimate. So far: {r.n}.</p>{effort && <p class="small progress-gain" style={{ marginTop: 0 }}>{effort}</p>}<p class="small muted" style={{ marginBottom: 0 }}>An estimate, not a prediction. It maps your practice target ({target}/100) to 550; AASP doesn't publish the raw passing score.</p></>}
       </div>
 
       {focus.length > 0 && (
