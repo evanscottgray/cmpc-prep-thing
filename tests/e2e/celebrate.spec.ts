@@ -230,4 +230,21 @@ test('started block reviews stay on Today: the latest three, then "Show 1 more r
   await expect(rows).toHaveCount(3);
   await page.getByRole('button', { name: 'Show 1 more review' }).click();
   await expect(rows).toHaveCount(4);
+  await expect(page.locator('.in-progress .list-pair > .list-item').nth(3)).toBeFocused(); // focus moves to the first one revealed
+  await expect(page.getByText(/1 of 1 miss read/).first()).toBeVisible();
+});
+
+test('a timed set with nothing missed: Done leads', async ({ page }) => {
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  for (let q = 1; q <= 23; q++) {
+    const k = await keyIndex(page);
+    await optionLabels(page).nth(k).click();
+    await page.getByRole('button', { name: q < 23 ? 'Next' : 'Finish' }).click();
+  }
+  await page.getByRole('button', { name: 'Submit', exact: true }).click();
+  await expect(page.locator('.result-actions > :first-child')).toHaveText('Done');
+  await expect(page.locator('.result-actions > :first-child')).toHaveClass(/primary/);
+  await expect(page.getByRole('link', { name: 'Review all 23' })).not.toHaveClass(/primary/);
 });

@@ -12,7 +12,9 @@ interface Rect { x: number; y: number; w: number; h: number }
 function palette(): string[] {
   const cs = getComputedStyle(document.documentElement);
   const v = (n: string) => cs.getPropertyValue(n).trim();
-  return [v('--accent'), v('--ok'), v('--warn-bar'), '#f06292', '#ffd54f'].filter(Boolean); // the app's colours plus two warm accents
+  const dark = cs.colorScheme.includes('dark');
+  // the app's colours plus two warm accents, a shade deeper on light cards so none read as pale specks
+  return [v('--accent'), v('--ok'), v('--warn-bar'), dark ? '#f06292' : '#e2457c', dark ? '#ffd54f' : '#f2b705'].filter(Boolean);
 }
 
 /**

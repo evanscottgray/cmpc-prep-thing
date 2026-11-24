@@ -194,20 +194,20 @@ function InProgress({ skip }: { skip?: string }) {
     if (ok) abandon(id);
   }
   return (
-    <div class="section">
+    <div class="section in-progress">
       <h2>In progress</h2>
       <div class="list">
         {shown.map((x) => (
           <div class="list-pair">
             {(() => { const st = reviewStep(x); const all = st.kind === 'finish' || st.kind === 'resumeLast'; return <>
               {st.kind === 'finish'
-                ? <button class="list-item" onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read{x.submittedAt && <>{' · '}<span class="keep">{fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
-                : <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read{x.submittedAt && <>{' · '}<span class="keep">{fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Resume</span></a>}
+                ? <button class="list-item" onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <>{' · '}<span class="keep">{fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
+                : <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <>{' · '}<span class="keep">{fmtShort(x.submittedAt)}</span></>}</span></span><span class="badge accent">Resume</span></a>}
               {st.kind !== 'finish' && <button class="btn small ghost" onClick={() => { if (all) { finishReview(x.id); navigate(`results/${x.id}`); } else { markReviewed(x.id); toast(['formA', 'formB', 'mixed'].includes(x.kind) ? `Set aside. ${x.title} stays under Progress.` : 'Set aside. Its missed questions still come back in spaced review.'); } }}>{all ? 'Finish' : 'Set aside'}<span class="sr-only"> for the {x.title} review</span></button>}
             </>; })()}
           </div>
         ))}
-        {allReviews.length > 3 && !more && <div class="list-pair"><button class="list-item" onClick={() => setMore(true)}><span class="li-main"><span class="li-title">Show {allReviews.length - 3} more {allReviews.length - 3 === 1 ? 'review' : 'reviews'}</span></span></button></div>}
+        {allReviews.length > 3 && !more && <div class="list-pair"><button class="list-item" onClick={() => { setMore(true); requestAnimationFrame(() => document.querySelectorAll<HTMLElement>('.in-progress .list-pair > .list-item')[3]?.focus()); }}><span class="li-main"><span class="li-title">Show {allReviews.length - 3} more {allReviews.length - 3 === 1 ? 'review' : 'reviews'}</span></span></button></div>}
         {open.map((x) => {
           const n = x.timed ? Object.keys(x.responses).length : x.revealed.length;
           return (
@@ -240,6 +240,7 @@ export function Today() {
   const started = db.attempts[0]?.t ?? Infinity;
   const needBackup = Date.now() - started > 2 * 86400000 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
   const notInstalled = ctx.caps.ios && !ctx.caps.standalone;
+  const inProgress = <InProgress skip={p.primary.kind === 'resume' || p.primary.kind === 'reviewExam' ? p.primary.session.id : undefined} />;
   return (
     <Page title="Today" noBack wide={hasRight}>
       <div class="row between" style={{ marginBottom: '1rem' }}>
@@ -259,9 +260,10 @@ export function Today() {
         </>
         : <><Primary a={p.primary} why={p.why} firstVisit={firstVisit} /><DailyCard answered={p.answeredToday} now={now} reachedNote={reachedNote} /></>}
 
-      <InProgress skip={p.primary.kind === 'resume' || p.primary.kind === 'reviewExam' ? p.primary.session.id : undefined} />
+      {!hasRight && inProgress}
       </div>
       <div>
+      {hasRight && inProgress}{/* on iPad, beside the recommendation rather than below the fold; phones stack it in the same place */}
 
       {!light && ((p.dueItems > 0 && p.primary.kind !== 'review') || p.dueCards > 0) && (
         <div class="section">

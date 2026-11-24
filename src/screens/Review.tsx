@@ -63,7 +63,7 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
       <div class="chips wrap" role="group" aria-label="Filter">
         {filters.map((x) => <button class="chip" aria-pressed={f === x} onClick={() => navigate(`review/${s.id}${qs(query, { f: x === 'all' ? null : x, ...(x === 'unscored' ? { s: null } : {}) })}`, true)}>{x[0].toUpperCase() + x.slice(1)} {filterPositions(s, query, x).length}</button>)}
       </div>
-      {query.get('s') && f !== 'unscored' && (
+      {isExam && query.get('s') && f !== 'unscored' && (
         <p class="small scored-note"><span>Scored questions only, matching the score breakdown.</span><button class="btn small" onClick={() => navigate(`review/${s.id}${qs(query, { s: null })}`, true)}>Include trial questions</button></p>
       )}
       <details class="filter-fold" open={!!(query.get('d') || query.get('k'))}>
