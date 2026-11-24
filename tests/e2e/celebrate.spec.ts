@@ -196,5 +196,9 @@ test('with every miss opened but not finished, Results finishes the review in on
   await go(page, results);
   await page.getByRole('button', { name: 'Finish review' }).click(); // no detour back into a question
   await expect(page.getByText('Both misses read')).toBeVisible();
+  await expect(page.locator('#review-done')).toBeFocused(); // seen and heard, not left below the fold
+  const [done, hero] = [await page.locator('#review-done').boundingBox(), await page.locator('.card.hero').boundingBox()];
+  expect(done!.y).toBeLessThan(hero!.y); // the moment leads, with Done right under it
+  await expect(page.locator('.cheer')).toHaveCount(0); // one celebration on the screen
   await expect(confetti(page)).toHaveCount(1);
 });

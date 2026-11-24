@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { ctx, useDb, useNow } from '../ctx';
 import { navigate } from '../router';
-import { abandon, createSession, doneReviewing, finishReview, markReviewed, missedPositions, nextMiss, openedMisses, reviewStep } from '../lib/actions';
+import { abandon, createSession, finishReview, markReviewed, missedPositions, nextMiss, openedMisses, reviewStep } from '../lib/actions';
 import { REVIEW_MAX, buildDrill, buildQuiz, buildReview } from '../lib/assemble';
 import { fmtDate, fmtShort, plural, ymd } from '../lib/dates';
 import { isLight, plan, type Action } from '../lib/plan';
@@ -198,7 +198,7 @@ function InProgress({ skip }: { skip?: string }) {
           <div class="list-pair">
             {(() => { const st = reviewStep(x); const all = st.kind === 'finish' || st.kind === 'resumeLast'; return <>
               <a class="list-item" href={st.kind === 'finish' ? `#/results/${x.id}` : `#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`} onClick={st.kind === 'finish' ? () => finishReview(x.id) : undefined}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read</span></span><span class="badge accent">{st.kind === 'finish' ? 'Finish' : 'Resume'}</span></a>
-              <button class="btn small ghost" onClick={() => { doneReviewing(x.id); toast(all ? `Review finished. Nice work.` : `Marked done. ${x.title} stays under Progress.`); }}>{all ? 'Finish' : 'Mark done'}<span class="sr-only"> for the {x.title} review</span></button>
+              {st.kind !== 'finish' && <button class="btn small ghost" onClick={() => { if (all) { finishReview(x.id); navigate(`results/${x.id}`); } else { markReviewed(x.id); toast(`Marked done. ${x.title} stays under Progress.`); } }}>{all ? 'Finish' : 'Mark done'}<span class="sr-only"> for the {x.title} review</span></button>}{/* finishing opens the result, where its moment plays */}
             </>; })()}
           </div>
         ))}

@@ -121,7 +121,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const misses = query.get('f') === 'incorrect' && !query.get('d') && !query.get('k') && !query.get('s') ? missedPositions(s).length : 0;
   const read = misses ? openedMisses(s) : 0;
   // every miss is open now (in whatever order): name the step, and finish on the result it belongs to (exams only)
-  const finishing = s.timed && misses > 0 && !s.reviewedAt && read === misses; // timed sessions (tutor modes already showed every rationale)
+  const finishing = s.timed && misses > 0 && !s.reviewedRead && read === misses; // timed sessions (tutor modes already showed every rationale)
   const finish = () => { finishReview(s.id); navigate(`results/${s.id}`, true); };
   return (
     <Page title={`Question ${pos + 1}`} onBack={toList} tabs={false}>

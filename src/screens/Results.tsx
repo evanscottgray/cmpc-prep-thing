@@ -57,7 +57,7 @@ export function Results({ session: s }: { session: Session }) {
   // every miss read through, just now: the hardest work after an exam gets its own moment (once)
   // shown the first time the result opens after the review was finished (however long that takes), once
   const [readAll, setReadAll] = useState(() => s.timed && !!s.reviewedRead && !s.readCelebrated && firstTime(`${s.id}:read`));
-  useEffect(() => { if (!readAll) return; markReadCelebrated(s.id); return cardBurst(document.querySelector<HTMLElement>('.review-done'), true, 300); }, [readAll]);
+  useEffect(() => { if (!readAll) return; markReadCelebrated(s.id); document.getElementById('review-done')?.focus(); return cardBurst(document.querySelector<HTMLElement>('.review-done'), true, 300); }, [readAll]); // shown first and focused, so it's seen and heard
   // after a finished review (or one set aside with every miss read), Done leads and reading again is optional
   const readDone = s.timed && (!!s.reviewedRead || (!!s.reviewedAt && openedMisses(s) === missed.length && missed.length > 0));
   const step = s.timed && !s.reviewedAt && missed.length ? reviewStep(s) : null;
@@ -70,10 +70,36 @@ export function Results({ session: s }: { session: Session }) {
   const reachedToday = today >= T;
   const kgs = bp.kgs.filter((k) => r.byKg[k.id]?.n).sort((a, b) => r.byKg[a.id].c / r.byKg[a.id].n - r.byKg[b.id].c / r.byKg[b.id].n || b.weight - a.weight);
 
+  // Done leads when there's nothing left to do here: an untimed session, a finished review, or one set aside
+  const doneFirst = !s.timed || readDone || !!s.reviewedAt;
+  const doneCallout = (
+    <div id="review-done" tabIndex={-1} class={`verdict ok review-done fresh big${motionOn() ? ' room' : ''}`} role="status"><IcCheckCircle /><span><span class="pass-head">{missed.length === 1 ? 'You read your miss' : missed.length === 2 ? 'Both misses read' : `All ${missed.length} misses read`}</span><span class="verdict-sub">{full ? "That's the most useful thing to do after an exam." : "That's the most useful thing to do after timed practice."} Nice work.</span></span></div>
+  );
+  const actionsRow = (
+      <div class="btn-row result-actions mt">
+        {doneFirst && <a class="btn primary" href="#/today">Done</a>}
+        {missed.length > 0 && !readDone && (() => {
+          // one next step, the same one Today shows: start with one, continue, resume the last, or finish in one tap
+          if (step?.kind === 'finish') return <button class={`btn${s.timed ? ' primary' : ''}`} onClick={finishHere}>Finish review</button>;
+          const href = (pos?: number) => `#/review/${s.id}${pos === undefined ? '' : `/${pos}`}?f=incorrect`;
+          if (step?.kind === 'resumeLast') return <><a class="btn primary" href={href(step.pos)}>Resume last miss</a><button class="btn" onClick={finishHere}>Finish review</button></>;
+          if (step?.kind === 'continue') return <a class="btn primary" href={href(step.pos)}>Continue review · {step.opened} of {step.total}</a>;
+          if (step?.kind === 'start' && full && step.total > 12) return <a class="btn primary" href={href(step.pos)}>Start with one miss</a>;
+          return <a class={`btn${s.timed && !doneFirst ? ' primary' : ''}`} href={href()}>Review {plural(missed.length, 'miss', 'misses')}</a>;
+        })()}
+        {step?.kind === 'start' && full && step.total > 12 && <p class="small muted review-hint">{missed.length} misses to read, one at a time. You can pick up where you left off.</p>}
+        {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
+        {!doneFirst && <a class="btn" href="#/today">Done</a>}
+        {readDone && missed.length > 0 && <a class="btn ghost" href={`#/review/${s.id}?f=incorrect`}>{missed.length === 1 ? 'If you want: read the miss again' : 'If you want: read the misses again'}</a>}
+        {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{(() => { const q = openQuiz(); return q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'; })()}</button>}
+      </div>
+  );
+
   return (
     <Page title={full ? `${s.title} results` : 'Session summary'} backTo={full ? 'progress' : 'today'} wide={full}>
       <div class={full ? 'cols' : undefined}>
       <div>
+      {readAll && <>{doneCallout}{actionsRow}</>}{/* the moment just earned leads, with Done right under it */}
       {full ? (
         <div class={`card hero${glow ? ' celebrate' : ''}`}>
           <div class="eyebrow">Practice result, estimated{s.retake ? ' · retake' : ''}</div>
@@ -104,7 +130,7 @@ export function Results({ session: s }: { session: Session }) {
       ) : (
         <div class={`card hero${glow ? ' celebrate' : ''}`}>
           <div class="eyebrow">{s.title}{s.label ? ` · ${s.label}` : ''}</div>
-          {cheer && <div class="cheer">{cheer.emoji && <span class="cheer-emoji" aria-hidden="true">{cheer.emoji}</span>}<div><div class="cheer-head">{cheer.head}</div><div class="small muted">{cheer.sub}</div></div></div>}
+          {cheer && !readAll && <div class="cheer">{cheer.emoji && <span class="cheer-emoji" aria-hidden="true">{cheer.emoji}</span>}<div><div class="cheer-head">{cheer.head}</div><div class="small muted">{cheer.sub}</div></div></div>}
           <div class="score-line first">
             <div><div class="v">{r.correctAll}<span class="of">/{r.total}</span></div><div class="k">correct{r.total ? ` · ${pctAll}%` : ''}</div></div>
             {s.timed && <div><div class="v">{fmtClock(r.timeUsedMs)}</div><div class="k">of {fmtClock(r.durationMs)} used</div></div>}
@@ -124,30 +150,11 @@ export function Results({ session: s }: { session: Session }) {
         </div>
       )}
 
-      {readAll && (
-        <div class={`verdict ok review-done fresh big mt${motionOn() ? ' room' : ''}`} role="status"><IcCheckCircle /><span><span class="pass-head">{missed.length === 1 ? 'You read your miss' : missed.length === 2 ? 'Both misses read' : `All ${missed.length} misses read`}</span><span class="verdict-sub">{full ? "That's the most useful thing to do after an exam." : "That's the most useful thing to do after timed practice."} Nice work.</span></span></div>
-      )}
       {(s.retake || (s.kind === 'mixed' && s.seenBefore > 0)) && full && (
         <div class="banner warn mt" role="note"><IcAlert /><div><strong>Not a fresh estimate.</strong> {`${s.seenBefore} of ${r.total} questions were ones you had already seen.`} Familiar questions inflate the score.</div></div>
       )}
 
-      <div class="btn-row result-actions mt">
-        {(!s.timed || readDone) && <a class="btn primary" href="#/today">Done</a>}
-        {missed.length > 0 && !readDone && (() => {
-          // one next step, the same one Today shows: start with one, continue, resume the last, or finish in one tap
-          if (step?.kind === 'finish') return <button class={`btn${s.timed ? ' primary' : ''}`} onClick={finishHere}>Finish review</button>;
-          const href = (pos?: number) => `#/review/${s.id}${pos === undefined ? '' : `/${pos}`}?f=incorrect`;
-          if (step?.kind === 'resumeLast') return <a class="btn primary" href={href(step.pos)}>Resume last miss</a>;
-          if (step?.kind === 'continue') return <a class="btn primary" href={href(step.pos)}>Continue review · {step.opened} of {step.total}</a>;
-          if (step?.kind === 'start' && full && step.total > 12) return <a class="btn primary" href={href(step.pos)}>Start with one miss</a>;
-          return <a class={`btn${s.timed ? ' primary' : ''}`} href={href()}>Review {plural(missed.length, 'miss', 'misses')}</a>;
-        })()}
-        {missed.length > 12 && full && !openedMisses(s) && <p class="small muted review-hint">{missed.length} misses to read, one at a time. You can pick up where you left off.</p>}
-        {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
-        {s.timed && !readDone && <a class="btn" href="#/today">Done</a>}
-        {readDone && missed.length > 0 && <a class="btn ghost" href={`#/review/${s.id}?f=incorrect`}>{missed.length === 1 ? 'If you want: read the miss again' : 'If you want: read the misses again'}</a>}
-        {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{(() => { const q = openQuiz(); return q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'; })()}</button>}
-      </div>
+      {!readAll && actionsRow}
 
       {full && focus.length > 0 && (
         <div class="section">
