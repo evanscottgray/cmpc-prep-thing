@@ -24,11 +24,12 @@ describe('study streak', () => {
     expect(week[6].today).toBe(true);
   });
 
-  it('counts answered questions and rated cards, not questions left blank in a timed session', () => {
+  it('counts answered questions, rated cards and recorded study days, not questions left blank in a timed session', () => {
     const db = emptyState(1);
     db.attempts = [{ i: 'x', t: at(2026, 11, 20), ok: true, src: 'quiz' }, { i: 'y', t: at(2026, 11, 21), ok: false, src: 'exam', na: true }];
     db.cardSrs = { c1: { box: 1, due: '2026-11-25', last: at(2026, 11, 22) } };
-    expect([...studyDays(db)].sort()).toEqual(['2026-11-20', '2026-11-22']);
+    db.meta.days = ['2026-11-18']; // a card-only day whose card was rated again later
+    expect([...studyDays(db)].sort()).toEqual(['2026-11-18', '2026-11-20', '2026-11-22']);
   });
 
   it('runOfCorrect counts the correct answers at the end, in the order they were checked', () => {
@@ -36,5 +37,18 @@ describe('study streak', () => {
     expect(runOfCorrect([0, 1, 2, 3], (p) => right.has(p))).toBe(2);
     expect(runOfCorrect([1, 0, 2, 3], (p) => right.has(p))).toBe(3);
     expect(runOfCorrect([], () => true)).toBe(0);
+  });
+});
+
+describe('recorded study days', () => {
+  it('markStudied keeps each day once, so a card-only day survives the card being rated again', async () => {
+    const { ctx } = await import('../../src/ctx');
+    const { Store } = await import('../../src/lib/store');
+    const { memoryKv } = await import('../../src/lib/db');
+    const { markStudied } = await import('../../src/lib/actions');
+    ctx.store = new Store(memoryKv(), emptyState(1), null);
+    markStudied(at(2026, 11, 18)); markStudied(at(2026, 11, 18, 20)); markStudied(at(2026, 11, 19));
+    expect(ctx.store.state.meta.days).toEqual(['2026-11-18', '2026-11-19']);
+    expect(studyDays(ctx.store.state).has('2026-11-18')).toBe(true);
   });
 });

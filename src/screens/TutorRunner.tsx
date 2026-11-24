@@ -1,13 +1,17 @@
-import { useEffect, useRef } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Session } from '../types';
 import { ctx } from '../ctx';
 import { back, navigate } from '../router';
 import { abandon, check, choose, finishTutor, goTo, setUnsure, toggleStrike } from '../lib/actions';
 import { ItemActions, ItemMeta, ItemReview, OptionList, QStem, StemFold, StrikeHint, Verdict, strikeHint } from '../ui/question';
-import { Page } from '../ui/bits';
+import { Meter, Page } from '../ui/bits';
 import { confirmDialog, toast } from '../ui/dialog';
-import { burstFrom } from '../ui/celebrate';
-import { runOfCorrect } from '../lib/streak';
+import { clearConfetti, correctPop, edgeBursts } from '../ui/celebrate';
+import { bestRun, runOfCorrect } from '../lib/streak';
+import { todayCount } from '../lib/stats';
+import { isLight, plan } from '../lib/plan';
+
+const MILESTONE = (n: number) => n === 3 || n === 5 || (n >= 10 && n % 5 === 0);
 
 /** Tutor mode: answer, then see the verdict and every rationale before moving on. */
 export function TutorRunner({ session: s }: { session: Session }) {
@@ -20,19 +24,48 @@ export function TutorRunner({ session: s }: { session: Session }) {
   const done = s.revealed.length;
   const isRight = (p: number) => s.responses[p] === ctx.items.get(s.items[p].id)?.answer;
   const correct = s.revealed.filter(isRight).length;
-  const run = runOfCorrect(s.revealed, isRight);
-  const justChecked = useRef(false); // celebrate a fresh check, not a revisit with Previous
+  // The run as of this question (revisiting an earlier one with Previous shows the run it had then).
+  const at = s.revealed.indexOf(pos);
+  const run = runOfCorrect(at < 0 ? s.revealed : s.revealed.slice(0, at + 1), isRight);
+  const best = bestRun(s.revealed, isRight);
+  /** The check just made on this screen: drives the one celebration for that tap and the extra line in the verdict. */
+  const [cheer, setCheer] = useState<{ pos: number; extra?: string; kind: 'pop' | 'edges' | null } | null>(null);
+  const fresh = cheer?.pos === pos;
 
-  useEffect(() => { window.scrollTo(0, 0); document.querySelector<HTMLElement>('#q-stem')?.focus({ preventScroll: true }); }, [pos]);
+  useEffect(() => { clearConfetti(); window.scrollTo(0, 0); document.querySelector<HTMLElement>('#q-stem')?.focus({ preventScroll: true }); }, [pos]);
+  useEffect(() => clearConfetti, []);
   useEffect(() => { if (revealed) {
     window.scrollTo(0, 0);
     const v = document.querySelector<HTMLElement>('#verdict'); if (!v) return;
     v.focus({ preventScroll: true });
     const bar = document.querySelector('.actionbar')?.getBoundingClientRect().top ?? innerHeight;
     if (v.getBoundingClientRect().bottom > bar - 8) v.scrollIntoView({ block: 'center' }); // keep the result visible above the action bar
-    if (justChecked.current && isRight(pos)) burstFrom(v, run === 3 || run === 5 || (run >= 10 && run % 5 === 0) ? 90 : 34);
-    justChecked.current = false;
   } }, [revealed]);
+  const fired = useRef<object | null>(null);
+  useEffect(() => {
+    const v = document.querySelector('#verdict');
+    if (!cheer || !fresh || !revealed || !v || fired.current === cheer) return;
+    fired.current = cheer;
+    if (cheer.kind === 'pop') correctPop(v);
+    if (cheer.kind === 'edges') { const r = v.getBoundingClientRect(); edgeBursts(r.top + r.height / 2); }
+  }, [cheer, revealed]);
+
+  /** One celebration per check, biggest moment wins: the daily goal, then a run of 3/5/10…, then a plain correct answer. */
+  function onCheck() {
+    const st = ctx.store.state;
+    const before = todayCount(st);
+    check(s.id, pos);
+    const after = todayCount(ctx.store.state);
+    const target = st.settings.dailyTarget;
+    const goal = before < target && after >= target && !isLight(plan(ctx.store.state).phase);
+    const ok = isRight(pos);
+    const n = ok ? runOfCorrect([...s.revealed, pos], isRight) : 0;
+    setCheer({
+      pos,
+      extra: goal ? `🎉 Daily goal reached: ${after} today.` : ok && MILESTONE(n) ? `🔥 That's ${n} in a row!` : undefined,
+      kind: goal || (ok && MILESTONE(n)) ? 'edges' : ok ? 'pop' : null,
+    });
+  }
 
   function finish() {
     finishTutor(s.id);
@@ -56,10 +89,11 @@ export function TutorRunner({ session: s }: { session: Session }) {
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
         <span>{s.title}</span>
         <span class="row" style={{ gap: '.5rem' }}>
-          {run >= 3 && <span key={run} class="streak-chip" aria-label={`${run} correct in a row`}>🔥 {run} in a row</span>}
+          {run >= 3 ? <span key={run} class="streak-chip">🔥 {run} in a row</span> : best >= 3 && <span class="streak-chip best">Best run: {best}</span>}
           {done > 0 && <span>{correct} of {done} correct</span>}
         </span>
       </div>
+      <div class="session-progress"><Meter value={(100 * done) / s.items.length} label={`${done} of ${s.items.length} answered`} /></div>
       {revealed
         ? <StemFold key={pos} id="q-stem" text={item.stem} />
         : <QStem id="q-stem" text={item.stem} />}
@@ -72,7 +106,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
         </>
       ) : (
         <>
-          <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} />
+          <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} fresh={fresh} extra={fresh ? cheer.extra : undefined} />
           <ItemReview item={item} si={si} response={resp} />
           <ItemMeta item={item} />
         </>
@@ -86,7 +120,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
         )}
         {pos > 0 && <button class="btn" onClick={() => goTo(s.id, pos - 1)}>Previous</button>}
         {!revealed
-          ? <button class="btn primary" disabled={resp === undefined} onClick={() => { justChecked.current = true; check(s.id, pos); }}>Check answer</button>
+          ? <button class="btn primary" disabled={resp === undefined} onClick={onCheck}>Check answer</button>
           : last
             ? <button class="btn primary" onClick={finish}>See summary</button>
             : <button class="btn primary" onClick={() => goTo(s.id, pos + 1)}>Next question</button>}

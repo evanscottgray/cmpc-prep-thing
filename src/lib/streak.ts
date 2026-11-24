@@ -4,11 +4,12 @@ import { ymd } from './dates';
 /** Noon on the calendar day `back` days before `now` (noon keeps daylight-saving shifts from skipping a day). */
 const dayAt = (now: number, back: number) => { const d = new Date(now); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() - back); return d.getTime(); };
 
-/** Local dates (YYYY-MM-DD) on which you answered a question or rated a concept card. */
+/** Local dates (YYYY-MM-DD) with study: answered questions, rated concept cards, opened exam reviews. */
 export function studyDays(db: DbState): Set<string> {
   const days = new Set<string>();
   for (const a of db.attempts) if (!a.na) days.add(ymd(a.t));
-  for (const c of Object.values(db.cardSrs)) if (c.last) days.add(ymd(c.last));
+  for (const c of Object.values(db.cardSrs)) if (c.last) days.add(ymd(c.last)); // before days were recorded
+  for (const d of db.meta.days ?? []) days.add(d);
   return days;
 }
 
@@ -39,4 +40,11 @@ export function runOfCorrect(revealed: number[], correctAt: (pos: number) => boo
   let n = 0;
   for (let i = revealed.length - 1; i >= 0 && correctAt(revealed[i]); i--) n++;
   return n;
+}
+
+/** The longest run of correct answers in a session so far, kept after a miss so a good run isn't simply taken away. */
+export function bestRun(revealed: number[], correctAt: (pos: number) => boolean): number {
+  let best = 0, n = 0;
+  for (const p of revealed) { n = correctAt(p) ? n + 1 : 0; best = Math.max(best, n); }
+  return best;
 }

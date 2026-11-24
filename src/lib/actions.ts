@@ -156,9 +156,17 @@ export function markReviewed(id: string) {
   const s = get(id); if (!s || s.reviewedAt) return;
   put({ ...s, reviewedAt: Date.now() });
 }
+/** Remembers that today had study that leaves no answer behind (a card rating, an exam review), for the streak. */
+export function markStudied(now = Date.now()) {
+  const m = ctx.store.state.meta; const d = ymd(now);
+  if (m.days?.includes(d)) return;
+  ctx.store.set('meta', { ...m, days: [...(m.days ?? []), d].slice(-400) });
+}
 /** Records that an item was opened in review, and where to resume. */
 export function markOpened(id: string, pos: number) {
-  const s = get(id); if (!s || (s.opened?.includes(pos) && s.reviewPos === pos)) return;
+  const s = get(id); if (!s) return;
+  if (s.status === 'submitted') markStudied();
+  if (s.opened?.includes(pos) && s.reviewPos === pos) return;
   put({ ...s, opened: s.opened?.includes(pos) ? s.opened : [...(s.opened ?? []), pos], reviewPos: pos });
 }
 /** Called when the learner moves on from an item: the review is done once every miss has been opened and left. */

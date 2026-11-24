@@ -39,8 +39,12 @@ test('a right answer throws confetti; a wrong one, Calm, and Reduce Motion do no
     await expect(page.getByText(`Question ${q} of 10`)).toBeVisible();
     await answer(page, true);
   }
-  await expect(page.getByLabel('3 correct in a row')).toBeVisible();
-  await expect(confetti(page)).toHaveCount(0, { timeout: 8000 }); // let the streak burst land first
+  await expect(page.locator('#verdict')).toContainText("That's 3 in a row!"); // announced with the verdict, so Calm and VoiceOver get it too
+  await expect(page.getByText('🔥 3 in a row')).toBeVisible();
+  await page.getByRole('button', { name: 'Next question' }).click();
+  await expect(confetti(page)).toHaveCount(0); // a new question isn't read through old confetti
+  await answer(page, false);
+  await expect(page.getByText('Best run: 3')).toBeVisible(); // a miss keeps the run you had
 
   // Calm: same feedback, no confetti
   await go(page, 'settings');
@@ -74,13 +78,15 @@ test('reaching the daily goal is celebrated once, and a timed session shows no c
     if (q > 1) { await page.getByRole('button', { name: 'Next question' }).click(); await expect(page.getByText(`Question ${q} of 10`)).toBeVisible(); }
     await answer(page, q % 2 === 0);
   }
-  await expect(page.getByText(/Daily goal reached: 10 questions today/)).toBeVisible();
+  await expect(page.locator('#verdict')).toContainText('Daily goal reached: 10 today.'); // inline, not a toast over the question
   await expect(confetti(page)).toHaveCount(1);
   await page.getByRole('button', { name: 'See summary' }).click();
   await expect(page.getByText('Good practice')).toBeVisible(); // 5 of 10: encouragement, no confetti needed
+  await expect(page.getByText('Daily goal reached: 10 today.')).toBeVisible();
   await page.getByRole('link', { name: 'Done' }).click();
-  await expect(page.getByText('Daily goal reached', { exact: false }).first()).toBeVisible();
-  await expect(page.getByText('1-day streak')).toBeVisible();
+  await expect(page.getByText('🎉 Daily goal reached')).toBeVisible();
+  await expect(page.getByText('1 of the last 7 days')).toBeVisible();
+  await expect(page.getByText('Next, when you have 90 minutes')).toBeVisible(); // the exam can wait for a fresh day
 
   // reopening the app the same day doesn't celebrate again
   await page.reload();

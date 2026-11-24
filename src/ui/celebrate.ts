@@ -1,7 +1,4 @@
 import { ctx } from '../ctx';
-import { ymd } from '../lib/dates';
-import { todayCount } from '../lib/stats';
-import { toast } from './dialog';
 
 /** Confetti and motion run only when Celebrations is on and the device doesn't ask for reduced motion. */
 export function motionOn(): boolean {
@@ -14,7 +11,6 @@ let canvas: HTMLCanvasElement | null = null;
 let parts: P[] = [];
 let raf = 0;
 let last = 0;
-const LIFE = 2600; // ms; time-based so a slow device doesn't play it in slow motion
 
 function palette(): string[] {
   const cs = getComputedStyle(document.documentElement);
@@ -46,8 +42,18 @@ function frame(t: number) {
   else { c.remove(); canvas = null; raf = 0; last = 0; }
 }
 
-/** Throws `count` pieces from (x, y), aimed `angle` degrees (−90 is straight up) within `spread`. */
-export function confetti({ count = 40, x = innerWidth / 2, y = innerHeight / 3, angle = -90, spread = 70, power = 11 }: { count?: number; x?: number; y?: number; angle?: number; spread?: number; power?: number } = {}) {
+/** Removes any confetti still falling (a new question or screen shouldn't be read through it). */
+export function clearConfetti() {
+  parts = [];
+  if (raf) cancelAnimationFrame(raf);
+  canvas?.remove(); canvas = null; raf = 0; last = 0;
+}
+
+/**
+ * Throws `count` pieces from (x, y), aimed `angle` degrees (−90 is straight up) within `spread`.
+ * Time-based (`life` in ms), so a slow device doesn't play it in slow motion.
+ */
+export function confetti({ count = 40, x = innerWidth / 2, y = innerHeight / 3, angle = -90, spread = 70, power = 11, life = 2200 }: { count?: number; x?: number; y?: number; angle?: number; spread?: number; power?: number; life?: number } = {}) {
   if (!motionOn()) return;
   if (!canvas) {
     canvas = document.createElement('canvas');
@@ -62,46 +68,35 @@ export function confetti({ count = 40, x = innerWidth / 2, y = innerHeight / 3, 
     const a = ((angle + (Math.random() - 0.5) * spread) * Math.PI) / 180;
     const v = power * (0.55 + Math.random() * 0.6);
     const w = 6 + Math.random() * 6;
-    parts.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, r: Math.random() * 6, vr: (Math.random() - 0.5) * 0.3, w, h: w * (0.4 + Math.random() * 0.4), c: colors[i % colors.length], round: Math.random() < 0.25, end: performance.now() + LIFE * (0.75 + Math.random() * 0.25) });
+    parts.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, r: Math.random() * 6, vr: (Math.random() - 0.5) * 0.3, w, h: w * (0.4 + Math.random() * 0.4), c: colors[i % colors.length], round: Math.random() < 0.25, end: performance.now() + life * (0.75 + Math.random() * 0.25) });
   }
   if (!raf) raf = requestAnimationFrame(frame);
 }
 
-/** A burst from the middle of an element (the verdict, a button), or from the top third of the screen. */
-export function burstFrom(el: Element | null | undefined, count = 36) {
-  const r = el?.getBoundingClientRect();
-  confetti({ count, x: r ? r.left + r.width / 2 : innerWidth / 2, y: r ? r.top + r.height / 2 : innerHeight / 3, spread: 80, power: 9 });
+/**
+ * A correct answer: a small, quick pop from the verdict's check mark, thrown up and outward
+ * so it clears the text below within about a second.
+ */
+export function correctPop(verdict: Element | null | undefined) {
+  const icon = verdict?.querySelector('svg') ?? verdict;
+  const r = icon?.getBoundingClientRect();
+  if (!r) return;
+  confetti({ count: 20, x: r.left + r.width / 2, y: r.top + r.height / 2, angle: -70, spread: 120, power: 7, life: 1300 });
 }
 
-/** Two cannons from the bottom corners: daily goal, session complete, an estimated pass. */
+/** A bigger moment inside a session (a run of 3, 5, 10…, or the daily goal): bursts from both screen edges, not over the text. */
+export function edgeBursts(y: number) {
+  const p = 5 + Math.sqrt(innerWidth) / 6; // stays in the outer band of the screen
+  confetti({ count: 26, x: 0, y, angle: -55, spread: 40, power: p, life: 1500 });
+  confetti({ count: 26, x: innerWidth, y, angle: -125, spread: 40, power: p, life: 1500 });
+}
+
+/** Two cannons from the lower corners, strong enough to frame the top of the screen on any height. */
 export function bigCelebration() {
-  confetti({ count: 70, x: 0, y: innerHeight, angle: -60, spread: 40, power: 20 });
-  confetti({ count: 70, x: innerWidth, y: innerHeight, angle: -120, spread: 40, power: 20 });
+  const p = Math.sqrt(innerHeight) * 0.75;
+  confetti({ count: 70, x: 0, y: innerHeight * 0.9, angle: -62, spread: 36, power: p });
+  confetti({ count: 70, x: innerWidth, y: innerHeight * 0.9, angle: -118, spread: 36, power: p });
 }
 
 /** Results and summaries celebrate once, when they first open, not when revisited later. */
 export const fresh = (at: number | null | undefined) => !!at && Date.now() - at < 15000;
-
-const GOAL_KEY = 'cmpc-prep:goal-celebrated';
-/**
- * Celebrates the first time today's count reaches the daily target. Already past it when the app
- * opens? Remember that quietly so reopening the app doesn't celebrate again.
- */
-export function watchDailyGoal() {
-  let first = true;
-  const check = () => {
-    const st = ctx.store.state;
-    if (!st.settings.onboarded) return;
-    const today = ymd();
-    let seen: string | null = null;
-    try { seen = localStorage.getItem(GOAL_KEY); } catch { /* */ }
-    if (seen === today) { first = false; return; }
-    const n = todayCount(st);
-    if (n < st.settings.dailyTarget) { first = false; return; }
-    try { localStorage.setItem(GOAL_KEY, today); } catch { /* */ }
-    if (first) { first = false; return; }
-    setTimeout(() => { bigCelebration(); toast(`Daily goal reached: ${n} questions today. 🎉`); }, 350);
-  };
-  check();
-  ctx.store.subscribe(check);
-}

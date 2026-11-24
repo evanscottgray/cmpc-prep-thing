@@ -18,7 +18,7 @@ export function More() {
       <div class="cols">
       <div>
       <div class="list">
-        <ListLink href="#/settings" title="Settings" sub="Exam date, passing target, mode, text size, theme" />
+        <ListLink href="#/settings" title="Settings" sub="Exam date, passing target, mode, text size, theme, celebrations" />
         <ListLink href="#/backup" title="Backup and restore" sub={db.settings.lastBackupAt ? `Last backup ${fmtDate(ymd(db.settings.lastBackupAt))}` : 'No backup yet'} />
         <ListLink href="#/reports" title="Problem reports" sub={`${db.reports.length} report${db.reports.length === 1 ? '' : 's'} · ${db.hidden.length} hidden question${db.hidden.length === 1 ? '' : 's'}`} />
       </div>

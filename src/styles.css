@@ -556,7 +556,6 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .card.streak { margin-bottom: 1rem; padding: .85rem 1rem; }
 .streak-head { display: flex; gap: .75rem; align-items: center; }
 .flame { font-size: 1.9rem; line-height: 1; }
-.flame.off { filter: grayscale(1); opacity: .45; }
 .streak-title { font-weight: 800; font-size: 1.1rem; }
 .week { list-style: none; display: flex; justify-content: space-between; gap: .25rem; margin: .8rem 0 0; padding: 0; max-width: 420px; }
 .week li { display: flex; flex-direction: column; align-items: center; gap: .25rem; flex: 1; }
@@ -568,14 +567,26 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .card.daily.reached { border-color: var(--ok); background: var(--ok-soft); }
 .goal-done { color: var(--ok); }
 .card.daily.reached .meter span { background: var(--ok); }
+.week li.before .dot { border-style: dashed; border-color: var(--border); }
+.week li.before .wd { opacity: .6; }
+.streak-chip.best { background: var(--surface-2); color: var(--muted); font-weight: 600; }
+.verdict-extra { display: block; margin-top: .2rem; font-weight: 700; }
+.session-progress { margin: -.25rem 0 .75rem; }
+.session-progress .meter { height: 5px; }
+.card.recall p { margin: 0; }
+.goal-line { margin: .5rem 0 0; font-weight: 700; color: var(--ok); }
+.exam-cheer { margin: .35rem 0 0; font-weight: 600; }
 
 @media (prefers-reduced-motion: no-preference) {
   :root:not([data-calm]) .btn { transition: transform .08s ease, background-color .15s ease, border-color .15s ease; }
   :root:not([data-calm]) .btn:active:not(:disabled) { transform: scale(.97); }
   :root:not([data-calm]) .opt { transition: border-color .12s ease, background-color .12s ease; }
-  :root:not([data-calm]) .verdict.ok { animation: cel-pop .42s cubic-bezier(.2, 1.4, .4, 1) both; }
-  :root:not([data-calm]) .verdict.ok svg path { stroke-dasharray: 20; stroke-dashoffset: 20; animation: cel-draw .4s .18s ease-out forwards; }
-  :root:not([data-calm]) .verdict.bad { animation: cel-rise .28s ease-out both; }
+  :root:not([data-calm]) .verdict.fresh.ok { animation: cel-pop .42s cubic-bezier(.2, 1.4, .4, 1) both; }
+  :root:not([data-calm]) .verdict.fresh.ok svg path { stroke-dasharray: 14; stroke-dashoffset: 14; animation: cel-draw .35s .15s ease-out forwards; }
+  :root:not([data-calm]) .verdict.fresh.bad { animation: cel-rise .28s ease-out both; }
+  :root:not([data-calm]) .verdict-extra { animation: cel-bump .5s .1s cubic-bezier(.2, 1.6, .4, 1) both; }
+  :root:not([data-calm]) .reveal { animation: cel-rise .25s ease-out both; }
+  :root:not([data-calm]) .session-progress .meter span { transition: width .4s ease; }
   :root:not([data-calm]) .streak-chip { animation: cel-bump .5s cubic-bezier(.2, 1.6, .4, 1) both; }
   :root:not([data-calm]) .cheer-emoji { animation: cel-pop .6s cubic-bezier(.2, 1.5, .4, 1) both; }
   :root:not([data-calm]) .card.daily .meter span { animation: cel-fill .9s cubic-bezier(.2, .8, .2, 1) both; transform-origin: left; }

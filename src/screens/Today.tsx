@@ -30,7 +30,7 @@ export function startQuiz() {
   createSession(s); navigate(`s/${s.id}`);
 }
 
-function Primary({ a, why }: { a: Action; why: string }) {
+function Primary({ a, why, goalMet }: { a: Action; why: string; goalMet: boolean }) {
   const map: Record<string, { eyebrow: string; title: string; cta: string; go: () => void; note?: string; second?: { label: string; go: () => void } }> = {
     resume: { eyebrow: 'In progress', title: a.kind === 'resume' ? `Resume ${a.session.title}` : '', cta: 'Resume', go: () => a.kind === 'resume' && navigate(`s/${a.session.id}`) },
     formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 questions · 90 minutes · no breaks' },
@@ -44,6 +44,9 @@ function Primary({ a, why }: { a: Action; why: string }) {
     passed: { eyebrow: 'Exam date passed', title: 'Update your exam date', cta: 'Open settings', go: () => navigate('settings') },
   };
   const m = map[a.kind];
+  // Today's goal is done: a 90-minute exam can wait for a fresh day, so say so instead of pushing it.
+  const later = goalMet && (a.kind === 'formA' || a.kind === 'formB' || a.kind === 'mixed');
+  if (later) { m.eyebrow = 'Next, when you have 90 minutes'; why = "You've reached today's goal, so this can wait for a fresh day. " + why; }
   return (
     <section class="card hero" aria-labelledby="today-primary">
       <div class="eyebrow">{m.eyebrow}</div>
@@ -62,19 +65,23 @@ function StreakStrip({ now }: { now: number }) {
   const days = studyDays(db);
   if (!days.size) return null;
   const st = streak(days, now);
+  const first = [...days].sort()[0];
   const week = lastWeek(days, now);
   const studiedWeek = week.filter((d) => d.studied).length;
+  // Always a gain, never a loss: a run of 2+ days is the headline; otherwise the week's count is.
+  const title = st.count >= 2 ? `${st.count} days in a row` : `${studiedWeek} of the last 7 days`;
+  const sub = st.today ? 'You studied today. Nice.' : st.count >= 2 ? 'Any question, card or review today adds a day.' : 'Any question, card or review today counts.';
   return (
-    <section class="card streak" aria-label="Study streak">
+    <section class="card streak" aria-label="Study days">
       <div class="streak-head">
-        <span class={`flame${st.count ? '' : ' off'}`} aria-hidden="true">🔥</span>
+        <span class="flame" aria-hidden="true">{st.count >= 2 ? '🔥' : '🌱'}</span>
         <div class="grow">
-          <div class="streak-title">{st.count ? `${st.count}-day streak` : 'Start a new streak'}</div>
-          <div class="small muted">{st.today ? 'You studied today.' : st.count ? 'Answer a question today to keep it going.' : `${studiedWeek} of the last 7 days studied.`}</div>
+          <div class="streak-title">{title}</div>
+          <div class="small muted">{sub}</div>
         </div>
       </div>
       <ol class="week" aria-label={`${studiedWeek} of the last 7 days studied`}>
-        {week.map((d) => <li class={`${d.studied ? 'on' : ''}${d.today ? ' today' : ''}`} aria-hidden="true"><span class="dot">{d.studied ? '✓' : ''}</span><span class="wd">{d.label}</span></li>)}
+        {week.map((d) => <li class={`${d.studied ? 'on' : ''}${d.today ? ' today' : ''}${d.date < first ? ' before' : ''}`} aria-hidden="true"><span class="dot">{d.studied ? '✓' : ''}</span><span class="wd">{d.label}</span></li>)}
       </ol>
     </section>
   );
@@ -136,11 +143,9 @@ export function Today() {
         </div>
       </div>
 
-      <StreakStrip now={now} />
-
       <div class="cols">
       <div>
-      <Primary a={p.primary} why={p.why} />
+      <Primary a={p.primary} why={p.why} goalMet={!light && p.answeredToday >= s.dailyTarget} />
 
       <InProgress skip={p.primary.kind === 'resume' || p.primary.kind === 'reviewExam' ? p.primary.session.id : undefined} />
       </div>
@@ -156,6 +161,8 @@ export function Today() {
         </div>
       )}
 
+      {!light && <StreakStrip now={now} />}
+
       <div class="section">
         <h2>{light ? 'Optional' : "Today's study"}</h2>
         {light ? (
@@ -167,7 +174,7 @@ export function Today() {
         <div class={`card daily${progress >= 100 ? ' reached' : ''}`}>
           {progress >= 100
             ? <div class="row between"><strong class="goal-done">🎉 Daily goal reached</strong><span class="muted small">{p.answeredToday} of {s.dailyTarget}</span></div>
-            : <div class="row between"><span>{p.answeredToday} of {s.dailyTarget} questions</span><span class="muted small">{progress}%</span></div>}
+            : <div class="row between"><span>{p.answeredToday} of {s.dailyTarget} questions</span><span class="muted small">{progress >= 50 ? 'Halfway there' : `${progress}%`}</span></div>}
           <div class="mt" style={{ marginTop: '.5rem' }}><Meter value={progress} label="Daily target" /></div>
           <p class="small muted" style={{ margin: '.5rem 0 0' }}>Counts every question you answer, including spaced review.</p>
           <div class="btn-row mt">

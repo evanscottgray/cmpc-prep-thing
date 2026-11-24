@@ -16,6 +16,7 @@ import { ExamIntro } from './screens/ExamIntro';
 import { ExamRunner } from './screens/ExamRunner';
 import { TutorRunner } from './screens/TutorRunner';
 import { Results } from './screens/Results';
+import { clearConfetti } from './ui/celebrate';
 import { ReviewItem, ReviewList } from './screens/Review';
 
 const TAB_ROOTS = new Set(['today', 'study', 'cards', 'progress', 'more']);
@@ -29,6 +30,8 @@ export function App() {
   const route = useRoute();
   const [update, setUpdate] = useState(false);
   const [head, ...rest] = route.path;
+
+  useEffect(() => clearConfetti(), [route.path.join('/')]); // a new screen isn't read through old confetti
 
   // apply theme + text size
   useEffect(() => {
