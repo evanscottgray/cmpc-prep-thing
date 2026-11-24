@@ -7,7 +7,7 @@ import { fmtClock, fmtMinSec } from '../lib/dates';
 import { isExpired, pacing, remainingMs } from '../lib/scoring';
 import { keepAwake } from '../lib/wakelock';
 import { OptionList, QStem, ReportDialog, StrikeHint, strikeHint } from '../ui/question';
-import { Modal, alertDialog, clearDialogs, confirmDialog, toast } from '../ui/dialog';
+import { Modal, alertDialog, clearDialogs, confirmDialog, toast, announce } from '../ui/dialog';
 import { IcBack, IcChevron, IcClock, IcFlag, IcFlagFill, IcGrid, IcMenu, IcPause, IcPlay } from '../ui/icons';
 
 const WARN_AT = [15, 5, 1]; // minutes remaining
@@ -20,7 +20,6 @@ export function ExamRunner({ session: s }: { session: Session }) {
   // hiding the clock is remembered for the whole sitting (leaving and resuming keeps it hidden)
   const hideTimer = !!s.timerHidden;
   const setHideTimer = (v: boolean) => ctx.store.putSession({ ...ctx.store.state.sessions[s.id], timerHidden: v });
-  const [announce, setAnnounce] = useState('');
   const warned = useRef<Set<number>>(new Set());
   const submitting = useRef(false);
   const pos = s.current;
@@ -56,6 +55,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
     }
     // Warnings belong to the sitting: each is given once, even across leaving and resuming. Coming back after
     // one or more were crossed gives a single notice with the actual time left.
+    if (document.visibilityState === 'hidden') return; // held until the learner can see and hear it; recorded once delivered
     const min = remaining / 60000;
     const given = new Set([...(s.warned ?? []), ...warned.current]);
     const crossed = WARN_AT.filter((w) => min <= w && s.durationMs > w * 60000 * 2 && !given.has(w));
@@ -63,7 +63,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
       for (const w of crossed) warned.current.add(w);
       ctx.store.putSession({ ...ctx.store.state.sessions[s.id], warned: [...given, ...crossed] });
       const left = Math.max(1, Math.ceil(min));
-      setAnnounce(`${left} minute${left > 1 ? 's' : ''} remaining.`);
+      announce(`${left} minute${left > 1 ? 's' : ''} remaining.`); // spoken from inside the navigator or any open dialog too
       toast(`${left} minute${left > 1 ? 's' : ''} remaining`, true);
     }
   }, [now]);
@@ -156,7 +156,6 @@ export function ExamRunner({ session: s }: { session: Session }) {
         </div>
       )}
       </div>
-      <div class="sr-only" aria-live="assertive">{announce}</div>
 
       <main class="exam-body" id="main" tabIndex={-1}>
         <QStem text={item.stem} id="q-stem" />

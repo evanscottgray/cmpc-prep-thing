@@ -550,7 +550,10 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .confetti { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; } /* inside the card it celebrates, clipped to its empty corner: scrolls and leaves with it */
 .verdict, .card.hero { position: relative; overflow: hidden; } /* a card's confetti stays inside its rounded corners */
 .verdict > :not(canvas), .card.hero > :not(canvas) { position: relative; z-index: 1; }
-.verdict.room > span { padding-right: 76px; } /* a correct answer keeps an empty corner for its confetti, even at larger text */
+.verdict.room > span { padding-right: 76px; }
+:root[data-size="xl"] .verdict.room > span, :root[data-size="l"] .verdict.room > span { padding-right: 88px; } /* larger text keeps a real pocket */
+.card.hero.celebrate .cheer > div { padding-right: 72px; } /* a celebrated summary keeps room beside its cheer */
+.week-caption { margin: .35rem 0 0; text-align: right; } /* a correct answer keeps an empty corner for its confetti, even at larger text */
 .streak-chip { display: inline-flex; align-items: center; gap: .2rem; padding: .05rem .55rem; border-radius: 999px; background: var(--warn-soft); color: var(--warn); font-weight: 700; white-space: nowrap; }
 .cheer { display: flex; gap: .75rem; align-items: center; margin: .35rem 0 .6rem; }
 .cheer-emoji { font-size: 2.1rem; line-height: 1; }

@@ -41,7 +41,7 @@ export function Results({ session: s }: { session: Session }) {
   const cheer = full ? null : r.total < 5 ? { head: 'Session saved', sub: `${plural(r.total, 'answer')} added to your progress.`, emoji: '' }
     : pctAll === 100 ? { head: 'Perfect round!', sub: 'Every answer right.', emoji: '🎯' }
     : pctAll >= 80 ? { head: 'Excellent work!', sub: "You're getting these.", emoji: '🌟' }
-    : pctAll >= 60 ? { head: 'Solid session', sub: 'Read the misses below and they stick.', emoji: '💪' }
+    : pctAll >= 60 ? { head: 'Solid session', sub: 'Reading the misses below helps them stick.', emoji: '💪' }
     : { head: 'Good practice', sub: 'The ones you missed come back in spaced review, so they stick.', emoji: '🌱' };
   const light = isLight(plan(db).phase);
   // Familiar questions inflate a score, so a retake's pass is reported, not celebrated; a full run means every question answered.
@@ -124,11 +124,14 @@ export function Results({ session: s }: { session: Session }) {
         {!s.timed && <a class="btn primary" href="#/today">Done</a>}
         {missed.length > 0 && (() => {
           // a long list is started, not assigned; once begun, it continues where it left off
-          const opened = openedMisses(s), next = opened ? nextMiss(s) : undefined;
-          const label = opened ? `Continue review · ${opened} of ${missed.length}` : full && missed.length > 12 ? `Start reviewing · ${plural(missed.length, 'miss', 'misses')}` : `Review ${plural(missed.length, 'miss', 'misses')}`;
+          const opened = openedMisses(s);
+          const reviewing = opened > 0 && opened < missed.length && !s.reviewedAt;
+          const startOne = full && missed.length > 12 && !opened; // the first step is one rationale, not a list of 40
+          const next = reviewing ? nextMiss(s) : startOne ? missed[0] : undefined;
+          const label = reviewing ? `Continue review · ${opened} of ${missed.length}` : startOne ? 'Start with one miss' : `Review ${plural(missed.length, 'miss', 'misses')}`;
           return <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}${next === undefined ? '' : `/${next}`}?f=incorrect`}>{label}</a>;
         })()}
-        {missed.length > 12 && full && !openedMisses(s) && <p class="small muted review-hint">Start with a few. You can pick up where you left off.</p>}
+        {missed.length > 12 && full && !openedMisses(s) && <p class="small muted review-hint">{missed.length} misses to read, one at a time. You can pick up where you left off.</p>}
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
         {s.timed && <a class="btn" href="#/today">Done</a>}
         {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{(() => { const q = openQuiz(); return q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'; })()}</button>}

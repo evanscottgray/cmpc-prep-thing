@@ -71,9 +71,9 @@ export function splitQuestion(text: string) {
 export function Verdict({ item, si, response, unsure, id, fresh, big, room, extra }: { item: Item; si: SessionItem; response: number | undefined; unsure?: boolean; id?: string; fresh?: boolean; big?: boolean; room?: boolean; extra?: { icon: string; text: string }[] }) {
   const ok = response === item.answer;
   const key = LET[si.order.indexOf(item.answer)];
-  const [head, detail] = ok ? ['Correct', `The answer is ${key}.`]
-    : response === undefined ? ['Not answered', `The answer is ${key}.`]
-    : ['Incorrect', `You chose ${LET[si.order.indexOf(response)]}; the answer is ${key}.`];
+  const [head, detail] = ok ? ['Correct', `The answer is\u00a0${key}.`]
+    : response === undefined ? ['Not answered', `The answer is\u00a0${key}.`]
+    : ['Incorrect', `You chose\u00a0${LET[si.order.indexOf(response)]}; the answer is\u00a0${key}.`];
   return (
     <div id={id} tabIndex={-1} class={`verdict ${ok ? 'ok' : 'bad'}${fresh ? ' fresh' : ''}${fresh && big ? ' big' : ''}${room && ok ? ' room' : ''}`} role={id ? 'status' : undefined}>
       {ok ? <IcCheckCircle /> : response === undefined ? <IcMinusCircle /> : <IcXCircle />}

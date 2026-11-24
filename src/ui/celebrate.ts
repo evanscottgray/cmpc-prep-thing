@@ -153,11 +153,14 @@ export function cardBurst(card: HTMLElement | null | undefined, big: boolean, de
     const clip = cardPocket(card);
     if (!clip) return;
     const layer = new Layer(card, clip); layers.add(layer);
-    const cx = clip.x + clip.w * 0.62, base = clip.y + clip.h - 6; // toward the outer side, and a little above the bottom
+    const narrow = clip.w < 90;
+    const cx = clip.x + clip.w * (narrow ? 0.5 : 0.62), base = clip.y + clip.h - 6; // toward the outer side (centred when narrow), a little above the bottom
+    const room = Math.max(14, Math.min(46, Math.round((clip.w * clip.h) / 350))); // as many pieces as the space can show as a fountain, not a heap
     const power = Math.sqrt(2 * 0.32 * clip.h) * (big ? 0.95 : 0.9); // peaks near the top; the edge fade softens any that go further
     const size = clip.w < 90 ? 0.8 : 0.85; // a narrow pocket (larger text): slightly smaller pieces, not a heap
-    layer.add({ count: big ? 46 : 22, x: cx, y: base, angle: -90, spread: big ? 70 : 50, power, life: big ? 1500 : 1100, size });
-    if (big) later(() => { if (card.isConnected && layers.has(layer)) layer.add({ count: 24, x: cx, y: base, angle: -90, spread: 90, power: power * 0.9, life: 1200, size }); }, 260);
+    const spread = narrow ? 30 : big ? 70 : 50;
+    layer.add({ count: Math.min(big ? 46 : 22, room), x: cx, y: base, angle: -90, spread, power, life: big ? 1500 : 1100, size });
+    if (big && clip.w * clip.h >= 15000) later(() => { if (card.isConnected && layers.has(layer)) layer.add({ count: Math.min(24, Math.round(room / 2)), x: cx, y: base, angle: -90, spread: narrow ? 30 : 90, power: power * 0.9, life: 1200, size }); }, 260);
   }, delay);
 }
 /** The verdict in a session. */

@@ -34,11 +34,13 @@ for (const scheme of ['light', 'dark'] as const) {
     await expect(page.getByRole('heading', { name: /results/ })).toBeVisible();
     await axe(page, `${scheme} results`);
     await shot(page, `a11y-${scheme}-results`);
-    await page.getByRole('link', { name: /\d+ miss/ }).click();
-    await axe(page, `${scheme} review list`);
-    await page.locator('.list .list-item').first().click();
+    await page.getByRole('link', { name: 'Start with one miss' }).click(); // a long review starts with the first rationale
+    await expect(page.locator('.q-meta')).toBeVisible();
     await axe(page, `${scheme} review item`);
     await shot(page, `a11y-${scheme}-review-item`);
+    await page.getByRole('button', { name: 'Back' }).click();
+    await expect(page.locator('.list .list-item').first()).toBeVisible();
+    await axe(page, `${scheme} review list`);
     await go(page, 'today');
     await page.getByRole('button', { name: 'Quick quiz · 10', exact: true }).click();
     await optionLabels(page).nth(0).click();

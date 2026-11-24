@@ -103,3 +103,15 @@ export function ToastHost() {
   }, []);
   return <div aria-live="polite" role="status" class="sr-live">{m && <div class="toast" aria-hidden={m.quiet || undefined}>{m.text}</div>}</div>;
 }
+
+/**
+ * Says something to VoiceOver right away. When a dialog is open the rest of the app is hidden from
+ * assistive technology, so the message is spoken from inside the top-most dialog.
+ */
+export function announce(text: string) {
+  const host = [...document.querySelectorAll<HTMLElement>('[role="dialog"]')].pop() ?? document.body;
+  let r = host.querySelector<HTMLElement>(':scope > .sr-announce');
+  if (!r) { r = document.createElement('div'); r.className = 'sr-only sr-announce'; r.setAttribute('aria-live', 'assertive'); host.appendChild(r); }
+  r.textContent = '';
+  const el = r; setTimeout(() => { el.textContent = text; }, 60); // a fresh change, so it's read even when repeated
+}

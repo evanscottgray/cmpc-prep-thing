@@ -13,7 +13,7 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
   await optionLabels(page).nth(0).click();
   await page.getByLabel(/I'm not sure/).check();
   await page.getByRole('button', { name: 'Check answer' }).click();
-  await expect(page.locator('#verdict')).toContainText(/Correct\.? ?The answer is|Incorrect\.? ?You chose A; the answer is/);
+  await expect(page.locator('#verdict')).toContainText(/Correct\.? ?The answer is\s|Incorrect\.? ?You chose\sA; the answer is\s/);
   await expect(page.locator('#verdict')).toBeInViewport();
   await expect(page.locator('.opt').first()).toContainText('Correct answer');
   await expect(page.locator('.rationale')).toHaveCount(4);

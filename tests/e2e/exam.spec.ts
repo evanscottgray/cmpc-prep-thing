@@ -295,3 +295,20 @@ test('time warnings are given once per sitting, with one catch-up notice on retu
   await page.clock.fastForward('00:02');
   await expect(page.locator('.toast')).toHaveCount(0); // not repeated after leaving and coming back
 });
+
+test('a time warning waits until the app is visible, and is spoken inside an open navigator', async ({ page }) => {
+  await page.clock.install();
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  // in the background when the 5-minute mark passes: nothing is used up
+  await page.evaluate(() => { Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'hidden' }); document.dispatchEvent(new Event('visibilitychange')); });
+  await page.clock.fastForward('13:30');
+  await expect(page.locator('.toast')).toHaveCount(0);
+  await page.evaluate(() => { Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'visible' }); document.dispatchEvent(new Event('visibilitychange')); });
+  await expect(page.locator('.toast')).toHaveText('5 minutes remaining'); // delivered on return
+  // with the navigator open, the next warning is spoken from inside it
+  await page.getByRole('button', { name: /^Navigator/ }).click();
+  await page.clock.fastForward('03:35');
+  await expect(page.getByRole('dialog').locator('.sr-announce')).toHaveText('1 minute remaining.');
+});
