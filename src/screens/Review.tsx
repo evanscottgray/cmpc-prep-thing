@@ -2,10 +2,10 @@ import { useEffect } from 'preact/hooks';
 import type { Session } from '../types';
 import { ctx } from '../ctx';
 import { back, historyIndex, navigate } from '../router';
-import { leftReviewItem, markOpened } from '../lib/actions';
+import { leftReviewItem, markOpened, missedPositions, openedMisses } from '../lib/actions';
 import { inPlay } from '../lib/scoring';
 import { plural } from '../lib/dates';
-import { Page } from '../ui/bits';
+import { Meter, Page } from '../ui/bits';
 import { ItemMeta, ItemReview, StemFold, Verdict } from '../ui/question';
 import { IcCheckCircle, IcChevron, IcMinusCircle, IcXCircle } from '../ui/icons';
 
@@ -76,7 +76,7 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
         </label>
       </div>
       </details>
-      <p class="small muted" aria-live="polite">{plural(positions.length, 'question')}{opened.size ? ` · ${positions.filter((i) => opened.has(i)).length} opened` : ''}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
+      <p class="small muted" aria-live="polite">{plural(positions.length, 'question')}{opened.size ? ` · ${positions.filter((i) => opened.has(i)).length} read` : ''}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
       {positions.length === 0 && (
         <div class="card"><p>No questions match these filters.</p><button class="btn small" onClick={() => navigate(`review/${s.id}`, true)}>Clear filters</button></div>
       )}
@@ -94,7 +94,7 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
                 <span class="li-main">
                   <span class="li-title">{i + 1}. {it.topic}</span>
                   <span class="li-sub clip">{it.stem}</span>
-                  <span class="li-sub" style={{ display: 'block' }}>{group}{tags.map((t) => <>{'\u00a0· '}<span class="keep">{t}</span></>)}{opened.has(i) && <span class="opened">{'\u00a0· Opened'}</span>}</span>
+                  <span class="li-sub" style={{ display: 'block' }}>{group}{tags.map((t) => <>{'\u00a0· '}<span class="keep">{t}</span></>)}{opened.has(i) && <span class="opened read">{'\u00a0· ✓ Read'}</span>}</span>
                 </span>
                 <IcChevron class="chev" />
               </a>
@@ -117,10 +117,16 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const q = query.toString() ? `?${query}` : '';
   const isExam = ['formA', 'formB', 'mixed'].includes(s.kind);
   const toList = () => { leftReviewItem(s.id); if (listAt.get(s.id) === historyIndex() - 1) back(); else navigate(`review/${s.id}${q}`, true); };
+  const misses = query.get('f') === 'incorrect' ? missedPositions(s).length : 0;
+  const read = misses ? openedMisses(s) : 0;
+  // leaving this one completes reading every miss: name it, and finish on the result it belongs to
+  const finishing = misses > 0 && next === null && !s.reviewedAt && read === misses;
+  const finish = () => { leftReviewItem(s.id); navigate(`results/${s.id}`, true); };
   return (
     <Page title={`Question ${pos + 1}`} onBack={toList} tabs={false}>
+      {misses > 0 && <div class="session-progress"><Meter value={(100 * read) / misses} label={`${read} of ${misses} misses read`} /></div>}
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
-        <span>{idx + 1} of {positions.length} in this view</span>
+        <span>{misses ? `${read} of ${misses} read` : `${idx + 1} of ${positions.length} in this view`}</span>
         <span>{[!si.scored && isExam && 'Unscored trial question', s.flags.includes(pos) && 'Flagged'].filter(Boolean).join(' · ')}</span>
       </div>
       <StemFold key={pos} id="rv-stem" text={it.stem} open />
@@ -129,7 +135,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
       <ItemMeta item={it} />
       <div class="actionbar">
         {prev !== null && <button class="btn" onClick={() => navigate(`review/${s.id}/${prev}${q}`, true)}>Previous</button>}
-        <button class="btn primary" onClick={() => { if (next === null) toList(); else { leftReviewItem(s.id); navigate(`review/${s.id}/${next}${q}`, true); } }}>{next === null ? 'Back to list' : 'Next'}</button>
+        <button class="btn primary" onClick={() => { if (finishing) finish(); else if (next === null) toList(); else { leftReviewItem(s.id); navigate(`review/${s.id}/${next}${q}`, true); } }}>{finishing ? 'Finish review' : next === null ? 'Back to list' : 'Next'}</button>
       </div>
     </Page>
   );

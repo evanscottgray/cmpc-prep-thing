@@ -148,6 +148,7 @@ main.page.notabs:has(> .actionbar) { padding-bottom: 0; }
 }
 .list-item:focus-visible, .bar-row:focus-visible { outline-offset: -3px; border-radius: var(--radius); }
 #restore-file:focus-visible + label { outline: 3px solid var(--focus); outline-offset: 2px; }
+.opened.read { color: var(--ok); }
 .opened { color: var(--muted); font-weight: 500; white-space: nowrap; }
 .opened svg { width: 13px; height: 13px; vertical-align: -1px; margin-right: 2px; }
 .filter-fold { margin-bottom: .6rem; }
@@ -552,14 +553,14 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .verdict > :not(canvas), .card.hero > :not(canvas) { position: relative; z-index: 1; }
 .verdict.room > span { padding-right: 76px; }
 :root[data-size="xl"] .verdict.room > span, :root[data-size="l"] .verdict.room > span { padding-right: 88px; } /* larger text keeps a real pocket */
-.card.hero.celebrate .cheer > div { padding-right: 72px; } /* a celebrated summary keeps room beside its cheer */
-.week-caption { margin: .35rem 0 0; text-align: right; } /* a correct answer keeps an empty corner for its confetti, even at larger text */
+@media (prefers-reduced-motion: no-preference) { :root:not([data-calm]) .card.hero.celebrate .cheer > div { padding-right: 72px; } } /* a celebrated summary keeps room beside its cheer, only when confetti can play */
+.week-caption { margin: .35rem 0 0; } /* a correct answer keeps an empty corner for its confetti, even at larger text */
 .streak-chip { display: inline-flex; align-items: center; gap: .2rem; padding: .05rem .55rem; border-radius: 999px; background: var(--warn-soft); color: var(--warn); font-weight: 700; white-space: nowrap; }
 .cheer { display: flex; gap: .75rem; align-items: center; margin: .35rem 0 .6rem; }
 .cheer-emoji { font-size: 2.1rem; line-height: 1; }
 .cheer-emoji.big { font-size: 3rem; margin-bottom: .35rem; }
 .cheer-head { font-size: 1.3rem; font-weight: 800; line-height: 1.2; }
-.tally { display: flex; justify-content: center; gap: 1.1rem; flex-wrap: wrap; margin: .25rem 0 .75rem; }
+.tally { display: flex; justify-content: center; gap: .85rem; flex-wrap: wrap; margin: .25rem 0 .75rem; }
 .tally strong { font-size: 1.25rem; }
 .tally.left { justify-content: flex-start; }
 .study-days { margin-top: .85rem; padding-top: .85rem; border-top: 1px solid var(--border); }
@@ -601,9 +602,9 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .goal-line { margin: .5rem 0 0; font-weight: 700; color: var(--ok); }
 .exam-cheer { margin: .35rem 0 0; font-weight: 600; }
 .verdict.exam-pass { margin: .9rem 0 .5rem; background: var(--ok-soft); color: var(--ok); }
-.verdict.exam-pass .pass-head { font-size: 1.1rem; font-weight: 800; }
+.verdict.exam-pass .pass-head, .verdict.review-done .pass-head { display: block; font-size: 1.1rem; font-weight: 800; }
 .verdict.exam-pass .pass-cheer { font-size: 1.05rem; font-weight: 700; color: var(--text); }
-.card.daily.reached .btn.ghost { border-color: color-mix(in srgb, var(--ok) 45%, transparent); } /* optional, but clearly a button */
+.card.daily.reached .btn.ghost { border-color: color-mix(in srgb, var(--ok) 45%, transparent); background: var(--surface); } /* optional, but clearly a button */
 
 @media (prefers-reduced-motion: no-preference) {
   :root:not([data-calm]) .btn { transition: transform .08s ease, background-color .15s ease, border-color .15s ease; }

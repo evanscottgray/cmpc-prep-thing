@@ -153,3 +153,22 @@ test('a warm-up left partway stays the main way back on Today', async ({ page })
   await expect(page.getByRole('button', { name: /Resume your warm-up · 9 left/ })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Or take Form A now · 90 minutes' })).toBeVisible();
 });
+
+test('reading every miss ends with "Finish review" and its own moment on the summary', async ({ page }) => {
+  await onboard(page);
+  await startQuiz(page);
+  for (let q = 1; q <= 10; q++) {
+    if (q > 1) { await page.getByRole('button', { name: 'Next question' }).click(); await expect(page.getByText(`Question ${q} of 10`)).toBeVisible(); }
+    await answer(page, q > 2); // two misses
+  }
+  await page.getByRole('button', { name: 'See summary' }).click();
+  await page.getByRole('link', { name: 'Review 2 misses' }).click();
+  await page.locator('.list .list-item').first().click();
+  await expect(page.getByText('1 of 2 read')).toBeVisible();
+  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  await expect(page.getByText('2 of 2 read')).toBeVisible();
+  await page.getByRole('button', { name: 'Finish review' }).click();
+  await expect(page.getByText('All 2 misses read')).toBeVisible();
+  await expect(confetti(page)).toHaveCount(1);
+  await expect(page.getByRole('link', { name: 'Read the misses again' })).toBeVisible();
+});

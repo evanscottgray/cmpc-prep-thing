@@ -55,12 +55,12 @@ function Primary({ a, why, later, firstVisit }: { a: Action; why: string; later?
       <button class="btn ghost block" onClick={() => navigate('start/formA')}>Or take Form A now · 90 minutes</button>
     </section>
   );
-  const map: Record<string, { eyebrow: string; title: string; cta: string; go: () => void; note?: string; second?: { label: string; go: () => void } }> = {
+  const map: Record<string, { eyebrow: string; title: string; cta: string; go: () => void; note?: string; second?: { label: string; go: () => void }; ctaFirst?: boolean }> = {
     resume: { eyebrow: 'In progress', title: a.kind === 'resume' ? `Resume ${a.session.title}` : '', cta: 'Resume', go: () => a.kind === 'resume' && navigate(`s/${a.session.id}`) },
     formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 questions · 90 minutes · no breaks', second: SHORT },
     formB: { eyebrow: 'Recommended', title: 'Take Form B', cta: 'Start Form B', go: () => navigate('start/formB'), note: '115 questions · 90 minutes · fresh questions', second: SHORT },
     mixed: { eyebrow: 'Final week', title: 'Take a mixed exam', cta: 'Start mixed exam', go: () => navigate('start/mixed'), note: '115 questions · 90 minutes · blueprint-matched', second: SHORT },
-    reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind !== 'reviewExam' ? '' : openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : (missedPositions(a.session).length > 12 ? 'Start with one miss' : `Review ${plural(missedPositions(a.session).length, 'miss', 'misses')}`), note: a.kind === 'reviewExam' && !openedMisses(a.session) && missedPositions(a.session).length > 12 ? `${missedPositions(a.session).length} misses to read, one at a time. You can pick up where you left off.` : undefined, second: a.kind === 'reviewExam' ? { label: openedMisses(a.session) ? "I'm done reviewing" : 'Skip this review', go: () => { markReviewed(a.session.id); toast(`Done. ${a.session.title} stays under Progress if you want it later.`); } } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : missedPositions(a.session).length > 12 ? missedPositions(a.session)[0] : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
+    reviewExam: { ctaFirst: true, eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind !== 'reviewExam' ? '' : openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : (missedPositions(a.session).length > 12 ? 'Start with one miss' : `Review ${plural(missedPositions(a.session).length, 'miss', 'misses')}`), note: a.kind === 'reviewExam' && !openedMisses(a.session) && missedPositions(a.session).length > 12 ? 'Read one explanation now. You can pick up where you left off.' : undefined, second: a.kind === 'reviewExam' ? { label: openedMisses(a.session) ? "I'm done reviewing" : 'Skip this review', go: () => { markReviewed(a.session.id); toast(`Done. ${a.session.title} stays under Progress if you want it later.`); } } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : missedPositions(a.session).length > 12 ? missedPositions(a.session)[0] : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
     weak: { eyebrow: 'Recommended', title: a.kind === 'weak' ? `Weak-area drill · ${a.count} questions` : '', cta: 'Start drill', go: () => a.kind === 'weak' && startWeak(a.count), note: 'Tutor mode: rationale after every answer' },
     review: { eyebrow: 'Recommended', title: a.kind === 'review' ? `Spaced review · ${a.count} questions` : '', cta: 'Start review', go: startReview, note: 'Tutor mode: rationale after every answer' },
     light: { eyebrow: 'Final days', title: 'Light review', cta: Object.keys(ctx.store.state.cardSrs).length ? 'Review cards you know' : 'Skim concept cards', go: () => navigate(Object.keys(ctx.store.state.cardSrs).length ? 'cards/study' : 'cards'), second: { label: 'Exam-day notes', go: () => navigate('ref/examday') } },
@@ -79,9 +79,14 @@ function Primary({ a, why, later, firstVisit }: { a: Action; why: string; later?
     <section class="card hero" aria-labelledby="today-primary">
       <div class="eyebrow">{m.eyebrow}</div>
       <h2 id="today-primary" style={{ fontSize: '1.35rem' }}>{m.title}</h2>
-      <p class="muted">{why}</p>
-      {m.note && <p class="small muted">{m.note}</p>}
-      {m.cta && <button class="btn primary block" onClick={m.go}>{m.cta}<IcChevron /></button>}
+      {m.ctaFirst ? <>{/* the action right under the heading, one short line beneath (fits at larger text) */}
+        {m.cta && <button class="btn primary block" onClick={m.go}>{m.cta}<IcChevron /></button>}
+        {m.note && <p class="small muted" style={{ margin: '.5rem 0 0' }}>{m.note}</p>}
+      </> : <>
+        <p class="muted">{why}</p>
+        {m.note && <p class="small muted">{m.note}</p>}
+        {m.cta && <button class="btn primary block" onClick={m.go}>{m.cta}<IcChevron /></button>}
+      </>}
       {m.second && <button class="btn ghost block" onClick={m.second.go}>{m.second.label}</button>}
     </section>
   );
@@ -98,7 +103,7 @@ function StudyDays({ now, newToday }: { now: number; newToday: boolean }) {
   const span = week.filter((d) => d.date >= first).length; // days since you started, up to a week
   const studied = week.filter((d) => d.studied).length;
   const title = st.count >= 2 ? `${st.count} days in a row` : span === 1 ? 'Day 1' : studied === 0 ? 'Welcome back' : `${studied} of the last ${span} days`;
-  const sub = span === 1 ? 'You started today. Nice.' : st.today ? 'You studied today. Nice.' : st.count >= 2 ? 'Any question, card or review today adds a day.' : studied === 0 ? 'Any question, card or review today starts a new run.' : 'Any question, card or review today counts.';
+  const sub = span === 1 ? 'You started today. Nice.' : st.today ? 'You studied today. Nice.' : st.count >= 2 ? 'Any question, card or review today adds a day. A missed day just starts a new run.' : studied === 0 ? 'Any question, card or review today starts a new run.' : 'Any question, card or review today counts.';
   return (
     <div class="study-days">
       <div class="streak-head">
@@ -116,7 +121,7 @@ function StudyDays({ now, newToday }: { now: number; newToday: boolean }) {
           );
         })}
       </ol>}
-      {span > 1 && st.count - (st.today ? 7 : 6) > 0 && <p class="small muted week-caption">Last 7 days · {plural(st.count - (st.today ? 7 : 6), 'more day')} in this run before them</p>}{/* so the count and the dots add up */}
+      {span > 1 && st.count - (st.today ? 7 : 6) > 0 && <p class="small muted week-caption">Last 7 days · {plural(st.count - (st.today ? 7 : 6), 'earlier day')} in this run</p>}{/* so the count and the dots add up */}
     </div>
   );
 }

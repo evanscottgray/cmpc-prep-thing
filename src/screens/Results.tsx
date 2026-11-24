@@ -54,6 +54,9 @@ export function Results({ session: s }: { session: Session }) {
     if (celebrating) return cardBurst(document.querySelector<HTMLElement>(full ? '.exam-pass' : '.card.hero'), true, 300); // inside the card that holds the result
   }, []);
   const glow = celebrating;
+  // every miss read through, just now: the hardest work after an exam gets its own moment (once)
+  const [readAll] = useState(() => !!s.reviewedRead && fresh(s.reviewedRead) && firstTime(`${s.id}:read`));
+  useEffect(() => { if (readAll) return cardBurst(document.querySelector<HTMLElement>('.review-done'), true, 300); }, []);
   const today = todayCount(db);
   const T = db.settings.dailyTarget;
   const todayPct = Math.min(100, (100 * today) / Math.max(1, T));
@@ -116,6 +119,9 @@ export function Results({ session: s }: { session: Session }) {
         </div>
       )}
 
+      {readAll && (
+        <div class={`verdict ok review-done mt${motionOn() ? ' room' : ''}`} role="status"><IcCheckCircle /><span><span class="pass-head">All {plural(missed.length, 'miss', 'misses')} read</span><span class="verdict-sub">That's the most useful thing to do after an exam. Nice work.</span></span></div>
+      )}
       {(s.retake || (s.kind === 'mixed' && s.seenBefore > 0)) && full && (
         <div class="banner warn mt" role="note"><IcAlert /><div><strong>Not a fresh estimate.</strong> {`${s.seenBefore} of ${r.total} questions were ones you had already seen.`} Familiar questions inflate the score.</div></div>
       )}
@@ -126,9 +132,10 @@ export function Results({ session: s }: { session: Session }) {
           // a long list is started, not assigned; once begun, it continues where it left off
           const opened = openedMisses(s);
           const reviewing = opened > 0 && opened < missed.length && !s.reviewedAt;
+          const lastOne = opened === missed.length && !s.reviewedAt && !s.reviewLeft && s.reviewPos !== undefined; // the app closed while reading the final one
           const startOne = full && missed.length > 12 && !opened; // the first step is one rationale, not a list of 40
-          const next = reviewing ? nextMiss(s) : startOne ? missed[0] : undefined;
-          const label = reviewing ? `Continue review · ${opened} of ${missed.length}` : startOne ? 'Start with one miss' : `Review ${plural(missed.length, 'miss', 'misses')}`;
+          const next = reviewing ? nextMiss(s) : lastOne ? s.reviewPos : startOne ? missed[0] : undefined;
+          const label = reviewing ? `Continue review · ${opened} of ${missed.length}` : lastOne ? 'Resume last miss' : startOne ? 'Start with one miss' : s.reviewedRead ? 'Read the misses again' : `Review ${plural(missed.length, 'miss', 'misses')}`;
           return <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}${next === undefined ? '' : `/${next}`}?f=incorrect`}>{label}</a>;
         })()}
         {missed.length > 12 && full && !openedMisses(s) && <p class="small muted review-hint">{missed.length} misses to read, one at a time. You can pick up where you left off.</p>}

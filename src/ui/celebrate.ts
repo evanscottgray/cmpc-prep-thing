@@ -66,7 +66,7 @@ class Layer {
       p.x += p.vx * k; p.y += p.vy * k; p.r += p.vr * k;
       g.save();
       // fade out near every edge of the pocket, so nothing ever looks sliced
-      const f = this.clip ? Math.min(14, this.clip.w / 5) : 14; // a narrow pocket (larger text) fades over less of its width
+      const f = this.clip ? Math.min(14, this.clip.w / 6) : 14; // a narrow pocket (larger text) fades over less of its width
       const edge = this.clip ? Math.max(0, Math.min(1, Math.min(p.x - this.clip.x, this.clip.x + this.clip.w - p.x, p.y - this.clip.y) / f, (this.clip.y + this.clip.h - p.y) / 16)) : 1;
       g.globalAlpha = Math.min(1, (p.end - now) / 400) * edge;
       g.translate(p.x, p.y); g.rotate(p.r); g.fillStyle = p.c;
@@ -132,7 +132,9 @@ function cardPocket(card: HTMLElement): Rect | null {
     for (let j = i; j <= lines.length; j++) {
       const bottom = j === lines.length ? H : lines[j].top - 8; // clear air above the first line that doesn't fit
       const r = { x: right + gap, y: top, w: W - right - gap, h: bottom - top };
-      if (r.w >= MIN_W && r.h >= MIN_H && (!best || r.w * r.h > best.w * best.h)) best = r;
+      // the biggest pocket wins, but one beside the card's heading (its upper half) counts for more
+      const score = (q: Rect) => q.w * q.h * (q.y < H / 2 ? 1.6 : 1);
+      if (r.w >= MIN_W && r.h >= MIN_H && (!best || score(r) > score(best))) best = r;
       if (j === lines.length) break;
       right = Math.max(right, lines[j].right);
       if (W - right - gap < MIN_W) break;
@@ -158,7 +160,7 @@ export function cardBurst(card: HTMLElement | null | undefined, big: boolean, de
     const room = Math.max(14, Math.min(46, Math.round((clip.w * clip.h) / 350))); // as many pieces as the space can show as a fountain, not a heap
     const power = Math.sqrt(2 * 0.32 * clip.h) * (big ? 0.95 : 0.9); // peaks near the top; the edge fade softens any that go further
     const size = clip.w < 90 ? 0.8 : 0.85; // a narrow pocket (larger text): slightly smaller pieces, not a heap
-    const spread = narrow ? 30 : big ? 70 : 50;
+    const spread = clip.w < 80 ? 20 : narrow ? 30 : big ? 70 : 50;
     layer.add({ count: Math.min(big ? 46 : 22, room), x: cx, y: base, angle: -90, spread, power, life: big ? 1500 : 1100, size });
     if (big && clip.w * clip.h >= 15000) later(() => { if (card.isConnected && layers.has(layer)) layer.add({ count: Math.min(24, Math.round(room / 2)), x: cx, y: base, angle: -90, spread: narrow ? 30 : 90, power: power * 0.9, life: 1200, size }); }, 260);
   }, delay);

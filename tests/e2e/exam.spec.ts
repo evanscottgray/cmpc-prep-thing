@@ -310,5 +310,6 @@ test('a time warning waits until the app is visible, and is spoken inside an ope
   // with the navigator open, the next warning is spoken from inside it
   await page.getByRole('button', { name: /^Navigator/ }).click();
   await page.clock.fastForward('03:35');
-  await expect(page.getByRole('dialog').locator('.sr-announce')).toHaveText('1 minute remaining.');
+  await expect(page.getByRole('dialog').locator('.sr-announce')).toContainText('1 minute remaining.');
 });
+

@@ -144,11 +144,16 @@ export function autoSubmitExpired(now = Date.now()): string[] {
 }
 
 export const missedPositions = (s: Session) => s.items.map((_, i) => i).filter((i) => inPlay(s, i) && s.responses[i] !== ctx.items.get(s.items[i].id)?.answer);
-/** Where a review resumes: the miss last visited, else the first one not yet opened. */
+/**
+ * Where a review resumes: a miss that was being read when the app closed reopens; otherwise the next
+ * unread miss after the last one read (then any unread one, then the last one read).
+ */
 export const nextMiss = (s: Session) => {
   const m = missedPositions(s);
-  if (s.reviewPos !== undefined && m.includes(s.reviewPos)) return s.reviewPos;
-  const o = new Set(s.opened); return m.find((i) => !o.has(i));
+  const last = s.reviewPos !== undefined && m.includes(s.reviewPos) ? s.reviewPos : undefined;
+  if (last !== undefined && !s.reviewLeft) return last;
+  const o = new Set(s.opened);
+  return m.find((i) => !o.has(i) && (last === undefined || i > last)) ?? m.find((i) => !o.has(i)) ?? last;
 };
 export const openedMisses = (s: Session) => { const o = new Set(s.opened); return missedPositions(s).filter((i) => o.has(i)).length; };
 
@@ -166,13 +171,14 @@ export function markStudied(now = Date.now()) {
 export function markOpened(id: string, pos: number) {
   const s = get(id); if (!s) return;
   if (s.status === 'submitted') markStudied();
-  if (s.opened?.includes(pos) && s.reviewPos === pos) return;
-  put({ ...s, opened: s.opened?.includes(pos) ? s.opened : [...(s.opened ?? []), pos], reviewPos: pos });
+  if (s.opened?.includes(pos) && s.reviewPos === pos && !s.reviewLeft) return;
+  put({ ...s, opened: s.opened?.includes(pos) ? s.opened : [...(s.opened ?? []), pos], reviewPos: pos, reviewLeft: false });
 }
 /** Called when the learner moves on from an item: the review is done once every miss has been opened and left. */
 export function leftReviewItem(id: string) {
   const s = get(id); if (!s) return;
-  if (openedMisses(s) === missedPositions(s).length) markReviewed(id);
+  const done = openedMisses(s) === missedPositions(s).length;
+  put({ ...s, reviewLeft: true, ...(done && !s.reviewedAt ? { reviewedAt: Date.now(), reviewedRead: Date.now() } : {}) }); // finished by reading every miss
 }
 
 /** Discard an unfinished session. Items already opened are remembered so a later sitting isn't called fresh. */

@@ -109,9 +109,16 @@ export function ToastHost() {
  * assistive technology, so the message is spoken from inside the top-most dialog.
  */
 export function announce(text: string) {
-  const host = [...document.querySelectorAll<HTMLElement>('[role="dialog"]')].pop() ?? document.body;
-  let r = host.querySelector<HTMLElement>(':scope > .sr-announce');
-  if (!r) { r = document.createElement('div'); r.className = 'sr-only sr-announce'; r.setAttribute('aria-live', 'assertive'); host.appendChild(r); }
-  r.textContent = '';
-  const el = r; setTimeout(() => { el.textContent = text; }, 60); // a fresh change, so it's read even when repeated
+  const region = () => {
+    const host = [...document.querySelectorAll<HTMLElement>('[role="dialog"]')].pop() ?? document.body;
+    let r = host.querySelector<HTMLElement>(':scope > .sr-announce');
+    if (!r) { r = document.createElement('div'); r.className = 'sr-only sr-announce'; r.setAttribute('aria-live', 'assertive'); host.appendChild(r); }
+    return r;
+  };
+  // Posted at once (no delay for a dialog to close in between). An invisible mark alternates so a repeated
+  // message is still a change, and still read.
+  const r = region();
+  const flip = r.dataset.flip === '1' ? '0' : '1';
+  r.dataset.flip = flip;
+  r.textContent = flip === '1' ? text : `${text}\u200b`;
 }

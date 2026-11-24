@@ -87,6 +87,19 @@ describe('exam lifecycle', () => {
     expect(S(id).reviewedAt).toBeUndefined(); // opening the last miss isn't finishing it
     leftReviewItem(id);
     expect(S(id).reviewedAt).toBeDefined();
+    expect(S(id).reviewedRead).toBeDefined(); // finished by reading, not by skipping
+  });
+  it('a miss read and left resumes at the next unread one; one interrupted mid-read reopens', () => {
+    const id = start();
+    for (let p = 0; p < 115; p++) if (p > 2) choose(id, p, key(id, p)); // 0-2 missed
+    submit(id, false, 60000);
+    markOpened(id, 0); leftReviewItem(id); // read and left
+    expect(nextMiss(S(id))).toBe(1);
+    markOpened(id, 2); // jumped ahead to 2, app closed while reading it
+    expect(nextMiss(S(id))).toBe(2);
+    leftReviewItem(id); // left 2: the only unread one is 1
+    expect(nextMiss(S(id))).toBe(1);
+    expect(S(id).reviewedAt).toBeUndefined();
   });
   it('striking the chosen option clears it; choosing a struck option restores it', () => {
     const id = start();
