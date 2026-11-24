@@ -50,12 +50,14 @@ export function Results({ session: s }: { session: Session }) {
   const fullRun = r.answered === r.total;
   // Decided once, on the first render, so the layout (the callout's reserved strip) is right from the first frame.
   // The session's own moment was kept inside its verdict card, so a strong summary still gets its finish.
-  const [celebrating] = useState(() => !celebrationHeld(s.id) && (fresh(s.submittedAt) || justReleased(s.id)) && (full ? pass && freshForm && fullRun : pctAll >= 80 && given >= 5) && firstTime(s.id));
+  // seen now: fresh, or opened straight from its "Time's up" dialog (never while held behind it)
+  const [seen] = useState(() => !celebrationHeld(s.id) && (fresh(s.submittedAt) || justReleased(s.id)));
+  const [celebrating] = useState(() => seen && (full ? pass && freshForm && fullRun : pctAll >= 80 && given >= 5) && firstTime(s.id));
   useEffect(() => {
     if (celebrating) return cardBurst(document.querySelector<HTMLElement>(full ? '.exam-pass' : '.card.hero'), true, 300); // inside the card that holds the result
   }, []);
   const glow = celebrating;
-  const [popEmoji] = useState(() => fresh(s.submittedAt) && firstTime(`${s.id}:emoji`)); // the cheer's emoji pops when the summary first opens, not on revisits
+  const [popEmoji] = useState(() => seen && firstTime(`${s.id}:emoji`)); // the cheer's emoji pops when the summary first opens, not on revisits
   // every miss read through, just now: the hardest work after an exam gets its own moment (once)
   // shown the first time the result opens after the review was finished (however long that takes), once
   const [readAll, setReadAll] = useState(() => s.timed && !!s.reviewedRead && !s.readCelebrated && firstTime(`${s.id}:read`));
