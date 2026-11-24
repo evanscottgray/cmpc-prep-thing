@@ -7,7 +7,7 @@ import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
 import type { DrillSource } from '../lib/assemble';
 import { useEffect, useState } from 'preact/hooks';
-import { cardBurst, celebrationsHeld, firstTime, fresh, justReleased, motionOn } from '../ui/celebrate';
+import { cardBurst, celebrationHeld, firstTime, fresh, justReleased, motionOn } from '../ui/celebrate';
 import { todayCount } from '../lib/stats';
 import { openQuiz, startQuiz } from './Today';
 import { Meter } from '../ui/bits';
@@ -50,11 +50,12 @@ export function Results({ session: s }: { session: Session }) {
   const fullRun = r.answered === r.total;
   // Decided once, on the first render, so the layout (the callout's reserved strip) is right from the first frame.
   // The session's own moment was kept inside its verdict card, so a strong summary still gets its finish.
-  const [celebrating] = useState(() => !celebrationsHeld() && (fresh(s.submittedAt) || justReleased()) && (full ? pass && freshForm && fullRun : pctAll >= 80 && given >= 5) && firstTime(s.id));
+  const [celebrating] = useState(() => !celebrationHeld(s.id) && (fresh(s.submittedAt) || justReleased(s.id)) && (full ? pass && freshForm && fullRun : pctAll >= 80 && given >= 5) && firstTime(s.id));
   useEffect(() => {
     if (celebrating) return cardBurst(document.querySelector<HTMLElement>(full ? '.exam-pass' : '.card.hero'), true, 300); // inside the card that holds the result
   }, []);
   const glow = celebrating;
+  const [popEmoji] = useState(() => fresh(s.submittedAt) && firstTime(`${s.id}:emoji`)); // the cheer's emoji pops when the summary first opens, not on revisits
   // every miss read through, just now: the hardest work after an exam gets its own moment (once)
   // shown the first time the result opens after the review was finished (however long that takes), once
   const [readAll, setReadAll] = useState(() => s.timed && !!s.reviewedRead && !s.readCelebrated && firstTime(`${s.id}:read`));
@@ -132,7 +133,7 @@ export function Results({ session: s }: { session: Session }) {
       ) : (
         <div class={`card hero${glow ? ' celebrate' : ''}`}>
           <div class="eyebrow">{s.title}{s.label ? ` · ${s.label}` : ''}</div>
-          {cheer && !readAll && <div class="cheer">{cheer.emoji && <span class="cheer-emoji" aria-hidden="true">{cheer.emoji}</span>}<div><h2 class="cheer-head">{cheer.head}</h2><div class="small muted">{cheer.sub}</div></div></div>}
+          {cheer && !readAll && <div class="cheer">{cheer.emoji && <span class={`cheer-emoji${popEmoji ? ' pop' : ''}`} aria-hidden="true">{cheer.emoji}</span>}<div><h2 class="cheer-head">{cheer.head}</h2><div class="small muted">{cheer.sub}</div></div></div>}
           <div class="score-line first">
             <div><div class="v">{r.correctAll}<span class="of">/{r.total}</span></div><div class="k">correct{r.total ? ` · ${pctAll}%` : ''}</div></div>
             {s.timed && <div><div class="v">{fmtClock(r.timeUsedMs)}</div><div class="k">of {fmtClock(r.durationMs)} used</div></div>}
@@ -141,7 +142,7 @@ export function Results({ session: s }: { session: Session }) {
             <div class={`today-row${reachedToday ? ' reached' : ''}`}>
               <div class="row between small">
                 {reachedToday
-                  ? <strong class="goal-done"><span aria-hidden="true">🎉 </span>{s.goalHit?.day === ymd() ? 'This session reached your goal' : 'Daily goal reached'}</strong>
+                  ? <strong class="goal-done"><span aria-hidden="true">🎉 </span>{s.goalHit?.day === ymd() && (s.goalHit.target ?? T) === T ? 'This session reached your goal' : 'Daily goal reached'}</strong>
                   : <span>Today: {today} of {T} questions</span>}
                 <span class="muted">{reachedToday || !addedToday ? `${today} of ${T}` : `+${addedToday} this session`}</span>
               </div>

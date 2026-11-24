@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useState } from 'preact/hooks';
 import { ctx, useDb } from './ctx';
 import { navigate, useRoute } from './router';
 import { autoSubmitExpired } from './lib/actions';
+import { isExpired } from './lib/scoring';
 import { applyUpdate, onUpdateReady } from './lib/sw-register';
 import { DialogHost, ToastHost, alertDialog } from './ui/dialog';
 import { Page, TabBar } from './ui/bits';
@@ -16,7 +17,7 @@ import { ExamIntro } from './screens/ExamIntro';
 import { ExamRunner } from './screens/ExamRunner';
 import { TutorRunner } from './screens/TutorRunner';
 import { Results } from './screens/Results';
-import { clearConfetti, holdCelebrations } from './ui/celebrate';
+import { clearConfetti, holdCelebration, releaseCelebration } from './ui/celebrate';
 import { ReviewItem, ReviewList } from './screens/Review';
 
 const TAB_ROOTS = new Set(['today', 'study', 'cards', 'progress', 'more']);
@@ -50,12 +51,13 @@ export function App() {
   // exams whose time ran out while the app was closed are submitted on return
   useEffect(() => {
     const check = () => {
-      holdCelebrations(true); // a result mounting behind the dialog keeps its moment for when it's opened
-      const ids = autoSubmitExpired();
+      const now = Date.now();
+      for (const x of Object.values(ctx.store.state.sessions)) if (isExpired(x, now)) holdCelebration(x.id); // a result mounting behind the dialog keeps its moment for when it's opened
+      const ids = autoSubmitExpired(now);
       const s = ids.map((id) => ctx.store.state.sessions[id]).find(Boolean);
-      if (!s) { holdCelebrations(false, false); return; }
+      if (!s) return;
       alertDialog({ title: "Time's up", body: `${s.title} ran out of time while you were away and was submitted automatically. Unanswered questions count as incorrect.`, ok: 'See results' })
-        .then(() => { holdCelebrations(false); navigate(`results/${s.id}`, location.hash.startsWith(`#/s/${s.id}`)); }); // its moment plays when opened, however long the dialog stayed up
+        .then(() => { releaseCelebration(s.id); navigate(`results/${s.id}`, location.hash.startsWith(`#/s/${s.id}`)); }); // its moment plays when opened, however long the dialog stayed up
     };
     check();
     const on = () => { if (document.visibilityState === 'visible') check(); };

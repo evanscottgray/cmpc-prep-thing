@@ -101,7 +101,7 @@ export interface Session {
   readCelebrated?: boolean;               // the 'all misses read' moment has been shown
   timerHidden?: boolean;                  // timed: the learner hid the clock for this sitting
   warned?: number[];                      // timed: time warnings (minutes) already given in this sitting
-  goalHit?: { pos: number; cheered: boolean; day?: string }; // tutor: the answer that reached the daily goal (on which local day), and whether it got confetti
+  goalHit?: { pos: number; cheered: boolean; day?: string; target?: number }; // tutor: the answer that reached the daily goal (on which local day), and whether it got confetti
   updatedAt?: number;
 }
 

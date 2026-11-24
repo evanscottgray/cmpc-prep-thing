@@ -48,7 +48,7 @@ class Layer {
     if (!this.raf) this.raf = requestAnimationFrame((t) => this.frame(t));
   }
   frame(t: number) {
-    if (this.host && !this.host.isConnected) return this.stop();
+    if ((this.host && !this.host.isConnected) || !motionOn()) return this.stop(); // gone, or Calm / Reduce Motion turned on mid-burst
     const { w, h } = this.size();
     if (this.hostSize && (w !== this.hostSize.w || h !== this.hostSize.h)) return this.stop(); // the card reflowed (rotation): its empty corner may have moved
     const dpr = Math.min(2, devicePixelRatio || 1);
@@ -153,7 +153,7 @@ function cardPocket(card: HTMLElement): Rect | null {
 export function cardBurst(card: HTMLElement | null | undefined, big: boolean, delay = 450) {
   if (!card || !motionOn()) return () => {};
   return later(() => { // after the card's pop has settled, so it is measured at its real size
-    if (!card.isConnected) return;
+    if (!card.isConnected || !motionOn()) return;
     const clip = cardPocket(card);
     if (!clip) return;
     const layer = new Layer(card, clip); layers.add(layer);
@@ -172,13 +172,22 @@ export function cardBurst(card: HTMLElement | null | undefined, big: boolean, de
 export const verdictBurst = (verdict: HTMLElement | null | undefined, big: boolean) => { cardBurst(verdict, big); };
 
 // While "Time's up" is on screen the result behind it must not spend its one moment unseen: held, then released when the learner opens it.
-let held = false, releasedAt = 0;
-export function holdCelebrations(on: boolean, release = true) { held = on; if (!on && release) releasedAt = Date.now(); }
-export const celebrationsHeld = () => held;
-/** The result was opened straight from the "Time's up" dialog (however long that stayed up). */
-export const justReleased = () => Date.now() - releasedAt < 3000;
+const held = new Set<string>();
+let released: { id: string; at: number } | null = null;
+export function holdCelebration(id: string) { held.add(id); }
+/** "See results": the held sitting may now have its moment, on the result opened next. */
+export function releaseCelebration(id: string) { held.delete(id); released = { id, at: Date.now() }; }
+export const celebrationHeld = (id: string) => held.has(id);
+/** True once, for the result opened straight from that sitting's "Time's up" dialog (however long it stayed up). */
+export function justReleased(id: string) { const ok = released?.id === id && Date.now() - released.at < 3000; if (ok) released = null; return ok; }
 /** Results and summaries celebrate once, when they first open, not when revisited later. */
 export const fresh = (at: number | null | undefined) => !!at && Date.now() - at < 15000;
-const celebrated = new Set<string>();
-/** True the first time it's asked about `key` (so Back from review doesn't replay a summary's cannons). */
-export function firstTime(key: string) { if (celebrated.has(key)) return false; celebrated.add(key); return true; }
+const KEY = 'cmpc-celebrated';
+const celebrated = new Set<string>((() => { try { return JSON.parse(sessionStorage.getItem(KEY) ?? '[]') as string[]; } catch { return []; } })());
+/** True the first time it's asked about `key` (so Back from review, or a reload, doesn't replay a summary's cannons). */
+export function firstTime(key: string) {
+  if (celebrated.has(key)) return false;
+  celebrated.add(key);
+  try { sessionStorage.setItem(KEY, JSON.stringify([...celebrated].slice(-200))); } catch { /* private mode: in-memory only */ }
+  return true;
+}

@@ -34,6 +34,8 @@ export function TutorRunner({ session: s }: { session: Session }) {
 
   useEffect(() => { clearConfetti(); if (cheer && cheer.pos !== pos) setCheer(null); window.scrollTo(0, 0); document.querySelector<HTMLElement>('#q-stem')?.focus({ preventScroll: true }); }, [pos]);
   useEffect(() => clearConfetti, []);
+  // left with every answer checked (e.g. Safari's back swipe on the last one): it's finished, not a quiz to resume
+  useEffect(() => () => { const x = ctx.store.state.sessions[s.id]; if (x?.status === 'active' && x.revealed.length >= x.items.length) finishTutor(s.id); }, [s.id]);
   useEffect(() => { if (revealed) {
     window.scrollTo(0, 0);
     const v = document.querySelector<HTMLElement>('#verdict'); if (!v) return;
@@ -63,7 +65,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
       ? goal && MILESTONE(n) ? [{ icon: '🎉', text: `Daily goal reached, and that's ${n} in a row!` }] // one line for one moment
         : MILESTONE(n) ? [{ icon: '🔥', text: `That's ${n} in a row!` }] : goal ? [{ icon: '🎉', text: `Daily goal reached: ${after} today.` }] : []
       : [{ icon: '↻', text: 'This one comes back in spaced review.' }];
-    if (goal) ctx.store.putSession({ ...ctx.store.state.sessions[s.id], goalHit: { pos, cheered: ok, day: ymd() } });
+    if (goal) ctx.store.putSession({ ...ctx.store.state.sessions[s.id], goalHit: { pos, cheered: ok, day: ymd(), target: ctx.store.state.settings.dailyTarget } });
     // A miss never gets confetti, even when it happens to reach the goal (that shows in its own green note).
     setCheer({ pos, lines, goal, kind: ok && (goal || MILESTONE(n)) ? 'edges' : ok ? 'pop' : null });
   }

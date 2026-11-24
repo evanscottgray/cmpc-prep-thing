@@ -143,6 +143,10 @@ test('a strong session ends with confetti on its summary (once)', async ({ page 
   await expect(page.getByText('Excellent work!')).toBeVisible();
   await page.waitForTimeout(800);
   await expect(confetti(page)).toHaveCount(0); // not replayed on the way back
+  await page.reload(); // still within seconds of finishing
+  await expect(page.getByText('Excellent work!')).toBeVisible();
+  await page.waitForTimeout(800);
+  await expect(confetti(page)).toHaveCount(0); // nor on a reload
 });
 
 test('a warm-up left partway stays the main way back on Today', async ({ page }) => {
@@ -370,4 +374,17 @@ test('a strong timed set that runs out while the app is hidden, reopened on the 
   await page.getByRole('button', { name: 'See results' }).click();
   await expect(page.getByRole('heading', { name: 'Session summary' })).toBeVisible();
   await expect(confetti(page)).toHaveCount(1);
+});
+
+test("Safari's back swipe on a quiz's last answer finishes it, rather than leaving it to resume", async ({ page }) => {
+  await onboard(page);
+  await startQuiz(page);
+  for (let q = 1; q <= 10; q++) {
+    if (q > 1) { await page.getByRole('button', { name: 'Next question' }).click(); await expect(page.getByText(`Question ${q} of 10`)).toBeVisible(); }
+    await answer(page, true);
+  }
+  await page.goBack(); // the browser's back, not Close
+  await expect(page.getByRole('heading', { name: 'Today', level: 1 })).toBeVisible();
+  await expect(page.locator('.in-progress')).toHaveCount(0); // not a 10-of-10 quiz waiting to resume
+  await expect(page.getByRole('button', { name: 'Quick quiz · 10', exact: true })).toBeVisible();
 });
