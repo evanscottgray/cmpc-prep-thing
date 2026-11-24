@@ -42,7 +42,7 @@ for (const scheme of ['light', 'dark'] as const) {
     await expect(page.locator('.list .list-item').first()).toBeVisible();
     await axe(page, `${scheme} review list`);
     await go(page, 'today');
-    await page.getByRole('button', { name: 'Quick quiz · 10', exact: true }).click();
+    await page.getByRole('button', { name: /^(Quick quiz · 10|Start the warm-up)$/ }).last().click();
     await optionLabels(page).nth(0).click();
     await page.getByRole('button', { name: 'Check answer' }).click();
     await axe(page, `${scheme} tutor feedback`);

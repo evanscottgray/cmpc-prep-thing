@@ -7,7 +7,7 @@ import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
 import type { DrillSource } from '../lib/assemble';
 import { useEffect, useState } from 'preact/hooks';
-import { cardBurst, firstTime, fresh, motionOn } from '../ui/celebrate';
+import { cardBurst, celebrationsHeld, firstTime, fresh, justReleased, motionOn } from '../ui/celebrate';
 import { todayCount } from '../lib/stats';
 import { openQuiz, startQuiz } from './Today';
 import { Meter } from '../ui/bits';
@@ -38,7 +38,8 @@ export function Results({ session: s }: { session: Session }) {
   const focus = focusAreas(ctx.bank, r.byKg);
   const pctAll = r.total ? Math.round((100 * r.correctAll) / r.total) : 0;
   // A cheer needs enough answers to mean something; a very short session just says it's saved.
-  const cheer = full ? null : r.total < 5 ? { head: 'Session saved', sub: `${plural(r.total, 'answer')} added to your progress.`, emoji: '' }
+  const given = s.timed ? r.answered : r.total;
+  const cheer = full ? null : given < 5 ? { head: 'Session saved', sub: s.timed ? `${r.answered} of ${r.total} answered.` : `${plural(r.total, 'answer')} added to your progress.`, emoji: '' }
     : pctAll === 100 ? { head: 'Perfect round!', sub: 'Every answer right.', emoji: '🎯' }
     : pctAll >= 80 ? { head: 'Excellent work!', sub: "You're getting these.", emoji: '🌟' }
     : pctAll >= 60 ? { head: 'Solid session', sub: 'Reading the misses below helps them stick.', emoji: '💪' }
@@ -49,7 +50,7 @@ export function Results({ session: s }: { session: Session }) {
   const fullRun = r.answered === r.total;
   // Decided once, on the first render, so the layout (the callout's reserved strip) is right from the first frame.
   // The session's own moment was kept inside its verdict card, so a strong summary still gets its finish.
-  const [celebrating] = useState(() => fresh(s.submittedAt) && (full ? pass && freshForm && fullRun : pctAll >= 80 && r.total >= 5) && firstTime(s.id));
+  const [celebrating] = useState(() => !celebrationsHeld() && (fresh(s.submittedAt) || justReleased()) && (full ? pass && freshForm && fullRun : pctAll >= 80 && given >= 5) && firstTime(s.id));
   useEffect(() => {
     if (celebrating) return cardBurst(document.querySelector<HTMLElement>(full ? '.exam-pass' : '.card.hero'), true, 300); // inside the card that holds the result
   }, []);
@@ -147,7 +148,7 @@ export function Results({ session: s }: { session: Session }) {
               <Meter value={todayPct} label={`Today: ${today} of ${T} questions`} />
             </div>
           )}
-          {r.total < s.items.length && <p class="small muted mt" style={{ marginBottom: 0 }}>Ended early. {plural(s.items.length - r.total, 'question')} not answered, and not counted.</p>}
+          {r.total < s.items.length && <p class="small muted mt" style={{ marginBottom: 0 }}>Ended early. The {s.items.length - r.total} you didn't reach weren't counted.</p>}
         </div>
       )}
 

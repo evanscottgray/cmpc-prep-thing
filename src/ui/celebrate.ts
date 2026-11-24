@@ -171,6 +171,12 @@ export function cardBurst(card: HTMLElement | null | undefined, big: boolean, de
 /** The verdict in a session. */
 export const verdictBurst = (verdict: HTMLElement | null | undefined, big: boolean) => { cardBurst(verdict, big); };
 
+// While "Time's up" is on screen the result behind it must not spend its one moment unseen: held, then released when the learner opens it.
+let held = false, releasedAt = 0;
+export function holdCelebrations(on: boolean) { held = on; if (!on) releasedAt = Date.now(); }
+export const celebrationsHeld = () => held;
+/** The result was opened straight from the "Time's up" dialog (however long that stayed up). */
+export const justReleased = () => Date.now() - releasedAt < 3000;
 /** Results and summaries celebrate once, when they first open, not when revisited later. */
 export const fresh = (at: number | null | undefined) => !!at && Date.now() - at < 15000;
 const celebrated = new Set<string>();

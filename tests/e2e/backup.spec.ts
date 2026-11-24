@@ -5,7 +5,7 @@ import { onboard, optionLabels, go } from './helpers';
 test('backup downloads and restores exactly into a fresh profile', async ({ page, browser }) => {
   await onboard(page);
   // make some progress
-  await page.getByRole('button', { name: 'Quick quiz · 10', exact: true }).click();
+  await page.getByRole('button', { name: /^(Quick quiz · 10|Start the warm-up)$/ }).last().click();
   for (let i = 0; i < 3; i++) {
     await optionLabels(page).nth(i % 4).click();
     await page.getByRole('button', { name: 'Check answer' }).click();

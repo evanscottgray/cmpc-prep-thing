@@ -35,7 +35,7 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
   await page.getByRole('button', { name: 'Finish' }).click();
   await page.getByRole('button', { name: 'End and see summary' }).click();
   await expect(page.getByRole('heading', { name: /summary/ })).toBeVisible();
-  await expect(page.getByText('Ended early. 9 questions not answered, and not counted.')).toBeVisible();
+  await expect(page.getByText("Ended early. The 9 you didn't reach weren't counted.")).toBeVisible();
   await expect(page.locator('.score-line .v').first()).toContainText('/1');
 
   // spaced review now has the unsure/missed item queued for tomorrow; reports exportable
@@ -45,7 +45,7 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
 
   // quick quiz
   await go(page, 'today');
-  await page.getByRole('button', { name: 'Quick quiz · 10', exact: true }).click();
+  await page.getByRole('button', { name: /^(Quick quiz · 10|Start the warm-up)$/ }).last().click();
   await expect(page.getByText('Question 1 of 10')).toBeVisible();
 
   // concept cards with spaced review
@@ -75,7 +75,7 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
 
 test('a quiz closed with an answer chosen but not checked is resumed, not restarted', async ({ page }) => {
   await onboard(page);
-  await page.getByRole('button', { name: 'Quick quiz · 10', exact: true }).click();
+  await page.getByRole('button', { name: /^(Quick quiz · 10|Start the warm-up)$/ }).last().click();
   const quiz = await page.evaluate(() => location.hash);
   await optionLabels(page).nth(1).click();
   await page.getByRole('button', { name: 'Close' }).click();
@@ -103,7 +103,7 @@ test('Back returns to the same place, and a drill can be left and resumed', asyn
   await expect(page.getByLabel('Search cards')).toHaveValue('the');
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(y - 60);
   await go(page, 'today');
-  await page.getByRole('button', { name: 'Quick quiz · 10', exact: true }).click();
+  await page.getByRole('button', { name: /^(Quick quiz · 10|Start the warm-up)$/ }).last().click();
   await expect(page.locator('.strike-hint')).toBeVisible();
   await optionLabels(page).nth(1).click();
   await page.getByRole('button', { name: 'Check answer' }).click();

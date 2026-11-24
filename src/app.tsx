@@ -82,7 +82,7 @@ export function App() {
     case 's': {
       const s = db.sessions[rest[0]];
       if (!s) screen = <Page title="Session" backTo="today"><p>This session no longer exists.</p></Page>;
-      else if (s.status === 'submitted') { screen = <Results key={s.id} session={s} />; }
+      else if (s.status === 'submitted') { screen = <Results key={`${s.id}:s`} session={s} />; } // a fresh instance on results/…, so a held moment can play there
       else if (s.timed) { inExam = true; screen = <ExamRunner session={s} />; }
       else screen = <TutorRunner session={s} />;
       break;

@@ -10,7 +10,7 @@ import { dueIds } from '../lib/srs';
 import { lastWeek, streak, studyDays } from '../lib/streak';
 import { ListLink, Meter, Page } from '../ui/bits';
 import { alertDialog, confirmDialog, toast } from '../ui/dialog';
-import { IcAlert, IcChevron, IcInfo, IcPhone, IcX } from '../ui/icons';
+import { IcAlert, IcChevron, IcInfo, IcPhone } from '../ui/icons';
 
 const WEEK = 7 * 86400000;
 
@@ -170,7 +170,7 @@ function DailyCard({ answered, now, reachedNote }: { answered: number; now: numb
         <StudyDays now={now} newToday={shown.newToday} />
         {reached && <p class="small muted more-label">If you want more:</p>}
         <div class={`btn-row${reached ? '' : ' mt'}`} style={reached ? { marginTop: '.4rem' } : undefined}>
-          {(() => { const q = openQuiz(); return <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>{q ? <>Resume · <span class="keep">{q.items.length - q.revealed.length} left</span></> : 'Quick quiz · 10'}</button>; })()}
+          {(() => { const q = openQuiz(); return <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>{q ? <>Resume · <span class="keep">{q.items.length - q.revealed.length} left</span></> : !db.attempts.length ? 'Start the warm-up' : 'Quick quiz · 10'}</button>; })()}
           <a class={`btn small${reached ? ' ghost' : ''}`} href="#/study">More options</a>
         </div>
       </div>
@@ -205,8 +205,8 @@ function InProgress({ skip }: { skip?: string }) {
           <div class="list-pair">
             {(() => { const st = reviewStep(x); const all = st.kind === 'finish' || st.kind === 'resumeLast'; return <>
               {st.kind === 'finish'
-                ? <button class="list-item" data-first-more={i === 3 || undefined} onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <span class="li-date"><span class="li-dot"> · </span>{fmtShort(x.submittedAt)}</span>}</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
-                : <a class="list-item" data-first-more={i === 3 || undefined} href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <span class="li-date"><span class="li-dot"> · </span>{fmtShort(x.submittedAt)}</span>}</span></span><span class="badge accent">Resume</span></a>}
+                ? <button class="list-item" data-first-more={i === 3 || undefined} onClick={() => { finishReview(x.id); navigate(`results/${x.id}`); }}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <span class="li-date"><span class="li-dot"> · </span>taken {fmtShort(x.submittedAt)}</span>}</span></span><span class="badge accent">Finish</span></button> /* finishing opens the result, where its moment plays */
+                : <a class="list-item" data-first-more={i === 3 || undefined} href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {plural(missedPositions(x).length, 'miss', 'misses')} read{x.submittedAt && <span class="li-date"><span class="li-dot"> · </span>taken {fmtShort(x.submittedAt)}</span>}</span></span><span class="badge accent">Resume</span></a>}
               {st.kind !== 'finish' && <button class="btn small ghost" onClick={() => { if (all) { finishReview(x.id); navigate(`results/${x.id}`); } else { markReviewed(x.id); toast(['formA', 'formB', 'mixed'].includes(x.kind) ? `Set aside. ${x.title} stays under Progress.` : 'Set aside. Its missed questions still come back in spaced review.'); } }}>{all ? 'Finish' : 'Set aside'}<span class="sr-only"> for the {x.title} review</span></button>}
             </>; })()}
           </div>
@@ -217,7 +217,7 @@ function InProgress({ skip }: { skip?: string }) {
           return (
             <div class="list-pair">
               <a class="list-item" href={`#/s/${x.id}`}><span class="li-main"><span class="li-title">{x.title}</span><span class="li-sub" style={{ display: 'block' }}>{n} of {plural(x.items.length, 'question')} answered<span class="li-date"><span class="li-dot"> · </span>started {fmtShort(x.createdAt)}</span></span></span><span class="badge accent">Resume</span></a>
-              <button class="icon-btn" onClick={() => discard(x.id, x.title, x.timed)} aria-label={`Discard ${x.title}`}><IcX /></button>
+              <button class="btn small ghost" onClick={() => discard(x.id, x.title, x.timed)}>Discard<span class="sr-only"> {x.title}</span></button>
             </div>
           );
         })}

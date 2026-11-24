@@ -9,6 +9,7 @@ import { keepAwake } from '../lib/wakelock';
 import { OptionList, QStem, ReportDialog, StrikeHint, strikeHint } from '../ui/question';
 import { Modal, alertDialog, clearDialogs, confirmDialog, toast, announce, ensureAnnouncer } from '../ui/dialog';
 import { IcBack, IcChevron, IcClock, IcFlag, IcFlagFill, IcGrid, IcMenu, IcPause, IcPlay } from '../ui/icons';
+import { holdCelebrations } from '../ui/celebrate';
 
 const WARN_AT = [15, 5, 1]; // minutes remaining
 
@@ -49,9 +50,10 @@ export function ExamRunner({ session: s }: { session: Session }) {
     if (isExpired(s, now) && !submitting.current) {
       submitting.current = true;
       clearDialogs(); setNavOpen(false); setMenuOpen(false); setReportFor(null);
+      holdCelebrations(true); // the result mounts behind this dialog; its moment waits until it can be seen
       submit(s.id, true, now);
       alertDialog({ title: "Time's up", body: 'Your exam was submitted automatically. Unanswered questions count as incorrect.', ok: 'See results' })
-        .then(() => navigate(`results/${s.id}`, true));
+        .then(() => { holdCelebrations(false); navigate(`results/${s.id}`, true); });
       return;
     }
     // Warnings belong to the sitting: each is given once, even across leaving and resuming. Coming back after

@@ -80,7 +80,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
 
   /** Back keeps the session; Today offers to resume it. An untouched session is dropped. */
   function leave() {
-    if (done === s.items.length) { finishTutor(s.id); back('study'); return; } // every answer checked: it's finished, not paused
+    if (done === s.items.length) { finish(); return; } // every answer checked: it's finished, so its recap (and any moment it earned) opens
     if (done === 0 && !Object.keys(s.responses).length) abandon(s.id);
     else toast('Saved. Resume it from Today.');
     back('study');
@@ -108,7 +108,7 @@ export function TutorRunner({ session: s }: { session: Session }) {
         </>
       ) : (
         <>
-          <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} fresh={fresh} room={fresh && cheer.kind === 'pop' && motionOn()} big={cheer?.kind === 'edges'} extra={fresh ? cheer.lines : undefined} srExtra={fresh && cheer.goal && !isRight(pos) ? 'Daily goal reached. Every answer counts, right or wrong.' : undefined} />
+          <Verdict id="verdict" item={item} si={si} response={resp} unsure={s.unsure.includes(pos)} fresh={fresh} room={fresh && cheer.kind === 'pop' && motionOn()} big={cheer?.kind === 'edges'} extra={fresh ? cheer.lines : undefined} srExtra={fresh && cheer.goal && !isRight(pos) ? `Daily goal reached: ${todayCount(ctx.store.state)} today. Every answer counts, right or wrong.` : undefined} />
           {fresh && cheer.goal && !isRight(pos) && <p class="goal-note" aria-hidden="true">{/* the verdict itself says this, in one announcement */}<span aria-hidden="true">🎉 </span>Daily goal reached: {todayCount(ctx.store.state)} today. Every answer counts, right or wrong.</p>}
           <ItemReview item={item} si={si} response={resp} />
           <ItemMeta item={item} />

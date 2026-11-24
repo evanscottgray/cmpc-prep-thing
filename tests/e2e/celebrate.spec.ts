@@ -18,7 +18,7 @@ async function answer(page: Page, right: boolean) {
   await expect(page.locator('#verdict')).toContainText(right ? 'Correct' : 'Incorrect');
 }
 async function startQuiz(page: Page) {
-  await page.getByRole('button', { name: 'Quick quiz · 10', exact: true }).click();
+  await page.getByRole('button', { name: /^(Quick quiz · 10|Start the warm-up)$/ }).last().click();
   await expect(page.getByText('Question 1 of 10')).toBeVisible();
 }
 
@@ -82,7 +82,7 @@ test('reaching the daily goal is celebrated once, and a timed session shows no c
   }
   // The 10th answer is wrong but reaches the goal: a green note of its own, never confetti over a miss.
   await expect(page.locator('.goal-note')).toContainText('Daily goal reached: 10 today.');
-  await expect(page.locator('#verdict')).toContainText('Daily goal reached. Every answer counts'); // one announcement carries both
+  await expect(page.locator('#verdict')).toContainText('Daily goal reached: 10 today. Every answer counts'); // one announcement carries both
   await page.waitForTimeout(700);
   await expect(confetti(page)).toHaveCount(0);
   await page.getByRole('button', { name: 'See summary' }).click();
@@ -147,7 +147,7 @@ test('a strong session ends with confetti on its summary (once)', async ({ page 
 
 test('a warm-up left partway stays the main way back on Today', async ({ page }) => {
   await onboard(page);
-  await page.getByRole('button', { name: 'Start the warm-up' }).click();
+  await page.getByRole('button', { name: 'Start the warm-up' }).first().click();
   await answer(page, true);
   await page.getByRole('button', { name: 'Close' }).click();
   await expect(page.getByRole('heading', { name: 'Your warm-up' })).toBeVisible();
@@ -287,4 +287,47 @@ test('a finished block can be found again from its start screen', async ({ page 
   await page.getByRole('link', { name: /View last block results · .* · 22\/23/ }).click();
   await expect(page.getByRole('heading', { name: 'Session summary' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Review 1 miss' })).toBeVisible();
+});
+
+test("a strong timed set that runs out of time saves its moment for after \"Time's up\"", async ({ page }) => {
+  await page.clock.install();
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  for (let q = 1; q <= 23; q++) {
+    const k = await keyIndex(page);
+    await optionLabels(page).nth(k).click(); // all right, never submitted
+    if (q < 23) await page.getByRole('button', { name: 'Next' }).click();
+  }
+  await page.clock.fastForward('18:30');
+  await expect(page.getByRole('dialog', { name: "Time's up" })).toBeVisible();
+  await page.waitForTimeout(800); // long enough for a burst to have played behind the dialog
+  await expect(confetti(page)).toHaveCount(0);
+  await page.getByRole('button', { name: 'See results' }).click();
+  await expect(page.getByRole('heading', { name: 'Session summary' })).toBeVisible();
+  await expect(confetti(page)).toHaveCount(1); // played where it can be seen
+});
+
+test('closing a fully answered quiz opens its summary', async ({ page }) => {
+  await onboard(page);
+  await startQuiz(page);
+  for (let q = 1; q <= 10; q++) {
+    if (q > 1) { await page.getByRole('button', { name: 'Next question' }).click(); await expect(page.getByText(`Question ${q} of 10`)).toBeVisible(); }
+    await answer(page, true);
+  }
+  await page.getByRole('button', { name: 'Close' }).click();
+  await expect(page.getByRole('heading', { name: 'Session summary' })).toBeVisible();
+});
+
+test('a timed set with only a couple of answers just says it was saved', async ({ page }) => {
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  for (let q = 1; q <= 23; q++) {
+    if (q <= 2) await optionLabels(page).nth(await keyIndex(page)).click(); // two answers, the rest left blank
+    await page.getByRole('button', { name: q < 23 ? /^(Next|Skip)/ : 'Finish' }).click();
+  }
+  await page.getByRole('button', { name: 'Submit', exact: true }).click();
+  await expect(page.getByText('Session saved')).toBeVisible();
+  await expect(page.getByText('2 of 23 answered.')).toBeVisible();
 });
