@@ -51,7 +51,8 @@ export function App() {
   useEffect(() => {
     const check = () => {
       const ids = autoSubmitExpired();
-      const s = ids.map((id) => ctx.store.state.sessions[id]).find(Boolean);
+      const all = ids.map((id) => ctx.store.state.sessions[id]).filter(Boolean);
+      const s = all.find((x) => location.hash.startsWith(`#/s/${x.id}`)) ?? all[0]; // the one on screen, if any, is the one whose result mounts behind the dialog
       if (!s) return;
       holdCelebration(s.id); // before the next render: a result mounting behind the dialog keeps its moment for when it's opened
       alertDialog({ title: "Time's up", body: `${s.title} ran out of time while you were away and was submitted automatically. Unanswered questions count as incorrect.`, ok: 'See results' })
