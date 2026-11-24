@@ -67,7 +67,8 @@ export function Progress() {
   const weekQs = db.attempts.filter((a) => !a.na && ymd(a.t) >= week[0].date).length;
   const weekDays = week.filter((d) => d.studied).length;
   const effort = weekDays === 0 ? '' : weekQs > 0 ? `This week: ${plural(weekQs, 'question')} on ${plural(weekDays, 'study day')}.` : `This week: ${plural(weekDays, 'study day')}.`;
-  const range = r.scaledLo >= 550 ? 'Your whole likely range is at or above 550.' : r.scaledHi < 550 ? 'Your whole likely range is below 550.' : 'Your likely range includes 550, so it could go either way.';
+  // Compared with the learner's practice target (placed at 550), not a prediction of exam day.
+  const range = r.scaledLo >= 550 ? 'Your estimated range is above your practice target.' : r.scaledHi < 550 ? 'Your estimated range is below your practice target.' : 'Your estimated range crosses your practice target.';
   return (
     <Page title="Progress" noBack wide>
       <div class="cols">
@@ -76,7 +77,7 @@ export function Progress() {
         <div class="eyebrow">Readiness estimate</div>
         {r.enough ? (
           <>
-            <p class="ready"><span class={`badge big ${r.level === 'On track' ? 'ok' : r.level === 'Borderline' ? 'warn' : 'bad'}`}>{r.level}</span></p>
+            <p class="ready"><span class={`badge big ${r.level === 'Above practice target' ? 'ok' : r.level === 'Near practice target' ? 'warn' : 'bad'}`}>{r.level}</span></p>
             <div class="score-line first">
               <div><div class="v">{r.scaled}</div><div class="k">Estimated scaled score, <span class="keep">likely {r.scaledLo}–{r.scaledHi}</span></div></div>
               <div><div class="v">{r.raw}%</div><div class="k">Accuracy on first tries, weighted by the exam blueprint</div></div>

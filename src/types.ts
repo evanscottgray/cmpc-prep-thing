@@ -97,6 +97,7 @@ export interface Session {
   opened?: number[];                      // positions opened in review
   reviewPos?: number;                     // last position visited in review, where Today resumes
   timerHidden?: boolean;                  // timed: the learner hid the clock for this sitting
+  warned?: number[];                      // timed: time warnings (minutes) already given in this sitting
   goalHit?: { pos: number; cheered: boolean; day?: string }; // tutor: the answer that reached the daily goal (on which local day), and whether it got confetti
   updatedAt?: number;
 }

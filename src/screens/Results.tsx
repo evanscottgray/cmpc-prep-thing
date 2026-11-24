@@ -2,7 +2,7 @@ import type { Session } from '../types';
 import { ctx, useDb } from '../ctx';
 import { fmtClock, fmtDate, fmtDuration, plural, ymd } from '../lib/dates';
 import { scaledScore } from '../lib/scoring';
-import { missedPositions } from '../lib/actions';
+import { missedPositions, nextMiss, openedMisses } from '../lib/actions';
 import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
 import type { DrillSource } from '../lib/assemble';
@@ -77,7 +77,7 @@ export function Results({ session: s }: { session: Session }) {
             // a pass gets its own green callout, with room kept for its confetti
             <>
               <div class={`verdict ok exam-pass${glow && motionOn() ? ' room' : ''}`} role="status">
-                <IcCheckCircle /><span><span class="pass-head">Pass (estimated)</span>{freshForm && <span class="verdict-sub">Well done.</span>}</span>
+                <IcCheckCircle /><span><span class="pass-head">Pass (estimated)</span>{freshForm && <span class="verdict-sub pass-cheer">Well done.</span>}</span>
               </div>
               <p class="exam-cheer">{!freshForm ? 'Above target on questions you had seen. A fresh form is the real check.' : fullRun ? 'You reached your practice target on a full-length form.' : 'You reached your practice target on this form.'}</p>
             </>
@@ -107,7 +107,7 @@ export function Results({ session: s }: { session: Session }) {
                 {reachedToday
                   ? <strong class="goal-done"><span aria-hidden="true">🎉 </span>{s.goalHit?.day === ymd() ? 'This session reached your goal' : 'Daily goal reached'}</strong>
                   : <span>Today: {today} of {T} questions</span>}
-                <span class="muted">{reachedToday ? `${today} of ${T}` : `+${addedToday} this session`}</span>
+                <span class="muted">{reachedToday || !addedToday ? `${today} of ${T}` : `+${addedToday} this session`}</span>
               </div>
               <Meter value={todayPct} label={`Today: ${today} of ${T} questions`} />
             </div>
@@ -122,8 +122,13 @@ export function Results({ session: s }: { session: Session }) {
 
       <div class="btn-row result-actions mt">
         {!s.timed && <a class="btn primary" href="#/today">Done</a>}
-        {missed.length > 0 && <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}?f=incorrect`}>Review {plural(missed.length, 'miss', 'misses')}</a>}
-        {missed.length > 5 && full && <p class="small muted review-hint">Start with a few. You can pick up where you left off.</p>}
+        {missed.length > 0 && (() => {
+          // a long list is started, not assigned; once begun, it continues where it left off
+          const opened = openedMisses(s), next = opened ? nextMiss(s) : undefined;
+          const label = opened ? `Continue review · ${opened} of ${missed.length}` : full && missed.length > 12 ? `Start reviewing · ${plural(missed.length, 'miss', 'misses')}` : `Review ${plural(missed.length, 'miss', 'misses')}`;
+          return <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}${next === undefined ? '' : `/${next}`}?f=incorrect`}>{label}</a>;
+        })()}
+        {missed.length > 12 && full && !openedMisses(s) && <p class="small muted review-hint">Start with a few. You can pick up where you left off.</p>}
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
         {s.timed && <a class="btn" href="#/today">Done</a>}
         {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{(() => { const q = openQuiz(); return q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'; })()}</button>}

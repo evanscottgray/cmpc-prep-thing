@@ -16,10 +16,9 @@ function palette(): string[] {
 }
 
 /**
- * One canvas of falling confetti. Two kinds, and neither ever covers words or controls:
- * - the screen layer sits behind cards, text and bars (summary and card-set celebrations);
- * - a card layer lives inside one card and draws only in a clipped empty corner of it, so it
- *   scrolls with the card and disappears with it (the verdict's celebration in a session).
+ * One canvas of falling confetti, inside the card it celebrates (a verdict, a summary, a card set, an
+ * exam pass), drawing only in a clipped empty corner of it: it never covers words or controls, and it
+ * scrolls with the card and disappears with it.
  */
 class Layer {
   canvas: HTMLCanvasElement;
@@ -27,15 +26,13 @@ class Layer {
   raf = 0;
   last = 0;
   hostSize: { w: number; h: number } | null = null;
-  constructor(public host: HTMLElement | null, public clip: Rect | null) {
-    if (host) {
-      this.hostSize = { w: host.clientWidth, h: host.clientHeight };
-      if (getComputedStyle(host).position === 'static') host.style.position = 'relative'; // the canvas fills the card it celebrates
-    }
+  constructor(public host: HTMLElement, public clip: Rect) {
+    this.hostSize = { w: host.clientWidth, h: host.clientHeight };
+    if (getComputedStyle(host).position === 'static') host.style.position = 'relative'; // the canvas fills the card it celebrates
     this.canvas = document.createElement('canvas');
-    this.canvas.className = host ? 'confetti card-layer' : 'confetti';
+    this.canvas.className = 'confetti';
     this.canvas.setAttribute('aria-hidden', 'true');
-    (host ?? document.body).appendChild(this.canvas);
+    host.appendChild(this.canvas);
   }
   size() { return this.host ? { w: this.host.clientWidth, h: this.host.clientHeight } : { w: innerWidth, h: innerHeight }; }
   add(o: { count: number; x: number; y: number; angle: number; spread: number; power: number; life: number; size: number }) {
@@ -69,7 +66,8 @@ class Layer {
       p.x += p.vx * k; p.y += p.vy * k; p.r += p.vr * k;
       g.save();
       // fade out near every edge of the pocket, so nothing ever looks sliced
-      const edge = this.clip ? Math.max(0, Math.min(1, Math.min(p.x - this.clip.x, this.clip.x + this.clip.w - p.x, p.y - this.clip.y) / 14, (this.clip.y + this.clip.h - p.y) / 16)) : 1;
+      const f = this.clip ? Math.min(14, this.clip.w / 5) : 14; // a narrow pocket (larger text) fades over less of its width
+      const edge = this.clip ? Math.max(0, Math.min(1, Math.min(p.x - this.clip.x, this.clip.x + this.clip.w - p.x, p.y - this.clip.y) / f, (this.clip.y + this.clip.h - p.y) / 16)) : 1;
       g.globalAlpha = Math.min(1, (p.end - now) / 400) * edge;
       g.translate(p.x, p.y); g.rotate(p.r); g.fillStyle = p.c;
       if (p.round) { g.beginPath(); g.arc(0, 0, p.w / 2, 0, Math.PI * 2); g.fill(); }
@@ -103,17 +101,6 @@ export function clearConfetti() {
   for (const l of [...layers]) l.stop();
 }
 
-let screen: Layer | null = null;
-/**
- * Throws `count` pieces from (x, y) on the screen layer (behind the content), aimed `angle` degrees
- * (−90 is straight up) within `spread`. `life` is in ms.
- */
-export function confetti({ count = 40, x = innerWidth / 2, y = innerHeight / 3, angle = -90, spread = 70, power = 11, life = 2200, size = 1 }: { count?: number; x?: number; y?: number; angle?: number; spread?: number; power?: number; life?: number; size?: number } = {}) {
-  if (!motionOn()) return;
-  if (!screen || !layers.has(screen)) { screen = new Layer(null, null); layers.add(screen); }
-  screen.add({ count, x, y, angle, spread, power, life, size });
-}
-
 /**
  * The largest empty area along a card's right edge, in the card's own coordinates, found from the
  * line boxes of its words (and icons). Confetti drawn there is fully visible and can't touch any text
@@ -134,7 +121,7 @@ function cardPocket(card: HTMLElement): Rect | null {
   // dividers (a rule above a row) are full-width obstacles at their top edge
   for (const el of card.querySelectorAll('.today-row, hr')) { const r = el.getBoundingClientRect(); lines.push({ top: r.top - box.top - 1, bottom: r.top - box.top + 1, right: box.width }); }
   lines.sort((a, b) => a.top - b.top);
-  const W = box.width - 16, H = box.height - 8, gap = 20, MIN_W = 48, MIN_H = 52; // clear of the border, and far enough from the words not to read as punctuation
+  const W = box.width - 16, H = box.height - 8, gap = 20, MIN_W = 48, MIN_H = 48; // clear of the border, and far enough from the words not to read as punctuation
   let best: Rect | null = null;
   // bands of consecutive lines: the free width is set by the widest line reaching into the band
   for (let i = 0; i <= lines.length; i++) {
@@ -143,7 +130,7 @@ function cardPocket(card: HTMLElement): Rect | null {
     for (let k = 0; k < i; k++) if (lines[k].bottom + 4 > top) right = Math.max(right, lines[k].right); // taller things that started earlier
     if (W - right - gap < MIN_W) continue;
     for (let j = i; j <= lines.length; j++) {
-      const bottom = j === lines.length ? H : lines[j].top - 4; // just above the first line that doesn't fit
+      const bottom = j === lines.length ? H : lines[j].top - 8; // clear air above the first line that doesn't fit
       const r = { x: right + gap, y: top, w: W - right - gap, h: bottom - top };
       if (r.w >= MIN_W && r.h >= MIN_H && (!best || r.w * r.h > best.w * best.h)) best = r;
       if (j === lines.length) break;
@@ -168,31 +155,13 @@ export function cardBurst(card: HTMLElement | null | undefined, big: boolean, de
     const layer = new Layer(card, clip); layers.add(layer);
     const cx = clip.x + clip.w * 0.62, base = clip.y + clip.h - 6; // toward the outer side, and a little above the bottom
     const power = Math.sqrt(2 * 0.32 * clip.h) * (big ? 0.95 : 0.9); // peaks near the top; the edge fade softens any that go further
-    const size = clip.w < 90 ? 0.7 : 0.85; // a narrow pocket (larger text) gets smaller pieces, not a heap
+    const size = clip.w < 90 ? 0.8 : 0.85; // a narrow pocket (larger text): slightly smaller pieces, not a heap
     layer.add({ count: big ? 46 : 22, x: cx, y: base, angle: -90, spread: big ? 70 : 50, power, life: big ? 1500 : 1100, size });
     if (big) later(() => { if (card.isConnected && layers.has(layer)) layer.add({ count: 24, x: cx, y: base, angle: -90, spread: 90, power: power * 0.9, life: 1200, size }); }, 260);
   }, delay);
 }
 /** The verdict in a session. */
 export const verdictBurst = (verdict: HTMLElement | null | undefined, big: boolean) => { cardBurst(verdict, big); };
-
-/** Celebrates a card that just opened: arcs out of its lower corners into the open space beneath it, behind the content. */
-export function bigCelebration(below?: Element | null) {
-  const b = below?.getBoundingClientRect();
-  if (b && b.bottom < innerHeight - 80) {
-    confetti({ count: 36, x: b.left + 24, y: b.bottom + 12, angle: -125, spread: 60, power: 7, life: 1900 });
-    confetti({ count: 36, x: b.right - 24, y: b.bottom + 12, angle: -55, spread: 60, power: 7, life: 1900 });
-    confetti({ count: 24, x: b.left + b.width / 2, y: b.bottom + 12, angle: -90, spread: 120, power: 6, life: 1700 });
-    return;
-  }
-  const p = Math.sqrt(innerHeight) * 0.55; // no card, or it fills the screen: two cannons from the lower corners
-  confetti({ count: 40, x: 0, y: innerHeight * 0.95, angle: -68, spread: 30, power: p, life: 1600 });
-  confetti({ count: 40, x: innerWidth, y: innerHeight * 0.95, angle: -112, spread: 30, power: p, life: 1600 });
-}
-/** Schedules a screen's celebration; returns the cleanup so leaving the screen cancels it. */
-export function celebrateSoon(ms = 250, below?: () => Element | null) {
-  return later(() => bigCelebration(below?.()), ms);
-}
 
 /** Results and summaries celebrate once, when they first open, not when revisited later. */
 export const fresh = (at: number | null | undefined) => !!at && Date.now() - at < 15000;

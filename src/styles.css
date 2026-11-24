@@ -40,7 +40,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html { font-size: var(--fs); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--bg); }
 body {
-  margin: 0; color: var(--text); background: transparent; /* the page colour comes from html, so confetti can sit between it and the content */
+  margin: 0; background: var(--bg); color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.45; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: none;
@@ -547,8 +547,7 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 }
 
 /* celebrations: confetti, streaks, cheers (motion only when the device allows it and Celebrations is on) */
-.confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; } /* behind cards, text and bars: it never covers what you read */
-.confetti.card-layer { position: absolute; inset: 0; z-index: 0; } /* inside one card, clipped to its empty corner: scrolls and leaves with it */
+.confetti { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; } /* inside the card it celebrates, clipped to its empty corner: scrolls and leaves with it */
 .verdict, .card.hero { position: relative; overflow: hidden; } /* a card's confetti stays inside its rounded corners */
 .verdict > :not(canvas), .card.hero > :not(canvas) { position: relative; z-index: 1; }
 .verdict.room > span { padding-right: 76px; } /* a correct answer keeps an empty corner for its confetti, even at larger text */
@@ -600,6 +599,8 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .exam-cheer { margin: .35rem 0 0; font-weight: 600; }
 .verdict.exam-pass { margin: .9rem 0 .5rem; background: var(--ok-soft); color: var(--ok); }
 .verdict.exam-pass .pass-head { font-size: 1.1rem; font-weight: 800; }
+.verdict.exam-pass .pass-cheer { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+.card.daily.reached .btn.ghost { border-color: color-mix(in srgb, var(--ok) 45%, transparent); } /* optional, but clearly a button */
 
 @media (prefers-reduced-motion: no-preference) {
   :root:not([data-calm]) .btn { transition: transform .08s ease, background-color .15s ease, border-color .15s ease; }

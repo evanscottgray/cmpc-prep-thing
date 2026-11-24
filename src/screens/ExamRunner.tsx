@@ -54,13 +54,17 @@ export function ExamRunner({ session: s }: { session: Session }) {
         .then(() => navigate(`results/${s.id}`, true));
       return;
     }
+    // Warnings belong to the sitting: each is given once, even across leaving and resuming. Coming back after
+    // one or more were crossed gives a single notice with the actual time left.
     const min = remaining / 60000;
-    for (const w of WARN_AT) {
-      if (min <= w && min > w - 0.5 && !warned.current.has(w) && s.durationMs > w * 60000 * 2) {
-        warned.current.add(w);
-        setAnnounce(`${w} minute${w > 1 ? 's' : ''} remaining.`);
-        toast(`${w} minute${w > 1 ? 's' : ''} remaining`, true);
-      }
+    const given = new Set([...(s.warned ?? []), ...warned.current]);
+    const crossed = WARN_AT.filter((w) => min <= w && s.durationMs > w * 60000 * 2 && !given.has(w));
+    if (crossed.length) {
+      for (const w of crossed) warned.current.add(w);
+      ctx.store.putSession({ ...ctx.store.state.sessions[s.id], warned: [...given, ...crossed] });
+      const left = Math.max(1, Math.ceil(min));
+      setAnnounce(`${left} minute${left > 1 ? 's' : ''} remaining.`);
+      toast(`${left} minute${left > 1 ? 's' : ''} remaining`, true);
     }
   }, [now]);
 
@@ -146,7 +150,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
         )}
         <button class="icon-btn" onClick={() => setMenuOpen(true)} id="exam-menu" aria-label="Exam menu"><IcMenu /></button>
       </div>
-      {pace && (
+      {pace && (!hideTimer || low) && ( // a hidden clock hides the running pace too
         <div class="exam-pace" aria-live="off">
           <strong>{`${fmtMinSec(Math.abs(pace.deltaSec))} ${pace.deltaSec >= 0 ? 'ahead of' : 'behind'} pace`}</strong> · about 47 s per question
         </div>

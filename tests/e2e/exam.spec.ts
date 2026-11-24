@@ -278,3 +278,20 @@ test('a hidden timer stays hidden, for VoiceOver too', async ({ page }) => {
   await page.getByRole('button', { name: 'Show time', exact: true }).click();
   await expect(page.getByRole('button', { name: /Time remaining .* Hide timer/ })).toBeVisible();
 });
+
+test('time warnings are given once per sitting, with one catch-up notice on return', async ({ page }) => {
+  await page.clock.install();
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  await go(page, 'today');
+  await page.clock.fastForward('14:00'); // away while the 5-minute mark passes
+  await page.getByRole('button', { name: 'Resume', exact: true }).click();
+  await expect(page.locator('.toast')).toHaveText('4 minutes remaining'); // one notice, with the real time left
+  await page.clock.fastForward('00:05');
+  await expect(page.locator('.toast')).toHaveCount(0);
+  await go(page, 'today');
+  await page.getByRole('button', { name: 'Resume', exact: true }).click();
+  await page.clock.fastForward('00:02');
+  await expect(page.locator('.toast')).toHaveCount(0); // not repeated after leaving and coming back
+});

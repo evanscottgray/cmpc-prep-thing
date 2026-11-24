@@ -60,7 +60,7 @@ function Primary({ a, why, later, firstVisit }: { a: Action; why: string; later?
     formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 questions · 90 minutes · no breaks', second: SHORT },
     formB: { eyebrow: 'Recommended', title: 'Take Form B', cta: 'Start Form B', go: () => navigate('start/formB'), note: '115 questions · 90 minutes · fresh questions', second: SHORT },
     mixed: { eyebrow: 'Final week', title: 'Take a mixed exam', cta: 'Start mixed exam', go: () => navigate('start/mixed'), note: '115 questions · 90 minutes · blueprint-matched', second: SHORT },
-    reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind !== 'reviewExam' ? '' : openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : `Review ${plural(missedPositions(a.session).length, 'miss', 'misses')}`, second: a.kind === 'reviewExam' ? { label: openedMisses(a.session) ? "I'm done reviewing" : 'Skip this review', go: () => { markReviewed(a.session.id); toast(`Done. ${a.session.title} stays under Progress if you want it later.`); } } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
+    reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind !== 'reviewExam' ? '' : openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : (missedPositions(a.session).length > 12 ? `Start reviewing · ${plural(missedPositions(a.session).length, 'miss', 'misses')}` : `Review ${plural(missedPositions(a.session).length, 'miss', 'misses')}`), note: a.kind === 'reviewExam' && !openedMisses(a.session) && missedPositions(a.session).length > 12 ? 'Start with a few. It picks up where you left off.' : undefined, second: a.kind === 'reviewExam' ? { label: openedMisses(a.session) ? "I'm done reviewing" : 'Skip this review', go: () => { markReviewed(a.session.id); toast(`Done. ${a.session.title} stays under Progress if you want it later.`); } } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
     weak: { eyebrow: 'Recommended', title: a.kind === 'weak' ? `Weak-area drill · ${a.count} questions` : '', cta: 'Start drill', go: () => a.kind === 'weak' && startWeak(a.count), note: 'Tutor mode: rationale after every answer' },
     review: { eyebrow: 'Recommended', title: a.kind === 'review' ? `Spaced review · ${a.count} questions` : '', cta: 'Start review', go: startReview, note: 'Tutor mode: rationale after every answer' },
     light: { eyebrow: 'Final days', title: 'Light review', cta: Object.keys(ctx.store.state.cardSrs).length ? 'Review cards you know' : 'Skim concept cards', go: () => navigate(Object.keys(ctx.store.state.cardSrs).length ? 'cards/study' : 'cards'), second: { label: 'Exam-day notes', go: () => navigate('ref/examday') } },
@@ -150,7 +150,7 @@ function DailyCard({ answered, now, reachedNote }: { answered: number; now: numb
         <StudyDays now={now} newToday={shown.newToday} />
         {reached && <p class="small muted more-label">If you want more:</p>}
         <div class={`btn-row${reached ? '' : ' mt'}`} style={reached ? { marginTop: '.4rem' } : undefined}>
-          {(() => { const q = openQuiz(); return <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>{q ? `Resume quiz · ${q.items.length - q.revealed.length} left` : 'Quick quiz · 10'}</button>; })()}
+          {(() => { const q = openQuiz(); return <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>{q ? <>Resume · <span class="keep">{q.items.length - q.revealed.length} left</span></> : 'Quick quiz · 10'}</button>; })()}
           <a class={`btn small${reached ? ' ghost' : ''}`} href="#/study">More options</a>
         </div>
       </div>
@@ -207,7 +207,7 @@ export function Today() {
   // Only say the exam covered the goal when today's answers from that sitting alone reach it.
   const examToday = p.primary.kind === 'reviewExam' ? db.attempts.filter((a) => a.s === (p.primary as { session: { id: string } }).session.id && ymd(a.t) === ymd(now) && !a.na).length : 0;
   const reachedNote = p.primary.kind === 'resume' ? 'Your daily goal is already met.'
-    : p.primary.kind === 'reviewExam' && examToday >= s.dailyTarget ? "Your exam covered today's goal. The review above is the one thing worth doing next." : undefined;
+    : p.primary.kind === 'reviewExam' && examToday >= s.dailyTarget ? "Your exam covered today's goal. If you'd like, start the review above with a few." : undefined;
   const examNext = p.primary.kind === 'formA' || p.primary.kind === 'formB' || p.primary.kind === 'mixed';
   const started = db.attempts[0]?.t ?? Infinity;
   const needBackup = Date.now() - started > 2 * 86400000 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
