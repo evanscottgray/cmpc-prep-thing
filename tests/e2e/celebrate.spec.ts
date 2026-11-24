@@ -350,3 +350,24 @@ test("a strong timed set that runs out while you're away still gets its moment, 
   await expect(page.getByRole('heading', { name: 'Session summary' })).toBeVisible();
   await expect(confetti(page)).toHaveCount(1);
 });
+
+test('a strong timed set that runs out while the app is hidden, reopened on the exam, keeps its moment for the result', async ({ page }) => {
+  await page.clock.install();
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  for (let q = 1; q <= 23; q++) {
+    await optionLabels(page).nth(await keyIndex(page)).click();
+    if (q < 23) await page.getByRole('button', { name: 'Next' }).click();
+  }
+  // the phone is locked: the exam's own timer is paused with the page; the app-level check runs on return
+  await page.evaluate(() => { Object.defineProperty(document, 'visibilityState', { value: 'hidden', configurable: true }); document.dispatchEvent(new Event('visibilitychange')); });
+  await page.clock.fastForward('18:30');
+  await page.evaluate(() => { Object.defineProperty(document, 'visibilityState', { value: 'visible', configurable: true }); document.dispatchEvent(new Event('visibilitychange')); });
+  await expect(page.getByRole('dialog', { name: "Time's up" })).toBeVisible();
+  await page.waitForTimeout(800);
+  await expect(confetti(page)).toHaveCount(0); // nothing spent behind the dialog
+  await page.getByRole('button', { name: 'See results' }).click();
+  await expect(page.getByRole('heading', { name: 'Session summary' })).toBeVisible();
+  await expect(confetti(page)).toHaveCount(1);
+});

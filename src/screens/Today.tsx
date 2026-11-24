@@ -216,7 +216,7 @@ function InProgress({ skip }: { skip?: string }) {
           const n = x.timed ? Object.keys(x.responses).length : x.revealed.length;
           return (
             <div class="list-pair">
-              <a class="list-item" href={`#/s/${x.id}`}><span class="li-main"><span class="li-title">{x.title}</span><span class="li-sub" style={{ display: 'block' }}>{n} of {plural(x.items.length, 'question')} answered<span class="li-date"><span class="li-dot"> · </span>started {fmtShort(x.createdAt)}</span></span></span><span class="badge accent">Resume</span></a>
+              <a class="list-item" href={`#/s/${x.id}`}><span class="li-main"><span class="li-title">{x.title}</span><span class="li-sub" style={{ display: 'block' }}>{n} of {x.items.length} answered<span class="li-date"><span class="li-dot"> · </span>started {fmtShort(x.createdAt)}</span></span></span><span class="badge accent">Resume</span></a>
               <button class="btn small ghost" onClick={() => discard(x.id, x.title, x.timed)}>Discard<span class="sr-only"> {x.title}</span></button>
             </div>
           );
@@ -275,7 +275,7 @@ export function Today() {
         <div class="section">
           <h2>Due reviews</h2>
           <div class="list">
-            {p.dueItems > 0 && p.primary.kind !== 'review' && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>Missed and uncertain questions{p.dueItems > REVIEW_MAX ? ` · ${REVIEW_MAX} per session` : ''}</span></span><span class="badge accent">{p.dueItems} due</span><IcChevron class="chev" /></button>}
+            {p.dueItems > 0 && p.primary.kind !== 'review' && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>Missed and uncertain questions{p.dueItems > REVIEW_MAX && <span class="keep">{` · ${REVIEW_MAX} per session`}</span>}</span></span><span class="badge accent">{p.dueItems} due</span><IcChevron class="chev" /></button>}
             {p.dueCards > 0 && <a class="list-item" href="#/cards/study"><span class="li-main"><span class="li-title">Concept cards</span><span class="li-sub" style={{ display: 'block' }}>{p.dueCards < 12 ? `${p.dueCards} due, then new cards` : 'Cards to recall again'}</span></span><span class="badge accent">{p.dueCards} due</span><IcChevron class="chev" /></a>}
           </div>
         </div>

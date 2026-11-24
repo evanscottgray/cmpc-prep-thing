@@ -30,7 +30,7 @@ test('tutor drill shows verdict text and all rationales; quiz, cards, progress w
   await expect(page.getByText('Question 2 of 10')).toBeVisible();
   // leave without ending: Today offers to resume
   await go(page, 'today');
-  await page.getByRole('link', { name: /Weakest areas.*1 of 10 questions answered|drill.*1 of 10/i }).click();
+  await page.getByRole('link', { name: /Weakest areas.*1 of 10 answered|drill.*1 of 10/i }).click();
   await expect(page.getByText('Question 2 of 10')).toBeVisible();
   await page.getByRole('button', { name: 'Finish' }).click();
   await page.getByRole('button', { name: 'End and see summary' }).click();

@@ -173,7 +173,7 @@ export const verdictBurst = (verdict: HTMLElement | null | undefined, big: boole
 
 // While "Time's up" is on screen the result behind it must not spend its one moment unseen: held, then released when the learner opens it.
 let held = false, releasedAt = 0;
-export function holdCelebrations(on: boolean) { held = on; if (!on) releasedAt = Date.now(); }
+export function holdCelebrations(on: boolean, release = true) { held = on; if (!on && release) releasedAt = Date.now(); }
 export const celebrationsHeld = () => held;
 /** The result was opened straight from the "Time's up" dialog (however long that stayed up). */
 export const justReleased = () => Date.now() - releasedAt < 3000;

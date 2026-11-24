@@ -50,10 +50,12 @@ export function App() {
   // exams whose time ran out while the app was closed are submitted on return
   useEffect(() => {
     const check = () => {
+      holdCelebrations(true); // a result mounting behind the dialog keeps its moment for when it's opened
       const ids = autoSubmitExpired();
       const s = ids.map((id) => ctx.store.state.sessions[id]).find(Boolean);
-      if (s) alertDialog({ title: "Time's up", body: `${s.title} ran out of time while you were away and was submitted automatically. Unanswered questions count as incorrect.`, ok: 'See results' })
-        .then(() => { holdCelebrations(false); navigate(`results/${s.id}`); }); // its moment plays when opened, however long the dialog stayed up
+      if (!s) { holdCelebrations(false, false); return; }
+      alertDialog({ title: "Time's up", body: `${s.title} ran out of time while you were away and was submitted automatically. Unanswered questions count as incorrect.`, ok: 'See results' })
+        .then(() => { holdCelebrations(false); navigate(`results/${s.id}`, location.hash.startsWith(`#/s/${s.id}`)); }); // its moment plays when opened, however long the dialog stayed up
     };
     check();
     const on = () => { if (document.visibilityState === 'visible') check(); };
