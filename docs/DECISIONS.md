@@ -58,6 +58,15 @@ Decisions made where the brief left room, plus enough state for a fresh session 
 - **Short screens:** below 500 px tall the navigator is a full-height sheet with the legend scrolling with the grid, and tutor's "I'm not sure" shares the action row.
 - **Question sentence:** split from the scenario and set bold in the exam, tutor and review (`QStem`).
 
+## v1.3.0 (delight)
+
+- **Celebrations live inside their card.** Each burst draws on a canvas inside the card it celebrates, clipped to the largest empty right-edge pocket measured from text line boxes and controls; with no room there is no confetti, only the glow and the words. A full-screen or behind-content layer covered text or went unseen.
+- **Words carry every reward.** Milestones and the daily goal are lines in the verdict, so Calm, Reduce Motion and VoiceOver get the same reward. A miss never gets confetti; a goal reached on one is a plain green note, announced once inside the verdict.
+- **Celebrate once.** Summaries and results celebrate only when fresh and the first time they open (`firstTime`, `fresh`); a "Time's up" dialog holds the moment until the learner opens the result (`holdCelebrations`). Pending bursts are cancelled on every route change.
+- **Review is one state machine.** `reviewStep()` (start / continue / resume last / finish) drives Today, In progress and Results. Opening a miss counts as reading it; leaving an item any way (including Safari's back swipe) records that it was left; only "Finish review" finishes, and it plays the review's own moment. Set-aside reviews can still be finished.
+- **Pull requests are checked.** The Pages workflow also runs on pull requests to `main` (typecheck, unit tests, clean build matches the committed `dist/`); only a push to `main` deploys.
+- **No pressure.** The study-days count only grows ("A missed day just starts a new run"); the goal card says more is optional; the timed exam has no feedback at all; streaks and volume disappear in the final two days.
+
 ## Resuming work
 
 - Run `npm ci`, `npm run validate`, `npm test`, `npm run build`, `npm run e2e`.

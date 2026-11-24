@@ -144,11 +144,16 @@ export function autoSubmitExpired(now = Date.now()): string[] {
 }
 
 export const missedPositions = (s: Session) => s.items.map((_, i) => i).filter((i) => inPlay(s, i) && s.responses[i] !== ctx.items.get(s.items[i].id)?.answer);
-/** Where a review resumes: the miss last visited, else the first one not yet opened. */
+/**
+ * Where a review resumes: a miss that was being read when the app closed reopens; otherwise the next
+ * unread miss after the last one read (then any unread one, then the last one read).
+ */
 export const nextMiss = (s: Session) => {
   const m = missedPositions(s);
-  if (s.reviewPos !== undefined && m.includes(s.reviewPos)) return s.reviewPos;
-  const o = new Set(s.opened); return m.find((i) => !o.has(i));
+  const last = s.reviewPos !== undefined && m.includes(s.reviewPos) ? s.reviewPos : undefined;
+  if (last !== undefined && !s.reviewLeft) return last;
+  const o = new Set(s.opened);
+  return m.find((i) => !o.has(i) && (last === undefined || i > last)) ?? m.find((i) => !o.has(i)) ?? last;
 };
 export const openedMisses = (s: Session) => { const o = new Set(s.opened); return missedPositions(s).filter((i) => o.has(i)).length; };
 
@@ -156,15 +161,44 @@ export function markReviewed(id: string) {
   const s = get(id); if (!s || s.reviewedAt) return;
   put({ ...s, reviewedAt: Date.now() });
 }
+/** Remembers that today had study that leaves no answer behind (a card rating, an exam review), for the streak. */
+export function markStudied(now = Date.now()) {
+  const m = ctx.store.state.meta; const d = ymd(now);
+  if (m.days?.includes(d)) return;
+  ctx.store.set('meta', { ...m, days: [...(m.days ?? []), d].slice(-400) });
+}
 /** Records that an item was opened in review, and where to resume. */
 export function markOpened(id: string, pos: number) {
-  const s = get(id); if (!s || (s.opened?.includes(pos) && s.reviewPos === pos)) return;
-  put({ ...s, opened: s.opened?.includes(pos) ? s.opened : [...(s.opened ?? []), pos], reviewPos: pos });
+  const s = get(id); if (!s) return;
+  if (s.status === 'submitted') markStudied();
+  if (s.opened?.includes(pos) && s.reviewPos === pos && !s.reviewLeft) return;
+  put({ ...s, opened: s.opened?.includes(pos) ? s.opened : [...(s.opened ?? []), pos], reviewPos: pos, reviewLeft: false });
 }
 /** Called when the learner moves on from an item: the review is done once every miss has been opened and left. */
 export function leftReviewItem(id: string) {
-  const s = get(id); if (!s) return;
-  if (openedMisses(s) === missedPositions(s).length) markReviewed(id);
+  const s = get(id); if (!s || s.reviewLeft) return;
+  put({ ...s, reviewLeft: true }); // moving on doesn't finish a review: only "Finish review" does
+}
+/** Every miss has been read and the learner says so with "Finish review" (or the review list's finish action). */
+export function finishReview(id: string) {
+  const s = get(id); if (!s || s.reviewedRead) return; // a review set aside earlier can still be finished by reading the rest
+  if (openedMisses(s) < missedPositions(s).length) return;
+  put({ ...s, reviewLeft: true, reviewedAt: s.reviewedAt ?? Date.now(), reviewedRead: Date.now() });
+}
+/** The one next step for an exam's review, shared by Today and Results so they always agree. */
+export type ReviewStep =
+  | { kind: 'finish' }                                   // every miss read: one tap finishes it
+  | { kind: 'resumeLast'; pos: number }                  // every miss opened, the last one interrupted mid-read
+  | { kind: 'continue'; pos?: number; opened: number; total: number }
+  | { kind: 'start'; pos?: number; total: number };
+export function reviewStep(s: Session): ReviewStep {
+  const m = missedPositions(s), opened = openedMisses(s);
+  if (m.length && opened === m.length) return !s.reviewLeft && s.reviewPos !== undefined && m.includes(s.reviewPos) ? { kind: 'resumeLast', pos: s.reviewPos } : { kind: 'finish' }; // a correct question opened last isn't a miss to resume
+  if (opened > 0) return { kind: 'continue', pos: nextMiss(s), opened, total: m.length };
+  return { kind: 'start', pos: m.length > 12 ? m[0] : undefined, total: m.length };
+}
+export function markReadCelebrated(id: string) {
+  const s = get(id); if (s && !s.readCelebrated) put({ ...s, readCelebrated: true });
 }
 
 /** Discard an unfinished session. Items already opened are remembered so a later sitting isn't called fresh. */

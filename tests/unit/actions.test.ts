@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { ctx } from '../../src/ctx';
 import { memoryKv } from '../../src/lib/db';
 import { Store, emptyState } from '../../src/lib/store';
-import { abandon, autoSubmitExpired, choose, createSession, leftReviewItem, markOpened, missedPositions, nextMiss, pause, resume, startSession, submit, toggleFlag, toggleStrike, goTo } from '../../src/lib/actions';
+import { abandon, autoSubmitExpired, choose, finishReview, createSession, leftReviewItem, markOpened, markReviewed, missedPositions, nextMiss, reviewStep, pause, resume, startSession, submit, toggleFlag, toggleStrike, goTo } from '../../src/lib/actions';
 import { buildForm, buildMixed } from '../../src/lib/assemble';
 import { dueIds } from '../../src/lib/srs';
 import { availableItems, itemStats, todayCount } from '../../src/lib/stats';
@@ -86,7 +86,46 @@ describe('exam lifecycle', () => {
     for (const p of m.slice(2)) markOpened(id, p);
     expect(S(id).reviewedAt).toBeUndefined(); // opening the last miss isn't finishing it
     leftReviewItem(id);
+    expect(S(id).reviewedAt).toBeUndefined(); // nor is leaving it: only "Finish review" finishes
+    finishReview(id);
     expect(S(id).reviewedAt).toBeDefined();
+    expect(S(id).reviewedRead).toBeDefined(); // finished by reading, not by skipping
+  });
+  it('a miss read and left resumes at the next unread one; one interrupted mid-read reopens', () => {
+    const id = start();
+    for (let p = 0; p < 115; p++) if (p > 2) choose(id, p, key(id, p)); // 0-2 missed
+    submit(id, false, 60000);
+    markOpened(id, 0); leftReviewItem(id); // read and left
+    expect(nextMiss(S(id))).toBe(1);
+    markOpened(id, 2); // jumped ahead to 2, app closed while reading it
+    expect(nextMiss(S(id))).toBe(2);
+    leftReviewItem(id); // left 2: the only unread one is 1
+    expect(nextMiss(S(id))).toBe(1);
+    expect(S(id).reviewedAt).toBeUndefined();
+  });
+  it('a correct question opened last is not offered as "Resume last miss"', () => {
+    const id = start();
+    for (let p = 0; p < 115; p++) if (p > 2) choose(id, p, key(id, p)); // 0-2 missed
+    submit(id, false, 60000);
+    for (const p of missedPositions(S(id))) { markOpened(id, p); leftReviewItem(id); }
+    markOpened(id, missedPositions(S(id))[0]); // rereading a miss, interrupted
+    expect(reviewStep(S(id)).kind).toBe('resumeLast');
+    markOpened(id, 50); // then a correct one from "Review all", interrupted
+    expect(reviewStep(S(id))).toEqual({ kind: 'finish' });
+  });
+  it('a review set aside can still be finished by reading the rest', () => {
+    const id = start();
+    for (let p = 0; p < 115; p++) if (p > 2) choose(id, p, key(id, p));
+    submit(id, false, 60000);
+    markReviewed(id); // "Skip this review"
+    const at = S(id).reviewedAt;
+    expect(at).toBeDefined(); expect(S(id).reviewedRead).toBeUndefined();
+    finishReview(id); // not every miss read yet: nothing happens
+    expect(S(id).reviewedRead).toBeUndefined();
+    for (const p of missedPositions(S(id))) markOpened(id, p);
+    finishReview(id);
+    expect(S(id).reviewedRead).toBeDefined();
+    expect(S(id).reviewedAt).toBe(at); // still dated from when it was set aside
   });
   it('striking the chosen option clears it; choosing a struck option restores it', () => {
     const id = start();

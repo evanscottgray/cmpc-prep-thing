@@ -42,7 +42,7 @@ export function Study() {
       <div class="section" style={{ marginTop: 0 }}>
         <h2>Full exams</h2>
         <div class="list">
-          <ListLink href="#/start/formA" title="Form A" sub={lastScore('formA') ?? 'Best first: your diagnostic'} right={tookA ? undefined : <span class="badge accent">Start here</span>} />
+          <ListLink href="#/start/formA" title="Form A" sub={lastScore('formA') ?? 'Best first: your diagnostic'} right={tookA || !db.attempts.length ? undefined : <span class="badge accent">Start here</span>} />{/* before any practice, Today's warm-up is where to start */}
           <ListLink href="#/start/formB" title="Form B" sub={lastScore('formB') ?? 'A second, separate form'} />
           <ListLink href="#/start/mixed" title="Mixed exam" sub={lastScore('mixed') ?? 'Assembled to the blueprint from unseen and weak-area questions'} />
         </div>

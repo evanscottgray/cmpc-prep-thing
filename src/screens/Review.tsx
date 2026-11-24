@@ -2,12 +2,12 @@ import { useEffect } from 'preact/hooks';
 import type { Session } from '../types';
 import { ctx } from '../ctx';
 import { back, historyIndex, navigate } from '../router';
-import { leftReviewItem, markOpened } from '../lib/actions';
+import { finishReview, leftReviewItem, markOpened, missedPositions, openedMisses } from '../lib/actions';
 import { inPlay } from '../lib/scoring';
 import { plural } from '../lib/dates';
-import { Page } from '../ui/bits';
+import { Meter, Page } from '../ui/bits';
 import { ItemMeta, ItemReview, StemFold, Verdict } from '../ui/question';
-import { IcCheckCircle, IcChevron, IcMinusCircle, IcXCircle } from '../ui/icons';
+import { IcCheckCircle, IcChevron, IcCircle, IcMinusCircle, IcXCircle } from '../ui/icons';
 
 type F = 'all' | 'incorrect' | 'flagged' | 'unscored';
 
@@ -42,7 +42,11 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
     const pos = lastOpened.get(s.id);
     if (pos === undefined) return;
     lastOpened.delete(s.id);
-    requestAnimationFrame(() => { const row = document.getElementById(`rv-${pos}`); row?.scrollIntoView({ block: 'center' }); row?.focus({ preventScroll: true }); });
+    requestAnimationFrame(() => {
+      const fin = document.getElementById('rv-finish'); // every miss read: the step left is finishing, so that's where you land
+      if (fin) { fin.scrollIntoView({ block: 'center' }); fin.focus({ preventScroll: true }); return; }
+      const row = document.getElementById(`rv-${pos}`); row?.scrollIntoView({ block: 'center' }); row?.focus({ preventScroll: true });
+    });
   }, [s.id]);
   const positions = filterPositions(s, query);
   const f = (query.get('f') as F) || 'all';
@@ -50,13 +54,16 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
   const bp = ctx.bank.blueprint;
   const flags = new Set(s.flags);
   const opened = new Set(s.opened);
+  const checklist = s.timed && f === 'incorrect'; // every row is a miss here, so the icon shows read or not yet
+  // every miss read, but the review not finished yet (e.g. Back from the last one): finish it from here too
+  const canFinish = checklist && !query.get('d') && !query.get('k') && !query.get('s') && !s.reviewedRead && missedPositions(s).length > 0 && openedMisses(s) === missedPositions(s).length;
   const filters: F[] = isExam ? ['all', 'incorrect', 'flagged', 'unscored'] : ['all', 'incorrect', 'flagged'];
   return (
     <Page title={`Review · ${s.title}`} backTo={`results/${s.id}`}>
       <div class="chips wrap" role="group" aria-label="Filter">
         {filters.map((x) => <button class="chip" aria-pressed={f === x} onClick={() => navigate(`review/${s.id}${qs(query, { f: x === 'all' ? null : x, ...(x === 'unscored' ? { s: null } : {}) })}`, true)}>{x[0].toUpperCase() + x.slice(1)} {filterPositions(s, query, x).length}</button>)}
       </div>
-      {query.get('s') && f !== 'unscored' && (
+      {isExam && query.get('s') && f !== 'unscored' && (
         <p class="small scored-note"><span>Scored questions only, matching the score breakdown.</span><button class="btn small" onClick={() => navigate(`review/${s.id}${qs(query, { s: null })}`, true)}>Include trial questions</button></p>
       )}
       <details class="filter-fold" open={!!(query.get('d') || query.get('k'))}>
@@ -76,7 +83,8 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
         </label>
       </div>
       </details>
-      <p class="small muted" aria-live="polite">{plural(positions.length, 'question')}{opened.size ? ` · ${positions.filter((i) => opened.has(i)).length} opened` : ''}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
+      <p class="small muted" aria-live="polite">{checklist ? plural(positions.length, 'miss', 'misses') : plural(positions.length, 'question')}{opened.size ? ` · ${positions.filter((i) => opened.has(i)).length} read` : ''}{isExam && f === 'incorrect' ? ` · ${positions.filter((i) => s.items[i].scored).length} scored, ${positions.filter((i) => !s.items[i].scored).length} unscored` : ''}</p>
+      {canFinish && <button id="rv-finish" class="btn primary block mb" onClick={() => { finishReview(s.id); navigate(`results/${s.id}`, true); }}>Finish review</button>}
       {positions.length === 0 && (
         <div class="card"><p>No questions match these filters.</p><button class="btn small" onClick={() => navigate(`review/${s.id}`, true)}>Clear filters</button></div>
       )}
@@ -90,11 +98,12 @@ export function ReviewList({ session: s, query }: { session: Session; query: URL
             const tags = [(f !== 'incorrect' || skipped) && status, !si.scored && isExam && f !== 'unscored' && 'Unscored', flags.has(i) && f !== 'flagged' && 'Flagged'].filter(Boolean);
             return (
               <a class="list-item" id={`rv-${i}`} href={`#/review/${s.id}/${i}${qs(query, {})}`} onClick={() => listAt.set(s.id, historyIndex())}>
-                {ok ? <IcCheckCircle class="status-ic ok" /> : skipped ? <IcMinusCircle class="status-ic skip" /> : <IcXCircle class="status-ic bad" />}
+                {checklist ? (opened.has(i) ? <IcCheckCircle class="status-ic read" /> : <IcCircle class="status-ic skip" />) /* the misses fill in like a checklist as they're read */
+                  : ok ? <IcCheckCircle class="status-ic ok" /> : skipped ? <IcMinusCircle class="status-ic skip" /> : <IcXCircle class="status-ic bad" />}
                 <span class="li-main">
                   <span class="li-title">{i + 1}. {it.topic}</span>
                   <span class="li-sub clip">{it.stem}</span>
-                  <span class="li-sub" style={{ display: 'block' }}>{group}{tags.map((t) => <>{'\u00a0· '}<span class="keep">{t}</span></>)}{opened.has(i) && <span class="opened">{'\u00a0· Opened'}</span>}</span>
+                  <span class="li-sub" style={{ display: 'block' }}>{group}{tags.map((t) => <>{'\u00a0· '}<span class="keep">{t}</span></>)}{opened.has(i) ? <span class="opened read">{'\u00a0· Read'}</span> : checklist && <span class="sr-only">, not read yet</span>}</span>
                 </span>
                 <IcChevron class="chev" />
               </a>
@@ -110,26 +119,40 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const positions = filterPositions(s, query);
   const idx = positions.indexOf(pos);
   const si = s.items[pos]; const it = si && ctx.items.get(si.id);
-  useEffect(() => { lastOpened.set(s.id, pos); markOpened(s.id, pos); window.scrollTo(0, 0); document.getElementById('rv-stem')?.focus({ preventScroll: true }); }, [pos]);
+  useEffect(() => {
+    if (!it) return; // a stale link: nothing to record
+    lastOpened.set(s.id, pos); markOpened(s.id, pos); window.scrollTo(0, 0); document.getElementById('rv-stem')?.focus({ preventScroll: true });
+    return () => leftReviewItem(s.id); // left however it was left (in-app Back, Next, or Safari's back swipe); an app closed mid-read never gets here, so it still reopens
+  }, [s.id, pos]);
   if (!it) return <Page title="Review" backTo={`review/${s.id}`}><p>This question is no longer in the bank.</p></Page>;
   const resp = s.responses[pos];
   const prev = idx > 0 ? positions[idx - 1] : null, next = idx >= 0 && idx < positions.length - 1 ? positions[idx + 1] : null;
   const q = query.toString() ? `?${query}` : '';
   const isExam = ['formA', 'formB', 'mixed'].includes(s.kind);
   const toList = () => { leftReviewItem(s.id); if (listAt.get(s.id) === historyIndex() - 1) back(); else navigate(`review/${s.id}${q}`, true); };
+  // the reading count and "Finish review" belong to the whole set of misses, not a filtered slice of it
+  const misses = s.timed && query.get('f') === 'incorrect' && !query.get('d') && !query.get('k') && !query.get('s') ? missedPositions(s).length : 0;
+  const read = misses ? openedMisses(s) : 0;
+  // every miss is open now (in whatever order): name the step, and finish on the result it belongs to (exams only)
+  const finishing = s.timed && misses > 0 && !s.reviewedRead && read === misses; // timed sessions (tutor modes already showed every rationale)
+  const finish = () => { finishReview(s.id); navigate(`results/${s.id}`, true); };
+  // while misses are still unread, the main button goes on to the next unread one (wrapping), not through ones already read
+  const left = misses && !finishing ? missedPositions(s).filter((i) => i !== pos && !s.opened?.includes(i)) : [];
+  const unread = left.find((i) => i > pos) ?? left[0];
   return (
     <Page title={`Question ${pos + 1}`} onBack={toList} tabs={false}>
+      {misses > 0 && <div class="session-progress"><Meter value={(100 * read) / misses} label={`${read} of ${misses} misses read`} /></div>}
       <div class="row between small muted" style={{ marginBottom: '.5rem' }}>
-        <span>{idx + 1} of {positions.length} in this view</span>
+        <span>{misses ? `${read} of ${misses} read` : `${idx + 1} of ${positions.length} in this view`}</span>
         <span>{[!si.scored && isExam && 'Unscored trial question', s.flags.includes(pos) && 'Flagged'].filter(Boolean).join(' · ')}</span>
       </div>
-      <StemFold key={pos} id="rv-stem" text={it.stem} open />
+      <StemFold key={pos} id="rv-stem" text={it.stem} />{/* like tutor: folded on phones so the explanation is in reach; open on iPad; your choice carries over */}
       <Verdict item={it} si={si} response={resp} />
       <ItemReview item={it} si={si} response={resp} />
       <ItemMeta item={it} />
       <div class="actionbar">
         {prev !== null && <button class="btn" onClick={() => navigate(`review/${s.id}/${prev}${q}`, true)}>Previous</button>}
-        <button class="btn primary" onClick={() => { if (next === null) toList(); else { leftReviewItem(s.id); navigate(`review/${s.id}/${next}${q}`, true); } }}>{next === null ? 'Back to list' : 'Next'}</button>
+        <button class="btn primary" onClick={() => { if (finishing) finish(); else if (unread !== undefined) { leftReviewItem(s.id); navigate(`review/${s.id}/${unread}${q}`, true); } else if (next === null) toList(); else { leftReviewItem(s.id); navigate(`review/${s.id}/${next}${q}`, true); } }}>{finishing ? 'Finish review' : unread !== undefined ? (unread === next ? 'Next' : 'Next unread miss') : next === null ? 'Back to list' : 'Next'}</button>
       </div>
     </Page>
   );

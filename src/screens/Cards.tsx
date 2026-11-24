@@ -6,8 +6,10 @@ import { fmtShort, plural, ymd } from '../lib/dates';
 import { dueIds, scheduleCard, type Grade } from '../lib/srs';
 import { isLight, plan } from '../lib/plan';
 import { areaAccuracy, itemStats, smooth } from '../lib/stats';
-import { ListLink, Page } from '../ui/bits';
+import { ListLink, Meter, Page } from '../ui/bits';
 import { References } from '../ui/question';
+import { cardBurst } from '../ui/celebrate';
+import { markStudied } from '../lib/actions';
 
 const SESSION = 12; // a card session tops up what is due with new cards to this size
 const CAT = (c: Card) => c.category === 'ethics-principle' ? 'Ethics principle' : c.category === 'ethics-standard' ? 'Ethics standard' : `${ctx.bank.blueprint.kgs.find((k) => k.id === c.kg)?.name}`;
@@ -90,13 +92,14 @@ export function CardDetail({ id }: { id: string }) {
 function rate(id: string, g: Grade) {
   const st = ctx.store.state;
   ctx.store.set('cardSrs', { ...st.cardSrs, [id]: scheduleCard(st.cardSrs[id], g, ymd(), st.settings.examDate) });
+  markStudied();
 }
-function RateRow({ id, onRated }: { id: string; onRated: () => void }) {
+function RateRow({ id, onRated }: { id: string; onRated: (g: Grade) => void }) {
   return (
     <div class="actionbar" role="group" aria-label="How well did you know this?">
-      <button class="btn" onClick={() => { rate(id, 'wrong'); onRated(); }}>Missed it</button>
-      <button class="btn" onClick={() => { rate(id, 'unsure'); onRated(); }}>Unsure</button>
-      <button class="btn" onClick={() => { rate(id, 'right'); onRated(); }}>Knew it</button>
+      <button class="btn" onClick={() => { rate(id, 'wrong'); onRated('wrong'); }}>Missed it</button>
+      <button class="btn" onClick={() => { rate(id, 'unsure'); onRated('unsure'); }}>Unsure</button>
+      <button class="btn" onClick={() => { rate(id, 'right'); onRated('right'); }}>Knew it</button>
     </div>
   );
 }
@@ -115,30 +118,52 @@ export function CardStudy() {
   }, []);
   const [i, setI] = useState(0);
   const [show, setShow] = useState(false);
+  const [tally, setTally] = useState({ right: 0, unsure: 0, wrong: 0 });
   useEffect(() => { if (show) document.getElementById('card-title')?.focus({ preventScroll: true }); }, [show]);
   const c = ctx.bank.cards.find((x) => x.id === queue[i]);
+  const rated = tally.right + tally.unsure + tally.wrong;
+  const skipped = Math.min(i, queue.length) - rated;
+  const good = rated > 0 && tally.right * 3 >= queue.length * 2; // celebrate a set where about two-thirds of it was known
+  useEffect(() => { if (!c && good) return cardBurst(document.querySelector<HTMLElement>('.card.hero'), true, 250); }, [!c]); // in the card's own empty corner
   if (!c) return (
     <Page title="Concept cards" backTo="cards" tabs={false}>
-      <div class="card hero center">
-        <h2>{queue.length ? 'Session complete' : 'Nothing due'}</h2>
-        <p class="muted">{queue.length ? 'Cards you rated come back on a schedule that fits your exam date.' : 'All cards are scheduled for later.'}</p>
-        <button class="btn primary" onClick={() => navigate('cards', true)}>Done</button>
+      <div class={`card hero${good ? ' celebrate' : ''}`}>{/* the same layout as a quiz summary: the cheer on the left, room on the right */}
+        <div class="cheer">
+          {rated > 0 && <span class="cheer-emoji" aria-hidden="true">{good ? '🎉' : '🌱'}</span>}
+          <div>
+            <h2 class="cheer-head" style={{ margin: 0 }}>{queue.length ? (rated ? 'Session complete!' : 'Session complete') : 'Nothing due'}</h2>
+            {queue.length > 0 && <div class="small muted">{skipped > 0 ? `${rated} of ${queue.length} rated · ${skipped} skipped` : `${plural(rated, 'card')} rated`}</div>}
+          </div>
+        </div>
+        {rated > 0 && <p class="tally left"><span><strong>{tally.right}</strong> knew it</span><span><strong>{tally.unsure}</strong> unsure</span><span><strong>{tally.wrong}</strong> missed</span></p>}
+        <p class="muted">{!queue.length ? 'All cards are scheduled for later.'
+          : !rated ? 'Cards you rate come back on a schedule that fits your exam date.'
+          : good ? 'Nice work. The ones you knew come back later; the rest come back sooner.'
+          : tally.wrong + tally.unsure > 0 ? 'Done. The ones you missed come back sooner, which is how they stick.'
+          : 'Done. Skipped cards come back next time.'}</p>
+        <button class="btn primary block" onClick={() => navigate('cards', true)}>Done</button>
       </div>
     </Page>
   );
   return (
     <Page title={`Card ${i + 1} of ${queue.length}`} backTo="cards" tabs={false}>
-      <div class="eyebrow">{CAT(c)}</div>
-      <h2 style={{ fontSize: '1.35rem' }} tabIndex={-1} id="card-title">{c.title}</h2>
+      <div class="small muted card-count" aria-hidden="true">{i} of {queue.length} done</div>{/* above the bar, as in a quiz; the meter says it to VoiceOver */}
+      <div class="session-progress"><Meter value={(100 * i) / queue.length} label={`${i} of ${queue.length} cards done`} /></div>
       {!show ? (
         <>
-          <p>Before you look, say it in your own words: the definition, an example with a client, and how a scenario might test it.</p>
+          <div class="card recall">{/* the card's face: the term to recall */}
+            <div class="eyebrow">{CAT(c)}</div>
+            <h2 style={{ fontSize: '1.35rem' }} tabIndex={-1} id="card-title">{c.title}</h2>
+            <p class="muted small">Before you look, say it in your own words: the definition, an example with a client, and how a scenario might test it.</p>
+          </div>
           <div class="actionbar"><button class="btn" onClick={() => { setI(i + 1); window.scrollTo(0, 0); }}>Skip for now</button><button class="btn primary" onClick={() => setShow(true)}>Show card</button></div>
         </>
       ) : (
         <>
-          <CardBody c={c} />
-          <RateRow id={c.id} onRated={() => { setShow(false); setI(i + 1); window.scrollTo(0, 0); }} />
+          <div class="eyebrow">{CAT(c)}</div>
+          <h2 style={{ fontSize: '1.35rem' }} tabIndex={-1} id="card-title">{c.title}</h2>
+          <div class="reveal"><CardBody c={c} /></div>
+          <RateRow id={c.id} onRated={(g) => { setTally((t) => ({ ...t, [g]: t[g] + 1 })); setShow(false); setI(i + 1); window.scrollTo(0, 0); }} />
         </>
       )}
     </Page>

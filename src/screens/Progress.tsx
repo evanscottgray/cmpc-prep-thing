@@ -3,9 +3,10 @@ import type { Session } from '../types';
 import { ctx, useDb } from '../ctx';
 import { scaledScore } from '../lib/scoring';
 import type { DrillSource } from '../lib/assemble';
-import { fmtShort } from '../lib/dates';
+import { fmtShort, plural, ymd } from '../lib/dates';
 import { areaAccuracy, availableItems, examHistory, focusAreas, focusLine, itemStats, pacingStats, readiness } from '../lib/stats';
 import { AreaBar, ListLink, Page } from '../ui/bits';
+import { lastWeek, studyDays } from '../lib/streak';
 import { DrillSetup } from './Study';
 
 const scoreOf = (s: Session, target: number) => scaledScore((100 * s.result!.raw) / s.result!.scoredCount, target);
@@ -56,7 +57,18 @@ export function Progress() {
   const focus = focusAreas(bank, last.byKg);
   const rate = (id: string) => (last.byKg[id].n ? last.byKg[id].c / last.byKg[id].n : 2);
   const kgs = [...bank.blueprint.kgs].sort((a, b) => rate(a.id) - rate(b.id) || b.weight - a.weight);
-  const range = r.scaledLo >= 550 ? 'Your whole likely range is at or above 550.' : r.scaledHi < 550 ? 'Your whole likely range is below 550.' : 'Your likely range includes 550, so it could go either way.';
+  // Progress you can feel, stated only when it's true: score gained since the first exam, and this week's effort.
+  // Score: only fresh, fully answered sittings count (familiar questions inflate a score), named by form and raw score.
+  const freshExams = exams.filter((e) => !e.retake && e.seenBefore === 0 && e.result!.answered === e.result!.total);
+  const [e0, e1] = [freshExams[0], freshExams[freshExams.length - 1]];
+  const scoreGain = freshExams.length >= 2 && e1.result!.raw > e0.result!.raw ? `${e0.title} ${e0.result!.raw}/${e0.result!.scoredCount} → ${e1.title} ${e1.result!.raw}/${e1.result!.scoredCount} (raw scores).` : '';
+  // Effort: questions answered and days studied over the same seven local dates.
+  const week = lastWeek(studyDays(db));
+  const weekQs = db.attempts.filter((a) => !a.na && ymd(a.t) >= week[0].date).length;
+  const weekDays = week.filter((d) => d.studied).length;
+  const effort = weekDays === 0 ? '' : weekQs > 0 ? `This week: ${plural(weekQs, 'question')} on ${plural(weekDays, 'study day')}.` : `This week: ${plural(weekDays, 'study day')}.`;
+  // Compared with the learner's practice target (placed at 550), not a prediction of exam day.
+  const range = r.scaledLo >= 550 ? 'Your estimated range is above your practice target.' : r.scaledHi < 550 ? 'Your estimated range is below your practice target.' : 'Your estimated range crosses your practice target.';
   return (
     <Page title="Progress" noBack wide>
       <div class="cols">
@@ -65,18 +77,20 @@ export function Progress() {
         <div class="eyebrow">Readiness estimate</div>
         {r.enough ? (
           <>
-            <p class="ready"><span class={`badge big ${r.level === 'On track' ? 'ok' : r.level === 'Borderline' ? 'warn' : 'bad'}`}>{r.level}</span></p>
+            <p class="ready"><span class={`badge big ${r.level === 'Above practice target' ? 'ok' : r.level === 'Near practice target' ? 'warn' : 'bad'}`}>{r.level}</span></p>
             <div class="score-line first">
               <div><div class="v">{r.scaled}</div><div class="k">Estimated scaled score, <span class="keep">likely {r.scaledLo}–{r.scaledHi}</span></div></div>
               <div><div class="v">{r.raw}%</div><div class="k">Accuracy on first tries, weighted by the exam blueprint</div></div>
             </div>
             <p class="small" style={{ margin: '.6rem 0' }}>{range} An estimate, not a prediction.</p>
+            {scoreGain && <p class="small progress-gain"><span aria-hidden="true">↗ </span>{scoreGain}</p>}
+            {effort && <p class="small muted" style={{ margin: '.35rem 0 0' }}>{effort}</p>}
             <details class="how small muted">
               <summary>Why this number</summary>
               <p>It counts your first try at every practice question, from exams and drills, so it can differ from any single exam{exams.length ? ` (your latest: ${scoreOf(exams[exams.length - 1], target)})` : ''}. It maps your practice target ({target}/100) to 550; AASP doesn't publish the raw passing score.</p>
             </details>
           </>
-        ) : <><p>Answer at least 60 questions (a full exam is ideal) to get an estimate. So far: {r.n}.</p><p class="small muted" style={{ marginBottom: 0 }}>An estimate, not a prediction. It maps your practice target ({target}/100) to 550; AASP doesn't publish the raw passing score.</p></>}
+        ) : <><p>Answer at least 60 questions (a full exam is ideal) to get an estimate. So far: {r.n}.</p>{effort && <p class="small progress-gain" style={{ marginTop: 0 }}>{effort}</p>}<p class="small muted" style={{ marginBottom: 0 }}>An estimate, not a prediction. It maps your practice target ({target}/100) to 550; AASP doesn't publish the raw passing score.</p></>}
       </div>
 
       {focus.length > 0 && (

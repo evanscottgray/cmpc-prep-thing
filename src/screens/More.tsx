@@ -18,7 +18,7 @@ export function More() {
       <div class="cols">
       <div>
       <div class="list">
-        <ListLink href="#/settings" title="Settings" sub="Exam date, passing target, mode, text size, theme" />
+        <ListLink href="#/settings" title="Settings" sub="Exam date, passing target, mode, text size, theme, celebrations" />
         <ListLink href="#/backup" title="Backup and restore" sub={db.settings.lastBackupAt ? `Last backup ${fmtDate(ymd(db.settings.lastBackupAt))}` : 'No backup yet'} />
         <ListLink href="#/reports" title="Problem reports" sub={`${db.reports.length} report${db.reports.length === 1 ? '' : 's'} · ${db.hidden.length} hidden question${db.hidden.length === 1 ? '' : 's'}`} />
       </div>
@@ -98,6 +98,11 @@ export function Settings() {
       <div class="field">
         <span class="label">Theme</span>
         <Seg<Theme> name="th" label="Theme" value={s.theme} onChange={(v) => up({ theme: v })} options={[{ v: 'system', label: 'System' }, { v: 'light', label: 'Light' }, { v: 'dark', label: 'Dark' }]} />
+      </div>
+      <div class="field">
+        <span class="label">Celebrations</span>
+        <Seg<'on' | 'calm'> name="cel" label="Celebrations" value={s.celebrations === false ? 'calm' : 'on'} onChange={(v) => up({ celebrations: v === 'on' })} options={[{ v: 'on', label: 'Confetti' }, { v: 'calm', label: 'Calm' }]} />
+        <span class="hint">Confetti and small animations when you get things right, finish a session, or reach your daily goal. Calm keeps the encouragement without the motion. Never during a timed exam; your device's Reduce Motion setting always wins.</span>
       </div>
       <div class="section">
         <h2>Data</h2>

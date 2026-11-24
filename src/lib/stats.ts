@@ -66,7 +66,7 @@ export function readiness(bank: Bank, db: DbState) {
     n, raw, lo, hi, scaled: scaledScore(raw, target), scaledLo, scaledHi,
     enough: n >= 60,
     // one rule for the label and its explanation: where the likely range sits against 550
-    level: n < 60 ? 'Not enough data yet' : scaledLo >= 550 ? 'On track' : scaledHi < 550 ? 'Needs work' : 'Borderline',
+    level: n < 60 ? 'Not enough data yet' : scaledLo >= 550 ? 'Above practice target' : scaledHi < 550 ? 'Below practice target' : 'Near practice target',
   };
 }
 

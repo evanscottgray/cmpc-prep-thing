@@ -60,6 +60,13 @@ describe('Today cadence', () => {
     db.sessions[s.id] = s;
     expect(plan(db, NOW).primary.kind).toBe('reviewExam');
   });
+  it("doesn't recommend reviewing an exam with nothing missed", () => {
+    const db = withDate(21);
+    const s = exam('formA', NOW - 3600000, { reviewedAt: undefined });
+    s.result = { ...s.result!, correctAll: 115, total: 115 };
+    db.sessions[s.id] = s;
+    expect(plan(db, NOW).primary.kind).not.toBe('reviewExam');
+  });
   it('drills weak areas between forms, then Form B later', () => {
     const db = withDate(20);
     const a = exam('formA', NOW - 4 * DAY); db.sessions[a.id] = a;

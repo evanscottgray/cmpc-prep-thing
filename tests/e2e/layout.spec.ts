@@ -37,7 +37,7 @@ for (const size of ['m', 'xl'] as const) {
     await page.getByRole('button', { name: 'Exam menu' }).click(); await visit('menu');
     await page.getByRole('button', { name: /Hide this question/ }).click();
     await go(page, 'today');
-    await page.getByRole('button', { name: 'Quick quiz · 10' }).click();
+    await page.getByRole('button', { name: /^(Quick quiz · 10|Start the warm-up)$/ }).last().click();
     await expect(page.getByRole('button', { name: 'Report a problem' })).toBeVisible(); // before answering too
     await optionLabels(page).nth(0).click(); await page.getByRole('button', { name: 'Check answer' }).click(); await visit('tutor');
   });
@@ -77,7 +77,7 @@ test('the navigator shows whole rows of questions with a phone held sideways', a
 
 test('tutor controls stay on screen with a phone held sideways', async ({ page }) => {
   await onboard(page);
-  await page.getByRole('button', { name: 'Quick quiz · 10' }).click();
+  await page.getByRole('button', { name: /^(Quick quiz · 10|Start the warm-up)$/ }).last().click();
   await expect(page.getByText('Question 1 of 10')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Previous', exact: true })).toHaveCount(0); // nothing to go back to
   await optionLabels(page).nth(0).click(); await page.getByRole('button', { name: 'Check answer' }).click();
@@ -127,7 +127,7 @@ test('two tabs do not overwrite each other', async ({ page, context }) => {
   await b.goto('./#/reports'); await expect(b.getByRole('heading', { name: 'Problem reports' })).toBeVisible();
   for (const tab of [page, b]) {
     await go(tab, 'today');
-    if (tab === page) await tab.getByRole('button', { name: 'Quick quiz · 10' }).click();
+    if (tab === page) await tab.getByRole('button', { name: /^(Quick quiz · 10|Start the warm-up)$/ }).last().click();
     else { await tab.getByRole('link', { name: /Quick quiz.*Resume/ }).click(); await tab.getByRole('button', { name: 'Next question' }).click(); } // the second tab resumes the first tab's quiz
     await optionLabels(tab).nth(0).click(); await tab.getByRole('button', { name: 'Check answer' }).click();
     await expect(tab.locator('#verdict')).toBeVisible(); await tab.waitForTimeout(600);

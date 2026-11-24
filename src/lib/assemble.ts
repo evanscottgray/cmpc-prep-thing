@@ -194,7 +194,7 @@ export function buildBlock(bank: Bank, db: DbState, mode: ExamMode, now = Date.n
   const pr = new Map(pool.map((i) => [i.id, priority(i, stats.get(i.id), weak, maxWeak, now, rand)]));
   const picked = sampleProportional(bank, pool, 23, (i) => pr.get(i.id)!, rand);
   return newSession('block', 'Exam-pace block', toSessionItems(picked.map((i) => ({ id: i.id, scored: true })), rand), {
-    timed: true, durationMs: 18 * 60000, mode, label: '23 questions in 18 minutes', seenBefore: picked.filter((i) => stats.has(i.id)).length,
+    timed: true, durationMs: 18 * 60000, mode, label: '23 in 18 min', seenBefore: picked.filter((i) => stats.has(i.id)).length,
   }, now);
 }
 
@@ -208,7 +208,7 @@ export function buildQuiz(bank: Bank, db: DbState, now = Date.now(), seed = now)
   const pr = new Map(pool.map((i) => [i.id, priority(i, stats.get(i.id), weak, maxWeak, now, rand)]));
   const picked = sampleProportional(bank, pool, 10, (i) => pr.get(i.id)!, rand, weak);
   return newSession('quiz', 'Quick quiz', toSessionItems(picked.map((i) => ({ id: i.id, scored: true })), rand), {
-    timed: false, durationMs: 0, mode: 'coached', label: 'Weighted to weak areas',
+    timed: false, durationMs: 0, mode: 'coached', label: db.attempts.length ? 'Weighted to weak areas' : 'Untimed warm-up', // nothing to weight yet on the very first one
   }, now);
 }
 

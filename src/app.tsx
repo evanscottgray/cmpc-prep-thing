@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useLayoutEffect, useState } from 'preact/hooks';
 import { ctx, useDb } from './ctx';
 import { navigate, useRoute } from './router';
 import { autoSubmitExpired } from './lib/actions';
@@ -16,6 +16,7 @@ import { ExamIntro } from './screens/ExamIntro';
 import { ExamRunner } from './screens/ExamRunner';
 import { TutorRunner } from './screens/TutorRunner';
 import { Results } from './screens/Results';
+import { clearConfetti, holdCelebration, releaseCelebration } from './ui/celebrate';
 import { ReviewItem, ReviewList } from './screens/Review';
 
 const TAB_ROOTS = new Set(['today', 'study', 'cards', 'progress', 'more']);
@@ -30,14 +31,18 @@ export function App() {
   const [update, setUpdate] = useState(false);
   const [head, ...rest] = route.path;
 
+  // A new screen isn't read through old confetti. A layout effect, so it runs before the new screen schedules its own celebration.
+  useLayoutEffect(() => clearConfetti(), [route.path.join('/')]);
+
   // apply theme + text size
   useEffect(() => {
     const el = document.documentElement;
     if (db.settings.theme === 'system') el.removeAttribute('data-theme'); else el.setAttribute('data-theme', db.settings.theme);
     el.setAttribute('data-size', db.settings.textSize);
+    if (db.settings.celebrations === false) el.setAttribute('data-calm', ''); else el.removeAttribute('data-calm');
     const dark = db.settings.theme === 'dark' || (db.settings.theme === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0e1318' : '#f5f6f8');
-  }, [db.settings.theme, db.settings.textSize]);
+  }, [db.settings.theme, db.settings.textSize, db.settings.celebrations]);
 
   // first run → onboarding
   useEffect(() => { if (!db.settings.onboarded && head !== 'onboarding' && head !== 'backup') navigate('onboarding', true); }, [db.settings.onboarded, head]);
@@ -46,9 +51,12 @@ export function App() {
   useEffect(() => {
     const check = () => {
       const ids = autoSubmitExpired();
-      const s = ids.map((id) => ctx.store.state.sessions[id]).find(Boolean);
-      if (s) alertDialog({ title: "Time's up", body: `${s.title} ran out of time while you were away and was submitted automatically. Unanswered questions count as incorrect.`, ok: 'See results' })
-        .then(() => navigate(`results/${s.id}`));
+      const all = ids.map((id) => ctx.store.state.sessions[id]).filter(Boolean);
+      const s = all.find((x) => location.hash.startsWith(`#/s/${x.id}`)) ?? all[0]; // the one on screen, if any, is the one whose result mounts behind the dialog
+      if (!s) return;
+      holdCelebration(s.id); // before the next render: a result mounting behind the dialog keeps its moment for when it's opened
+      alertDialog({ title: "Time's up", body: `${s.title} ran out of time while you were away and was submitted automatically. Unanswered questions count as incorrect.`, ok: 'See results' })
+        .then(() => { releaseCelebration(s.id); navigate(`results/${s.id}`, location.hash.startsWith(`#/s/${s.id}`)); }); // its moment plays when opened, however long the dialog stayed up
     };
     check();
     const on = () => { if (document.visibilityState === 'visible') check(); };
@@ -77,12 +85,12 @@ export function App() {
     case 's': {
       const s = db.sessions[rest[0]];
       if (!s) screen = <Page title="Session" backTo="today"><p>This session no longer exists.</p></Page>;
-      else if (s.status === 'submitted') { screen = <Results session={s} />; }
+      else if (s.status === 'submitted') { screen = <Results key={`${s.id}:s`} session={s} />; } // a fresh instance on results/…, so a held moment can play there
       else if (s.timed) { inExam = true; screen = <ExamRunner session={s} />; }
       else screen = <TutorRunner session={s} />;
       break;
     }
-    case 'results': { const s = db.sessions[rest[0]]; screen = s?.result ? <Results session={s} /> : <NotFound />; break; }
+    case 'results': { const s = db.sessions[rest[0]]; screen = s?.result ? <Results key={s.id} session={s} /> : <NotFound />; break; }
     case 'review': {
       const s = db.sessions[rest[0]];
       if (!s?.result) screen = <NotFound />;

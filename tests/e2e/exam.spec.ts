@@ -4,8 +4,8 @@ import { onboard, optionLabels, shot, qnum, go } from './helpers';
 test('full exam flow: answer, strike, flag, navigator, exact resume, rotation, end, results, review', async ({ page }) => {
   await onboard(page);
   await shot(page, '01-today');
-  await expect(page.getByRole('heading', { name: /Take Form A/ })).toBeVisible();
-  await page.getByRole('button', { name: 'Start Form A' }).click();
+  await expect(page.getByRole('heading', { name: 'Warm up with 10 untimed questions' })).toBeVisible(); // first visit: an untimed warm-up leads
+  await page.getByRole('button', { name: 'Or take Form A now · 90 minutes' }).click();
   await expect(page.getByRole('heading', { name: 'Form A', level: 1 })).toBeVisible();
   await shot(page, '02-exam-intro');
   await page.getByRole('button', { name: 'Start Form A' }).click();
@@ -211,6 +211,7 @@ test('time running out replaces an open confirmation, and the navigator keeps it
   await page.getByRole('button', { name: /^Navigator/ }).click();
   await expect(page.locator('.nav-cell.current')).toBeInViewport();
   await page.locator('.nav-cell.current').focus();
+  await expect(page.locator('.nav-cell.current')).toBeFocused(); // the key goes to the grid only once it has focus
   await page.keyboard.press('ArrowRight');
   await expect(page.getByRole('button', { name: /^Question 114:/ })).toBeFocused();
   expect(await page.locator('.nav-cell[tabindex="0"]').count()).toBe(1);
@@ -263,3 +264,52 @@ test('timer auto-submits while open, and coached mode can pause', async ({ page 
   await page.getByRole('button', { name: 'See results' }).click();
   await expect(page.getByRole('heading', { name: /summary/ })).toBeVisible();
 });
+
+test('a hidden timer stays hidden, for VoiceOver too', async ({ page }) => {
+  await onboard(page);
+  await go(page, 'start/block');
+  await expect(page.getByText(/warnings at 5 and 1 minutes still appear/)).toBeVisible(); // an 18-minute block has no 15-minute warning
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  await page.getByRole('button', { name: /Time remaining .* Hide timer/ }).click();
+  await expect(page.getByRole('button', { name: 'Show time', exact: true })).toBeVisible(); // no remaining time in its name
+  await go(page, 'today');
+  await page.getByRole('button', { name: /^Resume/ }).first().click();
+  await expect(page.getByRole('button', { name: 'Show time', exact: true })).toBeVisible(); // still hidden after leaving and coming back
+  await page.getByRole('button', { name: 'Show time', exact: true }).click();
+  await expect(page.getByRole('button', { name: /Time remaining .* Hide timer/ })).toBeVisible();
+});
+
+test('time warnings are given once per sitting, with one catch-up notice on return', async ({ page }) => {
+  await page.clock.install();
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  await go(page, 'today');
+  await page.clock.fastForward('14:00'); // away while the 5-minute mark passes
+  await page.getByRole('button', { name: 'Resume', exact: true }).click();
+  await expect(page.locator('.toast')).toHaveText('4 minutes remaining'); // one notice, with the real time left
+  await page.clock.fastForward('00:05');
+  await expect(page.locator('.toast')).toHaveCount(0);
+  await go(page, 'today');
+  await page.getByRole('button', { name: 'Resume', exact: true }).click();
+  await page.clock.fastForward('00:02');
+  await expect(page.locator('.toast')).toHaveCount(0); // not repeated after leaving and coming back
+});
+
+test('a time warning waits until the app is visible, and is spoken inside an open navigator', async ({ page }) => {
+  await page.clock.install();
+  await onboard(page);
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  // in the background when the 5-minute mark passes: nothing is used up
+  await page.evaluate(() => { Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'hidden' }); document.dispatchEvent(new Event('visibilitychange')); });
+  await page.clock.fastForward('13:30');
+  await expect(page.locator('.toast')).toHaveCount(0);
+  await page.evaluate(() => { Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'visible' }); document.dispatchEvent(new Event('visibilitychange')); });
+  await expect(page.locator('.toast')).toHaveText('5 minutes remaining'); // delivered on return
+  // with the navigator open, the next warning is spoken from inside it
+  await page.getByRole('button', { name: /^Navigator/ }).click();
+  await page.clock.fastForward('03:35');
+  await expect(page.getByRole('dialog').locator('.sr-announce')).toContainText('1 minute remaining.');
+});
+

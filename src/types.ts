@@ -40,6 +40,7 @@ export interface Settings {
   backupSnoozeUntil: number | null;
   installDismissed: boolean;     // hide the Add to Home Screen note on Today
   persisted: boolean | null;     // result of navigator.storage.persist()
+  celebrations: boolean;         // confetti and motion on success (off = calm)
 }
 
 export type AttemptSource = 'exam' | 'block' | 'drill' | 'timed' | 'quiz' | 'review';
@@ -95,6 +96,12 @@ export interface Session {
   reviewedAt?: number;                    // every miss was read through in review, or the learner marked the review done
   opened?: number[];                      // positions opened in review
   reviewPos?: number;                     // last position visited in review, where Today resumes
+  reviewLeft?: boolean;                   // the learner moved on from reviewPos (so resuming goes to the next unread miss)
+  reviewedRead?: number;                  // when every miss had been read through (not skipped or marked done)
+  readCelebrated?: boolean;               // the 'all misses read' moment has been shown
+  timerHidden?: boolean;                  // timed: the learner hid the clock for this sitting
+  warned?: number[];                      // timed: time warnings (minutes) already given in this sitting
+  goalHit?: { pos: number; cheered: boolean; day?: string; target?: number }; // tutor: the answer that reached the daily goal (on which local day), and whether it got confetti
   updatedAt?: number;
 }
 
@@ -109,5 +116,5 @@ export interface DbState {
   cardSrs: Record<string, SrsEntry>;    // card id → entry
   reports: Report[];
   hidden: string[];                      // hidden item ids
-  meta: { createdAt: number; schema: number; exposed?: string[] }; // exposed: items opened in exams that were then discarded
+  meta: { createdAt: number; schema: number; exposed?: string[]; days?: string[] }; // days: dates with card or review study (answers are dated by attempts) // exposed: items opened in exams that were then discarded
 }

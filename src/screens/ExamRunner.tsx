@@ -7,8 +7,9 @@ import { fmtClock, fmtMinSec } from '../lib/dates';
 import { isExpired, pacing, remainingMs } from '../lib/scoring';
 import { keepAwake } from '../lib/wakelock';
 import { OptionList, QStem, ReportDialog, StrikeHint, strikeHint } from '../ui/question';
-import { Modal, alertDialog, clearDialogs, confirmDialog, toast } from '../ui/dialog';
+import { Modal, alertDialog, clearDialogs, confirmDialog, toast, announce, ensureAnnouncer } from '../ui/dialog';
 import { IcBack, IcChevron, IcClock, IcFlag, IcFlagFill, IcGrid, IcMenu, IcPause, IcPlay } from '../ui/icons';
+import { holdCelebration, releaseCelebration } from '../ui/celebrate';
 
 const WARN_AT = [15, 5, 1]; // minutes remaining
 
@@ -17,8 +18,9 @@ export function ExamRunner({ session: s }: { session: Session }) {
   const [navOpen, setNavOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [reportFor, setReportFor] = useState<string | null>(null);
-  const [hideTimer, setHideTimer] = useState(false);
-  const [announce, setAnnounce] = useState('');
+  // hiding the clock is remembered for the whole sitting (leaving and resuming keeps it hidden)
+  const hideTimer = !!s.timerHidden;
+  const setHideTimer = (v: boolean) => ctx.store.putSession({ ...ctx.store.state.sessions[s.id], timerHidden: v });
   const warned = useRef<Set<number>>(new Set());
   const submitting = useRef(false);
   const pos = s.current;
@@ -41,24 +43,31 @@ export function ExamRunner({ session: s }: { session: Session }) {
   }, [s.id]);
   useEffect(() => { window.scrollTo(0, 0); document.querySelector<HTMLElement>('#q-stem')?.focus({ preventScroll: true }); }, [pos]);
 
+  useEffect(() => { ensureAnnouncer(); }, []); // the page's live region exists before the first warning
   // time warnings and auto-submit at zero
   useEffect(() => {
     if (s.status !== 'active') return;
     if (isExpired(s, now) && !submitting.current) {
       submitting.current = true;
       clearDialogs(); setNavOpen(false); setMenuOpen(false); setReportFor(null);
+      holdCelebration(s.id); // the result mounts behind this dialog; its moment waits until it can be seen
       submit(s.id, true, now);
       alertDialog({ title: "Time's up", body: 'Your exam was submitted automatically. Unanswered questions count as incorrect.', ok: 'See results' })
-        .then(() => navigate(`results/${s.id}`, true));
+        .then(() => { releaseCelebration(s.id); navigate(`results/${s.id}`, true); });
       return;
     }
+    // Warnings belong to the sitting: each is given once, even across leaving and resuming. Coming back after
+    // one or more were crossed gives a single notice with the actual time left.
+    if (document.visibilityState === 'hidden') return; // held until the learner can see and hear it; recorded once delivered
     const min = remaining / 60000;
-    for (const w of WARN_AT) {
-      if (min <= w && min > w - 0.5 && !warned.current.has(w) && s.durationMs > w * 60000 * 2) {
-        warned.current.add(w);
-        setAnnounce(`${w} minute${w > 1 ? 's' : ''} remaining.`);
-        toast(`${w} minute${w > 1 ? 's' : ''} remaining`, true);
-      }
+    const given = new Set([...(s.warned ?? []), ...warned.current]);
+    const crossed = WARN_AT.filter((w) => min <= w && s.durationMs > w * 60000 * 2 && !given.has(w));
+    if (crossed.length) {
+      for (const w of crossed) warned.current.add(w);
+      ctx.store.putSession({ ...ctx.store.state.sessions[s.id], warned: [...given, ...crossed] });
+      const left = Math.max(1, Math.ceil(min));
+      announce(`${left} minute${left > 1 ? 's' : ''} remaining.`); // spoken from inside the navigator or any open dialog too
+      toast(`${left} minute${left > 1 ? 's' : ''} remaining`, true);
     }
   }, [now]);
 
@@ -136,7 +145,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
         {/* one element in every state, so keyboard focus survives the switch to low time */}
         <button class={`timer icon-btn${low ? ' low' : hideTimer ? ' btn small' : ''}`} style={low ? undefined : { color: 'inherit' }}
           aria-disabled={low || undefined} tabIndex={low ? -1 : undefined} onClick={() => { if (!low) setHideTimer(!hideTimer); }}
-          aria-label={low ? `Time remaining ${fmtClock(remaining)}. Shown while time is low` : `Time remaining ${fmtClock(remaining)}. ${hideTimer ? 'Show' : 'Hide'} timer`}>
+          aria-label={low ? `Time remaining ${fmtClock(remaining)}. Shown while time is low` : hideTimer ? 'Show time' /* hidden means hidden, for VoiceOver too */ : `Time remaining ${fmtClock(remaining)}. Hide timer`}>
           <IcClock />{hideTimer && !low ? 'Show time' : fmtClock(remaining)}
         </button>
         {s.mode === 'coached' && (
@@ -144,13 +153,12 @@ export function ExamRunner({ session: s }: { session: Session }) {
         )}
         <button class="icon-btn" onClick={() => setMenuOpen(true)} id="exam-menu" aria-label="Exam menu"><IcMenu /></button>
       </div>
-      {pace && (
+      {pace && (!hideTimer || low) && ( // a hidden clock hides the running pace too
         <div class="exam-pace" aria-live="off">
           <strong>{`${fmtMinSec(Math.abs(pace.deltaSec))} ${pace.deltaSec >= 0 ? 'ahead of' : 'behind'} pace`}</strong> · about 47 s per question
         </div>
       )}
       </div>
-      <div class="sr-only" aria-live="assertive">{announce}</div>
 
       <main class="exam-body" id="main" tabIndex={-1}>
         <QStem text={item.stem} id="q-stem" />
@@ -194,7 +202,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
           e.preventDefault(); b[(at + (e.shiftKey ? -1 : 1) + b.length) % b.length]?.focus();
         }}>
           <h2 id="paused-h">Paused</h2>
-          <p class="muted">Coached mode. The question is hidden while paused.<br />{fmtClock(remaining)} remaining.</p>
+          <p class="muted">Coached mode. The question is hidden while paused.{!hideTimer || low ? <><br />{fmtClock(remaining)} remaining.</> : null}</p>
           <button class="btn primary" id="resume-btn" onClick={() => resume(s.id)}><IcPlay />Resume</button>
           <button class="btn" onClick={() => { saveScroll(s.id, Math.round(window.scrollY)); navigate('today'); toast('Still paused. Resume it from Today.'); }}>Leave exam screen</button>
         </div>
