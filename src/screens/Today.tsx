@@ -182,7 +182,7 @@ function InProgress({ skip }: { skip?: string }) {
       <div class="list">
         {reviews.map((x) => (
           <div class="list-pair">
-            <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses opened</span></span><span class="badge accent">Resume</span></a>
+            <a class="list-item" href={`#/review/${x.id}${nextMiss(x) === undefined ? '' : `/${nextMiss(x)}`}?f=incorrect`}><span class="li-main"><span class="li-title">{x.title} review</span><span class="li-sub" style={{ display: 'block' }}>{openedMisses(x)} of {missedPositions(x).length} misses read</span></span><span class="badge accent">Resume</span></a>
             <button class="btn small ghost" onClick={() => { markReviewed(x.id); toast(`Marked done. ${x.title} stays under Progress.`); }}>Mark done<span class="sr-only"> for the {x.title} review</span></button>
           </div>
         ))}

@@ -161,7 +161,7 @@ export function cardBurst(card: HTMLElement | null | undefined, big: boolean, de
     const power = Math.sqrt(2 * 0.32 * clip.h) * (big ? 0.95 : 0.9); // peaks near the top; the edge fade softens any that go further
     const size = clip.w < 90 ? 0.8 : 0.85; // a narrow pocket (larger text): slightly smaller pieces, not a heap
     const spread = clip.w < 80 ? 20 : narrow ? 30 : big ? 70 : 50;
-    layer.add({ count: Math.min(big ? 46 : 22, room), x: cx, y: base, angle: -90, spread, power, life: big ? 1500 : 1100, size });
+    layer.add({ count: Math.max(18, Math.min(big ? 46 : 22, room)), x: cx, y: base, angle: -90, spread, power, life: big ? 1500 : 1100, size: Math.max(size, 0.8) }); // a floor, so larger text still gets a visible pop
     if (big && clip.w * clip.h >= 15000) later(() => { if (card.isConnected && layers.has(layer)) layer.add({ count: Math.min(24, Math.round(room / 2)), x: cx, y: base, angle: -90, spread: narrow ? 30 : 90, power: power * 0.9, life: 1200, size }); }, 260);
   }, delay);
 }

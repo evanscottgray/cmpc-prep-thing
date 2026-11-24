@@ -176,9 +176,17 @@ export function markOpened(id: string, pos: number) {
 }
 /** Called when the learner moves on from an item: the review is done once every miss has been opened and left. */
 export function leftReviewItem(id: string) {
-  const s = get(id); if (!s) return;
-  const done = openedMisses(s) === missedPositions(s).length;
-  put({ ...s, reviewLeft: true, ...(done && !s.reviewedAt ? { reviewedAt: Date.now(), reviewedRead: Date.now() } : {}) }); // finished by reading every miss
+  const s = get(id); if (!s || s.reviewLeft) return;
+  put({ ...s, reviewLeft: true }); // moving on doesn't finish a review: only "Finish review" does
+}
+/** Every miss has been read and the learner says so with "Finish review" (or the review list's finish action). */
+export function finishReview(id: string) {
+  const s = get(id); if (!s || s.reviewedAt) return;
+  if (openedMisses(s) < missedPositions(s).length) return;
+  put({ ...s, reviewLeft: true, reviewedAt: Date.now(), reviewedRead: Date.now() });
+}
+export function markReadCelebrated(id: string) {
+  const s = get(id); if (s && !s.readCelebrated) put({ ...s, readCelebrated: true });
 }
 
 /** Discard an unfinished session. Items already opened are remembered so a later sitting isn't called fresh. */

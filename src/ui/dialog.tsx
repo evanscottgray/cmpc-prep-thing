@@ -47,6 +47,7 @@ export function Modal({ title, onClose, children, wide, sheet, aside, labelledBy
   return createPortal(
     <div class="overlay" onClick={(e) => { if (dismissable && e.target === e.currentTarget) onClose(); }}>
       <div class={`dialog${wide ? ' wide' : ''}${sheet ? ' sheet' : ''}`} role="dialog" aria-modal="true" aria-labelledby={id} ref={ref}>
+        <div class="sr-only sr-announce" aria-live="assertive" aria-atomic="true" />{/* mounted empty, so the first message in a dialog is heard */}
         <div class="dialog-head">
           <h2 id={id} tabIndex={-1}>{title}</h2>
           {aside}
@@ -112,7 +113,7 @@ export function announce(text: string) {
   const region = () => {
     const host = [...document.querySelectorAll<HTMLElement>('[role="dialog"]')].pop() ?? document.body;
     let r = host.querySelector<HTMLElement>(':scope > .sr-announce');
-    if (!r) { r = document.createElement('div'); r.className = 'sr-only sr-announce'; r.setAttribute('aria-live', 'assertive'); host.appendChild(r); }
+    if (!r) r = ensureAnnouncer(host);
     return r;
   };
   // Posted at once (no delay for a dialog to close in between). An invisible mark alternates so a repeated
@@ -121,4 +122,11 @@ export function announce(text: string) {
   const flip = r.dataset.flip === '1' ? '0' : '1';
   r.dataset.flip = flip;
   r.textContent = flip === '1' ? text : `${text}\u200b`;
+}
+
+/** Mounts an empty live region (on the page, or in a dialog) ahead of time: a region created and filled at once can go unheard. */
+export function ensureAnnouncer(host: HTMLElement = document.body): HTMLElement {
+  let r = host.querySelector<HTMLElement>(':scope > .sr-announce');
+  if (!r) { r = document.createElement('div'); r.className = 'sr-only sr-announce'; r.setAttribute('aria-live', 'assertive'); r.setAttribute('aria-atomic', 'true'); host.appendChild(r); }
+  return r;
 }

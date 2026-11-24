@@ -2,7 +2,7 @@ import { useEffect } from 'preact/hooks';
 import type { Session } from '../types';
 import { ctx } from '../ctx';
 import { back, historyIndex, navigate } from '../router';
-import { leftReviewItem, markOpened, missedPositions, openedMisses } from '../lib/actions';
+import { finishReview, leftReviewItem, markOpened, missedPositions, openedMisses } from '../lib/actions';
 import { inPlay } from '../lib/scoring';
 import { plural } from '../lib/dates';
 import { Meter, Page } from '../ui/bits';
@@ -119,9 +119,9 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
   const toList = () => { leftReviewItem(s.id); if (listAt.get(s.id) === historyIndex() - 1) back(); else navigate(`review/${s.id}${q}`, true); };
   const misses = query.get('f') === 'incorrect' ? missedPositions(s).length : 0;
   const read = misses ? openedMisses(s) : 0;
-  // leaving this one completes reading every miss: name it, and finish on the result it belongs to
-  const finishing = misses > 0 && next === null && !s.reviewedAt && read === misses;
-  const finish = () => { leftReviewItem(s.id); navigate(`results/${s.id}`, true); };
+  // every miss is open now (in whatever order): name the step, and finish on the result it belongs to (exams only)
+  const finishing = s.timed && misses > 0 && !s.reviewedAt && read === misses; // timed sessions (tutor modes already showed every rationale)
+  const finish = () => { finishReview(s.id); navigate(`results/${s.id}`, true); };
   return (
     <Page title={`Question ${pos + 1}`} onBack={toList} tabs={false}>
       {misses > 0 && <div class="session-progress"><Meter value={(100 * read) / misses} label={`${read} of ${misses} misses read`} /></div>}
@@ -129,7 +129,7 @@ export function ReviewItem({ session: s, pos, query }: { session: Session; pos: 
         <span>{misses ? `${read} of ${misses} read` : `${idx + 1} of ${positions.length} in this view`}</span>
         <span>{[!si.scored && isExam && 'Unscored trial question', s.flags.includes(pos) && 'Flagged'].filter(Boolean).join(' · ')}</span>
       </div>
-      <StemFold key={pos} id="rv-stem" text={it.stem} open />
+      <StemFold key={pos} id="rv-stem" text={it.stem} />{/* like tutor: folded on phones so the explanation is in reach; open on iPad; your choice carries over */}
       <Verdict item={it} si={si} response={resp} />
       <ItemReview item={it} si={si} response={resp} />
       <ItemMeta item={it} />

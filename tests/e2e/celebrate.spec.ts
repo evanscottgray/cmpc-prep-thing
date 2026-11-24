@@ -154,21 +154,26 @@ test('a warm-up left partway stays the main way back on Today', async ({ page })
   await expect(page.getByRole('button', { name: 'Or take Form A now · 90 minutes' })).toBeVisible();
 });
 
-test('reading every miss ends with "Finish review" and its own moment on the summary', async ({ page }) => {
+test('reading every miss of a timed set, in any order, ends with "Finish review" and its own moment', async ({ page }) => {
   await onboard(page);
-  await startQuiz(page);
-  for (let q = 1; q <= 10; q++) {
-    if (q > 1) { await page.getByRole('button', { name: 'Next question' }).click(); await expect(page.getByText(`Question ${q} of 10`)).toBeVisible(); }
-    await answer(page, q > 2); // two misses
+  await go(page, 'start/block');
+  await page.getByRole('button', { name: 'Start Exam-pace block' }).click();
+  for (let q = 1; q <= 23; q++) {
+    const k = await keyIndex(page);
+    await optionLabels(page).nth(q <= 2 ? (k + 1) % 4 : k).click(); // two misses
+    await page.getByRole('button', { name: q < 23 ? 'Next' : 'Finish' }).click();
   }
-  await page.getByRole('button', { name: 'See summary' }).click();
+  await page.getByRole('button', { name: 'Submit', exact: true }).click();
   await page.getByRole('link', { name: 'Review 2 misses' }).click();
-  await page.locator('.list .list-item').first().click();
+  // out of order: the second miss first, back to the list, then the first
+  await page.locator('.list .list-item').nth(1).click();
   await expect(page.getByText('1 of 2 read')).toBeVisible();
-  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.locator('.list .list-item').first().click();
   await expect(page.getByText('2 of 2 read')).toBeVisible();
-  await page.getByRole('button', { name: 'Finish review' }).click();
+  await page.getByRole('button', { name: 'Finish review' }).click(); // offered on whichever miss completes the set
   await expect(page.getByText('All 2 misses read')).toBeVisible();
   await expect(confetti(page)).toHaveCount(1);
-  await expect(page.getByRole('link', { name: 'Read the misses again' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Read the misses again' })).not.toHaveClass(/primary/); // Done leads now
+  await expect(page.getByRole('link', { name: 'Done' })).toHaveClass(/primary/);
 });

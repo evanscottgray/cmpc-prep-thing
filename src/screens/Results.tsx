@@ -2,7 +2,7 @@ import type { Session } from '../types';
 import { ctx, useDb } from '../ctx';
 import { fmtClock, fmtDate, fmtDuration, plural, ymd } from '../lib/dates';
 import { scaledScore } from '../lib/scoring';
-import { missedPositions, nextMiss, openedMisses } from '../lib/actions';
+import { markReadCelebrated, missedPositions, nextMiss, openedMisses } from '../lib/actions';
 import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
 import type { DrillSource } from '../lib/assemble';
@@ -55,8 +55,10 @@ export function Results({ session: s }: { session: Session }) {
   }, []);
   const glow = celebrating;
   // every miss read through, just now: the hardest work after an exam gets its own moment (once)
-  const [readAll] = useState(() => !!s.reviewedRead && fresh(s.reviewedRead) && firstTime(`${s.id}:read`));
-  useEffect(() => { if (readAll) return cardBurst(document.querySelector<HTMLElement>('.review-done'), true, 300); }, []);
+  // shown the first time the result opens after the review was finished (however long that takes), once
+  const [readAll] = useState(() => s.timed && !!s.reviewedRead && !s.readCelebrated && firstTime(`${s.id}:read`));
+  useEffect(() => { if (!readAll) return; markReadCelebrated(s.id); return cardBurst(document.querySelector<HTMLElement>('.review-done'), true, 300); }, []);
+  const readDone = s.timed && !!s.reviewedRead; // after a finished review, Done leads and reading again is optional
   const today = todayCount(db);
   const T = db.settings.dailyTarget;
   const todayPct = Math.min(100, (100 * today) / Math.max(1, T));
@@ -120,7 +122,7 @@ export function Results({ session: s }: { session: Session }) {
       )}
 
       {readAll && (
-        <div class={`verdict ok review-done mt${motionOn() ? ' room' : ''}`} role="status"><IcCheckCircle /><span><span class="pass-head">All {plural(missed.length, 'miss', 'misses')} read</span><span class="verdict-sub">That's the most useful thing to do after an exam. Nice work.</span></span></div>
+        <div class={`verdict ok review-done fresh big mt${motionOn() ? ' room' : ''}`} role="status"><IcCheckCircle /><span><span class="pass-head">{missed.length === 1 ? 'Your miss is read' : `All ${missed.length} misses read`}</span><span class="verdict-sub">{full ? "That's the most useful thing to do after an exam." : "That's the most useful thing to do after timed practice."} Nice work.</span></span></div>
       )}
       {(s.retake || (s.kind === 'mixed' && s.seenBefore > 0)) && full && (
         <div class="banner warn mt" role="note"><IcAlert /><div><strong>Not a fresh estimate.</strong> {`${s.seenBefore} of ${r.total} questions were ones you had already seen.`} Familiar questions inflate the score.</div></div>
@@ -132,15 +134,15 @@ export function Results({ session: s }: { session: Session }) {
           // a long list is started, not assigned; once begun, it continues where it left off
           const opened = openedMisses(s);
           const reviewing = opened > 0 && opened < missed.length && !s.reviewedAt;
-          const lastOne = opened === missed.length && !s.reviewedAt && !s.reviewLeft && s.reviewPos !== undefined; // the app closed while reading the final one
+          const toFinish = s.timed && opened === missed.length && !s.reviewedAt; // all opened, not yet finished: one step left
           const startOne = full && missed.length > 12 && !opened; // the first step is one rationale, not a list of 40
-          const next = reviewing ? nextMiss(s) : lastOne ? s.reviewPos : startOne ? missed[0] : undefined;
-          const label = reviewing ? `Continue review · ${opened} of ${missed.length}` : lastOne ? 'Resume last miss' : startOne ? 'Start with one miss' : s.reviewedRead ? 'Read the misses again' : `Review ${plural(missed.length, 'miss', 'misses')}`;
-          return <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}${next === undefined ? '' : `/${next}`}?f=incorrect`}>{label}</a>;
+          const next = reviewing ? nextMiss(s) : toFinish ? nextMiss(s) ?? missed[missed.length - 1] : startOne ? missed[0] : undefined;
+          const label = reviewing ? `Continue review · ${opened} of ${missed.length}` : toFinish ? 'Finish review' : startOne ? 'Start with one miss' : readDone ? (missed.length === 1 ? 'Read the miss again' : 'Read the misses again') : `Review ${plural(missed.length, 'miss', 'misses')}`;
+          return <a class={`btn${s.timed && !readDone ? ' primary' : ''}`} href={`#/review/${s.id}${next === undefined ? '' : `/${next}`}?f=incorrect`}>{label}</a>;
         })()}
         {missed.length > 12 && full && !openedMisses(s) && <p class="small muted review-hint">{missed.length} misses to read, one at a time. You can pick up where you left off.</p>}
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
-        {s.timed && <a class="btn" href="#/today">Done</a>}
+        {s.timed && <a class={`btn${readDone ? ' primary' : ''}`} href="#/today">Done</a>}
         {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>{(() => { const q = openQuiz(); return q ? `Resume quick quiz · ${q.items.length - q.revealed.length} left` : reachedToday ? 'If you want more: another quick quiz' : 'Another quick quiz · 10'; })()}</button>}
       </div>
 

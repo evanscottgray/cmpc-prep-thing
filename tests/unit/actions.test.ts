@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { ctx } from '../../src/ctx';
 import { memoryKv } from '../../src/lib/db';
 import { Store, emptyState } from '../../src/lib/store';
-import { abandon, autoSubmitExpired, choose, createSession, leftReviewItem, markOpened, missedPositions, nextMiss, pause, resume, startSession, submit, toggleFlag, toggleStrike, goTo } from '../../src/lib/actions';
+import { abandon, autoSubmitExpired, choose, finishReview, createSession, leftReviewItem, markOpened, missedPositions, nextMiss, pause, resume, startSession, submit, toggleFlag, toggleStrike, goTo } from '../../src/lib/actions';
 import { buildForm, buildMixed } from '../../src/lib/assemble';
 import { dueIds } from '../../src/lib/srs';
 import { availableItems, itemStats, todayCount } from '../../src/lib/stats';
@@ -86,6 +86,8 @@ describe('exam lifecycle', () => {
     for (const p of m.slice(2)) markOpened(id, p);
     expect(S(id).reviewedAt).toBeUndefined(); // opening the last miss isn't finishing it
     leftReviewItem(id);
+    expect(S(id).reviewedAt).toBeUndefined(); // nor is leaving it: only "Finish review" finishes
+    finishReview(id);
     expect(S(id).reviewedAt).toBeDefined();
     expect(S(id).reviewedRead).toBeDefined(); // finished by reading, not by skipping
   });

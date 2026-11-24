@@ -7,7 +7,7 @@ import { fmtClock, fmtMinSec } from '../lib/dates';
 import { isExpired, pacing, remainingMs } from '../lib/scoring';
 import { keepAwake } from '../lib/wakelock';
 import { OptionList, QStem, ReportDialog, StrikeHint, strikeHint } from '../ui/question';
-import { Modal, alertDialog, clearDialogs, confirmDialog, toast, announce } from '../ui/dialog';
+import { Modal, alertDialog, clearDialogs, confirmDialog, toast, announce, ensureAnnouncer } from '../ui/dialog';
 import { IcBack, IcChevron, IcClock, IcFlag, IcFlagFill, IcGrid, IcMenu, IcPause, IcPlay } from '../ui/icons';
 
 const WARN_AT = [15, 5, 1]; // minutes remaining
@@ -42,6 +42,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
   }, [s.id]);
   useEffect(() => { window.scrollTo(0, 0); document.querySelector<HTMLElement>('#q-stem')?.focus({ preventScroll: true }); }, [pos]);
 
+  useEffect(() => { ensureAnnouncer(); }, []); // the page's live region exists before the first warning
   // time warnings and auto-submit at zero
   useEffect(() => {
     if (s.status !== 'active') return;

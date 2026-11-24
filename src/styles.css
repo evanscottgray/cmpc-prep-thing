@@ -602,6 +602,8 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 .goal-line { margin: .5rem 0 0; font-weight: 700; color: var(--ok); }
 .exam-cheer { margin: .35rem 0 0; font-weight: 600; }
 .verdict.exam-pass { margin: .9rem 0 .5rem; background: var(--ok-soft); color: var(--ok); }
+.verdict.room.exam-pass, .verdict.room.review-done { min-height: 96px; align-items: center; } /* a celebrated callout is tall enough for a real fountain */
+.verdict.room.exam-pass > span, .verdict.room.review-done > span { padding-right: 96px; } /* and wide enough, on every phone */
 .verdict.exam-pass .pass-head, .verdict.review-done .pass-head { display: block; font-size: 1.1rem; font-weight: 800; }
 .verdict.exam-pass .pass-cheer { font-size: 1.05rem; font-weight: 700; color: var(--text); }
 .card.daily.reached .btn.ghost { border-color: color-mix(in srgb, var(--ok) 45%, transparent); background: var(--surface); } /* optional, but clearly a button */
