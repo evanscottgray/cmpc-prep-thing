@@ -122,18 +122,21 @@ export function CardStudy() {
   useEffect(() => { if (show) document.getElementById('card-title')?.focus({ preventScroll: true }); }, [show]);
   const c = ctx.bank.cards.find((x) => x.id === queue[i]);
   const rated = tally.right + tally.unsure + tally.wrong;
-  const good = rated > 0 && tally.right * 2 >= rated; // celebrate a set where at least half were known
+  const skipped = Math.min(i, queue.length) - rated;
+  const good = rated > 0 && tally.right * 2 >= queue.length; // celebrate a set where at least half of it was known
   useEffect(() => { if (!c && good) return celebrateSoon(200); }, [!c]);
   if (!c) return (
     <Page title="Concept cards" backTo="cards" tabs={false}>
       <div class="card hero center">
         {rated > 0 && <div class="cheer-emoji big" aria-hidden="true">{good ? '🎉' : '🌱'}</div>}
         <h2>{queue.length ? (rated ? 'Session complete!' : 'Session complete') : 'Nothing due'}</h2>
+        {skipped > 0 && <p class="small muted" style={{ margin: '0 0 .25rem' }}>{rated} of {queue.length} rated · {skipped} skipped</p>}
         {rated > 0 && <p class="tally"><span><strong>{tally.right}</strong> knew it</span><span><strong>{tally.unsure}</strong> unsure</span><span><strong>{tally.wrong}</strong> missed</span></p>}
         <p class="muted">{!queue.length ? 'All cards are scheduled for later.'
           : !rated ? 'Cards you rate come back on a schedule that fits your exam date.'
           : good ? 'Nice work. The ones you knew come back later; the rest come back sooner.'
-          : 'Done. The ones you missed come back sooner, which is how they stick.'}</p>
+          : tally.wrong + tally.unsure > 0 ? 'Done. The ones you missed come back sooner, which is how they stick.'
+          : 'Done. Skipped cards come back next time.'}</p>
         <button class="btn primary block" onClick={() => navigate('cards', true)}>Done</button>
       </div>
     </Page>

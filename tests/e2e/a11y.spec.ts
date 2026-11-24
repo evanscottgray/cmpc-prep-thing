@@ -40,7 +40,7 @@ for (const scheme of ['light', 'dark'] as const) {
     await axe(page, `${scheme} review item`);
     await shot(page, `a11y-${scheme}-review-item`);
     await go(page, 'today');
-    await page.getByRole('button', { name: 'Quick quiz · 10' }).click();
+    await page.getByRole('button', { name: 'Quick quiz · 10', exact: true }).click();
     await optionLabels(page).nth(0).click();
     await page.getByRole('button', { name: 'Check answer' }).click();
     await axe(page, `${scheme} tutor feedback`);

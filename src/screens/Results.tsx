@@ -7,7 +7,10 @@ import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
 import type { DrillSource } from '../lib/assemble';
 import { useEffect, useState } from 'preact/hooks';
-import { celebrateSoon, fresh } from '../ui/celebrate';
+import { celebrateSoon, firstTime, fresh } from '../ui/celebrate';
+import { todayCount } from '../lib/stats';
+import { startQuiz } from './Today';
+import { Meter } from '../ui/bits';
 import { isLight, plan } from '../lib/plan';
 import { AreaBar, ListLink, Page } from '../ui/bits';
 import { IcAlert, IcCheckCircle, IcInfo, IcXCircle } from '../ui/icons';
@@ -40,14 +43,20 @@ export function Results({ session: s }: { session: Session }) {
     : pctAll >= 80 ? { head: 'Excellent work!', sub: "You're getting these.", emoji: '🌟' }
     : pctAll >= 60 ? { head: 'Solid session', sub: 'Read the misses below and they stick.', emoji: '💪' }
     : { head: 'Good practice', sub: 'The ones you missed come back in spaced review, so they stick.', emoji: '🌱' };
-  // The goal line belongs to the session whose answer reached the goal (and not to the final rest days).
-  const goalToday = !!s.goalHit && !isLight(plan(db).phase);
-  // Familiar questions inflate a score, so a retake's pass is reported, not celebrated.
-  const freshForm = !s.retake && !(s.kind === 'mixed' && s.seenBefore > 0);
+  const light = isLight(plan(db).phase);
+  // Familiar questions inflate a score, so a retake's pass is reported, not celebrated; a full run means every question answered.
+  const freshForm = !s.retake && s.seenBefore === 0;
+  const fullRun = r.answered === r.total;
+  // The session's last answer already got the goal's confetti: the summary doesn't fire again.
+  const lastPos = s.revealed[s.revealed.length - 1];
+  const goalJustCheered = !!s.goalHit?.cheered && s.goalHit.pos === lastPos;
   useEffect(() => {
     if (!fresh(s.submittedAt)) return;
-    if (full ? pass && freshForm : pctAll >= 70 && r.total >= 5 && !s.goalHit) return celebrateSoon(); // the goal was already cheered in the session
+    const earned = full ? pass && freshForm && fullRun : pctAll >= 80 && r.total >= 5 && !goalJustCheered;
+    if (earned && firstTime(s.id)) return celebrateSoon();
   }, []);
+  const today = todayCount(db);
+  const todayPct = Math.min(100, (100 * today) / Math.max(1, db.settings.dailyTarget));
   const kgs = bp.kgs.filter((k) => r.byKg[k.id]?.n).sort((a, b) => r.byKg[a.id].c / r.byKg[a.id].n - r.byKg[b.id].c / r.byKg[b.id].n || b.weight - a.weight);
 
   return (
@@ -64,7 +73,7 @@ export function Results({ session: s }: { session: Session }) {
           <div class={`verdict-big ${pass ? 'pass' : 'fail'}`} role="status">
             {pass ? <IcCheckCircle /> : <IcXCircle />}<span>{pass ? 'Pass (estimated)' : 'Did not pass (estimated)'}</span>
           </div>
-          <p class="exam-cheer">{pass ? (freshForm ? 'Well done. You reached your practice target on a full 90-minute run.' : 'Above target on questions you had seen. A fresh form is the real check.') : s.kind === 'formA' && !s.retake ? 'A good baseline. Focus next shows where the points are.' : 'Now you know where the points are. Focus next shows the way.'}</p>
+          <p class="exam-cheer">{pass ? (!freshForm ? 'Above target on questions you had seen. A fresh form is the real check.' : fullRun ? 'Well done. You reached your practice target on a full 90-minute run.' : 'You reached your practice target on this form.') : s.kind === 'formA' && !s.retake ? 'A good baseline. Focus next shows where the points are.' : 'Now you know where the points are. Focus next shows the way.'}</p>
           <p class="small muted" style={{ margin: '.25rem 0 0' }}>
             {r.raw}/100 is {gap === 0 ? 'exactly your practice target' : `${Math.abs(gap)} ${gap > 0 ? 'above' : 'below'} your practice target of ${target}`}, which the app places at 550.{Math.abs(gap) <= 3 ? ' Close enough to go either way.' : ''} {s.submittedAt ? `Taken ${fmtDate(ymd(s.submittedAt))}.` : ''}
           </p>
@@ -79,7 +88,17 @@ export function Results({ session: s }: { session: Session }) {
             <div><div class="v">{r.correctAll}<span class="of">/{r.total}</span></div><div class="k">correct{r.total ? ` · ${pctAll}%` : ''}</div></div>
             {s.timed && <div><div class="v">{fmtClock(r.timeUsedMs)}</div><div class="k">of {fmtClock(r.durationMs)} used</div></div>}
           </div>
-          {goalToday && <p class="goal-line"><span aria-hidden="true">🎉 </span>This session reached your daily goal.</p>}
+          {!s.timed && !light && (
+            <div class="today-row">
+              <div class="row between small">
+                {today >= db.settings.dailyTarget
+                  ? <strong class="goal-done"><span aria-hidden="true">🎉 </span>{s.goalHit ? 'This session reached your daily goal' : 'Daily goal reached'}</strong>
+                  : <span>Today: {today} of {db.settings.dailyTarget} questions</span>}
+                <span class="muted">{today >= db.settings.dailyTarget ? `${today} today` : `+${r.total} this session`}</span>
+              </div>
+              <Meter value={todayPct} label={`Today: ${today} of ${db.settings.dailyTarget} questions`} />
+            </div>
+          )}
           {r.total < s.items.length && <p class="small muted mt" style={{ marginBottom: 0 }}>Ended early. {plural(s.items.length - r.total, 'question')} not answered, and not counted.</p>}
         </div>
       )}
@@ -93,6 +112,7 @@ export function Results({ session: s }: { session: Session }) {
         {missed.length > 0 && <a class={`btn${s.timed ? ' primary' : ''}`} href={`#/review/${s.id}?f=incorrect`}>Review {plural(missed.length, 'miss', 'misses')}</a>}
         {r.total > 0 && <a class={`btn${s.timed && !missed.length ? ' primary' : ''}`} href={`#/review/${s.id}`}>Review all {r.total}</a>}
         {s.timed && <a class="btn" href="#/today">Done</a>}
+        {!s.timed && !full && <button class="btn ghost" onClick={startQuiz}>Another quick quiz · 10</button>}
       </div>
 
       {full && focus.length > 0 && (

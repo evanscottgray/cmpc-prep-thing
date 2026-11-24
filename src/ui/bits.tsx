@@ -53,10 +53,10 @@ export function TabBar({ current }: { current: string }) {
   );
 }
 
-export function Meter({ value, label, tick }: { value: number | null; label: string; tick?: number }) {
+export function Meter({ value, label, tick, grew }: { value: number | null; label: string; tick?: number; grew?: boolean }) {
   const v = value === null ? 0 : Math.max(0, Math.min(100, value));
   return (
-    <div class="meter" role="img" aria-label={`${label}: ${value === null ? 'no data' : `${Math.round(v)}%`}`}>
+    <div class={`meter${grew ? ' grew' : ''}`} role="img" aria-label={`${label}: ${value === null ? 'no data' : `${Math.round(v)}%`}`}>
       <span class={tick !== undefined && value !== null && value < tick ? 'below' : undefined} style={{ width: `${v}%` }} />
       {tick !== undefined && <i class="tick" style={{ left: `${tick}%` }} aria-hidden="true" />}
     </div>

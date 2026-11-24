@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'preact/hooks';
 import { ctx, useDb, useNow } from '../ctx';
 import { navigate } from '../router';
 import { abandon, createSession, markReviewed, missedPositions, nextMiss, openedMisses } from '../lib/actions';
@@ -30,12 +31,14 @@ export function startQuiz() {
   createSession(s); navigate(`s/${s.id}`);
 }
 
+const SHORT = { label: 'Short on time? Quick quiz · 10', go: () => startQuiz() };
+
 function Primary({ a, why, later }: { a: Action; why: string; later?: boolean }) {
   const map: Record<string, { eyebrow: string; title: string; cta: string; go: () => void; note?: string; second?: { label: string; go: () => void } }> = {
     resume: { eyebrow: 'In progress', title: a.kind === 'resume' ? `Resume ${a.session.title}` : '', cta: 'Resume', go: () => a.kind === 'resume' && navigate(`s/${a.session.id}`) },
-    formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 questions · 90 minutes · no breaks' },
-    formB: { eyebrow: 'Recommended', title: 'Take Form B', cta: 'Start Form B', go: () => navigate('start/formB'), note: '115 questions · 90 minutes · fresh questions' },
-    mixed: { eyebrow: 'Final week', title: 'Take a mixed exam', cta: 'Start mixed exam', go: () => navigate('start/mixed'), note: '115 questions · 90 minutes · blueprint-matched' },
+    formA: { eyebrow: 'Recommended', title: 'Take Form A — your diagnostic', cta: 'Start Form A', go: () => navigate('start/formA'), note: '115 questions · 90 minutes · no breaks', second: SHORT },
+    formB: { eyebrow: 'Recommended', title: 'Take Form B', cta: 'Start Form B', go: () => navigate('start/formB'), note: '115 questions · 90 minutes · fresh questions', second: SHORT },
+    mixed: { eyebrow: 'Final week', title: 'Take a mixed exam', cta: 'Start mixed exam', go: () => navigate('start/mixed'), note: '115 questions · 90 minutes · blueprint-matched', second: SHORT },
     reviewExam: { eyebrow: 'Recommended', title: a.kind === 'reviewExam' ? `Review your ${a.session.title} misses` : '', cta: a.kind !== 'reviewExam' ? '' : openedMisses(a.session) ? `Continue review · ${openedMisses(a.session)} of ${missedPositions(a.session).length}` : `Review ${plural(missedPositions(a.session).length, 'miss', 'misses')}`, second: a.kind === 'reviewExam' ? { label: openedMisses(a.session) ? "I'm done reviewing" : 'Skip this review', go: () => { markReviewed(a.session.id); toast(`Done. ${a.session.title} stays under Progress if you want it later.`); } } : undefined, go: () => { if (a.kind !== 'reviewExam') return; const n = openedMisses(a.session) ? nextMiss(a.session) : undefined; navigate(`review/${a.session.id}${n === undefined ? '' : `/${n}`}?f=incorrect`); } },
     weak: { eyebrow: 'Recommended', title: a.kind === 'weak' ? `Weak-area drill · ${a.count} questions` : '', cta: 'Start drill', go: () => a.kind === 'weak' && startWeak(a.count), note: 'Tutor mode: rationale after every answer' },
     review: { eyebrow: 'Recommended', title: a.kind === 'review' ? `Spaced review · ${a.count} questions` : '', cta: 'Start review', go: startReview, note: 'Tutor mode: rationale after every answer' },
@@ -64,7 +67,7 @@ function Primary({ a, why, later }: { a: Action; why: string; later?: boolean })
 }
 
 /** Study days inside the daily card: a gain-only line and the last seven days. A missed day just starts a new run. */
-function StudyDays({ now }: { now: number }) {
+function StudyDays({ now, newToday }: { now: number; newToday: boolean }) {
   const db = useDb();
   const days = studyDays(db);
   if (!days.size) return null;
@@ -73,8 +76,8 @@ function StudyDays({ now }: { now: number }) {
   const week = lastWeek(days, now);
   const span = week.filter((d) => d.date >= first).length; // days since you started, up to a week
   const studied = week.filter((d) => d.studied).length;
-  const title = st.count >= 2 ? `${st.count} days in a row` : span === 1 ? 'Day 1' : `${studied} of the last ${span} days`;
-  const sub = span === 1 ? 'You started today. Nice.' : st.today ? 'You studied today. Nice.' : st.count >= 2 ? 'Any question, card or review today adds a day.' : 'Any question, card or review today counts.';
+  const title = st.count >= 2 ? `${st.count} days in a row` : span === 1 ? 'Day 1' : studied === 0 ? 'Welcome back' : `${studied} of the last ${span} days`;
+  const sub = span === 1 ? 'You started today. Nice.' : st.today ? 'You studied today. Nice.' : st.count >= 2 ? 'Any question, card or review today adds a day.' : studied === 0 ? 'Any question, card or review today starts a new run.' : 'Any question, card or review today counts.';
   return (
     <div class="study-days">
       <div class="streak-head">
@@ -85,7 +88,7 @@ function StudyDays({ now }: { now: number }) {
         {week.map((d) => {
           const long = new Date(`${d.date}T12:00`).toLocaleDateString(undefined, { weekday: 'long' });
           return (
-            <li class={`${d.studied ? 'on' : ''}${d.today ? ' today' : ''}${d.date < first ? ' before' : ''}`}>
+            <li class={`${d.studied ? 'on' : ''}${d.today ? ' today' : ''}${d.today && d.studied && newToday ? ' new' : ''}${d.date < first ? ' before' : ''}`}>
               <span class="dot" aria-hidden="true">{d.studied ? '✓' : ''}</span><span class="wd" aria-hidden="true">{d.label}</span>
               <span class="sr-only">{long}{d.today ? ', today' : ''}: {d.studied ? 'studied' : d.date < first ? 'before you started' : 'no study'}</span>
             </li>
@@ -97,10 +100,23 @@ function StudyDays({ now }: { now: number }) {
 }
 
 /** Today's questions toward the daily target, study days, and quick ways to practise. */
-function DailyCard({ answered, now }: { answered: number; now: number }) {
-  const s = useDb().settings;
+const SHOWN_KEY = 'cmpc-prep:today-shown';
+/** What Today last showed in this visit, so the bar grows (and today's dot pops) only when there is something new. */
+function useLastShown(answered: number, studiedToday: boolean) {
+  const [prev] = useState(() => { try { return JSON.parse(sessionStorage.getItem(SHOWN_KEY) ?? 'null') as { d: string; n: number; t: boolean } | null; } catch { return null; } });
+  useEffect(() => { try { sessionStorage.setItem(SHOWN_KEY, JSON.stringify({ d: ymd(), n: answered, t: studiedToday })); } catch { /* */ } }, [answered, studiedToday]);
+  const same = prev?.d === ymd();
+  return { from: same ? prev!.n : 0, newToday: studiedToday && !(same && prev!.t) };
+}
+
+function DailyCard({ answered, now, reachedNote }: { answered: number; now: number; reachedNote?: string }) {
+  const db = useDb();
+  const s = db.settings;
   const progress = Math.min(100, Math.round((100 * answered) / Math.max(1, s.dailyTarget)));
   const reached = progress >= 100;
+  const shown = useLastShown(answered, studyDays(db).has(ymd(now)));
+  const grew = shown.from < answered;
+  const fromPct = Math.min(progress, (100 * shown.from) / Math.max(1, s.dailyTarget));
   return (
     <div class="section">
       <h2>Today's study</h2>
@@ -108,12 +124,13 @@ function DailyCard({ answered, now }: { answered: number; now: number }) {
         {reached
           ? <div class="row between"><strong class="goal-done"><span aria-hidden="true">🎉 </span>Daily goal reached</strong><span class="muted small">{answered} of {s.dailyTarget}</span></div>
           : <div class="row between"><span>{answered} of {s.dailyTarget} questions</span><span class="muted small">{progress >= 80 ? `${s.dailyTarget - answered} to go` : progress >= 50 ? 'Halfway there' : `${progress}%`}</span></div>}
-        <div style={{ marginTop: '.5rem' }}><Meter value={progress} label="Daily target" /></div>
-        <p class="small muted" style={{ margin: '.5rem 0 0' }}>{reached ? "That's enough for today. Anything more is optional." : 'Counts every question you answer, including spaced review.'}</p>
-        <StudyDays now={now} />
-        <div class="btn-row mt">
-          {openQuiz() ? <button class="btn small" onClick={() => startWeak(10)}>Weak-area drill · 10</button> : <button class="btn small" onClick={startQuiz}>Quick quiz · 10</button>}
-          <a class="btn small" href="#/study">More options</a>
+        <div style={{ marginTop: '.5rem', '--from': progress ? fromPct / progress : 0 } as any}><Meter value={progress} label="Daily target" grew={grew} /></div>
+        <p class="small muted" style={{ margin: '.5rem 0 0' }}>{reached ? reachedNote ?? "That's enough for today. Anything more is optional." : 'Counts every question you answer, including spaced review.'}</p>
+        <StudyDays now={now} newToday={shown.newToday} />
+        {reached && <p class="small muted more-label">If you want more:</p>}
+        <div class={`btn-row${reached ? '' : ' mt'}`} style={reached ? { marginTop: '.4rem' } : undefined}>
+          {openQuiz() ? <button class={`btn small${reached ? ' ghost' : ''}`} onClick={() => startWeak(10)}>Weak areas&nbsp;·&nbsp;10</button> : <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>Quick quiz · 10</button>}
+          <a class={`btn small${reached ? ' ghost' : ''}`} href="#/study">More options</a>
         </div>
       </div>
     </div>
@@ -163,6 +180,7 @@ export function Today() {
   const s = db.settings;
   const light = isLight(p.phase);
   const goalMet = !light && p.answeredToday >= s.dailyTarget;
+  const urgent = p.primary.kind === 'resume' || p.primary.kind === 'reviewExam'; // a running timer or a fresh review comes first
   const examNext = p.primary.kind === 'formA' || p.primary.kind === 'formB' || p.primary.kind === 'mixed';
   const started = db.attempts[0]?.t ?? Infinity;
   const needBackup = Date.now() - started > 2 * 86400000 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
@@ -172,7 +190,7 @@ export function Today() {
       <div class="row between" style={{ marginBottom: '1rem' }}>
         <div class="grow">
           {p.daysLeft !== null && p.daysLeft >= 0
-            ? <><div style={{ fontSize: '2rem', fontWeight: 800, lineHeight: 1 }}>{p.daysLeft === 0 ? 'Exam day' : `${p.daysLeft} day${p.daysLeft === 1 ? '' : 's'}`}</div><div class="muted small">{p.daysLeft === 0 ? 'Good luck.' : `until your exam · ${fmtDate(s.examDate!)}`}</div></>
+            ? <><div style={{ fontSize: '1.6rem', fontWeight: 750, lineHeight: 1.1 }}>{p.daysLeft === 0 ? 'Exam day' : `${p.daysLeft} day${p.daysLeft === 1 ? '' : 's'}`}</div><div class="muted small">{p.daysLeft === 0 ? 'Good luck.' : `until your exam · ${fmtDate(s.examDate!)}`}</div></>
             : <div class="row between"><span class="muted">{p.daysLeft === null ? 'No exam date set' : `Exam date passed · ${fmtDate(s.examDate!)}`}</span><a class="btn small" href="#/settings">{p.daysLeft === null ? 'Set exam date' : 'Change date'}</a></div>}
         </div>
       </div>
@@ -180,11 +198,11 @@ export function Today() {
       <div class="cols">
       <div>
       {light ? <Primary a={p.primary} why={p.why} />
-        : goalMet ? <>{/* goal reached: the day's win leads; an exam can wait for a fresh day */}
+        : goalMet && !urgent ? <>{/* goal reached: the day's win leads; an exam can wait for a fresh day */}
           <DailyCard answered={p.answeredToday} now={now} />
           {p.primary.kind !== 'done' && <Primary a={p.primary} why={p.why} later={examNext} />}
         </>
-        : <><Primary a={p.primary} why={p.why} /><DailyCard answered={p.answeredToday} now={now} /></>}
+        : <><Primary a={p.primary} why={p.why} /><DailyCard answered={p.answeredToday} now={now} reachedNote={p.primary.kind === 'reviewExam' ? 'Your exam covered today\'s goal. The review above is the one thing worth doing next.' : undefined} /></>}
 
       <InProgress skip={p.primary.kind === 'resume' || p.primary.kind === 'reviewExam' ? p.primary.session.id : undefined} />
       </div>

@@ -74,21 +74,21 @@ export function confetti({ count = 40, x = innerWidth / 2, y = innerHeight / 3, 
 }
 
 /**
- * A correct answer: a small, quick pop from the verdict's check mark, thrown up and outward
- * so it clears the text below within about a second.
+ * A correct answer: a small, quick pop from the verdict's check mark. The canvas sits behind the
+ * content, so the pieces show around the cards and never over the words.
  */
 export function correctPop(verdict: Element | null | undefined) {
   const icon = verdict?.querySelector('svg') ?? verdict;
   const r = icon?.getBoundingClientRect();
   if (!r) return;
-  confetti({ count: 16, x: r.left + r.width / 2, y: r.top + r.height / 2, angle: -100, spread: 70, power: 7, life: 900 });
+  confetti({ count: 22, x: r.left + r.width / 2, y: r.top + r.height / 2, angle: -110, spread: 90, power: 8, life: 1100 });
 }
 
 /** A bigger moment inside a session (a run of 3, 5, 10…, or the daily goal): bursts from both screen edges, not over the text. */
 export function edgeBursts(y: number) {
   const p = 5 + Math.sqrt(innerWidth) / 6; // stays in the outer band of the screen
-  confetti({ count: 26, x: 0, y, angle: -55, spread: 40, power: p, life: 1500 });
-  confetti({ count: 26, x: innerWidth, y, angle: -125, spread: 40, power: p, life: 1500 });
+  confetti({ count: 40, x: 0, y, angle: -60, spread: 50, power: p, life: 1700 });
+  confetti({ count: 40, x: innerWidth, y, angle: -120, spread: 50, power: p, life: 1700 });
 }
 
 /** Two cannons from the lower corners that peak around the middle of the screen, so the headline and buttons above stay clear. */
@@ -105,3 +105,6 @@ export function celebrateSoon(ms = 250) {
 
 /** Results and summaries celebrate once, when they first open, not when revisited later. */
 export const fresh = (at: number | null | undefined) => !!at && Date.now() - at < 15000;
+const celebrated = new Set<string>();
+/** True the first time it's asked about `key` (so Back from review doesn't replay a summary's cannons). */
+export function firstTime(key: string) { if (celebrated.has(key)) return false; celebrated.add(key); return true; }

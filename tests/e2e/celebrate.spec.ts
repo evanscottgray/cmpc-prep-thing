@@ -18,7 +18,7 @@ async function answer(page: Page, right: boolean) {
   await expect(page.locator('#verdict')).toContainText(right ? 'Correct' : 'Incorrect');
 }
 async function startQuiz(page: Page) {
-  await page.getByRole('button', { name: 'Quick quiz · 10' }).click();
+  await page.getByRole('button', { name: 'Quick quiz · 10', exact: true }).click();
   await expect(page.getByText('Question 1 of 10')).toBeVisible();
 }
 
@@ -40,9 +40,10 @@ test('a right answer throws confetti; a wrong one, Calm, and Reduce Motion do no
     await answer(page, true);
   }
   await expect(page.locator('#verdict')).toContainText("That's 3 in a row!"); // announced with the verdict, so Calm and VoiceOver get it too
-  await expect(page.locator('.streak-chip')).toContainText('3 in a row');
+  await expect(page.locator('.streak-chip')).toHaveCount(0); // said once: the verdict carries it on the milestone itself
   await page.getByRole('button', { name: 'Next question' }).click();
   await expect(confetti(page)).toHaveCount(0); // a new question isn't read through old confetti
+  await expect(page.locator('.streak-chip')).toContainText('3 in a row');
   await answer(page, false);
   await expect(page.locator('#verdict')).toContainText('This one comes back in spaced review.');
   await expect(page.getByText('Best run: 3')).toBeVisible(); // a miss keeps the run you had
@@ -85,7 +86,8 @@ test('reaching the daily goal is celebrated once, and a timed session shows no c
   await expect(confetti(page)).toHaveCount(0);
   await page.getByRole('button', { name: 'See summary' }).click();
   await expect(page.getByText('Good practice')).toBeVisible(); // 5 of 10: encouragement, no confetti needed
-  await expect(page.getByText('This session reached your daily goal.')).toBeVisible();
+  await expect(page.getByText('This session reached your daily goal')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Another quick quiz · 10' })).toBeVisible(); // a quiet next step after the summary
   await page.getByRole('link', { name: 'Done' }).click();
   await expect(page.locator('.goal-done')).toContainText('Daily goal reached'); // the day's win leads Today
   await expect(page.getByText('Day 1', { exact: true })).toBeVisible();
@@ -105,4 +107,11 @@ test('reaching the daily goal is celebrated once, and a timed session shows no c
   await optionLabels(page).nth(await keyIndex(page)).click();
   await page.waitForTimeout(700);
   await expect(confetti(page)).toHaveCount(0);
+
+  // goal already met, a timed session running: Today puts Resume above the green card
+  await go(page, 'today');
+  const resume = page.locator('.card.hero', { hasText: 'Resume' });
+  await expect(resume).toBeVisible();
+  const [r, d] = [await resume.boundingBox(), await page.locator('.card.daily').boundingBox()];
+  expect(r!.y).toBeLessThan(d!.y);
 });
