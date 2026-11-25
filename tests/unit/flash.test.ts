@@ -3,7 +3,7 @@ import { ctx } from '../../src/ctx';
 import { localKv, memoryKv, type Kv } from '../../src/lib/db';
 import { Store, cleanFlash, emptyState, loadState } from '../../src/lib/store';
 import { makeBackup, parseBackup, summarize } from '../../src/lib/backup';
-import { buildRound, flashCounts, gradeFlash, roundStamp } from '../../src/lib/flash';
+import { buildRound, flashCounts, gradeFlash, isAheadNow, roundStamp } from '../../src/lib/flash';
 import { studyDays } from '../../src/lib/streak';
 import { addDays, ymd } from '../../src/lib/dates';
 import type { Bank, DbState, Flash, KgId } from '../../src/types';
@@ -78,6 +78,16 @@ describe('upgrading a v1.3.0 device', () => {
     expect(Object.keys(after).filter((k) => after[k] !== before[k])).toEqual(['flash']);
     expect(JSON.stringify({ ...ctx.store.state, flash: null })).toBe(parts);
   });
+  it('unreadable JSON under the flash key (localStorage fallback) loads as empty and stays on disk', async () => {
+    const ls = new MemStorage();
+    const kv = localKv(ls);
+    await writeLegacy(kv, legacyState());
+    ls.setItem('cmpc-prep:flash', '{not json');
+    const st = await loadState(kv, null);
+    expect(st.flash).toEqual({ srs: {}, days: [] });
+    expect(st.attempts).toHaveLength(2);
+    expect(ls.getItem('cmpc-prep:flash')).toBe('{not json');
+  });
   it('a malformed stored flash value is ignored in memory and left alone on disk', async () => {
     const kv = memoryKv();
     await writeLegacy(kv, legacyState());
@@ -121,6 +131,20 @@ describe('scheduling', () => {
     gradeFlash('fl-i-001', 'wrong', e, true, st);
     expect(srs()['fl-i-001'].box).toBe(0);
   });
+  it('a round begun after another tab announced a restore, but before the reload landed, cannot save', () => {
+    ctx.store.replaceEpoch++; // the replace: ping
+    const st = roundStamp(); // built from the old state, still in memory
+    ctx.store.replaceEpoch++; // the reload has landed
+    expect(gradeFlash('fl-g-001', 'right', undefined, false, st)).toBe(false);
+    expect(srs()).toEqual({});
+  });
+  it('decides practice ahead from the entry as stored now', () => {
+    const today = ymd();
+    expect(isAheadNow(ctx.store.state, 'fl-g-001', today)).toBe(false); // never practised
+    ctx.store.set('flash', { srs: { 'fl-g-001': { box: 1, due: addDays(today, 2), last: 1 }, 'fl-g-003': { box: 1, due: today, last: 1 } }, days: [] });
+    expect(isAheadNow(ctx.store.state, 'fl-g-001', today)).toBe(true);
+    expect(isAheadNow(ctx.store.state, 'fl-g-003', today)).toBe(false);
+  });
   it('stops saving after a reset or restore (same device, same createdAt)', async () => {
     const st = roundStamp();
     const snapshot = ctx.store.state;
@@ -151,6 +175,17 @@ describe('counts and rounds', () => {
     const full = buildRound(bank, ctx.store.state, 20, '', () => 0.3);
     expect(full).toHaveLength(FLASH.length); // a small pool: a shorter round, second facts from a card allowed
     for (let i = 1; i < full.length; i++) expect(card(full[i].id)).not.toBe(card(full[i - 1].id));
+  });
+  it('never puts two facts from one card next to each other when another card is left (any shuffle)', () => {
+    const k = (id: string, card: string) => fact(id, 'K', card);
+    const small: Bank = { ...bank, flash: [k('fl-k-001', 'cx'), k('fl-k-002', 'cx'), k('fl-k-003', 'cx'), k('fl-k-004', 'cy'), k('fl-k-005', 'cz')] };
+    const card = (id: string) => small.flash!.find((f) => f.id === id)!.card;
+    for (let seed = 0; seed < 40; seed++) {
+      let x = seed + 1; const rand = () => ((x = (x * 16807) % 2147483647) / 2147483647);
+      const r = buildRound(small, ctx.store.state, 5, 'K', rand).map((f) => card(f.id));
+      expect(r).toHaveLength(5);
+      for (let i = 1; i < r.length; i++) expect(r[i], `seed ${seed}: ${r.join(' ')}`).not.toBe(r[i - 1]);
+    }
   });
   it('filters by knowledge group and tops up with practice ahead', () => {
     ctx.store.set('flash', { srs: { 'fl-i-001': { box: 2, due: addDays(ymd(), 3), last: 1 } }, days: [] });
@@ -183,9 +218,9 @@ describe('backups', () => {
     expect(b.flashUnreadable).toBeUndefined();
     expect(summarize(b.state)).toEqual({ attempts: 2, exams: 0, sessions: 0, reviews: 2, reports: 1, flash: 0 });
   });
-  it('a damaged flash part still restores everything else', () => {
+  it('a damaged flash part still restores everything else, and flash starts fresh', () => {
     const legacy = legacyState();
-    const b = parseBackup(JSON.stringify({ app: 'cmpc-prep', kind: 'backup', schema: 1, exportedAt: 'x', appVersion: '1.4.0', contentVersion: 'v', state: { ...legacy, flash: { srs: { a: null }, days: [] } } }));
+    const b = parseBackup(JSON.stringify({ app: 'cmpc-prep', kind: 'backup', schema: 1, exportedAt: 'x', appVersion: '1.4.0', contentVersion: 'v', state: { ...legacy, flash: { srs: { a: null, 'fl-g-001': { box: 2, due: '2026-01-01', last: 1 } }, days: ['2026-01-01'] } } }));
     expect(b.flashUnreadable).toBe(true);
     expect(b.state.flash).toEqual({ srs: {}, days: [] });
     expect(b.state.attempts).toEqual(legacy.attempts);

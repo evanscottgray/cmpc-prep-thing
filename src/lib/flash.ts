@@ -58,14 +58,25 @@ export function buildRound(bank: Bank, db: DbState, n: number, kg: KgId | '' = '
   for (const id of order) { if (picked.length >= n) break; const c = byId.get(id)!.card; if (!cards.has(c)) { picked.push(id); cards.add(c); } }
   for (const id of order) { if (picked.length >= n) break; if (!picked.includes(id)) picked.push(id); } // a small pool: allow a second fact from a card
 
-  // Mix the order, then move apart neighbours from the same card where another fact can take the place.
-  const out = shuffle(picked, rand);
-  for (let i = 1; i < out.length; i++) {
-    if (byId.get(out[i])!.card !== byId.get(out[i - 1])!.card) continue;
-    const j = out.findIndex((id, k) => k > i && byId.get(id)!.card !== byId.get(out[i - 1])!.card);
-    if (j > 0) [out[i], out[j]] = [out[j], out[i]]; // a later clash this creates is met again further on
+  // Mix the order, then deal facts card by card: always from the card with the most left that isn't the last one used,
+  // so two facts from one card are never neighbours unless nothing else is left.
+  const groups = new Map<string, string[]>();
+  for (const id of shuffle(picked, rand)) { const c = byId.get(id)!.card; groups.set(c, [...(groups.get(c) ?? []), id]); }
+  const out: string[] = [];
+  let last = '';
+  while (out.length < picked.length) {
+    let best = '';
+    for (const [c, ids] of groups) if (ids.length && c !== last && (!best || ids.length > groups.get(best)!.length)) best = c;
+    if (!best) best = last; // only the last card has facts left
+    out.push(groups.get(best)!.shift()!); last = best;
   }
   return out.map((id) => ({ id, ahead: !dueSet.has(id) && !!srs[id] }));
+}
+
+/** Practised but not yet due, as stored right now. */
+export function isAheadNow(db: DbState, id: string, today = ymd()): boolean {
+  const e = db.flash.srs[id];
+  return !!e && !dueIds({ [id]: e }, today, db.settings.examDate).length;
 }
 
 /** What a round needs to know it's still writing to the same data (a reset or restore anywhere ends it). */

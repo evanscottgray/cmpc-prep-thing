@@ -26,7 +26,7 @@ export function parseBackup(text: string): BackupFile {
     ...base, ...s,
     settings: { ...DEFAULT_SETTINGS, ...s.settings },
     srs: s.srs ?? {}, cardSrs: s.cardSrs ?? {}, reports: s.reports ?? [], hidden: s.hidden ?? [], meta: s.meta ?? base.meta,
-    flash: flash.flash,
+    flash: flash.ok ? flash.flash : { srs: {}, days: [] }, // partly damaged: start flash fresh, as the preview says
   };
   if (!flash.ok) data.flashUnreadable = true; else delete data.flashUnreadable;
   return data as BackupFile;

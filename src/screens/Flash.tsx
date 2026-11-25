@@ -3,7 +3,7 @@ import type { Flash, KgId, SrsEntry } from '../types';
 import { ctx } from '../ctx';
 import { navigate } from '../router';
 import { plural } from '../lib/dates';
-import { buildRound, flashBank, flashCounts, gradeFlash, isRight, optionOrder, roundStamp } from '../lib/flash';
+import { buildRound, flashCounts, gradeFlash, isAheadNow, isRight, optionOrder, roundStamp } from '../lib/flash';
 import { isLight, plan } from '../lib/plan';
 import { Meter, Page, Seg } from '../ui/bits';
 import { Modal } from '../ui/dialog';
@@ -55,7 +55,7 @@ export function FlashRunner({ query }: { query: URLSearchParams }) {
 }
 
 interface Slot { id: string; ahead: boolean; retry: boolean }
-interface Tally { right: number; up: number; sooner: number; guessed: number; run: number; best: number }
+interface Tally { right: number; up: number; sooner: number; run: number; best: number }
 
 function FlashRound({ n, kg, onAgain }: { n: number; kg: KgId | ''; onAgain: () => void }) {
   const [stamp] = useState(roundStamp);
@@ -68,7 +68,7 @@ function FlashRound({ n, kg, onAgain }: { n: number; kg: KgId | ''; onAgain: () 
   const [guessed, setGuessed] = useState(false);
   const [stale, setStale] = useState(false);
   const [card, setCard] = useState<string | null>(null);
-  const [t, setT] = useState<Tally>({ right: 0, up: 0, sooner: 0, guessed: 0, run: 0, best: 0 });
+  const [t, setT] = useState<Tally>({ right: 0, up: 0, sooner: 0, run: 0, best: 0 });
   const slot = queue[i];
   const f = slot && ctx.bank.flash?.find((x) => x.id === slot.id);
   const order = useMemo(() => (f ? optionOrder(f) : []), [i, f?.id]);
@@ -89,17 +89,18 @@ function FlashRound({ n, kg, onAgain }: { n: number; kg: KgId | ''; onAgain: () 
     const ok = isRight(f, c);
     if (!slot.retry) {
       const before = ctx.store.state.flash.srs[f.id];
+      const ahead = isAheadNow(ctx.store.state, f.id); // as stored now (another tab may have graded it since the round began)
       setPrev(before);
-      if (!gradeFlash(f.id, ok ? 'right' : 'wrong', before, slot.ahead, stamp)) { setStale(true); return; }
-      setT((x) => { const run = ok ? x.run + 1 : 0; return { ...x, right: x.right + (ok ? 1 : 0), up: x.up + (ok && !slot.ahead ? 1 : 0), sooner: x.sooner + (ok ? 0 : 1), run, best: Math.max(x.best, run) }; });
-      if (!ok) setQueue((q) => [...q, { id: f.id, ahead: slot.ahead, retry: true }]); // once more at the end of this round
+      if (!gradeFlash(f.id, ok ? 'right' : 'wrong', before, ahead, stamp)) { setStale(true); return; }
+      setT((x) => { const run = ok ? x.run + 1 : 0; return { ...x, right: x.right + (ok ? 1 : 0), up: x.up + (ok && !ahead ? 1 : 0), sooner: x.sooner + (ok ? 0 : 1), run, best: Math.max(x.best, run) }; });
+      setQueue((q) => { const n = q.slice(); n[i] = { ...slot, ahead }; if (!ok) n.push({ id: f.id, ahead, retry: true }); return n; }); // a miss comes back once at the end of this round
     }
     setChoice(c);
   }
   function guess() {
     if (!f || !gradeFlash(f.id, 'unsure', prev, false, stamp)) { setStale(true); return; }
     setGuessed(true);
-    setT((x) => ({ ...x, up: x.up - 1, sooner: x.sooner + 1, guessed: x.guessed + 1 }));
+    setT((x) => ({ ...x, up: x.up - 1, sooner: x.sooner + 1 }));
   }
   function next() { setChoice(null); setGuessed(false); setI(i + 1); }
 
@@ -219,5 +220,3 @@ function FlashVerdict({ f, ok, retry, guessed, milestone }: { f: Flash; ok: bool
     </div>
   );
 }
-
-export const hasFlash = () => flashBank(ctx.bank).length > 0;

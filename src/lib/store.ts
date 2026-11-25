@@ -35,7 +35,8 @@ export const PING_KEY = 'cmpc-prep:ping';
 export async function loadState(kv: Kv, mirror?: Storage | null): Promise<DbState> {
   const st = emptyState();
   for (const p of PARTS) {
-    const v = await kv.get(p);
+    let v: unknown;
+    try { v = await kv.get(p); } catch (e) { if (p !== 'flash') throw e; v = null; } // unreadable flash progress never blocks the app; what's stored is left alone
     if (p === 'flash') st.flash = cleanFlash(v).flash; // malformed entries are skipped in memory; what's stored is left alone
     else if (v !== undefined) (st as any)[p] = p === 'settings' ? { ...DEFAULT_SETTINGS, ...(v as object) } : v;
     else if (p === 'meta') await kv.set('meta', st.meta); // first run: remember when this install began

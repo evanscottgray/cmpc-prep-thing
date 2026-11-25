@@ -16,23 +16,49 @@ const dumpDb = (page: Page) => page.evaluate(async () => {
 const progressText = async (page: Page) => {
   await go(page, 'progress');
   await expect(page.getByRole('heading', { name: 'Progress', level: 1 })).toBeVisible();
-  return page.locator('main').evaluate((m) => { const c = m.cloneNode(true) as HTMLElement; c.querySelectorAll('.stat').forEach((s) => { if (s.textContent?.includes('Flash facts')) s.remove(); }); return c.innerText; });
+  const t = await page.locator('main').evaluate((m) => { const c = m.cloneNode(true) as HTMLElement; c.querySelectorAll('.stat').forEach((s) => { if (s.textContent?.includes('Flash facts')) s.remove(); }); return c.innerText; });
+  return t.replace(/This week: [^.]*\./, ''); // the study-day count may grow by design; checked on Today
 };
 const dailyLine = async (page: Page) => { await go(page, 'today'); return page.locator('.card.daily .row').first().innerText(); };
 
-/** Answers whatever fact is showing: true/false with T or "True", multiple choice by its first option. */
-async function answerFact(page: Page, viaKeyboard = false) {
+type Fact = { prompt: string; type: 'mc' | 'tf'; options?: string[]; answer: number | boolean };
+/** Answers whatever fact is showing: by keyboard, or rightly / wrongly on purpose (the key is read from the bank), or by its first choice. */
+async function answerFact(page: Page, how: 'key' | 'right' | 'wrong' | 'any' = 'any') {
   const tf = await page.locator('.tf-row').count();
-  if (viaKeyboard) await page.keyboard.press(tf ? 't' : '1');
-  else if (tf) await page.getByRole('button', { name: /^True/ }).click();
-  else await page.locator('.flash-opt').first().click();
+  if (how === 'key') await page.keyboard.press(tf ? 't' : '1');
+  else if (how === 'any') { if (tf) await page.getByRole('button', { name: /^True/ }).click(); else await page.locator('.flash-opt').first().click(); }
+  else {
+    const prompt = await page.locator('#flash-prompt').innerText();
+    const f: Fact = await page.evaluate(async (p) => (await (await fetch('./data/bank.json')).json()).flash.find((x: Fact) => x.prompt === p), prompt);
+    if (f.type === 'tf') await page.getByRole('button', { name: new RegExp(`^${(f.answer === (how === 'right')) ? 'True' : 'False'}`) }).click();
+    else {
+      const key = f.options![f.answer as number];
+      const opts = page.locator('.flash-opt');
+      const texts = await opts.allInnerTexts();
+      const k = texts.findIndex((t) => t.endsWith(key));
+      await opts.nth(how === 'right' ? k : (k + 1) % texts.length).click();
+    }
+  }
   await expect(page.locator('#flash-verdict')).toBeVisible();
 }
 
 test('a flash round saves only flash progress; exam records, scores and goals are untouched', async ({ page }) => {
+  // Ordinary study happens "yesterday"; the flash round "today", so the streak can be seen to grow by exactly one day.
+  const noon = (back: number) => { const d = new Date(); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() - back); return d; };
+  await page.clock.install({ time: noon(1) });
   await onboard(page);
-  // Some ordinary study first: two quiz answers and one rated card.
-  await page.getByRole('button', { name: 'Start the warm-up' }).first().click();
+  // A scored Form A sitting (ended early), two quiz answers and one rated card.
+  await go(page, 'start/formA');
+  await page.getByRole('button', { name: /^Start Form A/ }).click();
+  await optionLabels(page).nth(0).click();
+  await page.getByRole('button', { name: /^Next/ }).click();
+  await optionLabels(page).nth(1).click();
+  await page.getByRole('button', { name: /^Navigator/ }).click();
+  await page.getByRole('button', { name: 'End exam…' }).click();
+  await page.getByRole('button', { name: 'End exam and score' }).click();
+  await expect(page.getByRole('heading', { name: /results/ })).toBeVisible();
+  await go(page, 'today');
+  await page.getByRole('button', { name: /^(Quick quiz · 10|Start the warm-up)$/ }).last().click();
   for (let q = 1; q <= 2; q++) {
     await expect(page.getByText(`Question ${q} of 10`)).toBeVisible();
     await optionLabels(page).nth(1).click();
@@ -43,8 +69,13 @@ test('a flash round saves only flash progress; exam records, scores and goals ar
   await page.getByRole('button', { name: 'Show card' }).click();
   await page.getByRole('button', { name: 'Missed it' }).click();
   await page.waitForTimeout(300);
+  await page.clock.setSystemTime(noon(0));
+  await page.reload();
 
+  await go(page, 'today');
+  await expect(page.locator('.streak-title')).not.toContainText('in a row'); // nothing yet today
   const progressBefore = await progressText(page);
+  expect(progressBefore).toMatch(/Form A/); // an exam in history
   const dailyBefore = await dailyLine(page);
   const before = await dumpDb(page);
   expect(before.flash).toBeUndefined();
@@ -62,7 +93,7 @@ test('a flash round saves only flash progress; exam records, scores and goals ar
   await shot(page, '61-flash-question');
 
   // Keyboard answer, verdict focused; the concept card opens over the round and closes back to it.
-  await answerFact(page, true);
+  await answerFact(page, 'key');
   await expect(page.locator('#flash-verdict')).toBeFocused();
   await shot(page, '62-flash-verdict');
   const prompt = await page.locator('#flash-prompt').innerText();
@@ -73,12 +104,21 @@ test('a flash round saves only flash progress; exam records, scores and goals ar
   await expect(page.getByRole('button', { name: 'Read the concept card' })).toBeFocused(); // focus returns to what opened it
   await page.getByRole('button', { name: 'Next' }).click();
   await expect(page.getByRole('heading', { name: 'Fact 2 of 10' })).toBeVisible();
-  await answerFact(page, true);
+  await answerFact(page, 'wrong'); // a sure miss: it must come back at the end of the round
+  await expect(page.locator('#flash-verdict')).toContainText('comes back at the end of the round');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await expect(page.getByRole('heading', { name: 'Fact 3 of 10' })).toBeVisible();
+  await answerFact(page, 'right'); // a sure hit, then "That was a guess"
+  await page.getByRole('button', { name: 'That was a guess' }).click();
+  await expect(page.locator('#flash-verdict')).toContainText('Noted as a guess');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await expect(page.getByRole('heading', { name: 'Fact 4 of 10' })).toBeVisible();
+  await answerFact(page, 'key');
   await expect(page.locator('#flash-verdict')).toBeFocused();
   await page.keyboard.press('Enter'); // from the focused verdict
-  await expect(page.getByRole('heading', { name: /Fact 3 of 10|One more try/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Fact 5 of 10|One more try/ })).toBeVisible();
 
-  let guessed = false, retries = 0;
+  let guessed = true, retries = 0;
   for (let n = 0; n < 40 && !(await page.getByRole('heading', { name: /Round complete/ }).count()); n++) {
     await answerFact(page);
     if (await page.getByRole('heading', { name: 'One more try' }).count()) retries++;
@@ -93,7 +133,9 @@ test('a flash round saves only flash progress; exam records, scores and goals ar
   await expect(page.getByText(/of 10 right on the first try/)).toBeVisible();
   await expect(page.getByText('Flash facts count toward your study streak, not the daily question goal or your exam scores.')).toBeVisible();
   await shot(page, '63-flash-summary');
-  console.log(`retries ${retries}, guessed ${guessed}`);
+  expect(retries).toBeGreaterThanOrEqual(1); // the miss came back
+  await go(page, 'today');
+  await expect(page.locator('.streak-title')).toHaveText('2 days in a row'); // flash study counts toward the streak
 
   // Exactly one key changed: flash. Every legacy record is byte-identical.
   await page.waitForTimeout(300);
