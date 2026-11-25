@@ -26,9 +26,14 @@ const dueText = async (page: Page) => {
   await expect(page.getByRole('heading', { name: 'Today', level: 1 })).toBeVisible();
   const today = await page.locator('.section', { hasText: 'Due reviews' }).innerText();
   await go(page, 'study');
-  const study = (await page.locator('.list-item', { hasText: 'Spaced review' }).allInnerTexts()).join(' | ');
+  await expect(page.getByRole('heading', { name: 'Study', level: 1 })).toBeVisible();
+  const row = page.locator('.list-item', { hasText: 'Spaced review' }).filter({ hasText: /\d+ due/ });
+  await expect(row).toHaveCount(1); // rendered, with a due count
+  const study = await row.innerText();
   await go(page, 'cards');
+  await expect(page.getByRole('heading', { name: 'Concept cards', level: 1 })).toBeVisible();
   const cards = await page.locator('.cards-hero').innerText();
+  expect(cards).toMatch(/due today|to learn|caught up/);
   return { today, study, cards };
 };
 

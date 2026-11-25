@@ -65,8 +65,8 @@ export class Store {
   lastError: string | null = null;
   /** Bumped whenever everything is replaced (reset or restore, here or in another tab): an open flash round stops saving. */
   replaceEpoch = 0;
-  /** True from another tab's reset or restore until its data has loaded here: flash grades wait for it. */
-  replacing = false;
+  /** Replacement reloads (another tab's reset or restore) still loading here: flash grades wait until none are. */
+  replacing = 0;
   constructor(public kv: Kv, initial: DbState, private mirror: Storage | null = null) { this.state = initial; }
 
   subscribe(fn: () => void) { this.listeners.add(fn); return () => this.listeners.delete(fn); }

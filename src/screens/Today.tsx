@@ -246,7 +246,7 @@ export function Today() {
   const reachedNote = p.primary.kind === 'resume' ? 'Your daily goal is already met.'
     : p.primary.kind === 'reviewExam' && examToday >= s.dailyTarget ? "Your exam covered today's goal." : undefined;
   const examNext = p.primary.kind === 'formA' || p.primary.kind === 'formB' || p.primary.kind === 'mixed';
-  const flashStart = Math.min(...db.flash.days.map((d) => new Date(`${d}T00:00`).getTime()).filter(Number.isFinite));
+  const flashStart = db.flash.days.reduce((m, d) => { const t = new Date(`${d}T00:00`).getTime(); return Number.isFinite(t) && t < m ? t : m; }, Infinity);
   const started = Math.min(db.attempts[0]?.t ?? Infinity, flashStart); // flash-only learners are reminded too
   const needBackup = Date.now() - started > 2 * 86400000 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
   const notInstalled = ctx.caps.ios && !ctx.caps.standalone;
