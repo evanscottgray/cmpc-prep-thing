@@ -138,6 +138,14 @@ describe('scheduling', () => {
     expect(gradeFlash('fl-g-001', 'right', undefined, false, st)).toBe(false);
     expect(srs()).toEqual({});
   });
+  it('an answer given while that reload is still pending is not saved', () => {
+    ctx.store.replaceEpoch++; ctx.store.replacing = true; // ping received, reload pending
+    const st = roundStamp();
+    expect(gradeFlash('fl-g-001', 'right', undefined, false, st)).toBe(false);
+    expect(srs()).toEqual({});
+    ctx.store.replacing = false; ctx.store.replaceEpoch++; // reload landed: a round built now saves
+    expect(gradeFlash('fl-g-001', 'right', undefined, false, roundStamp())).toBe(true);
+  });
   it('decides practice ahead from the entry as stored now', () => {
     const today = ymd();
     expect(isAheadNow(ctx.store.state, 'fl-g-001', today)).toBe(false); // never practised

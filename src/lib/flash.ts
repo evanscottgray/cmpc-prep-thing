@@ -82,7 +82,7 @@ export function isAheadNow(db: DbState, id: string, today = ymd()): boolean {
 /** What a round needs to know it's still writing to the same data (a reset or restore anywhere ends it). */
 export const roundStamp = () => ({ createdAt: ctx.store.state.meta.createdAt, epoch: ctx.store.replaceEpoch });
 export type RoundStamp = ReturnType<typeof roundStamp>;
-const sameData = (s: RoundStamp) => s.createdAt === ctx.store.state.meta.createdAt && s.epoch === ctx.store.replaceEpoch;
+const sameData = (s: RoundStamp) => !ctx.store.replacing && s.createdAt === ctx.store.state.meta.createdAt && s.epoch === ctx.store.replaceEpoch;
 
 /**
  * Saves the first-try grade of a fact in this round. `prev` is the entry from before this round's answer

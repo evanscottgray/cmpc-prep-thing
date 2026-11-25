@@ -20,6 +20,17 @@ const progressText = async (page: Page) => {
   return t.replace(/This week: [^.]*\./, ''); // the study-day count may grow by design; checked on Today
 };
 const dailyLine = async (page: Page) => { await go(page, 'today'); return page.locator('.card.daily .row').first().innerText(); };
+/** Questions and cards due: Today's due list and the Study and Cards counts. */
+const dueText = async (page: Page) => {
+  await go(page, 'today');
+  await expect(page.getByRole('heading', { name: 'Today', level: 1 })).toBeVisible();
+  const today = await page.locator('.section', { hasText: 'Due reviews' }).innerText();
+  await go(page, 'study');
+  const study = (await page.locator('.list-item', { hasText: 'Spaced review' }).allInnerTexts()).join(' | ');
+  await go(page, 'cards');
+  const cards = await page.locator('.cards-hero').innerText();
+  return { today, study, cards };
+};
 
 type Fact = { prompt: string; type: 'mc' | 'tf'; options?: string[]; answer: number | boolean };
 /** Answers whatever fact is showing: by keyboard, or rightly / wrongly on purpose (the key is read from the bank), or by its first choice. */
@@ -47,12 +58,13 @@ test('a flash round saves only flash progress; exam records, scores and goals ar
   const noon = (back: number) => { const d = new Date(); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() - back); return d; };
   await page.clock.install({ time: noon(1) });
   await onboard(page);
-  // A scored Form A sitting (ended early), two quiz answers and one rated card.
+  // A scored Form A sitting with 60 answers (enough for a readiness estimate), two quiz answers and one rated card.
   await go(page, 'start/formA');
   await page.getByRole('button', { name: /^Start Form A/ }).click();
-  await optionLabels(page).nth(0).click();
-  await page.getByRole('button', { name: /^Next/ }).click();
-  await optionLabels(page).nth(1).click();
+  for (let q = 0; q < 60; q++) {
+    await optionLabels(page).nth(q % 4).click();
+    await page.getByRole('button', { name: /^Next/ }).click();
+  }
   await page.getByRole('button', { name: /^Navigator/ }).click();
   await page.getByRole('button', { name: 'End exam…' }).click();
   await page.getByRole('button', { name: 'End exam and score' }).click();
@@ -76,6 +88,9 @@ test('a flash round saves only flash progress; exam records, scores and goals ar
   await expect(page.locator('.streak-title')).not.toContainText('in a row'); // nothing yet today
   const progressBefore = await progressText(page);
   expect(progressBefore).toMatch(/Form A/); // an exam in history
+  expect(progressBefore).not.toMatch(/Answer at least 60 questions/); // and a readiness estimate on show
+  const dueBefore = await dueText(page);
+  expect(dueBefore.today).toMatch(/Spaced review[\s\S]*\d+ due/); // yesterday's misses are due today
   const dailyBefore = await dailyLine(page);
   const before = await dumpDb(page);
   expect(before.flash).toBeUndefined();
@@ -146,6 +161,7 @@ test('a flash round saves only flash progress; exam records, scores and goals ar
   expect(Object.keys(flash.srs)).toHaveLength(10);
   expect(await dailyLine(page)).toBe(dailyBefore);
   expect(await progressText(page)).toBe(progressBefore);
+  expect(await dueText(page)).toEqual(dueBefore);
 
   // It survives a reload, and Progress counts it.
   await page.reload();

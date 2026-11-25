@@ -25,7 +25,7 @@ async function boot() {
     ctx.store = new Store(kv, state, mirror);
     root.textContent = '';
     render(<App />, root);
-    window.addEventListener('storage', (e) => { if (e.key !== PING_KEY) return; if (!e.newValue?.startsWith('replace:')) { ctx.store.reload(); return; } ctx.store.replaceEpoch++; ctx.store.reload().then(() => { ctx.store.replaceEpoch++; }); }); // a reset or restore elsewhere ends open flash rounds here, including one begun before the replaced data has loaded
+    window.addEventListener('storage', (e) => { if (e.key !== PING_KEY) return; if (!e.newValue?.startsWith('replace:')) { ctx.store.reload(); return; } ctx.store.replaceEpoch++; ctx.store.replacing = true; ctx.store.reload().finally(() => { ctx.store.replacing = false; ctx.store.replaceEpoch++; }); }); // a reset or restore elsewhere ends open flash rounds here, including one begun before the replaced data has loaded
     // flush pending writes when the app is backgrounded
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') ctx.store.flush(); });
     if (state.settings.onboarded) requestPersistence();
