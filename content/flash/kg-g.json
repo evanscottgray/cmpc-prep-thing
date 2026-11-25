@@ -1,0 +1,427 @@
+[
+ {
+  "id": "fl-g-001",
+  "kg": "G",
+  "card": "card-g-multidimensional-anxiety",
+  "type": "mc",
+  "prompt": "Multidimensional anxiety theory predicts which relationship between somatic anxiety and performance?",
+  "options": [
+   "Negative linear",
+   "Positive linear",
+   "Inverted-U"
+  ],
+  "answer": 2,
+  "explain": "Somatic anxiety is predicted to follow an inverted-U, so moderate bodily activation is best. Cognitive anxiety is predicted to be negative linear and self-confidence positive linear.",
+  "refs": [
+   "martens1990"
+  ]
+ },
+ {
+  "id": "fl-g-002",
+  "kg": "G",
+  "card": "card-g-multidimensional-anxiety",
+  "type": "tf",
+  "prompt": "In multidimensional anxiety theory, cognitive anxiety peaks right at the start of competition and fades once performance begins.",
+  "answer": false,
+  "correction": "Somatic anxiety peaks near the start and fades once performance begins, while cognitive anxiety rises early and stays fairly steady.",
+  "explain": "The two components follow different timelines, which is why the theory helps a consultant decide which component to target and when to intervene.",
+  "refs": [
+   "martens1990",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-g-003",
+  "kg": "G",
+  "card": "card-g-izof",
+  "type": "mc",
+  "prompt": "According to Hanin's IZOF model, how do two equally successful athletes' best-performance emotional intensities compare?",
+  "options": [
+   "They can differ, from low to high",
+   "Both sit at moderate intensity",
+   "Both sit near complete calm",
+   "Both match their sport's norm"
+  ],
+  "answer": 0,
+  "explain": "IZOF holds that each performer has a personal zone that can sit at low, moderate, or high intensity, so there is no universal ideal level of anxiety or arousal.",
+  "refs": [
+   "hanin2000"
+  ]
+ },
+ {
+  "id": "fl-g-004",
+  "kg": "G",
+  "card": "card-g-izof",
+  "type": "tf",
+  "prompt": "In later versions of IZOF, an unpleasant emotion such as irritation can be part of an athlete's optimal performance profile.",
+  "answer": true,
+  "explain": "The expanded model covers pleasant and unpleasant emotions, and either kind can be functional or dysfunctional for a given person.",
+  "refs": [
+   "hanin2000"
+  ]
+ },
+ {
+  "id": "fl-g-005",
+  "kg": "G",
+  "card": "card-g-catastrophe",
+  "type": "mc",
+  "prompt": "In the catastrophe model, which factor decides whether rising arousal brings a gradual change or a sudden collapse in performance?",
+  "options": [
+   "Level of self-confidence",
+   "Width of attentional focus",
+   "Level of task difficulty",
+   "Level of cognitive anxiety"
+  ],
+  "answer": 3,
+  "explain": "With low cognitive anxiety, arousal has a mild inverted-U effect; with high cognitive anxiety, arousal past a threshold produces a steep drop. The risk is high worry combined with high arousal.",
+  "refs": [
+   "hardy1996"
+  ]
+ },
+ {
+  "id": "fl-g-006",
+  "kg": "G",
+  "card": "card-g-catastrophe",
+  "type": "mc",
+  "prompt": "After a catastrophic performance drop, what does the catastrophe model suggest for recovery?",
+  "options": [
+   "Raise arousal, then refocus on the task",
+   "Lower arousal well below the collapse point, then rebuild",
+   "Lower arousal slightly, then resume",
+   "Hold arousal steady, then reassess"
+  ],
+  "answer": 1,
+  "explain": "Because of hysteresis, a small cut in arousal does not restore performance along the same path. Recovery usually means lowering arousal well below the collapse point and dealing with worry before rebuilding.",
+  "refs": [
+   "hardy1996",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-g-007",
+  "kg": "G",
+  "card": "card-g-directional-anxiety",
+  "type": "tf",
+  "prompt": "Research suggests self-confidence helps performers read their anxiety symptoms as helpful readiness.",
+  "answer": true,
+  "explain": "Self-confidence seems to help performers keep reading symptoms such as a pounding heart as readiness rather than as a sign of falling apart.",
+  "refs": [
+   "jones1995"
+  ]
+ },
+ {
+  "id": "fl-g-008",
+  "kg": "G",
+  "card": "card-g-directional-anxiety",
+  "type": "mc",
+  "prompt": "What does Jones's directional perspective add to measuring anxiety intensity?",
+  "options": [
+   "Rating whether symptoms help or hurt",
+   "Separating cognitive from somatic symptoms",
+   "Comparing scores against elite norms",
+   "Tracking when symptoms begin before competing"
+  ],
+  "answer": 0,
+  "explain": "The same intensity can be facilitative or debilitative, so direction scales are added to intensity measures, and direction is assessed before deciding that high anxiety is a problem.",
+  "refs": [
+   "jones1995",
+   "hanton1999"
+  ]
+ },
+ {
+  "id": "fl-g-009",
+  "kg": "G",
+  "card": "card-g-cue-utilization",
+  "type": "mc",
+  "prompt": "According to cue utilization theory, what happens to attention when arousal climbs very high?",
+  "options": [
+   "It widens and admits irrelevant cues",
+   "It narrows just enough to drop distractions",
+   "It narrows until relevant cues are missed",
+   "It shifts from external to internal"
+  ],
+  "answer": 2,
+  "explain": "Moderate arousal narrows attention helpfully by filtering out irrelevant cues, but further increases cut out relevant cues too, often peripheral ones, and performance declines.",
+  "refs": [
+   "easterbrook1959"
+  ]
+ },
+ {
+  "id": "fl-g-010",
+  "kg": "G",
+  "card": "card-g-nideffer",
+  "type": "mc",
+  "prompt": "In Nideffer's model, which focus fits a midfielder quickly scanning the field to read the opponents' positions?",
+  "options": [
+   "Narrow-internal",
+   "Broad-external",
+   "Broad-internal",
+   "Narrow-external"
+  ],
+  "answer": 1,
+  "explain": "Broad-external focus takes in the environment quickly to assess a situation. Broad-internal focus is for analyzing and planning, and narrow-external focus is for executing on a target.",
+  "refs": [
+   "nideffer1976"
+  ]
+ },
+ {
+  "id": "fl-g-011",
+  "kg": "G",
+  "card": "card-g-nideffer",
+  "type": "mc",
+  "prompt": "In Nideffer's model, which focus type suits the moment of execution, such as fixing on the ball or target?",
+  "options": [
+   "Broad-internal",
+   "Narrow-internal",
+   "Broad-external",
+   "Narrow-external"
+  ],
+  "answer": 3,
+  "explain": "Narrow-external focus locks onto a target for execution. Getting stuck analyzing, a broad-internal task, at the moment of execution is a classic attentional problem.",
+  "refs": [
+   "nideffer1976",
+   "nideffer2001"
+  ]
+ },
+ {
+  "id": "fl-g-012",
+  "kg": "G",
+  "card": "card-g-achievement-goal",
+  "type": "mc",
+  "prompt": "In achievement goal theory, which profile is most at risk of avoiding challenges, withdrawing effort, and dropping out?",
+  "options": [
+   "High task, low perceived ability",
+   "High ego, high perceived ability",
+   "High ego, low perceived ability",
+   "High task, high perceived ability"
+  ],
+  "answer": 2,
+  "explain": "When winning is the only route to feeling competent and the person doubts they can win, motivation suffers. A strong task orientation tends to protect motivation.",
+  "refs": [
+   "nicholls1984",
+   "duda1992"
+  ]
+ },
+ {
+  "id": "fl-g-013",
+  "kg": "G",
+  "card": "card-g-achievement-goal",
+  "type": "mc",
+  "prompt": "A coach posts rankings after every practice and praises mainly the top performers. What motivational climate does this create?",
+  "options": [
+   "Task-involving climate",
+   "Ego-involving climate",
+   "Autonomy-supportive climate"
+  ],
+  "answer": 1,
+  "explain": "Public comparison, rankings, and praise mainly for top performers define an ego-involving (performance) climate. A task-involving climate recognizes individual improvement, effort, and cooperation.",
+  "refs": [
+   "ames1992"
+  ]
+ },
+ {
+  "id": "fl-g-014",
+  "kg": "G",
+  "card": "card-g-achievement-goal",
+  "type": "tf",
+  "prompt": "In achievement goal theory, task and ego orientations are independent, so one athlete can score high on both.",
+  "answer": true,
+  "explain": "The orientations are not opposite ends of one scale, so a high ego orientation does not rule out a strong task orientation.",
+  "refs": [
+   "nicholls1984",
+   "duda1992"
+  ]
+ },
+ {
+  "id": "fl-g-015",
+  "kg": "G",
+  "card": "card-g-sdt",
+  "type": "mc",
+  "prompt": "An athlete says, \"I train every day because I'd feel guilty if I skipped.\" Which regulation type does this reflect?",
+  "options": [
+   "Introjected regulation",
+   "External regulation",
+   "Identified regulation",
+   "Integrated regulation"
+  ],
+  "answer": 0,
+  "explain": "Introjected regulation is driven by internal pressure such as guilt, shame, or ego. External regulation runs on rewards and punishments, and identified regulation reflects valuing the outcome.",
+  "refs": [
+   "ryan2017"
+  ]
+ },
+ {
+  "id": "fl-g-016",
+  "kg": "G",
+  "card": "card-g-sdt",
+  "type": "mc",
+  "prompt": "In self-determination theory, offering athletes choices within limits most directly supports which basic need?",
+  "options": [
+   "Autonomy",
+   "Competence",
+   "Relatedness"
+  ],
+  "answer": 0,
+  "explain": "Choice within limits is part of autonomy support, which serves the need to feel volitional and have a say. Competence is feeling effective; relatedness is feeling connected and cared for.",
+  "refs": [
+   "mageau2003",
+   "ryan2017"
+  ]
+ },
+ {
+  "id": "fl-g-017",
+  "kg": "G",
+  "card": "card-g-self-efficacy",
+  "type": "tf",
+  "prompt": "In Bandura's theory, verbal persuasion is the most powerful source of self-efficacy.",
+  "answer": false,
+  "correction": "Mastery experiences (performance accomplishments) are the strongest source of self-efficacy.",
+  "explain": "Verbal persuasion is weaker and loses credibility when it contradicts experience, which is why graded mastery experiences are the usual answer when encouragement has failed.",
+  "refs": [
+   "bandura1977",
+   "bandura1997"
+  ]
+ },
+ {
+  "id": "fl-g-018",
+  "kg": "G",
+  "card": "card-g-self-efficacy",
+  "type": "mc",
+  "prompt": "Vicarious experience has the most impact on self-efficacy when the model is which kind of person?",
+  "options": [
+   "An elite athlete in the sport",
+   "A peer of similar ability",
+   "A coach demonstrating the skill",
+   "A teammate of much higher skill"
+  ],
+  "answer": 1,
+  "explain": "Watching others succeed builds efficacy most when the model resembles the observer; a coping model who struggles and then succeeds can be especially helpful for fearful learners.",
+  "refs": [
+   "bandura1977"
+  ]
+ },
+ {
+  "id": "fl-g-019",
+  "kg": "G",
+  "card": "card-g-attribution",
+  "type": "mc",
+  "prompt": "In Weiner's attribution model, which dimension most shapes expectations of future success?",
+  "options": [
+   "Controllability",
+   "Locus of causality",
+   "Stability"
+  ],
+  "answer": 2,
+  "explain": "Attributing a setback to a stable cause lowers expectations of future success, because the person expects that cause to persist. Locus is tied mainly to pride and self-esteem, and controllability to emotions such as guilt or shame and willingness to keep trying.",
+  "refs": [
+   "weiner1985"
+  ]
+ },
+ {
+  "id": "fl-g-020",
+  "kg": "G",
+  "card": "card-g-attribution",
+  "type": "mc",
+  "prompt": "Attribution retraining teaches performers to explain setbacks with causes that are ____.",
+  "options": [
+   "unstable and controllable",
+   "stable and uncontrollable",
+   "unstable and uncontrollable",
+   "stable and controllable"
+  ],
+  "answer": 0,
+  "explain": "Effort, strategy, and preparation are unstable, controllable causes that the person can change. Luck is unstable but uncontrollable, and lack of natural ability is stable and uncontrollable.",
+  "refs": [
+   "weiner1985",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-g-021",
+  "kg": "G",
+  "card": "card-g-sport-confidence",
+  "type": "mc",
+  "prompt": "Among these sources of sport confidence from Vealey's later work, which is thought to give the sturdiest foundation?",
+  "options": [
+   "Social support from others",
+   "Situational favorableness",
+   "Environmental comfort",
+   "Physical and mental preparation"
+  ],
+  "answer": 3,
+  "explain": "Sources athletes control, such as mastery and preparation, are thought to be sturdier than sources that depend on others' evaluations or on circumstances.",
+  "refs": [
+   "vealey1998",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-g-022",
+  "kg": "G",
+  "card": "card-g-group-dynamics",
+  "type": "mc",
+  "prompt": "In Tuckman's model of group development, which stage involves conflict over roles and influence?",
+  "options": [
+   "Forming",
+   "Norming",
+   "Storming",
+   "Performing"
+  ],
+  "answer": 2,
+  "explain": "Storming is the stage of conflict over roles and influence. It is a normal part of group development rather than a sign the group has failed.",
+  "refs": [
+   "tuckman1965",
+   "tuckman1977"
+  ]
+ },
+ {
+  "id": "fl-g-023",
+  "kg": "G",
+  "card": "card-g-group-dynamics",
+  "type": "mc",
+  "prompt": "Team members' overlapping knowledge of roles, cues, and procedures is known as ____.",
+  "options": [
+   "task cohesion",
+   "shared mental models",
+   "collective efficacy",
+   "group integration"
+  ],
+  "answer": 1,
+  "explain": "Shared mental models support coordination and are built through briefs, rehearsal, and debriefs. They are the target when skilled individuals coordinate poorly.",
+  "refs": [
+   "eccles2004"
+  ]
+ },
+ {
+  "id": "fl-g-024",
+  "kg": "G",
+  "card": "card-g-resilience",
+  "type": "mc",
+  "prompt": "In Lazarus's transactional model of stress, what does secondary appraisal evaluate?",
+  "options": [
+   "What is at stake in the situation",
+   "How strongly the body is aroused",
+   "How others judged past performance",
+   "Whether coping resources are adequate"
+  ],
+  "answer": 3,
+  "explain": "Primary appraisal asks what is at stake; secondary appraisal asks whether one's coping resources are adequate. Demands appraised as exceeding resources produce threat and distress.",
+  "refs": [
+   "lazarus1999"
+  ]
+ },
+ {
+  "id": "fl-g-025",
+  "kg": "G",
+  "card": "card-g-resilience",
+  "type": "tf",
+  "prompt": "Fletcher and Sarkar's mental fortitude training centers on removing adversity from the performer's environment.",
+  "answer": false,
+  "correction": "Mental fortitude training emphasizes manageable challenge combined with support, not removing all adversity.",
+  "explain": "Resilience is treated as a process that can be developed, partly by promoting challenge appraisals, so performers need manageable challenge with support.",
+  "refs": [
+   "fletcher2016",
+   "fletcher2012"
+  ]
+ }
+]

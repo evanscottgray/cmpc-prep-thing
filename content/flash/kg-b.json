@@ -1,0 +1,303 @@
+[
+ {
+  "id": "fl-b-001",
+  "kg": "B",
+  "card": "card-b-case-conceptualization",
+  "type": "mc",
+  "prompt": "A coach labels an athlete \"unmotivated,\" but interview and observation data suggest otherwise. How should the case conceptualization handle this discrepancy?",
+  "options": [
+   "Adopt the coach's label as the explanation",
+   "Adopt the interview and observation view",
+   "Explore the disagreement as a clue",
+   "Discard the outlying source as noise"
+  ],
+  "answer": 2,
+  "explain": "A good formulation integrates several sources and treats disagreement between them as a clue, not noise. Adopting one source's view, such as a coach's label, skips that integration.",
+  "refs": [
+   "tod2024"
+  ]
+ },
+ {
+  "id": "fl-b-002",
+  "kg": "B",
+  "card": "card-b-case-conceptualization",
+  "type": "tf",
+  "prompt": "A case conceptualization is held as a hypothesis that the consultant refines with the client and revises as new data arrive.",
+  "answer": true,
+  "explain": "A formulation is a working explanation that stays tentative and testable. It is shared with the client and updated as new information comes in.",
+  "refs": [
+   "tod2024",
+   "andersen2005"
+  ]
+ },
+ {
+  "id": "fl-b-003",
+  "kg": "B",
+  "card": "card-b-motivational-interviewing",
+  "type": "mc",
+  "prompt": "In the OARS skills of motivational interviewing, the A stands for ____.",
+  "options": [
+   "acceptance",
+   "advice",
+   "affirmations",
+   "assessments"
+  ],
+  "answer": 2,
+  "explain": "OARS names the core MI skills: open questions, affirmations, reflections and summaries. Acceptance, advice and assessments are not part of the acronym.",
+  "refs": [
+   "miller2013"
+  ]
+ },
+ {
+  "id": "fl-b-004",
+  "kg": "B",
+  "card": "card-b-motivational-interviewing",
+  "type": "mc",
+  "prompt": "Which athlete statement is an example of ability change talk?",
+  "options": [
+   "\"I could do my routine before every start.\"",
+   "\"I want to stop freezing on the line.\"",
+   "\"My routine is fine the way it is.\"",
+   "\"I'll keep doing what I've always done.\""
+  ],
+  "answer": 0,
+  "explain": "Ability change talk expresses that the client can change (\"I could...\"). \"I want...\" is desire change talk, and arguments for staying the same are sustain talk.",
+  "refs": [
+   "miller2013"
+  ]
+ },
+ {
+  "id": "fl-b-005",
+  "kg": "B",
+  "card": "card-b-motivational-interviewing",
+  "type": "mc",
+  "prompt": "An athlete referred by their coach argues there is no reason to change their preparation. Which response best fits motivational interviewing?",
+  "options": [
+   "Share the coach's concerns about it",
+   "Point out the costs of staying the same",
+   "Propose one small change to try",
+   "Reflect their view without arguing"
+  ],
+  "answer": 3,
+  "explain": "MI responds to sustain talk with reflection, not argument. Persuading, confronting or jumping to fix is the righting reflex, which tends to increase resistance, especially with coach-referred clients.",
+  "refs": [
+   "miller2013"
+  ]
+ },
+ {
+  "id": "fl-b-006",
+  "kg": "B",
+  "card": "card-b-socratic-questioning",
+  "type": "mc",
+  "prompt": "A runner says, \"I always choke in finals.\" Which response best reflects Socratic questioning?",
+  "options": [
+   "\"Isn't that thought a bit irrational?\"",
+   "\"What have you seen happen in past finals?\"",
+   "\"Can't you just trust your training?\"",
+   "\"Do you choke in every single final?\""
+  ],
+  "answer": 1,
+  "explain": "Socratic questions are open and invite the client to examine their own evidence. Questions that label the thought irrational, reassure, or call for a yes/no answer are not Socratic questioning.",
+  "refs": [
+   "beck2011",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-b-007",
+  "kg": "B",
+  "card": "card-b-socratic-questioning",
+  "type": "tf",
+  "prompt": "Socratic questioning works mainly by having the consultant point out and correct the client's irrational thoughts.",
+  "answer": false,
+  "correction": "Socratic questioning helps clients examine their own thoughts and reach their own conclusions instead of being told what to think.",
+  "explain": "Through guided discovery the client reaches the conclusion, and conclusions clients reach themselves are likely to feel more convincing than being told.",
+  "refs": [
+   "beck2011"
+  ]
+ },
+ {
+  "id": "fl-b-008",
+  "kg": "B",
+  "card": "card-b-performance-profiling",
+  "type": "mc",
+  "prompt": "In performance profiling, who names the qualities that will be rated?",
+  "options": [
+   "The coach",
+   "The consultant",
+   "The performer",
+   "A normative sample"
+  ],
+  "answer": 2,
+  "explain": "The performer generates the qualities they believe matter for top performance in their role, so the priorities appear in their own terms and build ownership.",
+  "refs": [
+   "butler1992"
+  ]
+ },
+ {
+  "id": "fl-b-009",
+  "kg": "B",
+  "card": "card-b-performance-profiling",
+  "type": "mc",
+  "prompt": "At the end of a program, how should a consultant use performance profiling to evaluate change?",
+  "options": [
+   "Re-rate the same qualities against the baseline",
+   "Build a new profile and compare the gaps",
+   "Have the coach re-rate the original qualities",
+   "Compare current ratings with the ideal ratings"
+  ],
+  "answer": 0,
+  "explain": "Re-rating the same qualities and comparing them with the baseline tracks perceived change and guides plan revisions. Coach ratings can be compared but not substituted, and current-versus-ideal gaps show priorities, not change.",
+  "refs": [
+   "butler1992",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-b-010",
+  "kg": "B",
+  "card": "card-b-questionnaire-use",
+  "type": "mc",
+  "prompt": "What should determine who sees an athlete's questionnaire results and how they are used?",
+  "options": [
+   "The instrument's published norms",
+   "The coaching staff's request",
+   "The informed consent agreement",
+   "The consultant's intake notes"
+  ],
+  "answer": 2,
+  "explain": "Consent states who will see results and for what purpose. Using results for purposes such as selection that the instrument and consent do not support is inappropriate.",
+  "refs": [
+   "aaspethics2024",
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "fl-b-011",
+  "kg": "B",
+  "card": "card-b-questionnaire-use",
+  "type": "tf",
+  "prompt": "When clinical screeners are used in performance consulting, their role is to flag possible concerns rather than to diagnose.",
+  "answer": true,
+  "explain": "Clinical screeners may be used only with appropriate training, policy and a referral pathway in place.",
+  "refs": [
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "fl-b-012",
+  "kg": "B",
+  "card": "card-b-anxiety-instruments",
+  "type": "mc",
+  "prompt": "Which instrument measures state cognitive anxiety, somatic anxiety and self-confidence, completed shortly before competition?",
+  "options": [
+   "CSAI-2",
+   "SAS-2",
+   "TAIS",
+   "POMS"
+  ],
+  "answer": 0,
+  "explain": "The CSAI-2 captures pre-competition state, built from multidimensional anxiety theory. Because it reflects a moment, it suits tracking states across events.",
+  "refs": [
+   "martens1990"
+  ]
+ },
+ {
+  "id": "fl-b-013",
+  "kg": "B",
+  "card": "card-b-anxiety-instruments",
+  "type": "mc",
+  "prompt": "A 13-year-old is nervous before every competition, regardless of the stakes. Which instrument best describes this general tendency?",
+  "options": [
+   "CSAI-2",
+   "SAS-2",
+   "TOPS",
+   "GEQ"
+  ],
+  "answer": 1,
+  "explain": "A tendency across competitions is trait anxiety, and the SAS-2 measures trait sport performance anxiety in children as well as adults. The CSAI-2 measures a pre-competition state.",
+  "refs": [
+   "smith2006sas2"
+  ]
+ },
+ {
+  "id": "fl-b-014",
+  "kg": "B",
+  "card": "card-b-anxiety-instruments",
+  "type": "tf",
+  "prompt": "When a CSAI-2 is repeated before competitions, scores compare more meaningfully if the timing and type of event stay similar.",
+  "answer": true,
+  "explain": "A state measure captures a moment before competition, so matching when it is completed and the kind of event supports meaningful comparisons across events.",
+  "refs": [
+   "martens1990",
+   "cox2012"
+  ]
+ },
+ {
+  "id": "fl-b-015",
+  "kg": "B",
+  "card": "card-b-skills-attention-inventories",
+  "type": "mc",
+  "prompt": "A golfer performs well in practice but poorly in competition. Which inventory assesses psychological skill use separately in each setting?",
+  "options": [
+   "ACSI-28",
+   "TAIS",
+   "TOPS",
+   "SIQ"
+  ],
+  "answer": 2,
+  "explain": "The TOPS has separate practice and competition sections, so it fits a training-versus-competition gap. The ACSI-28 gives a broad coping-skills profile without separating settings.",
+  "refs": [
+   "thomas1999tops"
+  ]
+ },
+ {
+  "id": "fl-b-016",
+  "kg": "B",
+  "card": "card-b-skills-attention-inventories",
+  "type": "mc",
+  "prompt": "Based on Nideffer's model, which instrument profiles attentional width and direction?",
+  "options": [
+   "ACSI-28",
+   "TOPS",
+   "MIQ-3",
+   "TAIS"
+  ],
+  "answer": 3,
+  "explain": "The TAIS profiles broad–narrow and internal–external attention, including overload, plus interpersonal style. It fits questions about the type of attention, though its validity evidence is mixed.",
+  "refs": [
+   "nideffer1976"
+  ]
+ },
+ {
+  "id": "fl-b-017",
+  "kg": "B",
+  "card": "card-b-other-instruments-observation",
+  "type": "mc",
+  "prompt": "Which instrument assesses imagery ability rather than imagery use?",
+  "options": [
+   "SIQ",
+   "MIQ-3",
+   "TEOSQ",
+   "AIMS"
+  ],
+  "answer": 1,
+  "explain": "The MIQ-3 measures how easily someone generates external visual, internal visual and kinesthetic images. The SIQ measures how often imagery is used for cognitive and motivational functions.",
+  "refs": [
+   "williams2012miq3"
+  ]
+ },
+ {
+  "id": "fl-b-018",
+  "kg": "B",
+  "card": "card-b-other-instruments-observation",
+  "type": "tf",
+  "prompt": "The GEQ is best collected with athletes' names attached so cohesion can be reported for each individual.",
+  "answer": false,
+  "correction": "The GEQ should be collected anonymously and reported at team level.",
+  "explain": "The GEQ assesses task and social cohesion. For this team measure, responses are collected anonymously and reported in aggregate at team level rather than as identifiable individual scores.",
+  "refs": [
+   "tenenbaum2012"
+  ]
+ }
+]

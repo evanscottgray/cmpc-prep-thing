@@ -237,7 +237,7 @@ function validateFlash(f, cardById) {
   if (f.type === 'tf') {
     if (typeof f.answer !== 'boolean') err(`${where}: tf answer must be true or false`);
     if (f.options !== undefined) err(`${where}: tf facts have no options`);
-    if (prompt.endsWith('?')) err(`${where}: tf prompt must be a statement`);
+    if (!/[.!]$/.test(prompt)) err(`${where}: tf prompt must be a statement ending in a period`);
     if ((prompt.match(BLANK) || []).length) err(`${where}: tf prompt can't have a blank`);
     if (/\b(not|n't)\b/i.test(prompt)) warn(`${where}: tf prompt contains a negation`);
     if (f.answer === false && (typeof f.correction !== 'string' || f.correction.trim().length < 15)) err(`${where}: a false tf needs a correction (the true statement)`);

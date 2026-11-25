@@ -1,0 +1,262 @@
+[
+ {
+  "id": "fl-l-001",
+  "kg": "L",
+  "card": "card-l-working-alliance",
+  "type": "mc",
+  "prompt": "Bordin's working alliance consists of agreement on goals, agreement on tasks, and ____.",
+  "options": [
+   "a similar life background",
+   "a shared social network",
+   "a bond of trust and respect",
+   "a matching communication style"
+  ],
+  "answer": 2,
+  "explain": "The third component is the emotional bond of trust and mutual respect. The three parts depend on one another, so a strain in any one can reduce engagement.",
+  "refs": [
+   "bordin1979"
+  ]
+ },
+ {
+  "id": "fl-l-002",
+  "kg": "L",
+  "card": "card-l-working-alliance",
+  "type": "mc",
+  "prompt": "An athlete trusts the consultant and still wants the agreed goal, but skips the homework and says it feels pointless. What should the consultant do?",
+  "options": [
+   "Revisit the goal before the task",
+   "Renegotiate the task, keeping the goal",
+   "Assign the same task more often",
+   "Pause the work to rebuild rapport"
+  ],
+  "answer": 1,
+  "explain": "With the bond and goal intact, a task that feels pointless signals a task problem, so the consultant renegotiates the task rather than the goal or the relationship.",
+  "refs": [
+   "bordin1979"
+  ]
+ },
+ {
+  "id": "fl-l-003",
+  "kg": "L",
+  "card": "card-l-working-alliance",
+  "type": "tf",
+  "prompt": "Bordin presented the working alliance as pantheoretical, describing what makes any helping relationship work whatever the helper's model.",
+  "answer": true,
+  "explain": "The alliance is meant to cut across approaches: agreement on goals and tasks plus a trusting bond matter whatever model the consultant works from.",
+  "refs": [
+   "bordin1979"
+  ]
+ },
+ {
+  "id": "fl-l-004",
+  "kg": "L",
+  "card": "card-l-rapport-trust",
+  "type": "mc",
+  "prompt": "Among Rogers's core conditions, genuineness is also known as ____.",
+  "options": [
+   "congruence",
+   "immediacy",
+   "positive regard",
+   "attunement"
+  ],
+  "answer": 0,
+  "explain": "Rogers's three core conditions are accurate empathy, unconditional positive regard, and congruence, which is the helper's genuineness. Positive regard is a separate condition.",
+  "refs": [
+   "rogers1957"
+  ]
+ },
+ {
+  "id": "fl-l-005",
+  "kg": "L",
+  "card": "card-l-rapport-trust",
+  "type": "mc",
+  "prompt": "When starting work with a team, what should a consultant tell athletes about confidentiality?",
+  "options": [
+   "That sessions are fully confidential",
+   "That limits are explained if they arise",
+   "That the coach sets the sharing rules",
+   "Its specific limits, stated up front"
+  ],
+  "answer": 3,
+  "explain": "Trust grows from transparency about who receives what information and where confidentiality ends. Promising total secrecy overpromises.",
+  "refs": [
+   "sharp2011"
+  ]
+ },
+ {
+  "id": "fl-l-006",
+  "kg": "L",
+  "card": "card-l-rapport-trust",
+  "type": "mc",
+  "prompt": "A consultant is joining a new team. What should come before any assessment or intervention?",
+  "options": [
+   "Collecting baseline data with inventories",
+   "Clarifying the role and building rapport",
+   "Running formal intake interviews with everyone",
+   "Introducing a team-wide mental skills routine"
+  ],
+  "answer": 1,
+  "explain": "Rapport is the foundation of the consulting sequence and begins before assessment or technique; clarifying the consultant's role comes first too.",
+  "refs": [
+   "sharp2011",
+   "gould1991"
+  ]
+ },
+ {
+  "id": "fl-l-008",
+  "kg": "L",
+  "card": "card-l-microskills",
+  "type": "mc",
+  "prompt": "A supportive challenge that places two discrepant client statements side by side, without judgment, is called ____.",
+  "options": [
+   "immediacy",
+   "self-disclosure",
+   "summarizing",
+   "confrontation"
+  ],
+  "answer": 3,
+  "explain": "In Ivey's model, confrontation is a neutral \"on one hand… on the other\" challenge. Immediacy instead addresses what is happening between consultant and client right now.",
+  "refs": [
+   "ivey2013"
+  ]
+ },
+ {
+  "id": "fl-l-009",
+  "kg": "L",
+  "card": "card-l-microskills",
+  "type": "tf",
+  "prompt": "Effective self-disclosure by a consultant is extended and keeps the conversation centered on the consultant's own experience.",
+  "answer": false,
+  "correction": "Self-disclosure helps when it is brief, relevant, for the client's benefit, and followed by a return of focus to the client.",
+  "explain": "Disclosure serves the client, not the consultant. A short, relevant example followed by turning back to the client keeps the session client-focused.",
+  "refs": [
+   "ivey2013"
+  ]
+ },
+ {
+  "id": "fl-l-010",
+  "kg": "L",
+  "card": "card-l-role-clarity",
+  "type": "tf",
+  "prompt": "A coach who refers an athlete to a consultant gains, through that referral, a right to the athlete's session content.",
+  "answer": false,
+  "correction": "Paying for services or making a referral does not by itself entitle anyone to session content.",
+  "explain": "What each stakeholder receives is agreed before services begin, often attendance and broad progress. Sharing beyond that happens with consent, except where safety or law requires disclosure.",
+  "refs": [
+   "aaspethics2024",
+   "andersen2005"
+  ]
+ },
+ {
+  "id": "fl-l-012",
+  "kg": "L",
+  "card": "card-l-role-clarity",
+  "type": "tf",
+  "prompt": "When a stakeholder misstates the consultant's role, the consultant should correct the misstatement promptly and respectfully.",
+  "answer": true,
+  "explain": "Role clarity is set at the outset, and a prompt, respectful correction keeps every stakeholder's understanding consistent with that agreement.",
+  "refs": [
+   "aaspethics2024",
+   "andersen2005"
+  ]
+ },
+ {
+  "id": "fl-l-013",
+  "kg": "L",
+  "card": "card-l-psychological-safety",
+  "type": "mc",
+  "prompt": "Edmondson defined team psychological safety as a shared belief that the team is safe for interpersonal ____.",
+  "options": [
+   "risk-taking",
+   "conflict avoidance",
+   "comfort",
+   "consensus"
+  ],
+  "answer": 0,
+  "explain": "Psychological safety means people can admit mistakes, ask questions, and raise concerns without fear of embarrassment or punishment. It is not the same as comfort or low standards.",
+  "refs": [
+   "edmondson1999"
+  ]
+ },
+ {
+  "id": "fl-l-014",
+  "kg": "L",
+  "card": "card-l-psychological-safety",
+  "type": "mc",
+  "prompt": "In Edmondson's research, what did psychologically safe teams do more of?",
+  "options": [
+   "Reporting more comfort and less pressure",
+   "Lowering standards to reduce stress",
+   "Deferring to leaders to keep harmony",
+   "Seeking feedback and discussing errors"
+  ],
+  "answer": 3,
+  "explain": "Psychological safety was linked to team learning behavior, such as seeking feedback and discussing errors. It is not the same as comfort or low standards; it enables candor in demanding environments.",
+  "refs": [
+   "edmondson1999"
+  ]
+ },
+ {
+  "id": "fl-l-015",
+  "kg": "L",
+  "card": "card-l-psychological-safety",
+  "type": "mc",
+  "prompt": "During a team session, a player ridicules a teammate who just admitted an error. What should the consultant do?",
+  "options": [
+   "Address it privately after the session",
+   "Address it briefly in the moment",
+   "Address it at length in the moment",
+   "Address it at the next team meeting"
+  ],
+  "answer": 1,
+  "explain": "A brief intervention in the moment protects candor and shows that the agreed norm applies. Waiting leaves the breach unaddressed in front of the group.",
+  "refs": [
+   "edmondson1999"
+  ]
+ },
+ {
+  "id": "fl-l-016",
+  "kg": "L",
+  "card": "card-l-inclusive-practice",
+  "type": "tf",
+  "prompt": "In para sport, classification groups athletes by how their impairment affects performance in that particular sport.",
+  "answer": true,
+  "explain": "Classification is sport-specific and can shape selection and lineups, so consultants working with para athletes learn it as part of the sport's context.",
+  "refs": [
+   "mio2023"
+  ]
+ },
+ {
+  "id": "fl-l-017",
+  "kg": "L",
+  "card": "card-l-inclusive-practice",
+  "type": "mc",
+  "prompt": "A consultant uses the wrong pronoun for a client. What is the recommended response?",
+  "options": [
+   "Correct it briefly, apologize simply, continue",
+   "Apologize at length, explaining your intent",
+   "Let it pass to avoid an awkward moment",
+   "Ask the client to educate you on pronouns"
+  ],
+  "answer": 0,
+  "explain": "The guidance is to correct the slip briefly, apologize simply, and move on, keeping the focus on the client rather than on the mistake.",
+  "refs": [
+   "mio2023",
+   "hook2013"
+  ]
+ },
+ {
+  "id": "fl-l-018",
+  "kg": "L",
+  "card": "card-l-inclusive-practice",
+  "type": "tf",
+  "prompt": "Adaptations such as imagery built around a wheelchair racer's own pushing stroke are best chosen by the consultant, drawing on their expertise.",
+  "answer": false,
+  "correction": "Adaptations are chosen with the client, who is treated as the expert on their own experience.",
+  "explain": "Inclusive practice means asking clients what they need rather than assuming, so the consultant and athlete design adaptations together.",
+  "refs": [
+   "mio2023",
+   "hook2013"
+  ]
+ }
+]

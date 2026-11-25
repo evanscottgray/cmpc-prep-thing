@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { Flash, KgId, SrsEntry } from '../types';
 import { ctx } from '../ctx';
 import { navigate } from '../router';
@@ -104,8 +104,11 @@ function FlashRound({ n, kg, onAgain }: { n: number; kg: KgId | ''; onAgain: () 
   function next() { setChoice(null); setGuessed(false); setI(i + 1); }
 
   // T/F, 1–4, Enter. Not while typing, in a dialog, with modifier keys, or on key repeat.
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
+  // The handler is refreshed on every render and the listener attached once, so a key pressed right after a render sees that render.
+  const onKey = useRef<(e: KeyboardEvent) => void>(() => {});
+  useEffect(() => { const on = (e: KeyboardEvent) => onKey.current(e); document.addEventListener('keydown', on); return () => document.removeEventListener('keydown', on); }, []);
+  {
+    onKey.current = (e: KeyboardEvent) => {
       if (e.repeat || e.metaKey || e.ctrlKey || e.altKey || card || done || !f) return;
       const el = e.target as HTMLElement | null;
       if (el && (el.closest('input, select, textarea, [role="dialog"]'))) return;
@@ -115,9 +118,7 @@ function FlashRound({ n, kg, onAgain }: { n: number; kg: KgId | ''; onAgain: () 
         else if (f.type === 'mc' && /^[1-4]$/.test(k) && Number(k) <= order.length) { e.preventDefault(); answer(order[Number(k) - 1]); }
       } else if (k === 'enter' && !(el && el.closest('button, a'))) { e.preventDefault(); next(); } // a focused button handles Enter itself
     };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  });
+  }
 
   const good = total >= 5 && t.right * 5 >= total * 4; // 80% right on the first try
   useEffect(() => { if (done && good && !stale && firstTime(roundId)) return cardBurst(document.querySelector<HTMLElement>('.card.hero'), true, 250); }, [done]);

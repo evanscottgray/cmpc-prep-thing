@@ -1,0 +1,155 @@
+[
+ {
+  "id": "fl-j-001",
+  "kg": "J",
+  "card": "card-j-energy-systems-arousal",
+  "type": "mc",
+  "prompt": "Which energy system mainly powers a single maximal lift or jump?",
+  "options": [
+   "Anaerobic glycolysis",
+   "Phosphagen (ATP-PCr)",
+   "Oxidative (aerobic)"
+  ],
+  "answer": 1,
+  "explain": "The phosphagen system fuels maximal efforts of roughly 10 seconds. Glycolysis contributes heavily from about 10 seconds to 2 minutes, and the oxidative system supports longer, lower-intensity work.",
+  "refs": [
+   "kenney2019"
+  ]
+ },
+ {
+  "id": "fl-j-002",
+  "kg": "J",
+  "card": "card-j-energy-systems-arousal",
+  "type": "mc",
+  "prompt": "Slow-paced breathing that tends to increase parasympathetic influence is practiced at about how many breaths per minute?",
+  "options": [
+   "Six",
+   "Twelve",
+   "Fifteen",
+   "Twenty"
+  ],
+  "answer": 0,
+  "explain": "Breathing at about six breaths per minute, at a comfortable depth and often with a longer exhale, tends to increase parasympathetic influence.",
+  "refs": [
+   "lehrer2000"
+  ]
+ },
+ {
+  "id": "fl-j-003",
+  "kg": "J",
+  "card": "card-j-energy-systems-arousal",
+  "type": "tf",
+  "prompt": "Fine-motor precision tasks such as putting often benefit from lower activation than brief gross-motor power tasks.",
+  "answer": true,
+  "explain": "Optimal activation depends on task demands, with large individual differences: precision tasks often benefit from lower activation, while brief power tasks tolerate or benefit from higher activation.",
+  "refs": [
+   "kenney2019"
+  ]
+ },
+ {
+  "id": "fl-j-004",
+  "kg": "J",
+  "card": "card-j-periodization-mental-skills",
+  "type": "mc",
+  "prompt": "Following periodization logic, when is the best time to teach an athlete a new mental skill?",
+  "options": [
+   "During a lower-priority competition",
+   "During the pre-competition taper",
+   "During the transition phase",
+   "During the preparatory phase"
+  ],
+  "answer": 3,
+  "explain": "The preparatory phase leaves time to make errors. Skills are then refined and tested in lower-priority competitions and only rehearsed, not changed, during the taper and peak.",
+  "refs": [
+   "bompa2019",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-j-005",
+  "kg": "J",
+  "card": "card-j-periodization-mental-skills",
+  "type": "mc",
+  "prompt": "Which periodization unit usually lasts about a week?",
+  "options": [
+   "Macrocycle",
+   "Mesocycle",
+   "Microcycle"
+  ],
+  "answer": 2,
+  "explain": "A microcycle is usually about a week. Mesocycles are blocks of several weeks with a particular emphasis, and the macrocycle often spans a season or year.",
+  "refs": [
+   "bompa2019"
+  ]
+ },
+ {
+  "id": "fl-j-006",
+  "kg": "J",
+  "card": "card-j-periodization-mental-skills",
+  "type": "tf",
+  "prompt": "The taper is the phase of the annual plan best suited to evaluation, reflection, and planning.",
+  "answer": false,
+  "correction": "The transition phase, a period of rest and active recovery, suits evaluation, reflection, and planning.",
+  "explain": "The taper is reduced training before key events, when mental skills are rehearsed rather than changed; reflective review fits the transition phase that follows competition.",
+  "refs": [
+   "bompa2019",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-j-008",
+  "kg": "J",
+  "card": "card-j-overtraining-reds",
+  "type": "mc",
+  "prompt": "RED-S results from prolonged or severe low ____.",
+  "options": [
+   "carbohydrate intake",
+   "protein intake",
+   "fluid intake",
+   "energy availability"
+  ],
+  "answer": 3,
+  "explain": "RED-S stems from too little dietary energy left for body functions after exercise, intentionally or not. It then affects bone health, hormones, metabolism, immunity, psychological health, and performance.",
+  "refs": [
+   "mountjoy2023",
+   "mountjoy2018"
+  ]
+ },
+ {
+  "id": "fl-j-009",
+  "kg": "J",
+  "card": "card-j-sleep-recovery",
+  "type": "mc",
+  "prompt": "National Sleep Foundation guidance recommends about how much nightly sleep for teenagers aged 14–17?",
+  "options": [
+   "7–9 hours",
+   "8–10 hours",
+   "9–11 hours",
+   "6–8 hours"
+  ],
+  "answer": 1,
+  "explain": "Teens need about 8–10 hours. The recommendation is about 9–11 hours for school-age children and 7–9 hours for adults aged 18–64.",
+  "refs": [
+   "hirshkowitz2015"
+  ]
+ },
+ {
+  "id": "fl-j-010",
+  "kg": "J",
+  "card": "card-j-sleep-recovery",
+  "type": "mc",
+  "prompt": "Which sign warrants referring an athlete to a physician for a possible sleep disorder?",
+  "options": [
+   "Loud snoring with pauses in breathing",
+   "Lying awake worrying before a final",
+   "Broken sleep during a week of travel",
+   "Late sleep onset from phone use in bed"
+  ],
+  "answer": 0,
+  "explain": "Loud snoring or breathing pauses, persistent insomnia despite adequate opportunity, and excessive daytime sleepiness suggest a disorder. Pre-competition worry, travel, and screen habits are addressed with sleep-supportive routines.",
+  "refs": [
+   "reardon2019",
+   "hirshkowitz2015"
+  ]
+ }
+]

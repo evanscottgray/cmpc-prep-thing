@@ -188,6 +188,35 @@
     "ethicsPrinciples": 6,
     "ethicsStandards": 25
   },
+  "flash": {
+    "n": 222,
+    "mc": 155,
+    "tf": 67,
+    "tfTrue": 34,
+    "keyLongestPct": 23.2,
+    "positions": [
+      38,
+      41,
+      41,
+      35
+    ],
+    "perCardMax": 3,
+    "byKg": {
+      "A": 20,
+      "B": 18,
+      "C": 9,
+      "D": 15,
+      "E": 23,
+      "F": 13,
+      "G": 25,
+      "H": 11,
+      "I": 44,
+      "J": 9,
+      "K": 10,
+      "L": 16,
+      "M": 9
+    }
+  },
   "references": {
     "registry": 128,
     "cited": 119,

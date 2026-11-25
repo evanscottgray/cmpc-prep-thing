@@ -1,0 +1,163 @@
+[
+ {
+  "id": "fl-k-001",
+  "kg": "K",
+  "card": "card-k-stress-injury-model",
+  "type": "mc",
+  "prompt": "In Andersen and Williams's stress–injury model, which input has been among the most consistent predictors of injury?",
+  "options": [
+   "Personality",
+   "History of stressors",
+   "Coping resources"
+  ],
+  "answer": 1,
+  "explain": "History of stressors, especially negative life events, has been among the most consistent predictors. Personality and coping resources are the model's other inputs to the stress response.",
+  "refs": [
+   "williams1998",
+   "andersen1988"
+  ]
+ },
+ {
+  "id": "fl-k-002",
+  "kg": "K",
+  "card": "card-k-stress-injury-model",
+  "type": "tf",
+  "prompt": "Andersen and Williams's stress–injury model mainly explains how athletes react emotionally after an injury.",
+  "answer": false,
+  "correction": "The stress–injury model is about predicting and preventing injury; post-injury reactions belong to the integrated model.",
+  "explain": "The model traces how psychosocial factors raise injury risk through the stress response, which is why its interventions aim at prevention.",
+  "refs": [
+   "andersen1988",
+   "williams1998"
+  ]
+ },
+ {
+  "id": "fl-k-003",
+  "kg": "K",
+  "card": "card-k-stress-injury-model",
+  "type": "mc",
+  "prompt": "In the stress–injury model, relaxation and attention training mainly target which part of the process?",
+  "options": [
+   "Physiological and attentional responses",
+   "Cognitive appraisal of demands and resources",
+   "The athlete's history of stressors",
+   "The athlete's personality traits"
+  ],
+  "answer": 0,
+  "explain": "The model points prevention at two targets: the appraisal, addressed with cognitive restructuring and confidence building, and the physiological and attentional response, addressed with relaxation and attention training.",
+  "refs": [
+   "williams1998"
+  ]
+ },
+ {
+  "id": "fl-k-004",
+  "kg": "K",
+  "card": "card-k-integrated-model",
+  "type": "mc",
+  "prompt": "In the integrated model of response to injury, rehab adherence is which type of response?",
+  "options": [
+   "Cognitive appraisal",
+   "Emotional response",
+   "Behavioral response",
+   "Situational factor"
+  ],
+  "answer": 2,
+  "explain": "Adherence, effort, and use of social support are behavioral responses, which interact with appraisals and emotions in a cycle that drives recovery outcomes.",
+  "refs": [
+   "wiesebjornstal1998"
+  ]
+ },
+ {
+  "id": "fl-k-005",
+  "kg": "K",
+  "card": "card-k-integrated-model",
+  "type": "tf",
+  "prompt": "Injured athletes reliably move through a fixed sequence of grief stages, from denial through anger to acceptance.",
+  "answer": false,
+  "correction": "Stage and grief models are poorly supported; responses vary widely between athletes and over time.",
+  "explain": "Because responses vary, consultants work with the athlete's current appraisals and emotions instead of waiting for an 'acceptance' stage.",
+  "refs": [
+   "wiesebjornstal1998",
+   "brewer1994"
+  ]
+ },
+ {
+  "id": "fl-k-006",
+  "kg": "K",
+  "card": "card-k-psychological-readiness",
+  "type": "mc",
+  "prompt": "What does medical clearance to return to sport establish?",
+  "options": [
+   "Psychological readiness criteria are met",
+   "Medical and functional criteria are met",
+   "Prior performance levels have been regained",
+   "Selection criteria for competing are met"
+  ],
+  "answer": 1,
+  "explain": "Clearance addresses the medical and functional criteria for return. It does not guarantee psychological readiness, which consultants can support separately with graded exposure and confidence building.",
+  "refs": [
+   "ardern2016",
+   "podlog2011"
+  ]
+ },
+ {
+  "id": "fl-k-007",
+  "kg": "K",
+  "card": "card-k-psychological-readiness",
+  "type": "mc",
+  "prompt": "On the return-to-sport continuum, which stage comes last?",
+  "options": [
+   "Return to participation",
+   "Return to sport",
+   "Return to performance"
+  ],
+  "answer": 2,
+  "explain": "Return runs from participation, to sport, to performance, with decisions shared among the athlete, medical staff, and coaches.",
+  "refs": [
+   "ardern2016"
+  ]
+ },
+ {
+  "id": "fl-k-008",
+  "kg": "K",
+  "card": "card-k-psychological-readiness",
+  "type": "tf",
+  "prompt": "An athlete medically cleared for contact who hesitates in contact drills out of vivid worry about re-injury is showing a sign of low psychological readiness.",
+  "answer": true,
+  "explain": "Avoidance of contact or specific movements, hesitation, and vivid worry about re-injury suggest an athlete may be physically cleared but not yet psychologically ready.",
+  "refs": [
+   "podlog2011",
+   "ardern2016"
+  ]
+ },
+ {
+  "id": "fl-k-009",
+  "kg": "K",
+  "card": "card-k-rehab-roles-skills",
+  "type": "mc",
+  "prompt": "Who is responsible for concussion assessment and return-to-play decisions?",
+  "options": [
+   "The CMPC",
+   "The head coach",
+   "The strength coach",
+   "The medical team"
+  ],
+  "answer": 3,
+  "explain": "Concussion assessment and return-to-play decisions belong to the medical team, so a consultant who notices possible symptoms passes them on right away rather than addressing them with mental skills.",
+  "refs": [
+   "patricios2023"
+  ]
+ },
+ {
+  "id": "fl-k-010",
+  "kg": "K",
+  "card": "card-k-rehab-roles-skills",
+  "type": "tf",
+  "prompt": "In injury rehabilitation, mental skills serve as adjuncts to prescribed medical care.",
+  "answer": true,
+  "explain": "Process goals, imagery, relaxation, and self-talk complement the rehab program the medical team prescribes; the consultant supports adjustment without changing rehab prescriptions.",
+  "refs": [
+   "podlog2011"
+  ]
+ }
+]

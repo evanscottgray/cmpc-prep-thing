@@ -1,0 +1,736 @@
+[
+ {
+  "id": "fl-i-001",
+  "kg": "I",
+  "card": "card-i-goal-types",
+  "type": "mc",
+  "prompt": "A swimmer sets the aim of keeping a long, relaxed stroke through the final lap. Which goal type is this?",
+  "options": [
+   "Process goal",
+   "Performance goal",
+   "Outcome goal"
+  ],
+  "answer": 0,
+  "explain": "Process goals target the actions that produce performance, such as a relaxed stroke. Performance goals set a personal standard like a split time, and outcome goals concern results against others.",
+  "refs": [
+   "kingston1997",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-i-002",
+  "kg": "I",
+  "card": "card-i-goal-types",
+  "type": "mc",
+  "prompt": "Which goal type is judged against the performer's own personal baseline, such as a split time or shooting percentage?",
+  "options": [
+   "Outcome goal",
+   "Performance goal",
+   "Process goal"
+  ],
+  "answer": 1,
+  "explain": "Performance goals concern the performer's own standard measured against a personal baseline. Outcome goals depend partly on others, and process goals describe how a skill is executed.",
+  "refs": [
+   "kingston1997",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-i-003",
+  "kg": "I",
+  "card": "card-i-goal-types",
+  "type": "tf",
+  "prompt": "Outcome goals are the most controllable of the three goal types, since they focus on the result itself.",
+  "answer": false,
+  "correction": "Performance and process goals are more controllable than outcome goals, which depend partly on others.",
+  "explain": "Winning or placing depends partly on rivals, so outcome goals are less controllable and can raise anxiety. They can still motivate long-term effort when paired with performance and process goals.",
+  "refs": [
+   "kingston1997",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-i-004",
+  "kg": "I",
+  "card": "card-i-goal-process",
+  "type": "mc",
+  "prompt": "A goal that a performer keeps missing despite real improvement should be ____.",
+  "options": [
+   "kept unchanged to test persistence",
+   "raised so the challenge keeps growing",
+   "dropped in favor of a new goal",
+   "revised to a challenging, attainable step"
+  ],
+  "answer": 3,
+  "explain": "Goals are adjusted, not kept unchanged or abandoned: a goal missed repeatedly despite progress becomes a step that is still challenging but attainable. Raising difficulty is for goals that are met easily.",
+  "refs": [
+   "weinberg2024",
+   "locke2002"
+  ]
+ },
+ {
+  "id": "fl-i-005",
+  "kg": "I",
+  "card": "card-i-goal-process",
+  "type": "mc",
+  "prompt": "Which step opens the goal-setting cycle?",
+  "options": [
+   "Writing an action plan for each goal",
+   "Reviewing progress against each of the targets set",
+   "Choosing an outcome goal to pursue",
+   "Assessing needs through profiling or baseline data"
+  ],
+  "answer": 3,
+  "explain": "Goal setting starts with assessment, such as a performance profile, interview, or baseline data, so goals target what matters most. Prioritizing, planning, and reviewing follow.",
+  "refs": [
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-i-006",
+  "kg": "I",
+  "card": "card-i-self-awareness",
+  "type": "tf",
+  "prompt": "Self-awareness is treated as the foundation for most mental skills, because a performer has to notice a state before regulating it.",
+  "answer": true,
+  "explain": "A performer cannot regulate arousal they fail to notice or change self-talk they cannot hear, so building awareness comes before regulation.",
+  "refs": [
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-007",
+  "kg": "I",
+  "card": "card-i-self-awareness",
+  "type": "mc",
+  "prompt": "When a performer's self-report and the consultant's observations disagree, the consultant treats the discrepancy as ____.",
+  "options": [
+   "information worth exploring",
+   "observer bias to correct for",
+   "self-report error to discount",
+   "measurement noise to set aside"
+  ],
+  "answer": 0,
+  "explain": "Conflicting data sources are informative in themselves, so the gap becomes a starting point for exploration rather than a reason to pick one source over the other.",
+  "refs": [
+   "butler1992",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-008",
+  "kg": "I",
+  "card": "card-i-delivery-factors",
+  "type": "mc",
+  "prompt": "Which part of the season best suits introducing and practicing new mental skills?",
+  "options": [
+   "The days before a major event",
+   "Off-season and preseason",
+   "Mid-season, between competitions"
+  ],
+  "answer": 1,
+  "explain": "New skills need time to learn, so the off-season and preseason suit them. In-season work stays brief and built into practice, and the run-up to a major event is for refining familiar strategies.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-009",
+  "kg": "I",
+  "card": "card-i-delivery-factors",
+  "type": "tf",
+  "prompt": "A one-off workshop can raise awareness and introduce a mental skills tool, but it seldom produces durable change.",
+  "answer": true,
+  "explain": "A workshop can introduce a tool, but multi-session programs with practice between sessions are preferred, so expectations for a single session should match the time available.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-010",
+  "kg": "I",
+  "card": "card-i-confidence-building",
+  "type": "mc",
+  "prompt": "In Bandura's self-efficacy theory, which source of efficacy information is the strongest?",
+  "options": [
+   "Vicarious experience",
+   "Verbal persuasion",
+   "Physiological and emotional states",
+   "Performance accomplishments"
+  ],
+  "answer": 3,
+  "explain": "Performance accomplishments, or mastery experiences, give direct evidence of capability, which is why confidence plans build graded tasks that start where success is likely.",
+  "refs": [
+   "bandura1997",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-i-011",
+  "kg": "I",
+  "card": "card-i-confidence-building",
+  "type": "mc",
+  "prompt": "For building a developing athlete's self-efficacy through vicarious experience, which model is most effective?",
+  "options": [
+   "An elite professional succeeding at the task",
+   "A similar peer succeeding at the task",
+   "A coach demonstrating the task expertly"
+  ],
+  "answer": 1,
+  "explain": "Vicarious experience works best when the model resembles the performer, so watching a similar peer succeed carries more weight than watching an elite performer or a coach.",
+  "refs": [
+   "bandura1997",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-i-012",
+  "kg": "I",
+  "card": "card-i-confidence-building",
+  "type": "tf",
+  "prompt": "Verbal persuasion is the most durable source of self-efficacy, holding up even without real success behind it.",
+  "answer": false,
+  "correction": "Verbal persuasion can support efforts, but it is a weaker source that fades without real success behind it.",
+  "explain": "Praise and encouragement from coaches, teammates, or self-talk help, but confidence lasts when it rests on actual success, so plans pair persuasion with graded mastery experiences.",
+  "refs": [
+   "bandura1997"
+  ]
+ },
+ {
+  "id": "fl-i-013",
+  "kg": "I",
+  "card": "card-i-pressure",
+  "type": "tf",
+  "prompt": "Pressure training begins at full competition-level pressure from the first drill so performers adapt quickly.",
+  "answer": false,
+  "correction": "Pressure training raises competition-like demands in manageable steps while performers use coping skills they have learned.",
+  "explain": "Coping skills such as breathing, routines and refocusing come first; scoring, consequences, observers or time limits are then added gradually, with debriefs to reinforce what worked.",
+  "refs": [
+   "hardy1996",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-014",
+  "kg": "I",
+  "card": "card-i-pressure",
+  "type": "mc",
+  "prompt": "Pressure training most closely resembles which phase of stress inoculation training?",
+  "options": [
+   "Education phase",
+   "Skill-acquisition phase",
+   "Application phase"
+  ],
+  "answer": 2,
+  "explain": "Rehearsing coping skills under gradually more realistic demands, the core of pressure training, resembles the application phase of stress inoculation training.",
+  "refs": [
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-015",
+  "kg": "I",
+  "card": "card-i-values-action",
+  "type": "mc",
+  "prompt": "In ACT and MAC, which term names a performer's chosen, ongoing directions, such as competing boldly, that are never finished?",
+  "options": [
+   "Values",
+   "Goals",
+   "Committed action",
+   "Acceptance"
+  ],
+  "answer": 0,
+  "explain": "Values are directions that are never finished, while goals are concrete steps toward them and committed action means taking those steps even when fear or doubt shows up.",
+  "refs": [
+   "hayes2012",
+   "gardner2007"
+  ]
+ },
+ {
+  "id": "fl-i-016",
+  "kg": "I",
+  "card": "card-i-values-action",
+  "type": "mc",
+  "prompt": "A diver sticks to familiar dives because attempting a harder one brings up fear of failing. Which ACT concept names this pattern?",
+  "options": [
+   "Cognitive defusion",
+   "Committed action",
+   "Experiential avoidance",
+   "Present-moment contact"
+  ],
+  "answer": 2,
+  "explain": "Experiential avoidance means steering away from actions to escape uncomfortable feelings. It often narrows performance and moves people away from their values, so it is a common target in ACT and MAC.",
+  "refs": [
+   "hayes2012",
+   "gardner2007"
+  ]
+ },
+ {
+  "id": "fl-i-017",
+  "kg": "I",
+  "card": "card-i-facilitation-debrief",
+  "type": "mc",
+  "prompt": "In Kolb's experiential learning cycle, which stage comes directly after reflective observation?",
+  "options": [
+   "Active experimentation",
+   "Abstract conceptualization",
+   "Concrete experience"
+  ],
+  "answer": 1,
+  "explain": "Kolb's cycle runs from concrete experience to reflective observation, then abstract conceptualization of what it means, then active experimentation that applies the lesson.",
+  "refs": [
+   "kolb1984"
+  ]
+ },
+ {
+  "id": "fl-i-018",
+  "kg": "I",
+  "card": "card-i-facilitation-debrief",
+  "type": "tf",
+  "prompt": "Team-building activities that skip the debrief tend to produce enjoyment without transfer to training or competition.",
+  "answer": true,
+  "explain": "Much of the learning happens in the debrief, where open questions link the experience to a mental skill and end in a specific commitment to apply it.",
+  "refs": [
+   "kolb1984"
+  ]
+ },
+ {
+  "id": "fl-i-019",
+  "kg": "I",
+  "card": "card-i-pettlep",
+  "type": "mc",
+  "prompt": "The PETTLEP imagery model is built on which principle?",
+  "options": [
+   "Functional equivalence",
+   "The matching hypothesis",
+   "Symbolic learning theory",
+   "Psychoneuromuscular theory"
+  ],
+  "answer": 0,
+  "explain": "PETTLEP rests on functional equivalence: imagery works best when it draws on processes that overlap with actual performance, so it should resemble the real thing as closely as possible.",
+  "refs": [
+   "holmes2001"
+  ]
+ },
+ {
+  "id": "fl-i-020",
+  "kg": "I",
+  "card": "card-i-pettlep",
+  "type": "mc",
+  "prompt": "An athlete does imagery lying down in street clothes with no equipment in hand. Which PETTLEP element is most clearly mismatched?",
+  "options": [
+   "Timing",
+   "Learning",
+   "Emotion",
+   "Physical"
+  ],
+  "answer": 3,
+  "explain": "The Physical element covers posture, clothing, and holding equipment. Imaging in a performance-like stance and gear brings the imagery closer to real performance.",
+  "refs": [
+   "holmes2001",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-021",
+  "kg": "I",
+  "card": "card-i-pettlep",
+  "type": "tf",
+  "prompt": "PETTLEP recommends imaging skills in slow motion by default to make each movement clearer.",
+  "answer": false,
+  "correction": "The Timing element calls for real-time speed, with slow motion used only selectively for isolated elements.",
+  "explain": "Functional equivalence means imagery should match real performance, including its speed, so slow motion is a selective tool rather than the default.",
+  "refs": [
+   "holmes2001",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-022",
+  "kg": "I",
+  "card": "card-i-imagery-functions",
+  "type": "mc",
+  "prompt": "An athlete images feeling confident, focused, and in control while trailing late in a match. Which imagery function is this?",
+  "options": [
+   "Motivational specific",
+   "Motivational general–arousal",
+   "Motivational general–mastery",
+   "Cognitive general"
+  ],
+  "answer": 2,
+  "explain": "Motivational general–mastery imagery depicts being confident and in control in difficult situations and is the function most tied to self-confidence. Motivational specific imagery centers on goals and outcomes instead.",
+  "refs": [
+   "hall1998siq",
+   "paivio1985"
+  ]
+ },
+ {
+  "id": "fl-i-023",
+  "kg": "I",
+  "card": "card-i-imagery-functions",
+  "type": "mc",
+  "prompt": "A team uses imagery to rehearse a new set play before practice. Which imagery function fits?",
+  "options": [
+   "Cognitive general",
+   "Cognitive specific",
+   "Motivational specific",
+   "Motivational general–mastery"
+  ],
+  "answer": 0,
+  "explain": "Cognitive general imagery rehearses strategies, game plans, set plays, and routines. Cognitive specific imagery rehearses an individual skill such as a serve or a turn.",
+  "refs": [
+   "hall1998siq",
+   "paivio1985"
+  ]
+ },
+ {
+  "id": "fl-i-024",
+  "kg": "I",
+  "card": "card-i-imagery-functions",
+  "type": "mc",
+  "prompt": "Imaging standing on the podium after reaching a target time best fits which imagery function?",
+  "options": [
+   "Motivational general–mastery",
+   "Motivational specific",
+   "Cognitive specific",
+   "Motivational general–arousal"
+  ],
+  "answer": 1,
+  "explain": "Motivational specific imagery focuses on goals and goal-related outcomes, such as winning or achieving a target. Imagery of feeling confident and in control would be motivational general–mastery.",
+  "refs": [
+   "hall1998siq",
+   "paivio1985"
+  ]
+ },
+ {
+  "id": "fl-i-025",
+  "kg": "I",
+  "card": "card-i-self-talk",
+  "type": "mc",
+  "prompt": "For a precise, fine-motor task such as putting or archery, which kind of self-talk is the better fit?",
+  "options": [
+   "Motivational self-talk",
+   "Instructional self-talk",
+   "Positive affirmations",
+   "Thought-stopping"
+  ],
+  "answer": 1,
+  "explain": "Instructional cues such as 'pendulum' direct attention to technique and suit precision and fine-motor tasks, especially during learning. Motivational self-talk is often used for effort and endurance.",
+  "refs": [
+   "theodorakis2000",
+   "hatzigeorgiadis2011"
+  ]
+ },
+ {
+  "id": "fl-i-026",
+  "kg": "I",
+  "card": "card-i-self-talk",
+  "type": "tf",
+  "prompt": "Meta-analytic evidence shows larger self-talk effects on performance for fine tasks and novel tasks.",
+  "answer": true,
+  "explain": "Self-talk interventions improve performance overall, with bigger effects for fine and novel tasks and when the self-talk has been trained.",
+  "refs": [
+   "hatzigeorgiadis2011"
+  ]
+ },
+ {
+  "id": "fl-i-027",
+  "kg": "I",
+  "card": "card-i-self-talk",
+  "type": "mc",
+  "prompt": "In cognitive restructuring of unhelpful self-talk, what is the next step once the performer has identified the thought?",
+  "options": [
+   "Replacing it with a constructive statement",
+   "Interrupting it with a stop cue",
+   "Testing it against the evidence",
+   "Repeating a positive affirmation"
+  ],
+  "answer": 2,
+  "explain": "Restructuring runs identify, test against evidence, then replace with a realistic, constructive statement. Thought-stopping on its own and unrealistic affirmations are weaker options.",
+  "refs": [
+   "hatzigeorgiadis2011"
+  ]
+ },
+ {
+  "id": "fl-i-028",
+  "kg": "I",
+  "card": "card-i-matching-hypothesis",
+  "type": "mc",
+  "prompt": "A performer's anxiety shows up mainly as a racing heart and muscle tension. Under the matching hypothesis, which technique fits best?",
+  "options": [
+   "Thought stopping",
+   "Instructional self-talk",
+   "Reappraising the likelihood of failure",
+   "Progressive muscle relaxation"
+  ],
+  "answer": 3,
+  "explain": "A racing heart and muscle tension are somatic symptoms, so a somatic technique such as progressive muscle relaxation is the direct match. Thought stopping, self-talk and reappraisal work on thoughts.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-029",
+  "kg": "I",
+  "card": "card-i-matching-hypothesis",
+  "type": "tf",
+  "prompt": "Because anxiety techniques have crossover effects, the matching hypothesis serves as a starting principle rather than a strict rule.",
+  "answer": true,
+  "explain": "Cognitive and somatic anxiety interact, so a technique aimed at one can affect the other, and many performers benefit from multimodal packages.",
+  "refs": [
+   "weinberg2024",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-030",
+  "kg": "I",
+  "card": "card-i-pmr-breathing",
+  "type": "mc",
+  "prompt": "In abbreviated PMR progressions, which stage pairs a word with the relaxed state?",
+  "options": [
+   "Cue-controlled relaxation",
+   "Differential relaxation",
+   "Release-only relaxation"
+  ],
+  "answer": 0,
+  "explain": "Cue-controlled relaxation links a word to the relaxed state so it can be triggered quickly. Release-only skips tensing, and differential relaxation relaxes muscles a task doesn't need.",
+  "refs": [
+   "jacobson1938",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-031",
+  "kg": "I",
+  "card": "card-i-pmr-breathing",
+  "type": "mc",
+  "prompt": "A sprinter keeps the jaw and shoulders loose while driving hard with the legs. Which relaxation skill is this?",
+  "options": [
+   "Progressive tensing",
+   "Release-only relaxation",
+   "Differential relaxation",
+   "Centering breath"
+  ],
+  "answer": 2,
+  "explain": "Differential relaxation means relaxing the muscles that aren't needed for the task while performing it, so effort goes where it is needed.",
+  "refs": [
+   "jacobson1938",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-032",
+  "kg": "I",
+  "card": "card-i-pmr-breathing",
+  "type": "tf",
+  "prompt": "Rapid, forced breathing reliably calms physiological activation before competition.",
+  "answer": false,
+  "correction": "Slow diaphragmatic breathing can reduce physiological arousal, while rapid, forced breathing raises it.",
+  "explain": "Fast, forced breathing raises arousal and can cause hyperventilation symptoms, the opposite of what a calming technique needs.",
+  "refs": [
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-033",
+  "kg": "I",
+  "card": "card-i-biofeedback-hrv",
+  "type": "mc",
+  "prompt": "In resonance frequency HRV biofeedback, the individual breathing rate is typically around ____ breaths per minute.",
+  "options": [
+   "twelve",
+   "eighteen",
+   "six"
+  ],
+  "answer": 2,
+  "explain": "HRV oscillations peak at a person's resonance rate, typically about six breaths per minute, so the rate is identified individually and then practiced as slow, paced breathing.",
+  "refs": [
+   "lehrer2000"
+  ]
+ },
+ {
+  "id": "fl-i-034",
+  "kg": "I",
+  "card": "card-i-biofeedback-hrv",
+  "type": "tf",
+  "prompt": "When a performer regulates well only with the biofeedback display in view, the consultant fades the feedback and has them rehearse without it.",
+  "answer": true,
+  "explain": "Biofeedback is scaffolding: the aim is self-regulation without the device, so the skill moves from device-free rehearsal into practice and competition settings rather than relying on more feedback.",
+  "refs": [
+   "lehrer2000",
+   "williams2020"
+  ]
+ },
+ {
+  "id": "fl-i-035",
+  "kg": "I",
+  "card": "card-i-routines",
+  "type": "tf",
+  "prompt": "A free-throw routine that falls apart whenever play is delayed should be lengthened with extra steps to make it sturdier.",
+  "answer": false,
+  "correction": "The routine should be streamlined to a few core elements and rehearsed amid simulated disruptions.",
+  "explain": "Rigid, ritualistic counts can break down when play is interrupted. A few functional elements, rehearsed amid delays, timeouts and noise, let the performer fall back on the core of the routine.",
+  "refs": [
+   "cotterill2010",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-i-036",
+  "kg": "I",
+  "card": "card-i-routines",
+  "type": "mc",
+  "prompt": "Which skill is a classic target for a pre-performance routine?",
+  "options": [
+   "A goalkeeper's reaction save",
+   "A return of a tennis serve",
+   "A pass during a fast break",
+   "A golf putt"
+  ],
+  "answer": 3,
+  "explain": "A putt is a classic use because the golfer decides when to start it. Saves, returns and fast-break passes are paced by the opponent or the play.",
+  "refs": [
+   "cotterill2010"
+  ]
+ },
+ {
+  "id": "fl-i-037",
+  "kg": "I",
+  "card": "card-i-attention-refocusing",
+  "type": "mc",
+  "prompt": "In Nideffer's model, which attentional style is used to execute on a target?",
+  "options": [
+   "Broad-external",
+   "Narrow-external",
+   "Broad-internal",
+   "Narrow-internal"
+  ],
+  "answer": 1,
+  "explain": "Nideffer crosses width with direction. Narrow-external focus locks onto a target for execution; broad-external reads the environment, broad-internal analyzes, and narrow-internal rehearses or centers.",
+  "refs": [
+   "nideffer2001"
+  ]
+ },
+ {
+  "id": "fl-i-038",
+  "kg": "I",
+  "card": "card-i-attention-refocusing",
+  "type": "mc",
+  "prompt": "A quarterback on the sideline analyzes what the defense did and plans the next series. Which of Nideffer's attentional styles is this?",
+  "options": [
+   "Narrow-internal",
+   "Broad-external",
+   "Narrow-external",
+   "Broad-internal"
+  ],
+  "answer": 3,
+  "explain": "Broad-internal attention is used to analyze and plan. Broad-external scans the environment, while the narrow styles serve centering and execution.",
+  "refs": [
+   "nideffer2001"
+  ]
+ },
+ {
+  "id": "fl-i-039",
+  "kg": "I",
+  "card": "card-i-attention-refocusing",
+  "type": "tf",
+  "prompt": "Orlick-style refocusing plans anticipate likely distractions, prepare an if-then response for each, and rehearse them in simulation.",
+  "answer": true,
+  "explain": "Because distractions are inevitable, prepared and rehearsed responses make recovery quick and automatic, which is more realistic than trying to block out every stimulus.",
+  "refs": [
+   "orlick1988"
+  ]
+ },
+ {
+  "id": "fl-i-040",
+  "kg": "I",
+  "card": "card-i-mindfulness",
+  "type": "mc",
+  "prompt": "In mindfulness practice, what counts as the repetition that trains attention?",
+  "options": [
+   "Noticing wandering and coming back",
+   "Holding focus without any wandering",
+   "Clearing the mind of every thought",
+   "Relaxing more deeply with each breath"
+  ],
+  "answer": 0,
+  "explain": "Mind-wandering is expected, and noticing it and bringing attention back is the training itself. Mindfulness asks performers to notice and allow experience, not to empty the mind or keep it from ever wandering.",
+  "refs": [
+   "kabatzinn1990",
+   "gardner2007"
+  ]
+ },
+ {
+  "id": "fl-i-041",
+  "kg": "I",
+  "card": "card-i-mindfulness",
+  "type": "tf",
+  "prompt": "Mindfulness-based approaches hold that effortful suppression of unwanted thoughts reliably makes them less intrusive.",
+  "answer": false,
+  "correction": "Effortful suppression of thoughts often backfires, making them more intrusive.",
+  "explain": "This backfire effect is a key rationale for mindfulness and MAC: performers learn to notice and allow internal experiences, then redirect attention to the task.",
+  "refs": [
+   "gardner2007",
+   "kabatzinn1990"
+  ]
+ },
+ {
+  "id": "fl-i-042",
+  "kg": "I",
+  "card": "card-i-team-building",
+  "type": "mc",
+  "prompt": "In Carron and Spink's team-building framework, clarifying roles and norms targets which component?",
+  "options": [
+   "Group environment",
+   "Group processes",
+   "Group structure",
+   "Social cohesion"
+  ],
+  "answer": 2,
+  "explain": "Group structure covers norms, roles and positions, and leadership. Group environment covers distinctiveness and togetherness, and processes such as cooperation and communication then build cohesion.",
+  "refs": [
+   "carron1993",
+   "brawley1997"
+  ]
+ },
+ {
+  "id": "fl-i-043",
+  "kg": "I",
+  "card": "card-i-team-building",
+  "type": "mc",
+  "prompt": "A team adopts a shared name and matching shirts to build identity. In Carron and Spink's framework, this targets ____.",
+  "options": [
+   "group environment",
+   "group structure",
+   "group processes"
+  ],
+  "answer": 0,
+  "explain": "Distinctiveness, such as a name, shirts, or shared identity, is part of the group environment, alongside togetherness or physical proximity.",
+  "refs": [
+   "carron1993"
+  ]
+ },
+ {
+  "id": "fl-i-044",
+  "kg": "I",
+  "card": "card-i-team-building",
+  "type": "mc",
+  "prompt": "In Carron and Spink's framework, who typically implements team-building strategies within regular sessions?",
+  "options": [
+   "The consultant",
+   "An outside facilitator",
+   "Each athlete on their own",
+   "The coach or team leader"
+  ],
+  "answer": 3,
+  "explain": "The consultant usually educates the coach or leader, who builds strategies into regular sessions. This suits limited contact time and may help sustain cohesion, which one-off outings rarely do without reinforcement in the team environment.",
+  "refs": [
+   "carron1993",
+   "brawley1997"
+  ]
+ }
+]
