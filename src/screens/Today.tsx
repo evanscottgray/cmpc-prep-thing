@@ -11,6 +11,7 @@ import { lastWeek, streak, studyDays } from '../lib/streak';
 import { ListLink, Meter, Page } from '../ui/bits';
 import { alertDialog, confirmDialog, toast } from '../ui/dialog';
 import { IcAlert, IcChevron, IcInfo, IcPhone } from '../ui/icons';
+import { flashCounts } from '../lib/flash';
 
 const WEEK = 7 * 86400000;
 
@@ -117,7 +118,7 @@ function StudyDays({ now, newToday }: { now: number; newToday: boolean }) {
   const span = week.filter((d) => d.date >= first).length; // days since you started, up to a week
   const studied = week.filter((d) => d.studied).length;
   const title = st.count >= 2 ? `${st.count} days in a row` : span === 1 ? 'Day 1' : studied === 0 ? 'Welcome back' : `${studied} of the last ${span} days`;
-  const sub = span === 1 ? 'You started today. Nice.' : st.today ? 'You studied today. Nice.' : st.count >= 2 ? 'Any question, card or review today adds a day. A missed day just starts a new run.' : studied === 0 ? 'Any question, card or review today starts a new run.' : 'Any question, card or review today counts.';
+  const sub = span === 1 ? 'You started today. Nice.' : st.today ? 'You studied today. Nice.' : st.count >= 2 ? 'Any question, card, flash fact or review today adds a day. A missed day just starts a new run.' : studied === 0 ? 'Any question, card, flash fact or review today starts a new run.' : 'Any question, card, flash fact or review today counts.';
   return (
     <div class="study-days">
       <div class="streak-head">
@@ -166,11 +167,12 @@ function DailyCard({ answered, now, reachedNote }: { answered: number; now: numb
           ? <div class="row between"><strong class="goal-done"><span aria-hidden="true">🎉 </span>Daily goal reached</strong><span class="muted small">{answered} of {s.dailyTarget}</span></div>
           : <div class="row between"><span>{answered} of {s.dailyTarget} questions</span><span class="muted small">{progress >= 80 ? `${s.dailyTarget - answered} to go` : progress >= 50 ? 'Halfway there' : `${progress}%`}</span></div>}
         <div style={{ marginTop: '.5rem', '--from': progress ? fromPct / progress : 0 } as any}><Meter value={progress} label="Daily target" grew={grew} /></div>
-        <p class="small muted" style={{ margin: '.5rem 0 0' }}>{reached ? reachedNote ?? "That's enough for today. Anything more is optional." : 'Counts every question you answer, including spaced review.'}</p>
+        <p class="small muted" style={{ margin: '.5rem 0 0' }}>{reached ? reachedNote ?? "That's enough for today. Anything more is optional." : 'Counts every exam-style question you answer, including spaced review.'}</p>
         <StudyDays now={now} newToday={shown.newToday} />
         {reached && <p class="small muted more-label">If you want more:</p>}
         <div class={`btn-row${reached ? '' : ' mt'}`} style={reached ? { marginTop: '.4rem' } : undefined}>
           {(() => { const q = openQuiz(); return <button class={`btn small${reached ? ' ghost' : ''}`} onClick={startQuiz}>{q ? <>Resume · <span class="keep">{q.items.length - q.revealed.length} left</span></> : !db.attempts.length ? 'Start the warm-up' : 'Quick quiz · 10'}</button>; })()}
+          {(ctx.bank.flash?.length ?? 0) > 0 && !isLight(plan(db).phase) && <button class={`btn small${reached ? ' ghost' : ''}`} onClick={() => navigate('flash?n=10')}>Flash · 10</button>}
           <a class={`btn small${reached ? ' ghost' : ''}`} href="#/study">More options</a>
         </div>
       </div>
@@ -233,17 +235,18 @@ export function Today() {
   const s = db.settings;
   const light = isLight(p.phase);
   const goalMet = !light && p.answeredToday >= s.dailyTarget;
-  const firstVisit = !db.attempts.length && !Object.keys(db.cardSrs).length;
+  const fc = flashCounts(ctx.bank, db, ymd(now));
+  const firstVisit = !db.attempts.length && !Object.keys(db.cardSrs).length && !fc.practiced;
   const skipId = p.primary.kind === 'resume' || p.primary.kind === 'reviewExam' ? p.primary.session.id : undefined;
   const ip = inProgressOf(db, skipId);
-  const hasRight = light || (p.dueItems > 0 && p.primary.kind !== 'review') || p.dueCards > 0 || ip.reviews.length + ip.open.length > 0;
+  const hasRight = light || (p.dueItems > 0 && p.primary.kind !== 'review') || p.dueCards > 0 || fc.due > 0 || ip.reviews.length + ip.open.length > 0;
   const urgent = p.primary.kind === 'resume' || p.primary.kind === 'reviewExam'; // a running timer or a fresh review comes first
   // Only say the exam covered the goal when today's answers from that sitting alone reach it.
   const examToday = p.primary.kind === 'reviewExam' ? db.attempts.filter((a) => a.s === (p.primary as { session: { id: string } }).session.id && ymd(a.t) === ymd(now) && !a.na).length : 0;
   const reachedNote = p.primary.kind === 'resume' ? 'Your daily goal is already met.'
     : p.primary.kind === 'reviewExam' && examToday >= s.dailyTarget ? "Your exam covered today's goal." : undefined;
   const examNext = p.primary.kind === 'formA' || p.primary.kind === 'formB' || p.primary.kind === 'mixed';
-  const started = db.attempts[0]?.t ?? Infinity;
+  const started = Math.min(db.attempts[0]?.t ?? Infinity, ...Object.values(db.flash.srs).map((e) => e.last)); // flash-only learners are reminded too
   const needBackup = Date.now() - started > 2 * 86400000 && (!s.lastBackupAt || Date.now() - s.lastBackupAt > WEEK) && (!s.backupSnoozeUntil || Date.now() > s.backupSnoozeUntil);
   const notInstalled = ctx.caps.ios && !ctx.caps.standalone;
   const inProgress = <InProgress skip={skipId} />;
@@ -271,11 +274,12 @@ export function Today() {
       <div>
       {hasRight && inProgress}{/* on iPad, beside the recommendation rather than below the fold; phones stack it in the same place */}
 
-      {!light && ((p.dueItems > 0 && p.primary.kind !== 'review') || p.dueCards > 0) && (
+      {!light && ((p.dueItems > 0 && p.primary.kind !== 'review') || p.dueCards > 0 || fc.due > 0) && (
         <div class="section">
           <h2>Due reviews</h2>
           <div class="list">
             {p.dueItems > 0 && p.primary.kind !== 'review' && <button class="list-item" onClick={startReview}><span class="li-main"><span class="li-title">Spaced review</span><span class="li-sub" style={{ display: 'block' }}>Missed and uncertain questions{p.dueItems > REVIEW_MAX && <span class="keep">{` · ${REVIEW_MAX} per session`}</span>}</span></span><span class="badge accent">{p.dueItems} due</span><IcChevron class="chev" /></button>}
+            {fc.due > 0 && <button class="list-item" onClick={() => navigate('flash?n=10')}><span class="li-main"><span class="li-title">Flash drill</span><span class="li-sub" style={{ display: 'block' }}>Quick recall facts to check again</span></span><span class="badge accent">{fc.due} due</span><IcChevron class="chev" /></button>}
             {p.dueCards > 0 && <a class="list-item" href="#/cards/study"><span class="li-main"><span class="li-title">Concept cards</span><span class="li-sub" style={{ display: 'block' }}>{p.dueCards < 12 ? `${p.dueCards} due, then new cards` : 'Cards to recall again'}</span></span><span class="badge accent">{p.dueCards} due</span><IcChevron class="chev" /></a>}
           </div>
         </div>
@@ -287,6 +291,7 @@ export function Today() {
           <div class="list">
             <ListLink onClick={startQuiz} title={openQuiz() ? 'Resume quick quiz' : 'Quick quiz'} sub={(() => { const q = openQuiz(); return q ? `${q.revealed.length} of ${q.items.length} answered` : '10 questions'; })()} />
             {p.dueItems > 0 && <ListLink onClick={startReview} title="Spaced review" sub="A short set of questions you missed before" />}
+            {fc.practiced > 0 && <ListLink onClick={() => navigate('flash?n=10')} title="Flash drill" sub="Facts you've practised, no new ones" />}
           </div>
         </div>
       )}

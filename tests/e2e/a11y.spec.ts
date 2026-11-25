@@ -18,6 +18,27 @@ for (const scheme of ['light', 'dark'] as const) {
       await axe(page, `${scheme} ${hash}`);
       await shot(page, `a11y-${scheme}-${hash.replace('/', '-')}`);
     }
+    // flash drill: setup, question, verdict with the card, summary
+    await go(page, 'study');
+    await page.getByRole('button', { name: /Flash drill/ }).click();
+    await axe(page, `${scheme} flash setup`);
+    await page.getByRole('button', { name: 'Cancel' }).click();
+    await go(page, 'flash?n=2');
+    await expect(page.locator('#flash-prompt')).toBeVisible();
+    await axe(page, `${scheme} flash question`);
+    for (let n = 0; n < 6 && !(await page.getByRole('heading', { name: /Round complete/ }).count()); n++) {
+      if (await page.locator('.tf-row').count()) await page.getByRole('button', { name: /^False/ }).click(); else await page.locator('.flash-opt').nth(1).click();
+      if (n === 0) {
+        await axe(page, `${scheme} flash verdict`); await shot(page, `a11y-${scheme}-flash-verdict`);
+        await page.getByRole('button', { name: 'Read the concept card' }).click();
+        await axe(page, `${scheme} flash card modal`);
+        await page.getByRole('button', { name: 'Back to the drill' }).click();
+      }
+      await page.getByRole('button', { name: /^(Next|See summary)$/ }).click();
+    }
+    await expect(page.getByRole('heading', { name: /Round complete/ })).toBeVisible();
+    await axe(page, `${scheme} flash summary`);
+    await shot(page, `a11y-${scheme}-flash-summary`);
     // exam screen + navigator + results + review + tutor
     await go(page, 'start/mixed');
     await expect(page.getByRole('heading', { name: 'Mixed exam', level: 1 })).toBeVisible();

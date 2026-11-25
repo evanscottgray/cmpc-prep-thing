@@ -65,7 +65,7 @@ export function CardsHub({ query }: { query: URLSearchParams }) {
 }
 
 /** Definition first, then what to remember and how it is tested; the fuller explanation follows. */
-function CardBody({ c }: { c: Card }) {
+export function CardBody({ c }: { c: Card }) {
   return (
     <div class="concept-body">
       <p class="lead">{c.body[0]}</p>

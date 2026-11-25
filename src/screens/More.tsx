@@ -128,7 +128,7 @@ export function Settings() {
   );
 }
 
-const backupLine = (s: ReturnType<typeof summarize>) => [plural(s.attempts, 'answer'), plural(s.exams, 'full exam'), plural(s.reviews, 'review entry', 'review entries'), plural(s.reports, 'report')].join(' · ');
+const backupLine = (s: ReturnType<typeof summarize>) => [plural(s.attempts, 'answer'), plural(s.exams, 'full exam'), plural(s.reviews, 'review entry', 'review entries'), ...(s.flash ? [plural(s.flash, 'flash fact')] : []), plural(s.reports, 'report')].join(' · ');
 
 export function Backup() {
   const db = useDb();
@@ -179,6 +179,8 @@ export function Backup() {
         <Modal title="Restore this backup?" onClose={() => setPending(null)}>
           <p>Made {new Date(pending.exportedAt).toLocaleString()} (app {pending.appVersion}).</p>
           <p class="small">{backupLine(ps)}</p>
+          {pending.flashUnreadable ? <p class="small">Flash progress in this file couldn't be read. Everything else restores; flash starts fresh.</p>
+            : !ps.flash && sum.flash > 0 && <p class="small">This backup has no flash drill progress, so your current flash progress ({plural(sum.flash, 'fact')}) will be cleared.</p>}
           <p><strong>Everything currently on this device will be replaced.</strong></p>
           <div class="btn-row">
             <button class="btn" onClick={() => setPending(null)}>Cancel</button>

@@ -10,14 +10,16 @@ const list = (d) => fs.existsSync(path.join(ROOT, d)) ? fs.readdirSync(path.join
 
 const items = list('content/items').flatMap((f) => rd(`content/items/${f}`));
 const cards = list('content/cards').flatMap((f) => rd(`content/cards/${f}`));
+const flash = list('content/flash').flatMap((f) => rd(`content/flash/${f}`));
 const bp = rd('content/blueprint.json');
 const refs = rd('content/references.json').refs;
 
 items.sort((a, b) => a.id.localeCompare(b.id));
+flash.sort((a, b) => a.id.localeCompare(b.id));
 const KG_ORDER = bp.kgs.map((k) => k.id);
 cards.sort((a, b) => KG_ORDER.indexOf(a.kg) - KG_ORDER.indexOf(b.kg) || (a.category ? 0 : 1) - (b.category ? 0 : 1) || 0);
 
-const usedRefs = new Set([...items.flatMap((i) => i.refs), ...cards.flatMap((c) => c.refs || [])]);
+const usedRefs = new Set([...items.flatMap((i) => i.refs), ...cards.flatMap((c) => c.refs || []), ...flash.flatMap((f) => f.refs)]);
 const refOut = Object.fromEntries(Object.entries(refs).filter(([k]) => usedRefs.has(k)).map(([k, v]) => [k, { s: v.short, c: v.citation }]));
 
 // Card bodies are written as one block; split them into short paragraphs so they read well on a phone.
@@ -45,9 +47,10 @@ const body = {
   })),
   cards: cards.map(({ _file, body, ...c }) => ({ ...c, body: paragraphs(body) })),
   refs: refOut,
+  ...(flash.length ? { flash: flash.map(({ _file, ...f }) => f) } : {}),
 };
 const json = JSON.stringify(body);
 const version = crypto.createHash('sha256').update(json).digest('hex').slice(0, 12);
 fs.mkdirSync(path.join(ROOT, 'public/data'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'public/data/bank.json'), JSON.stringify({ version, ...body }));
-console.log(`bank.json: ${items.length} items, ${cards.length} cards, ${Object.keys(refOut).length} refs, version ${version}, ${(json.length / 1024).toFixed(0)} KB`);
+console.log(`bank.json: ${items.length} items, ${cards.length} cards, ${flash.length} flash facts, ${Object.keys(refOut).length} refs, version ${version}, ${(json.length / 1024).toFixed(0)} KB`);

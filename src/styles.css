@@ -636,3 +636,28 @@ ol.howto { padding-left: 1.3rem; } ol.howto li { margin-bottom: .5rem; }
 @keyframes cel-rise { from { transform: translateY(6px); opacity: 0; } to { transform: none; opacity: 1; } }
 @keyframes cel-fill { from { transform: scaleX(var(--from, 0)); } to { transform: scaleX(1); } }
 @keyframes cel-nudge { 0% { transform: scale(.94); opacity: 0; } 60% { transform: scale(1.04); opacity: 1; } 100% { transform: none; } }
+
+/* Flash drill */
+.flash-card { padding: 1.15rem 1.1rem; margin-bottom: 1rem; }
+.flash-prompt { font-size: 1.2rem; font-weight: 650; line-height: 1.45; margin: .15rem 0 .5rem; }
+.flash-prompt:focus { outline: none; }
+.tf-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.btn.tf { min-height: 64px; font-size: 1.12rem; font-weight: 750; border-width: 2px; border-color: var(--control); justify-content: center; gap: .5rem; }
+.btn.tf .kbd, .flash-opt .kbd { font-size: .72rem; font-weight: 700; color: var(--muted); border: 1px solid var(--border); border-radius: 5px; padding: 0 .3rem; }
+@media (hover: none) { .btn.tf .kbd { display: none; } } /* no keyboard hint on touch screens */
+.btn.tf[disabled] { cursor: default; background: var(--surface); color: var(--muted); }
+.btn.tf.is-correct[disabled] { border-color: var(--ok); background: var(--ok-soft); color: var(--ok); }
+.btn.tf.is-wrong[disabled] { border-color: var(--bad); background: var(--bad-soft); color: var(--bad); }
+.flash-opt { font: inherit; color: inherit; text-align: left; padding: 0; width: 100%; cursor: pointer; }
+.flash-opt:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.flash-opt[disabled] { cursor: default; }
+.flash-opt.is-other { border-color: var(--border); }
+.flash-opt.is-other .otext { color: var(--muted); }
+.flash-opt.is-correct .letter { border-color: var(--ok); color: var(--ok); }
+.flash-opt.is-wrong .letter { border-color: var(--bad); color: var(--bad); }
+.flash-correction { margin-top: .3rem; }
+.verdict .verdict-sub + .verdict-sub { margin-top: .3rem; }
+.flash-links { gap: .25rem; flex-wrap: wrap; margin: -.25rem 0 .5rem; }
+.flash-links .btn { padding-left: .4rem; padding-right: .4rem; }
+.flash-hint { flex: 1; text-align: center; align-self: center; }
+@media (hover: none) { .flash-hint { display: none; } }

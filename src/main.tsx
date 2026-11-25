@@ -25,7 +25,7 @@ async function boot() {
     ctx.store = new Store(kv, state, mirror);
     root.textContent = '';
     render(<App />, root);
-    window.addEventListener('storage', (e) => { if (e.key === PING_KEY) ctx.store.reload(); });
+    window.addEventListener('storage', (e) => { if (e.key !== PING_KEY) return; if (e.newValue?.startsWith('replace:')) ctx.store.replaceEpoch++; ctx.store.reload(); }); // a reset or restore elsewhere ends an open flash round here
     // flush pending writes when the app is backgrounded
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') ctx.store.flush(); });
     if (state.settings.onboarded) requestPersistence();

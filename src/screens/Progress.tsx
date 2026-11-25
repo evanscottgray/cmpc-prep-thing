@@ -8,6 +8,7 @@ import { areaAccuracy, availableItems, examHistory, focusAreas, focusLine, itemS
 import { AreaBar, ListLink, Page } from '../ui/bits';
 import { lastWeek, studyDays } from '../lib/streak';
 import { DrillSetup } from './Study';
+import { flashCounts } from '../lib/flash';
 
 const scoreOf = (s: Session, target: number) => scaledScore((100 * s.result!.raw) / s.result!.scoredCount, target);
 const shortName = (s: Session) => `${s.kind === 'mixed' ? 'Mix' : s.title.replace('Form ', '')}${s.retake ? '*' : ''}`;
@@ -54,6 +55,7 @@ export function Progress() {
   const seen = bank.items.filter((i) => stats.has(i.id)).length;
   const target = db.settings.rawTarget;
   const any = db.attempts.length > 0;
+  const fc = flashCounts(bank, db);
   const focus = focusAreas(bank, last.byKg);
   const rate = (id: string) => (last.byKg[id].n ? last.byKg[id].c / last.byKg[id].n : 2);
   const kgs = [...bank.blueprint.kgs].sort((a, b) => rate(a.id) - rate(b.id) || b.weight - a.weight);
@@ -144,7 +146,7 @@ export function Progress() {
       </div>
 
       <div>
-      {any && (
+      {(any || fc.practiced > 0) && (
         <div class="section">
           <h2>Pacing and coverage</h2>
           <div class="card stat-grid">
@@ -152,6 +154,7 @@ export function Progress() {
             <div class="stat"><div class="v">{seen}/{bank.items.length}</div><div class="k">Bank questions seen{avail.length < bank.items.length ? ` (${avail.length} available now)` : ''}</div></div>
             <div class="stat"><div class="v">{db.attempts.filter((a) => !a.na).length}</div><div class="k">Total answers</div></div>
             <div class="stat"><div class="v">{Object.keys(db.cardSrs).length}/{bank.cards.length}</div><div class="k">Concept cards studied</div></div>
+            {fc.total > 0 && <div class="stat"><div class="v">{fc.practiced}/{fc.total}</div><div class="k">Flash facts practised{fc.mastered ? ` (${fc.mastered} mastered)` : ''}</div></div>}
           </div>
         </div>
       )}
