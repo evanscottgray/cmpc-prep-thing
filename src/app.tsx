@@ -18,6 +18,7 @@ import { TutorRunner } from './screens/TutorRunner';
 import { Results } from './screens/Results';
 import { clearConfetti, holdCelebration, releaseCelebration } from './ui/celebrate';
 import { ReviewItem, ReviewList } from './screens/Review';
+import { FlashRunner } from './screens/Flash';
 
 const TAB_ROOTS = new Set(['today', 'study', 'cards', 'progress', 'more']);
 
@@ -73,6 +74,7 @@ export function App() {
     case 'study': screen = <Study />; break;
     case 'cards': screen = rest[0] === 'study' ? <CardStudy /> : <CardsHub query={route.query} />; break;
     case 'card': screen = <CardDetail id={rest[0]} />; break;
+    case 'flash': screen = <FlashRunner query={route.query} />; break;
     case 'progress': screen = <Progress />; break;
     case 'more': screen = <More />; break;
     case 'settings': screen = <Settings />; break;

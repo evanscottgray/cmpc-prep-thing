@@ -1,0 +1,157 @@
+[
+ {
+  "id": "fl-m-001",
+  "kg": "M",
+  "card": "card-m-online-consulting-setup",
+  "type": "mc",
+  "prompt": "Why does the consultant confirm the client's physical location at the start of each online session?",
+  "options": [
+   "To confirm the client's identity",
+   "To check the platform's encryption",
+   "To direct emergency help to them",
+   "To document consent to recording"
+  ],
+  "answer": 2,
+  "explain": "Emergency services must be local to the client, not the consultant, so knowing where the client is each session gives a crisis or dropped call a clear next step.",
+  "refs": [
+   "apa2013telepsych",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-m-002",
+  "kg": "M",
+  "card": "card-m-online-consulting-setup",
+  "type": "mc",
+  "prompt": "Besides a backup phone number and crisis resources, a remote client's emergency plan lists ____.",
+  "options": [
+   "an emergency contact near the client",
+   "the consultant's clinical supervisor",
+   "the platform's technical support line",
+   "emergency services near the consultant"
+  ],
+  "answer": 0,
+  "explain": "The plan pairs a backup number with a local emergency contact and local crisis resources, so help can reach the client where they are if the connection fails during a crisis.",
+  "refs": [
+   "apa2013telepsych"
+  ]
+ },
+ {
+  "id": "fl-m-003",
+  "kg": "M",
+  "card": "card-m-online-consulting-setup",
+  "type": "mc",
+  "prompt": "When does the consultant verify a client's identity in online work?",
+  "options": [
+   "When services are due for renewal",
+   "At the first session",
+   "After several sessions",
+   "At the end of services"
+  ],
+  "answer": 1,
+  "explain": "Identity is verified at the first session, as part of the setup that comes before intake content.",
+  "refs": [
+   "apa2013telepsych",
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-m-004",
+  "kg": "M",
+  "card": "card-m-confidentiality-hipaa",
+  "type": "tf",
+  "prompt": "HIPAA's Privacy and Security Rules apply to every mental performance consultant.",
+  "answer": false,
+  "correction": "HIPAA applies to covered entities and their business associates, so whether it applies depends on the practice.",
+  "explain": "Covered entities include health plans, clearinghouses and providers who conduct certain transactions electronically, such as insurance billing. Whether a consultant is covered depends on whether their practice fits those categories.",
+  "refs": [
+   "hipaa"
+  ]
+ },
+ {
+  "id": "fl-m-005",
+  "kg": "M",
+  "card": "card-m-confidentiality-hipaa",
+  "type": "mc",
+  "prompt": "Which obligation applies to every consultant and calls for encrypted, access-restricted platforms for client sessions and data?",
+  "options": [
+   "Ethical confidentiality duties",
+   "HIPAA's Privacy and Security Rules",
+   "Business associate agreements",
+   "The platform's terms of service"
+  ],
+  "answer": 0,
+  "explain": "The ethical duty to protect confidentiality applies to every consultant whatever the technology. HIPAA's rules and business associate agreements bind only covered entities and their associates.",
+  "refs": [
+   "aaspethics2024",
+   "hipaa"
+  ]
+ },
+ {
+  "id": "fl-m-006",
+  "kg": "M",
+  "card": "card-m-documentation-technology",
+  "type": "mc",
+  "prompt": "For remote-session notes, good record keeping limits access to the people approved by ____.",
+  "options": [
+   "the coach",
+   "the organization",
+   "the consultant's supervisor",
+   "the client"
+  ],
+  "answer": 3,
+  "explain": "Records belong in encrypted, password-protected systems that only people the client has agreed to can open, not on a shared drive open to coaches or an unsecured personal device.",
+  "refs": [
+   "aaspethics2024",
+   "apa2013telepsych"
+  ]
+ },
+ {
+  "id": "fl-m-007",
+  "kg": "M",
+  "card": "card-m-documentation-technology",
+  "type": "tf",
+  "prompt": "Before recording a remote session, the consultant explains who will have access to the recording as part of seeking informed consent.",
+  "answer": true,
+  "explain": "Recordings need the same care as other records. In the card's remote-practice model, the consultant also discusses the recording's purpose and how it is stored and deleted.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-m-008",
+  "kg": "M",
+  "card": "card-m-social-media-conduct",
+  "type": "mc",
+  "prompt": "A current client sends a friend request to the consultant's personal account. What is the best response?",
+  "options": [
+   "Accept and keep exchanges professional",
+   "Decline without replying",
+   "Accept with a restricted friends list",
+   "Decline and explain the boundary"
+  ],
+  "answer": 3,
+  "explain": "Accepting adds a social relationship to the professional one, and declining in silence leaves the boundary unexplained. An explained decline, backed by a written social media policy in informed consent, sets it clearly.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-m-009",
+  "kg": "M",
+  "card": "card-m-social-media-conduct",
+  "type": "mc",
+  "prompt": "A reporter asks whether a famous athlete the consultant has never worked with has an anxiety disorder. Which ethical risk does answering pose most directly?",
+  "options": [
+   "Disclosing that someone is a client",
+   "Speculating about a diagnosis",
+   "Guaranteeing performance outcomes",
+   "Using a current client's testimonial"
+  ],
+  "answer": 1,
+  "explain": "Public commentary stays general and evidence-based and never speculates about whether a specific person, especially one the consultant hasn't assessed, has a mental disorder. No client relationship, testimonial or guarantee is involved here.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ }
+]

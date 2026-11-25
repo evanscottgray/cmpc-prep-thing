@@ -1,0 +1,219 @@
+[
+ {
+  "id": "fl-f-001",
+  "kg": "F",
+  "card": "card-f-kirkpatrick",
+  "type": "mc",
+  "prompt": "Athletes rate a workshop highly and ace its quiz, yet weeks later coaches see no use of the skills in competition. Which Kirkpatrick level is lacking?",
+  "options": [
+   "Reaction",
+   "Learning",
+   "Behavior",
+   "Results"
+  ],
+  "answer": 2,
+  "explain": "Behavior is transfer of learning into the real performance setting, usually checked weeks later through observation or coach reports. Satisfaction and quiz scores reflect earlier levels, which don't guarantee transfer.",
+  "refs": [
+   "kirkpatrick2006"
+  ]
+ },
+ {
+  "id": "fl-f-002",
+  "kg": "F",
+  "card": "card-f-kirkpatrick",
+  "type": "mc",
+  "prompt": "Which Kirkpatrick level examines changes in organizational outcomes such as performance, retention, or injuries?",
+  "options": [
+   "Results",
+   "Behavior",
+   "Learning",
+   "Reaction"
+  ],
+  "answer": 0,
+  "explain": "Results is the level for outcomes the organization cares about. Because those outcomes have many causes, a program should claim a contribution rather than sole credit.",
+  "refs": [
+   "kirkpatrick2006"
+  ]
+ },
+ {
+  "id": "fl-f-003",
+  "kg": "F",
+  "card": "card-f-kirkpatrick",
+  "type": "tf",
+  "prompt": "In Kirkpatrick's framework, an unsupportive climate of leaders, schedules, or norms can stall skill use even after participants have learned the skills.",
+  "answer": true,
+  "explain": "The levels form a chain, and behavior change depends on the environment as well as on learning, so good quiz scores do not guarantee that skills are used.",
+  "refs": [
+   "kirkpatrick2006"
+  ]
+ },
+ {
+  "id": "fl-f-004",
+  "kg": "F",
+  "card": "card-f-consultant-evaluation",
+  "type": "mc",
+  "prompt": "Evaluations of Olympic consultants link effectiveness with strategies of which kind?",
+  "options": [
+   "Detailed, theoretical, and research-based",
+   "Clear, practical, and individualized",
+   "Uniform, structured, and team-wide"
+  ],
+  "answer": 1,
+  "explain": "Athletes and coaches valued consultants who gave clear, practical strategies individualized to the athlete; too much theory tended to count against a consultant.",
+  "refs": [
+   "gould1991",
+   "partington1987"
+  ]
+ },
+ {
+  "id": "fl-f-005",
+  "kg": "F",
+  "card": "card-f-consultant-evaluation",
+  "type": "mc",
+  "prompt": "How can a consultant reduce pressure on clients to give socially desirable answers on an evaluation form?",
+  "options": [
+   "Have athletes sign each completed form",
+   "Review each answer with the athlete",
+   "Have the forms completed anonymously",
+   "Collect the forms personally after sessions"
+  ],
+  "answer": 2,
+  "explain": "Anonymous completion, or having someone other than the consultant collect the forms, reduces pressure to give socially desirable answers, so the feedback is more candid.",
+  "refs": [
+   "partington1987",
+   "sharp2011"
+  ]
+ },
+ {
+  "id": "fl-f-006",
+  "kg": "F",
+  "card": "card-f-reflective-practice",
+  "type": "tf",
+  "prompt": "Reviewing session notes the evening after a workshop is what Schön called reflection-in-action.",
+  "answer": false,
+  "correction": "Reviewing a session afterward is reflection-on-action; reflection-in-action is thinking and adjusting while the session is unfolding.",
+  "explain": "Schön's distinction is about timing: reflection-in-action happens during the session, and reflection-on-action happens after it.",
+  "refs": [
+   "schon1983"
+  ]
+ },
+ {
+  "id": "fl-f-007",
+  "kg": "F",
+  "card": "card-f-reflective-practice",
+  "type": "mc",
+  "prompt": "In Gibbs's reflective cycle, which stage asks why something happened, drawing on theory and context?",
+  "options": [
+   "Description",
+   "Evaluation",
+   "Analysis",
+   "Conclusion"
+  ],
+  "answer": 2,
+  "explain": "Analysis explains why events unfolded, using theory and context. Evaluation judges what was good and bad, and conclusion considers what else could have been done; skipping analysis leads to vague plans.",
+  "refs": [
+   "gibbs1988",
+   "anderson2004"
+  ]
+ },
+ {
+  "id": "fl-f-008",
+  "kg": "F",
+  "card": "card-f-reflective-practice",
+  "type": "mc",
+  "prompt": "In Kolb's experiential learning cycle, which stage comes directly after abstract conceptualization?",
+  "options": [
+   "Reflective observation",
+   "Concrete experience",
+   "Action planning",
+   "Active experimentation"
+  ],
+  "answer": 3,
+  "explain": "Kolb's cycle runs from concrete experience to reflective observation to abstract conceptualization, then active experimentation, where a revised approach is tested and becomes a new experience.",
+  "refs": [
+   "kolb1984"
+  ]
+ },
+ {
+  "id": "fl-f-009",
+  "kg": "F",
+  "card": "card-f-measuring-progress",
+  "type": "mc",
+  "prompt": "What feature distinguishes a multiple-baseline design from a simple A–B design?",
+  "options": [
+   "Staggered intervention starts across athletes or settings",
+   "Repeated measurement until the baseline is stable",
+   "Process measures paired with outcome measures",
+   "Ratings of importance and acceptability"
+  ],
+  "answer": 0,
+  "explain": "Staggering the intervention start across athletes, behaviors, or settings strengthens inference beyond a single A–B comparison. A stable baseline, process measures and social validation don't distinguish the two designs.",
+  "refs": [
+   "tenenbaum2012",
+   "anderson2002"
+  ]
+ },
+ {
+  "id": "fl-f-010",
+  "kg": "F",
+  "card": "card-f-measuring-progress",
+  "type": "mc",
+  "prompt": "In program evaluation, what does social validation ask clients and stakeholders to judge?",
+  "options": [
+   "Reliability, validity, and norms",
+   "Importance, acceptability, and meaningfulness",
+   "Effect size, power, and significance",
+   "Baseline stability, trend, and data variability"
+  ],
+  "answer": 1,
+  "explain": "Social validation asks whether the goals were important, the procedures acceptable, and the results meaningful to the people involved, adding their judgment to the measured change.",
+  "refs": [
+   "anderson2002",
+   "tenenbaum2012"
+  ]
+ },
+ {
+  "id": "fl-f-011",
+  "kg": "F",
+  "card": "card-f-measuring-progress",
+  "type": "tf",
+  "prompt": "When a client's self-report and the coach's report conflict, the consultant should explore the discrepancy and add targeted measures.",
+  "answer": true,
+  "explain": "Triangulating sources is the point of collecting several; a disagreement is information to investigate rather than a reason to trust one source and discard the other.",
+  "refs": [
+   "anderson2002"
+  ]
+ },
+ {
+  "id": "fl-f-012",
+  "kg": "F",
+  "card": "card-f-concluding-consultation",
+  "type": "mc",
+  "prompt": "In the final sessions of a successful consultation, what should the consultant mainly emphasize?",
+  "options": [
+   "Adding advanced skills to build on gains",
+   "Extending weekly sessions to protect gains",
+   "Consolidating the skills that already work",
+   "Shifting focus to a new performance goal"
+  ],
+  "answer": 2,
+  "explain": "Good endings consolidate what works and rehearse self-directed coping for high-risk situations, which builds independence. Any follow-up or booster contact is agreed, not a way to extend dependence.",
+  "refs": [
+   "tod2024"
+  ]
+ },
+ {
+  "id": "fl-f-013",
+  "kg": "F",
+  "card": "card-f-concluding-consultation",
+  "type": "tf",
+  "prompt": "Ending a consultation is best first raised once the client's goals have been met.",
+  "answer": false,
+  "correction": "Ending is planned from the start, ideally discussed as part of informed consent.",
+  "explain": "Discussing expected length and how ending will be decided during informed consent means the ending is planned with the client rather than abrupt.",
+  "refs": [
+   "aaspethics2024",
+   "tod2024"
+  ]
+ }
+]

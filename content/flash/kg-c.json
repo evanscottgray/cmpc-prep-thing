@@ -1,0 +1,157 @@
+[
+ {
+  "id": "fl-c-001",
+  "kg": "C",
+  "card": "card-c-multidimensional-leadership",
+  "type": "mc",
+  "prompt": "In Chelladurai's multidimensional model, which type of leader behavior reflects what the situation demands, given the sport, level, and team size?",
+  "options": [
+   "Preferred behavior",
+   "Actual behavior",
+   "Required behavior"
+  ],
+  "answer": 2,
+  "explain": "Required behavior is set by the situation and its organizational constraints. Preferred behavior is what athletes want, and actual behavior is what the leader really does.",
+  "refs": [
+   "chelladurai1980",
+   "horn2008"
+  ]
+ },
+ {
+  "id": "fl-c-002",
+  "kg": "C",
+  "card": "card-c-multidimensional-leadership",
+  "type": "mc",
+  "prompt": "Which of these is one of the five dimensions measured by the Leadership Scale for Sports?",
+  "options": [
+   "Intellectual stimulation",
+   "Positive feedback",
+   "Closeness",
+   "Individualized consideration"
+  ],
+  "answer": 1,
+  "explain": "The LSS measures training and instruction, democratic behavior, autocratic behavior, social support, and positive feedback. The other options come from transformational leadership and Jowett's coach–athlete model.",
+  "refs": [
+   "chelladurai1980"
+  ]
+ },
+ {
+  "id": "fl-c-003",
+  "kg": "C",
+  "card": "card-c-multidimensional-leadership",
+  "type": "tf",
+  "prompt": "In Chelladurai's model, a match between a leader's actual behavior and athletes' preferred behavior is often summarized as benefiting athlete satisfaction.",
+  "answer": true,
+  "explain": "In the usual summary, congruence of actual with preferred behavior is linked to satisfaction, while congruence of actual with required behavior is linked to performance.",
+  "refs": [
+   "chelladurai1980",
+   "horn2008"
+  ]
+ },
+ {
+  "id": "fl-c-004",
+  "kg": "C",
+  "card": "card-c-transformational-leadership",
+  "type": "mc",
+  "prompt": "Which of the four I's of transformational leadership describes a coach who adapts their mentoring to what each athlete needs to develop?",
+  "options": [
+   "Inspirational motivation",
+   "Idealized influence",
+   "Intellectual stimulation",
+   "Individualized consideration"
+  ],
+  "answer": 3,
+  "explain": "Individualized consideration is attention to each person's needs and development. Idealized influence is trust-earning role modeling, inspirational motivation is a compelling vision, and intellectual stimulation invites people to question assumptions.",
+  "refs": [
+   "bass2006",
+   "horn2008"
+  ]
+ },
+ {
+  "id": "fl-c-005",
+  "kg": "C",
+  "card": "card-c-transformational-leadership",
+  "type": "tf",
+  "prompt": "In Bass's full-range model, management by exception is the least effective leadership style.",
+  "answer": false,
+  "correction": "Laissez-faire leadership, which avoids leadership responsibilities, is the least effective style in the full-range model.",
+  "explain": "Management by exception, correcting deviations from standards, is a transactional behavior. Transformational behaviors build on effective transactional ones rather than replacing them.",
+  "refs": [
+   "bass2006"
+  ]
+ },
+ {
+  "id": "fl-c-006",
+  "kg": "C",
+  "card": "card-c-mastery-coach-training",
+  "type": "mc",
+  "prompt": "CET and MAC teach youth coaches to define success as effort, improvement, and ____.",
+  "options": [
+   "enjoyment",
+   "sportsmanship",
+   "teamwork",
+   "discipline"
+  ],
+  "answer": 0,
+  "explain": "CET and MAC define success as effort, improvement, and enjoyment rather than just winning. This mastery emphasis gives coaches reasons to reinforce effort and progress even when the team loses.",
+  "refs": [
+   "smith1979cet",
+   "smith2007mac"
+  ]
+ },
+ {
+  "id": "fl-c-007",
+  "kg": "C",
+  "card": "card-c-mastery-coach-training",
+  "type": "mc",
+  "prompt": "Under CET and MAC guidelines, how should a coach respond to an athlete's mistake?",
+  "options": [
+   "Encourage, then give supportive correction",
+   "Correct technique, then praise improvement later",
+   "Encourage, then move on without correction",
+   "Ask for self-assessment, then delay feedback"
+  ],
+  "answer": 0,
+  "explain": "Coaches respond to mistakes with encouragement followed by corrective instruction delivered supportively. Correction without encouragement, or encouragement without instruction, leaves out half of the guideline.",
+  "refs": [
+   "smith1979cet",
+   "smith2007mac"
+  ]
+ },
+ {
+  "id": "fl-c-008",
+  "kg": "C",
+  "card": "card-c-coach-athlete-relationship",
+  "type": "mc",
+  "prompt": "In Jowett's model, cooperative, corresponding behavior between coach and athlete is called ____.",
+  "options": [
+   "closeness",
+   "commitment",
+   "complementarity",
+   "co-orientation"
+  ],
+  "answer": 2,
+  "explain": "Complementarity is cooperative, corresponding behavior, such as the coach instructing and the athlete responding, whereas closeness is the emotional tie of trust, respect, and liking.",
+  "refs": [
+   "jowett2004"
+  ]
+ },
+ {
+  "id": "fl-c-009",
+  "kg": "C",
+  "card": "card-c-coach-athlete-relationship",
+  "type": "mc",
+  "prompt": "In Jowett's model, what does co-orientation, the '+1', describe?",
+  "options": [
+   "Mutual trust, respect, and liking",
+   "Shared and accurately perceived views",
+   "Intention to maintain the relationship"
+  ],
+  "answer": 1,
+  "explain": "Co-orientation is how far coach and athlete share views and perceive each other accurately, including actual similarity, assumed similarity, and empathic understanding.",
+  "refs": [
+   "jowett2004",
+   "weinberg2024"
+  ]
+ }
+]

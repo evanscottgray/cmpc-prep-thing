@@ -12,6 +12,11 @@ export interface Card {
   id: string; kg: KgId; title: string; body: string[]; points?: string[]; examNote: string; refs: string[];
   category?: 'ethics-principle' | 'ethics-standard';
 }
+/** A flash fact: a short recall question grounded in one concept card (separate from the exam-style items). */
+export interface Flash {
+  id: string; kg: KgId; card: string; type: 'mc' | 'tf'; prompt: string;
+  options?: string[]; answer: number | boolean; correction?: string; explain: string; refs: string[];
+}
 export interface Blueprint {
   domains: { id: DomainId; name: string; weight: number }[];
   kgs: { id: KgId; name: string; weight: number }[];
@@ -21,6 +26,7 @@ export interface Blueprint {
 }
 export interface Bank {
   version: string; blueprint: Blueprint; items: Item[]; cards: Card[];
+  flash?: Flash[];                       // absent in a bank cached by an older app
   refs: Record<string, { s: string; c: string }>;
 }
 
@@ -106,6 +112,7 @@ export interface Session {
 }
 
 export interface SrsEntry { box: number; due: string; last: number } // due YYYY-MM-DD
+export interface FlashState { srs: Record<string, SrsEntry>; days: string[] } // fact id → entry; local dates with flash study
 export interface Report { id: string; itemId: string; kind: string; note: string; at: number; appVersion: string; contentVersion: string }
 
 export interface DbState {
@@ -116,5 +123,6 @@ export interface DbState {
   cardSrs: Record<string, SrsEntry>;    // card id → entry
   reports: Report[];
   hidden: string[];                      // hidden item ids
+  flash: FlashState;                     // flash drill progress, kept apart from every exam-question part
   meta: { createdAt: number; schema: number; exposed?: string[]; days?: string[] }; // days: dates with card or review study (answers are dated by attempts) // exposed: items opened in exams that were then discarded
 }

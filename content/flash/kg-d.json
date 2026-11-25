@@ -1,0 +1,248 @@
+[
+ {
+  "id": "fl-d-001",
+  "kg": "D",
+  "card": "card-d-cultural-humility",
+  "type": "mc",
+  "prompt": "Cultural competence is usually framed as awareness of one's own assumptions, knowledge of other worldviews, and culturally appropriate ____.",
+  "options": [
+   "diagnoses",
+   "skills",
+   "credentials",
+   "norms"
+  ],
+  "answer": 1,
+  "explain": "The usual competence framing has three parts: awareness, knowledge, and skills. Treated as a finished destination, it can slide into predicting individuals from group facts.",
+  "refs": [
+   "sue1992"
+  ]
+ },
+ {
+  "id": "fl-d-002",
+  "kg": "D",
+  "card": "card-d-cultural-humility",
+  "type": "mc",
+  "prompt": "From a cultural humility stance, who is the expert on which identities matter to a client and what they mean?",
+  "options": [
+   "The consultant",
+   "The supervisor",
+   "Published research",
+   "The client"
+  ],
+  "answer": 3,
+  "explain": "Cultural humility is other-oriented: the consultant stays curious and self-reflective, and the client defines which identities matter and what they mean.",
+  "refs": [
+   "hook2013"
+  ]
+ },
+ {
+  "id": "fl-d-003",
+  "kg": "D",
+  "card": "card-d-cultural-humility",
+  "type": "tf",
+  "prompt": "Cultural humility treats knowledge about a client's cultural group as a reliable script for predicting that individual client.",
+  "answer": false,
+  "correction": "Group knowledge is a tentative hypothesis to check with the person in front of you, never a script.",
+  "explain": "Group-level knowledge still has value, but only as a starting guess that the consultant checks with the client rather than a conclusion applied to them.",
+  "refs": [
+   "hook2013"
+  ]
+ },
+ {
+  "id": "fl-d-004",
+  "kg": "D",
+  "card": "card-d-contextual-intelligence",
+  "type": "mc",
+  "prompt": "A consultant moves from college sport to a professional club. What is usually the best first step?",
+  "options": [
+   "Observe the culture and ask about needs",
+   "Present a proven program to the staff",
+   "Share credentials and research with leaders",
+   "Schedule an opening skills session for all"
+  ],
+  "answer": 0,
+  "explain": "Contextual intelligence is built by observing before intervening and asking what people need. Credentials, research, and ready-made programs rarely substitute for understanding the setting.",
+  "refs": [
+   "brown2005ci"
+  ]
+ },
+ {
+  "id": "fl-d-005",
+  "kg": "D",
+  "card": "card-d-contextual-intelligence",
+  "type": "tf",
+  "prompt": "Because settings differ in culture and power relationships, the same mental skills program can succeed in one organization and fail in another.",
+  "answer": true,
+  "explain": "Who holds influence, how outsiders are viewed, and what the group values all shape whether a program lands, which is why consultants read the setting and adjust delivery.",
+  "refs": [
+   "brown2005ci"
+  ]
+ },
+ {
+  "id": "fl-d-006",
+  "kg": "D",
+  "card": "card-d-cultural-praxis",
+  "type": "mc",
+  "prompt": "In cultural sport psychology, praxis links reflection and theory with ____.",
+  "options": [
+   "assessment",
+   "diagnosis",
+   "action",
+   "measurement"
+  ],
+  "answer": 2,
+  "explain": "Cultural praxis asks practitioners to examine their own social positions and let that reflection change what they actually do with clients.",
+  "refs": [
+   "schinke2012"
+  ]
+ },
+ {
+  "id": "fl-d-007",
+  "kg": "D",
+  "card": "card-d-cultural-praxis",
+  "type": "mc",
+  "prompt": "A consultant starts labeling a client \"not committed\" after several missed sessions. Following cultural praxis, what is the best response?",
+  "options": [
+   "Check the client's attendance record",
+   "Check whose norms shape the label",
+   "Check the client's commitment with the coach",
+   "Check whether a referral is needed"
+  ],
+  "answer": 1,
+  "explain": "A deficit label may rest on the consultant's own norms. Cultural praxis asks for self-reflexive checking, often with supervision or peer consultation, which should lead to adapted practice such as flexible scheduling.",
+  "refs": [
+   "schinke2012",
+   "mio2023"
+  ]
+ },
+ {
+  "id": "fl-d-008",
+  "kg": "D",
+  "card": "card-d-microaggressions",
+  "type": "mc",
+  "prompt": "In Sue and colleagues' taxonomy, saying \"I don't see color\" is an example of which form of microaggression?",
+  "options": [
+   "Microassault",
+   "Microinsult",
+   "Microinvalidation"
+  ],
+  "answer": 2,
+  "explain": "Microinvalidations negate a person's experiences. Microassaults are explicit, usually deliberate attacks, and microinsults are subtle snubs that demean a person's identity.",
+  "refs": [
+   "sue2007"
+  ]
+ },
+ {
+  "id": "fl-d-009",
+  "kg": "D",
+  "card": "card-d-microaggressions",
+  "type": "mc",
+  "prompt": "A player makes a microaggressive remark during a team session. What should the consultant do?",
+  "options": [
+   "Pause and revisit it privately with the speaker later",
+   "Ask the group to work out the speaker's intent",
+   "Give a general reminder about respect next session",
+   "Briefly name it, link it to norms, follow up privately"
+  ],
+  "answer": 3,
+  "explain": "A prompt, brief, non-shaming response linked to agreed norms, followed by a private check-in with the person targeted, avoids both ignoring the remark and lecturing at length.",
+  "refs": [
+   "sue2007",
+   "mio2023"
+  ]
+ },
+ {
+  "id": "fl-d-010",
+  "kg": "D",
+  "card": "card-d-microaggressions",
+  "type": "tf",
+  "prompt": "When a consultant commits a microaggression, the repair should begin with the consultant explaining their good intentions.",
+  "answer": false,
+  "correction": "When the consultant is the source, the repair is to listen without defending, acknowledge the impact, apologize, and reflect.",
+  "explain": "Impact matters even when intent was benign. Leading with intent defends the consultant and dismisses what the client experienced.",
+  "refs": [
+   "sue2007",
+   "mio2023"
+  ]
+ },
+ {
+  "id": "fl-d-011",
+  "kg": "D",
+  "card": "card-d-athletic-identity-transitions",
+  "type": "tf",
+  "prompt": "Retiring at the planned, expected end of an athletic career is an example of a normative transition.",
+  "answer": true,
+  "explain": "The developmental model lists moving from junior to senior level and retirement as normative transitions, and injury and deselection as non-normative ones.",
+  "refs": [
+   "wylleman2004"
+  ]
+ },
+ {
+  "id": "fl-d-012",
+  "kg": "D",
+  "card": "card-d-athletic-identity-transitions",
+  "type": "tf",
+  "prompt": "Adjustment to leaving sport tends to be harder when the athlete's exit is involuntary, as with deselection.",
+  "answer": true,
+  "explain": "Adjustment tends to be harder with an involuntary exit, an exclusive athletic identity, and little planning or support. Pre-retirement planning, a broader identity, and social support help.",
+  "refs": [
+   "wylleman2004",
+   "brewer1993"
+  ]
+ },
+ {
+  "id": "fl-d-013",
+  "kg": "D",
+  "card": "card-d-athletic-identity-transitions",
+  "type": "mc",
+  "prompt": "Wylleman and Lavallee's developmental model frames transitions across athletic, psychological, psychosocial, and ____ levels.",
+  "options": [
+   "physical and medical",
+   "spiritual and religious",
+   "academic or vocational",
+   "technical and tactical"
+  ],
+  "answer": 2,
+  "explain": "The model's four levels (athletic, psychological, psychosocial, and academic or vocational) interact with one another over the lifespan.",
+  "refs": [
+   "wylleman2004"
+  ]
+ },
+ {
+  "id": "fl-d-014",
+  "kg": "D",
+  "card": "card-d-organizational-deib",
+  "type": "mc",
+  "prompt": "After a team incident, an athletic director asks for one diversity workshop to fix the climate. What best reflects integrity?",
+  "options": [
+   "Deliver it as a stand-alone climate fix",
+   "Explain its limits; propose sustained, leader-backed work",
+   "Deliver it while keeping leadership out of it",
+   "Deliver it, then publicize the program's response"
+  ],
+  "answer": 1,
+  "explain": "A single workshop is unlikely on its own to change climate. Integrity means being honest about what it can achieve and recommending climate assessment and sustained, leadership-backed processes.",
+  "refs": [
+   "mio2023"
+  ]
+ },
+ {
+  "id": "fl-d-015",
+  "kg": "D",
+  "card": "card-d-organizational-deib",
+  "type": "mc",
+  "prompt": "A community youth program runs only in English on weekday evenings and draws few families. Which approach best fits organizational DEIB guidance?",
+  "options": [
+   "Translate the existing flyers into more languages",
+   "Move sessions to weekends based on staff views",
+   "Offer attendance prizes for weekday sessions",
+   "Co-design new times and formats with families"
+  ],
+  "answer": 3,
+  "explain": "Organizational DEIB work designs programs around real access barriers, such as schedule, transport, and language, with community input rather than promoting the same format harder or deciding for families.",
+  "refs": [
+   "mio2023",
+   "bronfenbrenner1979"
+  ]
+ }
+]

@@ -1,4 +1,4 @@
-import type { DbState, Session, Settings } from '../types';
+import type { DbState, FlashState, Session, Settings, SrsEntry } from '../types';
 import type { Kv } from './db';
 
 export const SCHEMA = 1;
@@ -7,11 +7,26 @@ export const DEFAULT_SETTINGS: Settings = {
   onboarded: false, lastBackupAt: null, backupSnoozeUntil: null, installDismissed: false, persisted: null, celebrations: true,
 };
 export function emptyState(now = Date.now()): DbState {
-  return { settings: { ...DEFAULT_SETTINGS }, attempts: [], sessions: {}, srs: {}, cardSrs: {}, reports: [], hidden: [], meta: { createdAt: now, schema: SCHEMA } };
+  return { settings: { ...DEFAULT_SETTINGS }, attempts: [], sessions: {}, srs: {}, cardSrs: {}, reports: [], hidden: [], flash: { srs: {}, days: [] }, meta: { createdAt: now, schema: SCHEMA } };
 }
 
-type Part = 'settings' | 'attempts' | 'srs' | 'cardSrs' | 'reports' | 'hidden' | 'meta';
-const PARTS: Part[] = ['settings', 'attempts', 'srs', 'cardSrs', 'reports', 'hidden', 'meta'];
+type Part = 'settings' | 'attempts' | 'srs' | 'cardSrs' | 'reports' | 'hidden' | 'meta' | 'flash';
+const PARTS: Part[] = ['settings', 'attempts', 'srs', 'cardSrs', 'reports', 'hidden', 'meta', 'flash'];
+
+const isPlain = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v);
+const DAY = /^\d{4}-\d{2}-\d{2}$/;
+/** Flash progress as stored, keeping only well-formed entries. `ok` is false when anything had to be dropped. */
+export function cleanFlash(v: unknown): { flash: FlashState; ok: boolean } {
+  if (!isPlain(v) || !isPlain(v.srs) || !Array.isArray(v.days)) return { flash: { srs: {}, days: [] }, ok: v === undefined };
+  const srs: Record<string, SrsEntry> = {};
+  let ok = true;
+  for (const [id, e] of Object.entries(v.srs)) {
+    if (isPlain(e) && Number.isFinite(e.box) && typeof e.due === 'string' && DAY.test(e.due) && Number.isFinite(e.last)) srs[id] = { box: e.box as number, due: e.due, last: e.last as number };
+    else ok = false;
+  }
+  const days = v.days.filter((d): d is string => typeof d === 'string' && DAY.test(d));
+  return { flash: { srs, days }, ok: ok && days.length === v.days.length };
+}
 const SESSION_PREFIX = 'session:';
 const MIRROR_KEY = 'cmpc-prep:active-session';
 export const PING_KEY = 'cmpc-prep:ping';
@@ -20,8 +35,10 @@ export const PING_KEY = 'cmpc-prep:ping';
 export async function loadState(kv: Kv, mirror?: Storage | null): Promise<DbState> {
   const st = emptyState();
   for (const p of PARTS) {
-    const v = await kv.get(p);
-    if (v !== undefined) (st as any)[p] = p === 'settings' ? { ...DEFAULT_SETTINGS, ...(v as object) } : v;
+    let v: unknown;
+    try { v = await kv.get(p); } catch (e) { if (p !== 'flash') throw e; v = null; } // unreadable flash progress never blocks the app; what's stored is left alone
+    if (p === 'flash') st.flash = cleanFlash(v).flash; // malformed entries are skipped in memory; what's stored is left alone
+    else if (v !== undefined) (st as any)[p] = p === 'settings' ? { ...DEFAULT_SETTINGS, ...(v as object) } : v;
     else if (p === 'meta') await kv.set('meta', st.meta); // first run: remember when this install began
   }
   for (const k of await kv.keys()) {
@@ -46,6 +63,10 @@ export class Store {
   private listeners = new Set<() => void>();
   private queue: Promise<void> = Promise.resolve();
   lastError: string | null = null;
+  /** Bumped whenever everything is replaced (reset or restore, here or in another tab): an open flash round stops saving. */
+  replaceEpoch = 0;
+  /** Replacement reloads (another tab's reset or restore) still loading here: flash grades wait until none are. */
+  replacing = 0;
   constructor(public kv: Kv, initial: DbState, private mirror: Storage | null = null) { this.state = initial; }
 
   subscribe(fn: () => void) { this.listeners.add(fn); return () => this.listeners.delete(fn); }
@@ -56,7 +77,7 @@ export class Store {
   }
   flush() { return this.queue; }
   /** Tell other tabs at this address that stored data changed (they reload it instead of overwriting it). */
-  private ping() { try { this.mirror?.setItem(PING_KEY, `${Date.now()}-${Math.random()}`); } catch { /* */ } }
+  private ping(replace = false) { try { this.mirror?.setItem(PING_KEY, `${replace ? 'replace:' : ''}${Date.now()}-${Math.random()}`); } catch { /* */ } }
   async reload(): Promise<void> {
     await this.flush();
     const q = this.queue;
@@ -97,7 +118,8 @@ export class Store {
     for (const p of PARTS) await this.kv.set(p, next[p]);
     for (const s of Object.values(next.sessions)) await this.kv.set(SESSION_PREFIX + s.id, s);
     try { this.mirror?.removeItem(MIRROR_KEY); } catch { /* */ }
-    this.ping();
+    this.replaceEpoch++;
+    this.ping(true);
     this.state = next;
     this.emit();
   }

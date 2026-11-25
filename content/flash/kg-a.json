@@ -1,0 +1,326 @@
+[
+ {
+  "id": "fl-a-001",
+  "kg": "A",
+  "card": "card-a-cbt",
+  "type": "mc",
+  "prompt": "According to the cognitive model underlying CBT, what most directly shapes a performer's emotions and behavior in a situation?",
+  "options": [
+   "The physical arousal they notice",
+   "The demands of the situation itself",
+   "How they interpret the situation",
+   "How skilled they are at the task"
+  ],
+  "answer": 2,
+  "explain": "The cognitive model holds that a situation alone does not drive the response; the person's interpretation of it does. Two divers with the same racing heart feel and act differently depending on what they make of it.",
+  "refs": [
+   "beck2011"
+  ]
+ },
+ {
+  "id": "fl-a-002",
+  "kg": "A",
+  "card": "card-a-cbt",
+  "type": "mc",
+  "prompt": "A client predicts failure, tries the feared action in a planned way without a safety behavior, then compares the outcome with the prediction. Which technique is this?",
+  "options": [
+   "Behavioral experiment",
+   "Cognitive defusion",
+   "Thought stopping",
+   "Scaling question"
+  ],
+  "answer": 0,
+  "explain": "A behavioral experiment tests a belief directly: the client makes a prediction, tries the feared action in a planned way, and compares what happened with what they expected.",
+  "refs": [
+   "beck2011"
+  ]
+ },
+ {
+  "id": "fl-a-003",
+  "kg": "A",
+  "card": "card-a-person-centered",
+  "type": "mc",
+  "prompt": "An athlete senses that their consultant's acceptance is warm after strong performances but withdrawn after poor ones. Which of Rogers's helper-provided conditions is missing?",
+  "options": [
+   "Congruence",
+   "Unconditional positive regard",
+   "Accurate empathy"
+  ],
+  "answer": 1,
+  "explain": "Unconditional positive regard means accepting the person regardless of what they achieve. Warmth that tracks results is conditional regard, so this condition is absent.",
+  "refs": [
+   "rogers1957"
+  ]
+ },
+ {
+  "id": "fl-a-004",
+  "kg": "A",
+  "card": "card-a-person-centered",
+  "type": "tf",
+  "prompt": "A person-centered consultant usually conveys accurate empathy by reassuring the client about the outcome.",
+  "answer": false,
+  "correction": "Accurate empathy is usually conveyed through reflections of feeling and meaning rather than reassurance, advice or fact-finding.",
+  "explain": "Empathy means sensing the client's inner world and communicating that understanding back; reflecting feeling and meaning shows the client they have been understood.",
+  "refs": [
+   "rogers1957",
+   "sommersflanagan2018"
+  ]
+ },
+ {
+  "id": "fl-a-005",
+  "kg": "A",
+  "card": "card-a-person-centered",
+  "type": "tf",
+  "prompt": "In Rogers's terms, congruence means the consultant is genuine, with outward behavior that matches what they actually feel.",
+  "answer": true,
+  "explain": "Congruence, or genuineness, is one of the three conditions the helper provides. It means presenting no professional façade that contradicts the consultant's real experience.",
+  "refs": [
+   "rogers1957"
+  ]
+ },
+ {
+  "id": "fl-a-006",
+  "kg": "A",
+  "card": "card-a-act-mac",
+  "type": "mc",
+  "prompt": "An athlete learns to say, \"I'm having the thought that I'm too old.\" Which ACT process does this illustrate?",
+  "options": [
+   "Committed action",
+   "Values clarification",
+   "Cognitive defusion",
+   "Present-moment contact"
+  ],
+  "answer": 2,
+  "explain": "Defusion means seeing thoughts as passing mental events rather than literal truths. Prefacing a thought with \"I'm having the thought that\" creates that distance without arguing with the thought's content.",
+  "refs": [
+   "hayes2012"
+  ]
+ },
+ {
+  "id": "fl-a-007",
+  "kg": "A",
+  "card": "card-a-act-mac",
+  "type": "mc",
+  "prompt": "From an ACT perspective, deliberately suppressing anxious thoughts before competition is a form of ____.",
+  "options": [
+   "cognitive defusion",
+   "experiential avoidance",
+   "committed action",
+   "psychological flexibility"
+  ],
+  "answer": 1,
+  "explain": "ACT treats thought suppression and avoidance of situations as experiential avoidance, which tends to maintain the problem. The alternative is willingness to have the thoughts while acting on what matters.",
+  "refs": [
+   "hayes2012"
+  ]
+ },
+ {
+  "id": "fl-a-008",
+  "kg": "A",
+  "card": "card-a-act-mac",
+  "type": "tf",
+  "prompt": "The MAC approach aims to eliminate an athlete's pre-performance anxiety so that they can then focus on task-relevant cues.",
+  "answer": false,
+  "correction": "MAC shifts the goal from controlling or eliminating anxiety to noticing it while attending to task-relevant cues.",
+  "explain": "Gardner and Moore's MAC applies ACT to performance: anxiety can be present while the athlete commits to task-focused, values-driven behavior. Control strategies are inconsistent with the approach.",
+  "refs": [
+   "gardner2007"
+  ]
+ },
+ {
+  "id": "fl-a-009",
+  "kg": "A",
+  "card": "card-a-solution-focused",
+  "type": "mc",
+  "prompt": "A consultant asks a tennis player to recall a changeover when frustration faded quickly and to describe what was different then. What kind of question is this?",
+  "options": [
+   "Miracle question",
+   "Scaling question",
+   "Problem-history question",
+   "Exception question"
+  ],
+  "answer": 3,
+  "explain": "Exception questions look for times the problem was absent or smaller so the client can do more of what worked. Problem-history questions are the typical wrong answer when a solution-focused approach is specified.",
+  "refs": [
+   "deshazer1985"
+  ]
+ },
+ {
+  "id": "fl-a-010",
+  "kg": "A",
+  "card": "card-a-solution-focused",
+  "type": "mc",
+  "prompt": "A client rates their composure as 4 on a 1–10 scale. Which follow-up best fits a solution-focused approach?",
+  "options": [
+   "What puts you at 4 rather than lower?",
+   "What pulled your rating down to 4?",
+   "Why aren't you higher than 4 yet?",
+   "When did you first drop to a 4?"
+  ],
+  "answer": 0,
+  "explain": "Solution-focused scaling builds on what already works: what keeps the rating where it is and what one point higher would look like. Asking what pulls it down, or when the problem began, shifts to problem analysis.",
+  "refs": [
+   "deshazer1985",
+   "sommersflanagan2018"
+  ]
+ },
+ {
+  "id": "fl-a-011",
+  "kg": "A",
+  "card": "card-a-feminist",
+  "type": "mc",
+  "prompt": "A female athlete blames herself after coaches repeatedly brush off her ideas. Which response best reflects a feminist approach?",
+  "options": [
+   "Reframe how she reads the coaches' behavior",
+   "Explore how the team culture contributes",
+   "Target her self-critical thoughts first",
+   "Confront the coaches without asking her"
+  ],
+  "answer": 1,
+  "explain": "Feminist approaches place distress in its sociocultural context and examine power rather than accepting self-blame. Reframing inequities away or taking over without the client's agreement are inconsistent with the approach.",
+  "refs": [
+   "sommersflanagan2018"
+  ]
+ },
+ {
+  "id": "fl-a-012",
+  "kg": "A",
+  "card": "card-a-feminist",
+  "type": "tf",
+  "prompt": "A feminist consultant keeps their own values out of the relationship and presents themselves as neutral.",
+  "answer": false,
+  "correction": "A feminist consultant is open about their own values instead of claiming neutrality.",
+  "explain": "The egalitarian relationship includes demystifying the process and being transparent about values. Claiming value-neutrality is one of the typical wrong answers for this approach.",
+  "refs": [
+   "sommersflanagan2018"
+  ]
+ },
+ {
+  "id": "fl-a-013",
+  "kg": "A",
+  "card": "card-a-systems-ecological",
+  "type": "mc",
+  "prompt": "A captain criticizes quiet teammates, who then speak up even less, which prompts harsher criticism. Which systems concept describes this pattern?",
+  "options": [
+   "Linear causality",
+   "Identified patient",
+   "Circular causality",
+   "Indirect ecological influence"
+  ],
+  "answer": 2,
+  "explain": "In circular causality each behavior is both cause and effect, so the consultant targets the pattern that keeps the problem going instead of blaming one person. Linear thinking looks for a single cause.",
+  "refs": [
+   "sommersflanagan2018"
+  ]
+ },
+ {
+  "id": "fl-a-014",
+  "kg": "A",
+  "card": "card-a-systems-ecological",
+  "type": "tf",
+  "prompt": "In Bronfenbrenner's ecological model, a sport federation is one of the settings that can affect an athlete indirectly.",
+  "answer": true,
+  "explain": "The ecological model describes nested contexts: immediate settings, links between them, settings with indirect influence such as a parent's workplace or a federation, and surrounding cultural values.",
+  "refs": [
+   "bronfenbrenner1979"
+  ]
+ },
+ {
+  "id": "fl-a-015",
+  "kg": "A",
+  "card": "card-a-ttm",
+  "type": "mc",
+  "prompt": "A swimmer says, \"I plan to work on my nerves in the next few months, but I'm still weighing whether it's worth the time.\" Which stage of change fits best?",
+  "options": [
+   "Contemplation",
+   "Precontemplation",
+   "Preparation",
+   "Action"
+  ],
+  "answer": 0,
+  "explain": "Contemplation combines an intention to change within roughly six months with ambivalence. A precontemplator has no intention to change, and someone in preparation intends to act soon and has already taken small steps.",
+  "refs": [
+   "prochaska1983"
+  ]
+ },
+ {
+  "id": "fl-a-016",
+  "kg": "A",
+  "card": "card-a-ttm",
+  "type": "mc",
+  "prompt": "Which strategy best matches a client in the precontemplation stage?",
+  "options": [
+   "Provide a detailed action plan",
+   "Begin relapse-prevention planning",
+   "Schedule cues and support for practice",
+   "Build rapport and raise awareness"
+  ],
+  "answer": 3,
+  "explain": "A client in precontemplation has no intention to change, so the consultant builds rapport and raises awareness without pushing. Handing over action-stage tactics can increase resistance.",
+  "refs": [
+   "prochaska1983",
+   "prochaska1992"
+  ]
+ },
+ {
+  "id": "fl-a-017",
+  "kg": "A",
+  "card": "card-a-ttm",
+  "type": "tf",
+  "prompt": "The transtheoretical model treats relapse as a common, normal part of behavior change.",
+  "answer": true,
+  "explain": "Relapse is common, and people often recycle through stages. The consultant normalizes it and re-engages strategies that fit the client's current readiness.",
+  "refs": [
+   "prochaska1992"
+  ]
+ },
+ {
+  "id": "fl-a-018",
+  "kg": "A",
+  "card": "card-a-tpb",
+  "type": "mc",
+  "prompt": "Athletes value an injury-prevention warm-up and feel supported by staff, but say they can't fit it in. Which theory of planned behavior determinant should the intervention target?",
+  "options": [
+   "Attitude toward the behavior",
+   "Perceived behavioral control",
+   "Subjective norms",
+   "Perceived susceptibility"
+  ],
+  "answer": 1,
+  "explain": "Attitudes and norms are already strong, so the weak determinant is perceived control. Protected time and barrier planning fit; perceived susceptibility belongs to the health belief model, not TPB.",
+  "refs": [
+   "ajzen1991"
+  ]
+ },
+ {
+  "id": "fl-a-019",
+  "kg": "A",
+  "card": "card-a-tpb",
+  "type": "tf",
+  "prompt": "In the theory of planned behavior, attitude toward the behavior is the most immediate predictor of what a person does.",
+  "answer": false,
+  "correction": "In the theory of planned behavior, intention is the most immediate predictor of behavior.",
+  "explain": "Attitude is one of three determinants, with subjective norms and perceived behavioral control, that shape intention. Intention then predicts behavior.",
+  "refs": [
+   "ajzen1991"
+  ]
+ },
+ {
+  "id": "fl-a-020",
+  "kg": "A",
+  "card": "card-a-philosophy-excellence",
+  "type": "mc",
+  "prompt": "In Poczwardowski, Sherman and Ravizza's layered model of professional philosophy, which layer forms the base?",
+  "options": [
+   "Intervention techniques",
+   "Intervention goals",
+   "Core beliefs and values",
+   "Model of practice and role"
+  ],
+  "answer": 2,
+  "explain": "Core beliefs about people and change sit at the base, with paradigm, model and role, goals and techniques built on top. That is why consultants using the same techniques can still work very differently.",
+  "refs": [
+   "poczwardowski2004"
+  ]
+ }
+]

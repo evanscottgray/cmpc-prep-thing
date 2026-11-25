@@ -1,7 +1,7 @@
 import type { DbState } from '../types';
-import { SCHEMA, emptyState, DEFAULT_SETTINGS } from './store';
+import { SCHEMA, cleanFlash, emptyState, DEFAULT_SETTINGS } from './store';
 
-export interface BackupFile { app: 'cmpc-prep'; kind: 'backup'; schema: number; exportedAt: string; appVersion: string; contentVersion: string; state: DbState }
+export interface BackupFile { app: 'cmpc-prep'; kind: 'backup'; schema: number; exportedAt: string; appVersion: string; contentVersion: string; state: DbState; flashUnreadable?: boolean }
 
 export function makeBackup(state: DbState, appVersion: string, contentVersion: string, now = Date.now()): BackupFile {
   return { app: 'cmpc-prep', kind: 'backup', schema: SCHEMA, exportedAt: new Date(now).toISOString(), appVersion, contentVersion, state: JSON.parse(JSON.stringify(state)) };
@@ -21,11 +21,14 @@ export function parseBackup(text: string): BackupFile {
   const s = data.state;
   if (!s || typeof s !== 'object' || !Array.isArray(s.attempts) || typeof s.sessions !== 'object' || typeof s.settings !== 'object') throw new Error('The backup is missing required data.');
   const base = emptyState();
+  const flash = cleanFlash(s.flash); // absent (a v1.3.0 backup) → empty; damaged → empty, and the rest still restores
   data.state = {
     ...base, ...s,
     settings: { ...DEFAULT_SETTINGS, ...s.settings },
     srs: s.srs ?? {}, cardSrs: s.cardSrs ?? {}, reports: s.reports ?? [], hidden: s.hidden ?? [], meta: s.meta ?? base.meta,
+    flash: flash.ok ? flash.flash : { srs: {}, days: [] }, // partly damaged: start flash fresh, as the preview says
   };
+  if (!flash.ok) data.flashUnreadable = true; else delete data.flashUnreadable;
   return data as BackupFile;
 }
 
@@ -37,5 +40,6 @@ export function summarize(state: DbState) {
     sessions: sessions.length,
     reviews: Object.keys(state.srs).length + Object.keys(state.cardSrs).length,
     reports: state.reports.length,
+    flash: Object.keys(state.flash?.srs ?? {}).length, // its own count: `reviews` stays comparable with older backups
   };
 }

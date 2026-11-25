@@ -1,0 +1,187 @@
+[
+  {
+    "id": "fl-h-001",
+    "kg": "H",
+    "card": "card-h-fitts-posner-stages",
+    "type": "mc",
+    "prompt": "In Fitts and Posner's model, which stage features smaller, more consistent errors and learners starting to catch their own mistakes?",
+    "options": [
+      "Cognitive",
+      "Associative",
+      "Autonomous"
+    ],
+    "answer": 1,
+    "explain": "In the associative stage learners refine how to do the skill. The cognitive stage has large, inconsistent errors, and in the autonomous stage the skill runs largely automatically.",
+    "refs": [
+      "fitts1967"
+    ]
+  },
+  {
+    "id": "fl-h-002",
+    "kg": "H",
+    "card": "card-h-fitts-posner-stages",
+    "type": "mc",
+    "prompt": "Which instruction approach best suits a learner in the cognitive stage?",
+    "options": [
+      "A full list of cues for each phase",
+      "Full-speed game play with tactical decisions",
+      "A demonstration plus one or two key cues",
+      "Self-discovery practice with no demonstration"
+    ],
+    "answer": 2,
+    "explain": "The cognitive stage is effortful and consumes attention, so instruction should be simple, with demonstrations and one or two key cues.",
+    "refs": [
+      "fitts1967",
+      "singer2001"
+    ]
+  },
+  {
+    "id": "fl-h-003",
+    "kg": "H",
+    "card": "card-h-fitts-posner-stages",
+    "type": "tf",
+    "prompt": "Rebuilding an established technique sends a performer back toward earlier learning stages, often with a temporary dip in performance.",
+    "answer": true,
+    "explain": "Changing a familiar technique makes execution more effortful and less automatic again, which can temporarily worsen performance.",
+    "refs": [
+      "fitts1967",
+      "singer2001"
+    ]
+  },
+  {
+    "id": "fl-h-004",
+    "kg": "H",
+    "card": "card-h-contextual-interference",
+    "type": "mc",
+    "prompt": "Compared with blocked practice, what does random practice typically produce?",
+    "options": [
+      "Better practice performance, better retention",
+      "Better practice performance, poorer retention",
+      "Poorer practice performance, poorer retention",
+      "Poorer practice performance, better retention"
+    ],
+    "answer": 3,
+    "explain": "This is Shea and Morgan's classic contextual-interference result: random practice looks worse during acquisition but is retained and transferred better. The effect is clearest in laboratory tasks and less consistent in applied sport.",
+    "refs": [
+      "shea1979"
+    ]
+  },
+  {
+    "id": "fl-h-005",
+    "kg": "H",
+    "card": "card-h-contextual-interference",
+    "type": "tf",
+    "prompt": "Under the learning–performance distinction, how well athletes perform during practice is the best measure of how much they have learned.",
+    "answer": false,
+    "correction": "Learning is judged by retention and transfer, not by practice performance.",
+    "explain": "Desirable difficulties such as spacing, interleaving, variability, and retrieval make practice harder yet often produce more durable learning, so practice performance can mislead.",
+    "refs": [
+      "bjork2011",
+      "shea1979"
+    ]
+  },
+  {
+    "id": "fl-h-006",
+    "kg": "H",
+    "card": "card-h-feedback-guidance",
+    "type": "mc",
+    "prompt": "What does the guidance hypothesis propose about frequent, immediate feedback?",
+    "options": [
+      "Helps during practice, can hurt retention",
+      "Helps during practice and retention",
+      "Hurts during practice, helps retention",
+      "Hurts during practice and retention"
+    ],
+    "answer": 0,
+    "explain": "Learners come to rely on frequent feedback, neglect their own error detection, and overcorrect normal variability, so retention and performance without feedback can suffer.",
+    "refs": [
+      "salmoni1984"
+    ]
+  },
+  {
+    "id": "fl-h-007",
+    "kg": "H",
+    "card": "card-h-feedback-guidance",
+    "type": "mc",
+    "prompt": "Which feedback schedule gives feedback only when error exceeds a preset tolerance?",
+    "options": [
+      "Faded feedback",
+      "Bandwidth feedback",
+      "Summary feedback",
+      "Learner-requested feedback"
+    ],
+    "answer": 1,
+    "explain": "With bandwidth feedback, silence signals acceptable performance. Faded feedback tapers over time, summary feedback comes after several attempts, and learner-requested feedback is given when the learner asks.",
+    "refs": [
+      "salmoni1984",
+      "singer2001"
+    ]
+  },
+  {
+    "id": "fl-h-008",
+    "kg": "H",
+    "card": "card-h-deliberate-practice-dmsp",
+    "type": "mc",
+    "prompt": "In Côté's Developmental Model of Sport Participation, which activity dominates the sampling years?",
+    "options": [
+      "Deliberate practice",
+      "Specialized training",
+      "Deliberate play",
+      "Formal competition"
+    ],
+    "answer": 2,
+    "explain": "Deliberate play, informal and intrinsically motivating games often modified by the children, dominates the sampling years. Deliberate practice grows in the specializing years and dominates the investment years.",
+    "refs": [
+      "cote1999",
+      "cote2007"
+    ]
+  },
+  {
+    "id": "fl-h-009",
+    "kg": "H",
+    "card": "card-h-deliberate-practice-dmsp",
+    "type": "mc",
+    "prompt": "What separates deliberate practice from simply logging hours of repetition?",
+    "options": [
+      "High volumes of repetition of the full skill",
+      "Enjoyable games that sustain motivation",
+      "Long sessions that build total training hours",
+      "Effortful work on specific weaknesses with feedback"
+    ],
+    "answer": 3,
+    "explain": "Deliberate practice is effortful, structured activity designed to improve specific aspects of performance, with clear goals, feedback, and refinement. Hours of mere repetition don't count.",
+    "refs": [
+      "ericsson1993"
+    ]
+  },
+  {
+    "id": "fl-h-010",
+    "kg": "H",
+    "card": "card-h-development-adolescent-brain",
+    "type": "mc",
+    "prompt": "Which approach best fits teaching a mental skill to young children?",
+    "options": [
+      "Concrete images, demonstrations, and games",
+      "Simple talks on how nerves affect muscles",
+      "Short journals about thoughts before games",
+      "Kid-friendly worksheets to challenge thoughts"
+    ],
+    "answer": 0,
+    "explain": "Young children think concretely, so brief, playful instruction works. Abstract talk loses them, while reflective tools such as restructuring and journaling become more usable in adolescence.",
+    "refs": [
+      "nicholls1984"
+    ]
+  },
+  {
+    "id": "fl-h-011",
+    "kg": "H",
+    "card": "card-h-development-adolescent-brain",
+    "type": "tf",
+    "prompt": "The prefrontal cortex, which supports impulse control and emotion regulation, keeps maturing into the mid-20s.",
+    "answer": true,
+    "explain": "Brain development is uneven: reward and emotion systems become highly reactive around puberty while the prefrontal cortex is still maturing, so teens may take more risks in emotional moments.",
+    "refs": [
+      "casey2008"
+    ]
+  }
+]

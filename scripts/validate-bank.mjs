@@ -4,6 +4,7 @@
 //   node scripts/validate-bank.mjs                 # whole bank + cards, writes docs/content-stats.json
 //   node scripts/validate-bank.mjs --file content/items/kg-g.json   # one item file vs its allocation
 //   node scripts/validate-bank.mjs --cards content/cards/x.json     # one card file
+//   node scripts/validate-bank.mjs --flash content/flash/x.json     # one flash-fact file (checked against all cards)
 // Exit code 1 on any error. Warnings never fail the run.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -34,6 +35,7 @@ const warn = (m) => warnings.push(m);
 const args = process.argv.slice(2);
 const fileArg = args.includes('--file') ? args[args.indexOf('--file') + 1] : null;
 const cardsArg = args.includes('--cards') ? args[args.indexOf('--cards') + 1] : null;
+const flashArg = args.includes('--flash') ? args[args.indexOf('--flash') + 1] : null;
 const quiet = args.includes('--quiet');
 
 function loadDir(dir) {
@@ -210,8 +212,109 @@ function validateCard(c) {
   if (Array.isArray(c.refs)) for (const r of c.refs) if (!refs[r]) err(`${where}: unknown ref "${r}"`);
 }
 
+
+// ---------- flash facts ----------
+const BLANK = /_{4}/g;
+/** One flash fact: schema, grounding card, and the cueing rules from docs/FLASH_WRITING_GUIDE.md. */
+function validateFlash(f, cardById) {
+  const where = `${f._file} ${f.id ?? '(no id)'}`;
+  for (const k of ['id', 'kg', 'card', 'type', 'prompt', 'explain', 'refs']) if (f[k] === undefined || f[k] === null || f[k] === '') err(`${where}: missing ${k}`);
+  const m = typeof f.id === 'string' && f.id.match(/^fl-([a-m])-(\d{3})$/);
+  if (!m) err(`${where}: id must look like fl-g-001`);
+  else if (m[1].toUpperCase() !== f.kg) err(`${where}: id kg ${m[1]} doesn't match kg ${f.kg}`);
+  if (!KGS.includes(f.kg)) err(`${where}: bad kg ${f.kg}`);
+  const card = cardById.get(f.card);
+  if (!card) err(`${where}: unknown card ${f.card}`);
+  else if (card.kg !== f.kg) err(`${where}: card ${f.card} is kg ${card.kg}, fact is kg ${f.kg}`);
+  const prompt = typeof f.prompt === 'string' ? f.prompt.trim() : '';
+  const nWords = prompt.split(/\s+/).filter(Boolean).length;
+  if (nWords > 32) err(`${where}: prompt has ${nWords} words (max ~30)`);
+  if (typeof f.explain !== 'string' || f.explain.trim().length < 20) err(`${where}: explain missing/too short`);
+  else if (f.explain.split(/\s+/).length > 55) warn(`${where}: explain is long (${f.explain.split(/\s+/).length} words; aim ≤45)`);
+  for (const k of ['prompt', 'explain', 'correction']) if (typeof f[k] === 'string' && LETTER_REF.test(f[k])) err(`${where}: ${k} refers to an option letter/position`);
+  if (!Array.isArray(f.refs) || f.refs.length < 1 || f.refs.length > 2) err(`${where}: refs must have 1–2 ids`);
+  else for (const r of f.refs) if (!refs[r]) err(`${where}: unknown ref "${r}"`);
+  if (f.type === 'tf') {
+    if (typeof f.answer !== 'boolean') err(`${where}: tf answer must be true or false`);
+    if (f.options !== undefined) err(`${where}: tf facts have no options`);
+    if (!/[.!]$/.test(prompt)) err(`${where}: tf prompt must be a statement ending in a period`);
+    if ((prompt.match(BLANK) || []).length) err(`${where}: tf prompt can't have a blank`);
+    if (/\b(not|n't)\b/i.test(prompt)) warn(`${where}: tf prompt contains a negation`);
+    if (f.answer === false && (typeof f.correction !== 'string' || f.correction.trim().length < 15)) err(`${where}: a false tf needs a correction (the true statement)`);
+    if (f.answer === true && f.correction !== undefined) err(`${where}: only false tf facts have a correction`);
+  } else if (f.type === 'mc') {
+    if (f.correction !== undefined) err(`${where}: mc facts have no correction`);
+    const blanks = (prompt.match(BLANK) || []).length;
+    if (blanks > 1) err(`${where}: at most one ____ blank`);
+    if (!blanks && !prompt.endsWith('?')) err(`${where}: mc prompt must end with "?" or contain one ____ blank`);
+    if (blanks && /\b(a|an)\s+_{4}/i.test(prompt)) err(`${where}: "a/an" before the blank cues the answer`);
+    if (!Array.isArray(f.options) || f.options.length < 3 || f.options.length > 4) err(`${where}: mc needs 3–4 options`);
+    else {
+      const norm = f.options.map((o) => String(o).trim().toLowerCase());
+      if (new Set(norm).size !== norm.length) err(`${where}: duplicate options`);
+      f.options.forEach((o, i) => {
+        if (typeof o !== 'string' || !o.trim()) err(`${where}: empty option ${i}`);
+        else if (BANNED_OPT.test(o)) err(`${where}: banned option pattern in "${o.slice(0, 50)}"`);
+        else if (o.split(/\s+/).length > 12) err(`${where}: option ${i} has ${o.split(/\s+/).length} words (max ~10)`);
+      });
+      if (!Number.isInteger(f.answer) || f.answer < 0 || f.answer >= f.options.length) err(`${where}: answer must index an option`);
+    }
+    if (NEG.test(prompt)) err(`${where}: no negative stems in flash facts`);
+  } else err(`${where}: type must be mc or tf`);
+}
+
+/** Bank-level checks for a set of flash facts. `strict` turns balance problems into errors. */
+function checkFlashSet(label, facts, strict) {
+  const report = strict ? err : warn;
+  const mc = facts.filter((f) => f.type === 'mc' && Array.isArray(f.options) && Number.isInteger(f.answer));
+  const tf = facts.filter((f) => f.type === 'tf');
+  const n = facts.length;
+  const st = { n, mc: mc.length, tf: tf.length, tfTrue: tf.filter((f) => f.answer === true).length, keyLongestPct: 0, positions: [0, 0, 0, 0], perCardMax: 0 };
+  let longest = 0;
+  for (const f of mc) {
+    const L = f.options.map((o) => String(o).length), k = f.answer;
+    if (L[k] > Math.max(...L.filter((_, i) => i !== k))) longest++;
+    st.positions[k]++;
+  }
+  st.keyLongestPct = mc.length ? +(100 * longest / mc.length).toFixed(1) : 0;
+  const perCard = {}; for (const f of facts) perCard[f.card] = (perCard[f.card] || 0) + 1;
+  st.perCardMax = Math.max(0, ...Object.values(perCard));
+  for (const [c, k] of Object.entries(perCard)) if (k > 3) err(`${label}: card ${c} has ${k} facts (max 3)`);
+  if (n < 8) return st;
+  if (mc.length >= 8 && st.keyLongestPct > 40) report(`${label}: mc key is the longest option in ${st.keyLongestPct}% (limit 40%)`);
+  if (tf.length / n > 0.32) report(`${label}: true/false is ${Math.round(100 * tf.length / n)}% of facts (aim ~25%)`);
+  if (tf.length >= 6) {
+    const share = st.tfTrue / tf.length;
+    if (share < 0.35 || share > 0.65) report(`${label}: ${st.tfTrue}/${tf.length} true/false facts are true (aim ~50%)`);
+    const absT = tf.filter((f) => f.answer === true && ABSOLUTE.test(f.prompt)).length, absF = tf.filter((f) => f.answer === false && ABSOLUTE.test(f.prompt)).length;
+    if (absF >= 3 && absF > 2 * absT) report(`${label}: absolute words appear in ${absF} false vs ${absT} true statements (a tell)`);
+  }
+  if (mc.length >= 12) {
+    const used = st.positions.slice(0, 3); // every mc has at least 3 options
+    const lo = Math.floor(mc.length * 0.15);
+    used.forEach((c, i) => { if (c < lo) report(`${label}: mc answer position ${i} used ${c}/${mc.length} times (want ≥${lo})`); });
+  }
+  const sh = facts.map((f) => shingles(`${f.prompt} ${f.type === 'mc' && Array.isArray(f.options) ? f.options[f.answer] ?? '' : ''}`));
+  for (let i = 0; i < facts.length; i++) for (let j = i + 1; j < facts.length; j++) {
+    const s = jaccard(sh[i], sh[j]);
+    if (s >= 0.5) err(`near-duplicate flash (${s.toFixed(2)}): ${facts[i].id} ~ ${facts[j].id}`);
+    else if (s >= 0.35) warn(`similar flash (${s.toFixed(2)}): ${facts[i].id} ~ ${facts[j].id}`);
+  }
+  return st;
+}
+function validateFlashSet(label, facts, cards, strict) {
+  const cardById = new Map(cards.map((c) => [c.id, c]));
+  facts.forEach((f) => validateFlash(f, cardById));
+  const ids = new Set(); for (const f of facts) { if (ids.has(f.id)) err(`duplicate flash id ${f.id}`); ids.add(f.id); }
+  return checkFlashSet(label, facts, strict);
+}
+
 // =====================================================================
-if (cardsArg) {
+if (flashArg) {
+  const rel = path.relative(ROOT, path.resolve(flashArg));
+  const st = validateFlashSet(rel, loadArray(rel), loadDir('content/cards').flatMap(loadArray), false);
+  finish({ flash: st });
+} else if (cardsArg) {
   const cards = loadArray(cardsArg);
   cards.forEach(validateCard);
   const ids = new Set(); for (const c of cards) { if (ids.has(c.id)) err(`duplicate card id ${c.id}`); ids.add(c.id); }
@@ -298,9 +401,15 @@ if (cardsArg) {
   if (principles !== 6) err(`${principles} ethics-principle cards (need 6)`);
   if (standards !== 25) err(`${standards} ethics-standard cards (need 25)`);
 
+  // flash facts (optional content: none is fine)
+  const flash = loadDir('content/flash').flatMap(loadArray);
+  const flashStats = flash.length ? validateFlashSet('flash', flash, cards, true) : null;
+  for (const f of flash) if (byId.has(f.id) || cids.has(f.id)) err(`flash id ${f.id} collides with an item or card id`);
+
   // ---------- stats ----------
   const tally = (arr, f) => arr.reduce((m, x) => { const k = f(x); m[k] = (m[k] || 0) + 1; return m; }, {});
   const usedRefs = tally(items.flatMap((x) => x.refs || []), (r) => r);
+  const flashOut = flashStats && { ...flashStats, byKg: tally(flash, (f) => f.kg) };
   const stats = {
     items: items.length,
     pools: tally(items, (x) => x.pool),
@@ -317,6 +426,7 @@ if (cardsArg) {
     drillCells: Object.fromEntries(KGS.map((kg) => [kg, Object.fromEntries(DOMAINS.filter((d) => bp.grid[kg][d] > 0).map((d) => [d, `${drill.filter((x) => x.kg === kg && x.domain === d).length}/${bp.grid[kg][d]}`]))])),
     nearDuplicateWarnings: dupes.filter(([, , s]) => s >= 0.35).length,
     cards: { total: cards.length, byKg: tally(cards, (c) => c.kg), ethicsPrinciples: principles, ethicsStandards: standards },
+    ...(flashOut ? { flash: flashOut } : {}),
     references: { registry: Object.keys(refs).length, cited: Object.keys(usedRefs).length, aaspListCited: Object.keys(usedRefs).filter((r) => refs[r]?.aasp).length },
   };
   fs.writeFileSync(path.join(ROOT, 'docs/content-stats.json'), JSON.stringify(stats, null, 2) + '\n');

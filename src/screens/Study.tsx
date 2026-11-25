@@ -10,6 +10,8 @@ import { availableItems, examHistory, formTaken, itemStats } from '../lib/stats'
 import { ListLink, Page, Seg } from '../ui/bits';
 import { Modal, alertDialog } from '../ui/dialog';
 import { openQuiz, startQuiz, startReview } from './Today';
+import { FlashSetup } from './Flash';
+import { flashCounts } from '../lib/flash';
 
 type Pick = { title: string; src: DrillSource } | null;
 
@@ -17,6 +19,8 @@ export function Study() {
   const db = useDb();
   const [pick, setPick] = useState<Pick>(null);
   const [chooser, setChooser] = useState<'domain' | 'kg' | null>(null);
+  const [flashOpen, setFlashOpen] = useState(false);
+  const fc = flashCounts(ctx.bank, db);
   const bp = ctx.bank.blueprint;
   const stats = itemStats(db.attempts);
   const avail = availableItems(ctx.bank, db);
@@ -65,6 +69,7 @@ export function Study() {
       <div class="section">
         <h2>Short sessions</h2>
         <div class="list">
+          {fc.total > 0 && <ListLink onClick={() => setFlashOpen(true)} title="Flash drill" sub="Quick recall: multiple choice and true/false" right={fc.due ? <span class="badge accent">{fc.due} due</span> : fc.practiced === 0 ? <span class="badge accent">New</span> : undefined} />}
           <ListLink href="#/start/block" title="Exam-pace block" sub="23 questions in 18 minutes — a fifth of an exam" />
           <ListLink onClick={startQuiz} title="Quick quiz" sub={open ? `Resume: ${open.revealed.length} of ${open.items.length} answered` : '10 questions, about 8 minutes'} />
           {due ? <ListLink onClick={startReview} title="Spaced review" sub="Missed and uncertain questions, timed to your exam date" right={<span class="badge accent">{due} due</span>} />
@@ -90,6 +95,7 @@ export function Study() {
         </Modal>
       )}
       {pick && <DrillSetup title={pick.title} src={pick.src} onClose={() => setPick(null)} />}
+      {flashOpen && <FlashSetup onClose={() => setFlashOpen(false)} />}
     </Page>
   );
 }

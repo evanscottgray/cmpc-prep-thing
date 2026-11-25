@@ -132,6 +132,37 @@ Declined as scope or tuning churn: more confetti tuning at Larger text and on th
 
 Not verified: VoiceOver on a physical iPhone (live regions, the single goal-on-a-miss announcement, hidden-timer warnings) and how the confetti feels in motion on a real device; screenshots are single frames from Linux WebKit.
 
+## Flash drill (v1.4.0)
+
+Why: learners were surprised how scenario-heavy the app is. The flash drill adds short rounds of multiple-choice and true/false recall facts, kept apart from every exam-question record (see DECISIONS).
+
+**Plan review.** Claude Opus 5.5, GPT-6.2 Sol and Gemini 4 Neon reviewed the plan (`docs/FLASH_PLAN.md`) read-only, against the code, at high effort.
+
+| Round | GPT-6.2 Sol | Claude Opus 5.5 | Gemini 4 Neon |
+|---|---|---|---|
+| 1 | 6 | 7 | 7 |
+| 2 | 7 | 8 | 8 |
+
+Round 2's required items (a replace marker for stale rounds, deep validation of stored and restored flash data, practice-ahead never raising a level, the card opening in a dialog, a `correction` field, a flash-aware Progress, targeted comparisons in the tests) were folded into the plan's revision 3 and implemented.
+
+**Content.** 222 facts (155 multiple choice, 67 true/false: 34 true, 33 false), 9–44 per knowledge group by blueprint weight, at most 3 per concept card, each grounded in one card and citing that card's refs. Written by six Claude Opus writers to `docs/FLASH_WRITING_GUIDE.md`; checked by `validate-bank.mjs` (schema, card/KG match, cueing, balance, near-duplicates).
+
+| Check | Pass 1 (226 facts) | Pass 2 (102 revised facts) |
+|---|---|---|
+| Blind answer, Gemini 4 Neon (key agreement) | 226/226 (100%) | 102/102 (100%) |
+| Options only, Gemini 4 Neon (key picked without the prompt) | 129/167 (77%) | 72/81 (89%) |
+| Source support vs the cards, GPT-6.2 Sol | 1 wrong, 12 ambiguous, 15 unsupported, 27 minor | 0 wrong, 4 ambiguous, 15 unsupported, 6 minor |
+
+After pass 1 the writers fixed every flagged fact and rewrote 71 facts whose options gave the key away (one sound option among three poor ones) so all options come from the same family; one fact was dropped. After pass 2 the three facts still ambiguous were dropped and the rest corrected as the reviewer suggested. The options-only rate stays high: for recall facts an expert can often recognize the textbook principle without the question, so it is reported, not chased.
+
+**Data safety proof.**
+- Unit: a v1.3.0-shaped device (IndexedDB-like and localStorage fallback) loads every part unchanged with nothing written; a grade writes only the flash key; malformed stored or restored flash data is ignored without blocking the rest; v1.3.0 backups restore as before; reset and restore stop an open round.
+- Browser (WebKit, 4 sizes): after real study, a full flash round (with a miss, its retry, a guess, the card dialog and keyboard answers) leaves every other IndexedDB key byte-identical, and the Today goal line and the whole Progress page (minus the flash tile) unchanged.
+- Upgrade: the committed v1.3.0 build is served and updated to v1.4.0 through the real service worker with a timed block mid-answer and a second tab still on v1.3.0: the update is not offered while the block runs; after it, every key is byte-identical and the block's result reads the same; a flash round then changes only the flash key; the old tab's writes leave flash intact; the drill works offline.
+- The compiled exam items, cards, blueprint and refs are identical to v1.3.0's.
+
+**Accessibility.** The flash setup, question, verdict, card dialog and summary pass axe (WCAG 2.1 A/AA, serious and critical) in Chromium, light and dark; WebKit can't run axe (see the a11y spec).
+
 ## Known limitations
 
 - **No human expert review**, and all blind-check figures are from AI models.

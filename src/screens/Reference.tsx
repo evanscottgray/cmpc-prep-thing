@@ -104,7 +104,7 @@ export function About() {
         <img src="./icons/icon-192.png" alt="" class="logo" width="72" height="72" />
         <h2 class="mt">CMPC Prep</h2>
         <p><strong>Unofficial study tool.</strong> {ABOUT_TEXT.replace('Unofficial study tool. ', '')}</p>
-        <p class="small muted" style={{ marginBottom: 0 }}>Version {APP_VERSION} · question bank {ctx.bank.version} · {ctx.bank.items.length} items · {ctx.bank.cards.length} concept cards</p>
+        <p class="small muted" style={{ marginBottom: 0 }}>Version {APP_VERSION} · question bank {ctx.bank.version} · {ctx.bank.items.length} items · {ctx.bank.cards.length} concept cards{ctx.bank.flash?.length ? ` · ${ctx.bank.flash.length} flash facts` : ''}</p>
       </div>
       <div class="card">
         <h2>Privacy</h2>

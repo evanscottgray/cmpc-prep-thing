@@ -67,6 +67,17 @@ Decisions made where the brief left room, plus enough state for a fresh session 
 - **Pull requests are checked.** The Pages workflow also runs on pull requests to `main` (typecheck, unit tests, clean build matches the committed `dist/`); only a push to `main` deploys.
 - **No pressure.** The study-days count only grows ("A missed day just starts a new run"); the goal card says more is optional; the timed exam has no feedback at all; streaks and volume disappear in the final two days.
 
+## v1.4.0 (flash drill)
+
+- **Why.** Learners were surprised how scenario-heavy the app is (362 of 364 items are vignettes, as on the exam). Flash rounds add quick fact recall; they are an add-on, never Today's main action, because fact quizzing helps fact recall more than applied performance (Agarwal 2019).
+- **Separate data, no migration.** Flash progress is one new store part, `flash: { srs, days }`. Flash never writes `attempts`, `sessions`, `srs`, `cardSrs`, `settings`, `reports`, `hidden` or `meta`, so readiness, scores, the daily question goal and exam history can't move. Flash study days live in `flash.days` (not `meta.days`) and are only read into the streak. `SCHEMA` stays 1; a device without the key loads it as empty, and nothing is rewritten on first load. Malformed stored flash data is ignored in memory and left on disk.
+- **Backups.** New backups include flash and count it separately (the `reviews` count is unchanged). A v1.3.0 backup restores as before with empty flash progress, and the preview warns when that clears progress on the device; a backup whose flash part is damaged still restores everything else. Rolling back: v1.3.0 restoring a new backup brings back every v1.3.0 part and drops flash (its `replaceAll` only writes the parts it knows). A backup made in a v1.3.0 tab that is still open has no flash part.
+- **Scheduling.** `scheduleCard` (every entry kept). Only the first answer in a round is graded; the end-of-round retry of a miss writes nothing. Practice ahead (a fact not yet due) never raises a level. "That was a guess" re-grades a right answer as unsure from the entry before the answer. Removed facts' entries stay stored and are ignored. Final days: practised facts only.
+- **Stale rounds.** A round stops saving if the data was replaced since it began: `meta.createdAt` (another tab's reset) or the store's `replaceEpoch` (a restore, here or announced by a `replace:` ping). A grade made in another tab before that ping arrives can still land, the same exposure `cardSrs` has.
+- **Content.** 225 facts (about 70% multiple choice, 30% true/false), each grounded in one concept card and checked by the validator (`--flash`), a blind answer pass and an options-only pass (Gemini 4 Neon), and a source-support review against the cards (GPT-6.2 Sol); see QA_REPORT. False statements show the corrected true statement first, in bold.
+- **Testing note.** The upgrade test (`tests/e2e/upgrade.spec.ts`) serves the previous release's committed `dist/` (extracted by `npm run e2e`) and updates it to this build through the real service worker, with a timed block running and a second tab left on the old code.
+- **Follow-ups, not done.** Problem reports for flash facts (reports assume exam item ids); flushing pending writes before "Update now" (an update from v1.3.0 runs v1.3.0's handler anyway); making the clear-then-write restore atomic; cross-tab merging of writes to the same part.
+
 ## Resuming work
 
 - Run `npm ci`, `npm run validate`, `npm test`, `npm run build`, `npm run e2e`.

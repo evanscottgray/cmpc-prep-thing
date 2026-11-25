@@ -1,0 +1,383 @@
+[
+ {
+  "id": "fl-e-001",
+  "kg": "E",
+  "card": "card-e-std-informed-consent",
+  "type": "mc",
+  "prompt": "Valid informed consent rests on capacity, information, documentation and ____.",
+  "options": [
+   "voluntariness",
+   "assent",
+   "supervision",
+   "debriefing"
+  ],
+  "answer": 0,
+  "explain": "The four parts are capacity, information, voluntariness and documentation. Voluntariness means consent is free of coercion, which matters when a coach or team arranges services; assent is an added step for minors.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-003",
+  "kg": "E",
+  "card": "card-e-std-confidentiality-privacy",
+  "type": "mc",
+  "prompt": "A court order requires a consultant to disclose session information. Which confidentiality principle governs how much they share?",
+  "options": [
+   "Explaining limits at the outset",
+   "Disclosing when required or permitted by law",
+   "Sharing only the minimum necessary",
+   "Reporting suspected abuse promptly"
+  ],
+  "answer": 2,
+  "explain": "A required disclosure is still limited to what its purpose needs, protecting the client's privacy as far as possible. The other principles concern when or why information is shared, not how much.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-004",
+  "kg": "E",
+  "card": "card-e-std-multiple-relationships",
+  "type": "mc",
+  "prompt": "A consultant is also a friend of an athlete's parent. Under the AASP Ethics Code, when should the consultant decline the consulting role?",
+  "options": [
+   "When the friendship began before services",
+   "When the athlete is still a minor",
+   "When the parent is paying for sessions",
+   "When impairment, exploitation or harm is reasonably foreseeable"
+  ],
+  "answer": 3,
+  "explain": "Multiple relationships aren't automatically unethical, and some are unavoidable in sport. Consultants refrain from those reasonably likely to impair objectivity or effectiveness, or to risk exploitation or harm, and manage lesser overlaps by clarifying roles, consulting and monitoring.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-005",
+  "kg": "E",
+  "card": "card-e-std-exploitative-relationships",
+  "type": "mc",
+  "prompt": "For at least how long after services end is sexual intimacy with a former client prohibited?",
+  "options": [
+   "Six months",
+   "One year",
+   "Two years",
+   "Five years"
+  ],
+  "answer": 2,
+  "explain": "The minimum is two years, and even after that intimacy is permitted only in rare circumstances where it is clearly not exploitative.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-006",
+  "kg": "E",
+  "card": "card-e-std-exploitative-relationships",
+  "type": "tf",
+  "prompt": "Even after the minimum waiting period has passed, a consultant who begins a sexual relationship with a former client bears the burden of proving it is non-exploitative.",
+  "answer": true,
+  "explain": "The time limit comes first. After it, intimacy is permitted only in rare, clearly non-exploitative cases, and the consultant must show that, weighing the length and intensity of the work, the client's vulnerability and how services ended.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-007",
+  "kg": "E",
+  "card": "card-e-std-barter-gifts",
+  "type": "mc",
+  "prompt": "An athlete gives their consultant a small, inexpensive gift after every session. Which feature of these gifts raises a boundary concern?",
+  "options": [
+   "How much they cost",
+   "How often they are given",
+   "What they mean culturally",
+   "Who in the family gives them"
+  ],
+  "answer": 1,
+  "explain": "Small, occasional tokens are generally fine, so low value isn't the issue here. Repeated gifts, like expensive ones, raise boundary concerns.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-008",
+  "kg": "E",
+  "card": "card-e-std-fees-financial",
+  "type": "mc",
+  "prompt": "An athlete offers the consultant a percentage of any prize money in place of a fee. Which rule settles how the consultant responds?",
+  "options": [
+   "Fee terms are agreed early, ideally in writing",
+   "Barter terms are fair and agreed in advance",
+   "Reduced fees are acceptable with clear terms",
+   "Fees never depend on future achievement"
+  ],
+  "answer": 3,
+  "explain": "Payment is never contingent on future achievement, so the consultant declines and sets a standard fee. Written or clear terms don't remove the conflict of interest and pressure that results-based pay creates.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-009",
+  "kg": "E",
+  "card": "card-e-std-public-statements",
+  "type": "mc",
+  "prompt": "A team's media office calls a non-licensed CMPC a \"licensed sport psychologist.\" Under the Ethics Code, who is responsible for taking reasonable steps to correct it?",
+  "options": [
+   "The consultant it describes",
+   "The media office that wrote it",
+   "The team that employs them",
+   "The AASP Ethics Committee"
+  ],
+  "answer": 0,
+  "explain": "The standard covers statements others make on a consultant's behalf, so the consultant can't leave a misleading credential claim to the team or its media office; they act to have it corrected.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-010",
+  "kg": "E",
+  "card": "card-e-scope-comparison",
+  "type": "mc",
+  "prompt": "Who gives medical clearance for an injured athlete to return to play?",
+  "options": [
+   "The head coach",
+   "The designated medical authority",
+   "The athlete",
+   "The strength and conditioning coach"
+  ],
+  "answer": 1,
+  "explain": "Medical clearance comes from the designated medical authority, often the team physician. A CMPC supports the athlete mentally and coordinates with the medical team rather than clearing anyone.",
+  "refs": [
+   "aaspethics2024",
+   "weinberg2024"
+  ]
+ },
+ {
+  "id": "fl-e-011",
+  "kg": "E",
+  "card": "card-e-safesport-maapp",
+  "type": "mc",
+  "prompt": "In the U.S. Olympic and Paralympic movement, what evidentiary threshold obliges an adult to report child abuse?",
+  "options": [
+   "Probable cause",
+   "Reasonable suspicion",
+   "Clear and convincing evidence",
+   "Proof beyond a reasonable doubt"
+  ],
+  "answer": 1,
+  "explain": "Reporting requires reasonable suspicion, not proof, so an adult who reasonably suspects abuse reports promptly rather than waiting for stronger evidence.",
+  "refs": [
+   "safesport2026"
+  ]
+ },
+ {
+  "id": "fl-e-012",
+  "kg": "E",
+  "card": "card-e-safesport-maapp",
+  "type": "tf",
+  "prompt": "When a minor discloses abuse to an adult in the U.S. Olympic and Paralympic movement, the adult should verify the account before reporting.",
+  "answer": false,
+  "correction": "The adult reports promptly and does not investigate or gather evidence first.",
+  "explain": "The adult listens calmly, avoids promising secrecy and attends to safety, then reports to law enforcement or child protective services as the law requires, and to the Center.",
+  "refs": [
+   "safesport2026",
+   "maapp2025"
+  ]
+ },
+ {
+  "id": "fl-e-013",
+  "kg": "E",
+  "card": "card-e-std-delegation-supervision",
+  "type": "tf",
+  "prompt": "A consultant who delegates work to an intern remains responsible for that work.",
+  "answer": true,
+  "explain": "Delegating doesn't transfer responsibility. The supervisor assigns only tasks the intern can do competently, provides adequate supervision and makes sure clients know a trainee is involved.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-014",
+  "kg": "E",
+  "card": "card-e-cmpc-credential-titles",
+  "type": "tf",
+  "prompt": "Earning the CMPC credential authorizes a consultant to diagnose and treat mental disorders.",
+  "answer": false,
+  "correction": "The CMPC is a professional certification, not a license, and it doesn't authorize diagnosing or treating mental disorders.",
+  "explain": "Diagnosis and treatment belong to licensed clinicians. A CMPC describes the credential accurately and points clients to licensed care when needed.",
+  "refs": [
+   "aaspethics2024",
+   "cremades2016"
+  ]
+ },
+ {
+  "id": "fl-e-015",
+  "kg": "E",
+  "card": "card-e-ethical-decision-making",
+  "type": "mc",
+  "prompt": "In the common core that ethical decision-making models share, which step follows choosing and carrying out an action?",
+  "options": [
+   "Identifying the relevant standards and laws",
+   "Evaluating the outcome and documenting reasoning",
+   "Generating possible courses of action",
+   "Recognizing that an ethical issue exists"
+  ],
+  "answer": 1,
+  "explain": "The shared core ends by evaluating the outcome and documenting the reasoning. Recognizing the issue, checking standards and generating options all come before the decision.",
+  "refs": [
+   "aaspethics2024",
+   "tod2024"
+  ]
+ },
+ {
+  "id": "fl-e-016",
+  "kg": "E",
+  "card": "card-e-std-resolving-ethical-issues",
+  "type": "mc",
+  "prompt": "A colleague's website misstates their credentials. What is usually the best first step?",
+  "options": [
+   "File a complaint with the Ethics Committee",
+   "Report the colleague to a licensing board",
+   "Warn the colleague's clients about it",
+   "Speak with the colleague informally"
+  ],
+  "answer": 3,
+  "explain": "When appropriate and no confidentiality is breached, the usual first step is to raise the concern informally. Escalation follows if that fails, is inappropriate, or the harm is serious.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-017",
+  "kg": "E",
+  "card": "card-e-std-boundaries-competence",
+  "type": "mc",
+  "prompt": "An athlete shows signs of disordered eating but no imminent risk. When a CMPC refers them to a licensed professional, what does the referral normally require?",
+  "options": [
+   "A pause in performance work",
+   "The head coach's approval",
+   "The athlete's consent",
+   "A call to emergency services"
+  ],
+  "answer": 2,
+  "explain": "Without imminent risk, referral normally proceeds with the athlete's consent, and performance work can continue where appropriate. Immediate emergency or crisis help is what imminent risk calls for.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-018",
+  "kg": "E",
+  "card": "card-e-std-third-party-requests",
+  "type": "mc",
+  "prompt": "A coach arranges sessions for a player and wants updates. When should limits on information sharing be agreed?",
+  "options": [
+   "Once the athlete trusts the consultant",
+   "At the first progress review",
+   "When the coach first asks for news",
+   "Before services begin"
+  ],
+  "answer": 3,
+  "explain": "With a third party involved, the consultant clarifies at the outset, with everyone, who the client is and what will be shared. Settling this first prevents conflicts when the paying party expects information the athlete never agreed to share.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-019",
+  "kg": "E",
+  "card": "card-e-std-technology-services",
+  "type": "mc",
+  "prompt": "Which safeguard is specific to remote delivery, on top of the ethical standards that apply in person?",
+  "options": [
+   "Planning what to do if a call drops during a crisis",
+   "Explaining fees before services begin",
+   "Discussing confidentiality limits at the outset",
+   "Seeking a minor client's assent"
+  ],
+  "answer": 0,
+  "explain": "Remote work keeps the in-person standards and adds technology safeguards. Planning for a dropped call during a crisis is part of remote emergency planning, alongside knowing the client's location and local contacts.",
+  "refs": [
+   "aaspethics2024",
+   "apa2013telepsych"
+  ]
+ },
+ {
+  "id": "fl-e-020",
+  "kg": "E",
+  "card": "card-e-std-assessment",
+  "type": "mc",
+  "prompt": "A consultant plans to draw conclusions about an athlete's anxiety from a single questionnaire score. Which assessment principle does the plan overlook?",
+  "options": [
+   "Competence to use the tool",
+   "Secure storage of results",
+   "Multi-method assessment",
+   "Validation for the population"
+  ],
+  "answer": 2,
+  "explain": "Good assessment combines interviews, observation and questionnaires instead of resting on one score. Nothing in the plan points to a problem with competence, storage or the tool's validation.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-021",
+  "kg": "E",
+  "card": "card-e-std-respect-nondiscrimination",
+  "type": "mc",
+  "prompt": "A consultant notices discomfort with a new client's gender identity. Which response best fits the Ethics Code's nondiscrimination standard?",
+  "options": [
+   "Seeking consultation or supervision",
+   "Referring the client to a colleague",
+   "Sharing their values with the client",
+   "Limiting sessions to performance topics"
+  ],
+  "answer": 0,
+  "explain": "When personal values could interfere, the consultant examines their biases and seeks consultation or supervision rather than imposing those values. Referral is for limits of competence, not discomfort with a client's identity.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-022",
+  "kg": "E",
+  "card": "card-e-std-personal-problems",
+  "type": "tf",
+  "prompt": "A consultant whose work is suffering during a personal crisis should end all client services at once to prevent harm.",
+  "answer": false,
+  "correction": "The consultant takes appropriate steps, such as seeking help or adjusting their caseload, and preserves continuity of care if stepping back.",
+  "explain": "The duty is to protect clients from impaired service without abandoning them, so any step back keeps care continuous rather than cutting clients off abruptly.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-023",
+  "kg": "E",
+  "card": "card-e-std-testimonials",
+  "type": "tf",
+  "prompt": "A consultant may ask a current client for a testimonial when taking part is presented as optional.",
+  "answer": false,
+  "correction": "Consultants don't solicit testimonials from current clients or others vulnerable to undue influence.",
+  "explain": "A client still relying on the consultant may feel unable to refuse however the request is framed, and a public endorsement can compromise confidentiality and the working relationship.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ },
+ {
+  "id": "fl-e-024",
+  "kg": "E",
+  "card": "card-e-std-applicability",
+  "type": "tf",
+  "prompt": "Ignorance or misunderstanding of an Ethics Code standard is no defense against a violation.",
+  "answer": true,
+  "explain": "Consultants are expected to know the Code that governs their professional roles, so being unaware of a standard doesn't excuse breaking it.",
+  "refs": [
+   "aaspethics2024"
+  ]
+ }
+]

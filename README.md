@@ -10,7 +10,7 @@ A mobile-first, offline study and exam-simulation app for one person preparing f
 
 - **Question bank** — 364 original four-option items (Form A, Form B, drill pool), each with a rationale for every option, a takeaway, and 1–2 citations from a single reference registry. Both forms match the 100-item blueprint grid exactly, plus 15 hidden unscored items.
 - **Exam simulation** — 115 items / 90 minutes on a wall-clock timer, hidden unscored items, flag, strike-out, navigator, no feedback until submit, auto-submit at zero, strict or coached mode, exact resume.
-- **Study** — weak-area drills (blueprint × accuracy), domain / knowledge-group / missed / flagged / unseen drills in tutor or timed mode, 23-item exam-pace blocks, 10-item quick quizzes, spaced review timed to the exam date, 121 concept cards with spaced review.
+- **Study** — weak-area drills (blueprint × accuracy), domain / knowledge-group / missed / flagged / unseen drills in tutor or timed mode, 23-item exam-pace blocks, 10-item quick quizzes, spaced review timed to the exam date, 121 concept cards with spaced review, and a **flash drill**: short rounds of multiple-choice and true/false recall facts (each grounded in a concept card) with the reason after every answer, kept apart from exam scores.
 - **Today and Progress** — one recommended session a day based on the exam date; mastery, score history, pacing, coverage, and a labelled readiness estimate.
 - **Data safety** — IndexedDB with a synchronous mirror of the running exam, persistence request, backup/restore to a file, weekly backup reminder.
 
@@ -75,6 +75,7 @@ dist/               committed production build (reproducible from the tag)
 
 - [docs/HOSTING.md](docs/HOSTING.md) — local preview, GitHub Pages (workflow included), other static HTTPS hosts, Home Screen install, moving progress between addresses.
 - [docs/ITEM_WRITING_GUIDE.md](docs/ITEM_WRITING_GUIDE.md) — how to write items that match the bank.
+- [docs/FLASH_WRITING_GUIDE.md](docs/FLASH_WRITING_GUIDE.md) and [docs/FLASH_PLAN.md](docs/FLASH_PLAN.md) — flash facts: writing rules, and the plan the council reviewed.
 - [docs/QA_REPORT.md](docs/QA_REPORT.md) — content stats, validation, blind-check results, device/accessibility checks, known limitations.
 - [docs/DECISIONS.md](docs/DECISIONS.md) — decisions made where the brief was ambiguous, and notes for resuming work.
 

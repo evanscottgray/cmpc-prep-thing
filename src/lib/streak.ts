@@ -4,12 +4,13 @@ import { ymd } from './dates';
 /** Noon on the calendar day `back` days before `now` (noon keeps daylight-saving shifts from skipping a day). */
 const dayAt = (now: number, back: number) => { const d = new Date(now); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() - back); return d.getTime(); };
 
-/** Local dates (YYYY-MM-DD) with study: answered questions, rated concept cards, opened exam reviews. */
+/** Local dates (YYYY-MM-DD) with study: answered questions, rated concept cards, opened exam reviews, flash rounds. */
 export function studyDays(db: DbState): Set<string> {
   const days = new Set<string>();
   for (const a of db.attempts) if (!a.na) days.add(ymd(a.t));
   for (const c of Object.values(db.cardSrs)) if (c.last) days.add(ymd(c.last)); // before days were recorded
   for (const d of db.meta.days ?? []) days.add(d);
+  for (const d of db.flash?.days ?? []) days.add(d); // flash keeps its own study days (it never writes meta)
   return days;
 }
 

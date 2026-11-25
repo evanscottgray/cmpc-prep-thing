@@ -3,6 +3,8 @@
 //   node scripts/blind-check.mjs make <outDir> [--ids id1,id2] [--per 45] [--options-only]
 //     → writes packet-N.json files: stems + shuffled options labelled A–D, no keys, rationales or topics,
 //       plus a private key map (keymap.json) used for scoring.
+//   node scripts/blind-check.mjs make <outDir> --flash [--options-only]
+//     → the same for flash facts (content/flash): 3–4 options labelled A–D, or true/false answered "T"/"F".
 //   node scripts/blind-check.mjs score <outDir> [--keymap <path>]
 //     → reads answers-N.json ([{id, answer:"A"-"D", confidence:1-5, note}]) and reports agreement,
 //       disagreements and low-confidence items (confidence ≤ 2). Writes report.json.
@@ -12,7 +14,9 @@ import crypto from 'node:crypto';
 
 const [cmd, dir] = process.argv.slice(2);
 const arg = (k) => { const i = process.argv.indexOf(k); return i > -1 ? process.argv[i + 1] : null; };
-const items = fs.readdirSync('content/items').filter((f) => f.endsWith('.json')).flatMap((f) => JSON.parse(fs.readFileSync(`content/items/${f}`, 'utf8')));
+const FLASH = process.argv.includes('--flash');
+const readDir = (d) => fs.existsSync(d) ? fs.readdirSync(d).filter((f) => f.endsWith('.json')).sort().flatMap((f) => JSON.parse(fs.readFileSync(`${d}/${f}`, 'utf8'))) : [];
+const items = FLASH ? readDir('content/flash').filter((f) => !process.argv.includes('--options-only') || f.type === 'mc') : readDir('content/items');
 const L = ['A', 'B', 'C', 'D'];
 
 if (cmd === 'make') {
@@ -29,8 +33,10 @@ if (cmd === 'make') {
   for (let p = 0; p * per < list.length; p++) packets.push(list.slice(p * per, (p + 1) * per));
   packets.forEach((pk, n) => {
     const out = pk.map((it) => {
-      const order = [0, 1, 2, 3].sort((a, b) => h(it.id + salt + a).localeCompare(h(it.id + salt + b)));
+      if (FLASH && it.type === 'tf') { keymap[it.id] = { key: it.answer ? 'T' : 'F' }; return { id: it.id, statement: it.prompt, answer: 'T or F' }; }
+      const order = it.options.map((_, i) => i).sort((a, b) => h(it.id + salt + a).localeCompare(h(it.id + salt + b)));
       keymap[it.id] = { order, key: L[order.indexOf(it.answer)] };
+      if (FLASH && !process.argv.includes('--options-only')) return { id: it.id, prompt: it.prompt, options: Object.fromEntries(order.map((o, d) => [L[d], it.options[o]])) };
       if (process.argv.includes('--options-only')) return { id: it.id, options: Object.fromEntries(order.map((o, d) => [L[d], it.options[o]])) };
       return { id: it.id, stem: it.stem, options: Object.fromEntries(order.map((o, d) => [L[d], it.options[o]])) };
     });
