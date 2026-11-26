@@ -95,7 +95,7 @@ export function ExamIntro({ kind }: { kind: Kind }) {
               <>
                 <h2 class="mt">Time</h2>
                 <Seg name="time" label="Exam time" value={time} onChange={setTime} options={[{ v: 'standard', label: 'Standard' }, { v: 'double', label: 'Double time' }, { v: 'untimed', label: 'Untimed' }]} />
-                <p class="small muted mt" style={untimed ? { marginBottom: 0 } : undefined}>{time === 'standard' ? `${ex.minutes} minutes, like the real exam. Recommended for a score that reflects exam day.` : time === 'double' ? `${ex.minutes * 2} minutes, for learners with an extra-time accommodation. Scored and counted like a standard sitting.` : 'No clock, so you can work at your own pace. With unlimited time, the score may run higher than on exam day.'}</p>
+                <p class="small muted mt" style={untimed ? { marginBottom: 0 } : undefined}>{time === 'standard' ? `${ex.minutes} minutes, like the real exam. Recommended for a score that reflects exam day.` : time === 'double' ? `${ex.minutes * 2} minutes. Scored and counted like a standard sitting.` : 'No clock, so you can work at your own pace. With unlimited time, the score may run higher than on exam day.'}</p>
               </>
             )}
             {!untimed && (

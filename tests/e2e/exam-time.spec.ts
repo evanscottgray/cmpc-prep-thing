@@ -49,6 +49,7 @@ test('double time: 180 minutes with pacing at 94 s, counted like a standard sitt
   await page.getByRole('radio', { name: 'Double time' }).check({ force: true });
   await page.getByRole('radio', { name: 'Coached' }).check({ force: true });
   await expect(page.getByText('115 questions in 180 minutes')).toBeVisible();
+  await expect(page.getByText('180 minutes. Scored and counted like a standard sitting.')).toBeVisible(); // no claim about who gets extra time
   await page.getByRole('button', { name: 'Start Form B · Double time · Coached' }).click();
   await expect(page.locator('.timer')).toContainText('2:59:');
   await expect(page.locator('.exam-pace')).toContainText('about 94 s per question');
