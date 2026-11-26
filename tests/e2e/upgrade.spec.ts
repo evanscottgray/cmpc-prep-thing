@@ -6,6 +6,9 @@ import { optionLabels } from './helpers';
 // Upgrade from the previous release (its committed dist/, extracted by scripts/e2e-docker.mjs) to this build,
 // through the real service-worker update, with a timed block running and a second tab left on the old version.
 const OLD = '.work/upgrade/old', LIVE = '.work/upgrade/live', PORT = 4316, BASE = `http://localhost:${PORT}/up/`;
+// The old build's entry script: a page running it is still on the old code.
+const oldEntry = () => fs.readFileSync(`${OLD}/index.html`, 'utf8').match(/assets\/(index-[\w-]+\.js)/)![1];
+const onOld = (page: Page) => page.evaluate((e) => [...document.scripts].some((s) => s.src.endsWith(e)), oldEntry());
 const swap = (from: string) => { fs.rmSync(LIVE, { recursive: true, force: true }); fs.cpSync(from, LIVE, { recursive: true }); };
 
 const dumpDb = (page: Page) => page.evaluate(async () => {
@@ -35,7 +38,7 @@ test('upgrading from the previous release keeps every record, mid-exam included'
   try {
     for (let i = 0; i < 50 && !(await fetch(BASE).then((r) => r.ok, () => false)); i++) await new Promise((r) => setTimeout(r, 100));
 
-    // The old version: onboard, answer a warm-up question, rate a card, start a timed block and answer two.
+    // The old version: onboard, answer a warm-up question, rate a card, a flash round, start a timed block and answer two.
     await page.goto(BASE);
     await page.getByRole('button', { name: 'Continue' }).click();
     await page.getByRole('button', { name: 'Continue in Safari' }).click();
@@ -44,13 +47,21 @@ test('upgrading from the previous release keeps every record, mid-exam included'
     await page.getByRole('button', { name: 'Start studying' }).click();
     await page.waitForFunction(async () => (await navigator.serviceWorker.getRegistration())?.active?.state === 'activated', null, { timeout: 30000 });
     await controlled(page);
-    await expect(page.getByRole('button', { name: 'Flash · 10' })).toHaveCount(0); // really the old app
+    expect(await onOld(page)).toBe(true); // really the old app
+    await expect(page.getByRole('button', { name: 'Flash · 10' })).toBeVisible();
     await page.getByRole('button', { name: 'Start the warm-up' }).first().click();
     await optionLabels(page).nth(0).click();
     await page.getByRole('button', { name: 'Check answer' }).click();
     await page.evaluate(() => { location.hash = '#/cards/study'; });
     await page.getByRole('button', { name: 'Show card' }).click();
     await page.getByRole('button', { name: 'Knew it' }).click();
+    // a flash round on the old version too, so flash progress is carried over
+    await page.evaluate(() => { location.hash = '#/flash?n=2'; });
+    for (let n = 0; n < 6 && !(await page.getByRole('heading', { name: /Round complete/ }).count()); n++) {
+      if (await page.locator('.tf-row').count()) await page.getByRole('button', { name: /^False/ }).click(); else await page.locator('.flash-opt').nth(1).click();
+      await page.getByRole('button', { name: /^(Next|See summary)$/ }).click();
+    }
+    await expect(page.getByRole('heading', { name: /Round complete/ })).toBeVisible();
     await page.evaluate(() => { location.hash = '#/start/block'; });
     await page.getByRole('button', { name: /^Start / }).click();
     await optionLabels(page).nth(1).click();
@@ -86,7 +97,8 @@ test('upgrading from the previous release keeps every record, mid-exam included'
     // Update now: the new code loads over the same data, and nothing in it is rewritten.
     await page.evaluate(() => { location.hash = '#/today'; });
     await page.getByRole('button', { name: 'Update now' }).click();
-    await expect(page.getByRole('button', { name: 'Flash · 10' })).toBeVisible({ timeout: 30000 });
+    await expect(page.getByRole('heading', { name: 'Today', level: 1 })).toBeVisible({ timeout: 30000 });
+    await expect.poll(() => onOld(page).catch(() => true), { timeout: 30000 }).toBe(false); // the reload may still be under way
     await page.waitForTimeout(300);
     const upgraded = await dumpDb(page);
     expect(changed(before, upgraded)).toEqual([]);
@@ -106,7 +118,7 @@ test('upgrading from the previous release keeps every record, mid-exam included'
     expect(changed(upgraded, flashed)).toEqual(['flash']);
 
     // The tab still running the old code rates a card: it writes its own parts and leaves flash progress alone.
-    await expect(tab2.getByRole('button', { name: 'Flash · 10' })).toHaveCount(0); // still the old code
+    expect(await onOld(tab2)).toBe(true); // still the old code
     await tab2.evaluate(() => { location.hash = '#/cards/study'; });
     await tab2.getByRole('button', { name: 'Show card' }).click();
     await tab2.getByRole('button', { name: 'Missed it' }).click();

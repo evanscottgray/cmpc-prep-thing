@@ -42,6 +42,9 @@ for (const scheme of ['light', 'dark'] as const) {
     // exam screen + navigator + results + review + tutor
     await go(page, 'start/mixed');
     await expect(page.getByRole('heading', { name: 'Mixed exam', level: 1 })).toBeVisible();
+    await page.getByRole('radio', { name: 'Untimed' }).check({ force: true });
+    await axe(page, `${scheme} exam intro, untimed`);
+    await page.getByRole('radio', { name: 'Standard' }).check({ force: true });
     await page.getByRole('button', { name: 'Start Mixed exam' }).click();
     await optionLabels(page).nth(2).click();
     await page.getByRole('button', { name: 'Strike out option A' }).click();

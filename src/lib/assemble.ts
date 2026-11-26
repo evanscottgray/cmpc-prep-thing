@@ -1,4 +1,4 @@
-import type { Bank, DbState, DomainId, ExamMode, Item, KgId, Session, SessionItem, SessionKind } from '../types';
+import type { Bank, DbState, DomainId, ExamMode, ExamTime, Item, KgId, Session, SessionItem, SessionKind } from '../types';
 import { rng, shuffle, uid } from './rng';
 import { availableItems, cellWeakness, formTaken, itemStats, type ItemStat } from './stats';
 
@@ -22,21 +22,24 @@ function priority(i: Item, st: ItemStat | undefined, weak: Map<string, number>, 
   return p;
 }
 
-function newSession(kind: SessionKind, title: string, items: SessionItem[], opts: { timed: boolean; durationMs: number; mode: ExamMode; retake?: boolean; seenBefore?: number; label?: string }, now: number): Session {
+function newSession(kind: SessionKind, title: string, items: SessionItem[], opts: { timed: boolean; durationMs: number; mode: ExamMode; time?: ExamTime; retake?: boolean; seenBefore?: number; label?: string }, now: number): Session {
   return {
     id: uid(kind + '-'), kind, title, createdAt: now, timed: opts.timed, mode: opts.timed ? opts.mode : 'coached',
-    durationMs: opts.durationMs, startedAt: null, pausedAt: null, pausedMs: 0, items,
+    durationMs: opts.durationMs, ...(opts.time ? { time: opts.time } : {}), startedAt: null, pausedAt: null, pausedMs: 0, items,
     responses: {}, flags: [], strikes: {}, unsure: [], revealed: [], timeOnItem: {}, current: 0, visitAt: null,
     status: 'active', submittedAt: null, autoSubmitted: false, retake: !!opts.retake, seenBefore: opts.seenBefore ?? 0, result: null, label: opts.label,
   };
 }
+/** A full exam's length for the chosen time: standard, double, or 0 (no clock). */
+export const examDurationMs = (bank: Bank, time?: ExamTime) => time === 'untimed' ? 0 : bank.blueprint.exam.minutes * 60000 * (time === 'double' ? 2 : 1);
+const examTiming = (bank: Bank, mode: ExamMode, time?: ExamTime) => ({ timed: true, durationMs: examDurationMs(bank, time), mode: time === 'untimed' ? 'strict' as const : mode, time });
 function toSessionItems(list: { id: string; scored: boolean }[], rand: () => number): SessionItem[] {
   return list.map((x) => ({ id: x.id, scored: x.scored, order: shuffle([0, 1, 2, 3], rand) }));
 }
 
 /** Form A / Form B: the fixed 115 items (100 scored + 15 unscored), order and options shuffled per sitting.
  *  A hidden item is swapped for an available drill item from the same grid cell so the form still matches the grid. */
-export function buildForm(bank: Bank, db: DbState, form: 'A' | 'B', mode: ExamMode, now = Date.now(), seed = now): Session {
+export function buildForm(bank: Bank, db: DbState, form: 'A' | 'B', mode: ExamMode, now = Date.now(), seed = now, time?: ExamTime): Session {
   const rand = rng(seed);
   const hidden = new Set(db.hidden);
   const stats = itemStats(db.attempts);
@@ -55,12 +58,12 @@ export function buildForm(bank: Bank, db: DbState, form: 'A' | 'B', mode: ExamMo
   const exposed = new Set(db.meta.exposed ?? []);
   const seenBefore = list.filter((x) => stats.has(x.id) || exposed.has(x.id)).length;
   return newSession(kind, `Form ${form}`, toSessionItems(shuffle(list, rand), rand), {
-    timed: true, durationMs: bank.blueprint.exam.minutes * 60000, mode, retake: formTaken(db, kind) || list.some((x) => exposed.has(x.id)), seenBefore,
+    ...examTiming(bank, mode, time), retake: formTaken(db, kind) || list.some((x) => exposed.has(x.id)), seenBefore,
   }, now);
 }
 
 /** Mixed exam: assembled to the grid from available items (drill pool + forms already taken), favoring unseen and weak areas. */
-export function buildMixed(bank: Bank, db: DbState, mode: ExamMode, now = Date.now(), seed = now): Session {
+export function buildMixed(bank: Bank, db: DbState, mode: ExamMode, now = Date.now(), seed = now, time?: ExamTime): Session {
   const rand = rng(seed);
   const stats = itemStats(db.attempts);
   const weak = cellWeakness(bank, stats);
@@ -87,7 +90,7 @@ export function buildMixed(bank: Bank, db: DbState, mode: ExamMode, now = Date.n
   const exposed = new Set(db.meta.exposed ?? []);
   const seenBefore = list.filter((x) => stats.has(x.id) || exposed.has(x.id)).length;
   return newSession('mixed', 'Mixed exam', toSessionItems(shuffle(list, rand), rand), {
-    timed: true, durationMs: bank.blueprint.exam.minutes * 60000, mode, retake: seenBefore > 0, seenBefore,
+    ...examTiming(bank, mode, time), retake: seenBefore > 0, seenBefore,
   }, now);
 }
 

@@ -5,7 +5,7 @@ import { Store, emptyState } from '../../src/lib/store';
 import { abandon, autoSubmitExpired, choose, finishReview, createSession, leftReviewItem, markOpened, markReviewed, missedPositions, nextMiss, reviewStep, pause, resume, startSession, submit, toggleFlag, toggleStrike, goTo } from '../../src/lib/actions';
 import { buildForm, buildMixed } from '../../src/lib/assemble';
 import { dueIds } from '../../src/lib/srs';
-import { availableItems, itemStats, todayCount } from '../../src/lib/stats';
+import { availableItems, itemStats, pacingStats, todayCount } from '../../src/lib/stats';
 import { loadBank } from './helpers';
 
 const bank = loadBank();
@@ -169,5 +169,29 @@ describe('every blueprint cell', () => {
       for (const x of s.items.filter((y) => y.scored)) { const i = ctx.items.get(x.id)!; n[`${i.kg}|${i.domain}`] = (n[`${i.kg}|${i.domain}`] || 0) + 1; }
       for (const k of bank.blueprint.kgs) for (const d of bank.blueprint.domains) expect(n[`${k.id}|${d.id}`] ?? 0).toBe(bank.blueprint.grid[k.id][d.id]);
     }
+  });
+});
+
+describe('exam time', () => {
+  it('pace stats leave out untimed exams and keep double time', () => {
+    const db = emptyState();
+    db.sessions.u = { ...buildForm(ctx.bank, db, 'A', 'strict', 1, 1, 'untimed'), id: 'u' };
+    db.sessions.d = { ...buildForm(ctx.bank, db, 'B', 'strict', 1, 1, 'double'), id: 'd' };
+    db.attempts = [
+      { i: 'x1', t: 1, ok: true, src: 'exam', ms: 300_000, s: 'u' },
+      { i: 'x2', t: 2, ok: true, src: 'exam', ms: 90_000, s: 'd' },
+      { i: 'x3', t: 3, ok: true, src: 'block', ms: 50_000, s: 'b' },
+    ];
+    expect(pacingStats(db)).toEqual({ avgSec: 70, n: 2 });
+  });
+  it('an untimed exam is never auto-submitted, and submits normally', () => {
+    const s = buildForm(ctx.bank, ctx.store.state, 'A', 'strict', Date.now(), 3, 'untimed');
+    createSession(s); startSession(s.id);
+    expect(autoSubmitExpired(Date.now() + 10 * 86400000)).toEqual([]);
+    submit(s.id);
+    const done = ctx.store.state.sessions[s.id];
+    expect(done.status).toBe('submitted');
+    expect(done.autoSubmitted).toBe(false);
+    expect(done.result!.durationMs).toBe(0);
   });
 });

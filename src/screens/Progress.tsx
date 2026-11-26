@@ -1,7 +1,7 @@
 import { useState } from 'preact/hooks';
 import type { Session } from '../types';
 import { ctx, useDb } from '../ctx';
-import { scaledScore } from '../lib/scoring';
+import { TIME_LABEL, scaledScore } from '../lib/scoring';
 import type { DrillSource } from '../lib/assemble';
 import { fmtShort, plural, ymd } from '../lib/dates';
 import { areaAccuracy, availableItems, examHistory, focusAreas, focusLine, itemStats, pacingStats, readiness } from '../lib/stats';
@@ -60,8 +60,8 @@ export function Progress() {
   const rate = (id: string) => (last.byKg[id].n ? last.byKg[id].c / last.byKg[id].n : 2);
   const kgs = [...bank.blueprint.kgs].sort((a, b) => rate(a.id) - rate(b.id) || b.weight - a.weight);
   // Progress you can feel, stated only when it's true: score gained since the first exam, and this week's effort.
-  // Score: only fresh, fully answered sittings count (familiar questions inflate a score), named by form and raw score.
-  const freshExams = exams.filter((e) => !e.retake && e.seenBefore === 0 && e.result!.answered === e.result!.total);
+  // Score: only fresh, fully answered sittings at exam time count (familiar questions and unlimited time inflate a score), named by form and raw score.
+  const freshExams = exams.filter((e) => !e.retake && e.seenBefore === 0 && e.time !== 'untimed' && e.result!.answered === e.result!.total); // and timed (double time is an accommodation, so it counts)
   const [e0, e1] = [freshExams[0], freshExams[freshExams.length - 1]];
   const scoreGain = freshExams.length >= 2 && e1.result!.raw > e0.result!.raw ? `${e0.title} ${e0.result!.raw}/${e0.result!.scoredCount} → ${e1.title} ${e1.result!.raw}/${e1.result!.scoredCount} (raw scores).` : '';
   // Effort: questions answered and days studied over the same seven local dates.
@@ -113,7 +113,7 @@ export function Progress() {
             <div class="list mt">
               {exams.slice().reverse().map((s) => {
                 const v = scoreOf(s, target);
-                return <ListLink href={`#/results/${s.id}`} title={s.title} sub={<>{`${fmtShort(s.submittedAt!)} · ${s.result!.raw}/${s.result!.scoredCount}${s.retake ? ' · retake' : ''}`}<span class={`badge li-badge ${v >= 550 ? 'ok' : 'bad'}`}>{v >= 550 ? 'Pass' : 'Did not pass'} (estimated) · {v}</span></>} />;
+                return <ListLink href={`#/results/${s.id}`} title={s.title} sub={<>{`${fmtShort(s.submittedAt!)} · ${s.result!.raw}/${s.result!.scoredCount}${s.retake ? ' · retake' : ''}${s.time ? ` · ${TIME_LABEL[s.time]}` : ''}`}<span class={`badge li-badge ${v >= 550 ? 'ok' : 'bad'}`}>{v >= 550 ? 'Pass' : 'Did not pass'} (estimated) · {v}</span></>} />;
               })}
             </div>
           </>

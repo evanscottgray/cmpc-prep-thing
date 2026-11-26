@@ -101,8 +101,8 @@ export function App() {
     }
     default: screen = head ? <NotFound /> : null;
   }
-  // an update may reload the page, so never offer it while any timed session is running (even in the background)
-  const timedRunning = Object.values(db.sessions).some((x) => x.status === 'active' && x.timed && x.startedAt);
+  // an update may reload the page, so never offer it while any clock is running (even in the background)
+  const timedRunning = Object.values(db.sessions).some((x) => x.status === 'active' && x.timed && x.startedAt && x.durationMs > 0); // an untimed exam has no clock to lose
   const showTabs = TAB_ROOTS.has(head) && !(head === 'cards' && rest[0] === 'study');
   return (
     <>

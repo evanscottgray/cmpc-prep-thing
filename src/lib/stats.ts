@@ -91,7 +91,8 @@ export function todayCount(db: DbState, now = Date.now()): number {
 }
 
 export function pacingStats(db: DbState) {
-  const timed = db.attempts.filter((a) => (a.src === 'exam' || a.src === 'block' || a.src === 'timed') && a.ms);
+  // answers from untimed exams have no pace to measure
+  const timed = db.attempts.filter((a) => (a.src === 'exam' || a.src === 'block' || a.src === 'timed') && a.ms && !(a.s && db.sessions[a.s]?.time === 'untimed'));
   if (!timed.length) return null;
   const avg = timed.reduce((s, a) => s + (a.ms || 0), 0) / timed.length / 1000;
   return { avgSec: Math.round(avg), n: timed.length };

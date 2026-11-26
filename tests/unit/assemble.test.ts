@@ -129,3 +129,26 @@ describe('blocks, drills, quiz', () => {
     expect(buildQuiz(bank, db, 2, 2).label).toBe('Weighted to weak areas');
   });
 });
+
+describe('exam time', () => {
+  it('standard time is unchanged and stores no time field', () => {
+    const s = buildForm(bank, emptyState(), 'A', 'coached', 1, 42);
+    expect(s.durationMs).toBe(90 * 60000);
+    expect('time' in s).toBe(false);
+    expect(s.mode).toBe('coached');
+  });
+  it('double time doubles the clock and keeps the chosen mode; untimed has no clock', () => {
+    const d = buildForm(bank, emptyState(), 'B', 'coached', 1, 42, 'double');
+    expect(d.durationMs).toBe(180 * 60000);
+    expect(d.time).toBe('double');
+    expect(d.mode).toBe('coached');
+    const u = buildMixed(bank, emptyState(), 'coached', 1, 42, 'untimed');
+    expect(u.durationMs).toBe(0);
+    expect(u.time).toBe('untimed');
+    expect(u.timed).toBe(true); // the exam engine: no feedback until submit
+    expect(u.mode).toBe('strict'); // nothing to pause without a clock
+    expect(u.items).toHaveLength(115);
+    // the same questions as a standard sitting with the same seed
+    expect(u.items.map((x) => x.id)).toEqual(buildMixed(bank, emptyState(), 'coached', 1, 42).items.map((x) => x.id));
+  });
+});
