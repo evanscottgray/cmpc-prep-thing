@@ -10,7 +10,7 @@
     "build:nozip": "npm run content && vite build",
     "preview": "node scripts/serve.mjs --host 127.0.0.1",
     "preview:lan": "node scripts/serve.mjs --host 0.0.0.0",
-    "test": "vitest run",
+    "test": "npm run content --silent && vitest run",
     "typecheck": "tsc -p .",
     "e2e": "node scripts/e2e-docker.mjs",
     "icons": "node scripts/make-icons.mjs"
