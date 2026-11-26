@@ -173,16 +173,17 @@ describe('every blueprint cell', () => {
 });
 
 describe('exam time', () => {
-  it('pace stats leave out untimed exams and keep double time', () => {
-    const db = emptyState();
-    db.sessions.u = { ...buildForm(ctx.bank, db, 'A', 'strict', 1, 1, 'untimed'), id: 'u' };
-    db.sessions.d = { ...buildForm(ctx.bank, db, 'B', 'strict', 1, 1, 'double'), id: 'd' };
-    db.attempts = [
-      { i: 'x1', t: 1, ok: true, src: 'exam', ms: 300_000, s: 'u' },
-      { i: 'x2', t: 2, ok: true, src: 'exam', ms: 90_000, s: 'd' },
-      { i: 'x3', t: 3, ok: true, src: 'block', ms: 50_000, s: 'b' },
-    ];
-    expect(pacingStats(db)).toEqual({ avgSec: 70, n: 2 });
+  it('untimed exams store no answer times (so pace stats, old tabs included, leave them out); double time keeps them', () => {
+    for (const time of ['untimed', 'double'] as const) {
+      const s = buildForm(ctx.bank, ctx.store.state, time === 'untimed' ? 'A' : 'B', 'strict', 1000, 3, time);
+      createSession(s); startSession(s.id, 1000);
+      choose(s.id, 0, 0);
+      submit(s.id, false, 1000 + 120_000);
+    }
+    const ms = (t: string) => ctx.store.state.attempts.filter((a) => ctx.store.state.sessions[a.s!].time === t && a.ms).length;
+    expect(ms('untimed')).toBe(0);
+    expect(ms('double')).toBe(1);
+    expect(pacingStats(ctx.store.state)!.n).toBe(1);
   });
   it('an untimed exam is never auto-submitted, and submits normally', () => {
     const s = buildForm(ctx.bank, ctx.store.state, 'A', 'strict', Date.now(), 3, 'untimed');

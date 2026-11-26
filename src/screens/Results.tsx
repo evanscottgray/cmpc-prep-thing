@@ -205,7 +205,7 @@ export function Results({ session: s }: { session: Session }) {
           <h2>Time and pacing</h2>
           <div class="card stat-grid">
             <div class="stat"><div class="v">{fmtDuration(r.timeUsedMs)}</div><div class="k">{r.durationMs ? `Time used of ${fmtDuration(r.durationMs)}` : 'Time used (untimed)'}</div></div>
-            <div class="stat"><div class="v">{avgSec === null ? '—' : `${avgSec} s`}</div><div class="k">Average per question opened{r.durationMs ? ` (target ${Math.round(r.durationMs / 1000 / s.items.length)} s or less)` : ''}</div></div>
+            {r.durationMs > 0 && <div class="stat"><div class="v">{avgSec === null ? '—' : `${avgSec} s`}</div><div class="k">Average per question opened (target {bp.exam.secondsPerItem * (s.time === 'double' ? 2 : 1)} s or less)</div></div>}
             <div class="stat"><div class="v">{r.answered}/{r.total}</div><div class="k">Answered</div></div>
             <div class="stat"><div class="v">{r.flagged.n ? `${r.flagged.c}/${r.flagged.n}` : '—'}</div><div class="k">Correct among questions you flagged</div></div>
           </div>

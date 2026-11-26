@@ -34,6 +34,7 @@ test('untimed exam: no clock, never submits itself, scored with a note', async (
   await expect(page.getByText('Practice result, estimated · untimed')).toBeVisible();
   await expect(page.getByText('Taken untimed.')).toBeVisible();
   await expect(page.getByText('Time used (untimed)')).toBeVisible();
+  await expect(page.getByText(/Average per question/)).toHaveCount(0); // time away would count
   await expect(page.getByText(/Time ran out/)).toHaveCount(0);
   await shot(page, 'time-03-results-untimed');
   await go(page, 'progress');
