@@ -5,7 +5,7 @@ import { Store, emptyState } from '../../src/lib/store';
 import { abandon, autoSubmitExpired, choose, finishReview, createSession, leftReviewItem, markOpened, markReviewed, missedPositions, nextMiss, reviewStep, pause, resume, startSession, submit, toggleFlag, toggleStrike, goTo } from '../../src/lib/actions';
 import { buildForm, buildMixed } from '../../src/lib/assemble';
 import { dueIds } from '../../src/lib/srs';
-import { availableItems, itemStats, todayCount } from '../../src/lib/stats';
+import { availableItems, itemStats, pacingStats, todayCount } from '../../src/lib/stats';
 import { loadBank } from './helpers';
 
 const bank = loadBank();
@@ -169,5 +169,33 @@ describe('every blueprint cell', () => {
       for (const x of s.items.filter((y) => y.scored)) { const i = ctx.items.get(x.id)!; n[`${i.kg}|${i.domain}`] = (n[`${i.kg}|${i.domain}`] || 0) + 1; }
       for (const k of bank.blueprint.kgs) for (const d of bank.blueprint.domains) expect(n[`${k.id}|${d.id}`] ?? 0).toBe(bank.blueprint.grid[k.id][d.id]);
     }
+  });
+});
+
+describe('exam time', () => {
+  it('untimed exams store no answer times (so pace stats, old tabs included, leave them out); double time keeps them', () => {
+    for (const time of ['untimed', 'double'] as const) {
+      const s = buildForm(ctx.bank, ctx.store.state, time === 'untimed' ? 'A' : 'B', 'strict', 1000, 3, time);
+      createSession(s); startSession(s.id, 1000);
+      choose(s.id, 0, 0);
+      submit(s.id, false, 1000 + 120_000);
+    }
+    const ms = (t: string) => ctx.store.state.attempts.filter((a) => ctx.store.state.sessions[a.s!].time === t && a.ms).length;
+    expect(ms('untimed')).toBe(0);
+    expect(ms('double')).toBe(1);
+    expect(pacingStats(ctx.store.state)!.n).toBe(1);
+    // an untimed exam submitted by an older tab still carries answer times: left out all the same
+    const u = Object.values(ctx.store.state.sessions).find((x) => x.time === 'untimed')!;
+    expect(pacingStats({ ...ctx.store.state, attempts: [...ctx.store.state.attempts, { i: 'x', t: 1, ok: true, src: 'exam', ms: 9_000_000, s: u.id }] })!.n).toBe(1);
+  });
+  it('an untimed exam is never auto-submitted, and submits normally', () => {
+    const s = buildForm(ctx.bank, ctx.store.state, 'A', 'strict', Date.now(), 3, 'untimed');
+    createSession(s); startSession(s.id);
+    expect(autoSubmitExpired(Date.now() + 10 * 86400000)).toEqual([]);
+    submit(s.id);
+    const done = ctx.store.state.sessions[s.id];
+    expect(done.status).toBe('submitted');
+    expect(done.autoSubmitted).toBe(false);
+    expect(done.result!.durationMs).toBe(0);
   });
 });

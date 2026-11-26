@@ -78,6 +78,15 @@ Decisions made where the brief left room, plus enough state for a fresh session 
 - **Testing note.** The upgrade test (`tests/e2e/upgrade.spec.ts`) serves the previous release's committed `dist/` (extracted by `npm run e2e`) and updates it to this build through the real service worker, with a timed block running and a second tab left on the old code.
 - **Follow-ups, not done.** Problem reports for flash facts (reports assume exam item ids); flushing pending writes before "Update now" (an update from v1.3.0 runs v1.3.0's handler anyway); making the clear-then-write restore atomic; cross-tab merging of writes to the same part.
 
+## v1.5.0 (exam time)
+
+- **Why.** Learners asked for practice exams without the 90-minute clock, and with double time for those who get an extra-time accommodation on the exam.
+- **Where.** A Time choice (Standard, Double time, Untimed) on the Form A, Form B and Mixed exam screens. Standard is preselected every time and not remembered, so nothing is added to settings. The 23-question exam-pace block stays at exam pace.
+- **Stored as one optional session field.** New sittings get `time: 'double' | 'untimed'`; standard sittings are built exactly as before with no `time` field, and existing sessions, attempts and scores are untouched. `SCHEMA` stays 1. An untimed exam is the same exam engine (no feedback until submit) with `durationMs: 0`, which the timer already treated as "never expires" (also in v1.4.0, so an older tab never auto-submits one).
+- **Double time counts.** It is an accommodation, so a double-time sitting counts everywhere a standard one does: exam history, the score-gain line, and pace (its own target, 94 s per question, on its results). It is labelled "double time" in history and results, with no caveat.
+- **Untimed is labelled, not hidden.** Untimed sittings are scored, count as taken (their questions are seen) and feed the readiness estimate like any practice answers, but carry a note that the score may run higher than on exam day, are left out of the score-gain line, and their answer times are left out of the average pace. With no clock there is no Mode choice (nothing to pause), no time warnings and no pacing line, and an app update may be offered while one is open in the background.
+- **Testing note.** The upgrade test now starts from v1.4.0, the release learners have, with flash progress, a running timed block and a second tab on the old code.
+
 ## Resuming work
 
 - Run `npm ci`, `npm run validate`, `npm test`, `npm run build`, `npm run e2e`.

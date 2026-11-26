@@ -39,7 +39,7 @@ export function plan(db: DbState, now = Date.now()): Plan {
   const active = Object.values(db.sessions).filter((s) => s.status === 'active' && s.startedAt && s.timed).sort((a, b) => b.createdAt - a.createdAt)[0];
   const examDate = db.settings.examDate;
   const daysLeft = examDate ? daysBetween(today, examDate) : null;
-  if (active) return { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'resume', session: active }, why: active.pausedAt ? 'The timer is paused.' : 'The timer has kept going while you were away.' };
+  if (active) return { ...base, phase: phaseOf(daysLeft), daysLeft, primary: { kind: 'resume', session: active }, why: active.durationMs === 0 ? 'Untimed: pick up where you left off.' : active.pausedAt ? 'The timer is paused.' : 'The timer has kept going while you were away.' };
   const left = daysLeft ?? Infinity; // no date yet: study as if the exam is far off
   if (left < 0) return { ...base, phase: 'after', daysLeft, primary: { kind: 'passed' }, why: 'Your exam date has passed. Update it in Settings if you have a new date.' };
   if (left === 0) return { ...base, phase: 'exam-day', daysLeft, primary: { kind: 'light' }, why: 'Exam day. Skim a few concept cards at most, eat, and arrive early with matching ID.' };

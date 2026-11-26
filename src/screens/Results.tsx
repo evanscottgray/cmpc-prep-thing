@@ -1,7 +1,7 @@
 import type { Session } from '../types';
 import { ctx, useDb } from '../ctx';
 import { fmtClock, fmtDate, fmtDuration, plural, ymd } from '../lib/dates';
-import { scaledScore } from '../lib/scoring';
+import { TIME_LABEL, scaledScore } from '../lib/scoring';
 import { finishReview, markReadCelebrated, missedPositions, openedMisses, reviewStep } from '../lib/actions';
 import { focusAreas, focusLine } from '../lib/stats';
 import { DrillSetup } from './Study';
@@ -107,7 +107,7 @@ export function Results({ session: s }: { session: Session }) {
       {readAll && <>{doneCallout}{actionsRow}</>}{/* the moment just earned leads, with Done right under it */}
       {full ? (
         <div class={`card hero${glow ? ' celebrate' : ''}`}>
-          <div class="eyebrow">Practice result, estimated{s.retake ? ' · retake' : ''}</div>
+          <div class="eyebrow">Practice result, estimated{s.retake ? ' · retake' : ''}{s.time ? ` · ${TIME_LABEL[s.time]}` : ''}</div>
           <div class="score-line first">
             <div><div class="v">{r.raw}<span class="of">/{r.scoredCount}</span></div><div class="k">Raw score (scored questions)</div></div>
             <div><div class="v">{scaled}</div><div class="k">Estimated scaled score (550 passes)</div></div>
@@ -155,6 +155,9 @@ export function Results({ session: s }: { session: Session }) {
         </div>
       )}
 
+      {s.time === 'untimed' && full && (
+        <div class="banner info mt" role="note"><IcInfo /><div><strong>Taken untimed.</strong> The real exam is timed, so this score may run higher than on exam day.</div></div>
+      )}
       {(s.retake || (s.kind === 'mixed' && s.seenBefore > 0)) && full && (
         <div class="banner warn mt" role="note"><IcAlert /><div><strong>Not a fresh estimate.</strong> {`${s.seenBefore} of ${r.total} questions were ones you had already seen.`} Familiar questions inflate the score.</div></div>
       )}
@@ -201,8 +204,8 @@ export function Results({ session: s }: { session: Session }) {
         <div class="section">
           <h2>Time and pacing</h2>
           <div class="card stat-grid">
-            <div class="stat"><div class="v">{fmtDuration(r.timeUsedMs)}</div><div class="k">Time used of {fmtDuration(r.durationMs)}</div></div>
-            <div class="stat"><div class="v">{avgSec === null ? '—' : `${avgSec} s`}</div><div class="k">Average per question opened (target {bp.exam.secondsPerItem} s or less)</div></div>
+            <div class="stat"><div class="v">{fmtDuration(r.timeUsedMs)}</div><div class="k">{r.durationMs ? `Time used of ${fmtDuration(r.durationMs)}` : 'Time used (untimed)'}</div></div>
+            {r.durationMs > 0 && <div class="stat"><div class="v">{avgSec === null ? '—' : `${avgSec} s`}</div><div class="k">Average per question opened (target {bp.exam.secondsPerItem * (s.time === 'double' ? 2 : 1)} s or less)</div></div>}
             <div class="stat"><div class="v">{r.answered}/{r.total}</div><div class="k">Answered</div></div>
             <div class="stat"><div class="v">{r.flagged.n ? `${r.flagged.c}/${r.flagged.n}` : '—'}</div><div class="k">Correct among questions you flagged</div></div>
           </div>

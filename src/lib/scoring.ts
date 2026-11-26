@@ -1,4 +1,6 @@
-import type { Bank, ExamResult, Item, Session } from '../types';
+import type { Bank, ExamResult, ExamTime, Item, Session } from '../types';
+
+export const TIME_LABEL: Record<ExamTime, string> = { double: 'double time', untimed: 'untimed' };
 
 /** Linear map: 0 → 200, target → 550, 100 → 800 (piecewise on each side of the target). */
 export function scaledScore(raw: number, target: number, scored = 100): number {

@@ -1,5 +1,5 @@
 import { useState } from 'preact/hooks';
-import type { ExamMode, Session } from '../types';
+import type { ExamMode, ExamTime, Session } from '../types';
 import { ctx, useDb } from '../ctx';
 import { navigate } from '../router';
 import { abandon, createSession, startSession } from '../lib/actions';
@@ -17,7 +17,10 @@ const TITLES: Record<Kind, string> = { formA: 'Form A', formB: 'Form B', mixed: 
 export function ExamIntro({ kind }: { kind: Kind }) {
   const db = useDb();
   const [mode, setMode] = useState<ExamMode>(db.settings.mode);
+  const [time, setTime] = useState<ExamTime | 'standard'>('standard'); // always offered at the real exam's time first
   const full = kind !== 'block';
+  const t = full && time !== 'standard' ? time : undefined;
+  const untimed = t === 'untimed';
   const exposed = new Set(db.meta.exposed ?? []);
   const formPool = kind === 'formA' ? 'A' : kind === 'formB' ? 'B' : null;
   const opened = formPool ? ctx.bank.items.filter((i) => i.pool === formPool && exposed.has(i.id)).length : 0;
@@ -34,9 +37,9 @@ export function ExamIntro({ kind }: { kind: Kind }) {
       if (!ok) return;
       abandon(otherActive.id);
     }
-    const s = kind === 'formA' ? buildForm(ctx.bank, db, 'A', mode)
-      : kind === 'formB' ? buildForm(ctx.bank, db, 'B', mode)
-      : kind === 'mixed' ? buildMixed(ctx.bank, db, mode)
+    const s = kind === 'formA' ? buildForm(ctx.bank, db, 'A', mode, undefined, undefined, t)
+      : kind === 'formB' ? buildForm(ctx.bank, db, 'B', mode, undefined, undefined, t)
+      : kind === 'mixed' ? buildMixed(ctx.bank, db, mode, undefined, undefined, t)
       : buildBlock(ctx.bank, db, mode);
     createSession(s);
     startSession(s.id);
@@ -54,7 +57,7 @@ export function ExamIntro({ kind }: { kind: Kind }) {
         <div class="card hero">
           <div class="eyebrow">In progress</div>
           <h2>Your {TITLES[kind]} attempt is {active.pausedAt ? 'paused' : 'still running'}</h2>
-          <p class="muted">{active.pausedAt ? 'The timer is paused.' : 'The timer has kept going while you were away.'}</p>
+          <p class="muted">{active.durationMs === 0 ? 'Untimed: your answers are saved, so pick up where you left off.' : active.pausedAt ? 'The timer is paused.' : 'The timer has kept going while you were away.'}</p>
           <div class="btn-row">
             <a class="btn primary" href={`#/s/${active.id}`}>Resume</a>
             <button class="btn danger" onClick={discard}>Discard attempt</button>
@@ -73,7 +76,9 @@ export function ExamIntro({ kind }: { kind: Kind }) {
               <>
                 <h2>{kind === 'mixed' ? 'A full exam assembled to the blueprint' : `Full-length practice form`}</h2>
                 <ul>
-                  <li><strong>{ex.items} questions in {ex.minutes} minutes</strong>, one sitting (the real exam has no breaks), about {ex.secondsPerItem} seconds per question.</li>
+                  {untimed ? <li><strong>{ex.items} questions, untimed.</strong> The real exam gives {ex.minutes} minutes, in one sitting with no breaks.</li>
+                    : t === 'double' ? <li><strong>{ex.items} questions in {ex.minutes * 2} minutes</strong>, double the real exam's {ex.minutes}, about {ex.secondsPerItem * 2} seconds per question.</li>
+                    : <li><strong>{ex.items} questions in {ex.minutes} minutes</strong>, one sitting (the real exam has no breaks), about {ex.secondsPerItem} seconds per question.</li>}
                   <li>{ex.unscored} questions are unscored trial questions you can't identify, as on the real exam. Your score comes from the other {ex.scored}.</li>
                   {kind === 'mixed' && <li>Drawn from the drill pool and any forms you've taken, favoring unseen questions and your weak areas.</li>}
                 </ul>
@@ -86,26 +91,39 @@ export function ExamIntro({ kind }: { kind: Kind }) {
                 </ul>
               </>
             )}
-            <h2 class="mt">Mode</h2>
-            <Seg name="mode" label="Exam mode" value={mode} onChange={setMode} options={[{ v: 'strict', label: 'Strict' }, { v: 'coached', label: 'Coached' }]} />
-            <p class="small muted mt" style={{ marginBottom: 0 }}>{mode === 'strict' ? 'Strict: no pausing — like the real exam. Recommended.' : 'Coached: you can pause, and a pacing line shows where you are against ~47 s per question.'}</p>
+            {full && (
+              <>
+                <h2 class="mt">Time</h2>
+                <Seg name="time" label="Exam time" value={time} onChange={setTime} options={[{ v: 'standard', label: 'Standard' }, { v: 'double', label: 'Double time' }, { v: 'untimed', label: 'Untimed' }]} />
+                <p class="small muted mt" style={untimed ? { marginBottom: 0 } : undefined}>{time === 'standard' ? `${ex.minutes} minutes, like the real exam. Recommended for a score that reflects exam day.` : time === 'double' ? `${ex.minutes * 2} minutes, for learners with an extra-time accommodation. Scored and counted like a standard sitting.` : 'No clock, so you can work at your own pace. With unlimited time, the score may run higher than on exam day.'}</p>
+              </>
+            )}
+            {!untimed && (
+              <>
+                <h2 class="mt">Mode</h2>
+                <Seg name="mode" label="Exam mode" value={mode} onChange={setMode} options={[{ v: 'strict', label: 'Strict' }, { v: 'coached', label: 'Coached' }]} />
+                <p class="small muted mt" style={{ marginBottom: 0 }}>{mode === 'strict' ? 'Strict: no pausing — like the real exam. Recommended.' : `Coached: you can pause, and a pacing line shows where you are against ~${ex.secondsPerItem * (t === 'double' ? 2 : 1)} s per question.`}</p>
+              </>
+            )}
           </div>
           <div class="card">
             <h2>During the exam</h2>
             <ul>
               <li>No feedback until you submit{full ? '' : '; full review afterwards'}. You can flag questions, strike out options with <span class="inline-ic"><IcStrike title="the strike-out button" /></span>, and use the navigator.</li>
               <li>The <span class="inline-ic"><IcMenu title="menu" /></span> menu on every question has Report a problem and Hide this question.</li>
-              <li>The timer runs on the clock: it keeps going if you switch apps or close the app, and the exam submits itself at zero. Tap it to hide it for this sitting: warnings at {full ? '15, 5 and 1 minutes' : '5 and 1 minutes'} still appear, and the clock comes back for the last 5 minutes.</li>
+              {untimed
+                ? <li>There's no clock. Your answers save as you go: leave and resume from Today whenever you like, then submit when you're done.</li>
+                : <li>The timer runs on the clock: it keeps going if you switch apps or close the app, and the exam submits itself at zero. Tap it to hide it for this sitting: warnings at {full ? '15, 5 and 1 minutes' : '5 and 1 minutes'} still appear, and the clock comes back for the last 5 minutes.</li>}
             </ul>
           </div>
           {last && (full
             ? <a class="btn block mt" href={`#/results/${last.id}`}>View results from {fmtShort(last.submittedAt!)} · estimated {scaledScore((100 * last.result!.raw) / last.result!.scoredCount, db.settings.rawTarget)}</a>
             : <a class="btn block mt" href={`#/results/${last.id}`}>View last block results · {fmtShort(last.submittedAt!)} · {last.result!.correctAll}/{last.result!.total}</a>)}
           {kind === 'mixed' && <p class="small muted mt">If it includes questions you've already seen, the score report will say so.</p>}
-          <p class="small muted center mt">Find a quiet place{full ? ' with 90 uninterrupted minutes' : ''}. The screen stays awake where supported.</p>
+          <p class="small muted center mt">Find a quiet place{full && !untimed ? ` with ${ex.minutes * (t === 'double' ? 2 : 1)} uninterrupted minutes` : ''}. The screen stays awake where supported.</p>
         </>
       )}
-      {!active && <div class="actionbar"><button class="btn primary" onClick={start}>Start {TITLES[kind]} · {mode === 'strict' ? 'Strict' : 'Coached'}</button></div>}
+      {!active && <div class="actionbar"><button class="btn primary" onClick={start}>Start {TITLES[kind]} · {untimed ? 'Untimed' : `${t === 'double' ? 'Double time · ' : ''}${mode === 'strict' ? 'Strict' : 'Coached'}`}</button></div>}
     </Page>
   );
 }

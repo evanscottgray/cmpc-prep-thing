@@ -74,3 +74,18 @@ describe('wall-clock timer', () => {
     expect(p.deltaSec).toBe(0);
   });
 });
+
+describe('exam time', () => {
+  it('an untimed exam never expires, and its time used is the real time taken', () => {
+    const s = { ...mkSession(115, 100), durationMs: 0, time: 'untimed' as const };
+    expect(isExpired(s, 1_000_000 + 30 * 86400000)).toBe(false);
+    const items = new Map<string, Item>();
+    for (let i = 0; i < 115; i++) items.set(`q${i}`, mkItem(`q${i}`, 'I', 'G'));
+    expect(scoreSession(s, items, 70, 1_000_000 + 200 * 60000).timeUsedMs).toBe(200 * 60000);
+  });
+  it('double time expires at 180 minutes', () => {
+    const s = { ...mkSession(115, 100), durationMs: 180 * 60000, time: 'double' as const };
+    expect(isExpired(s, 1_000_000 + 179 * 60000)).toBe(false);
+    expect(isExpired(s, 1_000_000 + 181 * 60000)).toBe(true);
+  });
+});

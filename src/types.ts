@@ -61,6 +61,8 @@ export interface Attempt {
   na?: boolean;         // left unanswered in a timed session (scored wrong, not counted as studied)
 }
 
+/** Time for a full practice exam: the real exam's time, double it, or no clock at all. */
+export type ExamTime = 'double' | 'untimed';
 export type SessionKind = 'formA' | 'formB' | 'mixed' | 'block' | 'timed' | 'drill' | 'quiz' | 'review';
 export interface SessionItem { id: string; scored: boolean; order: number[] } // order[displayPos] = original option index
 export interface ExamResult {
@@ -79,6 +81,7 @@ export interface Session {
   timed: boolean;                 // timed engine (exam/block/timed drill) vs tutor
   mode: ExamMode;                 // strict | coached (timed sessions)
   durationMs: number;             // 0 for untimed
+  time?: ExamTime;                // full exams: extra time or no clock (absent: standard time)
   startedAt: number | null;
   pausedAt: number | null;
   pausedMs: number;

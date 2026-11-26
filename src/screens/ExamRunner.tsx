@@ -28,6 +28,8 @@ export function ExamRunner({ session: s }: { session: Session }) {
   const item = ctx.items.get(si.id)!;
   const remaining = remainingMs(s, now);
   const isExam = s.kind === 'formA' || s.kind === 'formB' || s.kind === 'mixed';
+  const untimed = s.durationMs === 0; // an untimed exam: no clock, no warnings, no pacing
+  const spi = ctx.bank.blueprint.exam.secondsPerItem * (s.time === 'double' ? 2 : 1);
 
   // keep the screen awake while the exam runs
   useEffect(() => { keepAwake(true); return () => keepAwake(false); }, []);
@@ -96,8 +98,8 @@ export function ExamRunner({ session: s }: { session: Session }) {
   const unanswered = s.items.length - answered;
   const flagged = s.flags.length;
   const flaggedHere = s.flags.includes(pos);
-  const low = remaining < 5 * 60000;
-  const pace = s.mode === 'coached' ? pacing(s, now, ctx.bank.blueprint.exam.secondsPerItem) : null;
+  const low = !untimed && remaining < 5 * 60000;
+  const pace = s.mode === 'coached' && !untimed ? pacing(s, now, spi) : null;
 
   async function endExam() {
     setNavOpen(false); setMenuOpen(false);
@@ -125,7 +127,8 @@ export function ExamRunner({ session: s }: { session: Session }) {
     setMenuOpen(false);
     const ok = await confirmDialog({
       title: 'Leave the exam screen?',
-      body: s.mode === 'strict'
+      body: untimed ? 'Your answers are saved. Resume from Today at any time.'
+        : s.mode === 'strict'
         ? 'The timer keeps running while you are away, just like the real exam. Resume from Today at any time.'
         : 'The timer keeps running unless you pause first. Resume from Today at any time.',
       ok: 'Leave', cancel: 'Stay',
@@ -143,11 +146,11 @@ export function ExamRunner({ session: s }: { session: Session }) {
         <span class="qcount" aria-live="off"><span class="qw">Question </span>{pos + 1} <span class="muted">of {s.items.length}</span></span>
         <span class="grow" />
         {/* one element in every state, so keyboard focus survives the switch to low time */}
-        <button class={`timer icon-btn${low ? ' low' : hideTimer ? ' btn small' : ''}`} style={low ? undefined : { color: 'inherit' }}
+        {untimed ? <span class="muted small">Untimed</span> : <button class={`timer icon-btn${low ? ' low' : hideTimer ? ' btn small' : ''}`} style={low ? undefined : { color: 'inherit' }}
           aria-disabled={low || undefined} tabIndex={low ? -1 : undefined} onClick={() => { if (!low) setHideTimer(!hideTimer); }}
           aria-label={low ? `Time remaining ${fmtClock(remaining)}. Shown while time is low` : hideTimer ? 'Show time' /* hidden means hidden, for VoiceOver too */ : `Time remaining ${fmtClock(remaining)}. Hide timer`}>
           <IcClock />{hideTimer && !low ? 'Show time' : fmtClock(remaining)}
-        </button>
+        </button>}
         {s.mode === 'coached' && (
           <button class="icon-btn framed" id="pause-btn" onClick={() => pause(s.id)} aria-label="Pause"><IcPause /></button>
         )}
@@ -155,7 +158,7 @@ export function ExamRunner({ session: s }: { session: Session }) {
       </div>
       {pace && (!hideTimer || low) && ( // a hidden clock hides the running pace too
         <div class="exam-pace" aria-live="off">
-          <strong>{`${fmtMinSec(Math.abs(pace.deltaSec))} ${pace.deltaSec >= 0 ? 'ahead of' : 'behind'} pace`}</strong> · about 47 s per question
+          <strong>{`${fmtMinSec(Math.abs(pace.deltaSec))} ${pace.deltaSec >= 0 ? 'ahead of' : 'behind'} pace`}</strong> · about {spi} s per question
         </div>
       )}
       </div>
@@ -180,16 +183,16 @@ export function ExamRunner({ session: s }: { session: Session }) {
           : <button class="btn next primary" onClick={endExam}>Finish<IcChevron /></button>}
       </div>
 
-      {navOpen && <Navigator s={s} time={hideTimer && !low ? null : fmtClock(remaining)} low={low} onClose={() => setNavOpen(false)} onEnd={endExam} endLabel={isExam ? 'End exam…' : 'Submit…'} />}
+      {navOpen && <Navigator s={s} time={untimed || (hideTimer && !low) ? null : fmtClock(remaining)} low={low} onClose={() => setNavOpen(false)} onEnd={endExam} endLabel={isExam ? 'End exam…' : 'Submit…'} />}
       {menuOpen && (
         <Modal title="Exam menu" onClose={() => setMenuOpen(false)}>
           <div class="list">
             <button class="list-item" onClick={() => { setMenuOpen(false); setReportFor(item.id); }}>Report a problem with this question</button>
             <button class="list-item" onClick={() => { hideItem(item.id, !isHidden); setMenuOpen(false); toast(isHidden ? 'Restored to your study pool.' : 'Hidden from future sessions. It still counts in this one.'); }}>{isHidden ? 'Unhide this question' : 'Hide this question from future sessions'}</button>
-            <button class="list-item" onClick={leave}>Leave exam screen{s.mode === 'strict' ? ' (timer keeps running)' : ''}</button>
+            <button class="list-item" onClick={leave}>Leave exam screen{s.mode === 'strict' && !untimed ? ' (timer keeps running)' : ''}</button>
             <button class="list-item" onClick={endExam} style={{ color: 'var(--bad)' }}>{isExam ? 'End exam now' : 'Submit now'}</button>
           </div>
-          <p class="small muted mt">{s.title}{s.retake ? ' (retake)' : ''}. Mode: {s.mode === 'strict' ? 'Strict — no pausing, like the real exam.' : 'Coached — pausing allowed, pacing shown.'}</p>
+          <p class="small muted mt">{s.title}{s.retake ? ' (retake)' : ''}. {untimed ? 'Untimed — no clock, take the time you need.' : <>{s.time === 'double' ? 'Double time. ' : ''}Mode: {s.mode === 'strict' ? 'Strict — no pausing, like the real exam.' : 'Coached — pausing allowed, pacing shown.'}</>}</p>
         </Modal>
       )}
       {reportFor && <ReportDialog itemId={reportFor} quiet onClose={() => setReportFor(null)} />}

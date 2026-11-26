@@ -35,5 +35,5 @@ export const fmtMinSec = (sec: number) => (sec < 60 ? `${sec} s` : `${Math.floor
 export function fmtDuration(ms: number): string {
   const min = Math.round(ms / 60000);
   if (min < 60) return `${min} min`;
-  return `${Math.floor(min / 60)} h ${min % 60} min`;
+  return min % 60 ? `${Math.floor(min / 60)} h ${min % 60} min` : `${min / 60} h`;
 }
