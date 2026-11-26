@@ -184,6 +184,9 @@ describe('exam time', () => {
     expect(ms('untimed')).toBe(0);
     expect(ms('double')).toBe(1);
     expect(pacingStats(ctx.store.state)!.n).toBe(1);
+    // an untimed exam submitted by an older tab still carries answer times: left out all the same
+    const u = Object.values(ctx.store.state.sessions).find((x) => x.time === 'untimed')!;
+    expect(pacingStats({ ...ctx.store.state, attempts: [...ctx.store.state.attempts, { i: 'x', t: 1, ok: true, src: 'exam', ms: 9_000_000, s: u.id }] })!.n).toBe(1);
   });
   it('an untimed exam is never auto-submitted, and submits normally', () => {
     const s = buildForm(ctx.bank, ctx.store.state, 'A', 'strict', Date.now(), 3, 'untimed');
